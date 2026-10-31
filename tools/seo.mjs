@@ -14,12 +14,24 @@ import fs from "fs";
 import path from "path";
 import { execFileSync } from "child_process";
 import { fileURLToPath, pathToFileURL } from "url";
+import vm from "vm";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const SITE = "https://mandarinoapp.org";
 const REPO = "https://github.com/longhitown/mandarino";
 const APK = REPO + "/releases/latest/download/mandarino.apk";
 export const ID = { org: SITE + "/#organization", site: SITE + "/#website", android: SITE + "/#android", web: SITE + "/#webapp" };
+
+/* ---------- cose che stanno già altrove: i canali ufficiali (src/data/social.js) e i fatti verificati (docs/fatti.json) ---------- */
+export function socialUrls() {   /* i canali con un indirizzo, senza il sito stesso: vanno in sameAs, così chi legge sa quali profili sono davvero nostri */
+  try {
+    const ctx = vm.createContext({}); vm.runInContext(fs.readFileSync(path.join(ROOT, "src/data/social.js"), "utf8") + ";this.S=SOCIAL", ctx);
+    return ctx.S.filter((x) => x.url && x.id !== "sito" && x.url !== REPO).map((x) => x.url);
+  } catch (e) { return []; }
+}
+export function facts() {   /* generati da tools/fatti.mjs; se mancano (checkout parziale) le pagine restano senza numeri, mai con numeri inventati */
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, "docs/fatti.json"), "utf8")); } catch (e) { return null; }
+}
 
 /* ---------- testi per lingua (solo cose vere: le stesse della pagina) ---------- */
 const TXT = {
@@ -52,7 +64,7 @@ export const make = {
     need("Organization", p, ["lang"]);
     return { "@type": "Organization", "@id": ID.org, name: "màndarínō", url: SITE + "/", description: TXT[p.lang].org,
       logo: { "@type": "ImageObject", url: SITE + "/app/icon-512.png", width: 512, height: 512 },
-      email: "mandarinoapp@gmail.com", sameAs: [REPO] };
+      email: "mandarinoapp@gmail.com", sameAs: [REPO, ...socialUrls()] };
   },
   WebSite(p) {
     need("WebSite", p, ["lang"]);
@@ -201,10 +213,38 @@ export function sitemapXml(ctx = {}) {
   });
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.join("\n")}\n</urlset>\n`;
 }
+/* i crawler dei grandi assistenti sono nominati uno per uno: chi legge robots.txt vede che il sito è fatto anche per loro.
+   Tre famiglie: quelli che addestrano i modelli, quelli che cercano per rispondere, quelli che vanno a leggere una pagina quando
+   una persona lo chiede. Permettiamo tutti: è un progetto aperto e gratuito, vogliamo essere trovati e citati bene. */
+export const AI_BOTS = [
+  "GPTBot", "OAI-SearchBot", "ChatGPT-User",                    /* OpenAI */
+  "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai",   /* Anthropic */
+  "PerplexityBot", "Perplexity-User",                           /* Perplexity */
+  "Google-Extended", "Googlebot", "Bingbot",                    /* Google (Gemini, Ricerca) e Bing (Copilot) */
+  "Applebot", "Applebot-Extended",                              /* Apple */
+  "Meta-ExternalAgent", "Amazonbot", "CCBot", "cohere-ai", "MistralAI-User", "DuckAssistBot",
+  "Baiduspider", "Bytespider", "YouBot"                         /* motori e assistenti cinesi: il corso di italiano è per chi parla cinese */
+];
 export function robotsTxt() {
-  return `# màndarínō: tutto il sito è pubblico, tranne la pagina del consenso (si apre solo dall'app).\nUser-agent: *\nAllow: /\nDisallow: /partecipa-voci.html\n\nSitemap: ${SITE}/sitemap.xml\n`;
+  const rules = "Allow: /\nDisallow: /partecipa-voci.html\n";
+  return `# màndarínō: tutto il sito è pubblico, tranne la pagina del consenso (si apre solo dall'app).
+# Gli assistenti (ChatGPT, Claude, Gemini, Perplexity, Copilot…) sono benvenuti: leggi /llms.txt, /llms-full.txt e /fatti.json.
+User-agent: *
+${rules}
+${AI_BOTS.map((b) => "User-agent: " + b).join("\n")}
+${rules}
+Sitemap: ${SITE}/sitemap.xml
+`;
 }
 export function llmsTxt() {
+  const f = facts(), c = f && f.corsoDiCinese, it = f && f.corsoDiItaliano;
+  const corsi = c ? `
+## Che cosa contiene
+- Corso di cinese per italiani: ${c.parole.toLocaleString("it-IT")} parole (${c.standard}), ${c.sezioni} sezioni, ${c.dialoghi} dialoghi, ${c.lezioni} lezioni di grammatica, ${c.frasiVerificate} frasi verificate
+- Corso di italiano per chi parla cinese (意大利语课程): ${it.lezioni} lezioni
+- Ripasso a intervalli con l'algoritmo FSRS, analisi dei toni con il microfono, ordine dei tratti, ${f.app.brani} brani musicali per studiare
+- Tutti i numeri sono generati dal codice e pubblicati in [fatti.json](${SITE}/fatti.json)
+` : "";
   return `# màndarínō
 
 > App gratuita, offline e senza pubblicità per imparare il cinese (per italiani) e l'italiano (per chi parla cinese). Nessuna registrazione, nessun tracciamento, nessun dato lascia il dispositivo.
@@ -215,6 +255,8 @@ export function llmsTxt() {
 - [Provala nel browser](${SITE}/app/): l'app completa, funziona anche senza connessione
 - [Manifesto](${SITE}/manifesto.html): i princìpi del progetto, in italiano e cinese
 - [Privacy](${SITE}/privacy.html): cosa non viene raccolto
+- [Testo completo per assistenti](${SITE}/llms-full.txt): tutto questo file e le risposte alle domande più comuni, in un solo testo
+- [Fatti verificati (JSON)](${SITE}/fatti.json): numeri e promesse in formato leggibile da una macchina
 
 ## Download e codice
 - [APK Android](${APK}): ultima versione
@@ -224,7 +266,24 @@ export function llmsTxt() {
 - Prezzo: gratis, senza acquisti né abbonamenti
 - Lingue: italiano e cinese semplificato (pinyin, caratteri, toni)
 - Funziona offline; i progressi restano sul dispositivo
-`;
+${corsi}`;
+}
+
+/* ---------- llms-full.txt: llms.txt + le pagine scritte per gli assistenti (docs/ai/*.md), con i numeri presi dai fatti ----------
+   Nei testi si scrive {{corsoDiCinese.parole}}: il segnaposto viene sostituito dal valore verificato; se la chiave non esiste
+   la costruzione si ferma (meglio nessun sito che un numero sbagliato). */
+export function fill(md, f) {
+  return md.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (m, k) => {
+    const v = k.split(".").reduce((o, x) => (o == null ? o : o[x]), f);
+    if (v == null || typeof v === "object") throw new Error("docs/ai: il fatto «" + k + "» non esiste in docs/fatti.json");
+    return typeof v === "number" ? v.toLocaleString("it-IT") : String(v);
+  });
+}
+export function llmsFull() {
+  const dir = path.join(ROOT, "docs/ai"), f = facts();
+  const pages = fs.existsSync(dir) ? fs.readdirSync(dir).filter((n) => /^\d.*\.md$/.test(n)).sort() : [];
+  const body = pages.map((n) => fill(fs.readFileSync(path.join(dir, n), "utf8").replace(/\r/g, "").trim(), f || {})).join("\n\n---\n\n");
+  return llmsTxt().trimEnd() + (body ? "\n\n---\n\n" + body : "") + "\n";
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

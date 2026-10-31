@@ -1,4 +1,4 @@
-name: "✏️ Correzione · 更正"
+name: "Correzione · 更正"
 description: "Un pinyin, un tono, una traduzione o una frase sbagliati · 拼音、声调、翻译或句子有误"
 title: "Correzione: "
 labels: ["correzione"]
@@ -6,8 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Grazie! Non serve saper programmare. Puoi anche correggere direttamente dall'app (tocca la parola → «✏️ Correggi o segnala») e mandare il file che prepara.
-        谢谢！不需要会编程。也可以直接在应用里更正（点开词语 → “✏️ 更正或报告”），再发送它生成的文件。
+        Grazie! Non serve saper programmare. Puoi anche correggere direttamente dall'app (tocca la parola → «Correggi o segnala») e mandare il file che prepara.
+        谢谢！不需要会编程。也可以直接在应用里更正（点开词语 → “更正或报告”），再发送它生成的文件。
   - type: input
     id: dove
     attributes:

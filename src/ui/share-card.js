@@ -25,7 +25,8 @@
     cv.width = W; cv.height = H; cv.__cut = cut;
     var g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, C.bg[0]); g.addColorStop(1, C.bg[1]); x.fillStyle = g; x.fillRect(0, 0, W, H);
     var k = H / 1440, M = 84, gap = function (n) { return Math.round(n * k); };
-    return logoImg().then(function (logo) {
+    return Promise.all([logoImg(), CP.icoImg("flame")]).then(function (r0) {
+      var logo = r0[0], flame = r0[1];
       var y = gap(64);
       if (logo) { x.drawImage(logo, W / 2 - 80, y, 160, 168); } y += 176;
       x.textAlign = "center"; x.textBaseline = "alphabetic"; x.fillStyle = C.ink; x.font = "700 60px " + SANS; x.fillText("màndarínō", W / 2, y + 44); y += 70;
@@ -38,9 +39,10 @@
       x.fillStyle = C.ink; x.font = "700 46px " + SANS; x.fillText(r.name, sx + 170, y + 92); fit(x, r.name, W - sx - 170 - M, cut);
       x.fillStyle = C.accent; x.font = "600 30px " + SANS; x.fillText(r.xp + " XP", sx + 170, y + 132);
       y += 140 + gap(56);
-      [["🔥 " + data.streak, T(data.streak === 1 ? "done.streak1" : "done.streakN")], [String(data.started), T("card.words")], [String(data.known), T("study.known")]].forEach(function (st, i) {
+      [[String(data.streak), T(data.streak === 1 ? "done.streak1" : "done.streakN"), 1], [String(data.started), T("card.words")], [String(data.known), T("study.known")]].forEach(function (st, i) {
         var cx = W / 6 + i * W / 3; x.textAlign = "center";
         x.fillStyle = C.ink; x.font = "800 70px " + SANS; x.fillText(st[0], cx, y + 60); fit(x, st[0], W / 3 - 20, cut);
+        if (st[2] && flame) x.drawImage(flame, cx - x.measureText(st[0]).width / 2 - 82, y + 6, 70, 70);   /* la fiamma, a sinistra del numero */
         x.fillStyle = C.mute; x.font = "600 28px " + SANS; x.fillText(st[1], cx, y + 104); fit(x, st[1], W / 3 - 20, cut);
       });
       y += 104 + gap(54);
@@ -112,7 +114,8 @@
     cv.width = W; cv.height = H; cv.__cut = cut;
     var g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, C.bg[0]); g.addColorStop(1, C.bg[1]); x.fillStyle = g; x.fillRect(0, 0, W, H);
     var k = H / 1440, M = 84, gap = function (n) { return Math.round(n * k); };
-    return logoImg().then(function (logo) {
+    return Promise.all([logoImg(), CP.icoImg("flame")]).then(function (r0) {
+      var logo = r0[0], flame = r0[1];
       var y = gap(64);
       if (logo) { x.drawImage(logo, W / 2 - 80, y, 160, 168); } y += 176;
       x.textAlign = "center"; x.textBaseline = "alphabetic"; x.fillStyle = C.ink; x.font = "700 60px " + SANS; x.fillText("màndarínō", W / 2, y + 44); y += 70;
@@ -132,10 +135,11 @@
       /* tre numeri */
       var nums = tpl === "it-week" && data.week
         ? [[String(data.week.days), T("itcard.wDays")], [String(data.week.words), T("itcard.wWords")], [String(data.week.lessons), T("itcard.wLessons")]]
-        : [["🔥 " + data.streak, T("itcard.streak")], [String(data.words), T("itcard.words")], [data.lessons + "/" + data.total, T("itcard.lessons")]];
+        : [[String(data.streak), T("itcard.streak"), 1], [String(data.words), T("itcard.words")], [data.lessons + "/" + data.total, T("itcard.lessons")]];
       nums.forEach(function (st, i) {
         var cx = W / 6 + i * W / 3; x.textAlign = "center";
         x.fillStyle = C.ink; x.font = "800 70px " + SANS; x.fillText(st[0], cx, y + 60); fit(x, st[0], W / 3 - 20, cut);
+        if (st[2] && flame) x.drawImage(flame, cx - x.measureText(st[0]).width / 2 - 82, y + 6, 70, 70);   /* la fiamma, a sinistra del numero */
         x.fillStyle = C.mute; x.font = "600 28px " + SANS; x.fillText(st[1], cx, y + 104); fit(x, st[1], W / 3 - 20, cut);
       });
       y += 104 + gap(54);

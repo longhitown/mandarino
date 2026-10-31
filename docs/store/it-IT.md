@@ -31,6 +31,6 @@ Il codice è libero (MIT), i contenuti sono CC BY 4.0. Puoi proporre correzioni 
 • Su Android, il nuovo widget «Ripasso rapido» (4×4): cinque minuti di ripasso dalla schermata Home, una carta alla volta.
 • Il microfono ora funziona anche sui telefoni dove prima falliva.
 • Voce e brani più affidabili: corretti nove difetti dell'audio.
-• Nuova pagina ⚙️ → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in ⚙️ → Aspetto, con l'anteprima.
+• Nuova pagina Impostazioni → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in Impostazioni → Aspetto, con l'anteprima.
 
 **Immagini:** `images/icon.png` (512×512), `images/featureGraphic.png` (1024×500), `images/phoneScreenshots/1-4.png` (1080×1920).

@@ -157,7 +157,7 @@
   var pill = document.getElementById("game-pill");
   function ui() {
     var r = rankInfo(), s = streak();
-    pill.innerHTML = CP.stamp(r) + "<span>🔥 <b>" + s + "</b></span><span class=\"muted\">" + r.xp + " XP</span>";
+    pill.innerHTML = CP.stamp(r) + "<span>⟦flame⟧ <b>" + s + "</b></span><span class=\"muted\">" + r.xp + " XP</span>";
     pill.setAttribute("aria-label", CP.t("pill.aria", { r: r.name, s: s, x: r.xp }));
     if (CP.pathDirty) CP.pathDirty();
     if (CP.unlock) CP.unlock.check();
@@ -206,15 +206,15 @@
 
   /* ---- tag rapidi per argomento ---- */
   var TAGS = [
-    ["🍜 Cibo", ["cibo", "cucina"]], ["🚆 Viaggi", ["viaggi", "citta", "spazio", "luoghi"]], ["🛍️ Acquisti", ["acquisti", "vestiti", "numeri"]],
-    ["🏨 Hotel", ["hotel", "casa"]], ["💬 Conversazione", ["conversazione", "saluti", "risposte", "domande"]], ["📱 Digitale", ["social"]],
-    ["❤️ Persone", ["persone", "famiglia", "relazioni", "stati"]], ["🕒 Tempo e meteo", ["tempo", "natura"]], ["💼 Lavoro", ["lavoro", "lavoro2", "verbi2"]],
-    ["🏥 Salute", ["corpo"]], ["🎎 Cultura", ["cultura"]]
+    ["⟦noodles⟧ Cibo", ["cibo", "cucina"]], ["⟦train⟧ Viaggi", ["viaggi", "citta", "spazio", "luoghi"]], ["⟦bag⟧ Acquisti", ["acquisti", "vestiti", "numeri"]],
+    ["⟦hotel⟧ Hotel", ["hotel", "casa"]], ["⟦chat⟧ Conversazione", ["conversazione", "saluti", "risposte", "domande"]], ["⟦phone⟧ Digitale", ["social"]],
+    ["⟦heart⟧ Persone", ["persone", "famiglia", "relazioni", "stati"]], ["⟦clock⟧ Tempo e meteo", ["tempo", "natura"]], ["⟦briefcase⟧ Lavoro", ["lavoro", "lavoro2", "verbi2"]],
+    ["⟦hospital⟧ Salute", ["corpo"]], ["⟦dolls⟧ Cultura", ["cultura"]]
   ];
   var tagsEl = document.getElementById("tags"), tagOn = -1;
   /* lo scopo scelto nel benvenuto (cp-ux-v1.purpose) mette in evidenza i temi che gli servono */
   var SUGG = { travel: [1, 3], work: [8], family: [6, 4], curious: [10] }[CP.ux.get("purpose")] || [];
-  tagsEl.innerHTML = TAGS.map(function (t, i) { return '<button type="button" data-tag="' + i + '" aria-pressed="false"' + (SUGG.indexOf(i) >= 0 ? ' class="sugg"' : "") + ">" + (SUGG.indexOf(i) >= 0 ? "⭐ " : "") + t[0] + "</button>"; }).join("");
+  tagsEl.innerHTML = TAGS.map(function (t, i) { return '<button type="button" data-tag="' + i + '" aria-pressed="false"' + (SUGG.indexOf(i) >= 0 ? ' class="sugg"' : "") + ">" + (SUGG.indexOf(i) >= 0 ? "⟦star⟧ " : "") + t[0] + "</button>"; }).join("");
   function paintTags() {
     Array.prototype.forEach.call(tagsEl.querySelectorAll("button"), function (b, i) { b.classList.toggle("on", i === tagOn); b.setAttribute("aria-pressed", i === tagOn ? "true" : "false"); });
   }
@@ -269,7 +269,7 @@
   CP.baseSyl = baseSyl;
   function matches(b) { return IT_PHONETICS.filter(function (r) { return r[0].test(b); }); }
   function trapHTML(list) {
-    return list.map(function (r) { return '<div class="trap" lang="it"><b>⚠️ ' + esc(r[1]) + "</b>" + esc(r[2]) + "</div>"; }).join("");
+    return list.map(function (r) { return '<div class="trap" lang="it"><b>⟦warning⟧ ' + esc(r[1]) + "</b>" + esc(r[2]) + "</div>"; }).join("");
   }
   CP.phonBlock = function (py) {
     var seen = {}, all = [];

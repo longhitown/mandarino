@@ -1,4 +1,4 @@
-/* ===== màndarínō · ⚙️ → Studio → Promemoria: un avviso al giorno all'ora scelta, spento finché non lo accendi.
+/* ===== màndarínō · gear → Studio → Promemoria: un avviso al giorno all'ora scelta, spento finché non lo accendi.
    Solo nell'app Android (Reminder.java): il permesso delle notifiche si chiede quando lo accendi, non all'avvio.
    L'avviso si calcola sul telefono dallo stato del widget e non arriva se oggi hai già studiato. ===== */
 (function () {
@@ -12,12 +12,12 @@
     return '<label class="chk"><input type="checkbox" id="rm-on"' + (r.on ? " checked" : "") + "> " + T("rm.on") + "</label>" +
       '<label class="small" style="display:grid;gap:4px;font-weight:600">' + T("rm.time") + '<input type="time" id="rm-time" value="' + pad(r.h) + ":" + pad(r.m) + '"' + (r.on ? "" : " disabled") + "></label>" +
       '<p class="small muted" style="margin:0">' + T("rm.hint") + "</p>" +
-      (r.on && r.perm === "denied" ? '<p class="small" style="margin:0">⚠️ ' + T("rm.denied") + "</p>" : "") +
+      (r.on && r.perm === "denied" ? '<p class="small" style="margin:0">⟦warning⟧ ' + T("rm.denied") + "</p>" : "") +
       (note ? '<p class="small" role="status" style="margin:0">' + CP.esc(note) + "</p>" : "");
   }
   function paint(note) { var b = document.getElementById("rm-body"); if (b) b.innerHTML = body(note); }
   (CP.settingsExtras = CP.settingsExtras || []).push(function () {
-    return '<details class="set-sec" id="set-reminder"><summary>🔔 ' + T("rm.title") + '</summary><div class="vbody" id="rm-body">' + body() + "</div></details>";
+    return '<details class="set-sec" id="set-reminder"><summary>⟦bell⟧ ' + T("rm.title") + '</summary><div class="vbody" id="rm-body">' + body() + "</div></details>";
   });
   if (!APK) return;
   var waits = {}, n = 0, prev = window.__mdEvt;

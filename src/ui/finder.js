@@ -1,4 +1,4 @@
-/* ===== màndarínō · «Cerca ovunque»: un solo campo per arrivare a tutto, da qualunque scheda (🔍 in alto, o il tasto /).
+/* ===== màndarínō · «Cerca ovunque»: un solo campo per arrivare a tutto, da qualunque scheda (search in alto, o il tasto /).
    Cerca tra gli strumenti, le lezioni di grammatica, i dialoghi, le tappe del Percorso e le parole, e porta lì con un tocco.
    Così lezioni, dialoghi e strumenti non sono più «nascosti» dentro Frasi o Studia: basta scriverne il nome. ===== */
 (function () {
@@ -16,24 +16,24 @@
   }
   /* strumenti: [icona, nome, parole chiave, azione] */
   var TOOLS = [
-    ["🎴", "fd.t0", "ripasso carte flashcard sessione oggi fsrs", function () { go("study", function () { if (CP.studyStart) CP.studyStart(); }); }],
-    ["🎧", "fd.t1", "toni ascolto orecchio ear", function () { go("study", function () { if (CP.mode) CP.mode.ear(); }); }],
-    ["⚡", "fd.t2", "sfida gara veloce sprint tempo", function () { go("study", function () { if (CP.mode) CP.mode.sprint(); }); }],
-    ["📊", "fd.t3", "progressi statistiche memoria dottore dei toni confusioni", function () { go("study"); }],
-    ["📘", "fd.t4", "lezioni grammatica regole", function () { go("build", function () { CP.build.setSub("lessons"); }); }],
-    ["📐", "fd.t5", "modelli strutture schemi pattern", function () { go("build", function () { CP.build.setSub("pat"); }); }],
-    ["🧩", "fd.t6", "esercizi traduci ordine frasi puzzle", function () { go("build", function () { CP.build.setSub("ex"); }); }],
-    ["🔬", "fd.t7", "laboratorio traduttore costruisci frase correttore", function () { go("build", function () { CP.build.setSub("lab"); }); }],
-    ["🎰", "fd.t8", "slot macchina combinazioni", function () { go("build", function () { CP.build.setSub("lab"); if (CP.build.setSlot) CP.build.setSlot(); }); }],
-    ["💬", "fd.t9", "dialoghi conversazione parla roleplay", function () { go("build", function () { CP.build.setSub("dlg"); }); }],
-    ["🧠", "fd.t10", "pensiero ordine cinese italiano", function () { go("build", function () { CP.build.setSub("thought"); }); }],
-    ["📖", "fd.t11", "lettore leggi testo raggi x incolla", function () { go("build", function () { CP.build.setSub("reader"); }); }],
-    ["🗺️", "fd.t12", "percorso tappe capitoli livelli hsk", function () { go("path"); }],
-    ["🔎", "fd.t13", "parole dizionario vocabolario tabella", function () { go("words"); }],
-    ["🚶", "fd.t14", "guida ascolta camminando cuffie", function () { CP.closeSheet(); var g = document.getElementById("guide-btn"); if (g) g.click(); }],
-    ["🎵", "fd.t15", "musica jukebox brani tracce", function () { CP.closeSheet(); if (CP.jukeboxOpen) setTimeout(CP.jukeboxOpen, 60); }],
-    ["⚗️", "fd.t17", "laboratorio radicali componenti caratteri unisci reazione elementi chimica", function () { go("build", function () { CP.build.setSub("rad"); }); }],
-    ["⚙️", "fd.t16", "impostazioni tema voce audio caratteri backup ripristino lingua", function () { CP.closeSheet(); setTimeout(function () { var s = document.getElementById("settings-btn"); if (s) s.click(); }, 60); }]
+    ["⟦flower-card⟧", "fd.t0", "ripasso carte flashcard sessione oggi fsrs", function () { go("study", function () { if (CP.studyStart) CP.studyStart(); }); }],
+    ["⟦headphones⟧", "fd.t1", "toni ascolto orecchio ear", function () { go("study", function () { if (CP.mode) CP.mode.ear(); }); }],
+    ["⟦bolt⟧", "fd.t2", "sfida gara veloce sprint tempo", function () { go("study", function () { if (CP.mode) CP.mode.sprint(); }); }],
+    ["⟦chart⟧", "fd.t3", "progressi statistiche memoria dottore dei toni confusioni", function () { go("study"); }],
+    ["⟦book⟧", "fd.t4", "lezioni grammatica regole", function () { go("build", function () { CP.build.setSub("lessons"); }); }],
+    ["⟦ruler⟧", "fd.t5", "modelli strutture schemi pattern", function () { go("build", function () { CP.build.setSub("pat"); }); }],
+    ["⟦puzzle⟧", "fd.t6", "esercizi traduci ordine frasi puzzle", function () { go("build", function () { CP.build.setSub("ex"); }); }],
+    ["⟦microscope⟧", "fd.t7", "laboratorio traduttore costruisci frase correttore", function () { go("build", function () { CP.build.setSub("lab"); }); }],
+    ["⟦slot⟧", "fd.t8", "slot macchina combinazioni", function () { go("build", function () { CP.build.setSub("lab"); if (CP.build.setSlot) CP.build.setSlot(); }); }],
+    ["⟦chat⟧", "fd.t9", "dialoghi conversazione parla roleplay", function () { go("build", function () { CP.build.setSub("dlg"); }); }],
+    ["⟦brain⟧", "fd.t10", "pensiero ordine cinese italiano", function () { go("build", function () { CP.build.setSub("thought"); }); }],
+    ["⟦book-open⟧", "fd.t11", "lettore leggi testo raggi x incolla", function () { go("build", function () { CP.build.setSub("reader"); }); }],
+    ["⟦map⟧", "fd.t12", "percorso tappe capitoli livelli hsk", function () { go("path"); }],
+    ["⟦search⟧", "fd.t13", "parole dizionario vocabolario tabella", function () { go("words"); }],
+    ["⟦walk⟧", "fd.t14", "guida ascolta camminando cuffie", function () { CP.closeSheet(); var g = document.getElementById("guide-btn"); if (g) g.click(); }],
+    ["⟦music⟧", "fd.t15", "musica jukebox brani tracce", function () { CP.closeSheet(); if (CP.jukeboxOpen) setTimeout(CP.jukeboxOpen, 60); }],
+    ["⟦flask⟧", "fd.t17", "laboratorio radicali componenti caratteri unisci reazione elementi chimica", function () { go("build", function () { CP.build.setSub("rad"); }); }],
+    ["⟦gear⟧", "fd.t16", "impostazioni tema voce audio caratteri backup ripristino lingua", function () { CP.closeSheet(); setTimeout(function () { var s = document.getElementById("settings-btn"); if (s) s.click(); }, 60); }]
   ];
   var IDX = null;
   function index() {
@@ -42,14 +42,14 @@
     TOOLS.forEach(function (t) { var n = T(t[1]); IDX.push({ g: 0, ico: t[0], t: n, sub: "", id: t[1], k: norm(n + " " + I18N.it[t[1]] + " " + t[2]), run: t[3] }); });
     if (CP.lessonsMore) CP.lessonsMore();
     (typeof LESSONS !== "undefined" ? LESSONS : []).forEach(function (l) {
-      IDX.push({ g: 1, ico: "📘", t: l.title, sub: l.goal || "", k: norm(l.title + " " + (l.goal || "") + " " + (l.id || "")), run: function () { go("build", function () { CP.build.openLesson(l.id); }); } });
+      IDX.push({ g: 1, ico: "⟦book⟧", t: l.title, sub: l.goal || "", k: norm(l.title + " " + (l.goal || "") + " " + (l.id || "")), run: function () { go("build", function () { CP.build.openLesson(l.id); }); } });
     });
     (typeof DIALOGS !== "undefined" ? DIALOGS : []).forEach(function (d) {
-      IDX.push({ g: 2, ico: "💬", t: d.title, sub: d.sub || "", k: norm(d.title + " " + (d.sub || "")), run: function () { go("build", function () { CP.dlg.open(d.id); }); } });
+      IDX.push({ g: 2, ico: "⟦chat⟧", t: d.title, sub: d.sub || "", k: norm(d.title + " " + (d.sub || "")), run: function () { go("build", function () { CP.dlg.open(d.id); }); } });
     });
     SECTIONS.forEach(function (s) {
       var t = s.title.replace(/^\d+\.\s*/, "");
-      IDX.push({ g: 3, ico: "🚩", t: t, sub: T("fd.words", { n: s.words.length }), k: norm(t), run: function () { go("path", function () { if (CP.pathOpen) CP.pathOpen(s.id); }); } });
+      IDX.push({ g: 3, ico: "⟦flag⟧", t: t, sub: T("fd.words", { n: s.words.length }), k: norm(t), run: function () { go("path", function () { if (CP.pathOpen) CP.pathOpen(s.id); }); } });
     });
     return IDX;
   }
@@ -79,7 +79,7 @@
     var h = "", last = -1;
     cur.forEach(function (x, i) {
       if (x.g !== last) { h += '<div class="fd-g">' + GN[x.g] + "</div>"; last = x.g; }
-      x.lock = x.id ? lockOf(x.id) : ""; var sub = x.lock ? "🔒 " + x.lock : x.sub;
+      x.lock = x.id ? lockOf(x.id) : ""; var sub = x.lock ? "⟦lock⟧ " + x.lock : x.sub;
       h += '<button type="button" class="fd-it" data-fd="' + i + '">' +
         (x.hz ? '<span class="fd-hz" lang="zh-CN">' + esc(x.hz) + '</span><span class="fd-t"><b>' + CP.pinyinHTML(x.py) + "</b><i lang=\"it\">" + esc(x.t) + "</i></span>"
               : '<span class="fd-ico" aria-hidden="true">' + x.ico + '</span><span class="fd-t"' + (x.g ? ' lang="it"' : "") + "><b>" + esc(x.t) + "</b>" + (sub ? "<i>" + esc(sub) + "</i>" : "") + "</span>") + "</button>";

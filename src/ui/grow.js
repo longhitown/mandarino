@@ -1,6 +1,6 @@
 /* ===== màndarínō · «l'app cresce con te»: il pop-up quando si apre una scheda nuova (CP.unlockPop, chiamato da ui/unlock.js).
    Pochi, rari e mai di fretta (docs/ux-architettura.md): al massimo uno al giorno, solo fuori dalle sessioni di studio e mai sopra
-   un'altra finestra (lo garantisce unlock.js), chiudibile con un tocco, e ogni scoperta resta ripetibile da ⚙️ → Informazioni → Novità.
+   un'altra finestra (lo garantisce unlock.js), chiudibile con un tocco, e ogni scoperta resta ripetibile da gear → Informazioni → Novità.
    Dice tre cose, in quest'ordine: riconosce il lavoro fatto, spiega a che cosa serve la scheda nuova e mostra la prossima con la
    strada già percorsa (progresso reale, mai barre riempite per finta). Mai colpe, mai scadenze. Pleco, Anki e i widget si
    nominano solo nell'ultimo pop-up della serie. Testi: i18n/grow.js. Si carica al primo uso (tools/build.mjs, LAZYMOD). ===== */

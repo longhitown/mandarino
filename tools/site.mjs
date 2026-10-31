@@ -16,7 +16,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
-import { SITE, PAGES, decorate, gitDate, sitemapXml, robotsTxt, llmsTxt } from "./seo.mjs";   /* meta, hreflang, JSON-LD, sitemap, robots, llms.txt */
+import { SITE, PAGES, decorate, gitDate, sitemapXml, robotsTxt, llmsTxt, llmsFull } from "./seo.mjs";   /* meta, hreflang, JSON-LD, sitemap, robots, llms.txt */
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -189,6 +189,8 @@ function assemble(out) {
   put("/404.html", "404.html", fs.readFileSync(path.join(ROOT, "docs/404.html"), "utf8"));
   fs.writeFileSync(path.join(out, "robots.txt"), robotsTxt());
   fs.writeFileSync(path.join(out, "llms.txt"), llmsTxt());
+  fs.writeFileSync(path.join(out, "llms-full.txt"), llmsFull());
+  if (fs.existsSync(path.join(ROOT, "docs/fatti.json"))) fs.copyFileSync(path.join(ROOT, "docs/fatti.json"), path.join(out, "fatti.json"));
   fs.writeFileSync(path.join(out, "sitemap.xml"), sitemapXml({ lastmod }));
   copyDir(path.join(ROOT, "docs/zh"), path.join(out, "zh"));   /* la pagina cinese, quella del QR delle carte */
   put("/zh/", "zh/index.html", fs.readFileSync(path.join(ROOT, "docs/zh/index.html"), "utf8"));
@@ -196,7 +198,7 @@ function assemble(out) {
   put("/manifesto.html", "manifesto.html", manifestoPage());
   copyDir(path.join(ROOT, "dist"), path.join(out, "app"), new Set(["_headers"]));
   fs.writeFileSync(path.join(out, ".nojekyll"), "");
-  console.log("✓ sito in " + path.relative(ROOT, out) + ": index.html, 404.html, zh/, privacy.html, manifesto.html, partecipa-voci.html, img/, assets/, audio/, licenze/, robots.txt, llms.txt, sitemap.xml, app/");
+  console.log("✓ sito in " + path.relative(ROOT, out) + ": index.html, 404.html, zh/, privacy.html, manifesto.html, partecipa-voci.html, img/, assets/, audio/, licenze/, robots.txt, llms.txt, llms-full.txt, fatti.json, sitemap.xml, app/");
 }
 
 /* Anteprime del link (Open Graph) 1200×630. WhatsApp, WeChat, Telegram e i social le ritagliano in modi diversi (la striscia 1,91:1

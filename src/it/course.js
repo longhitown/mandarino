@@ -1,5 +1,5 @@
 /* ===== Corso di italiano per chi parla cinese (意大利语课程) — la direzione «al contrario» dell'app.
-   Si sceglie dal benvenuto o da ⚙️ → Studio → Corso (cp-course = "zh" cinese per italiani, predefinito | "it" italiano per cinesi).
+   Si sceglie dal benvenuto o da gear → Studio → Corso (cp-course = "zh" cinese per italiani, predefinito | "it" italiano per cinesi).
    In modalità "it" l'interfaccia è in cinese e le quattro schede diventano: 课程 (lezioni), 单词 (parole), 复习 (ripasso),
    变位 (coniugazioni), 句子 (frasi e dialoghi). Le parole italiane non sono scritte a mano qui: nascono dalle schede
    grammaticali di data/grammar.js (genere, plurale, ausiliare) e dalla morfologia di phrases/italian.js, controllate con
@@ -13,7 +13,7 @@
   if (course !== "it") return;
 
   /* ================= da qui: modalità corso di italiano ================= */
-  /* ⚙️ → 声音和音乐 → 语音: la voce italiana (velocità, scelta della voce, prova), poi musica e suono */
+  /* gear → 声音和音乐 → 语音: la voce italiana (velocità, scelta della voce, prova), poi musica e suono */
   var IVK = "cp-it-voice";
   function itVoices() { var s = window.speechSynthesis; return s && s.getVoices ? (s.getVoices() || []).filter(function (v) { return /^it/i.test(v.lang || ""); }) : []; }
   CP.itVoiceURI = function () { var u = lsGet(IVK) || "", vs = itVoices(); return vs.some(function (v) { return v.voiceURI === u; }) ? u : (vs[0] ? vs[0].voiceURI : ""); };
@@ -40,7 +40,7 @@
   /* il «cammino» in alto porterebbe al Percorso del corso di cinese: qui porta al ripasso */
   var pillEl = document.getElementById("game-pill");
   if (pillEl) pillEl.addEventListener("click", function (e) { e.stopImmediatePropagation(); CP.itShow("review"); }, true);
-  /* ⚙️ → 使用说明 */
+  /* gear → 使用说明 */
   var about = document.querySelector("#set-about .lede");
   if (about) about.innerHTML = tt("itc.016") + "<b>" + ITLESSONS.length + tt("itc.017");
   var Z = {
@@ -131,7 +131,7 @@
       (aux === "e" || /rsi(\s|$)/.test(inf) ? tt("itc.120") : "");
   }
   function zhHTML(hz, py) { return '<span class="it-zh"><span class="lp">' + CP.pinyinHTML(py) + '</span> <span class="lh han" lang="zh-CN">' + CP.hanziHTML(hz, py) + "</span></span>"; }
-  function sayBtn(text, small) { return '<button type="button" class="say' + (small ? " btn-s" : "") + '" data-it-say="' + CP.attr(text) + '" aria-label="' + CP.attr(tt("itc.121") + text) + '">🔊</button>'; }
+  function sayBtn(text, small) { return '<button type="button" class="say' + (small ? " btn-s" : "") + '" data-it-say="' + CP.attr(text) + '" aria-label="' + CP.attr(tt("itc.121") + text) + '">⟦speaker⟧</button>'; }
   function detailHTML(e) {
     var h = '<div class="fam-head"><div class="meta"><b lang="it" style="font-size:1.35rem">' + esc(e.it) + "</b><div class=\"small muted\">" + esc(gLabel(e)) + tt("itc.122") +
       '<div class="acts" style="margin:6px 0">' + sayBtn(e.say) + "</div><p style=\"margin:6px 0\">" + zhHTML(e.zh, e.py) + (e.alt && e.alt.length ? tt("itc.123") + esc(e.alt.join("、")) + "</span></span>" : "") + "</p>";
@@ -217,7 +217,7 @@
   function reviewHTML(l) {
     return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-itl-back>' + Z.back + '</button></div><article class="panel ls-lesson"><span class="tag muted small">' + esc(tt("itd.rev")) + "</span><h3>" + esc(l.title) + "</h3>" +
       l.body.map(function (b) { return "<p>" + rich(b) + "</p>"; }).join("") +
-      '<div class="acts"><button type="button" class="btn-main" data-itl-quiz style="margin:0">✏️ ' + esc(tt("itd.revGo", { n: l.quiz.length })) + "</button></div></article>";
+      '<div class="acts"><button type="button" class="btn-main" data-itl-quiz style="margin:0">⟦pencil⟧ ' + esc(tt("itd.revGo", { n: l.quiz.length })) + "</button></div></article>";
   }
   function lprog() { try { var o = JSON.parse(lsGet(LKEY) || "{}"); return o && typeof o === "object" ? o : {}; } catch (e) { return {}; } }
   function lmark(id, p) { var o = lprog(), x = o[id] || {}; Object.keys(p).forEach(function (k) { x[k] = p[k]; }); o[id] = x; lsSet(LKEY, JSON.stringify(o)); }
@@ -237,7 +237,7 @@
         '<span class="itp-t"><small>' + esc(tt("itd.lessonN", { n: l.n })) + "</small><b>" + esc(l.title) + "</b>" + (p.best != null ? '<small class="muted">' + esc(tt("itd.best", { p: p.best })) + "</small>" : "") + "</span></button></li>" + (function () {
         var rv = revAfter[l.n]; if (!rv) return "";
         var rp = P[rv.id] || {}, rok = !!rp.done || (rp.best || 0) >= PASS;
-        return '<li class="itp-node rev' + (rok ? " done" : "") + '"><button type="button" data-itl-open="' + rv.id + '"><span class="itp-dot" aria-hidden="true">' + (rok ? '<span class="itp-seal">' + esc(tt("itd.passed")) + "</span>" : "🔁") + '</span><span class="itp-t"><small>' + esc(tt("itd.rev")) + "</small><b>" +
+        return '<li class="itp-node rev' + (rok ? " done" : "") + '"><button type="button" data-itl-open="' + rv.id + '"><span class="itp-dot" aria-hidden="true">' + (rok ? '<span class="itp-seal">' + esc(tt("itd.passed")) + "</span>" : "⟦repeat⟧") + '</span><span class="itp-t"><small>' + esc(tt("itd.rev")) + "</small><b>" +
           esc(tt("itd.revTitle", { a: rv.from, b: rv.to })) + "</b>" + (rp.best != null ? '<small class="muted">' + esc(tt("itd.best", { p: rp.best })) + "</small>" : "") + "</span></button></li>";
       })();
     }).join("");
@@ -254,12 +254,12 @@
   function lessonHTML(l) {
     if (l.review) return reviewHTML(l);
     var p = lprog()[l.id] || {};
-    return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-itl-back>' + Z.back + tt("itc.137") + l.n + tt("itc.138") + (p.best != null ? tt("itc.139") + p.best + "%" : "") + "</span><h3>" + esc(l.title) + '</h3><p class="ls-goal">🎯 ' + esc(l.goal) + "</p>" +
+    return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-itl-back>' + Z.back + tt("itc.137") + l.n + tt("itc.138") + (p.best != null ? tt("itc.139") + p.best + "%" : "") + "</span><h3>" + esc(l.title) + '</h3><p class="ls-goal">⟦target⟧ ' + esc(l.goal) + "</p>" +
       l.body.map(function (b) { return "<p>" + rich(b) + "</p>"; }).join("") +
       '<div class="ls-pat">' + l.pattern.map(function (f, j) { return (j ? '<span class="ls-plus">+</span>' : "") + '<span class="fx" lang="it">' + esc(f) + "</span>"; }).join("") + "</div>" +
       tt("itc.140") + l.ex.map(function (e) { return '<div class="ls-ex"><div class="it-big" lang="it">' + esc(e[0]) + '</div><div class="small muted">' + esc(e[1]) + "</div><div>" + sayBtn(e[0], true) + "</div></div>"; }).join("") +
       ((l.dlg || []).length ? "<h4>" + esc(tt("itd.dlg")) + "</h4>" + l.dlg.map(function (d) { return '<div class="ls-ex ls-dl ' + (d[0] === "B" ? "b" : "a") + '"><span class="tag muted small" aria-hidden="true">' + esc(d[0]) + '</span><div class="it-big" lang="it">' + esc(d[1]) + '</div><div class="small muted">' + esc(d[2]) + "</div><div>" + sayBtn(d[1], true) + "</div></div>"; }).join("") : "") +
-      tt("itc.141") + l.traps.map(function (t) { return '<div class="ls-trap"><div class="ls-bad">❌ <span lang="it">' + esc(t[0]) + '</span></div><div class="ls-good">✅ <span lang="it">' + esc(t[1]) + '</span></div><div class="small">' + esc(t[2]) + "</div></div>"; }).join("") +
+      tt("itc.141") + l.traps.map(function (t) { return '<div class="ls-trap"><div class="ls-bad">⟦close⟧ <span lang="it">' + esc(t[0]) + '</span></div><div class="ls-good">⟦check⟧ <span lang="it">' + esc(t[1]) + '</span></div><div class="small">' + esc(t[2]) + "</div></div>"; }).join("") +
       tt("itc.142") + l.quiz.length + tt("itc.143");
   }
   function words(s) { return s.replace(/[.,!?¿¡]/g, "").split(/\s+/).filter(Boolean); }
@@ -444,7 +444,7 @@
     h += PHRASES.map(function (g, gi) {
       return '<details class="pat"><summary>' + esc(PHR_ZH[gi] || g.title) + "</summary>" + g.items.map(function (p) { return '<div class="ls-ex"><div class="it-big" lang="it">' + esc(p[2]) + '</div><div class="small">' + zhHTML(p[1], p[0]) + "</div><div>" + sayBtn(p[2], true) + "</div></div>"; }).join("") + "</details>";
     }).join("");
-    h += tt("itc.179") + DIALOGS.map(function (d) { return '<button type="button" class="ls-card" data-itp-dlg="' + CP.attr(d.id) + '"><span class="ls-n" aria-hidden="true">💬</span><span class="ls-t"><b>' + esc(DLG_ZH[d.id] || d.title) + '</b><span class="small muted" lang="it">' + esc(d.title) + "</span></span><span></span></button>"; }).join("") + "</div>";
+    h += tt("itc.179") + DIALOGS.map(function (d) { return '<button type="button" class="ls-card" data-itp-dlg="' + CP.attr(d.id) + '"><span class="ls-n" aria-hidden="true">⟦chat⟧</span><span class="ls-t"><b>' + esc(DLG_ZH[d.id] || d.title) + '</b><span class="small muted" lang="it">' + esc(d.title) + "</span></span><span></span></button>"; }).join("") + "</div>";
     return h;
   }
 

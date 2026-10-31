@@ -1,4 +1,4 @@
-/* Lezioni di grammatica (Frasi → 📘 Impara → Lezioni): spiegazione, schema, esempi con audio, errori tipici
+/* Lezioni di grammatica (Frasi → book Impara → Lezioni): spiegazione, schema, esempi con audio, errori tipici
    ed esercizi corretti subito. I contenuti stanno in src/data/lessons/ (un file per lezione).
    Progressi: cp-lessons-v1 = { id: { best: 0-100, done: ts della prima volta superata, seen: ts } }. */
 (function () {
@@ -49,7 +49,7 @@
         '<span class="ls-n" aria-hidden="true">' + (ok ? "✓" : l.n) + "</span>" +
         '<span class="ls-t" lang="it"><b>' + rich(l.title) + "</b><span class=\"small muted\">" + esc(l.goal) + "</span></span>" +
         '<span class="ls-st small">' + (p.best != null ? p.best + "%" : p.seen ? T("ls.read") : "") + "</span></button>" +
-        (rv ? '<button type="button" class="ls-card ls-rev' + (rok ? " done" : "") + '" data-ls-open="' + rv.id + '"><span class="ls-n" aria-hidden="true">' + (rok ? "✓" : "🔁") + '</span><span class="ls-t" lang="it"><b>' +
+        (rv ? '<button type="button" class="ls-card ls-rev' + (rok ? " done" : "") + '" data-ls-open="' + rv.id + '"><span class="ls-n" aria-hidden="true">' + (rok ? "✓" : "⟦repeat⟧") + '</span><span class="ls-t" lang="it"><b>' +
           esc(T("ls.revTitle", { a: rv.from, b: rv.to })) + '</b><span class="small muted">' + esc(T("ls.revGoal")) + '</span></span><span class="ls-st small">' + (rp.best != null ? rp.best + "%" : "") + "</span></button>" : "");
     }).join("");
     return '<p class="lede" style="margin:14px 0 4px">' + T("ls.lede", { p: PASS }) + "</p>" +
@@ -63,7 +63,7 @@
     return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-ls-back>← ' + T("sub.lessons") + "</button></div>" +
       '<article class="panel ls-lesson"><span class="tag muted small">' + (l.review ? T("ls.rev") : T("ls.n", { n: l.n })) + (p.best != null ? " · " + T("ls.best", { p: p.best }) : "") + "</span>" +
       '<h3 lang="it">' + rich(l.title) + "</h3>" +
-      '<p class="ls-goal" lang="it">🎯 ' + esc(l.goal) + "</p>" +
+      '<p class="ls-goal" lang="it">⟦target⟧ ' + esc(l.goal) + "</p>" +
       l.body.map(function (b) { return '<p lang="it">' + rich(b) + "</p>"; }).join("") +
       (l.pattern ? '<div class="ls-pat" lang="it" aria-label="' + CP.attr(T("ls.pattern")) + '">' + l.pattern.map(function (f, j) { return (j ? '<span class="ls-plus">+</span>' : "") + '<span class="fx">' + (isZh(f) ? '<span class="han" lang="zh-CN">' + esc(f) + "</span>" : esc(f)) + "</span>"; }).join("") + "</div>" : "") +
       ((l.ex || []).length ? "<h4>" + T("ls.examples") + "</h4>" : "") + (l.ex || []).map(function (e) {
@@ -73,10 +73,10 @@
         return '<div class="ls-ex ls-dl ' + (d[0] === "B" ? "b" : "a") + '"><span class="tag muted small" aria-hidden="true">' + esc(d[0]) + "</span>" + zhHTML(d[1]) + '<div class="small muted" lang="it">' + esc(d[2]) + "</div>" + CP.audioBtns(d[1].replace(/[。？！，]/g, "")) + "</div>";
       }).join("") : "") +
       ((l.traps || []).length ? "<h4>" + T("ls.traps") + "</h4>" + l.traps.map(function (t) {
-        return '<div class="ls-trap"><div class="ls-bad">❌ <span class="han" lang="zh-CN">' + esc(t[0]) + '</span></div><div class="ls-good">✅ <span class="han" lang="zh-CN">' + esc(t[1]) + '</span></div><div class="small" lang="it">' + rich(t[2]) + "</div></div>";
+        return '<div class="ls-trap"><div class="ls-bad">⟦close⟧ <span class="han" lang="zh-CN">' + esc(t[0]) + '</span></div><div class="ls-good">⟦check⟧ <span class="han" lang="zh-CN">' + esc(t[1]) + '</span></div><div class="small" lang="it">' + rich(t[2]) + "</div></div>";
       }).join("") : "") +
-      '<div class="acts">' + (qn ? '<button type="button" class="btn-main" data-ls-quiz style="margin:0">✏️ ' + T("ls.quiz", { n: qn }) + "</button>" : "") +
-      ((l.ex || []).length ? '<button type="button" class="btn-s" data-ls-lab>🧪 ' + T("pat.try") + "</button>" : "") + "</div></article>";
+      '<div class="acts">' + (qn ? '<button type="button" class="btn-main" data-ls-quiz style="margin:0">⟦pencil⟧ ' + T("ls.quiz", { n: qn }) + "</button>" : "") +
+      ((l.ex || []).length ? '<button type="button" class="btn-s" data-ls-lab>⟦flask⟧ ' + T("pat.try") + "</button>" : "") + "</div></article>";
   }
 
   /* ---- esercizi ---- */
@@ -134,9 +134,9 @@
   }
   function resultHTML() {
     var l = quiz.l, n = l.quiz.length, pct = Math.round(quiz.score * 100 / n), ok = pct >= PASS;
-    return '<div class="panel ls-quiz" style="margin-top:14px"><h3>' + (ok ? "🎉 " + T("ls.passedOne") : T("ls.almost")) + "</h3>" +
+    return '<div class="panel ls-quiz" style="margin-top:14px"><h3>' + (ok ? "⟦confetti⟧ " + T("ls.passedOne") : T("ls.almost")) + "</h3>" +
       "<p>" + T("ls.score", { n: quiz.score, tot: n, p: pct }) + (ok ? "" : " " + T("ls.needP", { p: PASS })) + "</p>" +
-      '<div class="acts"><button type="button" class="btn-main" data-ls-quiz style="margin:0">🔁 ' + T("ls.redo") + '</button><button type="button" class="btn-s" data-ls-open="' + CP.attr(l.id) + '">📘 ' + T("ls.reread") + "</button>" +
+      '<div class="acts"><button type="button" class="btn-main" data-ls-quiz style="margin:0">⟦repeat⟧ ' + T("ls.redo") + '</button><button type="button" class="btn-s" data-ls-open="' + CP.attr(l.id) + '">⟦book⟧ ' + T("ls.reread") + "</button>" +
       (quiz.wrong.length ? '<button type="button" class="btn-s" data-ls-errs>' + T("ls.myErrors", { n: quiz.wrong.length }) + "</button>" : "") +
       (!quiz.extra && (l.ex || []).length && CP.ex && CP.ex.stile() !== "classic" ? '<button type="button" class="btn-s" data-ls-mini>' + T("ls.mini") + "</button>" : "") +
       '<button type="button" class="btn-s" data-ls-back>' + T("ls.all") + "</button>" + (ok && nextOf(l) ? '<button type="button" class="btn-s" data-ls-open="' + CP.attr(nextOf(l).id) + '">' + T("ls.nextL") + " →</button>" : "") + "</div></div>";

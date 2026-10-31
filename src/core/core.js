@@ -39,7 +39,7 @@
     } else fallback();
   };
   CP.frameBtn = function () {
-    return CP.inFrame ? '<button type="button" class="btn-s" data-outside>🚀 Scarica e apri nel browser (sblocca Microfono e Audio)</button>' : "";
+    return CP.inFrame ? '<button type="button" class="btn-s" data-outside>⟦rocket⟧ Scarica e apri nel browser (sblocca Microfono e Audio)</button>' : "";
   };
 
   function norm(s) {
@@ -178,8 +178,8 @@
       return;
     }
     var h = '<div class="seg" role="group" aria-label="' + CP.attr(t("vo.rate")) + '">' +
-      '<button type="button" data-rate="0.8"' + (pref.rate === 0.8 ? ' class="on"' : "") + ">🐢 " + t("vo.slow") + "</button>" +
-      '<button type="button" data-rate="1"' + (pref.rate === 1 ? ' class="on"' : "") + ">🐇 " + t("vo.normal") + "</button></div>";
+      '<button type="button" data-rate="0.8"' + (pref.rate === 0.8 ? ' class="on"' : "") + ">⟦slow⟧ " + t("vo.slow") + "</button>" +
+      '<button type="button" data-rate="1"' + (pref.rate === 1 ? ' class="on"' : "") + ">⟦fast⟧ " + t("vo.normal") + "</button></div>";
     if (voices.length > 1) {
       h += '<label class="small muted" for="voice-sel" style="display:grid;gap:4px;font-weight:600">' + t("set.voice") + '<select id="voice-sel">' + voices.map(function (v) {
         return '<option value="' + CP.attr(v.voiceURI) + '"' + (voice && v.voiceURI === voice.voiceURI ? " selected" : "") + ">" + (vscore(v) >= 10 ? "★ " : "") + CP.esc(v.name) + " (" + CP.esc(v.lang) + ")</option>";
@@ -196,7 +196,7 @@
       (CP.voiceExtra ? CP.voiceExtra() : "") +
       '<button type="button" class="btn-main" id="voice-test" style="margin-top:4px">' + t("vo.test") + "</button>";
     body.innerHTML = h;
-    if (sum) sum.textContent = pref.rate === 1 ? "🐇 " + t("vo.normal") : "🐢 " + t("vo.slow");
+    if (sum) sum.textContent = pref.rate === 1 ? "⟦fast⟧ " + t("vo.normal") : "⟦slow⟧ " + t("vo.slow");
   }
   document.getElementById("vset-body").addEventListener("click", function (e) {
     var b = e.target.closest ? e.target.closest("button") : null;
@@ -299,7 +299,7 @@
       return;
     }
     /* la voce online (un servizio esterno, non ufficiale: riceve il testo da leggere) si usa solo se la si è
-       accesa in ⚙️ → Suoni e musica → Voce. Altrimenti, se la voce del telefono tace, lo si dice una volta e si spiega come fare. */
+       accesa in gear → Suoni e musica → Voce. Altrimenti, se la voce del telefono tace, lo si dice una volta e si spiega come fare. */
     var cloud = function () {
       if (finished || token !== mine) return;
       clearTimeout(startTimer);
@@ -415,8 +415,8 @@
   CP.sayHz = function (w) { var p = polyOf(w); return p && p.ex ? p.ex.hz : (w ? w.hz : ""); };
   CP.polyNote = function (w) {
     var p = polyOf(w); if (!p || (!p.others.length && !p.ex)) return "";
-    return '<div class="cd-note poly-note">⚠️ ' + (p.others.length ? t("fam.alsoRead", { p: p.others.map(function (s) { return "<b>" + CP.pinyinHTML(s) + "</b>"; }).join(", ") }) + " " : "") +
-      (p.ex ? "🔊 " + t("fam.readIn", { w: '<span class="han" lang="zh-CN">' + CP.esc(p.ex.hz) + "</span>" }) : "") + "</div>";
+    return '<div class="cd-note poly-note">⟦warning⟧ ' + (p.others.length ? t("fam.alsoRead", { p: p.others.map(function (s) { return "<b>" + CP.pinyinHTML(s) + "</b>"; }).join(", ") }) + " " : "") +
+      (p.ex ? "⟦speaker⟧ " + t("fam.readIn", { w: '<span class="han" lang="zh-CN">' + CP.esc(p.ex.hz) + "</span>" }) : "") + "</div>";
   };
   CP.sayBtn = function (text) {
     return '<button class="say" type="button" data-say="' + CP.attr(text) + '" aria-label="' + CP.attr(t("fam.listen")) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg></button>';
@@ -633,7 +633,7 @@
     if (down !== null && CP.canScope && CP.canScope() && CP.voicePanel) { CP.voicePanel(host, goal, { note: down }); return; }
     var out = host.querySelector(".heard");
     if (!out) { out = document.createElement("div"); out.setAttribute("aria-live", "polite"); host.appendChild(out); }
-    out.className = "heard"; out.textContent = "🎤 " + t("mic.listen", { w: goal.replace(/[^㐀-鿿]/g, "") });
+    out.className = "heard"; out.textContent = "⟦mic⟧ " + t("mic.listen", { w: goal.replace(/[^㐀-鿿]/g, "") });
     b.classList.add("listening"); b._abort = false;
     CP.sfx("tap");
     b._rec = CP.listen(goal, function (r) {
@@ -645,16 +645,16 @@
         CP.voicePanel(host, goal, { note: CP.micErrText(r.error) }); return;
       }
       if (r.error) {
-        out.className = "heard ko"; out.textContent = "🎤 " + CP.micErrText(r.error); CP.sfx("ko");
+        out.className = "heard ko"; out.textContent = "⟦mic⟧ " + CP.micErrText(r.error); CP.sfx("ko");
         if (CP.micBlocked && r.error === "not-allowed") CP.micBlocked();
         if (CP.inFrame && (r.error === "not-allowed" || r.error === "start")) out.insertAdjacentHTML("beforeend", '<div style="margin-top:8px">' + CP.frameBtn() + "</div>");
         return;
       }
-      var said = "🎤 " + t("mic.said", { w: '<span class="han" lang="zh-CN">' + CP.esc(r.heard || "…") + "</span>" }) + " — ";
+      var said = "⟦mic⟧ " + t("mic.said", { w: '<span class="han" lang="zh-CN">' + CP.esc(r.heard || "…") + "</span>" }) + " — ";
       if (r.ok) { out.className = "heard ok"; out.innerHTML = said + t(r.homophone ? "mic.homophone" : "mic.perfect"); CP.sfx("ok"); if (CP.game && CP.game.xp) CP.game.xp(1); }
       else if (r.near) { out.className = "heard ko"; out.innerHTML = said + t("mic.near"); CP.sfx("tap"); }
       else { out.className = "heard ko"; out.innerHTML = said + t("mic.wrong"); CP.sfx("ko"); }
-      if (!r.ok && CP.canScope && CP.canScope() && CP.voicePanel) out.insertAdjacentHTML("beforeend", ' <button type="button" class="btn-s" data-vp-open="' + CP.attr(goal) + '">〰️ ' + t("mic.myTone") + "</button>");
+      if (!r.ok && CP.canScope && CP.canScope() && CP.voicePanel) out.insertAdjacentHTML("beforeend", ' <button type="button" class="btn-s" data-vp-open="' + CP.attr(goal) + '">⟦wave⟧ ' + t("mic.myTone") + "</button>");
     });
     if (!b._rec) b.classList.remove("listening");
   }
@@ -790,7 +790,7 @@
       (selfW ? selves.map(function (w) { return '<div class="lp">' + CP.pinyinHTML(w.py) + " " + CP.hskBadge(w.hz) + '</div><div class="small muted" lang="it">' + CP.esc(w.it) + "</div>"; }).join("")
              : '<div class="small muted">' + t("fam.part") + "</div>") +
       "</div>" + (selfW ? CP.audioBtns(CP.sayHz(selfW), true) : "") + '<button type="button" class="fam-x btn-s" data-famclose>' + CP.t("common.close") + '</button></div>' + (selfW ? CP.polyNote(selfW) : "") +
-      (selfW && CP.contribOpen ? '<div class="acts" style="margin:6px 0 0"><button type="button" class="btn-s" data-contrib="' + CP.attr(selfW.key) + '">✏️ ' + t("fam.fix") + "</button></div>" : "");
+      (selfW && CP.contribOpen ? '<div class="acts" style="margin:6px 0 0"><button type="button" class="btn-s" data-contrib="' + CP.attr(selfW.key) + '">⟦pencil⟧ ' + t("fam.fix") + "</button></div>" : "");
     if (fam.chars.length > 1) {
       h += '<div class="fam-chars" role="group" aria-label="' + CP.attr(t("fam.chars")) + '">' + fam.chars.map(function (c) {
         return '<button type="button" data-fc="' + CP.attr(c) + '"' + (c === ch ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">" + CP.esc(c) + "</button>";

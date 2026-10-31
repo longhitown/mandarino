@@ -302,7 +302,7 @@
       var marked = "", pos = 0;
       r.issues.forEach(function (x) { marked += esc(s.slice(pos, x.at)) + '<mark class="itc-bad">' + esc(s.slice(x.at, x.at + x.len)) + "</mark>"; pos = x.at + x.len; });
       marked += esc(s.slice(pos));
-      h += '<p class="it-big" lang="it">' + marked + "</p>" + r.issues.map(function (x) { return '<p class="verdict ' + (x.kind === "spell" ? "" : "ko ") + 'small" style="margin:4px 0">' + (x.kind === "spell" ? "❓ " : "✗ ") + esc(x.zh) + "</p>"; }).join("") +
+      h += '<p class="it-big" lang="it">' + marked + "</p>" + r.issues.map(function (x) { return '<p class="verdict ' + (x.kind === "spell" ? "" : "ko ") + 'small" style="margin:4px 0">' + (x.kind === "spell" ? "⟦help⟧ " : "✗ ") + esc(x.zh) + "</p>"; }).join("") +
         tt("itc.222") + esc(r.fixed) + '</b> <button type="button" class="say" data-it-say="' + CP.attr(r.fixed) + tt("itc.223");
     } else h += tt("itc.224");
     var unk = r.unknown.filter(function (w) { return !r.issues.some(function (x) { return x.kind === "spell" && x.w === w; }); });

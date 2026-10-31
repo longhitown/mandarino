@@ -71,7 +71,7 @@
 
   /* ---- foglio ---- */
   var G = null;
-  function head(title) { return '<div class="fam-head"><div class="meta"><b>🎯 ' + esc(title) + '</b></div><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>"; }
+  function head(title) { return '<div class="fam-head"><div class="meta"><b>⟦target⟧ ' + esc(title) + '</b></div><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>"; }
   function qText(x, big) {
     if (G && G.c === "it") return '<div class="chal-q' + (big ? "" : " sm") + '" lang="it">' + esc(x.q) + "</div>";
     return '<div class="chal-q' + (big ? "" : " sm") + '" lang="zh-CN">' + CP.hanziHTML(x.q, x.py) + '</div><div class="chal-py">' + CP.pinyinHTML(x.py) + "</div>";

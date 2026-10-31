@@ -76,13 +76,13 @@ body.in-session .actbar { flex: none; }
 .done .stats { margin-top: 0; }
 .done-seal { justify-self: center; }
 
-/* barra in alto: mini-logo, cammino, 🎙️ (solo col microfono aperto), 🎧, 🎵, ⚙️. Tutti i bersagli da 44 px */
+/* barra in alto: mini-logo, cammino, mic (solo col microfono aperto), headphones, music, gear. Tutti i bersagli da 44 px */
 .bar .grp button, .bar .grp .iconbtn { flex: none; width: 44px; min-width: 44px; }
 .mini-logo { width: 44px; min-width: 44px; }
 @media (max-width: 340px) { .bar { flex-wrap: nowrap; justify-content: space-between; } .bar .grp button, .bar .grp .iconbtn { min-width: 44px; } }
 #settings-btn svg { width: 22px; height: 22px; }
 
-/* fogli dal basso (⚙️, filtri, legenda) */
+/* fogli dal basso (gear, filtri, legenda) */
 .sheet { position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center; background: rgba(0, 0, 0, 0.42); }
 .sheet[hidden] { display: none; }
 /* ===== Impostazioni: una pagina con cinque carte, ognuna apre una schermata propria (ui/settings.js) ===== */
@@ -649,7 +649,7 @@ body.in-session #study-root.is-card > .ex-card { align-content: start; }
 .sc-list { list-style: none; margin: 0; padding: 0; } .sc-list li { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line, rgba(127,127,127,.25)); }
 .sc-list .sc-t { grid-column: 1 / -1; } .sc-list li > .muted { grid-column: 1; } .sc-list .btn-s { min-height: 44px; min-width: 44px; }
 
-/* ⚙️ → Comunità e voci: i due numeri, l'elenco dei widget, la riga del pacchetto voci e il pallino «Nuovo» (mai animato, mai con numeri) */
+/* gear → Comunità e voci: i due numeri, l'elenco dei widget, la riga del pacchetto voci e il pallino «Nuovo» (mai animato, mai con numeri) */
 .cm-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .cm-num { display: grid; gap: 2px; padding: 12px; background: var(--chip); border-radius: 12px; }
 .cm-num b { font: 800 28px/1.1 var(--f-body); color: var(--accent); }
@@ -666,3 +666,13 @@ body.in-session #study-root.is-card > .ex-card { align-content: start; }
 #settings-btn.has-new::after, .set-tile.has-new b::after { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--seal); box-shadow: 0 0 0 2px var(--surface); }
 #settings-btn.has-new::after { position: absolute; top: 6px; right: 6px; }
 .set-tile.has-new b::after { margin-left: 8px; vertical-align: middle; }
+
+/* icone (i segnaposto diventano <svg class="ic">, ui/ico.js): in linea nel testo, colori dalle tre variabili del set D2 (icone/ICONE.md): tratto, velo, cinabro */
+:root { --im: #DB5F00; --iv: #DB5F00; --ia: #C0281D; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not([data-theme="sepia"]) { --im: #FF9A3D; --iv: #FF9A3D; --ia: #E5483C; } }
+:root[data-theme="dark"] { --im: #FF9A3D; --iv: #FF9A3D; --ia: #E5483C; }
+.ic { display: inline-block; width: 1.15em; height: 1.15em; vertical-align: -0.2em; flex: none; overflow: visible; }
+/* dentro un fondo pieno (pulsante principale, voce attiva, microfono) le icone diventano del colore del testo, come il resto */
+.btn-main, .cpills button.on, .dtab.on, .tags button.on, .mpick button.on, .tdir .badge.on, .pad-chars button.on, .tiers button.on, .card-acts .say.big, .grades .g-good,
+.welcome-goal button.on, .onb-chips button.on, .ex-listen .say, .itp-node.now .itp-dot, .stop.done .node, .ls-card.done .ls-n { --im: var(--bg); --iv: var(--bg); --ia: var(--bg); }
+.vp-mic, .seal { --im: #fff; --iv: #fff; --ia: #fff; }

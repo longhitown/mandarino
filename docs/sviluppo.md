@@ -3,7 +3,7 @@
 Questa pagina descrive com'è fatta l'app e come si costruisce, si prova e si pubblica. Chi vuole solo usarla trova la guida in
 [LEGGIMI.md](../LEGGIMI.md).
 
-Panoramica. Due corsi in un'app: **il cinese per italiani** e, scelto dal benvenuto o da ⚙️ → Studio → Corso, **意大利语课程, l'italiano per
+Panoramica. Due corsi in un'app: **il cinese per italiani** e, scelto dal benvenuto o da Impostazioni → Studio → Corso, **意大利语课程, l'italiano per
 chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6,
 dialoghi, laboratorio di frasi, pannello «Parla» con la curva dei toni, jukebox di 22 brani originali. Nessuna richiesta di
 rete all'avvio, nessuna libreria caricata da fuori (l'unica di terzi, jsQR, è dentro il file); i progressi restano sul
@@ -26,7 +26,7 @@ src/                       ← si lavora qui (si apre anche così com'è, da fil
   data/lessons/NN-<id>.js  le lezioni di grammatica, una per file (le prime 30 qui, le altre in data/lessons-x/) (spiegazione, esempi, errori tipici, esercizi)
   data/examples/*.js       una frase d'esempio per parola: chiave → [cinese, italiano] (il pinyin si ricava dal vocabolario)
   data/freq.js             ordine di frequenza delle parole (lo usa il taglio in parole); data/path-hsk.js = tappe HSK
-  data/strokes.js          l'ordine dei tratti (Make Me a Hanzi, licenza Arphic: vedi LICENZE/ e ⚙️ → Informazioni → Come funziona → Crediti)
+  data/strokes.js          l'ordine dei tratti (Make Me a Hanzi, licenza Arphic: vedi LICENZE/ e Impostazioni → Informazioni → Come funziona → Crediti)
   data/grammar.js          le schede grammaticali del traduttore (nomi, luoghi, nazionalità, verbi, aggettivi…)
   data/verified.js         le frasi verificate: traduzioni sicure e, insieme, prove per le regole
   data/*.js                frasi, Pensiero, esercizi, modelli, slot, percorso
@@ -87,7 +87,7 @@ vocabolario e che gli esercizi siano ben formati. Il campo `path` la fa comparir
 HSK di ogni parola e il capitolo di ogni tappa (1-5 = HSK 1-5, 6 = oltre l'HSK), e rimette in ordine i file del vocabolario
 in `src/index.html`. Si rilancia dopo aver aggiunto parole o sezioni; la build controlla capitoli e ordine.
 
-**Navigazione:** 🔍 in alto (o /, Ctrl+K) apre «Cerca ovunque» (`src/ui/finder.js`): strumenti, lezioni, dialoghi, tappe,
+**Navigazione:** in alto (o /, Ctrl+K) apre «Cerca ovunque» (`src/ui/finder.js`): strumenti, lezioni, dialoghi, tappe,
 parole. Uno scorrimento orizzontale cambia scheda (`src/ui/gestures.js`). All'avvio una schermata col logo
 (`styles/splash.css`) copre il caricamento; nel file unico frasi d'esempio, tratti e lessico italiano sono JSON letto al primo uso.
 
@@ -100,7 +100,7 @@ Se il taglio sbaglia una frase giusta, si corregge `core/segment.js` (WEAK, CTX,
 file: true, sec, make })`, dove `make` chiama `CP.audioFile.player`). Poi l'id in `audio/tracks/index.js` e il modulo in
 `src/index.html`. La build copia i brani in `dist/audio/music/` e si ferma se un modulo non trova il suo file.
 I brani non stanno dentro `index.html`: nell'APK sono nel pacchetto; sul sito il service worker li salva nella cache
-`mandarino-music` al primo ascolto (o tutti insieme con «Scarica tutta la musica» nel pannello 🎵), che resta tra un
+`mandarino-music` al primo ascolto (o tutti insieme con «Scarica tutta la musica» nel pannello «musica»), che resta tra un
 aggiornamento e l'altro. Aperta da `file://` l'app funziona, ma il browser non le lascia leggere i brani e il pannello lo dice.
 
 **Il loop si controlla da solo** (`tools/e2e.mjs`, «loop senza buchi»). Ogni brano suona dal riproduttore vero dell'app,
@@ -120,7 +120,7 @@ elementi `<audio>` che si danno il cambio con una dissolvenza.
    - **Parto da zero**: obiettivo, prova dei quattro toni (corso di italiano: l'accento di ciao / grazie / buongiorno), prima carta.
    - **Conosco già le basi**: cinque domande su di sé, poi il test.
    - **Ho già un backup o un altro dispositivo**: dritto a sincronizzazione, QR o backup, senza test.
-3. In piccolo, l'altro corso. Lo scopo (viaggio, lavoro…) è facoltativo: suggerisce l'obiettivo e mette una ⭐ ai temi
+3. In piccolo, l'altro corso. Lo scopo (viaggio, lavoro…) è facoltativo: suggerisce l'obiettivo e mette una ai temi
    in Parole.
 
 **Test di livello** (`src/data/placement.js` è il motore, `src/ui/placement.js` le domande):
@@ -147,7 +147,7 @@ Il livello proposto si corregge con − / + prima di confermare. Alla conferma:
 - **Punti iniziali** con `CP.game.grant(n)`: stanno in `cp-game-v1.pl` / `cp-it-game-v1.pl`. L'unione tra dispositivi
   prende il più alto (mai la somma) e un «annulla» vince sempre.
 
-⚙️ → Studio → «Livello e schede» ha tre comandi: «Rifai il test di livello», «Annulla il salto» (toglie le parole del
+Impostazioni → Studio → «Livello e schede» ha tre comandi: «Rifai il test di livello», «Annulla il salto» (toglie le parole del
 test mai ripassate, i punti e gli sblocchi del test) e «Mostra tutto, subito» (con doppia conferma).
 
 **Rivelazione progressiva** (`src/ui/unlock.js`, soglie nella costante `UNLOCK`):
@@ -184,7 +184,7 @@ uno» (`cp-ux-v1.unl`). Una scheda chiusa non si apre mai per sbaglio:
 Il traduttore (cinese → italiano) è prudente: traduce solo quando conosce tutte le parole e la costruzione.
 Altrimenti dice **«Non so ancora tradurre questa frase.»**, mostra la frase parola per parola e spiega che cosa gli manca.
 Una traduzione può venire da tre posti, in quest'ordine:
-1. la correzione dell'utente sul suo telefono (`✏️ tua traduzione`);
+1. la correzione dell'utente sul suo telefono (`tua traduzione`);
 2. una frase verificata: `src/data/verified.js`, più le frasi già tradotte a mano negli esercizi, nei modelli, nelle frasi, nei dialoghi e nelle lezioni (`✓ frase verificata`);
 3. le regole (`src/phrases/translate.js`) con le schede di `src/data/grammar.js`.
 
@@ -194,7 +194,7 @@ Una traduzione può venire da tre posti, in quest'ordine:
 - `node tools/grammar.mjs --nuove frasi.txt` traduce una frase per riga e prepara le righe per `verified.js`, da rileggere una per una;
 - ogni frase in `verified.js` è anche una prova: build e `#selftest` falliscono se una regola nuova cambia una traduzione verificata. Le frasi che le regole non sanno ancora fare si segnano `"memoria"` e il laboratorio usa la traduzione scritta a mano.
 
-**Con la community:** sotto ogni traduzione c'è «✏️ La traduzione è sbagliata?» (o «Proponi la traduzione giusta»).
+**Con la community:** sotto ogni traduzione c'è «La traduzione è sbagliata?» (o «Proponi la traduzione giusta»).
 La proposta vale subito sul telefono di chi la scrive e si manda come gli altri contributi.
 `node tools/merge-contrib.mjs arrivati/*.json --apply` la porta in `verified.js` come `"memoria"`: rileggila prima di applicarla.
 
@@ -315,11 +315,11 @@ Per crearne una nuova: `keytool -genkeypair -keystore mandarino.jks -storetype P
   manda un avviso. Fermo, mostra uno stato scelto dall'ora: «Riposo» di notte (22–6), «Pausa caffè a Xi'an» dalle 14 alle 18;
 - **widget «Ripasso rapido»** 4×4 (`ReviewBigWidget.java`, `ReviewQueue.java`; `pwa/widget.js` manda il mazzo, `pwa/wq.js` applica i voti): vedi `docs/ARCHITETTURA.md`. Il widget 2×1 qui sotto resta, come «Ripasso rapido (piccolo)», perché chi lo aveva già aggiunto non lo perda;
 - **widget «Ripasso rapido (piccolo)»** 2×1 (`ReviewWidget.java`): il numero di carte scadute adesso, calcolato da `WidgetState` (scadute + istogramma delle 168 ore); un tocco apre `mandarino://go/study`. Lo ridisegna `TodayWidget.updateAll`, cioè a ogni `setWidgetState`. Per aggiungere i widget dalle Impostazioni, `Bridge.widgetPinSupported()` e `Bridge.pinWidget(kind)` usano `WidgetPin.java` (`requestPinAppWidget`, Android 8+; nessun permesso, nessun dato inviato);
-- **promemoria** facoltativo, spento finché non lo accendi da ⚙️ → Studio → 🔔 (il permesso delle notifiche si chiede solo allora;
+- **promemoria** facoltativo, spento finché non lo accendi da Impostazioni → Studio → «promemoria» (il permesso delle notifiche si chiede solo allora;
   `AlarmManager`, nessuna libreria); si riprogramma dopo un riavvio;
-- **musica in secondo piano** con notifica (pausa, avanti, stop) se la scegli nel pannello 🎵;
+- **musica in secondo piano** con notifica (pausa, avanti, stop) se la scegli nel pannello «musica»;
 - **aggiornamenti**: una volta al giorno l'app guarda l'ultima Release su GitHub e propone «Nuova versione disponibile»
-  (si spegne da ⚙️, nel riquadro dell'app Android).
+  (si spegne da Impostazioni, nel riquadro dell'app Android).
 Sul web (anche su iPhone) widget e promemoria non ci sono: la scorciatoia `?go=` e la card del giorno da condividere sì.
 
 Come funziona dentro: la pagina è servita all'indirizzo `https://appassets.androidplatform.net/` (sempre lo stesso: è lì che
@@ -330,7 +330,7 @@ Indietro. Il resto dell'app non sa di essere dentro un APK.
 
 ## Il corso di italiano per chi parla cinese
 
-Si sceglie dal benvenuto («我是中国人，我想学意大利语») o da ⚙️ → Studio → Corso · 课程; per tornare indietro, stesso posto.
+Si sceglie dal benvenuto («我是中国人，我想学意大利语») o da Impostazioni → Studio → Corso · 课程; per tornare indietro, stesso posto.
 I due corsi hanno progressi separati. Le schede: 课程 (51 lezioni in cinese, `src/data/it/lessons/` e `lessons-x/`), 单词 (4780 parole: quelle delle schede di
 `src/data/grammar.js`, con coniugazioni complete, più `src/data/it/lexicon.js` generato da `node tools/itlex.mjs morph-it.txt`:
 nomi con genere e plurale, aggettivi, verbi, espressioni; ogni parola con una frase d'esempio italiano → cinese), 复习
@@ -382,7 +382,7 @@ Tutte insieme: `npm test`. Le stesse girano in GitHub Actions a ogni push (`web.
 dell'introduzione degli esercizi vari: `tools/e2e.mjs` fa la stessa sessione (profilo e seme fissi) con l'app in stile «Classico» e con la copia, e
 controlla che le 40 schermate (coda, carte pi / ip / hp, voti) siano identiche. Non va nell'app.
 In più, dentro l'app: aggiungi `#selftest` all'indirizzo (25 controlli, tutti verdi). `#dev` accende il modo sviluppatore
-(in ⚙️ compare «Scarica pacchetto PWA per GitHub»), `#nodev` lo spegne.
+(in Impostazioni compare «Scarica pacchetto PWA per GitHub»), `#nodev` lo spegne.
 
 **Sul dispositivo Android:** a ogni push GitHub Actions avvia anche un emulatore Android 14 vero (job «dispositivo») e
 `tools/android-smoke.mjs` controlla dentro la WebView dell'APK: caricamento all'origine dell'app, `#selftest`, backup in
@@ -395,13 +395,13 @@ deve mostrare solo numeri, id interni e classi.
 Da fare a mano, su un telefono vero (non si possono simulare qui):
 - volume al 50%: il tap si sente, 10 tap di fila non danno fastidio; la musica si abbassa quando parla la voce;
 - Lighthouse «Installable» sull'indirizzo https; avvio in modalità aereo;
-- iPhone, app aggiunta alla Home: se il riconoscimento vocale manca, il 🎤 deve diventare «Registra e confronta».
+- iPhone, app aggiunta alla Home: se il riconoscimento vocale manca, il deve diventare «Registra e confronta».
 
 ## Contributi della community
 
 Chi usa l'app corregge pinyin, italiano o nota di una parola, di una frase o di una battuta (mai i caratteri: sono la
 chiave dei progressi), segnala un errore o propone una parola nuova. La correzione si vede subito nella sua copia
-(«✏️ tua correzione») e si annulla da ⚙️ → Dati e sincronizzazione → Contributi. Si manda con Condividi (WeChat, WhatsApp…), email o file `.json`;
+(«tua correzione») e si annulla da Impostazioni → Dati e sincronizzazione → Contributi. Si manda con Condividi (WeChat, WhatsApp…), email o file `.json`;
 GitHub Issue è attivo (`repo` in `var CFG` di `src/contrib/contrib.js`); email e Modulo Google compaiono quando li configuri lì.
 
 **Le issue si controllano da sole** (`.github/workflows/contrib.yml`): a ogni issue che contiene una patch, l'Action mette
@@ -427,7 +427,7 @@ nickname a `src/data/contributors.js` (il foglio Crediti dell'app) e a [CONTRIBU
 almeno una sua voce è stata applicata, e mai un nickname con `@` o un indirizzo web. La build controlla che i due elenchi
 coincidano. Per togliere qualcuno: lo cancelli a mano da tutti e due.
 
-**Novità.** ⚙️ → Informazioni → 🆕 Novità mostra `src/data/changelog.js`: a ogni versione aggiungi in cima una
+**Novità.** Impostazioni → Informazioni → Novità mostra `src/data/changelog.js`: a ogni versione aggiungi in cima una
 voce `{ v, d, it: [...], zh: [...] }` con righe brevi per chi studia. La build si ferma se le due lingue non hanno lo stesso
 numero di righe.
 
@@ -463,7 +463,7 @@ suggerimenti; unione), `cp-haptics`, `cp-sfxvol`, `cp-jkmood`, `cp-jkauto`, `cp-
 
 ## Sincronizzare e cambiare telefono
 
-⚙️ → Dati e sincronizzazione → Sincronizzazione. **File nel proprio cloud:** si sceglie (o si crea) un file `mandarino-sync.json` in una cartella di Drive,
+Impostazioni → Dati e sincronizzazione → Sincronizzazione. **File nel proprio cloud:** si sceglie (o si crea) un file `mandarino-sync.json` in una cartella di Drive,
 Dropbox, OneDrive…; l'app lo riscrive dopo ogni sessione e lo riunisce all'avvio con le regole del ripristino «unisci»
 (su Android con il selettore di documenti del sistema, sul computer con l'API File System Access; altrove a mano).
 **Passaggio con i QR:** il telefono vecchio mostra una sequenza di QR, il nuovo la inquadra: nessuna rete, nessun account.
@@ -471,7 +471,7 @@ I punti si sommano per dispositivo (`xpBy`), così le due copie non si contano d
 
 ## Sostegno volontario e sigilli di gratitudine
 
-⚙️ → Informazioni → **Sostieni il progetto** (`src/ui/seals.js`) contiene:
+Impostazioni → Informazioni → **Sostieni il progetto** (`src/ui/seals.js`) contiene:
 
 - due righe sul perché;
 - un link a Ko-fi (`MD_CONFIG.SUPPORT_URL`), aperto solo da un tocco;
@@ -572,7 +572,7 @@ La build si ferma se trova nel repository:
   fisso: nessuna libreria (rough.js non serve). Una pagina diventa un'immagine con il modello `zh-diary` di
   `ui/share-card.js` (3 formati, 3 colori, QR), solo dal tocco su «Condividi questa pagina». Niente esce dal telefono.
 - **Taccuino del viaggiatore, corso di italiano**: `CP.diary.card("it")` / `open("it")`, stesso modulo; le città sono quelle di `DIARY.stops` in ordine inverso con le soglie `DIARY.itTh` (lezioni superate, ≥ 80 % o `done`, da `cp-it-lessons-v1`) e le righe a mano `DIARY.itLines`; le frasi della pagina sono i primi tre `ex` della lezione che ha aperto la città. Niente `cp-ex-v1.conf` e niente condivisione.
-- **Scambio linguistico** (`src/ui/scambio.js` + `src/i18n/scambio.js`, caricati al primo uso di `CP.scambio`; `src/ui/scambio-stub.js` è la sezione sempre presente in ⚙️ → Suoni e musica): consenso in `md-voice-consent` (senza `cp-`, fuori dai backup), registrazioni in IndexedDB `mandarino-voices-v1` (store `rec`, chiave `ref|lingua|n/x`), `MediaRecorder` su `CP.micStream()` con rilascio garantito, invio con `CP._zip` (il file si prepara in anticipo, `send("mail")` usa `navigator.share` con il file o ripiega su download + `mailto:`, solo con `consent()` completo: ho capito, 18 anni, pubblicazione). Serie a caso di 10 (7 frasi + 3 parole, `w:<parola>`) da `PHRASES`, `DIALOGS`, `EXAMPLES` e dal vocabolario (riferimenti di `tools/review-sample.mjs`).
+- **Scambio linguistico** (`src/ui/scambio.js` + `src/i18n/scambio.js`, caricati al primo uso di `CP.scambio`; `src/ui/scambio-stub.js` è la sezione sempre presente in Impostazioni → Suoni e musica): consenso in `md-voice-consent` (senza `cp-`, fuori dai backup), registrazioni in IndexedDB `mandarino-voices-v1` (store `rec`, chiave `ref|lingua|n/x`), `MediaRecorder` su `CP.micStream()` con rilascio garantito, invio con `CP._zip` (il file si prepara in anticipo, `send("mail")` usa `navigator.share` con il file o ripiega su download + `mailto:`, solo con `consent()` completo: ho capito, 18 anni, pubblicazione). Serie a caso di 10 (7 frasi + 3 parole, `w:<parola>`) da `PHRASES`, `DIALOGS`, `EXAMPLES` e dal vocabolario (riferimenti di `tools/review-sample.mjs`).
   Anteprime dei link (Open Graph, 1200×630, tutto l'essenziale nel quadrato centrale di 630 px perché WhatsApp e WeChat ritagliano): `node tools/site.mjs --anteprime` rigenera `docs/img/anteprima.png` e `manifesto-og.png`. Pagina del sito `docs/partecipa-voci.html` (copiata da `tools/site.mjs`, esclusa da `robots.txt` e dalla sitemap). Specifica e decisioni: `docs/scambio-linguistico.md`.
 - **Prove su un telefono vero**: [docs/checklist-dispositivo.md](checklist-dispositivo.md).
 
@@ -617,7 +617,7 @@ Nel foglio di ogni carattere (non sul fronte della carta di studio) c'è «Di ch
 
 Solo la struttura: nessuna «storia» del carattere. I dati non hanno una fonte affidabile per raccontarla, e le etimologie
 popolari spesso sono false. Nella lavagna, con la guida accesa, si evidenzia il componente del prossimo tratto.
-Interruttore: ⚙️ → Studio → Anatomia dei caratteri (acceso di base).
+Interruttore: Impostazioni → Studio → Anatomia dei caratteri (acceso di base).
 
 **Dati.**
 - `src/data/anatomy.js` (129 KB, letto solo al primo uso) nasce da `tools/anatomy.mjs` e dal file `dictionary.txt` di
@@ -634,7 +634,7 @@ Interruttore: ⚙️ → Studio → Anatomia dei caratteri (acceso di base).
 
 ## Sfide e classe, senza server (tutti e due i corsi)
 
-In ⚙️ → Studio → «🎯 Sfide e classe», e con il pulsante «🎯 Sfida un amico» nel Percorso (corso di cinese) e in
+In Impostazioni → Studio → «Sfide e classe», e con il pulsante «Sfida un amico» nel Percorso (corso di cinese) e in
 «我的进步» (corso di italiano).
 
 **Sfida a un amico** (`src/ui/challenge.js`).
@@ -647,7 +647,7 @@ In ⚙️ → Studio → «🎯 Sfide e classe», e con il pulsante «🎯 Sfida
   - come link `…#sfida=MDC1-…`, dove l'app ha un indirizzo web (la pagina aperta nel browser, o `SITE_URL` + `app/`).
     Il frammento non arriva a nessun server e si toglie subito dall'indirizzo;
   - come testo da incollare (va bene anche il messaggio intero);
-  - come QR da inquadrare nell'app (⚙️ → Studio → Sfide e classe → Inquadra il QR).
+  - come QR da inquadrare nell'app (Impostazioni → Studio → Sfide e classe → Inquadra il QR).
 - Corso di cinese: carattere e pinyin → significato in italiano. Corso di italiano: parola italiana → caratteri.
 - Un codice dell'altro corso propone di passare a quel corso; un codice con parole sconosciute chiede di aggiornare l'app.
 - La sfida non tocca i ripassi né i punti. Dentro il codice non ci sono nomi né punteggi; «Rilancia la sfida» manda lo
@@ -664,7 +664,7 @@ In ⚙️ → Studio → «🎯 Sfide e classe», e con il pulsante «🎯 Sfida
   - il file `.json` con lo stesso contenuto;
   - un **foglio da stampare** (PNG A4 a 150 dpi) con due QR: l'app (lo stesso indirizzo della carta da condividere) e il
     pacchetto (il link `#classe=`, o il codice se non c'è un indirizzo web).
-- Chi studia lo importa (file, codice o QR) e vede il riquadro «👩‍🏫 Classe: …» in cima al Percorso o alle lezioni, con
+- Chi studia lo importa (file, codice o QR) e vede il riquadro «Classe: …» in cima al Percorso o alle lezioni, con
   l'avanzamento e i giorni che mancano.
 - **Riepilogo per chi insegna**, solo dopo una spunta di consenso. Contiene solo conteggi:
   - parole del tratto studiate (corso di cinese) o lezioni superate (corso di italiano);
@@ -676,11 +676,11 @@ In ⚙️ → Studio → «🎯 Sfide e classe», e con il pulsante «🎯 Sfida
 - Chi insegna apre insieme più riepiloghi (`.json`) e li vede in una tabella; i file non vengono salvati.
 
 **Peso.** I due moduli e i loro testi (`src/i18n/together.js`) si caricano al primo uso (`LAZYMOD` in `tools/build.mjs`).
-All'avvio c'è solo `src/ui/together.js`: la sezione in ⚙️, i link e il riquadro.
+All'avvio c'è solo `src/ui/together.js`: la sezione in Impostazioni, i link e il riquadro.
 
 ## Esercizi vari e stile di ripasso
 
-⚙️ → Studio → «Stile di ripasso»:
+Impostazioni → Studio → «Stile di ripasso»:
 - **Guidato** (consigliato a chi comincia): il ciclo «impara, esercitati, verifica», una tappa alla volta;
 - **Misto**: esercizi vari al posto dell'autovalutazione;
 - **Classico**: le carte di prima, con «La so / Non la so», identiche riga per riga (prova golden).
@@ -737,13 +737,13 @@ caricare il gruppo).
      parti del test di livello, con una frase gentile sul punto più debole. Sotto la soglia, «Rinforza» ripassa le parole
      sbagliate. La verifica non tocca FSRS; superata la prima volta dà 20 punti;
   3. il dialogo della tappa.
-- **Stato** in `cp-ex-v1.units[tappa]`. Il segno «🏅 Tappa verificata» si aggiunge alla regola dell'80%, che non cambia.
+- **Stato** in `cp-ex-v1.units[tappa]`. Il segno «Tappa verificata» si aggiunge alla regola dell'80%, che non cambia.
 - Si può sempre «Studiare libero» da Studia.
 - **Lezioni:** dopo il quiz «Rifai i tuoi errori» e (stili Misto e Guidato) una mini-verifica con 2 domande a buco nuove,
   prese dagli esempi. Nessuna delle due cambia il risultato della lezione.
 - `ui/share-card.js` ora si carica al primo uso di `CP.shareCard`; la parola del giorno sta in `pwa/widget.js`.
 
-**Lettura graduata** (Frasi → 📖 Leggi → «Testi», `src/phrases/reading.js`, gruppo ESERCIZI).
+**Lettura graduata** (Frasi → Leggi → «Testi», `src/phrases/reading.js`, gruppo ESERCIZI).
 - I testi vengono da `materiali/runtime/testi-*.json`; `tools/lettura.mjs` li controlla e scrive `src/data/reading/`
   (`TESTI_ZH`, `TESTI_IT`, letti al primo uso). Ogni frase cinese deve essere fatta di parole del vocabolario nel taglio
   dell'app; il livello del testo è quello della parola più alta, e se quello dichiarato è più basso vince il calcolato
@@ -758,7 +758,7 @@ caricare il gruppo).
   `materiali/crediti/autori-frasi.tsv` (le frasi sono negli esercizi).
 
 **Corso di italiano alla pari** (codice in `COURSE_IT`: `src/it/esercizi.js`, `src/it/lettura.js`).
-- **Stessi stili** (⚙️ → Studio → Stile di ripasso): Classico = le carte di prima (da girare, quattro voti); Misto e Guidato = gli
+- **Stessi stili** (Impostazioni → Studio → Stile di ripasso): Classico = le carte di prima (da girare, quattro voti); Misto e Guidato = gli
   esercizi dello stesso motore (`CP.exEngine`, con un kit per il corso: parola, scheda, voce italiana, rivelazione).
   Le parole nuove si presentano prima (parola, cinese, forme, frase) con «记住了，练一练».
 - **Voto** sempre da `CP.itApi.grade(voce, g, meta)`: scrive `cp-it-srs-v1` nel formato di sempre `{ c, n, lr }`; la
@@ -786,7 +786,7 @@ caricare il gruppo).
   `dist/audio/voce/<lingua>/<numero>.<impronta>.ogg` (fuori dal repository, come i brani; `--check` le ignora).
 - `CP.speak` chiede la clip della frase (chiave: per l'italiano minuscole senza punteggiatura, per il cinese solo i
   caratteri); se non parte torna alla voce di sempre. Le clip si usano **solo se sono sul telefono**: nell'APK sempre;
-  sul sito dopo ⚙️ → Suoni e musica → Voce → «Scarica le voci (7,3 MB)», che le mette nella cache `mandarino-voice` (il service worker non
+  sul sito dopo Impostazioni → Suoni e musica → Voce → «Scarica le voci (7,3 MB)», che le mette nella cache `mandarino-voice` (il service worker non
   la cancella agli aggiornamenti; `src/pwa/sw.js` e `swSource()` in `src/pwa/pwa.js` restano uguali). Prima di allora
   nessuna richiesta di rete. Mai il sesso, l'accento o il numero di chi parla.
 - Crediti: «voce: NM1, Tatoeba, CC BY 4.0» e «voci: Mozilla Common Voice, CC0».
@@ -838,7 +838,7 @@ fa all'apertura: leggere, compilare ed eseguire il JavaScript prima che sparisca
 ## Esporta per Anki
 
 Per chi ha studiato molto e vuole portare le parole anche in Anki, senza togliere niente a màndarínō. La voce compare
-**solo dopo 400 parole iniziate o 400 ripassi** (`ANKI_MIN` in `src/core/export-anki.js`), in ⚙️ → Dati e sincronizzazione →
+**solo dopo 400 parole iniziate o 400 ripassi** (`ANKI_MIN` in `src/core/export-anki.js`), in Impostazioni → Dati e sincronizzazione →
 «Anki: porta le tue parole», accanto alla sincronizzazione. Il testo spiega la differenza: sincronizzare passa i
 progressi a un altro dispositivo con màndarínō, esportare porta le parole in un'altra app. Prima di salvare servono due
 conferme. Il primo foglio dice che cosa fa e che cosa non fa.
@@ -872,7 +872,7 @@ nella finestra d'importazione). `Store.download(nome, testo, mime)` ora accetta 
 
 ## Pleco (facoltativo)
 
-Chi ha il dizionario Pleco sul telefono può accendere ⚙️ → Studio → «Mostra il collegamento a Pleco». È spento di base e
+Chi ha il dizionario Pleco sul telefono può accendere Impostazioni → Studio → «Mostra il collegamento a Pleco». È spento di base e
 si accende con due conferme, perché porta a un'altra app. Non c'è sul computer né nel corso di italiano. Acceso:
 
 - sotto i 2 secondi non cambia niente (a mezzo secondo si apre il foglio del carattere, come sempre);
@@ -898,7 +898,7 @@ Pleco, sul telefono.
 [PRIVACY.md](../PRIVACY.md), in italiano e in cinese, dice che cosa resta sul dispositivo (tutto), quando l'app usa la rete
 (controllo aggiornamenti dell'APK, voce online se accesa, riconoscimento vocale del browser, file dello stesso sito, link
 toccati), il backup automatico di Android e come funzionano contributi, Pleco e sigilli. In breve, la stessa cosa sta
-nell'app: ⚙️ → Informazioni → 🔒 Privacy
+nell'app: Impostazioni → Informazioni → Privacy
 (`src/ui/privacy.js`). Chi aggiunge una richiesta di rete aggiorna tutti e due: la tabella di PRIVACY.md e le righe
 `pv.*` in `src/i18n/`.
 
@@ -938,7 +938,7 @@ L'elenco di ciò che resta da fare è in [roadmap.md](roadmap.md); le procedure 
 - Lettore: gli omografi (花 fiore / spendere) mostrano tutti i significati; un carattere noto solo dentro altre parole
   (泳 in 游泳) mostra la lettura e dove compare.
 - Voce: si usa la voce del telefono. La voce online (che manda il testo a un servizio esterno) parte solo se l'hai
-  permessa in ⚙️; altrimenti, se manca una voce cinese, un avviso spiega come installarla. Legge i testi lunghi a pezzi sotto i 180 caratteri.
+  permessa in Impostazioni; altrimenti, se manca una voce cinese, un avviso spiega come installarla. Legge i testi lunghi a pezzi sotto i 180 caratteri.
 
 ## Difetti trovati sul telefono (ottobre 2026) e come sono risolti
 

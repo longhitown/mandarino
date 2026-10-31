@@ -303,18 +303,18 @@
     prepare(recs);
     h = '<div class="fam-head"><div class="meta"><b>' + esc(T("sc.title")) + '</b><div class="small muted">' + esc(T("sc.have", { n: recs.length, s: sent })) + '</div></div><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>";
     if (S.err) h += '<p class="small" role="alert">' + esc(S.err) + "</p>";
-    h += '<div class="acts"><button type="button" class="btn-main" data-sc-rec="own">🎙️ ' + esc(T("sc.m.rec")) + "</button>" + (c.other ? '<button type="button" class="btn-s" data-sc-rec="other">🎙️ ' + esc(T("sc.m.recOther")) + "</button>" : "") + "</div>";
+    h += '<div class="acts"><button type="button" class="btn-main" data-sc-rec="own">⟦mic⟧ ' + esc(T("sc.m.rec")) + "</button>" + (c.other ? '<button type="button" class="btn-s" data-sc-rec="other">⟦mic⟧ ' + esc(T("sc.m.recOther")) + "</button>" : "") + "</div>";
     h += '<label class="sc-chk small"><input id="sc-other" type="checkbox" data-sc-other' + (c.other ? " checked" : "") + "> " + esc(T("sc.m.other")) + '</label><p class="small muted" style="margin:0 0 8px">' + esc(T("sc.m.otherNote")) + "</p>";
     if (todo) {
-      h += '<p class="small muted">' + esc(T("sc.s.help")) + '</p><div class="acts"><button type="button" class="btn-main" data-sc-send="mail">📧 ' + esc(T("sc.s.mail")) + " (" + todo + ')</button>' +
-        '<button type="button" class="btn-s" data-sc-send="file">⬇️ ' + esc(T("sc.s.file")) + "</button></div>";
+      h += '<p class="small muted">' + esc(T("sc.s.help")) + '</p><div class="acts"><button type="button" class="btn-main" data-sc-send="mail">⟦mail⟧ ' + esc(T("sc.s.mail")) + " (" + todo + ')</button>' +
+        '<button type="button" class="btn-s" data-sc-send="file">⟦download⟧ ' + esc(T("sc.s.file")) + "</button></div>";
     }
-    if (S.sentFile) h += '<p class="small okline" role="status">' + esc(T("sc.s.done", { f: S.sentFile })) + ' <a href="mailto:' + MAIL + "?subject=" + encodeURIComponent(T("sc.s.subject")) + '">' + esc(MAIL) + "</a></p>" + (S.needAttach ? '<p class="small" role="alert">⚠️ ' + esc(T("sc.s.attach", { f: S.sentFile })) + "</p>" : "");
+    if (S.sentFile) h += '<p class="small okline" role="status">' + esc(T("sc.s.done", { f: S.sentFile })) + ' <a href="mailto:' + MAIL + "?subject=" + encodeURIComponent(T("sc.s.subject")) + '">' + esc(MAIL) + "</a></p>" + (S.needAttach ? '<p class="small" role="alert">⟦warning⟧ ' + esc(T("sc.s.attach", { f: S.sentFile })) + "</p>" : "");
     h += '<p class="small"><a href="' + SITE + '" target="_blank" rel="noopener">' + esc(T("sc.c.site")) + "</a> · " + esc(T("sc.c.siteNote")) + "</p>";
     if (recs.length) {
       h += '<h4 class="set-h">' + esc(T("sc.m.list")) + '</h4><ul class="sc-list">' + recs.map(function (r) {
         return '<li><span class="sc-t" lang="' + r.lang + '">' + esc(r.text) + '</span><span class="muted small">' + (r.native ? "" : esc(T("sc.m.nn")) + " · ") + (r.sent ? esc(T("sc.m.sent")) : "") + "</span>" +
-          '<button type="button" class="btn-s" data-sc-play="' + CP.attr(r.id) + '" aria-label="' + CP.attr(T("sc.m.play")) + '">▶</button>' +
+          '<button type="button" class="btn-s" data-sc-play="' + CP.attr(r.id) + '" aria-label="' + CP.attr(T("sc.m.play")) + '">⟦play⟧</button>' +
           '<button type="button" class="btn-s" data-sc-del="' + CP.attr(r.id) + '" aria-label="' + CP.attr(T("sc.m.del")) + '">×</button></li>';
       }).join("") + "</ul>";
     }
@@ -324,14 +324,14 @@
   function recSheet(recs) {
     if (!S.queue) { S.queue = makeQueue(recs); S.qi = 0; }
     var p = S.cur = S.queue[S.qi] || null, lang = curLang();
-    var h = '<div class="fam-head"><div class="meta"><b>🎙️ ' + esc(T("sc.m.rec")) + '</b>' + (native() ? "" : '<div class="small muted">' + esc(T("sc.m.nn")) + "</div>") + '</div><button type="button" class="fam-x btn-s" data-sc-back>' + esc(T("sc.r.back")) + "</button></div>";
+    var h = '<div class="fam-head"><div class="meta"><b>⟦mic⟧ ' + esc(T("sc.m.rec")) + '</b>' + (native() ? "" : '<div class="small muted">' + esc(T("sc.m.nn")) + "</div>") + '</div><button type="button" class="fam-x btn-s" data-sc-back>' + esc(T("sc.r.back")) + "</button></div>";
     if (!p) { CP.openSheet(h + '<p>' + esc(T(S.queue.length ? "sc.r.done" : "sc.r.none")) + '</p><div class="acts">' + (S.queue.length ? '<button type="button" class="btn-main" data-sc-more>' + esc(T("sc.r.more")) + "</button>" : "") + '<button type="button" class="btn-s" data-sc-back>' + esc(T("sc.r.back")) + "</button></div>"); return; }
     h += '<p class="small muted" style="margin:0">' + esc(T("sc.r.prompt")) + " · " + (S.qi + 1) + " / " + S.queue.length + (p.word ? " · " + esc(T("sc.r.word")) : "") + '</p><p class="sc-big" lang="' + lang + '">' + esc(textOf(p, lang)) + '</p><p class="small muted" lang="' + (lang === "zh-CN" ? "it-IT" : "zh-CN") + '">' + esc(textOf(p, lang === "zh-CN" ? "it-IT" : "zh-CN")) + "</p>";
     if (S.err) h += '<p class="small" role="alert">' + esc(S.err) + "</p>";
-    if (S.busy) h += '<div class="acts"><button type="button" class="btn-main" data-sc-stop>⏹ ' + esc(T("sc.r.stop")) + '</button></div><p class="small muted" role="status">' + esc(T("sc.r.limit")) + "</p>";
+    if (S.busy) h += '<div class="acts"><button type="button" class="btn-main" data-sc-stop>⟦stop⟧ ' + esc(T("sc.r.stop")) + '</button></div><p class="small muted" role="status">' + esc(T("sc.r.limit")) + "</p>";
     else if (S.checking) h += '<p class="small muted" role="status">' + esc(T("sc.r.checking")) + "</p>";
-    else if (S.blob) h += '<div class="acts"><button type="button" class="btn-s" data-sc-prev>▶ ' + esc(T("sc.m.play")) + '</button><button type="button" class="btn-main" data-sc-keep>' + esc(T("sc.r.keep")) + '</button><button type="button" class="btn-s" data-sc-redo>' + esc(T("sc.r.redo")) + "</button></div>";
-    else h += '<div class="acts"><button type="button" class="btn-main" data-sc-start>🎙️ ' + esc(T("sc.r.start")) + '</button><button type="button" class="btn-s" data-sc-skip>' + esc(T("sc.r.skip")) + "</button></div>";
+    else if (S.blob) h += '<div class="acts"><button type="button" class="btn-s" data-sc-prev>⟦play⟧ ' + esc(T("sc.m.play")) + '</button><button type="button" class="btn-main" data-sc-keep>' + esc(T("sc.r.keep")) + '</button><button type="button" class="btn-s" data-sc-redo>' + esc(T("sc.r.redo")) + "</button></div>";
+    else h += '<div class="acts"><button type="button" class="btn-main" data-sc-start>⟦mic⟧ ' + esc(T("sc.r.start")) + '</button><button type="button" class="btn-s" data-sc-skip>' + esc(T("sc.r.skip")) + "</button></div>";
     CP.openSheet(h);
   }
   /* le tre autorizzazioni, tutte spuntate: ho capito, ho 18 anni, autorizzo la pubblicazione CC BY 4.0 */

@@ -1,4 +1,4 @@
-/* ===== màndarínō · lettore del jukebox: motore (dissolvenze, casuale, umori) e interfaccia (🎵, pannello, ⚙️).
+/* ===== màndarínō · lettore del jukebox: motore (dissolvenze, casuale, umori) e interfaccia (music, pannello, gear).
    Le tracce stanno in audio/tracks/ e gli attrezzi sonori in audio/synth.js. ===== */
 (function () {
   var CP = window.CP, esc = CP.esc;
@@ -14,14 +14,14 @@
   var TRACKS = CP.audioTracks.list, groove = CP.synth.groove;
   var MOODS = [["", CP.t("jk.mAll")], ["calm", CP.t("jk.mCalm")], ["focus", CP.t("jk.mFocus")], ["energy", CP.t("jk.mEnergy")]];
   var BYID = {};
-  /* ---------- i tuoi brani (⚙️ → Suoni e musica → Voce → «I tuoi brani»): l'elenco sta in localStorage (md-ubl, fuori dal backup), i file nella memoria
+  /* ---------- i tuoi brani (gear → Suoni e musica → Voce → «I tuoi brani»): l'elenco sta in localStorage (md-ubl, fuori dal backup), i file nella memoria
      dell'app (IndexedDB) e li gestisce il gruppo MIEIBRANI (audio/user-tracks.js), caricato solo quando serve ---------- */
   var UBL = CP.ubLimits = { n: 40, mb: 80, min: 30, totalMb: 600 };
   var UB = { mode: lget("cp-ubmode") === "only" ? "only" : "mix", msg: "", busy: "" };
   function ubMetas() { try { var a = JSON.parse(lget("md-ubl") || "[]"); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
   function ubTrack(m) {
     var d = CP.t("ub.mine");
-    return { id: m.id, ico: "🎧", name: m.name, desc: d, zh: [m.name, d], mood: "", user: true, file: true, sec: m.sec, make: function (c, bus) { return CP.audioFile.player(c, bus, m.id); } };
+    return { id: m.id, ico: "⟦headphones⟧", name: m.name, desc: d, zh: [m.name, d], mood: "", user: true, file: true, sec: m.sec, make: function (c, bus) { return CP.audioFile.player(c, bus, m.id); } };
   }
   function ubLoad(cb) { if (!CP.ub && window.__mdLoad && window.__mdLoad.MIEIBRANI) window.__mdLoad.MIEIBRANI(); cb(CP.ub || null); }
   CP.userBlob = function (id) { return new Promise(function (res, rej) { ubLoad(function (u) { if (u) u.blob(id).then(res, rej); else rej(new Error("ub")); }); }); };
@@ -116,7 +116,7 @@
         ms.playbackState = on ? "playing" : "paused";
       }
     } catch (e) {}
-    try { if (A && A.musicNotify) A.musicNotify(t ? t.ico + " " + nm(t) : "", !!on, !!J.bg);   /* in pausa il titolo resta nella notifica */ } catch (e) {}
+    try { if (A && A.musicNotify) A.musicNotify(t ? nm(t) : "", !!on, !!J.bg);   /* in pausa il titolo resta nella notifica */ } catch (e) {}
   }
   function remote(cmd) {
     if (cmd === "prev") { if (J.run) prev(); return; }
@@ -136,17 +136,17 @@
   function modeNow() { return !CP.pref.sfx ? "mute" : "on"; }
   function wanted() { return J.want && modeNow() !== "mute" && !J.hold && (J.bg || !document.hidden); }
   CP.musicApply = function () {
-    /* in secondo piano la musica si ferma, a meno che non si sia scelto di lasciarla suonare (⚙️ nel pannello 🎵) */
+    /* in secondo piano la musica si ferma, a meno che non si sia scelto di lasciarla suonare (gear nel pannello music) */
     if (wanted()) start(); else stop();
     if (mus) {
-      mus.textContent = "🎵"; mus.classList.toggle("on", J.want && modeNow() !== "mute"); mus.setAttribute("aria-pressed", J.want ? "true" : "false");
+      mus.textContent = "⟦music⟧"; mus.classList.toggle("on", J.want && modeNow() !== "mute"); mus.setAttribute("aria-pressed", J.want ? "true" : "false");
       mus.setAttribute("aria-label", CP.t("jk.aria", { s: CP.t(J.want ? "jk.on" : "jk.off") })); mus.title = CP.t("jk.title").replace(/^\S+\s/, "");
     }
     paint();
   };
   CP.musicHold = function (on) { J.hold = Math.max(0, J.hold + (on ? 1 : -1)); CP.musicApply(); };
   CP.musicState = function () { return { want: J.want, running: J.run, hold: J.hold, track: J.curId, sel: J.sel, played: J.played.slice(), mood: J.mood, live: CP.synth.live() }; };
-  /* abbinamento automatico: in modalità casuale, la Sfida parte con una traccia ⚡ e lo studio con una 🎯 */
+  /* abbinamento automatico: in modalità casuale, la Sfida parte con una traccia bolt e lo studio con una target */
   CP.musicMood = function (m) {
     if (!J.auto || !J.run || J.sel !== "shuffle" || !J.cur) return;
     var cur = BYID[J.curId]; if (cur && cur.mood === m) return;
@@ -176,7 +176,7 @@
     var ms = ubMetas(), h = '<div class="vab" id="ub-box"><div class="small" style="font-weight:700">' + CP.t("ub.title") + '</div><p class="small muted" style="margin:2px 0 6px">' + CP.t("ub.hint", { n: UBL.n, mb: UBL.mb, min: UBL.min }) + "</p>";
     if (ms.length) {
       h += '<div class="ub-list">' + ms.map(function (m) {
-        return '<div class="ub-it"><span><b>🎧 ' + esc(m.name) + "</b><i>" + fmt(m.sec) + " · " + Math.max(1, Math.round(m.size / 1048576)) + ' MB</i></span><button type="button" class="btn-s" data-ub-rm="' + esc(m.id) + '" aria-label="' + CP.attr(CP.t("ub.rmAria", { t: m.name })) + '">' + CP.t("ub.rm") + "</button></div>";
+        return '<div class="ub-it"><span><b>⟦headphones⟧ ' + esc(m.name) + "</b><i>" + fmt(m.sec) + " · " + Math.max(1, Math.round(m.size / 1048576)) + ' MB</i></span><button type="button" class="btn-s" data-ub-rm="' + esc(m.id) + '" aria-label="' + CP.attr(CP.t("ub.rmAria", { t: m.name })) + '">' + CP.t("ub.rm") + "</button></div>";
       }).join("") + "</div>";
       h += '<div class="cpills" role="group" aria-label="' + CP.attr(CP.t("ub.title")) + '">' + [["mix", "ub.mix"], ["only", "ub.only"]].map(function (x) {
         return '<button type="button" data-ub-mode="' + x[0] + '"' + (UB.mode === x[0] ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">" + CP.t(x[1]) + "</button>";
@@ -204,7 +204,7 @@
   function ubRemove(id) { ubLoad(function (u) { if (u) u.remove(id).then(function () { ubDone(esc(CP.t("ub.removed"))); }, function () { ubDone(esc(CP.t("ub.fail"))); }); }); }
   CP.jukebox = { userSet: userSet, remote: function (c) { remote(c); }, tracks: TRACKS, groove: groove, play: function (id) { J.want = true; lset("cp-music", "1"); J.sel = id; lset("cp-track", id); if (J.run) play(id === "shuffle" ? (J.order[J.pos] || TRACKS[0].id) : id); else CP.musicApply(); }, next: next };
 
-  /* ---------- interfaccia: popup sul 🎵 + selettore in "Voce e audio" ---------- */
+  /* ---------- interfaccia: popup sul music + selettore in "Voce e audio" ---------- */
   var pop = document.createElement("div"); pop.id = "jk-pop"; pop.hidden = true; pop.setAttribute("role", "dialog"); pop.setAttribute("aria-modal", "true"); pop.setAttribute("aria-label", "Jukebox"); document.body.appendChild(pop);
   function moodPills() {
     return '<div class="cpills jk-moods" role="group" aria-label="Filtra per umore">' + MOODS.map(function (m) {
@@ -213,7 +213,7 @@
   }
   function list(extraCls) {
     var cur = J.sel, h = '<div class="jk-list ' + (extraCls || "") + '" role="radiogroup" aria-label="' + CP.t("jk.choose") + '">', mn = MOODS.filter(function (m) { return m[0] === J.mood; })[0];
-    h += '<button type="button" class="jk-it' + (cur === "shuffle" ? " on" : "") + '" role="radio" aria-checked="' + (cur === "shuffle") + '" data-jk="shuffle"><span class="ico">🔀</span><span><b>' + (J.mood ? CP.t("jk.rand", { m: mn[1] }) : CP.t("jk.all")) + '</b><i>' + CP.t("jk.cycle") + '</i></span></button>';
+    h += '<button type="button" class="jk-it' + (cur === "shuffle" ? " on" : "") + '" role="radio" aria-checked="' + (cur === "shuffle") + '" data-jk="shuffle"><span class="ico">⟦shuffle⟧</span><span><b>' + (J.mood ? CP.t("jk.rand", { m: mn[1] }) : CP.t("jk.all")) + '</b><i>' + CP.t("jk.cycle") + '</i></span></button>';
     pool().forEach(function (t) {
       h += '<button type="button" class="jk-it' + (cur === t.id ? " on" : "") + '" role="radio" aria-checked="' + (cur === t.id) + '" data-jk="' + t.id + '"><span class="ico">' + t.ico + '</span><span><b>' + esc(nm(t)) + '</b><i>' + esc(ds(t)) + "</i></span></button>";
     });

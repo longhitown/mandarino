@@ -9,7 +9,7 @@
      Un .apkg con il calendario è fuori portata.
    - Corso di italiano: le parole di CP.itLexicon; per i verbi il presente prodotto dalle regole dell'app (CP.ita), non da
      Morph-it! (che a runtime non c'è). Genere e articolo vengono dal lessico (Morph-it!, LGPL): l'intestazione lo cita.
-   Chi lo vede: solo chi ha studiato molto (ANKI_MIN parole iniziate o ripassi), in ⚙️ → Dati e sincronizzazione → «Altre opzioni di
+   Chi lo vede: solo chi ha studiato molto (ANKI_MIN parole iniziate o ripassi), in gear → Dati e sincronizzazione → «Altre opzioni di
    esportazione», con due conferme. Il file si salva con Store.download, come il backup: nessuna rete. ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc;
@@ -87,22 +87,22 @@
   }
   CP.anki = { build: build, guid: guid, save: save, allowed: allowed, studied: studied, MIN: ANKI_MIN };
 
-  /* ⚙️ → Dati e sincronizzazione, accanto alla sincronizzazione: un blocco chiuso, solo per chi ha studiato molto */
+  /* gear → Dati e sincronizzazione, accanto alla sincronizzazione: un blocco chiuso, solo per chi ha studiato molto */
   var pick = { which: "mine", sec: "" };
   (CP.settingsExtras = CP.settingsExtras || []).push({ group: "data", html: function () {
     if (!allowed()) return "";
     var opts = [["mine", T("anki.mine")], ["sure", T("anki.sure")], ["all", T("anki.all")]].concat(IT ? [] : [["sec", T("anki.sec")]]);
-    return '<details class="set-sec" id="set-export"><summary>📤 ' + T("anki.more") + '</summary><div class="vbody">' +
+    return '<details class="set-sec" id="set-export"><summary>⟦share⟧ ' + T("anki.more") + '</summary><div class="vbody">' +
       (CP.ankiGuide ? CP.ankiGuide() : '<p class="small muted" style="margin:0">' + T("anki.diff") + "</p>") +
       '<fieldset class="anki-pick"><legend class="small">' + T(IT ? "anki.ledeIt" : "anki.lede") + "</legend>" + opts.map(function (x) {
         return '<label class="chk"><input type="radio" name="anki-which" value="' + x[0] + '"' + (pick.which === x[0] ? " checked" : "") + "> " + x[1] + "</label>";
       }).join("") +
       (IT ? "" : '<label class="sr" for="anki-sec">' + T("anki.sec") + '</label><select id="anki-sec"' + (pick.which === "sec" ? "" : " disabled") + ">" + CP.SEC.map(function (S) { return '<option value="' + CP.attr(S.id) + '"' + (S.id === pick.sec ? " selected" : "") + ' lang="it">' + esc(S.title) + "</option>"; }).join("") + "</select>") +
-      '</fieldset><button type="button" class="btn-s" data-anki-go>🗂️ ' + T("anki.title") + "</button></div></details>";
+      '</fieldset><button type="button" class="btn-s" data-anki-go>⟦cards⟧ ' + T("anki.title") + "</button></div></details>";
   } });
   function setClose() { var se = document.getElementById("settings"); if (se && !se.hidden) CP.untrap(se); }
   function setBack() { CP.closeSheet(); if (CP.openSettings) CP.openSettings("set-export"); }
-  function sheet(body) { setClose(); CP.openSheet('<div class="anki-sheet"><div class="fam-head"><b>🗂️ ' + esc(T("anki.title")) + '</b><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>" + body + "</div>"); }
+  function sheet(body) { setClose(); CP.openSheet('<div class="anki-sheet"><div class="fam-head"><b>⟦cards⟧ ' + esc(T("anki.title")) + '</b><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>" + body + "</div>"); }
   document.addEventListener("change", function (e) {
     var t = e.target; if (!t) return;
     if (t.name === "anki-which") { pick.which = t.value; var s = document.getElementById("anki-sec"); if (s) { s.disabled = t.value !== "sec"; if (!pick.sec) pick.sec = s.value; } }

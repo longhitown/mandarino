@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Cammello</title>
+  <path d="M3.6 17.4V13.6Q3.6 10.6 5.8 10.6Q7.4 10.6 8.4 12.6Q9.4 8.6 11.6 8.6Q13.8 8.6 14.6 11.8Q15.6 10.4 17 10.8L18.8 8.8Q20.4 7.8 21 9.4L20.4 11.6L18 12.6V17.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6.2 17.4V20.6M9.6 17.4V20.6M14.4 17.4V20.6M18 17.4V20.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="19.7" cy="9.8" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

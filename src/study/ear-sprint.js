@@ -40,7 +40,7 @@
     var w = ear.q, pct = Math.round(ear.n / ROUNDS * 100), h = '<div class="sess"><button type="button" class="btn-quiet" id="m-quit">' + T("fx.leave") + "</button>" +
       '<div class="meter" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i class="k" style="width:' + pct + '%"></i></div><span class="cnt">' + ear.n + " / " + ROUNDS + "</span></div>";
     h += '<div class="panel fc"><span class="tag">' + T("ear.q") + "</span>" +
-      '<button type="button" class="btn-main" style="margin:0;max-width:260px" data-eplay>🔊 ' + T("ear.again") + "</button>";
+      '<button type="button" class="btn-main" style="margin:0;max-width:260px" data-eplay>⟦speaker⟧ ' + T("ear.again") + "</button>";
     if (ear.answered) {
       var t = CP.tone(w.py), right = ear.picked === t;
       h += '<p class="verdict ' + (right ? "ok" : "ko") + '" style="width:100%;text-align:left">' + (right ? T("ex.right") : T("ear.was", { n: t, name: TONE_NAMES[t] })) + "</p>" +
@@ -54,7 +54,7 @@
     }
     h += '<div class="tonebtns">' + toneBtns() + "</div>";
     if (ear.answered) {
-      h += '<div class="acts cardacts">' + (CP.canScope && CP.canScope() ? '<button type="button" data-scope="' + CP.attr(w.key) + '">〰️ ' + T("ear.scope") + "</button>" : "") + "</div>" +
+      h += '<div class="acts cardacts">' + (CP.canScope && CP.canScope() ? '<button type="button" data-scope="' + CP.attr(w.key) + '">⟦wave⟧ ' + T("ear.scope") + "</button>" : "") + "</div>" +
         '<button type="button" class="btn-main" id="e-next" style="margin-top:0">' + T(ear.n >= ROUNDS ? "ear.result" : "common.next") + "</button>";
     }
     h += "</div>";

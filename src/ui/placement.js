@@ -107,7 +107,7 @@
       box.innerHTML = '<div class="pl-top"><span class="small muted">' + esc(T("pl.count", { n: n, m: M })) + '</span><button type="button" class="btn-s pl-stop" data-pl-stop>' + esc(T("pl.stop")) + "</button></div>" +
         '<div class="pl-bar" aria-hidden="true"><i style="width:' + Math.round((n - 1) / M * 100) + '%"></i></div>' +
         '<p class="ask pl-ask">' + q.ask + "</p>" + (q.big ? '<div class="pl-big">' + q.big + "</div>" : "") +
-        (q.audio ? '<button type="button" class="btn-s pl-play" data-pl-play>🔊 ' + esc(T("pl.listen")) + "</button>" : "") +
+        (q.audio ? '<button type="button" class="btn-s pl-play" data-pl-play>⟦speaker⟧ ' + esc(T("pl.listen")) + "</button>" : "") +
         '<div class="ls-opts pl-opts">' + q.o.map(function (o, j) { return '<button type="button" class="ls-opt" data-pl-opt="' + j + '">' + o + "</button>"; }).join("") + "</div>" +
         '<button type="button" class="btn-s pl-idk" data-pl-idk>' + esc(T("pl.idk")) + "</button>" +
         (skippedAudio ? '<p class="small muted">' + esc(T("pl.noVoice")) + "</p>" : "");

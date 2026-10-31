@@ -1,4 +1,4 @@
-/* ===== màndarínō · «Novità» (⚙️ → Informazioni): l'elenco dei cambiamenti da data/changelog.js, nella lingua
+/* ===== màndarínō · «Novità» (gear → Informazioni): l'elenco dei cambiamenti da data/changelog.js, nella lingua
    dell'interfaccia, dal più recente: in cima una riga che dice quanto l'app è cresciuta, poi una scheda per ogni tappa
    (la più recente aperta, le altre chiuse). Nessun avviso che compare da solo. ===== */
 (function () {
@@ -14,7 +14,7 @@
   }
   (CP.settingsExtras = CP.settingsExtras || []).push({ group: "info", html: function () {
     var L = window.CHANGELOG || []; if (!L.length) return "";
-    return '<details class="set-sec" id="set-news"><summary>🆕 ' + T("news.title") + '</summary><div class="vbody">' +
+    return '<details class="set-sec" id="set-news"><summary>⟦new⟧ ' + T("news.title") + '</summary><div class="vbody">' +
       '<p class="small muted" style="margin:0">' + T("news.lede", { v: esc(CP.VERSION) }) + "</p>" +
       '<p class="small news-sum" style="margin:0"><b>' + T("news.sum", { n: L.length, d: when(L[L.length - 1].d) }) + "</b></p>" +
       L.map(function (e, i) { return entry(e, i === 0); }).join("") + "</div></details>";

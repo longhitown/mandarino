@@ -187,7 +187,7 @@
     }
     h += '<div class="pad-stage"><canvas class="pad-bg" aria-hidden="true"></canvas><canvas class="pad-ink" role="img" aria-label="Lavagna per scrivere il carattere con il dito"></canvas><i class="pad-dot" hidden></i></div>' +
       '<p class="pad-info small muted" aria-live="polite"></p>' +
-      '<div class="padbtns"><button type="button" data-pa="undo">↩ Annulla tratto</button><button type="button" data-pa="clear">🧽 Pulisci</button><button type="button" data-pa="guide"></button><button type="button" data-pa="assist"></button><button type="button" data-pa="order">▶ Ordine dei tratti</button></div>' +
+      '<div class="padbtns"><button type="button" data-pa="undo">⟦undo⟧ Annulla tratto</button><button type="button" data-pa="clear">⟦sponge⟧ Pulisci</button><button type="button" data-pa="guide"></button><button type="button" data-pa="assist"></button><button type="button" data-pa="order">⟦play⟧ Ordine dei tratti</button></div>' +
       '<button type="button" class="btn-main pad-eval" data-pa="eval">✓ Valuta tratto</button><div class="pad-res" hidden aria-live="polite"></div>';
     el.innerHTML = h;
     var bg = el.querySelector(".pad-bg"), ink = el.querySelector(".pad-ink"), dot = el.querySelector(".pad-dot"), info = el.querySelector(".pad-info"), res = el.querySelector(".pad-res");
@@ -269,8 +269,8 @@
     function refreshInfo() {
       var lead = S.cur === "all" ? "Tutto il termine" : (n > 1 ? "Carattere " + (S.cur + 1) + " di " + n : "Carattere");
       info.textContent = lead + " · " + counts() + (S.assist ? " · il punto verde indica dove iniziare (alto-sinistra di ciò che manca)" : "");
-      el.querySelector('[data-pa="guide"]').textContent = S.guide ? "👁 Al buio" : "👁 Guida";
-      var ab = el.querySelector('[data-pa="assist"]'); ab.textContent = "✨ Ricalco assistito"; ab.setAttribute("aria-pressed", S.assist ? "true" : "false"); ab.classList.toggle("on", S.assist);
+      el.querySelector('[data-pa="guide"]').textContent = S.guide ? "⟦eye⟧ Al buio" : "⟦eye⟧ Guida";
+      var ab = el.querySelector('[data-pa="assist"]'); ab.textContent = "⟦sparkle⟧ Ricalco assistito"; ab.setAttribute("aria-pressed", S.assist ? "true" : "false"); ab.classList.toggle("on", S.assist);
       el.querySelectorAll("[data-pc]").forEach(function (b) { var on = b.getAttribute("data-pc") === String(S.cur); b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
       el.querySelector('[data-pa="undo"]').disabled = !strokesFor().length;
       var ob = el.querySelector('[data-pa="order"]'); ob.hidden = S.cur === "all" || !medians(chars[S.cur]);
@@ -347,8 +347,8 @@
           var rev = sc.items.filter(function (x) { return x.j >= 0 && x.rev; }).map(function (x) { return x.i + 1; });
           var ord = sc.items.filter(function (x) { return x.j >= 0 && x.order && !x.rev; });
           if (rev.length) lines.push("<b>Direzione:</b> " + (rev.length > 1 ? "i tratti " + rev.join(", ") + " sono scritti" : "il tratto " + rev[0] + " è scritto") + " al contrario. Guarda l'animazione: ogni tratto ha un inizio e una fine precisi.");
-          if (ord.length) lines.push("<b>Ordine:</b> " + ord.slice(0, 3).map(function (x) { return "il tuo " + (x.i + 1) + "° tratto è il " + (x.j + 1) + "° del modello"; }).join("; ") + (ord.length > 3 ? "…" : "") + ". Premi «▶ Ordine dei tratti» per vederlo.");
-          if (!lines.length && sc.ok === sc.expect) lines.push("<b>Ordine e direzione:</b> tutti i " + sc.expect + " tratti giusti. 👍");
+          if (ord.length) lines.push("<b>Ordine:</b> " + ord.slice(0, 3).map(function (x) { return "il tuo " + (x.i + 1) + "° tratto è il " + (x.j + 1) + "° del modello"; }).join("; ") + (ord.length > 3 ? "…" : "") + ". Premi «⟦play⟧ Ordine dei tratti» per vederlo.");
+          if (!lines.length && sc.ok === sc.expect) lines.push("<b>Ordine e direzione:</b> tutti i " + sc.expect + " tratti giusti. ⟦thumbs⟧");
           tp = lines.concat(tp);
         }
         if (sc) html += '<p class="small" style="margin:6px 0 2px"><b>Tratti giusti (ordine e direzione): ' + sc.ok + " su " + sc.expect + "</b></p>";

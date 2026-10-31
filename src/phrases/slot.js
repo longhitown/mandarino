@@ -49,7 +49,7 @@
     var okc = sit && sit.need[ci] !== undefined && needOk(ci, sit.need[ci]);
     return '<div class="reel' + (okc ? " ok" : "") + '" data-col="' + ci + '"><span class="rl"><span lang="it">' + esc(c.label) + '</span> <span class="hintc">· ' + (pick[ci] + 1) + "/" + c.o.length + '</span></span>' +
       '<button type="button" class="rc" data-next="' + ci + '" aria-label="' + CP.attr(c.label + ": " + o[2] + ". " + T("slot.next")) + '"><span class="bp">' + CP.pinyinHTML(o[0]) + '</span><span class="bh" lang="zh-CN">' + CP.hanziHTML(o[1], o[0]) + '</span><span class="bi" lang="it">' + esc(o[2]) + "</span></button>" +
-      '<button type="button" data-spin="' + ci + '" aria-label="' + CP.attr(T("slot.spin1", { c: c.label })) + '">🎲</button></div>';
+      '<button type="button" data-spin="' + ci + '" aria-label="' + CP.attr(T("slot.spin1", { c: c.label })) + '">⟦dice⟧</button></div>';
   }
   function outHTML() {
     var cmp = compose(), sd = sandhi(cmp.py);
@@ -59,8 +59,8 @@
       '<div class="acts">' + CP.audioBtns(cmp.hz) + "</div>";
   }
   function sitHTML() {
-    if (!sit && !result) return '<div class="sitbox"><span class="stx">' + T("slot.sitAsk", { n: LIMIT }) + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-sit style="margin:0">🎯 ' + T("slot.sitGo") + "</button></div></div>";
-    if (result) return '<div class="sitbox"><span class="stx">' + result.html + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-sit style="margin:0">🎯 ' + T("slot.sitAgain") + "</button></div></div>";
+    if (!sit && !result) return '<div class="sitbox"><span class="stx">' + T("slot.sitAsk", { n: LIMIT }) + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-sit style="margin:0">⟦target⟧ ' + T("slot.sitGo") + "</button></div></div>";
+    if (result) return '<div class="sitbox"><span class="stx">' + result.html + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-sit style="margin:0">⟦target⟧ ' + T("slot.sitAgain") + "</button></div></div>";
     return '<div class="sitbox"><span class="small muted" style="font-weight:700">' + T("slot.sitHead", { n: LIMIT }) + '</span><span class="stx" lang="it">' + esc(sit.t) + '</span><div class="timebar"><i id="sit-bar"></i></div><div class="acts" style="margin:0"><button type="button" class="btn-s" data-sit-give>' + T("slot.give") + "</button></div></div>";
   }
   function boxHTML() {
@@ -70,7 +70,7 @@
       sitHTML() +
       '<div class="reels">' + m.cols.map(function (_, i) { return reelHTML(i); }).join("") + "</div>" +
       '<div class="sbox" id="slot-out">' + outHTML() + "</div>" +
-      '<div class="dlg-bar"><button type="button" class="btn-s" data-spin-all style="margin:0">🎰 ' + T("slot.spinAll") + "</button></div>";
+      '<div class="dlg-bar"><button type="button" class="btn-s" data-spin-all style="margin:0">⟦slot⟧ ' + T("slot.spinAll") + "</button></div>";
   }
   function paint() {
     var b = document.getElementById("slot-box"); if (!b) return;

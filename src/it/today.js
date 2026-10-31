@@ -47,12 +47,12 @@
       '<h2 id="itd-h" class="itd-hi">' + esc(T(g[0])) + ' <span class="muted" lang="it">· ' + g[1] + "</span></h2>" + main +
       '<div class="itd-row">' +
         '<div class="itd-rank">' + CP.stamp(r) + '<div><b>' + esc(r.name) + '</b><div class="bar-xp" role="progressbar" aria-valuenow="' + r.pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="' + CP.attr(T("itd.toNext", { n: r.next })) + '"><i style="width:' + r.pct + '%"></i></div><small class="muted">' + esc(T("itd.points", { x: r.xp, n: r.next })) + "</small></div></div>" +
-        '<div class="itd-ring"><div class="ring-w" aria-hidden="true"><div class="ring itd-ring-a" style="--p:' + p + '"></div><span class="tx">' + wt + "</span></div><div><b>" + wt + "/" + goal + "</b><small>" + esc(T("itd.goal")) + '</small><b class="itd-streak">🔥 ' + esc(T("itd.streak", { n: s })) + "</b></div></div>" +
+        '<div class="itd-ring"><div class="ring-w" aria-hidden="true"><div class="ring itd-ring-a" style="--p:' + p + '"></div><span class="tx">' + wt + "</span></div><div><b>" + wt + "/" + goal + "</b><small>" + esc(T("itd.goal")) + '</small><b class="itd-streak">⟦flame⟧ ' + esc(T("itd.streak", { n: s })) + "</b></div></div>" +
       "</div>" +
-      (cur && due ? '<button type="button" class="btn-s itd-rev" data-itd-review>🎴 ' + esc(T("itd.reviewN", { n: due })) + "</button>" : "") +
+      (cur && due ? '<button type="button" class="btn-s itd-rev" data-itd-review>⟦flower-card⟧ ' + esc(T("itd.reviewN", { n: due })) + "</button>" : "") +
       (ph ? '<div class="itd-phrase"><span class="tag">' + esc(T("itd.phraseT")) + '</span><p class="itd-it" lang="it">' + accentHTML(ph.it) + '</p><p class="itd-zh">' + esc(ph.zh) + "</p>" +
-        '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-it-say="' + CP.attr(ph.it) + '" aria-label="' + CP.attr(T("itd.listen")) + '">🔊 ' + esc(T("itd.listen")) + '</button><button type="button" class="btn-s" data-itd-share>' + esc(T("itd.share")) + "</button></div></div>" : "") +
-      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-itd-progress>📈 ' + esc(T("itd.progress")) + "</button></div>" +
+        '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-it-say="' + CP.attr(ph.it) + '" aria-label="' + CP.attr(T("itd.listen")) + '">⟦speaker⟧ ' + esc(T("itd.listen")) + '</button><button type="button" class="btn-s" data-itd-share>' + esc(T("itd.share")) + "</button></div></div>" : "") +
+      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-itd-progress>⟦trend⟧ ' + esc(T("itd.progress")) + "</button></div>" +
       "</section>";
   }
 

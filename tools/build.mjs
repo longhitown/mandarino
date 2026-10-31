@@ -19,6 +19,7 @@ import vm from "vm";
 import { fileURLToPath } from "url";
 import { assets, load, check } from "./lib/data.mjs";
 import { lab, verify, checkLessons, checkExamples } from "./lib/lab.mjs";
+import { sprite as icoSprite } from "./icone.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = path.join(ROOT, "src"), OUT = path.join(ROOT, "dist");
@@ -190,15 +191,14 @@ for (const [name, src] of LAZYCODE) {
 /* moduli dell'app che servono solo a qualcuno e solo in certi momenti (il test di livello, il correttore di frasi italiane):
    testo inerte nel file unico, eseguito la prima volta che il codice tocca una delle loro proprietà di CP. Il blocco va al
    posto dell'ultimo file del gruppo, quando CP esiste già. */
-const LAZYMOD = [{ props: ["placement", "onboarding"], files: ["data/placement.js", "ui/placement.js", "ui/onboarding.js"] }, { props: ["itCheck", "itCheckHTML"], files: ["it/checker.js"] }, { props: ["challenge", "classroom"], files: ["i18n/together.js", "ui/challenge.js", "ui/classroom.js"] }, { props: ["credits"], files: ["i18n/credits-t12.js", "ui/credits.js"] }, { props: ["shareCard"], files: ["ui/share-card.js"] }, { props: ["unlockPop"], files: ["i18n/grow.js", "ui/grow.js"] }, { props: ["openSettings", "repaintSettings"], files: ["i18n/settings.js", "i18n/community.js", "data/changelog.js", "data/social.js", "ui/social.js", "ui/community.js", "ui/settings-pages.js"] }, { props: ["diary"], files: ["i18n/diary.js", "data/diary.js", "ui/diary.js"] }, { props: ["voiceDl"], files: ["i18n/voice.js", "ui/voice-dl.js"] }, { props: ["scambio"], files: ["i18n/scambio.js", "ui/scambio.js"] }, { props: ["micDiag", "srDiag", "srTest"], files: ["selftest/mic-diag.js"] }, { props: ["wq"], files: ["pwa/wq.js"] }, { props: ["voiceTag"], files: ["i18n/voice-tag.js", "ui/voice-tag.js"] }];
+const LAZYMOD = [{ props: ["placement", "onboarding"], files: ["data/placement.js", "ui/placement.js", "ui/onboarding.js"] }, { props: ["itCheck", "itCheckHTML"], files: ["it/checker.js"] }, { props: ["challenge", "classroom"], files: ["i18n/together.js", "ui/challenge.js", "ui/classroom.js"] }, { props: ["credits"], files: ["i18n/credits-t12.js", "ui/credits.js"] }, { props: ["icoBoot", "ico", "plain", "icoImg"], files: ["ui/ico.js"] }, { props: ["shareCard"], files: ["ui/share-card.js"] }, { props: ["unlockPop"], files: ["i18n/grow.js", "ui/grow.js"] }, { props: ["openSettings", "repaintSettings"], files: ["i18n/settings.js", "i18n/community.js", "data/changelog.js", "data/social.js", "ui/social.js", "ui/community.js", "ui/settings-pages.js"] }, { props: ["diary"], files: ["i18n/diary.js", "data/diary.js", "ui/diary.js"] }, { props: ["voiceDl"], files: ["i18n/voice.js", "ui/voice-dl.js"] }, { props: ["scambio"], files: ["i18n/scambio.js", "ui/scambio.js"] }, { props: ["micDiag", "srDiag", "srTest"], files: ["selftest/mic-diag.js"] }, { props: ["wq"], files: ["pwa/wq.js"] }, { props: ["voiceTag"], files: ["i18n/voice-tag.js", "ui/voice-tag.js"] }];
 for (const m of LAZYMOD) {
   const group = m.files.map((f) => scripts.find((x) => x.src === f)); if (group.some((x) => !x)) fail("LAZYMOD: manca uno di " + m.files.join(", ") + " in src/index.html");
   const code = group.map((x) => "/* ---- " + x.src + " ---- */\n" + fs.readFileSync(path.join(SRC, x.src), "utf8").trimEnd()).join("\n").replace(/<\/script/gi, "<\\/script");
   const id = "lazy-mod-" + m.props[0].toLowerCase(), last = group[group.length - 1];
   group.forEach((x) => { if (x !== last) out = out.replace(x.tag + "\n", ""); });
-  out = out.replace(last.tag, () => '<script type="text/plain" id="' + id + '">\n' + code + "\n</script>\n<script>\n/* ---- " + m.files.join(" + ") + " (al primo uso di CP." + m.props.join(", CP.") + ") ---- */\n" +
-    "(function () { var P = " + JSON.stringify(m.props) + ", done = false; function load() { if (done) return; done = true; P.forEach(function (p) { delete CP[p]; }); var el = document.getElementById(" + JSON.stringify(id) + "), sc = document.createElement(\"script\"); sc.textContent = el ? el.textContent : \"\"; document.head.appendChild(sc); if (el) el.parentNode.removeChild(el); }\n" +
-    "  P.forEach(function (p) { Object.defineProperty(CP, p, { configurable: true, enumerable: true, get: function () { load(); return CP[p]; } }); }); })();\n</script>");
+  /* il modulo resta testo (non si compila all'avvio); CPL, definita una volta sola nell'<head>, mette sulle sue proprietà un getter che lo carica al primo uso */
+  out = out.replace(last.tag, () => '<script type="text/plain" id="' + id + '">\n' + code + "\n</script>\n<script>CPL(" + JSON.stringify(id) + "," + JSON.stringify(m.props) + ")</script>");
   group.forEach((x) => scripts.splice(scripts.indexOf(x), 1));
 }
 /* COURSE_IT: il corso di italiano per chi parla cinese (testi, carta «今天», corso) serve solo a chi lo ha scelto. Nel file
@@ -254,7 +254,25 @@ for (const f of ogg) {
 /* lo stesso per i «nomi e termini» del Lettore (tools/wikidict.mjs) */
 const WIKI = path.join(SRC, "data/wiki/zh-it.txt"), WIKIB = fs.existsSync(WIKI) ? fs.readFileSync(WIKI) : null;
 const WIKIF = WIKIB ? "zh-it." + crypto.createHash("sha256").update(WIKIB).digest("hex").slice(0, 8) + ".txt" : "";
-out = out.replace("<head>", () => "<head>\n<script>window.MUSIC_FILES = " + JSON.stringify(MUSIC) + "; window.WIKI_FILE = " + JSON.stringify(WIKIF ? "data/wiki/" + WIKIF : "") + ";</script>");
+const CPL = "window.CPL = function (id, P) { var done = false; function load() { if (done) return; done = true; P.forEach(function (p) { delete CP[p]; }); var el = document.getElementById(id), sc = document.createElement(\"script\"); sc.textContent = el ? el.textContent : \"\"; document.head.appendChild(sc); if (el) el.parentNode.removeChild(el); } P.forEach(function (p) { Object.defineProperty(CP, p, { configurable: true, enumerable: true, get: function () { load(); return CP[p]; } }); }); }; ";
+out = out.replace("<head>", () => "<head>\n<script>" + CPL + "window.MUSIC_FILES = " + JSON.stringify(MUSIC) + "; window.WIKI_FILE = " + JSON.stringify(WIKIF ? "data/wiki/" + WIKIF : "") + ";</script>");
+/* icone: nel codice HTML i segnaposto ⟦nome⟧ diventano l'icona dello sprite (nel testo) o spariscono (negli attributi, in <title>, <option>, <textarea>);
+   nel JavaScript restano segnaposto e li trasforma ui/ico.js. Lo sprite (icone/sprite.svg) sta in cima al body. Un segnaposto senza icona ferma la build. */
+const SPRITE = icoSprite().replace(/<!--[\s\S]*?-->\n/, ""), TOK = /⟦([a-z0-9-]+)⟧/g;
+const icoHtml = (h) => h.split(/(<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>)/).map((seg, i) => {
+  if (i % 2) return seg;
+  let skip = false;
+  return seg.split(/(<[^>]*>)/).map((p) => {
+    if (p[0] === "<") { const m = /^<(\/?)(title|option|textarea)\b/i.exec(p); if (m) skip = !m[1]; return p.replace(TOK, ""); }
+    return p.replace(TOK, (m0, n) => skip ? "" : '<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-' + n + '"/></svg>');
+  }).join("");
+}).join("");
+out = icoHtml(out).replace(/<body[^>]*>/, (m) => m + "\n" + SPRITE);
+{ const lost = [...new Set([...out.matchAll(TOK)].map((m) => m[1]))].filter((n) => !SPRITE.includes('id="i-' + n + '"')); if (lost.length) fail("segnaposto senza icona nello sprite: " + lost.join(", ")); }
+/* nel JavaScript ogni segnaposto diventa un solo carattere dell'area privata (U+E000 + posizione dell'icona): il codice di avvio pesa meno; ui/ico.js ha l'elenco (IDS) */
+const ICO_IDS = JSON.parse(fs.readFileSync(path.join(ROOT, "icone/manifest.json"), "utf8")).icone.filter((i) => i.file).map((i) => i.id);
+if (ICO_IDS.length > 256) fail("troppe icone per l'area privata (256)");
+out = out.replace("__ICO_IDS__", () => ICO_IDS.join(",")).replace(TOK, (m0, n) => String.fromCharCode(0xE000 + ICO_IDS.indexOf(n)));
 const version = crypto.createHash("sha256").update(out).digest("hex").slice(0, 12);
 const sw = fs.readFileSync(path.join(SRC, "pwa/sw.js"), "utf8");
 if (!sw.includes("'__APP_VERSION__'")) fail("src/pwa/sw.js deve contenere APP_VERSION = '__APP_VERSION__'");

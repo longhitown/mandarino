@@ -1,9 +1,9 @@
 /* ===== màndarínō · l'etichetta «Voce reale»: dopo che una frase è stata letta da una clip vera (core/voice-clip.js, CP.speak) compare
-   per qualche secondo una riga piccola in basso, «🎙️ Voce reale · Tatoeba» (italiano) o «… · Common Voice» (cinese). Un tocco apre un
+   per qualche secondo una riga piccola in basso, «mic Voce reale · Tatoeba» (italiano) o «… · Common Voice» (cinese). Un tocco apre un
    dettaglio con di chi è la voce e la licenza (le stesse parole dei Crediti) e un invito gentile allo Scambio linguistico (CP.scambio).
    - Compare solo dopo che la clip ha suonato fino in fondo, mai per la voce sintetica, mai prima. Nessun suono, nessuna animazione,
      nessun modale, nessuna rete: è un elemento fisso (position: fixed), quindi non sposta il resto della schermata.
-   - Si spegne in ⚙️ → Suoni e musica → Voce («Mostra chi ha letto la frase», chiave cp-voicetag; "0" = spenta) o dal dettaglio.
+   - Si spegne in gear → Suoni e musica → Voce («Mostra chi ha letto la frase», chiave cp-voicetag; "0" = spenta) o dal dettaglio.
    - Si carica al primo uso di CP.voiceTag (tools/build.mjs, LAZYMOD); core/core.js la chiama in una riga. ===== */
 (function () {
   var CP = window.CP, K = "cp-voicetag", box = null, timer = 0, openD = false, last = null;
@@ -24,7 +24,7 @@
     box.innerHTML = '<div class="vtag-d" id="vtag-d"' + (openD ? "" : " hidden") + '><p class="vtag-h">' + T("vt.head") + '</p><p class="small">' + T(last.by) + '</p><p class="small">' + T("vt.invite") +
       '</p><div class="vtag-acts"><button type="button" class="btn-s" data-vt-go aria-label="' + CP.attr(T("vt.goAria")) + '">' + T("vt.go") + '</button><button type="button" class="btn-s" data-vt-off>' + T("vt.off") +
       '</button><button type="button" class="btn-s" data-vt-x>' + T("vt.close") + '</button></div></div>' +
-      '<button type="button" class="vtag-b" data-vt-open aria-expanded="' + (openD ? "true" : "false") + '" aria-controls="vtag-d" aria-label="' + CP.attr(T("vt.aria", { src: src })) + '">🎙️ ' + T("vt.chip", { src: src }) + "</button>";
+      '<button type="button" class="vtag-b" data-vt-open aria-expanded="' + (openD ? "true" : "false") + '" aria-controls="vtag-d" aria-label="' + CP.attr(T("vt.aria", { src: src })) + '">⟦mic⟧ ' + T("vt.chip", { src: src }) + "</button>";
   }
   /* chiamata da CP.speak quando la clip vera ha finito di suonare */
   function show(text, lang) {
@@ -46,7 +46,7 @@
     if (openD && box && !box.contains(t)) close(false);
   });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && openD) close(true); });
-  /* ⚙️ → Suoni e musica → Voce: l'interruttore (lo mette ui/voice-dl.js dentro «Voci reali») */
+  /* gear → Suoni e musica → Voce: l'interruttore (lo mette ui/voice-dl.js dentro «Voci reali») */
   function setting() { var T = CP.t; return '<label class="chk"><input type="checkbox" id="opt-vtag"' + (on() ? " checked" : "") + "> " + T("vt.set") + '</label><p class="small muted" style="margin:0">' + T("vt.setD") + "</p>"; }
   document.addEventListener("change", function (e) {
     if (!(e.target && e.target.id === "opt-vtag")) return;

@@ -126,7 +126,7 @@
     var h = "";
     if (set.py) h += '<div class="cd-py">' + CP.pinyinHTML(w.py) + "</div>" + CP.toneCurveHTML(w.py);
     if (set.hz) h += '<div class="cd-hz" lang="zh-CN">' + CP.hanziHTML(w.hz, w.py) + "</div>";
-    if (set.it) h += '<div class="cd-it" lang="it">' + esc(w.it) + "</div>" + (w.note ? '<div class="cd-note" lang="it">' + esc(w.note) + "</div>" : "") + (w.mine ? '<div class="cd-note mine-tag">✏️ ' + T("w.mine") + "</div>" : "") + (set.py ? CP.polyNote(w) : "");
+    if (set.it) h += '<div class="cd-it" lang="it">' + esc(w.it) + "</div>" + (w.note ? '<div class="cd-note" lang="it">' + esc(w.note) + "</div>" : "") + (w.mine ? '<div class="cd-note mine-tag">⟦pencil⟧ ' + T("w.mine") + "</div>" : "") + (set.py ? CP.polyNote(w) : "");
     return h;
   }
   var TAGS = { pi: "sess.qPi", ip: "sess.qIp", hp: "sess.qHp" };
@@ -137,7 +137,7 @@
     return '<div class="sess"><button type="button" id="quit" class="btn-quiet" aria-label="' + CP.attr(CP.t("sess.quitLabel")) + '">' + CP.t("sess.quit") + "</button>" +
       '<div class="meter" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="Avanzamento"><i class="k" style="width:' + pct + '%"></i></div>' +
       '<span class="cnt">' + sess.finished + " / " + sess.words + "</span>" +
-      '<button type="button" id="auto-t" class="btn-quiet" aria-pressed="' + (CP.pref.auto ? "true" : "false") + '" aria-label="' + CP.attr(CP.t("sess.auto")) + '">' + (CP.pref.auto ? "🔊" : "🔇") + "</button></div>";
+      '<button type="button" id="auto-t" class="btn-quiet" aria-pressed="' + (CP.pref.auto ? "true" : "false") + '" aria-label="' + CP.attr(CP.t("sess.auto")) + '">' + (CP.pref.auto ? "⟦speaker⟧" : "⟦mute⟧") + "</button></div>";
   }
   /* U4: in cima a destra la stella; sotto il carattere solo Ascolta e Parla; Traccia, Famiglia e Tono nel foglio «⋯» */
   function star(w) {
@@ -156,10 +156,10 @@
     var row = function (act, ico, t, d) { return '<button type="button" class="sheet-row" data-card-act="' + act + '"><span class="ico" aria-hidden="true">' + ico + "</span><span><b>" + t + "</b><small>" + d + "</small></span></button>"; };
     var T = CP.t;
     CP.openSheet('<div class="fam-head"><div class="meta"><b>' + T("more.title") + '</b><div class="small muted">' + (full ? esc(w.hz) + " · " + esc(w.py) : T("more.card")) + '</div></div><button type="button" class="fam-x btn-s" data-famclose>' + T("common.close") + "</button></div>" +
-      '<div class="sheet-rows">' + row("pad", "✍️", T("more.pad"), full ? T("more.padFull") : T("more.padBlind")) +
-      (full ? row("fam", "🔍", T("more.fam"), T("more.famSub")) : "") +
-      (full && CP.canScope && CP.canScope() ? row("scope", "〰️", T("more.tone"), T("more.toneSub")) : "") +
-      (full && CP.contribOpen ? row("contrib", "✏️", T("more.contrib"), T("more.contribSub")) : "") + (full && CP.plecoRow ? CP.plecoRow(w.hz) : "") + "</div>");
+      '<div class="sheet-rows">' + row("pad", "⟦write⟧", T("more.pad"), full ? T("more.padFull") : T("more.padBlind")) +
+      (full ? row("fam", "⟦search⟧", T("more.fam"), T("more.famSub")) : "") +
+      (full && CP.canScope && CP.canScope() ? row("scope", "⟦wave⟧", T("more.tone"), T("more.toneSub")) : "") +
+      (full && CP.contribOpen ? row("contrib", "⟦pencil⟧", T("more.contrib"), T("more.contribSub")) : "") + (full && CP.plecoRow ? CP.plecoRow(w.hz) : "") + "</div>");
   }
   function kbd() { return '<p class="kbd-hint">' + CP.t("sess.kbd") + "</p>"; }
   function togglePad(keep) {
@@ -257,7 +257,7 @@
     var o = sameAs(w), T = CP.t, esc = CP.esc; if (!o.length) return "";
     var n = Array.from(w.hz).length, same = o.filter(function (x) { return Array.from(x.hz).length === n; }).length;
     var t = T("amb.len", { n: n }) + (same ? " · " + T("amb.sec", { s: '<span lang="it">' + esc(w.secTitle.replace(/^\d+\.\s*/, "")) + "</span>" }) : "");
-    return '<p class="amb-hint small">💡 ' + T("amb.hint") + " " + t + "</p>";
+    return '<p class="amb-hint small">⟦bulb⟧ ' + T("amb.hint") + " " + t + "</p>";
   }
   function ambigAlso(w) {
     var o = sameAs(w), T = CP.t, esc = CP.esc; if (!o.length) return "";
@@ -324,7 +324,7 @@
     }).join("");
     root.innerHTML = '<div class="panel done">' + (CP.stamp && CP.game ? CP.stamp(CP.game.rank(), true).replace('class="seal stamp', 'class="seal stamp done-seal') : "") +
       "<h2>" + T("done.title") + "</h2>" +
-      '<div class="stats"><div class="stat"><b>' + s.words + "</b><span>" + T("done.words") + '</span></div><div class="stat"><b>' + s.good + "</b><span>" + T("done.good") + '</span></div><div class="stat"><b>🔥 ' + streak + "</b><span>" + T(streak === 1 ? "done.streak1" : "done.streakN") + "</span></div></div>" +
+      '<div class="stats"><div class="stat"><b>' + s.words + "</b><span>" + T("done.words") + '</span></div><div class="stat"><b>' + s.good + "</b><span>" + T("done.good") + '</span></div><div class="stat"><b>⟦flame⟧ ' + streak + "</b><span>" + T(streak === 1 ? "done.streak1" : "done.streakN") + "</span></div></div>" +
       '<p style="margin:0">' + (tomorrow ? T(tomorrow === 1 ? "done.tomorrow1" : "done.tomorrowN", { n: tomorrow }) : T("done.tomorrow0")) + "</p>" +
       (moreNew ? '<button type="button" class="btn-main" id="more5">' + T("done.more") + "</button>" : moreDue ? '<button type="button" class="btn-main" id="go">' + T("done.again") + "</button>" : "") +
       '<button type="button" class="btn-main btn-quiet" id="home">' + T("done.end") + "</button></div>" +
@@ -345,7 +345,7 @@
     else if (t.hasAttribute("data-more")) moreSheet();
     else if (id === "auto-t") {
       CP.setPref("auto", !CP.pref.auto);
-      t.textContent = CP.pref.auto ? "🔊" : "🔇"; t.setAttribute("aria-pressed", CP.pref.auto ? "true" : "false");
+      t.textContent = CP.pref.auto ? "⟦speaker⟧" : "⟦mute⟧"; t.setAttribute("aria-pressed", CP.pref.auto ? "true" : "false");
     }
     else if (t.hasAttribute("data-g")) answer(parseInt(t.getAttribute("data-g"), 10));
   });

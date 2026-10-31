@@ -372,7 +372,7 @@
 
   /* ================= foglio di anteprima ================= */
   var R = null;
-  function sheetHead(title) { return '<div class="fam-head"><div class="meta"><b>📝 ' + esc(title) + '</b></div><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>"; }
+  function sheetHead(title) { return '<div class="fam-head"><div class="meta"><b>⟦notes⟧ ' + esc(title) + '</b></div><button type="button" class="fam-x btn-s" data-famclose>' + esc(T("common.close")) + "</button></div>"; }
   function open() {
     CP.openSheet(sheetHead(T("ws.title")) + '<p class="small" role="status" aria-live="polite">' + esc(T("ws.preparing")) + "</p>");
     setTimeout(function () {
@@ -420,7 +420,7 @@
       ? "<b>" + esc(it.it) + '</b><div class="small muted" lang="zh-CN">' + esc(it.zh) + " · " + esc(it.py) + "</div>"
       : '<b style="font-size:2rem">' + esc(it.hz) + '</b><div class="small">' + esc(it.py) + '</div><div class="small muted" lang="it">' + esc(it.gloss) + "</div>") + "</div>" : "";
     CP.openSheet(dHead() + '<div class="chal-n small muted" aria-live="polite">' + esc(T("ws.d.n", { i: D.i + 1, n: n })) + '</div><div class="chal-bar" aria-hidden="true"><i style="width:' + Math.round(D.i / n * 100) + '%"></i></div>' + reveal +
-      '<div class="acts"><button type="button" class="btn-main" data-ws-d="play" style="margin:0">🔊 ' + esc(T(D.played ? "ws.d.again" : "ws.d.play")) + '</button>' +
+      '<div class="acts"><button type="button" class="btn-main" data-ws-d="play" style="margin:0">⟦speaker⟧ ' + esc(T(D.played ? "ws.d.again" : "ws.d.play")) + '</button>' +
       (D.shown ? "" : '<button type="button" class="btn-s" data-ws-d="show">' + esc(T("ws.d.show")) + "</button>") + '<button type="button" class="btn-s" data-ws-d="next">' + esc(T("ws.d.next")) + "</button></div>");
   }
 
@@ -432,7 +432,7 @@
     else if (D) {
       var a = b.getAttribute("data-ws-d");
       if (a === "start" || a === "restart") { D.i = 0; D.shown = false; D.played = false; dStep(); say(); D.played = true; }
-      else if (a === "play") { say(); D.played = true; var pb = document.querySelector('[data-ws-d="play"]'); if (pb) pb.textContent = "🔊 " + T("ws.d.again"); }
+      else if (a === "play") { say(); D.played = true; var pb = document.querySelector('[data-ws-d="play"]'); if (pb) pb.textContent = "⟦speaker⟧ " + T("ws.d.again"); }
       else if (a === "show") { D.shown = true; dStep(); }
       else if (a === "next") { D.i++; D.shown = false; D.played = false; dStep(); if (D.i < D.items.length) { say(); D.played = true; } }
     }

@@ -22,7 +22,7 @@
   }
   function setupHTML() {
     var n = sourceItems().length, np = 0; PHRASES.forEach(function (g) { np += g.items.length; });
-    return '<div class="g-top"><h2>🎧 ' + T("gd.title") + '</h2><button type="button" id="g-close" aria-label="' + CP.attr(T("common.close")) + '">✕</button></div>' +
+    return '<div class="g-top"><h2>⟦headphones⟧ ' + T("gd.title") + '</h2><button type="button" id="g-close" aria-label="' + CP.attr(T("common.close")) + '">✕</button></div>' +
       '<div style="flex:1;display:grid;align-content:center;gap:12px;padding:12px 0"><p class="intro" style="margin:0">' + T("gd.lede") + "</p>" +
       '<div class="g-sel" role="group" aria-label="' + CP.attr(T("gd.what")) + '">' +
       '<button type="button" data-gsrc="phr"' + (cfg.src === "phr" ? ' class="on"' : "") + ">" + T("gd.phr") + "<small>" + T("gd.phrSub", { n: np, g: PHRASES.length }) + "</small></button>" +
@@ -31,13 +31,13 @@
       (cfg.src === "phr" ? '<label class="small muted" for="g-grp" style="display:grid;gap:4px;font-weight:600">' + T("gd.sit") + '<select id="g-grp"><option value="">' + T("jk.mAll") + "</option>" + PHRASES.map(function (g, i) { return '<option value="' + i + '"' + (cfg.grp === String(i) ? " selected" : "") + ' lang="it">' + esc(g.title) + "</option>"; }).join("") + "</select></label>" : "") +
       '<label class="chk"><input type="checkbox" id="g-shuf"' + (cfg.shuffle ? " checked" : "") + "> " + T("gd.shuffle") + "</label>" +
       '<label class="chk"><input type="checkbox" id="g-awake"' + (cfg.awake ? " checked" : "") + "> " + T("gd.awake") + "</label>" +
-      '<button type="button" class="btn-main" id="g-start">▶️ ' + T("gd.start", { n: n }) + "</button>" +
+      '<button type="button" class="btn-main" id="g-start">⟦play⟧ ' + T("gd.start", { n: n }) + "</button>" +
       '<p class="small muted" style="margin:0">' + T("gd.voice") + "</p></div>";
   }
   function playHTML() {
-    return '<div class="g-top"><h2>🎧 ' + T("gd.playing") + '</h2><button type="button" id="g-close" aria-label="' + CP.attr(T("common.close")) + '">✕</button></div>' +
+    return '<div class="g-top"><h2>⟦headphones⟧ ' + T("gd.playing") + '</h2><button type="button" id="g-close" aria-label="' + CP.attr(T("common.close")) + '">✕</button></div>' +
       '<div class="g-main"><div class="g-phase" id="g-phase"></div><div class="g-it" id="g-it" lang="it"></div><div class="g-py" id="g-py"></div><div class="g-hz" lang="zh-CN" id="g-hz"></div><div class="g-bar" aria-hidden="true"><i id="g-bar"></i></div><div class="g-count" id="g-count"></div></div>' +
-      '<div class="g-ctl"><button type="button" id="g-prev" aria-label="' + CP.attr(T("gd.prev")) + '">⏮</button><button type="button" class="btn-main" id="g-pp" style="margin:0" aria-label="' + CP.attr(T("gd.pause")) + '">⏸ ' + T("gd.pause") + '</button><button type="button" id="g-next" aria-label="' + CP.attr(T("gd.next")) + '">⏭</button></div>';
+      '<div class="g-ctl"><button type="button" id="g-prev" aria-label="' + CP.attr(T("gd.prev")) + '">⟦prev⟧</button><button type="button" class="btn-main" id="g-pp" style="margin:0" aria-label="' + CP.attr(T("gd.pause")) + '">⟦pause⟧ ' + T("gd.pause") + '</button><button type="button" id="g-next" aria-label="' + CP.attr(T("gd.next")) + '">⟦next⟧</button></div>';
   }
   function $(id) { return document.getElementById(id); }
   function barAnim(ms) {
@@ -59,13 +59,13 @@
     var bar = $("g-bar"); if (bar) { bar.style.transition = "none"; bar.style.width = "0%"; }
     CP.speak(it.it, { lang: "it-IT", rate: 1, onEnd: function () {
       if (me !== run) return;
-      show(it, "🗣 " + T("gd.you"), false); barAnim(PAUSE_IT);
+      show(it, "⟦speaking⟧ " + T("gd.you"), false); barAnim(PAUSE_IT);
       later(PAUSE_IT, function () {
-        show(it, "🐢 " + T("vo.slow"), true);
+        show(it, "⟦slow⟧ " + T("vo.slow"), true);
         CP.speak(it.say || it.hz, { rate: 0.8, onEnd: function () {
           if (me !== run) return;
           later(PAUSE_MID, function () {
-            show(it, "🐇 " + T("gd.natural"), true);
+            show(it, "⟦fast⟧ " + T("gd.natural"), true);
             CP.speak(it.say || it.hz, { rate: 1, onEnd: function () {
               if (me !== run) return;
               later(PAUSE_END, function () { pos = (pos + 1) % items.length; if (pos === 0 && cfg.shuffle) items = U.shuffle(items); play(); }, me);
@@ -96,10 +96,10 @@
   function toggle() {
     var pp = $("g-pp"); if (!pp) return;
     paused = !paused;
-    if (paused) { halt(); pp.innerHTML = "▶️ " + T("gd.resume"); pp.setAttribute("aria-label", T("gd.resume")); $("g-phase").textContent = "⏸ " + T("gd.paused"); }
-    else { pp.innerHTML = "⏸ " + T("gd.pause"); pp.setAttribute("aria-label", T("gd.pause")); play(); }
+    if (paused) { halt(); pp.innerHTML = "⟦play⟧ " + T("gd.resume"); pp.setAttribute("aria-label", T("gd.resume")); $("g-phase").textContent = "⟦pause⟧ " + T("gd.paused"); }
+    else { pp.innerHTML = "⟦pause⟧ " + T("gd.pause"); pp.setAttribute("aria-label", T("gd.pause")); play(); }
   }
-  function step(d) { if (!items.length) return; pos = (pos + d + items.length) % items.length; paused = false; var pp = $("g-pp"); if (pp) { pp.innerHTML = "⏸ " + T("gd.pause"); } play(); }
+  function step(d) { if (!items.length) return; pos = (pos + d + items.length) % items.length; paused = false; var pp = $("g-pp"); if (pp) { pp.innerHTML = "⟦pause⟧ " + T("gd.pause"); } play(); }
   el.addEventListener("click", function (e) {
     var t = e.target; if (!t.closest) return; var b;
     if (t.closest("#g-close")) { close(); return; }

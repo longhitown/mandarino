@@ -1,6 +1,6 @@
 # Gli adesivi di màndarínō
 
-Le 150 icone del set come adesivi a sagoma (il glifo con un bordo color carta di riso, trasparenti), per Telegram e WhatsApp. Si costruiscono con
+Le 158 icone del set come adesivi a sagoma (il glifo con un bordo color carta di riso, trasparenti), per Telegram e WhatsApp. Si costruiscono con
 `node tools/icone-kit.mjs`, che scrive in `dist-kit/` il pacchetto `mandarino-adesivi-<versione>.zip` e le somme SHA-256 da mettere in
 [ICONE.md](ICONE.md). La licenza è la stessa delle icone (CC BY 4.0, [ICONE.md](ICONE.md)); il nome e il logo restano fuori ([MARCHIO.md](../MARCHIO.md)).
 
@@ -8,8 +8,8 @@ Le 150 icone del set come adesivi a sagoma (il glifo con un bordo color carta di
 
 | Cartella | Contenuto |
 |---|---|
-| `telegram/1-interfaccia-e-vita`, `telegram/2-studio` | I pacchetti già divisi per Telegram (fino a 120 adesivi ciascuno): 95 e 55 adesivi |
-| `whatsapp/1-di-5` … `whatsapp/5-di-5` | Cinque pacchetti da 30 adesivi per WhatsApp (il massimo per pacchetto), ognuno con `tray.png` (96 × 96) |
+| `telegram/1-interfaccia-e-vita`, `telegram/2-studio` | I pacchetti già divisi per Telegram (fino a 120 adesivi ciascuno): 103 e 55 adesivi |
+| `whatsapp/1-di-6` … `whatsapp/6-di-6` | Sei pacchetti da 26-27 adesivi per WhatsApp (il massimo per pacchetto è 30), ognuno con `tray.png` (96 × 96) |
 | `webp/`, `png/` | Tutti gli adesivi in un'unica cartella, in WebP e in PNG, 512 × 512, trasparenti |
 | `ELENCO.tsv` | Per ogni file: nome, emoji da associare (Telegram la chiede per la ricerca) e nome in italiano e in cinese |
 
@@ -18,7 +18,7 @@ pubblicare, controlla le regole ufficiali ([Telegram](https://core.telegram.org/
 
 ## Per chi li usa: come si aggiungono
 
-**Telegram.** Quando il pacchetto è pubblicato, in questa pagina e in ⚙️ → Social ci sarà un collegamento: tocchi, Telegram si apre,
+**Telegram.** Quando il pacchetto è pubblicato, in questa pagina e in Impostazioni → Social ci sarà un collegamento: tocchi, Telegram si apre,
 tocchi «Aggiungi adesivi». Fatto. (Funziona anche dal computer.)
 
 **WhatsApp.** WhatsApp non ha collegamenti diretti: i pacchetti si aggiungono con un'app. Per questo l'app Android di màndarínō avrà un pulsante
@@ -45,7 +45,7 @@ serve solo alla ricerca, non cambia l'adesivo.
 
 WhatsApp accetta pacchetti da **3 a 30** adesivi, ognuno con `tray.png`. I pacchetti si aggiungono dall'app che li contiene; la guida
 ufficiale e un esempio di app sono in [github.com/WhatsApp/stickers](https://github.com/WhatsApp/stickers). Nell'app di màndarínō (Android) il
-pulsante «Aggiungi a WhatsApp» arriverà in una PR a parte, con i cinque pacchetti già dentro l'app.
+pulsante «Aggiungi a WhatsApp» arriverà in una PR a parte, con i sei pacchetti già dentro l'app.
 
 ## WeChat
 

@@ -1,4 +1,4 @@
-/* màndarínō · «Social» (⚙️ → Social): i canali ufficiali, dal più importante. Ogni voce: { id, nome, handle?, url, it, zh }.
+/* màndarínō · «Social» (gear → Social): i canali ufficiali, dal più importante. Ogni voce: { id, nome, handle?, url, it, zh }.
    Una voce senza url non compare: per aggiungere un canale basta scrivere qui il suo indirizzo (https://, senza parametri di tracciamento).
    I collegamenti si aprono solo quando la persona li tocca (PRIVACY.md); l'app non manda niente e non sa se sono stati usati. */
 var SOCIAL = [

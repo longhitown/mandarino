@@ -1,5 +1,5 @@
 {
-  "versione": "0.2.0",
+  "versione": "0.3.0",
   "set": "D2 · Mandarino & Cinabro",
   "licenza": "CC BY 4.0",
   "autore": "Claudio Longhitano",
@@ -7,7 +7,7 @@
   "tratto": 1.8,
   "fase": 1,
   "obiettivoFase1": 150,
-  "sostituzioneAttiva": false,
+  "sostituzioneAttiva": true,
   "consentitiComeTesto": [
     "©"
   ],
@@ -1167,7 +1167,9 @@
       "zh": "山",
       "categoria": "vita",
       "emoji": [
-        "🏔"
+        "🏔",
+        "🌄",
+        "⛰"
       ],
       "stato": "disegnata",
       "file": "svg/vita/mountain.svg"
@@ -1359,7 +1361,9 @@
       "it": "Lanterna",
       "zh": "灯笼",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🏮"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/lantern.svg"
     },
@@ -1440,7 +1444,10 @@
       "it": "Città",
       "zh": "城市",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🌃",
+        "🌆"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/city.svg"
     },
@@ -1449,7 +1456,9 @@
       "it": "Mare",
       "zh": "海",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🌊"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/sea.svg"
     },
@@ -1458,7 +1467,9 @@
       "it": "Fiore",
       "zh": "花",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🌸"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/flower.svg"
     },
@@ -1559,7 +1570,9 @@
       "it": "Tazza di tè",
       "zh": "茶杯",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🍵"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/teacup.svg"
     },
@@ -1568,7 +1581,10 @@
       "it": "Bambù",
       "zh": "竹子",
       "categoria": "vita",
-      "emoji": [],
+      "emoji": [
+        "🎍",
+        "🎋"
+      ],
       "stato": "disegnata",
       "file": "svg/vita/bamboo.svg"
     },
@@ -1595,9 +1611,99 @@
       "it": "Pennello",
       "zh": "毛笔",
       "categoria": "studio",
-      "emoji": [],
+      "emoji": [
+        "🖌"
+      ],
       "stato": "disegnata",
       "file": "svg/studio/brush.svg"
+    },
+    {
+      "id": "sunrise",
+      "it": "Alba",
+      "zh": "日出",
+      "categoria": "vita",
+      "emoji": [
+        "🌅"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/sunrise.svg"
+    },
+    {
+      "id": "drum",
+      "it": "Tamburo",
+      "zh": "鼓",
+      "categoria": "vita",
+      "emoji": [
+        "🥁"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/drum.svg"
+    },
+    {
+      "id": "dragon",
+      "it": "Drago",
+      "zh": "龙",
+      "categoria": "vita",
+      "emoji": [
+        "🐉"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/dragon.svg"
+    },
+    {
+      "id": "game",
+      "it": "Gioco",
+      "zh": "游戏",
+      "categoria": "ui",
+      "emoji": [
+        "👾"
+      ],
+      "stato": "disegnata",
+      "file": "svg/ui/game.svg"
+    },
+    {
+      "id": "camel",
+      "it": "Cammello",
+      "zh": "骆驼",
+      "categoria": "vita",
+      "emoji": [
+        "🐫"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/camel.svg"
+    },
+    {
+      "id": "taiji",
+      "it": "Taiji",
+      "zh": "太极",
+      "categoria": "vita",
+      "emoji": [
+        "☯"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/taiji.svg"
+    },
+    {
+      "id": "pagoda",
+      "it": "Pagoda",
+      "zh": "宝塔",
+      "categoria": "vita",
+      "emoji": [
+        "🏯"
+      ],
+      "stato": "disegnata",
+      "file": "svg/vita/pagoda.svg"
+    },
+    {
+      "id": "box",
+      "it": "Pacchetto",
+      "zh": "包裹",
+      "categoria": "ui",
+      "emoji": [
+        "📦"
+      ],
+      "stato": "disegnata",
+      "file": "svg/ui/box.svg"
     }
   ]
 }

@@ -1,4 +1,4 @@
-/* Catalogo del jukebox: l'ordine in cui le tracce compaiono nel pannello 🎵.
+/* Catalogo del jukebox: l'ordine in cui le tracce compaiono nel pannello music.
    Per aggiungere una traccia: il brano in audio/music/<id>.ogg, il modulo audio/tracks/<id>.js (come gli altri), mettila in src/index.html
    prima di questo file e aggiungi qui il suo id. Una traccia caricata ma non elencata va in fondo; un id elencato senza file
    viene segnalato in console e in #selftest. */

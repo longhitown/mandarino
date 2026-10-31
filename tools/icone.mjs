@@ -32,7 +32,8 @@ const rootAttrs = (svg) => (svg.match(/<svg([^>]*)>/) || [, ""])[1];
 export function sprite() {
   const m = manifest(), body = m.icone.filter((i) => i.file).sort((a, b) => a.id.localeCompare(b.id)).map((i) => {
     const s = read(i.file).toString("utf8");
-    return `<symbol id="i-${i.id}" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">\n${inner(s).split("\n").map((l) => "  " + l.trim()).join("\n")}\n</symbol>`;
+    const q = (t) => t.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+    return `<symbol id="i-${i.id}" data-it="${q(i.it)}" data-zh="${q(i.zh)}" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">\n${inner(s).split("\n").map((l) => "  " + l.trim()).join("\n")}\n</symbol>`;
   });
   return `<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">\n<!-- màndarínō · icone ${m.versione} (${m.set}) · © ${m.autore}, ${m.licenza} · file generato da tools/icone.mjs, non si modifica a mano -->\n${body.join("\n")}\n</svg>\n`;
 }
@@ -98,14 +99,21 @@ export function problems() {
 /* le emoji nel codice dell'app (src/, esclusi vendor e audio): quali, quante, e se il manifest le conosce */
 export function emojiInSrc() {
   const m = manifest(), map = new Set(m.icone.flatMap((i) => (i.emoji || []).map(norm))), ok = new Set((m.consentitiComeTesto || []).map(norm)), found = new Map();
-  const walk = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (!["vendor", "audio"].includes(e.name)) walk(p); } else if (/\.(js|html|css)$/.test(e.name)) for (const x of fs.readFileSync(p, "utf8").match(EMOJI) || []) { const k = norm(x); found.set(k, (found.get(k) || 0) + 1); } } };
+  const walk = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (!["vendor", "music"].includes(e.name)) walk(p); } else if (/\.(js|html|css)$/.test(e.name)) for (const x of fs.readFileSync(p, "utf8").match(EMOJI) || []) { const k = norm(x); found.set(k, (found.get(k) || 0) + 1); } } };
   walk(path.join(ROOT, "src"));
   const rows = [...found].map(([e, n]) => ({ e, n, mappata: map.has(e), testo: ok.has(e) })).sort((a, b) => b.n - a.n);
   return { rows, nonMappate: rows.filter((r) => !r.mappata && !r.testo), totale: rows.reduce((s, r) => s + r.n, 0), attiva: !!m.sostituzioneAttiva };
 }
-/* con la sostituzione attiva (dopo la PR che cambia l'app) ogni emoji rimasta è un errore; prima, è un errore solo se non è mappata */
+/* i segnaposto ⟦nome⟧ nel codice (src/, esclusi vendor e audio): ognuno deve essere un'icona disegnata del manifest */
+export function tokenProblems() {
+  const m = manifest(), ok = new Set(m.icone.filter((i) => i.stato === "disegnata").map((i) => i.id)), bad = new Map();
+  const walk = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (!["vendor", "music"].includes(e.name)) walk(p); } else if (/\.(js|html|css)$/.test(e.name)) for (const x of fs.readFileSync(p, "utf8").matchAll(/⟦([^⟧]*)⟧/g)) if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x[1]) || !ok.has(x[1])) bad.set(x[1], (bad.get(x[1]) || 0) + 1); } };
+  walk(path.join(ROOT, "src"));
+  return [...bad].map(([id, n]) => `segnaposto senza icona disegnata: ⟦${id}⟧ (${n} volte)`);
+}
+/* con la sostituzione attiva ogni emoji rimasta è un errore; prima, è un errore solo se non è mappata */
 export function emojiProblems() {
-  const r = emojiInSrc(), out = r.nonMappate.map((x) => `emoji senza icona nel manifest: ${x.e} (${x.n} volte)`);
+  const r = emojiInSrc(), out = r.nonMappate.map((x) => `emoji senza icona nel manifest: ${x.e} (${x.n} volte)`).concat(tokenProblems());
   if (r.attiva) for (const x of r.rows.filter((y) => !y.testo)) out.push(`emoji ancora nel codice con la sostituzione attiva: ${x.e} (${x.n} volte)`);
   return out;
 }

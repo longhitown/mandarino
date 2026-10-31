@@ -27,7 +27,7 @@
     }).join("") + "</div>";
   }
   function viewSwitch() {
-    return '<div class="seg inner" role="group" aria-label="' + CP.attr(T("th.mode")) + '"><button type="button" data-tview="study"' + (tview === "study" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">👁 " + T("th.study") + '</button><button type="button" data-tview="puzzle"' + (tview === "puzzle" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🧩 " + T("th.puzzle") + "</button></div>";
+    return '<div class="seg inner" role="group" aria-label="' + CP.attr(T("th.mode")) + '"><button type="button" data-tview="study"' + (tview === "study" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦eye⟧ " + T("th.study") + '</button><button type="button" data-tview="puzzle"' + (tview === "puzzle" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦puzzle⟧ " + T("th.puzzle") + "</button></div>";
   }
   function dots() {
     var l = list();
@@ -43,7 +43,7 @@
       '<div class="sitbox"><span class="small muted" style="font-weight:700">' + T("th.thinkIt") + '</span><span class="stx" lang="it">' + esc(e.it) + "</span></div>" +
       '<div class="tdir"><span class="badge' + (mode === "it" ? " on" : "") + '" id="td-it">🇮🇹 ' + T("th.itOrder") + '</span><span aria-hidden="true">⇄</span><span class="badge' + (mode === "zh" ? " on" : "") + '" id="td-zh">🇨🇳 ' + T("th.zhOrder") + "</span></div>" +
       '<div class="tbox" id="tbox" aria-live="polite">' + seq(mode).map(function (i) { return blockHTML(i); }).join("") + "</div>" +
-      '<div class="dlg-bar"><button type="button" class="btn-main" id="tk-flip" style="margin:0">🔄 ' + T("th.flip") + "</button></div>" +
+      '<div class="dlg-bar"><button type="button" class="btn-main" id="tk-flip" style="margin:0">⟦refresh⟧ ' + T("th.flip") + "</button></div>" +
       '<div class="sbox"><div class="lp">' + CP.pinyinHTML(z.py) + "</div>" + CP.toneCurveHTML(z.py) + '<div class="lh" lang="zh-CN">' + CP.hanziHTML(z.hz, z.py) + '</div><div class="li" lang="it">' + esc(e.zh) + '</div><div class="acts">' + CP.audioBtns(z.hz) + "</div></div>" +
       (e.note ? '<p class="tnote"><b>' + T("th.note") + '</b> <span lang="it">' + esc(e.note) + "</span></p>" : "") +
       (e.q ? '<p class="tnote">' + T("th.q") + "</p>" : "") + nextBar();
@@ -89,7 +89,7 @@
       '<div class="sitbox"><span class="small muted" style="font-weight:700">' + T("th.build") + '</span><span class="stx" lang="it">' + esc(e.it) + "</span></div>" +
       '<div class="tbox pz-ans" id="pz-ans" aria-live="polite" aria-label="' + CP.attr(T("lab.yours")) + '">' + ans + slots + "</div>" +
       (pz.state === "ok" ? "" : '<div class="tbox pz-pool" id="pz-pool" aria-label="' + CP.attr(T("th.pool")) + '">' + pool + "</div>") + msg +
-      (pz.state === "ok" ? "" : '<div class="acts"><button type="button" data-pzundo' + (pz.ans.length ? "" : " disabled") + ">↩ " + T("th.undo") + '</button><button type="button" data-pzhint' + (pz.hint ? " disabled" : "") + ">💡 " + T("th.hint") + '</button><button type="button" data-pzreset>🔀 ' + T("th.shuffle") + "</button></div>") +
+      (pz.state === "ok" ? "" : '<div class="acts"><button type="button" data-pzundo' + (pz.ans.length ? "" : " disabled") + ">⟦undo⟧ " + T("th.undo") + '</button><button type="button" data-pzhint' + (pz.hint ? " disabled" : "") + ">⟦bulb⟧ " + T("th.hint") + '</button><button type="button" data-pzreset>⟦shuffle⟧ ' + T("th.shuffle") + "</button></div>") +
       '<p class="small muted" style="margin-top:10px">' + T("th.score", { n: "<b>" + pzScore.ok + "</b>", tot: pzScore.tot }) + "</p>";
     function inner(b, withTag) {
       var bl = e.blocks[b];

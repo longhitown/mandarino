@@ -1,4 +1,4 @@
-/* ===== màndarínō · lettura graduata, corso di cinese: Frasi → 📖 Leggi → Testi.
+/* ===== màndarínō · lettura graduata, corso di cinese: Frasi → book-open Leggi → Testi.
    - Elenco per livello (TESTI_ZH, da tools/lettura.mjs), con «giusto per te» quando conosci almeno il 90% delle parole
      del testo (parole già avviate nel ripasso) e il segno «letto».
    - Il testo frase per frase: un tocco su una parola apre il suo foglio (significato e famiglia, CP.openFamily);
