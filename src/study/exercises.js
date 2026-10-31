@@ -29,7 +29,7 @@
   function pool() { if (!POOL) POOL = CP.ORDER.map(function (k) { return CP.WORDS[k]; }); return POOL; }
   function levelOf(w) { return CP.hsk(w.hz) || (typeof SECTION_CHAPTER !== "undefined" && SECTION_CHAPTER[w.sec]) || 6; }
   var CTX = { levelOf: levelOf, poly: function (hz) { return !!(CP.POLY && CP.POLY.has(hz)); }, pool: pool };
-  /* una voce cinese per l'ascolto: quella del telefono, il motore di Android o la voce online permessa in ⚙️ */
+  /* una voce cinese per l'ascolto: quella del telefono, il motore di Android o la voce online permessa in gear */
   function hasVoice() {
     var A = window.MandarinoAndroid;
     try { if (A && A.ttsHasLang && A.ttsHasLang("zh-CN")) return true; } catch (e) {}

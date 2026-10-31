@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Tamburo</title>
+  <path d="M4.5 9Q4.5 6.8 12 6.8T19.5 9Q19.5 11.2 12 11.2T4.5 9Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M4.5 9V16Q4.5 18.4 12 18.4T19.5 16V9" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6 3.6L10 6.4M18 3.6L14 6.4" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="8.4" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="12" cy="15.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="15.6" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

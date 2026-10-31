@@ -17,7 +17,7 @@ import android.os.IBinder;
 import java.lang.ref.WeakReference;
 
 /**
- * Musica in secondo piano (solo se scelta nel pannello 🎵): un servizio in primo piano con la notifica del brano
+ * Musica in secondo piano (solo se scelta nel pannello musica): un servizio in primo piano con la notifica del brano
  * (indietro / pausa / avanti) e una MediaSession, così Android non ferma la WebView con lo schermo spento e i comandi
  * arrivano anche dalla schermata di blocco, dalle cuffie e dal Bluetooth. La musica la suona sempre la pagina; ogni
  * comando le arriva come CP.jukebox.remote("prev" | "toggle" | "play" | "pause" | "next"), e la pagina risponde con

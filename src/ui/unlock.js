@@ -1,6 +1,6 @@
 /* ===== màndarínō · rivelazione progressiva: le schede (e gli strumenti di Frasi) compaiono quando hanno senso; le soglie stanno in UNLOCK.
    Perché, regole, pop-up: docs/ux-architettura.md. Chi aveva già progressi ha tutto aperto; uno sblocco non si perde mai (cp-ux-v1.unl).
-   ⚙️ → Studio → «Mostra tutto» apre tutto; CP.unlock.ok(scheda) è la domanda che si fanno core.js, i gesti, «Cerca ovunque» e ?go=. ===== */
+   gear → Studio → «Mostra tutto» apre tutto; CP.unlock.ok(scheda) è la domanda che si fanno core.js, i gesti, «Cerca ovunque» e ?go=. ===== */
 (function () {
   var CP = window.CP, T = CP.t;
   var UNLOCK = {
@@ -73,7 +73,7 @@
       if (/^x:/.test(k)) { var u2 = unl(); delete u2[k]; delete u2["new:" + k]; setUnl(u2); return; }
     }
     noteEl = document.createElement("div"); noteEl.className = "unl-note"; noteEl.setAttribute("role", "status");
-    noteEl.innerHTML = '<span class="unl-ico" aria-hidden="true">✨</span><span class="unl-tx">' + CP.esc(T("unl.new", { n: T(NAME[k]) })) + "<small>" + CP.esc(T("unl." + k.replace(":", "_"))) + "</small></span>" +
+    noteEl.innerHTML = '<span class="unl-ico" aria-hidden="true">⟦sparkle⟧</span><span class="unl-tx">' + CP.esc(T("unl.new", { n: T(NAME[k]) })) + "<small>" + CP.esc(T("unl." + k.replace(":", "_"))) + "</small></span>" +
       (tabK ? '<button type="button" class="btn-s" data-unl-go="' + tabK + '">' + CP.esc(T("unl.go")) + "</button>" : "") + '<button type="button" class="btn-s unl-x" data-unl-x aria-label="' + CP.attr(T("common.close")) + '">✕</button>';
     document.body.appendChild(noteEl);
     var me = noteEl; setTimeout(function () { if (noteEl === me) closeNote(); }, 9000);   /* la riga si toglie da sola */
@@ -132,13 +132,13 @@
     isShowAll: function () { return !!CP.ux.get("showAll"); },
     count: function () { return IT ? ALL_IT.filter(function (k) { return unl()[k]; }).length : ALL_ZH.filter(function (k) { return unl()[k]; }).length; }
   };
-  /* ---- ⚙️ → Studio → «Livello e schede»: rifare il test, annullare il salto, mostrare tutto (con doppia conferma) ---- */
+  /* ---- gear → Studio → «Livello e schede»: rifare il test, annullare il salto, mostrare tutto (con doppia conferma) ---- */
   (CP.settingsExtras = CP.settingsExtras || []).push({ group: "adv", html: function () {
     var pl = CP.ux.get("pl"), canUndo = pl && !pl.undone && (pl.n > 0 || (CP.game && CP.game.granted && CP.game.granted() > 0));
-    return '<details class="set-sec" id="set-level"><summary>📶 ' + CP.esc(T("unl.setT")) + '</summary><div class="vbody">' +
+    return '<details class="set-sec" id="set-level"><summary>⟦signal⟧ ' + CP.esc(T("unl.setT")) + '</summary><div class="vbody">' +
       '<p class="small muted" style="margin:0">' + CP.esc(T("unl.setHint")) + "</p>" +
-      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-unl-redo>🧭 ' + CP.esc(T("unl.redo")) + "</button>" +
-      (canUndo ? '<button type="button" class="btn-s" data-unl-undo>↩️ ' + CP.esc(T("unl.undo")) + "</button>" : "") + "</div>" +
+      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-unl-redo>⟦compass⟧ ' + CP.esc(T("unl.redo")) + "</button>" +
+      (canUndo ? '<button type="button" class="btn-s" data-unl-undo>⟦undo⟧ ' + CP.esc(T("unl.undo")) + "</button>" : "") + "</div>" +
       '<label class="chk"><input type="checkbox" id="opt-showall"' + (CP.ux.get("showAll") ? " checked" : "") + "> " + CP.esc(T("unl.showAll")) + "</label></div></details>";
   } });
   /* la conferma va sopra: le Impostazioni si chiudono e si riaprono a lavoro fatto */

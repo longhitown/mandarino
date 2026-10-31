@@ -7,8 +7,8 @@
       intatto, registro dei ripassi sommato.
    5. Corso di italiano per chi parla cinese: si sceglie dal benvenuto, le lezioni si superano con le risposte giuste, il ripasso salva.
    6. Le lezioni di grammatica del corso di cinese si superano tutte con le risposte giuste.
-   4. Senza riconoscimento vocale il 🎤 resta e registra e confronta (microfono finto di Chromium);
-      l'indicatore 🎙️ compare e un tocco chiude il flusso.
+   4. Senza riconoscimento vocale il microfono resta e registra e confronta (microfono finto di Chromium);
+      l'indicatore microfono compare e un tocco chiude il flusso.
    Restano da fare a mano, su un telefono vero: tap udibile a volume 50% e 10 tap di fila non fastidiosi, la musica
    che si abbassa quando parla la voce, Lighthouse «Installable» su https, il microfono in modalità standalone su iPhone.
 
@@ -105,9 +105,9 @@ try {
     await p.goto(base); await p.evaluate(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); }); await p.reload();
     await p.click("#tab-words"); await p.waitForTimeout(200);
     const lbl = await p.evaluate(() => { const m = document.querySelector("#frasi .ln .mic"); if (!m) return null; m.scrollIntoView(); m.click(); return m.getAttribute("aria-label"); });
-    check("Senza riconoscimento vocale il 🎤 resta e apre il pannello «Parla»", lbl === "Registra e confronta" && await p.evaluate(() => !!document.querySelector(".vp")), lbl);
+    check("Senza riconoscimento vocale il microfono resta e apre il pannello «Parla»", lbl === "Registra e confronta" && await p.evaluate(() => !!document.querySelector(".vp")), lbl);
     await p.waitForTimeout(500);
-    check("Indicatore 🎙️ col microfono aperto", await p.evaluate(() => !document.getElementById("mic-live").hidden));
+    check("Indicatore microfono col microfono aperto", await p.evaluate(() => !document.getElementById("mic-live").hidden));
     await p.waitForFunction(() => !document.querySelector(".vp.on"), null, { timeout: 12000 }).catch(() => {});
     check("Il pannello «Parla» si ferma da solo e la registrazione si riascolta", await p.evaluate(() => { const b = document.querySelector("[data-vp-me]"); return !!b && !b.disabled; }));
     /* voce sintetica: un 4° tono (240 → 140 Hz) deve risultare «che cade» */
@@ -161,7 +161,7 @@ try {
       const g2 = await p.evaluate(() => ({ focus: document.body.classList.contains("in-focus"), path: !document.getElementById("view-path").hidden, cls: document.body.className }));
       check("…e all'uscita si torna al Percorso", !g2.focus && g2.path, JSON.stringify(g2));
       await p.evaluate(() => CP.finder()); await p.fill("#fd-q", "laboratorio"); await p.waitForTimeout(150);
-      check("Cerca ovunque: uno strumento ancora chiuso compare con «si apre…» e non porta a una scheda nascosta", /🔒/.test(await p.textContent("#fd-res")));
+      check("Cerca ovunque: uno strumento ancora chiuso compare con «si apre…» e non porta a una scheda nascosta", (await p.innerHTML("#fd-res")).includes("#i-lock"));
       await p.keyboard.press("Escape");
       /* «Mostra tutto»: due conferme */
       await p.evaluate(() => { CP.openSettings("set-level"); }); await p.waitForTimeout(150);
@@ -247,7 +247,7 @@ try {
     check("Contributi: la casella «compari nei Crediti» è spenta di base; spuntata, la patch porta nickname e credit: 1", off && sent && sent.author === "Prova_e2e" && sent.credit === 1, JSON.stringify(sent || {}).slice(0, 160));
     await p.evaluate(() => { CP.closeSheet(); CP.openSettings("info"); }); await p.waitForTimeout(200);
     const news = await p.evaluate(() => { const d = document.getElementById("set-news"); if (!d) return null; d.open = true; const v = d.querySelector(".news-v[open] b"); return { v: v && v.textContent, top: CHANGELOG[0].v, n: d.querySelectorAll(".news-v[open] li").length, lang: d.querySelector(".news-list").getAttribute("lang") }; });
-    check("Novità: in ⚙️ → Informazioni, l'ultima versione aperta", news && news.v === news.top && news.n > 2 && news.lang === "it", JSON.stringify(news));
+    check("Novità: in Impostazioni → Informazioni, l'ultima versione aperta", news && news.v === news.top && news.n > 2 && news.lang === "it", JSON.stringify(news));
     await p.click("#set-about [data-credits]").catch(() => p.evaluate(() => CP.credits())); await p.waitForTimeout(150);
     check("Crediti: la parte «Chi ha contribuito» c'è anche quando l'elenco è vuoto", await p.evaluate(() => /Chi ha contribuito/.test(document.getElementById("fam").textContent)));
     await p.evaluate(() => { localStorage.setItem("cp-lang", "zh"); }); await p.reload(); await p.waitForTimeout(500);
@@ -255,7 +255,7 @@ try {
     const zh = await p.evaluate(() => { const d = document.getElementById("set-news"); return d && d.querySelector(".set-h").textContent + "|" + d.querySelector(".news-list").getAttribute("lang"); });
     check("Novità in cinese: titolo e righe in cinese", /更新内容/.test(zh || "") && /zh-CN$/.test(zh || ""), zh);
     const pv = await p.evaluate(() => { const d = document.getElementById("set-privacy"); return d ? d.closest("[data-set-page=info]") && d.querySelector(".set-h").textContent + "|" + d.querySelectorAll("li").length : ""; });
-    check("Privacy: voce in ⚙️ → Informazioni, in cinese, otto punti (anche il backup di Android e le sfide)", /隐私\|8$/.test(pv || ""), pv);
+    check("Privacy: voce in Impostazioni → Informazioni, in cinese, otto punti (anche il backup di Android e le sfide)", /隐私\|8$/.test(pv || ""), pv);
     check("Contributi e Novità: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
@@ -321,7 +321,7 @@ try {
     await p.click("[data-anki-go]"); await p.waitForSelector("[data-anki-ok1]"); const before = await p.evaluate(() => window.__dl);
     await p.click("[data-anki-ok1]"); await p.waitForSelector("[data-anki-ok2]"); await p.click("[data-anki-ok2]"); await p.waitForTimeout(200);
     const dl = await p.evaluate(() => window.__dl);
-    check("Anki: nascosto sotto la soglia (" + 400 + "), poi in ⚙️ → Dati e sincronizzazione → Anki: porta le tue parole, salva solo dopo due conferme (.txt, text/tab-separated-values)", hidden && shown && !before && dl && /^mandarino-anki-mine-\d{8}\.txt$/.test(dl.n) && dl.m === "text/tab-separated-values", JSON.stringify({ hidden, shown, dl }));
+    check("Anki: nascosto sotto la soglia (" + 400 + "), poi in Impostazioni → Dati e sincronizzazione → Anki: porta le tue parole, salva solo dopo due conferme (.txt, text/tab-separated-values)", hidden && shown && !before && dl && /^mandarino-anki-mine-\d{8}\.txt$/.test(dl.n) && dl.m === "text/tab-separated-values", JSON.stringify({ hidden, shown, dl }));
     check("Anki: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
@@ -360,7 +360,7 @@ try {
     const fam = await p.evaluate(() => ({ big: (document.querySelector("#fam .fam-head .big") || {}).textContent, others: document.querySelectorAll("#fam .fw").length }));
     check("Anatomia: un componente apre le altre parole che lo contengono (foglio della famiglia)", fam.big === "青" && fam.others > 2, JSON.stringify(fam));
     await p.evaluate(() => { CP.closeSheet(); CP.anatomy.set(false); CP.openFamily("好"); }); await p.waitForTimeout(200);
-    check("Anatomia: si spegne in ⚙️ (e non c'è sul fronte della carta di studio)", await p.evaluate(() => !document.querySelector("#fam .anat") && !document.querySelector(".fc .anat")));
+    check("Anatomia: si spegne in Impostazioni (e non c'è sul fronte della carta di studio)", await p.evaluate(() => !document.querySelector("#fam .anat") && !document.querySelector(".fc .anat")));
     await p.evaluate(() => { CP.closeSheet(); CP.anatomy.set(true); });
     check("Anatomia: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
@@ -393,7 +393,7 @@ try {
     const pk = await A.p.evaluate(() => { const p = { id: "abc12", c: "zh", t: "Classe 2B", s: CP.SEC[0].id, e: CP.SEC[1].id, g: 80, d: "2030-01-15" }; return { link: CP.classroom.link(p), p }; });
     await B.p.evaluate((l) => { CP.closeSheet(); CP.togetherOpen(l); }, pk.link); await B.p.waitForTimeout(700);
     const st = await B.p.evaluate(() => { const o = JSON.parse(localStorage.getItem("cp-class-v1")); return { ids: Object.keys(o.p), card: !!document.querySelector("#set-together .cls-card"), banner: (document.querySelector("#path-root .cls-banner") || {}).textContent || "" }; });
-    check("Classe: il pacchetto si importa dal codice (cp-class-v1) e si vede in ⚙️", st.ids.join() === "abc12" && st.card, JSON.stringify(st));
+    check("Classe: il pacchetto si importa dal codice (cp-class-v1) e si vede in Impostazioni", st.ids.join() === "abc12" && st.card, JSON.stringify(st));
     await B.p.evaluate(() => { CP.untrap(document.getElementById("settings")); CP.pathDirty(); CP.onPath(); }); await B.p.waitForTimeout(200);
     check("Classe: riquadro in cima al Percorso con titolo e avanzamento", /Classe: Classe 2B/.test(await B.p.evaluate(() => (document.querySelector("#path-root .cls-banner") || {}).textContent || "")));
     await B.p.evaluate(() => CP.openSettings("set-together")); await B.p.click("#set-together [data-cls-report]"); await B.p.waitForTimeout(200);
@@ -433,7 +433,7 @@ try {
       if (fixture) await p.evaluate((code) => { const r = document.getElementById("study-root"); r.replaceWith(r.cloneNode(false)); (0, eval)(code); }, fs.readFileSync(path.join(path.dirname(fileURLToPathSafe(import.meta.url)), "fixtures/study-classic-v1.js"), "utf8"));
       const seq = await p.evaluate(() => {
         __seed(20261027); CP.show("study", true); CP.studyStart();
-        const out = [], root = document.getElementById("study-root"), clean = (h) => h.replace(/ enter"/g, '"');
+        const out = [], root = document.getElementById("study-root"), clean = (h) => h.replace(/ enter"/g, '"').replace(/[\uE000-\uE0FF]|\u27e6[a-z0-9-]+\u27e7/g, "\u27e6i\u27e7");   /* icona: segnaposto del build o scritto a mano nella fixture, per il confronto è lo stesso */
         for (let i = 0; i < 40; i++) {
           out.push(clean(root.innerHTML));
           const b = root.querySelector("#next") || root.querySelector("#reveal") || root.querySelector('[data-g="' + (i % 7 === 3 ? 0 : i % 5 === 1 ? 1 : 2) + '"]');
@@ -757,9 +757,9 @@ try {
     const r0 = await p.evaluate(() => { CP.ex.carica(); const E = CP.exEngine, any = CP.ORDER.some((k) => E.REG["ascolto-frase"].richiede(CP.WORDS[k], E.ctx)); CP.say("还有很多时间"); return { any, url: CP.voiceClip.url("还有很多时间", "zh") }; });
     await p.waitForTimeout(150);
     check("Voci reali: prima di scaricarle nessuna clip, nessuna richiesta, «ascolta la frase» non si propone", !r0.any && !r0.url && !voce.length, JSON.stringify({ r0, voce: voce.length }));
-    /* ⚙️ → Suoni e musica → Voce → «Voci reali» → «Scarica le voci» */
+    /* Impostazioni → Suoni e musica → Voce → «Voci reali» → «Scarica le voci» */
     const label = await p.evaluate(() => { CP.show("settings"); const d = document.getElementById("set-voice") || document.querySelector("#vset-body"); const b = document.querySelector("[data-vc-dl]"); return b ? b.textContent : (document.getElementById("vc-box") || {}).textContent || null; });
-    check("Voci reali: in ⚙️ → Suoni e musica → Voce il pulsante «Scarica le voci» con i MB", /Scarica le voci \(\d+,\d MB\)/.test(label || ""), label);
+    check("Voci reali: in Impostazioni → Suoni e musica → Voce il pulsante «Scarica le voci» con i MB", /Scarica le voci \(\d+,\d MB\)/.test(label || ""), label);
     await p.evaluate(() => document.querySelector("[data-vc-dl]").click());
     await p.waitForFunction(() => localStorage.getItem("cp-voice-dl") === "1", null, { timeout: 120000 }).catch(() => {});
     const r1 = await p.evaluate(async () => { const c = await caches.open("mandarino-voice"), ks = await c.keys(), F = VOICE_FILES; return { dl: localStorage.getItem("cp-voice-dl"), n: ks.length, want: Object.keys(F.zh).length + Object.keys(F.it).length, box: (document.getElementById("vc-box") || {}).textContent }; });
@@ -797,7 +797,7 @@ try {
     await ctx.close();
   }
   /* 4n-bis. etichetta «Voce reale» (ui/voice-tag.js): compare solo dopo una clip vera; tocco → fonte e licenza + invito allo Scambio;
-     l'interruttore in ⚙️ → Suoni e musica → Voce la spegne. Qui si chiama CP.voiceTag.show come fa CP.speak a clip finita. */
+     l'interruttore in Impostazioni → Suoni e musica → Voce la spegne. Qui si chiama CP.voiceTag.show come fa CP.speak a clip finita. */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" }); const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));
     await ctx.addInitScript(() => { if (!localStorage.getItem("cp-ux-v1")) { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); localStorage.setItem("cp-voice-dl", "1"); } });
@@ -1059,7 +1059,7 @@ try {
     check("Musica: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
-  /* 5e. musica: i brani dell'utente (⚙️ → Suoni e musica → Voce → «I tuoi brani»). Un WAV vero, un file rotto con estensione .mp3 e uno troppo grande;
+  /* 5e. musica: i brani dell'utente (Impostazioni → Suoni e musica → Voce → «I tuoi brani»). Un WAV vero, un file rotto con estensione .mp3 e uno troppo grande;
      copia nella memoria dell'app (IndexedDB), elenco, riascolto dopo il ricaricamento, «Solo i miei brani», «Rimuovi». */
   {
     const wav = (sec) => { const rate = 8000, n = rate * sec, b = Buffer.alloc(44 + n * 2); b.write("RIFF", 0); b.writeUInt32LE(36 + n * 2, 4); b.write("WAVEfmt ", 8); b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(rate, 24); b.writeUInt32LE(rate * 2, 28); b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write("data", 36); b.writeUInt32LE(n * 2, 40); for (let i = 0; i < n; i++) b.writeInt16LE(Math.round(Math.sin(i / 8 * Math.PI) * 6000), 44 + i * 2); return b; };
@@ -1796,6 +1796,31 @@ try {
     check("Cambio lingua: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+  /* 7b. icone (ui/ico.js): nessun segnaposto né carattere privato a vista, ogni icona usata esiste nello sprite, nessun segnaposto negli attributi di lettura,
+     e i pulsanti rimasti con la sola icona hanno un nome per i lettori di schermo (prima lo aveva l'emoji) */
+  for (const lang of ["it", "zh"]) {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    await ctx.addInitScript((l) => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); localStorage.setItem("cp-lang", l); }, lang);
+    const p = await ctx.newPage(), errs = []; p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.waitForTimeout(1200);
+    const probe = () => p.evaluate(() => {
+      const bad = /[\uE000-\uE0FF\u27e6\u27e7]/;
+      return {
+        raw: bad.test(document.body.innerText), uses: document.querySelectorAll("svg.ic use").length,
+        missing: [...document.querySelectorAll("svg.ic use")].filter((u) => !document.getElementById(u.getAttribute("href").slice(1))).length,
+        attrs: [...document.querySelectorAll("[aria-label],[title],[placeholder],[alt]")].filter((e) => bad.test((e.getAttribute("aria-label") || "") + (e.getAttribute("title") || "") + (e.getAttribute("placeholder") || "") + (e.getAttribute("alt") || ""))).length,
+        anon: [...document.querySelectorAll("button, a, summary")].filter((b) => b.querySelector("svg.ic") && !b.textContent.trim() && !b.getAttribute("aria-label") && !b.getAttribute("title") && !b.closest("[hidden]")).length
+      };
+    });
+    const states = [["home", await probe()]];
+    await p.evaluate(() => CP.openSettings()); await p.waitForTimeout(500); states.push(["impostazioni", await probe()]);
+    for (const pg of ["look", "sound", "community", "study", "data", "social", "info"]) { await p.evaluate((x) => CP.openSettings(x), pg); await p.waitForTimeout(350); states.push([pg, await probe()]); }
+    const worst = states.filter(([, r]) => r.raw || r.missing || r.attrs || r.anon);
+    check("Icone (" + lang + "): niente segnaposto a vista, ogni icona esiste nello sprite, nessun segnaposto negli attributi, nessun pulsante senza nome (home e " + (states.length - 1) + " schermate)",
+      !worst.length && states[0][1].uses > 10 && !errs.length, JSON.stringify(worst.length ? worst : { uses: states.map(([n, r]) => n + ":" + r.uses).join(" "), errs }));
+    await ctx.close();
+  }
+
   /* 8. Impostazioni a pagine: sette carte, ogni voce di prima raggiungibile, due livelli, ricerca, Esc e «Indietro» di Android, in tutti e due i corsi e le due lingue */
   {
     /* l'elenco di prima (quattro gruppi con sezioni annidate), voce per voce: id della sezione, pagina in cui sta ora, un comando che deve esserci */
@@ -1863,7 +1888,7 @@ try {
     await ctx.route("https://mandarinoapp.org/voci/index.json", (r) => r.fulfill({ status: 404, body: "" }));
     await p.goto(base); await p.waitForTimeout(700);
     const dot0 = await p.evaluate(() => ({ on: document.getElementById("settings-btn").classList.contains("has-new"), d: document.getElementById("settings-btn").getAttribute("aria-describedby"), t: document.getElementById("set-new-sr").textContent }));
-    check("Comunità: prima di aprire la pagina c'è il pallino su ⚙️, con il testo per i lettori di schermo, e a riposo nessuna richiesta esterna", dot0.on && dot0.d === "set-new-sr" && dot0.t.length > 3 && !ext.length, JSON.stringify(dot0) + ext[0]);
+    check("Comunità: prima di aprire la pagina c'è il pallino su Impostazioni, con il testo per i lettori di schermo, e a riposo nessuna richiesta esterna", dot0.on && dot0.d === "set-new-sr" && dot0.t.length > 3 && !ext.length, JSON.stringify(dot0) + ext[0]);
     await p.evaluate(() => CP.openSettings()); await p.waitForTimeout(200);
     const tile = await p.evaluate(() => document.querySelector('[data-set-open="community"]').classList.contains("has-new"));
     await p.click('[data-set-open="community"]'); await p.waitForTimeout(500);
@@ -1887,7 +1912,7 @@ try {
       }
       return { keys, on: document.getElementById("settings-btn").classList.contains("has-new") };
     });
-    check("Pallino «Nuovo»: leggendo davvero tutte e sette le pagine (una schermata alla volta) il pallino su ⚙️ si spegne", !readAll.on && Object.values(readAll.keys).every(Boolean), JSON.stringify(readAll));
+    check("Pallino «Nuovo»: leggendo davvero tutte e sette le pagine (una schermata alla volta) il pallino su Impostazioni si spegne", !readAll.on && Object.values(readAll.keys).every(Boolean), JSON.stringify(readAll));
     await p.evaluate(() => CP.openSettings("community")); await p.waitForTimeout(300);
     await p.click("[data-cm-check]"); await p.waitForTimeout(400);
     const vp = await p.evaluate(() => ({ msg: document.getElementById("cm-vp-msg").textContent, line: document.getElementById("cm-vp-line").textContent, stored: localStorage.getItem("md-voicepack") }));

@@ -1,4 +1,4 @@
-/* ===== màndarínō · ⚙️ → Social: i canali ufficiali (data/social.js), in fondo alle Impostazioni, prima di Informazioni, per non dar loro lo stesso
+/* ===== màndarínō · gear → Social: i canali ufficiali (data/social.js), in fondo alle Impostazioni, prima di Informazioni, per non dar loro lo stesso
    peso delle sezioni principali. Solo collegamenti che si aprono al tocco: niente incorporati, niente script di terzi, nessun contatore.
    Una voce senza indirizzo non compare. Si carica con le Impostazioni (tools/build.mjs, LAZYMOD). ===== */
 (function () {

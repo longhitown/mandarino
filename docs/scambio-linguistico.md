@@ -33,13 +33,13 @@ studia la frase nella propria lingua accanto alla traduzione, quindi l'esercizio
   giorni), `dlg:<id>:<riga>` (battute dei dialoghi), `ex:<parola>` (frasi d'esempio) e `w:<parola>` (singole parole con il significato
   breve). Niente testo libero: nessun rischio di contenuti personali dentro le registrazioni.
 - **Si registra solo dal foglio dello scambio**, che pesca a caso: una *serie* di 10 elementi (7 frasi e 3 parole) non ancora registrati né
-  saltati, senza doppioni; finita la serie, «Un'altra serie». Non ci sono pulsanti 🎙️ in altri punti dell'app.
+  saltati, senza doppioni; finita la serie, «Un'altra serie». Non ci sono pulsanti in altri punti dell'app.
 - Una voce per volta, con il testo grande, il contatore («3 / 10») e la traduzione sotto. Si può riascoltare, tenere o rifare; «Un'altra frase» salta.
 - Si registra nella **propria** lingua: cinese nel corso di italiano (interfaccia in cinese), italiano nel corso di cinese.
 
 ## Il foglio del consenso
 
-Nell'app: ⚙️ → Comunità e voci → **Scambio linguistico: la tua voce** → *Partecipa*. Otto punti (che cosa si registra e dove resta,
+Nell'app: Impostazioni → Comunità e voci → **Scambio linguistico: la tua voce** → *Partecipa*. Otto punti (che cosa si registra e dove resta,
 CC BY 4.0, la voce si riconosce, chi ascolta, nome e regione, come chiedere di togliere una registrazione, solo maggiorenni, lingua
 madre), nome o nickname e regione facoltativi, tre caselle non spuntate di base («Ho letto e capito», «Ho almeno 18 anni», «Autorizzo la pubblicazione con licenza CC BY 4.0 se le invio») e il
 pulsante «Accetto e continuo», spento finché non sono spuntate tutte. Il consenso resta sul telefono in `md-voice-consent`
@@ -68,7 +68,7 @@ stampare o salvare in PDF. Per registrare basta il foglio dell'app; il modulo è
 ## Dove resta, come si manda
 
 - **Sul telefono**: IndexedDB `mandarino-voices-v1`, fuori dal backup e dalla sincronizzazione (pesano e sono personali). Un elenco
-  nel foglio mostra le registrazioni con ascolto (▶) e cancellazione (×). Gli errori di memoria (lettura, salvataggio o cancellazione) vengono mostrati all'utente e non nascosti.
+  nel foglio mostra le registrazioni con ascolto («avvia») e cancellazione (×). Gli errori di memoria (lettura, salvataggio o cancellazione) vengono mostrati all'utente e non nascosti.
 - **L'invio**: il file `.zip` lo crea l'app da sé, in anticipo, appena si apre il foglio. Un solo tasto principale, **«Invia per e-mail»**:
   dove il telefono lo permette apre la condivisione con il file già allegato e il testo del consenso pronto per mandarinoapp@gmail.com;
   altrimenti scarica il file e apre la bozza dell'e-mail (da allegare a mano). Parte solo se le tre autorizzazioni sono firmate
@@ -150,5 +150,5 @@ Dopo l'applicazione: `node tools/build.mjs`. Codice d'uscita: 0 tutto bene, 1 se
 
 ## Da fare dopo
 
-1. Il **pacchetto voci** scaricabile a parte, come la musica (⚙️ → Suoni e musica → «Voci di madrelingua (N MB)»), mai all'avvio; dove
-   c'è una voce vera 🔊 la usa al posto della sintesi, con il segno «voce vera» e il nickname nei dettagli. Il peso dell'APK non cambia.
+1. Il **pacchetto voci** scaricabile a parte, come la musica (Impostazioni → Suoni e musica → «Voci di madrelingua (N MB)»), mai all'avvio; dove
+   c'è una voce vera la usa al posto della sintesi, con il segno «voce vera» e il nickname nei dettagli. Il peso dell'APK non cambia.

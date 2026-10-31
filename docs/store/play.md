@@ -19,7 +19,7 @@ Principio: **lo sviluppatore non riceve dati personali.** Sul telefono restano p
 |---|---|
 | L'app raccoglie o condivide dati degli utenti? | No per i dati che lasciano il telefono verso lo sviluppatore. Vedi sotto i due punti «DA DECIDERE» |
 | Dati criptati in transito | Sì: le poche richieste usano HTTPS |
-| Si può chiedere la cancellazione | I dati sono solo sul telefono: si cancellano da ⚙️ → Dati e sincronizzazione o disinstallando |
+| Si può chiedere la cancellazione | I dati sono solo sul telefono: si cancellano da Impostazioni → Dati e sincronizzazione o disinstallando |
 | Pubblicità, acquisti, account | Nessuna pubblicità, nessun acquisto, nessun account |
 
 - **DA DECIDERE · voce online (facoltativa, spenta di base):** se la persona la accende, il testo cinese da leggere va a un servizio di sintesi

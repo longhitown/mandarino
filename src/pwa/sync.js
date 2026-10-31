@@ -124,27 +124,27 @@
   document.addEventListener("visibilitychange", function () { if (document.hidden) writeOnly(); });
   window.addEventListener("pagehide", function () { writeOnly(); });
 
-  /* ---- ⚙️ → Dati e sincronizzazione → Sincronizzazione ---- */
+  /* ---- gear → Dati e sincronizzazione → Sincronizzazione ---- */
   function when(ts) { if (!ts) return T("sy.never"); var d = new Date(ts); return d.toLocaleDateString(LANG === "zh" ? "zh-CN" : "it-IT") + " " + d.toLocaleTimeString(LANG === "zh" ? "zh-CN" : "it-IT", { hour: "2-digit", minute: "2-digit" }); }
   function bodyHTML(note) {
     var c = cfg(), h = '<p class="small muted" style="margin:0">' + T("sy.lede") + "</p>";
     if (KIND === "manual") {
       h += '<p class="small" style="margin:0">' + T("sy.manual") + "</p>" +
-        '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-sy-save>⬇ ' + T("sy.saveFile") + '</button><button type="button" class="btn-s" data-sy-merge>⬆ ' + T("sy.mergeFile") + "</button></div>";
+        '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-sy-save>⟦download⟧ ' + T("sy.saveFile") + '</button><button type="button" class="btn-s" data-sy-merge>⟦upload⟧ ' + T("sy.mergeFile") + "</button></div>";
     } else if (!c.kind) {
-      h += '<div class="acts" style="margin:0"><button type="button" class="btn-main" data-sy-new style="margin:0">☁️ ' + T("sy.new") + '</button><button type="button" class="btn-s" data-sy-open>📂 ' + T("sy.open") + "</button></div>" +
+      h += '<div class="acts" style="margin:0"><button type="button" class="btn-main" data-sy-new style="margin:0">⟦cloud⟧ ' + T("sy.new") + '</button><button type="button" class="btn-s" data-sy-open>⟦folder⟧ ' + T("sy.open") + "</button></div>" +
         '<p class="small muted" style="margin:0">' + T(KIND === "android" ? "sy.hintA" : "sy.hintF") + "</p>";
     } else {
-      h += '<div class="sy-file"><b>☁️ ' + esc(c.name || "mandarino-sync.json") + '</b><span class="small muted">' + T("sy.last", { t: when(c.last) }) + "</span></div>" +
-        '<div class="acts" style="margin:0"><button type="button" class="btn-main" data-sy-now style="margin:0">🔄 ' + T("sy.now") + '</button><button type="button" class="btn-s" data-sy-unlink>' + T("sy.unlink") + "</button></div>";
+      h += '<div class="sy-file"><b>⟦cloud⟧ ' + esc(c.name || "mandarino-sync.json") + '</b><span class="small muted">' + T("sy.last", { t: when(c.last) }) + "</span></div>" +
+        '<div class="acts" style="margin:0"><button type="button" class="btn-main" data-sy-now style="margin:0">⟦refresh⟧ ' + T("sy.now") + '</button><button type="button" class="btn-s" data-sy-unlink>' + T("sy.unlink") + "</button></div>";
     }
     if (note) h += '<p class="small" role="status" style="margin:0">' + esc(note) + "</p>";
-    h += '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-qr-send>📱→ ' + T("qr.send") + '</button><button type="button" class="btn-s" data-qr-recv>📷 ' + T("qr.recv") + "</button></div>";
+    h += '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-qr-send>⟦phone⟧→ ' + T("qr.send") + '</button><button type="button" class="btn-s" data-qr-recv>⟦camera⟧ ' + T("qr.recv") + "</button></div>";
     return h;
   }
   function paint(note) { var b = document.getElementById("sy-body"); if (b) b.innerHTML = bodyHTML(note); }
   (CP.settingsExtras = CP.settingsExtras || []).unshift({ group: "data", html: function () {
-    return '<details class="set-sec" id="set-sync"><summary>🔄 ' + T("sy.title") + '</summary><div class="vbody" id="sy-body">' + bodyHTML() + "</div></details>";
+    return '<details class="set-sec" id="set-sync"><summary>⟦refresh⟧ ' + T("sy.title") + '</summary><div class="vbody" id="sy-body">' + bodyHTML() + "</div></details>";
  } });
   var merging = document.createElement("input"); merging.type = "file"; merging.accept = "application/json,.json"; merging.hidden = true; document.body.appendChild(merging);
   merging.addEventListener("change", function () { var f = merging.files && merging.files[0]; if (f && CP.restoreFile) CP.restoreFile(f); merging.value = ""; });

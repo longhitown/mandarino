@@ -1,6 +1,6 @@
-/* ===== màndarínō · ⚙️ → «Comunità e voci»: lo Scambio linguistico (il box sta in ui/scambio-stub.js), i tuoi numeri, i ringraziamenti,
+/* ===== màndarínō · gear → «Comunità e voci»: lo Scambio linguistico (il box sta in ui/scambio-stub.js), i tuoi numeri, i ringraziamenti,
    l'invito a un amico, i widget di Android e il controllo del pacchetto voci. Si carica con le Impostazioni, al loro primo uso
-   (tools/build.mjs, LAZYMOD), così non pesa all'avvio. Qui c'è anche il pallino «Nuovo» (su ⚙️, sulla voce Comunità e su Informazioni).
+   (tools/build.mjs, LAZYMOD), così non pesa all'avvio. Qui c'è anche il pallino «Nuovo» (su gear, sulla voce Comunità e su Informazioni).
    Regole del Manifesto: niente parte da solo, nessun numero lascia il telefono, nessuna classifica, nessun avviso a comparsa.
    L'unica richiesta di rete è «Controlla aggiornamenti», e solo se la persona tocca il pulsante (PRIVACY.md). ===== */
 (function () {
@@ -12,7 +12,7 @@
   /* la versione dell'app: quella dell'APK se c'è, altrimenti quella della build */
   function ver() { return String((window.__MD_APK && window.__MD_APK.version) || CP.VERSION || ""); }
 
-  /* ---- pallino «Nuovo»: su ⚙️ e su ogni voce delle Impostazioni, finché la pagina non è stata letta davvero ----
+  /* ---- pallino «Nuovo»: su gear e su ogni voce delle Impostazioni, finché la pagina non è stata letta davvero ----
      «Letta» vuol dire: scorsa fino in fondo, fermandosi in ogni schermata abbastanza da vederla (vedi readStart).
      Chi scorre di corsa vede il pallino restare: è fatto apposta, perché le Impostazioni si guardino, non si saltino.
      Solo un punto e un testo per i lettori di schermo, mai numeri né suoni. */
@@ -135,7 +135,7 @@
   }
   function wdPreview(k) {
     var w = function (x) { return T("wd." + x); };
-    if (k === "today_large") return '<div class="wd wd-l"><span class="hz" lang="zh-CN">今</span><div><b>' + w("today") + '</b><div class="mut">6 ' + w("words") + ' · 🔥 4 ' + w("streak") + "</div></div></div>";
+    if (k === "today_large") return '<div class="wd wd-l"><span class="hz" lang="zh-CN">今</span><div><b>' + w("today") + '</b><div class="mut">6 ' + w("words") + ' · ⟦flame⟧ 4 ' + w("streak") + "</div></div></div>";
     if (k === "today_small") return '<div class="wd wd-s"><span class="hz" lang="zh-CN">今</span><div class="mut">6 ' + w("words") + "</div></div>";
     if (k === "pause") return '<div class="wd wd-p"><b>' + w("pause") + '</b><div class="t">25:00</div><div class="go">' + w("start") + "</div></div>";
     return '<div class="wd wd-r"><div class="hz" lang="zh-CN">你好</div><div class="py">nǐ hǎo</div><div class="bt"><i>' + w("again") + "</i><i>" + w("hard") + "</i><i>" + w("good") + "</i><i>" + w("easy") + "</i></div></div>";

@@ -49,10 +49,10 @@
     if (location.protocol === "file:") return "";
     if (!WK.map) {
       if (wikiOK() && !WK.err) { wikiLoad().then(paint); return ""; }
-      return '<div class="xr-wiki"><button type="button" class="btn-s" data-xr-wiki>📚 ' + T("rd.wikiGet") + "</button>" + (WK.err ? ' <span class="small muted">' + T("rd.wikiErr") + "</span>" : "") + "</div>";
+      return '<div class="xr-wiki"><button type="button" class="btn-s" data-xr-wiki>⟦books⟧ ' + T("rd.wikiGet") + "</button>" + (WK.err ? ' <span class="small muted">' + T("rd.wikiErr") + "</span>" : "") + "</div>";
     }
     var h = wikiHits(segs); if (!h.length) return "";
-    return '<div class="xr-wiki"><b>📚 ' + T("rd.wikiTitle") + '</b><span class="small muted"> · Wikipedia</span><ul>' + h.map(function (x) {
+    return '<div class="xr-wiki"><b>⟦books⟧ ' + T("rd.wikiTitle") + '</b><span class="small muted"> · Wikipedia</span><ul>' + h.map(function (x) {
       return '<li><button type="button" class="xw-w" data-fam="' + CP.attr(x[0]) + '"><span class="han" lang="zh-CN">' + esc(x[0]) + '</span></button> <span lang="it">' + esc(x[1]) + "</span></li>";
     }).join("") + "</ul></div>";
   }
@@ -82,7 +82,7 @@
     return '<div class="xr-out">' + h + '</div><p class="xr-stat">' + T("rd.known", { n: "<b>" + a.known, tot: a.chars + "</b>", p: pct }) +
       (a.inside ? " " + T("rd.insideN", { n: a.inside }) : "") +
       (a.unk.length ? " " + T("rd.unkList", { l: "<span class=\"han\" lang=\"zh-CN\">" + esc(a.unk.slice(0, 20).join(" ")) + "</span>" }) : "") + "</p>" +
-      wikiHTML(a.segs) + '<div class="acts"><button type="button" class="btn-main" data-xr-play style="margin:0">▶️ ' + T("rd.play") + "</button></div>";
+      wikiHTML(a.segs) + '<div class="acts"><button type="button" class="btn-main" data-xr-play style="margin:0">⟦play⟧ ' + T("rd.play") + "</button></div>";
   }
   CP.wiki = { load: wikiLoad, hits: function (raw) { return WK.map ? wikiHits(CP.segment(raw)) : []; } };
   CP.subs = CP.subs || {};
@@ -106,7 +106,7 @@
     var b = t.closest("[data-xr-sample]");
     if (b) { text = SAMPLES[+b.getAttribute("data-xr-sample")][1]; var ta = document.getElementById("xr-in"); if (ta) ta.value = text; paint(); CP.sfx("tap"); return; }
     if (t.closest("[data-xr-clear]")) { text = ""; var ta2 = document.getElementById("xr-in"); if (ta2) { ta2.value = ""; ta2.focus(); } paint(); return; }
-    if (t.closest("[data-xr-wiki]")) { var wb = t.closest("[data-xr-wiki]"); wb.disabled = true; wb.textContent = "📚 " + T("rd.wikiLoading"); wikiLoad().then(paint); return; }
+    if (t.closest("[data-xr-wiki]")) { var wb = t.closest("[data-xr-wiki]"); wb.disabled = true; wb.textContent = "⟦books⟧ " + T("rd.wikiLoading"); wikiLoad().then(paint); return; }
     if (t.closest("[data-xr-play]")) { CP.speak(U.chars(text) ? text.replace(/\s+/g, "，") : "", {}); return; }
   });
 })();

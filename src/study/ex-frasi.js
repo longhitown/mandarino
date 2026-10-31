@@ -78,7 +78,7 @@
       var hz = {}; hz['<span class="ex-han">' + esc(right) + "</span>"] = right; wrong.forEach(function (m) { hz['<span class="ex-han">' + esc(m) + "</span>"] = m; });
       return { kind: "mc", opts: o.opts, right: o.right, lang: "zh-CN", prompt: sentHTML(g.s.toks, g.i, g.s.it), say: g.s.zh, note: g.set.nota, keys: o.opts.map(function (h) { return hz[h]; }) };
     },
-    risposta: function (it) { if (it.note) { var fb = document.querySelector(".ex-fb"); if (fb) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="it">💡 ' + esc(it.note) + "</p>"); } } });
+    risposta: function (it) { if (it.note) { var fb = document.querySelector(".ex-fb"); if (fb) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="it">⟦bulb⟧ ' + esc(it.note) + "</p>"); } } });
 
   /* ---- ascolta la frase: una voce reale, sul telefono (CP.voiceClip); quale frase hai sentito, tra quattro scritte.
      Le altre contengono la stessa parola quando si può, così bisogna ascoltare tutta la frase. ---- */

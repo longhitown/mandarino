@@ -23,12 +23,12 @@
     return '<div class="panel hero"><div class="hero-top">' + CP.stamp(r, true) + '<div class="rk"><div class="lbl">' + T("path.rank") + '</div><div class="nm">' + esc(r.name) +
       '</div><div class="sub">' + r.xp + " XP" + " · " + (r.next ? T("path.nextRank", { n: r.next }) : T("path.maxRank")) + '</div></div></div>' +
       '<div class="bar-xp" role="progressbar" aria-valuenow="' + r.pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="' + CP.attr(T("path.rankAria")) + '"><i style="width:' + r.pct + '%"></i></div>' +
-      '<div class="gstats"><div class="gst"><span class="flame" aria-hidden="true">🔥</span><div><b>' + s + "</b><span>" + T(s === 1 ? "done.streak1" : "done.streakN") + "</span></div></div>" +
+      '<div class="gstats"><div class="gst"><span class="flame" aria-hidden="true">⟦flame⟧</span><div><b>' + s + "</b><span>" + T(s === 1 ? "done.streak1" : "done.streakN") + "</span></div></div>" +
       '<div class="gst"><div class="ring-w" aria-hidden="true"><div class="ring" style="--p:' + p + '"></div><span class="tx">' + wt + "</span></div><div><b>" + wt + "/" + goal + "</b><span>" + T("path.today", { n: wt, goal: goal }) + "</span></div></div></div>" +
       '<div class="week" aria-label="' + CP.attr(T("path.week")) + '">' + wk.map(function (d, i) { return '<span class="' + (d.on ? "on " : "") + (d.rest ? "rest " : "") + (d.td ? "td" : "") + '"' + (d.rest ? ' title="' + CP.attr(T("path.restDay")) + '"' : "") + ">" + days[i] + "<i>" + (d.rest ? "☾" : "") + "</i></span>"; }).join("") + "</div>" +
       (wk.some(function (d) { return d.rest; }) ? '<p class="small muted" style="margin:0">☾ ' + T("path.restNote") + "</p>" : "") +
       '<label class="small muted" style="display:grid;gap:4px;font-weight:600">' + T("path.goal") + '<select id="goal-sel">' + goalOpts + "</select></label>" +
-      '<div class="acts" style="margin:0"><button type="button" class="btn-s" id="path-go">' + CP.t("path.goto", { n: cur + 1 }) + '</button><button type="button" class="btn-s" data-card-open>📤 ' + CP.t("card.open") + '</button><button type="button" class="btn-s" data-chal-open>' + CP.t("tog.chal") + "</button></div></div>";
+      '<div class="acts" style="margin:0"><button type="button" class="btn-s" id="path-go">' + CP.t("path.goto", { n: cur + 1 }) + '</button><button type="button" class="btn-s" data-card-open>⟦share⟧ ' + CP.t("card.open") + '</button><button type="button" class="btn-s" data-chal-open>' + CP.t("tog.chal") + "</button></div></div>";
   }
   /* U3: il primo gesto del Percorso è riprendere a studiare (la stessa azione di «Inizia» in Studia) */
   function resumeHTML(cur) {
@@ -42,8 +42,8 @@
   /* sotto «Continua»: la lezione e il dialogo della tappa corrente, a un tocco (non nascosti dentro Frasi) */
   function nextSteps(s) {
     var b = [], d = dlgFor(s.id);
-    if (CP.lessons) CP.lessons.forPath(s.id).forEach(function (l) { var pr = CP.lessons.progress(l.id); if ((pr.best || 0) < 80) b.push('<button type="button" class="gpl" data-lesson="' + CP.attr(l.id) + '">📘 <span lang="it">' + esc(l.title) + "</span></button>"); });
-    if (d) b.push('<button type="button" class="gpl" data-dlg="' + d.id + '">💬 <span lang="it">' + esc(d.title) + "</span></button>");
+    if (CP.lessons) CP.lessons.forPath(s.id).forEach(function (l) { var pr = CP.lessons.progress(l.id); if ((pr.best || 0) < 80) b.push('<button type="button" class="gpl" data-lesson="' + CP.attr(l.id) + '">⟦book⟧ <span lang="it">' + esc(l.title) + "</span></button>"); });
+    if (d) b.push('<button type="button" class="gpl" data-dlg="' + d.id + '">⟦chat⟧ <span lang="it">' + esc(d.title) + "</span></button>");
     return b.length ? '<div class="next-steps">' + b.slice(0, 2).join("") + "</div>" : "";
   }
   function stopHTML(s, i, cur) {
@@ -57,14 +57,14 @@
       '<div class="sbody"' + (isOpen ? "" : " hidden") + ">" +
         '<p class="obj" lang="it">' + esc(P.o) + "</p>" +
         '<div class="small muted">' + T("path.stats", { n: st.n, s: st.started, k: st.known }) + "</div>" +
-        (st.done ? '<div class="okline">✓ ' + T("path.doneLine") + "</div>" : "") + (CP.ex && CP.ex.verificata(s.id) ? '<div class="okline gd-ok">🏅 ' + T("gd.verified") + "</div>" : "") +
+        (st.done ? '<div class="okline">✓ ' + T("path.doneLine") + "</div>" : "") + (CP.ex && CP.ex.verificata(s.id) ? '<div class="okline gd-ok">⟦medal⟧ ' + T("gd.verified") + "</div>" : "") +
         '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
-          (pat ? '<button type="button" class="gpl" data-pat="' + P.g + '">📐 <span lang="it">' + esc(pat.t) + "</span></button>" : "") +
-          (d ? '<button type="button" class="gpl" data-dlg="' + d.id + '">💬 ' + T("path.dlg") + ' <span lang="it">' + esc(d.title) + "</span></button>" : "") +
-          (CP.lessons ? CP.lessons.forPath(s.id).map(function (l) { var pr = CP.lessons.progress(l.id); return '<button type="button" class="gpl" data-lesson="' + CP.attr(l.id) + '">📘 ' + ((pr.best || 0) >= 80 ? "✓ " : "") + T("path.lesson") + ' <span lang="it">' + esc(l.title) + "</span></button>"; }).join("") : "") + "</div>" +
-        '<div class="sacts"><button type="button" data-go="words" data-id="' + s.id + '"><span aria-hidden="true">📖</span>' + T("path.explore1") + '</button>' +
-        '<button type="button" data-go="study" data-id="' + s.id + '"><span aria-hidden="true">🎴</span>' + T("path.cards") + '</button>' +
-        '<button type="button" data-go="practice" data-id="' + s.id + '"><span aria-hidden="true">🧩</span>' + T("path.practice") + '</button></div>' +
+          (pat ? '<button type="button" class="gpl" data-pat="' + P.g + '">⟦ruler⟧ <span lang="it">' + esc(pat.t) + "</span></button>" : "") +
+          (d ? '<button type="button" class="gpl" data-dlg="' + d.id + '">⟦chat⟧ ' + T("path.dlg") + ' <span lang="it">' + esc(d.title) + "</span></button>" : "") +
+          (CP.lessons ? CP.lessons.forPath(s.id).map(function (l) { var pr = CP.lessons.progress(l.id); return '<button type="button" class="gpl" data-lesson="' + CP.attr(l.id) + '">⟦book⟧ ' + ((pr.best || 0) >= 80 ? "✓ " : "") + T("path.lesson") + ' <span lang="it">' + esc(l.title) + "</span></button>"; }).join("") : "") + "</div>" +
+        '<div class="sacts"><button type="button" data-go="words" data-id="' + s.id + '"><span aria-hidden="true">⟦book-open⟧</span>' + T("path.explore1") + '</button>' +
+        '<button type="button" data-go="study" data-id="' + s.id + '"><span aria-hidden="true">⟦flower-card⟧</span>' + T("path.cards") + '</button>' +
+        '<button type="button" data-go="practice" data-id="' + s.id + '"><span aria-hidden="true">⟦puzzle⟧</span>' + T("path.practice") + '</button></div>' +
       "</div></div></div>";
   }
   /* Capitoli per difficoltà: un solo vocabolario, ogni tappa nel capitolo del suo livello (data/levels.js, tools/levels.mjs).
@@ -90,7 +90,7 @@
     return '<div class="cpills chap-nav" role="group" aria-label="' + CP.attr(T("path.chapters")) + '">' + CHAPTERS.map(function (c, k) {
       var n = c.idx.length, d = chapDone(c);
       return '<button type="button" data-chap="' + k + '"' + (sel === k ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + '><b>' + (k + 1) + "</b> " + esc(T("chap." + k)) + ' <small>' + d + "/" + n + "</small></button>";
-    }).join("") + '<button type="button" data-chap="-1"' + (sel === -1 ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🗂️ " + T("path.all") + "</button></div>";
+    }).join("") + '<button type="button" data-chap="-1"' + (sel === -1 ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦cards⟧ " + T("path.all") + "</button></div>";
   }
   function chapHead(k) {
     var c = CHAPTERS[k], n = c.idx.length, d = chapDone(c);
@@ -104,7 +104,7 @@
     if (open[key] == null) open[key] = inside;
     var body = ""; if (open[key]) ids.forEach(function (i) { body += stopHTML(SECTIONS[i], i, cur); });
     return '<div class="hsk-list' + (d === ids.length ? " done" : "") + (inside ? " cur" : "") + '"><button type="button" class="hl-head" data-list="' + k + '" aria-expanded="' + (open[key] ? "true" : "false") + '">' +
-      '<span class="hl-ico" aria-hidden="true">📋</span><span class="hl-t"><b>' + T("path.list", { n: k + 1 }) + "</b><small>" + T("path.listSub", { w: words, n: ids.length }) + "</small></span>" +
+      '<span class="hl-ico" aria-hidden="true">⟦clipboard⟧</span><span class="hl-t"><b>' + T("path.list", { n: k + 1 }) + "</b><small>" + T("path.listSub", { w: words, n: ids.length }) + "</small></span>" +
       '<span class="pc">' + d + "/" + ids.length + '</span><span class="mini"><i style="width:' + Math.round(started / Math.max(1, words) * 100) + '%"></i></span></button>' +
       (open[key] ? '<div class="hl-body">' + body + "</div>" : "") + "</div>";
   }

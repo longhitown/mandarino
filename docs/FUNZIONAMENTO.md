@@ -60,7 +60,7 @@ Come si distribuisce: un **file unico** (`dist/index.html`, generato da `src/`, 
 | Correttore di frasi italiane (句子检查) | accordi: articolo-nome-aggettivo, soggetto-verbo, participio con «essere» (non il senso, non i tempi, non l'ordine: lo dice) |
 | Lettura graduata | 8 testi A1–B1 |
 
-La scelta del corso sta nel benvenuto o in ⚙️ → Studio → Corso (`cp-course = "zh" | "it"`); cambiare corso ricarica la pagina. I due corsi hanno progressi, ripasso e punti separati.
+La scelta del corso sta nel benvenuto o in Impostazioni → Studio → Corso (`cp-course = "zh" | "it"`); cambiare corso ricarica la pagina. I due corsi hanno progressi, ripasso e punti separati.
 
 ---
 
@@ -85,7 +85,7 @@ Tre «porte» (`ui/onboarding.js`, caricato solo quando serve):
 
 - **Parto da zero**: scegli un obiettivo e un ritmo, senti i quattro toni (nel corso di italiano, l'accento di *ciao, grazie, buongiorno*), fai la prima carta.
 - **Conosco già le basi**: cinque domande su di te e un **test di livello** di al massimo dieci domande (`data/placement.js`, `ui/placement.js`). Il test non dice se una risposta è giusta, «non lo so» conta come errore senza colpa,
-  il livello proposto si corregge prima di confermare e si può rifare o annullare da ⚙️ → Studio.
+  il livello proposto si corregge prima di confermare e si può rifare o annullare da Impostazioni → Studio.
 - **Ho già un backup o un altro dispositivo**: porta dritto a sincronizzazione, QR o backup.
 
 ---
@@ -99,10 +99,10 @@ L'app mostra poco all'inizio e apre le parti man mano (`ui/unlock.js`, le soglie
 | Cinese | **Percorso**, **Studia** | **Parole**: 200 punti e 1 giorno di studio · **Frasi**: 300 punti e 2 giorni (i primi 300 punti valgono il doppio) |
 | Cinese, dentro Frasi | Lezioni, Esercizi, Dialoghi | Modelli e Ordine del Pensiero: 3 lezioni superate · Laboratorio, Slot, Lettore, Radicali: 6 lezioni superate (oppure 1000 punti) |
 | Italiano | **课程**, **复习** | **单词**: 200 punti e 1 giorno · **变位** e **句子**: 300 punti e 2 giorni (变位 anche dopo la lezione sul presente) |
-| Tutto | — | A **1500 punti** (grado «Mercante di Seta») tutto è aperto; chi aveva già progressi ha tutto aperto; ⚙️ → Studio → «Mostra tutto» apre tutto subito |
+| Tutto | — | A **1500 punti** (grado «Mercante di Seta») tutto è aperto; chi aveva già progressi ha tutto aperto; Impostazioni → Studio → «Mostra tutto» apre tutto subito |
 
 Uno sblocco non si perde mai, nemmeno azzerando i progressi; tra dispositivi vale «basta uno» (regola d'unione in `core/store.js`).
-Altri modi di muoversi: **Cerca ovunque** (🔍 o il tasto `/`: strumenti, lezioni, dialoghi, tappe, parole), **gesti** (scorrimento orizzontale tra schede, dove non confligge), tasto **Indietro** di Android (chiude fogli, poi torna indietro nelle pagine),
+Altri modi di muoversi: **Cerca ovunque** (o il tasto `/`: strumenti, lezioni, dialoghi, tappe, parole), **gesti** (scorrimento orizzontale tra schede, dove non confligge), tasto **Indietro** di Android (chiude fogli, poi torna indietro nelle pagine),
 **immersione** (gli esercizi di Frasi a schermo pieno: ✕, Esc o Indietro per uscire). Regole di interfaccia controllate da `tools/ux-audit.mjs`: un solo pulsante primario per schermata, al massimo 7 voci per menu.
 
 ---
@@ -124,7 +124,7 @@ Sessione a schermo pieno, con due soli controlli principali (Ascolta, Parla) e i
 `core/fsrs.js` è un porting fedele di **py-fsrs (FSRS-6, 21 parametri)**, verificato vettore per vettore. Le parole tornano quando la probabilità di ricordarle sta calando; i quattro voti (Di nuovo, Difficile, Bene, Facile) mostrano l'intervallo vero.
 **Una scelta multipla giusta non vale mai «Facile».** Ogni ripasso finisce nel registro (IndexedDB, con ripiego in `localStorage`).
 
-### Tre stili di ripasso (⚙️ → Studio → Stile di ripasso)
+### Tre stili di ripasso (Impostazioni → Studio → Stile di ripasso)
 
 - **Guidato** (predefinito per chi comincia): «impara · esercitati · verifica», una tappa alla volta: cinque parole nuove con frase e ascolto, esercizi sulle stesse parole, ripassi in scadenza. Con l'80% delle parole avviate arriva la **verifica** (12 domande senza aiuti, superata all'80%); il risultato dice il punto più debole e, sotto la soglia, «Rinforza» ripassa le sbagliate.
 - **Misto**: esercizi vari al posto dell'autovalutazione.
@@ -202,19 +202,19 @@ Il codice del corso (`it/`, `i18n/it-course.js`) e i dati delle sue lezioni si e
 
 ### La voce, in tre livelli (`core/core.js`, `CP.speak`)
 
-1. **Voce reale registrata**, se la frase ne ha una (`core/voice-clip.js`): nell'app Android sono già nel pacchetto; sul web si scaricano una volta da ⚙️ → Suoni e musica → Voce → «Scarica le voci» (circa 7 MB).
+1. **Voce reale registrata**, se la frase ne ha una (`core/voice-clip.js`): nell'app Android sono già nel pacchetto; sul web si scaricano una volta da Impostazioni → Suoni e musica → Voce → «Scarica le voci» (circa 7 MB).
 2. **Voce del dispositivo** (`speechSynthesis`; nell'APK un ponte con il motore di sintesi di Android).
 3. **Voce online di riserva** (servizio non ufficiale), **solo se la si accende** (spenta di base). Se non risponde, dopo un tentativo, per cinque minuti si usa la voce del telefono (corretto nella pull request #22); nell'APK un motore vocale spento dal sistema viene riavviato e la frase riparte.
 
-Velocità lenta/normale, voce scelta da ⚙️, musica che **scende di 10 dB** mentre parla la voce (ducking).
+Velocità lenta/normale, voce scelta da Impostazioni, musica che **scende di 10 dB** mentre parla la voce (ducking).
 
 ### Toni
 
 Il **logo è interattivo**: toccando le lettere con l'accento si sente il loro tono, toccando le foglie il terzo. «Orecchio ai toni» e il pannello «Parla» con il microfono mostrano la **curva del tono** detto. I suoni dei pulsanti (legno, giada, gong, campana) sono **sintetizzati sul momento** con Web Audio, con tre stati (tutto / effetti / muto) e un volume.
 
-### Jukebox 🎵
+### Jukebox «musica»
 
-**22 brani originali** in loop (calma, concentrazione, energia), con dissolvenze, ordine casuale, abbinamento automatico all'attività (⚡ nella sfida, 🎯 nello studio) e musica che si ferma da sola quando si apre il microfono. Sul web i brani si scaricano al primo ascolto (o tutti insieme, circa 77 MB, da ⚙️). Nell'APK la musica continua in secondo piano con notifica (indietro, pausa, avanti, titolo) e tasti di cuffie e Bluetooth.
+**22 brani originali** in loop (calma, concentrazione, energia), con dissolvenze, ordine casuale, abbinamento automatico all'attività (nella sfida, nello studio) e musica che si ferma da sola quando si apre il microfono. Sul web i brani si scaricano al primo ascolto (o tutti insieme, circa 77 MB, da Impostazioni). Nell'APK la musica continua in secondo piano con notifica (indietro, pausa, avanti, titolo) e tasti di cuffie e Bluetooth.
 **I tuoi brani**: file audio scelti dal telefono, copiati nella memoria privata dell'app (IndexedDB), offline.
 
 ### Modalità Guida
@@ -235,7 +235,7 @@ Il microfono usa il riconoscimento del sistema (`SpeechRecognition`; nell'APK il
 - **Sigilli di gratitudine** (印章): codici firmati (ECDSA P-256, `MDS1.<contenuto>.<firma>`) che si riscattano nell'app; 支 Sostegno, 交 Cultura, 永 Custodire; solo estetici. L'app non sa chi ha donato. Le chiavi pubbliche stanno in `src/config.js` (**oggi la lista è vuota**: il riscatto non è ancora attivo finché non si genera una chiave con `lo strumento che genera la chiave`).
 - **Taccuino del viaggiatore** (cinese): un viaggio immaginario Roma → Guilin; le città si sbloccano con le tappe del Percorso finite; gli sbagli non sono penalità (una coppia di parole scambiata diventa un aneddoto).
 - **Taccuino del viaggiatore** (corso di italiano per chi parla cinese): lo stesso viaggio **al contrario**, da Guilin a Roma. Le 11 città si raggiungono con le **lezioni superate** (≥ 80 %): 2, 5, 9, 14, 20, 26, 32, 38, 45 e 51 (tutte). Ogni pagina ha una riga scritta a mano e le frasi della lezione che ha aperto la città; non ci sono aneddoti sugli errori e non c'è condivisione. Sta in «我的进步», come una carta con un solo pulsante secondario.
-- **Scambio linguistico** (⚙️ → Suoni e musica, facoltativo): chi studia il cinese registra frasi **italiane** e chi studia l'italiano registra frasi **cinesi**, la propria lingua, solo dal foglio dello scambio, che pesca a caso una serie di 10 elementi (7 frasi dell'app e 3 parole) con il testo davanti e la traduzione accanto. Prima c'è un foglio del consenso: licenza **CC BY 4.0**, solo maggiorenni (tre caselle: ho capito, 18 anni, autorizzo la pubblicazione; l'app non può verificare l'età), nome o nickname e regione facoltativi, ascolta soltanto chi gestisce il progetto. Le registrazioni (fino a 8 s) restano sul telefono fuori dai backup; si ascoltano, si cancellano, e si mandano con un solo tasto «Invia per e-mail»: l'app crea da sé il `.zip` con `manifest.json` e apre l'e-mail verso mandarinoapp@gmail.com, solo se le tre autorizzazioni sono firmate. L'invio lo fa la persona, nessun caricamento automatico. Registrare anche la lingua che si studia è possibile solo se lo si attiva: quelle voci sono «non madrelingua». Il modulo del consenso è una pagina nascosta del sito (`partecipa-voci.html?da=app`), raggiungibile solo dopo la conferma nell'app. Importazione e pacchetto voci: da fare (docs/scambio-linguistico.md).
+- **Scambio linguistico** (Impostazioni → Suoni e musica, facoltativo): chi studia il cinese registra frasi **italiane** e chi studia l'italiano registra frasi **cinesi**, la propria lingua, solo dal foglio dello scambio, che pesca a caso una serie di 10 elementi (7 frasi dell'app e 3 parole) con il testo davanti e la traduzione accanto. Prima c'è un foglio del consenso: licenza **CC BY 4.0**, solo maggiorenni (tre caselle: ho capito, 18 anni, autorizzo la pubblicazione; l'app non può verificare l'età), nome o nickname e regione facoltativi, ascolta soltanto chi gestisce il progetto. Le registrazioni (fino a 8 s) restano sul telefono fuori dai backup; si ascoltano, si cancellano, e si mandano con un solo tasto «Invia per e-mail»: l'app crea da sé il `.zip` con `manifest.json` e apre l'e-mail verso mandarinoapp@gmail.com, solo se le tre autorizzazioni sono firmate. L'invio lo fa la persona, nessun caricamento automatico. Registrare anche la lingua che si studia è possibile solo se lo si attiva: quelle voci sono «non madrelingua». Il modulo del consenso è una pagina nascosta del sito (`partecipa-voci.html?da=app`), raggiungibile solo dopo la conferma nell'app. Importazione e pacchetto voci: da fare (docs/scambio-linguistico.md).
 - **Foglio di lavoro**: un PDF A4 personale (caratteri o parole più difficili + quelli delle ultime lezioni) da stampare e scrivere a mano; si può anche condividere come codice.
 
 ---
@@ -249,7 +249,7 @@ Modi per spostare i dati, tutti senza server di màndarínō:
 - **Sincronizzazione su un file nel cloud personale** (Drive, OneDrive, Dropbox, iCloud…): l'app ci scrive i progressi e li riunisce all'avvio.
 - **QR da un telefono all'altro**: una sequenza che si ripete, inquadrata dalla fotocamera (anche perdendo qualche fotogramma); i QR sono scritti da zero (`pwa/qr.js`, base45).
 - **Esportazione per Anki** (dopo 400 parole o ripassi; porta le parole, non il calendario).
-- **Cancellare tutto**: da ⚙️, o disinstallando l'app.
+- **Cancellare tutto**: da Impostazioni, o disinstallando l'app.
 
 ---
 
@@ -262,7 +262,7 @@ Backup automatico di Android: se acceso dal telefono, copia i dati dell'app nell
 
 ---
 
-## 13. Le impostazioni (⚙️)
+## 13. Le impostazioni (Impostazioni)
 
 Una pagina con **ricerca** e **cinque riquadri**, ognuno con la sua pagina e «Indietro» (due livelli, mai sezioni annidate): **Aspetto** (tema chiaro / carta di riso / notte, caratteri, lingua dei menu, forma dei toni), **Suoni e musica** (audio, voce, microfono, jukebox, brani propri),
 **Studio** (corso, stile di ripasso, livello e schede, promemoria, sfide e classe, Pleco), **Dati e sincronizzazione** (sincronizzazione, backup, esportazione, contributi), **Informazioni** (come funziona, novità, privacy, crediti e licenze, sostieni il progetto, test automatico `#selftest`).
@@ -277,12 +277,12 @@ Due versioni con lo stesso `applicationId` e la stessa chiave: **direct** (GitHu
 
 - **Widget «Oggi»** (4×2 e 2×1): serie di giorni con un messaggio gentile, ripassi in scadenza (calcolati sul telefono dall'istogramma delle prossime 168 ore), parola del giorno (un tocco mostra il significato), «Studia ora».
 - **Widget «Oggi» e «Pausa» in stile «Giada»**: sfondo verde, riquadro di vetro per la parola del giorno, striscia di dieci segmenti con l'obiettivo di oggi. Cambiano faccia in quattro momenti, uguali nei due corsi: **mattina** (6–11, riflesso d'alba, «Inizia la giornata»), **pomeriggio** (12–16, «Pausa studio? Bastano N minuti.»), **sera** (17–21, accenti arancioni, fiamma più scura, quanti mancano all'obiettivo e un proverbio al posto della parola), **notte** (22–5, quasi nero, luna, nessun pulsante, «A domani!»). Niente mascotte e niente toni di paura: solo inviti. Sfocatura e animazioni non esistono nei widget Android, quindi il vetro è una trasparenza.
-- **Widget «Ripasso rapido»** (4×4, ridimensionabile da 3×3): un ripasso veloce dalla schermata Home, senza aprire l'app, per quando non hai voglia di entrare ma cinque minuti li hai. Mostra le carte scadute una alla volta (le più dimenticate prima, come nella sessione dell'app): davanti il carattere (nel corso di italiano la parola italiana) e «Tocca per vedere la risposta»; dietro pinyin e significato, con i quattro voti dell'app («Non la so», «Quasi», «La so», «Facile»). Una sessione è di 10 carte, con «3 di 10» in alto; poi «Ripasso finito: N carte. Bel lavoro.», con «Ancora un po'» se restano carte e «Apri màndarínō». Senza carte da ripassare: «Tutto ripassato per ora». Prima che l'app abbia mandato lo stato: «Apri màndarínō per cominciare». Tutto sul telefono. **I voti non cambiano subito la scheda**: il widget non ha il motore di ripasso, quindi li mette in coda e li applica l'app la prossima volta che la apri (o torna in primo piano), con l'ora in cui li hai dati, così gli intervalli sono quelli giusti. Se nel frattempo hai già ripassato quella carta nell'app, il voto del widget si scarta; i voti non si applicano mai due volte. Appena fatto, compare per un attimo una riga («Ripassi fatti dal widget: N»), mai una finestra. I punti del giorno contano solo per i voti dati oggi. Si aggiunge da ⚙️ → Comunità e voci.
+- **Widget «Ripasso rapido»** (4×4, ridimensionabile da 3×3): un ripasso veloce dalla schermata Home, senza aprire l'app, per quando non hai voglia di entrare ma cinque minuti li hai. Mostra le carte scadute una alla volta (le più dimenticate prima, come nella sessione dell'app): davanti il carattere (nel corso di italiano la parola italiana) e «Tocca per vedere la risposta»; dietro pinyin e significato, con i quattro voti dell'app («Non la so», «Quasi», «La so», «Facile»). Una sessione è di 10 carte, con «3 di 10» in alto; poi «Ripasso finito: N carte. Bel lavoro.», con «Ancora un po'» se restano carte e «Apri màndarínō». Senza carte da ripassare: «Tutto ripassato per ora». Prima che l'app abbia mandato lo stato: «Apri màndarínō per cominciare». Tutto sul telefono. **I voti non cambiano subito la scheda**: il widget non ha il motore di ripasso, quindi li mette in coda e li applica l'app la prossima volta che la apri (o torna in primo piano), con l'ora in cui li hai dati, così gli intervalli sono quelli giusti. Se nel frattempo hai già ripassato quella carta nell'app, il voto del widget si scarta; i voti non si applicano mai due volte. Appena fatto, compare per un attimo una riga («Ripassi fatti dal widget: N»), mai una finestra. I punti del giorno contano solo per i voti dati oggi. Si aggiunge da Impostazioni → Comunità e voci.
 - **Widget «Ripasso rapido (piccolo)»** (2×1, ridimensionabile): in grande il numero di carte da ripassare adesso («1 carta», «N carte» da ripassare); a zero «✓ Tutto ripassato». Un tocco apre l'app al ripasso. Il numero è calcolato sul telefono dallo stato che l'app manda al widget. Dalle Impostazioni si può chiedere al sistema di aggiungerlo (e gli altri tre) alla schermata Home: compare la finestra di Android, la scelta resta tua.
 - **Widget «Pausa»** (4×1): giri di studio da **25 minuti** e **pausa caffè** da 5; il conto alla rovescia è un cronometro in discesa che Android fa scorrere da solo (un widget non può animarsi); un allarme ai cambi di fase aggiorna il widget e manda un avviso; da fermo mostra «Riposo» di notte (22–6) e «Pausa caffè a Xi'an» dalle 14 alle 18.
 - **Stampa** (Parole → Stampa): passa dal servizio di stampa di Android (anche «Salva come PDF»).
 - **Scorciatoie** (pressione lunga sull'icona): Studia ora, Orecchio ai toni, Musica.
-- **Promemoria** facoltativo (⚙️ → Studio): un avviso al giorno all'ora scelta, calcolato sul telefono, solo se oggi non si è studiato e c'è qualcosa da fare.
+- **Promemoria** facoltativo (Impostazioni → Studio): un avviso al giorno all'ora scelta, calcolato sul telefono, solo se oggi non si è studiato e c'è qualcosa da fare.
 - **Musica in secondo piano** con comandi fuori dall'app.
 - **Aggiornamenti**: una volta al giorno guarda l'ultima Release; gli APK si installano sopra senza perdere i progressi.
 

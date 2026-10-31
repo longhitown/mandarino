@@ -20,9 +20,9 @@
   };
   CP.micLogList = function () { return LOG.slice(); };
   function live(s) { return !!(s && s.getAudioTracks && s.getAudioTracks().some(function (t) { return t.readyState === "live"; })); }
-  /* 🎙️ nella barra finché il flusso è aperto: un tocco lo chiude */
+  /* mic nella barra finché il flusso è aperto: un tocco lo chiude */
   var liveBtn = document.createElement("button");
-  liveBtn.type = "button"; liveBtn.id = "mic-live"; liveBtn.className = "iconbtn emo"; liveBtn.hidden = true; liveBtn.textContent = "🎙️";
+  liveBtn.type = "button"; liveBtn.id = "mic-live"; liveBtn.className = "iconbtn emo"; liveBtn.hidden = true; liveBtn.textContent = "⟦mic⟧";
   liveBtn.setAttribute("aria-label", "Microfono aperto: tocca per chiuderlo"); liveBtn.title = "Microfono aperto: tocca per chiuderlo";
   var barGrp = document.querySelector(".bar .grp"); if (barGrp) barGrp.insertBefore(liveBtn, barGrp.firstChild);
   function paintLive() { liveBtn.hidden = !live(M.stream); }

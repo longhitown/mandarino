@@ -11,10 +11,10 @@
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <!-- vibrazione al tocco (si spegne nelle impostazioni dell'app) -->
     <uses-permission android:name="android.permission.VIBRATE" />
-    <!-- promemoria giornaliero, solo se acceso in ⚙️ (il permesso si chiede in quel momento, non all'avvio) -->
+    <!-- promemoria giornaliero, solo se acceso in Impostazioni (il permesso si chiede in quel momento, non all'avvio) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- musica con lo schermo spento, solo se scelta nel pannello 🎵 -->
+    <!-- musica con lo schermo spento, solo se scelta nel pannello musica -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <!-- solo per la voce di riserva online e i link esterni: l'app funziona senza rete -->
@@ -24,7 +24,7 @@
     <queries>
         <intent><action android:name="android.intent.action.TTS_SERVICE" /></intent>
         <intent><action android:name="android.speech.RecognitionService" /></intent>
-        <!-- Pleco (facoltativo, ⚙️ → Studio): per aprire una parola nel dizionario, se installato -->
+        <!-- Pleco (facoltativo, Impostazioni → Studio): per aprire una parola nel dizionario, se installato -->
         <package android:name="com.pleco.chinesesystem" />
         <!-- servizi vocali: solo per mostrare nell'autodiagnosi chi fa il riconoscimento vocale (nessun dato lascia il telefono) -->
         <package android:name="com.google.android.googlequicksearchbox" />

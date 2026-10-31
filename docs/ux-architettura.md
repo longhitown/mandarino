@@ -45,15 +45,15 @@ Questa mappa dice dove sta ogni funzione e quando compare. Vale per i due corsi.
 
 | Foglio o strato | Classe | Note |
 |---|---|---|
-| ⚙️ Impostazioni | — | foglio dal basso: ricerca, sette riquadri e sette pagine |
-| 🔍 Cerca ovunque | R | |
-| 🎵 Jukebox | R | |
+| Impostazioni Impostazioni | — | foglio dal basso: ricerca, sette riquadri e sette pagine |
+| Cerca ovunque | R | |
+| Jukebox | R | |
 | Dettaglio parola e famiglia del carattere | R | |
 | Pannello «Parla» (microfono) | R | |
 | Immersione a schermo pieno | E | per gli esercizi |
 | Carta del giorno | R | |
 | Taccuino del viaggiatore (mappa, pagine, pagina da condividere) | R | si apre dalla carta in «I miei progressi» (un pulsante secondario); dentro il foglio nessun pulsante principale; la carta da condividere ha il suo |
-| Scambio linguistico (consenso, registrazione, elenco, invio) | R | sezione in ⚙️ → Comunità e voci con un solo pulsante «Partecipa»; il foglio ha un pulsante principale per volta (Accetto e continuo, poi Registra), la casella delle 18 anni e quella del «ho capito» separate e non spuntate |
+| Scambio linguistico (consenso, registrazione, elenco, invio) | R | sezione in Impostazioni → Comunità e voci con un solo pulsante «Partecipa»; il foglio ha un pulsante principale per volta (Accetto e continuo, poi Registra), la casella delle 18 anni e quella del «ho capito» separate e non spuntate |
 | Contributi | A | |
 | Crediti | A | |
 | Passaggio con QR | A | |
@@ -129,9 +129,9 @@ gli strumenti compaiono per gradi (le soglie sono in `src/ui/unlock.js`):
 | dopo 6 lezioni superate o 1000 XP | Laboratorio, Slot, Lettore, Radicali |
 
 Prima di quel momento lo strumento si vede nella sua carta con «si apre dopo…». Non sparisce mai, e
-⚙️ → Studio → «Livello e schede» → «Mostra tutto» lo apre subito.
+Impostazioni → Studio → «Livello e schede» → «Mostra tutto» lo apre subito.
 
-**Impostazioni: sette riquadri, sette pagine.** ⚙️ apre un foglio con la ricerca e sette riquadri grandi. Ogni riquadro apre una
+**Impostazioni: sette riquadri, sette pagine.** Impostazioni apre un foglio con la ricerca e sette riquadri grandi. Ogni riquadro apre una
 pagina propria, con il titolo, «‹ Indietro» e «Chiudi». Profondità massima: due livelli (riquadri → pagina). Dentro una pagina le
 sezioni sono sempre aperte, una sotto l'altra, e non si annidano.
 
@@ -139,7 +139,7 @@ sezioni sono sempre aperte, una sotto l'altra, e non si annidano.
 |---|---|---|
 | Aspetto | Aspetto | tema, dimensione dei caratteri, toni con un segno, lingua dei menu |
 | Suoni e musica | Suoni e musica | audio, volume, musica, voce, microfono |
-| Comunità e voci | Comunità e voci | scambio linguistico, i tuoi numeri, ringraziamenti, invito a un amico, widget (solo APK), pacchetto voci; pallino «Nuovo» su ⚙️ finché la pagina o le novità non sono state viste |
+| Comunità e voci | Comunità e voci | scambio linguistico, i tuoi numeri, ringraziamenti, invito a un amico, widget (solo APK), pacchetto voci; pallino «Nuovo» su Impostazioni finché la pagina o le novità non sono state viste |
 | Studio | Studio | corso, stile di ripasso, livello e schede, anatomia, Pleco, promemoria, sfide e classe |
 | Dati e sincronizzazione | Dati e sincronizzazione | sincronizzazione, backup e ripristino, esportazione, contributi |
 | Informazioni | Informazioni | come funziona, sostieni il progetto, novità, privacy |
@@ -157,8 +157,8 @@ sezioni sono sempre aperte, una sotto l'altra, e non si annidano.
   valgono `adv`). La sezione finisce nella pagina del suo id (`PAGE_OF` in `ui/settings-pages.js`, con l'ordine); un id nuovo,
   nella pagina del gruppo: `data` → Dati e sincronizzazione, `adv` → Studio, `info` → Informazioni. Il modulo scrive ancora
   `<details class="set-sec"><summary>`: le pagine lo trasformano in una sezione aperta con il titolo.
-- **Codice.** Il pulsante ⚙️ e la lingua dei menu stanno in `ui/settings.js` (all'avvio); pagine, ricerca e testi in
-  `ui/settings-pages.js` e `i18n/settings.js`, che si caricano la prima volta che si apre ⚙️ (`LAZYMOD`): il peso dell'avvio non cresce.
+- **Codice.** Il pulsante Impostazioni e la lingua dei menu stanno in `ui/settings.js` (all'avvio); pagine, ricerca e testi in
+  `ui/settings-pages.js` e `i18n/settings.js`, che si caricano la prima volta che si apre Impostazioni (`LAZYMOD`): il peso dell'avvio non cresce.
 - **Stesso comportamento** nei due corsi e nelle due lingue; l'unica differenza sono le sezioni che un corso non ha (anatomia e contributi nel corso di italiano).
 
 **Corso di italiano.**
@@ -193,8 +193,8 @@ ha tutto sbloccato.
 | ripasso | 复习 | le carte che oggi è il momento di rivedere |
 | serie | 连续天数 | i giorni di studio di fila |
 | grado | 等级 | il titolo che cresce con i punti (XP) |
-| pagina (delle impostazioni) | 设置页 | una delle sette schermate di ⚙️: Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni (外观, 声音和音乐, 社区与声音, 学习, 数据与同步, 社交媒体, 关于) |
-| riquadro | 入口 | il pulsante grande della pagina iniziale di ⚙️ che apre una pagina (da non confondere con la «carta» da ripassare) |
+| pagina (delle impostazioni) | 设置页 | una delle sette schermate di Impostazioni: Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni (外观, 声音和音乐, 社区与声音, 学习, 数据与同步, 社交媒体, 关于) |
+| riquadro | 入口 | il pulsante grande della pagina iniziale di Impostazioni che apre una pagina (da non confondere con la «carta» da ripassare) |
 
 ## 4. Regole controllate dagli audit
 
@@ -222,8 +222,8 @@ Che cosa corrisponde a che cosa (cinese → italiano):
 - **Percorso guidato:** carta «Continua» con un solo pulsante che dice il passo, verifica di tappa con le cinque parti → carta «今天» con un solo pulsante: esercizi (5/10/15 minuti), un testo, la lezione con il suo quiz.
 - **Lettura graduata:** testi per livello, «giusto per te», pinyin e traduzione a scelta, domande, parole nuove nel ripasso → 句子 → «短文阅读»: testi A1-B1, domande in cinese, «适合你», «已读».
 - **Esercizi a buco, ordina, digitazione** → `it-buco`, `it-buco-gram`, `it-ordina`, `it-scrivi`, `it-dettato`, `it-verbo`.
-- **Voci reali:** «ascolta la frase» con Common Voice e «Scarica le voci» in ⚙️ → Voce → voce NM1 nelle frasi italiane, dettato e «听句子» con clip.
-- **Etichetta «Voce reale»:** dopo una clip vera (mai per la sintesi) compare per qualche secondo una riga fissa in basso, «🎙️ Voce reale · Tatoeba» o «… · Common Voice»; il tocco apre di chi è la voce, la licenza e l'invito allo Scambio linguistico. Si spegne in ⚙️ → Suoni e musica → Voce («Mostra chi ha letto la frase», `cp-voicetag`). Modulo `ui/voice-tag.js`, caricato al primo uso.
+- **Voci reali:** «ascolta la frase» con Common Voice e «Scarica le voci» in Impostazioni → Voce → voce NM1 nelle frasi italiane, dettato e «听句子» con clip.
+- **Etichetta «Voce reale»:** dopo una clip vera (mai per la sintesi) compare per qualche secondo una riga fissa in basso, «Voce reale · Tatoeba» o «… · Common Voice»; il tocco apre di chi è la voce, la licenza e l'invito allo Scambio linguistico. Si spegne in Impostazioni → Suoni e musica → Voce («Mostra chi ha letto la frase», `cp-voicetag`). Modulo `ui/voice-tag.js`, caricato al primo uso.
 
 Ancora aperti (anche in [roadmap.md](roadmap.md)): la rilettura dei testi cinesi da parte di un madrelingua (corso, carta e pagina `zh/`) e i «vuoti curati» (oggi la carta «今天» mostra sempre la prossima lezione, anche quando non ce n'è ancora nessuna).
 
@@ -238,10 +238,10 @@ sulla rivelazione progressiva e sull'onboarding: aiuto «a richiesta», non tour
   livello né quando si uniscono due dispositivi: lì resta la riga in basso), al massimo uno al giorno, mai durante una sessione di studio
   e mai sopra un'altra finestra. Riconosce il lavoro fatto, dice a che cosa serve la scheda e mostra la prossima con la strada già fatta
   (progresso reale). Solo l'ultimo della serie nomina Pleco, Anki e i widget. Nessuna colpa, nessuna scadenza.
-- **Canale permanente: ⚙️ → Informazioni → Novità** (con il pallino). Tutto resta ritrovabile lì, senza interrompere nessuno.
-- **Pallino «Nuovo»** su ⚙️ e su ogni pagina delle Impostazioni (`ui/community.js`): si toglie solo a pagina letta davvero, cioè ogni
+- **Canale permanente: Impostazioni → Informazioni → Novità** (con il pallino). Tutto resta ritrovabile lì, senza interrompere nessuno.
+- **Pallino «Nuovo»** su Impostazioni e su ogni pagina delle Impostazioni (`ui/community.js`): si toglie solo a pagina letta davvero, cioè ogni
   «schermata» in vista per mezzo secondo (due secondi e mezzo se la pagina è corta). Chi scorre di corsa lo vede restare.
-- I **widget** stanno in ⚙️ → Aspetto, con l'anteprima dei quattro, visibile anche fuori da Android.
+- I **widget** stanno in Impostazioni → Aspetto, con l'anteprima dei quattro, visibile anche fuori da Android.
 
 ## Ordine e descrizioni delle Impostazioni
 

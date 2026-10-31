@@ -1,11 +1,11 @@
 /* Ordine del Pensiero: la frase italiana, i blocchi [ruolo, pinyin, caratteri, italiano] nell'ordine cinese, order = ordine italiano. */
 var THINK_CATS = [
-  ["tempo","⏰","Tempo e luogo"],
-  ["mod","📎","Modificatore + 的"],
-  ["ba","🫳","Frase con 把"],
-  ["stato","📍","Stato e moto"],
-  ["durata","⏳","Durata e volte"],
-  ["causa","🔗","Causa e condizione"]
+  ["tempo","⟦alarm⟧","Tempo e luogo"],
+  ["mod","⟦clip⟧","Modificatore + 的"],
+  ["ba","⟦hand⟧","Frase con 把"],
+  ["stato","⟦pin⟧","Stato e moto"],
+  ["durata","⟦hourglass⟧","Durata e volte"],
+  ["causa","⟦link⟧","Causa e condizione"]
 ];
 var THINK = [
   {"it":"Io bevo un caffè con un amico al bar, domani.","zh":"Domani prendo un caffè con un amico al bar.","blocks":[["chi","wǒ","我","io"],["when","míng.tiān","明天","domani"],["with","hé péng.you","和朋友","con un amico"],["where","zài kā.fēi.guǎn","在咖啡馆","al bar"],["do","hē","喝","bevo"],["what","kā.fēi","咖啡","un caffè"]],"order":[0,4,5,2,3,1],"cat":"tempo"},

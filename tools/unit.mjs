@@ -231,6 +231,23 @@ function sandbox() {
     must(/mandarinoapp\.org\/app\//.test(llmsTxt()) && !/https?:\/\/(?!mandarinoapp\.org|github\.com\/longhitown)/.test(llmsTxt()), "llms.txt solo con indirizzi nostri");
     check("SEO del sito: JSON-LD a fabbrica valido (grafo, riferimenti, indirizzi assoluti), meta, hreflang, mappa del sito, 404 noindex, llms.txt", ok, why.join("; "));
   }
+  /* SEO/AI: i fatti vengono dal codice, robots.txt nomina gli assistenti, llms-full.txt non ha segnaposto rimasti e i testi per gli assistenti non scrivono numeri a mano */
+  {
+    const S = await import("./seo.mjs"), F = await import("./fatti.mjs"), why = [];
+    const fa = F.fatti(), pr = F.problemi(fa), rb = S.robotsTxt(), full = S.llmsFull();
+    if (pr.length) why.push(pr.join("; "));
+    for (const b of ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended", "Baiduspider"]) if (!rb.includes("User-agent: " + b)) why.push("robots.txt senza " + b);
+    if ((rb.match(/Disallow: \/partecipa-voci\.html/g) || []).length < 2 || /Disallow: \/\s*$/m.test(rb)) why.push("robots.txt: la pagina del consenso va nascosta a tutti i gruppi e il sito non va chiuso");
+    if (/\{\{/.test(full) || /undefined|NaN/.test(full)) why.push("llms-full.txt ha segnaposto o valori vuoti");
+    if (!full.includes(String(fa.corsoDiCinese.parole)) || !full.includes("fatti.json")) why.push("llms-full.txt senza i numeri dei fatti");
+    let thrown = false; try { S.fill("{{non.esiste}}", fa); } catch (e) { thrown = true; } if (!thrown) why.push("fill() deve fermarsi su un fatto inesistente");
+    const sameAs = S.build("Organization", { lang: "it" }).sameAs; if (!sameAs.includes("https://github.com/longhitown/mandarino") || sameAs.some((u) => !/^https:\/\//.test(u))) why.push("sameAs");
+    for (const n of fs.readdirSync(path.join(DOCS, "ai")).filter((x) => /^\d.*\.md$/.test(x))) {
+      const t = fs.readFileSync(path.join(DOCS, "ai", n), "utf8").replace(/\{\{[^}]*\}\}/g, "");
+      if (/(^|[^\d.])\d{3,}(?![\d])/.test(t.replace(/https?:\/\/\S+/g, ""))) why.push("docs/ai/" + n + ": numeri scritti a mano (usa {{…}})");
+    }
+    check("SEO/AI: fatti.json allineato al codice, robots.txt nomina gli assistenti, llms-full.txt senza segnaposto, testi per gli assistenti senza numeri a mano", !why.length, why.join("; "));
+  }
   const brani = ["biblioteca", "calligrafia", "bambu"].filter((id) => !["ogg", "m4a"].every((e) => fs.existsSync(path.join(DOCS, "audio", id + "." + e))));
   check("radio del sito: i tre brani esistono in .ogg e .m4a", !brani.length, brani.join(", "));
   const { md2html } = await import("./site.mjs");
@@ -648,7 +665,7 @@ function sandbox() {
   }
   fs.rmSync(tmp, { recursive: true, force: true });
 }
-/* ⚙️ → Comunità e voci: testi nelle due lingue, novità con due lingue, e l'unica richiesta di rete dell'app dopo il caricamento (solo al tocco) */
+/* Impostazioni → Comunità e voci: testi nelle due lingue, novità con due lingue, e l'unica richiesta di rete dell'app dopo il caricamento (solo al tocco) */
 {
   const tc = vm.createContext({}); vm.runInContext("var I18N = { it: {}, zh: {} };", tc);
   for (const f of ["i18n/settings.js", "i18n/community.js"]) vm.runInContext(fs.readFileSync(path.join(SRC, f), "utf8"), tc);
@@ -1034,7 +1051,7 @@ function sandbox() {
   check("Sblocchi: il pop-up passa da CP.unlockPop e, se non c'è, resta la riga in basso", /CP\.unlockPop && CP\.unlockPop\(k,/.test(unl) && /unl-note/.test(unl));
   check("Pop-up di sblocco: solo per una scheda guadagnata studiando (soloKey) e mai sopra un'altra finestra; il Percorso resta pulito, senza schede di crescita", /soloKey = add\.length === 1/.test(unl) && /CP\.topSheet && CP\.topSheet\(\)/.test(unl) && !/growCard/.test(rd("path/path.js")) && !/growCard/.test(rd("it/course.js")));
   const sp = rd("ui/settings-pages.js"), cm = rd("ui/community.js");
-  check("Widget: stanno in ⚙️ → Aspetto, con l'anteprima dei quattro e senza bisogno di Android per vederli",
+  check("Widget: stanno in Impostazioni → Aspetto, con l'anteprima dei quattro e senza bisogno di Android per vederli",
     /look: \["set-look", "set-lang", "set-widgets"\]/.test(sp) && !/community: \[[^\]]*set-widgets/.test(sp) && /function wdPreview/.test(cm) && !/if \(!bridge\(\)\) return "";/.test(cm) && ["today_large", "today_small", "pause", "review"].every((k) => cm.includes('"' + k + '"') || cm.includes("'" + k + "'")));
   const pgs = (sp.match(/var PAGES = \[([^\]]*)\]/) || [])[1] || "", cpg = (cm.match(/var PAGES = \[([^\]]*)\]/) || [])[1] || "";
   check("Pallino «Nuovo»: c'è su tutte le pagine delle Impostazioni e si toglie solo a pagina scorsa fino in fondo e con il tempo di vederla",
@@ -1071,6 +1088,21 @@ function sandbox() {
   const ts = vm.createContext({}); vm.runInContext("var I18N = { it: {}, zh: {} };", ts); for (const p of ["i18n/settings.js", "i18n/community.js"]) vm.runInContext(rd(p), ts);
   const keys = ["look", "sound", "community", "study", "data", "social", "info"].flatMap((k) => ["set.p." + k, "set.p." + k + "D"]), miss = keys.filter((k) => !ts.I18N.it[k] || !ts.I18N.zh[k]);
   check("Impostazioni: ogni pagina ha titolo e descrizione in italiano e in cinese (e la descrizione dice che cosa c'è, non è vuota)", !miss.length && keys.filter((k) => /D$/.test(k)).every((k) => ts.I18N.it[k].length > 30 && ts.I18N.zh[k].length > 8), miss.join(", "));
+}
+
+/* ---- sostituzione delle emoji: segnaposto nel codice, sprite e convertitore nella pagina costruita ---- */
+{
+  const html = fs.readFileSync(path.join(ROOT, "dist/index.html"), "utf8"), re = /\p{Extended_Pictographic}/gu;
+  const page = html.replace(/<symbol id="mandarin-symbol"[\s\S]*?<\/symbol>/, "");
+  const emo = [...new Set((page.match(re) || []).filter((c) => c !== "©"))];
+  check("emoji: nella pagina costruita (dist/index.html) non c'è nessuna emoji di sistema (solo icone dello sprite)", emo.length === 0, emo.join(" "));
+  check("emoji: nella pagina c'è lo sprite con tutte le icone disegnate, e nessun segnaposto ⟦…⟧ è rimasto (nel JavaScript sono caratteri dell'area privata)", (html.match(/<symbol id="i-/g) || []).length >= 150 && !/\u27e6[a-z]/.test(html) && !html.includes("__ICO_IDS__"), "");
+  check("emoji: il convertitore (ui/ico.js) è un modulo caricato all'avvio ma fuori dal codice di partenza, e ui/ico-boot.js lo chiama dopo la creazione di CP", /<script type="text\/plain" id="lazy-mod-icoboot">/.test(html) && /CPL\("lazy-mod-icoboot",\["icoBoot","ico","plain","icoImg"\]\)/.test(html), "");
+  const ico = fs.readFileSync(path.join(SRC, "ui/ico.js"), "utf8");
+  check("emoji: il convertitore non tocca mai <script> e <style>, toglie i segnaposto da attributi e <option>, e dà un nome ai pulsanti con la sola icona", /CODE = \/\^\(SCRIPT\|STYLE\)\$\//.test(ico) && /ATTR = \["aria-label", "title", "placeholder", "alt"\]/.test(ico) && /NOIMG = \/\^\(OPTION\|TEXTAREA\|TITLE\)\$\//.test(ico) && /function nameIt/.test(ico), "");
+  const out = ["src/i18n/together.js"].map((p) => fs.readFileSync(path.join(SRC, p.replace("src/", "")), "utf8")).join("");
+  const msgs = [...out.matchAll(/"(?:chal|cls)\.msg":\s*"([^"]*)"/g)].map((m) => m[1]);
+  check("emoji: i messaggi che escono dall'app (sfida, pacchetto classe) sono testo semplice, senza segnaposto né icone", msgs.length === 4 && msgs.every((m) => !/\u27e6/.test(m) && !re.test(m)), msgs.length + " messaggi");
 }
 
 console.log("\n" + results.filter(Boolean).length + "/" + results.length + " prove superate.");

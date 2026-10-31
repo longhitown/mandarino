@@ -5,7 +5,7 @@ ci siamo arrivati: [DESIGN.md](DESIGN.md). Questo file è la specifica.
 
 | | |
 |---|---|
-| **Versione del set** | 0.2.0 (fase 1 completa: 150 icone disegnate su 150) |
+| **Versione del set** | 0.3.0 (fase 1 completa: 150 icone di base, più 8 aggiunte con la sostituzione delle emoji: 158 disegnate su 158) |
 | **Licenza** | [CC BY 4.0](../LICENZE/ICONE.txt) |
 | **Autore** | Claudio Longhitano (con l'assistente di IA Claude: vedi [NOTICE.md](../NOTICE.md)) |
 | **Marchio** | il nome màndarínō e il logo **non** sono inclusi nella licenza: [MARCHIO.md](../MARCHIO.md) |
@@ -92,16 +92,16 @@ Su Windows (PowerShell): `Get-FileHash .\sprite.svg -Algorithm SHA256`. Il risul
 <!-- somme:inizio -->
 | File | SHA-256 |
 |---|---|
-| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `c5d0df14906c4d5a0a619e70c06121ed3c4fb23c1ffc159e71a7a41eea6da259` |
-| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `6dd8612906631a7236d1a22242888f2871634cbf632a5176dc080d99684bd404` |
-| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 150 icone) | `0087793cbc22a05783eb143148473c93c8b65d6deaea9ca77f47d01ff00a55c3` (somma del suo contenuto) |
+| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `ce3bed92b8563b6565bcf0af556545cf7e588105f762a499870ed6602d9f084b` |
+| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `c672ae6a28a69da757584023fc8c3894817156f614e807a911bae241a22e0fff` |
+| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 158 icone) | `4ce4f9a51be9e38a04098f03bacc0e746a2a0a6e126c543c39983de5f93061f6` (somma del suo contenuto) |
 <!-- somme:fine -->
 
 Le somme del pacchetto compresso (`.zip`) delle release e quelle degli adesivi si aggiungono qui a ogni release.
 
 ## Le fasi
 
-1. **Fase 1: il set di base da 150 icone.** Copre ogni funzione dell'app (interfaccia, vocabolario, grammatica, radicali, vita quotidiana in Cina,
+1. **Fase 1: il set di base da 150 icone (158 con le otto aggiunte della sostituzione delle emoji).** Copre ogni funzione dell'app (interfaccia, vocabolario, grammatica, radicali, vita quotidiana in Cina,
    sigilli). È sufficiente per il primo pacchetto di adesivi pubblico.
 2. **Fase 2: da 300 a 400 icone, per temi** (cultura cinese, cultura italiana), se e quando la comunità lo chiede.
 

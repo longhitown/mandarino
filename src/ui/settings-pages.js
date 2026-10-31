@@ -1,11 +1,11 @@
-/* ===== ⚙️ Impostazioni: una schermata con sette carte (Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni),
+/* ===== gear Impostazioni: una schermata con sette carte (Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni),
    ognuna apre una pagina propria con «Indietro»: due livelli, mai sezioni annidate (docs/ux-architettura.md). In cima c'è la ricerca.
    I moduli aggiungono le loro sezioni con CP.settingsExtras: una funzione che rende HTML (pagina «Studio») oppure
    { group: "data"|"adv"|"info", html }. La sezione finisce nella pagina del suo id (PAGE_OF) o, se non lo conosce, in quella del gruppo.
    CP.openSettings(id) accetta l'id di una sezione (set-sync, set-pleco…), di una pagina (look, sound, community, study, data, info)
    o i vecchi nomi dei gruppi (grp-ess, grp-data, grp-adv, grp-info).
    Si carica al primo uso di CP.openSettings o CP.repaintSettings, insieme a i18n/settings.js (tools/build.mjs, LAZYMOD);
-   il pulsante ⚙️ e la lingua dei menu stanno in ui/settings.js. ===== */
+   il pulsante gear e la lingua dei menu stanno in ui/settings.js. ===== */
 (function () {
   var CP = window.CP, el = document.getElementById("settings");
   if (!el) return;

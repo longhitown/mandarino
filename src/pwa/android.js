@@ -139,7 +139,7 @@
   /* ---------------- navigator.share ---------------- */
   try {
     Object.defineProperty(navigator, "share", { configurable: true, value: function (d) {
-      d = d || {}; A.share(d.title || "", [d.text, d.url].filter(Boolean).join("\n")); return Promise.resolve();
+      d = d || {}; A.share(CP.plain(d.title || ""), CP.plain([d.text, d.url].filter(Boolean).join("\n"))); return Promise.resolve();
     } });
   } catch (e) {}
 
@@ -177,9 +177,9 @@
     var has = false; try { has = A.ttsHasLang(lang || "zh-CN"); } catch (e) {}
     if (has) return "";
     var it = /^it/.test(lang || ""), zh = typeof LANG !== "undefined" && LANG === "zh";
-    return zh ? '<p class="small muted" style="margin:0">手机还没有' + (it ? "意大利语" : "中文") + '语音。可以在手机的文字转语音引擎里免费下载（通常是「Google 语音服务」）。</p><button type="button" class="btn-s" data-md-tts-install>⬇ 安装语音</button>'
+    return zh ? '<p class="small muted" style="margin:0">手机还没有' + (it ? "意大利语" : "中文") + '语音。可以在手机的文字转语音引擎里免费下载（通常是「Google 语音服务」）。</p><button type="button" class="btn-s" data-md-tts-install>⟦download⟧ 安装语音</button>'
       : '<p class="small muted" style="margin:0">Il telefono non ha ancora la voce ' + (it ? "italiana" : "cinese") + '. Si scarica gratis dal motore di sintesi vocale (di solito «Servizi di sintesi vocale di Google»).</p>' +
-      '<button type="button" class="btn-s" data-md-tts-install>⬇ Installa la voce</button>';
+      '<button type="button" class="btn-s" data-md-tts-install>⟦download⟧ Installa la voce</button>';
   };
   document.addEventListener("click", function (e) {
     if (e.target && e.target.closest && e.target.closest("[data-md-tts-install]")) { try { A.ttsInstall(); } catch (x) {} }

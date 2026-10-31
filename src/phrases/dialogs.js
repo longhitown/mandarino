@@ -67,10 +67,10 @@
     var d = D[cur];
     return '<div class="hbar">' + backBtn() + '<span class="grow"></span><label class="chk" style="margin:0"><input type="checkbox" id="dlg-it"' + (showIt ? " checked" : "") + "> " + T("w.colIt") + "</label></div>" +
       '<div class="dlg-head" lang="it"><h3>' + esc(d.title) + "</h3><p>" + esc(d.sub) + "</p></div>" +
-      '<div class="dlg-bar"><button type="button" class="btn-main" data-dlg-play style="margin:0">▶️ ' + T("dlg.play") + '</button><button type="button" data-dlg-role>🎭 ' + T("dlg.role") + "</button></div>" +
+      '<div class="dlg-bar"><button type="button" class="btn-main" data-dlg-play style="margin:0">⟦play⟧ ' + T("dlg.play") + '</button><button type="button" data-dlg-role>⟦masks⟧ ' + T("dlg.role") + "</button></div>" +
       '<div class="chat' + (showIt ? "" : " noit") + '" id="dlg-chat">' + d.lines.map(function (_, i) { return bubble(d, i); }).join("") + "</div>" +
       '<p class="small muted" style="margin-top:12px">' + T("dlg.hint") + "</p>" +
-      '<div class="acts"><button type="button" class="btn-s" data-dlg-flag>✏️ ' + T("dlg.flag") + "</button></div>";
+      '<div class="acts"><button type="button" class="btn-s" data-dlg-flag>⟦pencil⟧ ' + T("dlg.flag") + "</button></div>";
   }
   CP.subs = CP.subs || {};
   CP.subs.dlg = {
@@ -81,7 +81,7 @@
 
   /* ---------- ascolto continuo ---------- */
   function stopAll() { runId++; rp = null; CP.stopSpeak(); var b = chatBox(); if (b) Array.prototype.forEach.call(b.querySelectorAll(".bub.playing"), function (x) { x.classList.remove("playing"); }); setPlayBtn(false); }
-  function setPlayBtn(on) { var p = document.querySelector("[data-dlg-play]"); if (p) { p.innerHTML = on ? "⏹ " + T("dlg.stop") : "▶️ " + T("dlg.play"); p.setAttribute("data-on", on ? "1" : ""); } }
+  function setPlayBtn(on) { var p = document.querySelector("[data-dlg-play]"); if (p) { p.innerHTML = on ? "⟦stop⟧ " + T("dlg.stop") : "⟦play⟧ " + T("dlg.play"); p.setAttribute("data-on", on ? "1" : ""); } }
   function playAll() {
     var d = D[cur], me = ++runId, i = 0;
     CP.stopSpeak(); setPlayBtn(true);
@@ -110,7 +110,7 @@
     rp = { i: 0, ok: 0, nb: d.lines.filter(function (l) { return l[0] === "B"; }).length, miss: false, shown: -1, opts: null, token: ++runId, done: false };
     document.querySelector(".dlg-bar").hidden = true;
     /* la recita si fa a schermo pieno: restano la chat e le risposte */
-    if (CP.immerse && !CP.immerse.active()) CP.immerse.enter({ title: "🎭 " + d.title, lang: "it", onExit: function () { stopAll(); rp = null; refresh(); } });
+    if (CP.immerse && !CP.immerse.active()) CP.immerse.enter({ title: "⟦masks⟧ " + d.title, lang: "it", onExit: function () { stopAll(); rp = null; refresh(); } });
     roleStep();
   }
   function roleStep() {
@@ -130,7 +130,7 @@
       var other = otherB(d, l);
       rp.opts = shuffle([{ l: l, right: true }, { l: other, right: false }]); rp.optI = rp.i; rp.miss = false;
     }
-    var mic = CP.canListen() ? '<button type="button" data-rp-mic class="mic-btn">🎤 ' + T("dlg.say") + "</button>" : "";
+    var mic = CP.canListen() ? '<button type="button" data-rp-mic class="mic-btn">⟦mic⟧ ' + T("dlg.say") + "</button>" : "";
     box.innerHTML = h + '<div class="choice-card" id="rp-card"><div class="small muted" style="font-weight:700">' + T("dlg.pick", { n: rp.ok + 1, tot: rp.nb }) + "</div>" +
       rp.opts.map(function (o, k) {
         return '<button type="button" class="opt" data-rp-opt="' + k + '"><span class="lp">' + CP.pinyinHTML(o.l[1]) + '</span><span class="lh" lang="zh-CN">' + U.lineHTML(o.l[2], o.l[1]).replace(/ data-fam="[^"]*"/g, "").replace(/role="button" tabindex="0"/g, "") + '</span><span class="li" lang="it">' + esc(o.l[3]) + "</span></button>";
@@ -152,7 +152,7 @@
     var d = D[cur], box = chatBox(), h = "", i; if (!box) return;
     for (i = 0; i < d.lines.length; i++) h += bubble(d, i);
     var perfect = rp.ok === rp.nb;
-    box.innerHTML = h + '<div class="done-card" id="rp-done"><b>' + T("dlg.done", { n: rp.ok, tot: rp.nb }) + "</b><span>" + T(perfect ? "dlg.perfect" : "dlg.again") + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-rp-again style="margin:0">🎭 ' + T("dlg.redo") + '</button><button type="button" data-dlg-back>' + T("dlg.others") + "</button></div></div>";
+    box.innerHTML = h + '<div class="done-card" id="rp-done"><b>' + T("dlg.done", { n: rp.ok, tot: rp.nb }) + "</b><span>" + T(perfect ? "dlg.perfect" : "dlg.again") + '</span><div class="acts" style="margin:0"><button type="button" class="btn-main" data-rp-again style="margin:0">⟦masks⟧ ' + T("dlg.redo") + '</button><button type="button" data-dlg-back>' + T("dlg.others") + "</button></div></div>";
     if (CP.game) CP.game.sentence();
     CP.sfx("ok", 5);
     rp.done = true; document.querySelector(".dlg-bar").hidden = false;
@@ -183,14 +183,14 @@
     if (t.closest("[data-rp-mic]") && rp) {
       var btn = t.closest("[data-rp-mic]"), d = D[cur], l = d.lines[rp.i], out = document.getElementById("rp-heard");
       if (btn._rec) { try { btn._rec.abort(); } catch (er) {} btn._rec = null; btn.classList.remove("listening"); return; }
-      CP.stopSpeak(); btn.classList.add("listening"); out.className = "heard"; out.textContent = "🎤 " + T("dlg.listen");
+      CP.stopSpeak(); btn.classList.add("listening"); out.className = "heard"; out.textContent = "⟦mic⟧ " + T("dlg.listen");
       btn._rec = CP.listen(l[2], function (r) {
         btn.classList.remove("listening"); btn._rec = null;
         if (!rp) return;
-        if (r.error) { out.className = "heard ko"; out.textContent = "🎤 " + (r.error === "no-speech" ? T("dlg.noSpeech") : CP.micErrText(r.error)) ; if (CP.inFrame && r.error !== "no-speech") out.insertAdjacentHTML("beforeend", "<div style='margin-top:8px'>" + CP.frameBtn() + "</div>"); CP.sfx("ko"); return; }
+        if (r.error) { out.className = "heard ko"; out.textContent = "⟦mic⟧ " + (r.error === "no-speech" ? T("dlg.noSpeech") : CP.micErrText(r.error)) ; if (CP.inFrame && r.error !== "no-speech") out.insertAdjacentHTML("beforeend", "<div style='margin-top:8px'>" + CP.frameBtn() + "</div>"); CP.sfx("ko"); return; }
         var best = 0; (r.alts && r.alts.length ? r.alts : [r.heard]).forEach(function (a) { best = Math.max(best, U.sim(a, l[2])); });
         if (r.ok || best >= 0.6) rolePass(true);
-        else { rp.miss = true; out.className = "heard ko"; out.innerHTML = "🎤 " + T("dlg.heard", { t: '<span class="han" lang="zh-CN">' + esc(r.heard || "…") + "</span>" }); CP.sfx("ko"); }
+        else { rp.miss = true; out.className = "heard ko"; out.innerHTML = "⟦mic⟧ " + T("dlg.heard", { t: '<span class="han" lang="zh-CN">' + esc(r.heard || "…") + "</span>" }); CP.sfx("ko"); }
       });
       if (!btn._rec) btn.classList.remove("listening");
       return;

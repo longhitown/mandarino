@@ -201,7 +201,7 @@ async function auditView(browser, file, vw, vh, theme) {
   await screen("Frasi · rad (nessuna reazione)");
   await page.evaluate(() => { CP.unlock.showAll(false); CP.build.home(); });
   /* i fogli */
-  for (const [btn, lbl, pre] of [["#settings-btn", "⚙️", null], ["#flt-btn", "Filtri", "words"], ["#legend-btn", "Legenda", "words"]]) {
+  for (const [btn, lbl, pre] of [["#settings-btn", "Impostazioni", null], ["#flt-btn", "Filtri", "words"], ["#legend-btn", "Legenda", "words"]]) {
     if (pre) await tab(page, pre);
     if (!(await page.$(btn))) continue;
     await page.click(btn); await page.waitForTimeout(150); await page.evaluate(PAGE_LIB);
@@ -252,7 +252,7 @@ async function auditView(browser, file, vw, vh, theme) {
 }
 
 /* il corso di italiano per chi parla cinese: carta «今天» e percorso, le altre schede, «我的进步», la carta */
-/* ⚙️: la pagina iniziale con la ricerca attiva e ognuna delle sei pagine (chiamata con il foglio già aperto) */
+/* Impostazioni: la pagina iniziale con la ricerca attiva e ognuna delle sei pagine (chiamata con il foglio già aperto) */
 async function settingsPages(page, screen, lbl) {
   await page.fill("#set-q", "a"); await page.waitForTimeout(80); await page.evaluate(PAGE_LIB); await screen("Foglio " + lbl + " · ricerca");
   await page.fill("#set-q", ""); await page.waitForTimeout(60);
@@ -281,7 +281,7 @@ async function auditIt(browser, file, vw, vh, theme) {
     await page.evaluate((x) => CP.itShow(x), t); await page.waitForTimeout(200); await settle(page); await page.evaluate(() => window.scrollTo(0, 0)); await page.evaluate(PAGE_LIB);
     await screen("意大利语 · " + t);
   }
-  await page.click("#settings-btn"); await page.waitForTimeout(150); await page.evaluate(PAGE_LIB); await screen("Foglio ⚙️"); await settingsPages(page, screen, "⚙️"); await page.keyboard.press("Escape"); await page.waitForTimeout(100);
+  await page.click("#settings-btn"); await page.waitForTimeout(150); await page.evaluate(PAGE_LIB); await screen("Foglio Impostazioni"); await settingsPages(page, screen, "Impostazioni"); await page.keyboard.press("Escape"); await page.waitForTimeout(100);
   for (const [open, lbl] of [[() => CP.itProgress(), "我的进步"], [() => CP.shareCard.open("it-day"), "分享卡片"]]) {
     await page.evaluate(open); await page.waitForTimeout(500); await settle(page); await page.evaluate(PAGE_LIB);
     await screen("Foglio " + lbl);

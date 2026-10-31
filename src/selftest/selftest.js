@@ -80,7 +80,7 @@
     try {
       var jt = CP.jukebox.tracks, jm = { calm: 0, focus: 0, energy: 0 }, jbad = jt.filter(function (t) { if (jm[t.mood] === undefined) return true; jm[t.mood]++; return false; });
       var jmiss = (CP.audioTracks && CP.audioTracks.missing) || [];
-      add("Jukebox: ogni traccia del catalogo ha il suo file e un umore", jt.length >= 1 && !jbad.length && !jmiss.length, jt.length + " tracce · 🧘 " + jm.calm + " · 🎯 " + jm.focus + " · ⚡ " + jm.energy + (jmiss.length ? " · senza file: " + jmiss.join(", ") : ""));
+      add("Jukebox: ogni traccia del catalogo ha il suo file e un umore", jt.length >= 1 && !jbad.length && !jmiss.length, jt.length + " tracce · ⟦calm⟧ " + jm.calm + " · ⟦target⟧ " + jm.focus + " · ⟦bolt⟧ " + jm.energy + (jmiss.length ? " · senza file: " + jmiss.join(", ") : ""));
       add("Audio: bus separati per effetti e musica", !!(CP.bus && CP.bus.duck && CP.bus.setSfxVol), "volume effetti " + Math.round(CP.bus.sfxVol() * 100) + "%");
     } catch (e) { add("Jukebox", false, String(e)); }
     try {

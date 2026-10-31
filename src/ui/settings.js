@@ -1,4 +1,4 @@
-/* ===== ⚙️ Impostazioni, la parte che serve all'avvio: il pulsante, la lingua dei menu, i toni con la forma, i tocchi su «Crediti» e sulla
+/* ===== gear Impostazioni, la parte che serve all'avvio: il pulsante, la lingua dei menu, i toni con la forma, i tocchi su «Crediti» e sulla
    carta da condividere. Le pagine, la ricerca e le sezioni dei moduli stanno in ui/settings-pages.js, che si carica la prima volta che il
    codice tocca CP.openSettings o CP.repaintSettings (tools/build.mjs, LAZYMOD). Da src/, senza build, è un normale script. ===== */
 (function () {
@@ -23,6 +23,6 @@
   document.addEventListener("click", function (e) { var b = e.target.closest ? e.target.closest("[data-card-open]") : null; if (b && CP.shareCard) { CP.sfx("tap"); CP.shareCard(); } });
   /* U7: toni anche con la forma (per chi non distingue il rosso dal verde) */
   try { if (localStorage.getItem("cp-toneshapes") === "1") document.body.classList.add("tone-shapes"); } catch (e) {}
-  /* pallino «Nuovo» su ⚙️: pagina Comunità o novità non ancora viste (lo stato iniziale; poi lo tiene ui/community.js) */
+  /* pallino «Nuovo» su gear: pagina Comunità o novità non ancora viste (lo stato iniziale; poi lo tiene ui/community.js) */
   try { var sv = window.__MD_APK && window.__MD_APK.version || CP.VERSION, ls = localStorage, sr = document.getElementById("set-new-sr"); if (sr && ["look", "sound", "community", "study", "data", "social", "info"].some(function (p) { return ls.getItem("md-seen-p-" + p) !== (p === "info" ? String(sv) : "1"); })) { btn.classList.add("has-new"); btn.setAttribute("aria-describedby", "set-new-sr"); sr.textContent = LANG === "zh" ? "有新内容" : "Ci sono novità"; } } catch (e) {}
 })();

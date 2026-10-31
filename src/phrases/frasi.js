@@ -150,7 +150,7 @@
     var pct = Math.round(round.ok * 100 / ROUND), msg = pct >= 90 ? T("ex.r90") : pct >= 70 ? T("ex.r70") : pct >= 40 ? T("ex.r40") : T("ex.r0");
     return '<div class="panel fx-sum"><div class="fx-sum-n">' + round.ok + "<small>/" + ROUND + '</small></div><p class="ask" style="margin:4px 0">' + esc(msg) + "</p>" +
       '<p class="muted small" style="margin:0">' + T("ex.rBest", { n: round.best }) + "</p>" +
-      '<div class="acts"><button type="button" class="btn-main" id="ex-again" style="margin:0">🔁 ' + T("ex.again") + "</button>" + (CP.immerse && CP.immerse.active() ? '<button type="button" class="btn-s" data-fx-leave>' + T("fx.leave") + "</button>" : "") + "</div></div>";
+      '<div class="acts"><button type="button" class="btn-main" id="ex-again" style="margin:0">⟦repeat⟧ ' + T("ex.again") + "</button>" + (CP.immerse && CP.immerse.active() ? '<button type="button" class="btn-s" data-fx-leave>' + T("fx.leave") + "</button>" : "") + "</div></div>";
   }
   function renderEx() {
     if (round.done) return roundHTML();
@@ -193,14 +193,14 @@
   /* ---- laboratorio ---- */
   function labPunct() { return lab.p === "auto" ? autoP(lab.t) : lab.p === "none" ? "" : lab.p; }
   function labToggle() {
-    return '<div class="seg inner lab-view" role="group" aria-label="' + CP.attr(T("lab.viewAria")) + '"><button type="button" data-labview="fluid"' + (lab.view === "fluid" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🇮🇹 " + T("lab.fluid") + '</button><button type="button" data-labview="word"' + (lab.view === "word" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🧱 " + T("lab.word") + "</button></div>";
+    return '<div class="seg inner lab-view" role="group" aria-label="' + CP.attr(T("lab.viewAria")) + '"><button type="button" data-labview="fluid"' + (lab.view === "fluid" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🇮🇹 " + T("lab.fluid") + '</button><button type="button" data-labview="word"' + (lab.view === "word" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦bricks⟧ " + T("lab.word") + "</button></div>";
   }
   function fixBox(chk, p) {
     if (!chk || chk.ok) return "";
     var bad = hzOf(lab.t, p), good = hzOf(chk.fixed, p), fl = CP.lab.translate(chk.fixed, p === "?" ? "?" : p === "!" ? "!" : "."), why = chk.issues[0] === "Ordine non valido." ? T("lab.badOrder") : chk.issues[0].replace(/\.$/, "");
-    return '<div class="fixbox" role="group" aria-label="' + CP.attr(T("lab.fixAria")) + '"><div class="fx-bad">⚠️ <b>' + T("lab.asWritten") + '</b> <span class="han" lang="zh-CN">' + esc(bad) + '</span> <span class="muted small">(' + esc(why) + ")</span></div>" +
-      '<div class="fx-ok">✅ <b>' + T("lab.suggested") + '</b> <span class="han" lang="zh-CN">' + esc(good) + '</span> <span class="muted small">(' + esc(pyOf(chk.fixed, "").toLowerCase()) + (fl.sure ? " — «" + esc(fl.it.replace(/[.!?]$/, "")) + "»" : "") + ")</span></div>" +
-      '<button type="button" class="btn-main" data-labfix>✨ ' + T("lab.autofix") + '</button></div>';
+    return '<div class="fixbox" role="group" aria-label="' + CP.attr(T("lab.fixAria")) + '"><div class="fx-bad">⟦warning⟧ <b>' + T("lab.asWritten") + '</b> <span class="han" lang="zh-CN">' + esc(bad) + '</span> <span class="muted small">(' + esc(why) + ")</span></div>" +
+      '<div class="fx-ok">⟦check⟧ <b>' + T("lab.suggested") + '</b> <span class="han" lang="zh-CN">' + esc(good) + '</span> <span class="muted small">(' + esc(pyOf(chk.fixed, "").toLowerCase()) + (fl.sure ? " — «" + esc(fl.it.replace(/[.!?]$/, "")) + "»" : "") + ")</span></div>" +
+      '<button type="button" class="btn-main" data-labfix>⟦sparkle⟧ ' + T("lab.autofix") + '</button></div>';
   }
   function fixLogBox() {
     if (!lab.fixLog || !lab.fixLog.length) return "";
@@ -213,13 +213,13 @@
     if (lab.view === "fluid" && CP.lab) {
       var src = chk && !chk.ok ? chk.fixed : lab.t, fl = CP.lab.translate(src, p === "?" ? "?" : p === "!" ? "!" : "."), ct = "";
       lab.tr = { zh: src.map(hz).join(""), it: fl.sure ? fl.it : "", id: fl.contribId || "" };
-      var badge = fl.src === "mine" ? '<span class="tag mine-tag">✏️ ' + T("lab.mine") + '</span>' : fl.src === "verified" || fl.src === "data" ? '<span class="tag ok-tag">✓ ' + T("lab.verified") + '</span>' : "";
+      var badge = fl.src === "mine" ? '<span class="tag mine-tag">⟦pencil⟧ ' + T("lab.mine") + '</span>' : fl.src === "verified" || fl.src === "data" ? '<span class="tag ok-tag">✓ ' + T("lab.verified") + '</span>' : "";
       if (fl.sure) ct = '<div class="fluid"><div class="fl-it" lang="it">' + esc(fl.it) + "</div>" + badge + (chk && !chk.ok ? '<div class="small muted">' + T("lab.ofFixed") + '</div>' : "") +
         fl.notes.map(function (n) { return '<div class="snote">' + esc(n) + "</div>"; }).join("") + "</div>";
       else ct = '<div class="fluid unsure"><div class="fl-it" lang="it">' + esc(CP.lab.NOPE) + "</div>" +
         '<div class="fl-words"><span class="small muted">' + T("lab.word") + ':</span> ' + fl.words.map(function (w) { return '<span class="flw"><span class="han" lang="zh-CN">' + esc(w[0]) + "</span> " + esc(w[1]) + "</span>"; }).join(" · ") + "</div>" +
         (fl.reason ? '<div class="snote">' + T("lab.why") + " " + esc(fl.reason) + ".</div>" : "") + "</div>";
-      ct += CP.contribOpen ? '<div class="acts" style="margin:6px 0 0"><button type="button" class="btn-s" data-labtr>' + "✏️ " + (fl.sure ? T("lab.wrongTr") : T("lab.proposeTr")) + "</button></div>" : "";
+      ct += CP.contribOpen ? '<div class="acts" style="margin:6px 0 0"><button type="button" class="btn-s" data-labtr>' + "⟦pencil⟧ " + (fl.sure ? T("lab.wrongTr") : T("lab.proposeTr")) + "</button></div>" : "";
       body = full(lab.t, p, true) + ct;
     } else body = full(lab.t, p);
     return labToggle() + body + fixBox(chk, p) + fixLogBox() + spokenBlock(lab.t, p) + w + '<div class="acts">' + CP.audioBtns(hzOf(lab.t, p)) +
@@ -293,11 +293,11 @@
   function groupOf(x) { for (var i = 0; i < GROUPS.length; i++) if (GROUPS[i][2].some(function (s) { return s[0] === x; })) return GROUPS[i]; return GROUPS[0]; }
   /* docs/ux-architettura.md: Frasi si apre su quattro carte (una riga di spiegazione ciascuna) invece che su due file di
      pulsanti; dentro una carta, i suoi strumenti. Gli strumenti più avanzati si aprono per gradi (ui/unlock.js). */
-  var GICO = { learn: "📘", build: "🧩", talk: "💬", read: "📖" }, home = true;
+  var GICO = { learn: "⟦book⟧", build: "⟦puzzle⟧", talk: "⟦chat⟧", read: "⟦book-open⟧" }, home = true;
   function tOk(x) { return !CP.unlock || CP.unlock.toolOk(x); }
   function landing() {
     return '<h2 style="margin-top:20px">' + CP.t("build.title") + '</h2><p class="lede" style="margin:4px 0 12px">' + esc(CP.t("fr.choose")) + '</p><div class="fr-cards">' + GROUPS.map(function (g) {
-      var open = g[2].filter(function (s) { return tOk(s[0]); }), tools = g[2].map(function (s) { return tOk(s[0]) ? CP.t(s[1]) : "🔒 " + CP.t(s[1]); }).join(" · ");
+      var open = g[2].filter(function (s) { return tOk(s[0]); }), tools = g[2].map(function (s) { return tOk(s[0]) ? CP.t(s[1]) : "⟦lock⟧ " + CP.t(s[1]); }).join(" · ");
       return '<button type="button" class="fr-card' + (open.length ? "" : " locked") + '" data-group="' + g[0] + '"><span class="fr-ico" aria-hidden="true">' + GICO[g[0]] + '</span><span class="fr-tx"><b>' + CP.t(g[1]).replace(/^[^\p{L}]+/u, "") + "</b><small>" + esc(CP.t("fr.d." + g[0])) + '</small><span class="fr-tools">' + esc(tools) + "</span></span></button>";
     }).join("") + "</div>";
   }
@@ -306,7 +306,7 @@
     var cs = curSub(), g = groupOf(cs);
     var inner = '<div class="fx-row"><button type="button" class="btn-s fr-back" data-fr-home aria-label="' + CP.attr(CP.t("fr.back")) + '">← ' + CP.t(g[1]) + '</button><div class="seg inner" role="group" aria-label="' + CP.attr(CP.t(g[1])) + '">' + g[2].map(function (s) {
       var lk = !tOk(s[0]);
-      return '<button type="button" data-sub="' + s[0] + '"' + (cs === s[0] ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + (lk ? ' data-locked="1"' : "") + ">" + (lk ? "🔒 " : "") + CP.t(s[1]) + "</button>";
+      return '<button type="button" data-sub="' + s[0] + '"' + (cs === s[0] ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + (lk ? ' data-locked="1"' : "") + ">" + (lk ? "⟦lock⟧ " : "") + CP.t(s[1]) + "</button>";
     }).join("") + '</div><button type="button" class="fx-go" data-fx-go title="' + CP.attr(CP.t("fx.enter")) + '" aria-label="' + CP.attr(CP.t("fx.enter")) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>';
     var body;
     if (!tOk(cs)) body = '<div class="panel"><p style="margin:0">' + esc(CP.unlock.why("fr:" + cs)) + '</p><p class="small muted" style="margin:6px 0 0">' + esc(CP.t("fr.lockedHint")) + "</p></div>";

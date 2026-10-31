@@ -64,7 +64,7 @@
       return { kind: "type", mode: "pinyin", answer: w.py, say: s.zh, prompt: '<div class="ex-sent" lang="zh-CN">' + CP.exSent.holed(s.toks, i) + '</div><div class="cd-note" lang="it">' + esc(s.it) + "</div>" };
     } });
 
-  /* ---- abbina: cinque coppie caratteri ↔ significato (riscaldamento) ---- */
+  /* ---- abbina: cinque coppie caratteri swap significato (riscaldamento) ---- */
   ENG.register({ id: "abbina", famiglia: 0, corso: "zh", q: "exm.q.match",
     crea: function (w, ctx, r) {
       var x = D.meaning(w, ctx.pool(), ctx, r), more = x && D.meaning(x[0], ctx.pool(), ctx, r); if (!x || !more) return null;

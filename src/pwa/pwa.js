@@ -68,7 +68,7 @@
   }
   /* i tag delle release sono v6.7.N (per push) o r<x.y.z> (stabili): il prefisso si toglie prima di confrontare con la versione installata */
   /* APK: un controllo leggero e facoltativo dell'ultima Release su GitHub (una richiesta al giorno, solo con la rete),
-     con lo stesso avviso della PWA. Si spegne in ⚙️ → Suoni e musica → Voce (e Studio → Promemoria per l'app Android). */
+     con lo stesso avviso della PWA. Si spegne in gear → Suoni e musica → Voce (e Studio → Promemoria per l'app Android). */
   var REPO = MD_CONFIG.REPO;   /* src/config.js; se il repository cambia nome, GitHub reindirizza anche le API */
   /* nella versione per gli store (MD_CONFIG.APK_UPDATES false) niente controllo né interruttore: gli aggiornamenti li dà lo store */
   CP.apkUpdates = window.MD_CONFIG && MD_CONFIG.APK_UPDATES === false ? null : { on: function () { try { return localStorage.getItem("cp-apkcheck") !== "0"; } catch (e) { return true; } }, set: function (v) { try { localStorage.setItem("cp-apkcheck", v ? "1" : "0"); } catch (e) {} } };
@@ -154,7 +154,7 @@
     "Nota sul nome: GitHub ha tolto gli accenti e il repository si chiama «m-ndar-n-». Conviene rinominarlo «mandarino»\n" +
     "(GitHub -> Settings -> General -> Repository name): i vecchi indirizzi vengono reindirizzati.\n\n" +
     "Microfono su iPhone: nell'app aggiunta alla schermata Home il riconoscimento vocale di Safari non è garantito.\n" +
-    "Se manca, il pulsante 🎤 diventa «🎙️ Registra e confronta»: registra 3 secondi, poi senti te e la voce, con la curva del tono.\n";
+    "Se manca, il pulsante ⟦mic⟧ diventa «⟦mic⟧ Registra e confronta»: registra 3 secondi, poi senti te e la voce, con la curva del tono.\n";
   CP.pwaDownload = function () {
     var svg = iconSVG(), stamp = buildStamp();
     var self = fetch(location.href.split("#")[0], { cache: "no-store" }).then(function (r) { return r.ok ? r.text() : null; }).catch(function () { return null; });

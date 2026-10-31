@@ -8,7 +8,7 @@ ora né in futuro.** L'app non sa chi ha donato né quanto, e non contatta nessu
 1. La persona dona su Ko-fi e, se vuole un sigillo, lo scrive nel messaggio.
 2. Chi gestisce il progetto, sul proprio computer, decide se e quale sigillo spetta e firma un codice.
 3. Il codice arriva alla persona per e-mail, come link, testo o QR.
-4. La persona lo riscatta in ⚙️ → Informazioni → Sostieni il progetto. L'app controlla la firma e mostra «sigillo autentico».
+4. La persona lo riscatta in Impostazioni → Informazioni → Sostieni il progetto. L'app controlla la firma e mostra «sigillo autentico».
 
 Nessuno di questi passaggi manda dati dall'app a un server, e nessun passaggio è automatico: l'e-mail la manda una persona.
 

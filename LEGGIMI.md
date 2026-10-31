@@ -13,7 +13,7 @@ Questa guida racconta come si usa. Come funziona ogni parte, con i numeri contat
 - **意大利语课程, l'italiano per chi parla cinese**: 51 lezioni in cinese (con mini-dialogo e ripasso ogni cinque lezioni), 4780 parole, coniugazione dei verbi, frasi, dialoghi e un
   controllo degli accordi nelle frasi che scrivi.
 
-Si sceglie dal benvenuto o da ⚙️ → Studio → Corso. I due corsi hanno progressi separati.
+Si sceglie dal benvenuto o da Impostazioni → Studio → Corso. I due corsi hanno progressi separati.
 
 ## La prima volta
 
@@ -21,10 +21,10 @@ All'apertura trovi tre porte:
 
 - **Parto da zero**: scegli un obiettivo, senti i quattro toni (o, nel corso di italiano, l'accento di «ciao», «grazie», «buongiorno») e fai la prima carta.
 - **Conosco già le basi**: cinque domande su di te e un test di livello di al massimo dieci domande. Il test non dice se hai risposto bene e «non lo so» non è una colpa.
-  Il livello proposto si corregge prima di confermare, e da ⚙️ → Studio puoi rifare il test o annullare il salto.
+  Il livello proposto si corregge prima di confermare, e da Impostazioni → Studio puoi rifare il test o annullare il salto.
 - **Ho già un backup o un altro dispositivo**: vai dritto a sincronizzazione, QR o backup.
 
-Le schede si aprono man mano, così all'inizio vedi poco: nel corso di cinese prima **Percorso** e **Studia**, poi **Parole** e **Frasi**. Se vuoi tutto subito, ⚙️ → Studio → «Livello e schede» → «Mostra tutto, subito».
+Le schede si aprono man mano, così all'inizio vedi poco: nel corso di cinese prima **Percorso** e **Studia**, poi **Parole** e **Frasi**. Se vuoi tutto subito, Impostazioni → Studio → «Livello e schede» → «Mostra tutto, subito».
 
 ## Studiare ogni giorno
 
@@ -35,7 +35,7 @@ Le schede si aprono man mano, così all'inizio vedi poco: nel corso di cinese pr
 
 ### Tre stili di ripasso
 
-Da ⚙️ → Studio → «Stile di ripasso»:
+Da Impostazioni → Studio → «Stile di ripasso»:
 
 - **Guidato** (consigliato a chi comincia): «impara, esercitati, verifica», una tappa alla volta. Cinque parole nuove con frase e ascolto, poi esercizi sulle stesse
   parole e ripassi in scadenza. Con l'80% delle parole avviate arriva la **verifica**: 12 domande senza aiuti, e la tappa è «verificata» con l'80%. Il risultato dice
@@ -66,24 +66,24 @@ Le schede sono 课程 (51 lezioni con quiz), 复习 (ripasso), 单词 (4780 paro
 ## Voci e musica
 
 - **Voci reali:** per l'italiano e il cinese ci sono clip registrate da persone (Tatoeba e Mozilla Common Voice). Nell'app Android ci sono già; nella versione web si scaricano da
-  ⚙️ → Suoni e musica → Voce → «Scarica le voci» (circa 7 MB). Finché non lo fai, l'app non fa nessuna richiesta di rete e usa la voce del telefono.
-- **Musica:** 22 brani originali, nel jukebox 🎵. Nell'app Android continua anche in secondo piano.
+  Impostazioni → Suoni e musica → Voce → «Scarica le voci» (circa 7 MB). Finché non lo fai, l'app non fa nessuna richiesta di rete e usa la voce del telefono.
+- **Musica:** 22 brani originali, nel jukebox «musica». Nell'app Android continua anche in secondo piano.
 - **Comandi fuori dall'app (Android):** con «Continua con lo schermo spento» acceso, la notifica ha indietro, pausa e avanti, con il titolo del brano; gli stessi comandi arrivano dalla schermata di blocco e dai tasti di cuffie e Bluetooth.
-- **I tuoi brani:** ⚙️ → Suoni e musica → Voce → «I tuoi brani» → «Aggiungi i tuoi brani». Scegli uno o più file audio dal telefono (mp3, m4a, ogg, wav, flac: dipende da che cosa legge il telefono). Vengono copiati nella memoria privata dell'app, funzionano offline e in secondo piano, e puoi mescolarli ai brani dell'app o ascoltare solo i tuoi. Limiti: 40 brani, 80 MB e 30 minuti ciascuno, 600 MB in tutto (meno, se il telefono ha poco spazio libero); l'app avvisa quando un file non entra. «Rimuovi» cancella la copia. Non c'è nessun invio in rete, e i brani **non entrano nel backup** né nella sincronizzazione: sono file tuoi, restano su questo dispositivo (su un altro telefono vanno aggiunti di nuovo). Il titolo è il nome del file.
+- **I tuoi brani:** Impostazioni → Suoni e musica → Voce → «I tuoi brani» → «Aggiungi i tuoi brani». Scegli uno o più file audio dal telefono (mp3, m4a, ogg, wav, flac: dipende da che cosa legge il telefono). Vengono copiati nella memoria privata dell'app, funzionano offline e in secondo piano, e puoi mescolarli ai brani dell'app o ascoltare solo i tuoi. Limiti: 40 brani, 80 MB e 30 minuti ciascuno, 600 MB in tutto (meno, se il telefono ha poco spazio libero); l'app avvisa quando un file non entra. «Rimuovi» cancella la copia. Non c'è nessun invio in rete, e i brani **non entrano nel backup** né nella sincronizzazione: sono file tuoi, restano su questo dispositivo (su un altro telefono vanno aggiunti di nuovo). Il titolo è il nome del file.
 
 ## Le impostazioni
 
-⚙️ apre una pagina con la ricerca e cinque riquadri: **Aspetto** (tema, caratteri, lingua dei menu), **Suoni e musica** (audio, voce, microfono),
+Impostazioni apre una pagina con la ricerca e cinque riquadri: **Aspetto** (tema, caratteri, lingua dei menu), **Suoni e musica** (audio, voce, microfono),
 **Studio** (corso, stile di ripasso, livello e schede, promemoria, sfide e classe), **Dati e sincronizzazione** (sincronizzazione, backup, esportazione, contributi) e **Informazioni**
 (come funziona, novità, privacy, sostieni il progetto). Ogni riquadro apre la sua pagina; «Indietro» (o il tasto Indietro di Android) torna ai riquadri. Se non trovi una voce, scrivine una parola nella ricerca.
 
 ## I tuoi dati
 
-- **Sincronizzare:** ⚙️ → Dati e sincronizzazione → Sincronizzazione scrive un file nel tuo cloud (Drive, Dropbox, OneDrive, iCloud…) e lo riunisce all'avvio, oppure passa tutto a un altro telefono con una sequenza di QR.
+- **Sincronizzare:** Impostazioni → Dati e sincronizzazione → Sincronizzazione scrive un file nel tuo cloud (Drive, Dropbox, OneDrive, iCloud…) e lo riunisce all'avvio, oppure passa tutto a un altro telefono con una sequenza di QR.
   Nessun account, nessun server.
-- **Backup:** un file che scarichi tu, da ⚙️ → Dati e sincronizzazione.
-- **Esportare per Anki:** dopo 400 parole iniziate (o 400 ripassi), ⚙️ → Dati e sincronizzazione → «Altre opzioni di esportazione». Il file porta le parole, non il calendario del ripasso.
-- **Cancellare tutto:** ⚙️ → Dati e sincronizzazione, oppure disinstalla l'app.
+- **Backup:** un file che scarichi tu, da Impostazioni → Dati e sincronizzazione.
+- **Esportare per Anki:** dopo 400 parole iniziate (o 400 ripassi), Impostazioni → Dati e sincronizzazione → «Altre opzioni di esportazione». Il file porta le parole, non il calendario del ripasso.
+- **Cancellare tutto:** Impostazioni → Dati e sincronizzazione, oppure disinstalla l'app.
 
 ## Con altre persone
 
@@ -94,16 +94,16 @@ Le schede sono 课程 (51 lezioni con quiz), 复习 (ripasso), 单词 (4780 paro
 
 ## Pleco
 
-Se hai il dizionario Pleco sul telefono, ⚙️ → Studio → «Mostra il collegamento a Pleco» (spento di base). Poi, tenendo premuto un carattere per due secondi, compare «Apri in Pleco». Non c'è sul computer né nel corso di italiano.
+Se hai il dizionario Pleco sul telefono, Impostazioni → Studio → «Mostra il collegamento a Pleco» (spento di base). Poi, tenendo premuto un carattere per due secondi, compare «Apri in Pleco». Non c'è sul computer né nel corso di italiano.
 
 ## Sostenere il progetto
 
-⚙️ → Informazioni → «Sostieni il progetto» porta a Ko-fi. Una donazione è libera e non sblocca nulla. Se vuoi un segno di gratitudine, scrivi «SIGILLO» nel messaggio: ti mando un sigillo
+Impostazioni → Informazioni → «Sostieni il progetto» porta a Ko-fi. Una donazione è libera e non sblocca nulla. Se vuoi un segno di gratitudine, scrivi «SIGILLO» nel messaggio: ti mando un sigillo
 (支 Sostegno, 交 Cultura, 永 Custodire), un codice firmato che puoi riscattare nell'app e che è solo estetico. L'app non sa chi ha donato. Il codice è firmato e l'app controlla soltanto la firma: non contatta nessuno e non ti identifica. Come funziona e perché la chiave si genera in privato: [docs/sigilli.md](docs/sigilli.md).
 
 ## Privacy e licenze
 
-Nessun account, nessuna statistica, nessun tracciamento: tutto resta sul tuo dispositivo. I dettagli, anche in cinese, sono in [PRIVACY.md](PRIVACY.md) e nell'app, in ⚙️ → Informazioni → Privacy.
+Nessun account, nessuna statistica, nessun tracciamento: tutto resta sul tuo dispositivo. I dettagli, anche in cinese, sono in [PRIVACY.md](PRIVACY.md) e nell'app, in Impostazioni → Informazioni → Privacy.
 
 Il codice è MIT, i contenuti didattici, la musica e le icone CC BY 4.0, le parti di altri hanno la loro licenza: [NOTICE.md](NOTICE.md) e [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Il nome «màndarínō» e il logo non sono compresi nelle licenze: [MARCHIO.md](MARCHIO.md). Le icone, e come sono nate, sono in [icone/ICONE.md](icone/ICONE.md) e [icone/DESIGN.md](icone/DESIGN.md).
 
@@ -118,4 +118,4 @@ L'elenco completo di ciò che manca è in [docs/roadmap.md](docs/roadmap.md).
 
 ## Trovato un errore? Vuoi dare una mano?
 
-Dall'app: tocca la parola e poi «✏️ Correggi o segnala». Altrimenti leggi [CONTRIBUTING.md](CONTRIBUTING.md): non serve saper programmare.
+Dall'app: tocca la parola e poi «Correggi o segnala». Altrimenti leggi [CONTRIBUTING.md](CONTRIBUTING.md): non serve saper programmare.

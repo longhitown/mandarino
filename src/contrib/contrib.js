@@ -17,10 +17,10 @@
   function label(it) {
     var w = CP.WORDS[it.target], ln = !w && it.target ? CP.contrib.lineOf(it.target) : null, who = w ? w.hz : ln ? ln.hz : it.target || "";
     var F = { py: "pinyin", it: T("ct.fIt"), note: T("ct.fNote") };
-    if (it.op === "fix") return "✏️ " + who + " · " + F[it.field] + ": «" + it.new + "»";
-    if (it.op === "add") return "➕ " + it.hz + " " + it.py + " · " + it.it;
-    if (it.op === "tr") return "🈯 " + it.target + " → «" + it.new + "»";
-    return "🚩 " + who + " · " + it.why;
+    if (it.op === "fix") return "⟦pencil⟧ " + who + " · " + F[it.field] + ": «" + it.new + "»";
+    if (it.op === "add") return "⟦plus⟧ " + it.hz + " " + it.py + " · " + it.it;
+    if (it.op === "tr") return "⟦hanzi⟧ " + it.target + " → «" + it.new + "»";
+    return "⟦flag⟧ " + who + " · " + it.why;
   }
   function patch(items) {
     return { schema: "mandarino-contrib/1", app: CP.VERSION, dataset: CP.DATASET, created: Date.now(), author: nick() || undefined, credit: nick() && credit() ? 1 : undefined,
@@ -35,7 +35,7 @@
     var f = form, w = CP.WORDS[f.target], ln = !w && f.target ? CP.contrib.lineOf(f.target) : null, cur = w || ln, h;
     var head = f.op === "add" ? T("ct.addTitle") : f.op === "tr" ? esc(f.target) : (w ? "«" + esc(w.hz) + "» " + esc(w.py) : ln ? esc(ln.hz) : "");
     h = '<div class="fam-head"><div class="meta"><b>' + (f.op === "add" ? head : f.op === "tr" ? T("ct.trTitle") : T("fam.fix")) + "</b>" + (f.op !== "add" ? '<div class="small muted han">' + head + "</div>" : "") + '</div><button type="button" class="fam-x btn-s" data-famclose>' + T("common.close") + "</button></div>";
-    if (f.op !== "add" && f.op !== "tr") h += '<div class="seg" role="group" aria-label="' + CP.attr(T("ct.type")) + '"><button type="button" data-ct-op="fix"' + (f.op === "fix" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">✏️ " + T("ct.fix") + '</button><button type="button" data-ct-op="flag"' + (f.op === "flag" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">🚩 " + T("ct.flag") + "</button></div>";
+    if (f.op !== "add" && f.op !== "tr") h += '<div class="seg" role="group" aria-label="' + CP.attr(T("ct.type")) + '"><button type="button" data-ct-op="fix"' + (f.op === "fix" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦pencil⟧ " + T("ct.fix") + '</button><button type="button" data-ct-op="flag"' + (f.op === "flag" ? ' class="on" aria-pressed="true"' : ' aria-pressed="false"') + ">⟦flag⟧ " + T("ct.flag") + "</button></div>";
     h += '<div class="ct-form">';
     if (f.op === "fix") {
       var fields = w ? [["py", "Pinyin"], ["it", T("w.colIt")], ["note", T("ct.fNoteU")]] : [["py", "Pinyin"], ["it", T("w.colIt")]];
@@ -57,7 +57,7 @@
       "<label>" + T("ct.nick") + '<input type="text" id="ct-nick" maxlength="40" value="' + CP.attr(nick()) + '" autocomplete="nickname"></label>' +
       '<label class="chk"><input type="checkbox" id="ct-credit"' + (credit() ? " checked" : "") + "> " + T("ct.credit") + "</label>" +
       (errs && errs.length ? '<div class="warn" role="alert">' + errs.map(esc).join("<br>") + "</div>" : "") +
-      '<p class="small muted" style="margin:0">🔒 ' + T("ct.privacy") + "</p>" +
+      '<p class="small muted" style="margin:0">⟦lock⟧ ' + T("ct.privacy") + "</p>" +
       '<button type="button" class="btn-main" id="ct-save" style="margin-top:0">' + (f.op === "fix" || f.op === "tr" ? T("ct.saveTry") : T("lab.save")) + "</button></div>";
     return h;
   }
@@ -102,11 +102,11 @@
   function sendHTML() {
     var n = pending().length; if (!n) return "";
     return '<div class="ct-send"><b>' + T(n === 1 ? "ct.send1" : "ct.sendN", { n: n }) + "</b>" +
-      '<div class="acts" style="margin:0">' + (navigator.share ? '<button type="button" class="btn-s" data-ct-send="share">📤 ' + T("ct.share") + "</button>" : "") +
-      '<button type="button" class="btn-s" data-ct-send="mail">✉️ Email</button>' +
-      (CFG.form && CFG.formEntry ? '<button type="button" class="btn-s" data-ct-send="form">📝 ' + T("ct.form") + "</button>" : "") +
-      (CFG.repo ? '<button type="button" class="btn-s" data-ct-send="gh">🐙 GitHub</button>' : "") +
-      '<button type="button" class="btn-s" data-ct-send="file">⬇ ' + T("ct.file") + "</button></div></div>";
+      '<div class="acts" style="margin:0">' + (navigator.share ? '<button type="button" class="btn-s" data-ct-send="share">⟦share⟧ ' + T("ct.share") + "</button>" : "") +
+      '<button type="button" class="btn-s" data-ct-send="mail">⟦mail⟧ Email</button>' +
+      (CFG.form && CFG.formEntry ? '<button type="button" class="btn-s" data-ct-send="form">⟦notes⟧ ' + T("ct.form") + "</button>" : "") +
+      (CFG.repo ? '<button type="button" class="btn-s" data-ct-send="gh">⟦octopus⟧ GitHub</button>' : "") +
+      '<button type="button" class="btn-s" data-ct-send="file">⟦download⟧ ' + T("ct.file") + "</button></div></div>";
   }
   function send(how) {
     var items = pending(); if (!items.length) return;
@@ -127,12 +127,12 @@
     } else if (how === "file") { Store.download("mandarino-contributi-" + Date.now() + ".json", pretty); done(); }
   }
 
-  /* ---- ⚙️ → Dati e sincronizzazione → Contributi ---- */
+  /* ---- gear → Dati e sincronizzazione → Contributi ---- */
   (CP.settingsExtras = CP.settingsExtras || []).push({ group: "data", html: function () {
     var l = list().slice().reverse();
-    return '<details class="set-sec" id="set-contrib"><summary>✏️ ' + T("ct.title") + (l.length ? " (" + l.length + ")" : "") + '</summary><div class="vbody">' +
+    return '<details class="set-sec" id="set-contrib"><summary>⟦pencil⟧ ' + T("ct.title") + (l.length ? " (" + l.length + ")" : "") + '</summary><div class="vbody">' +
       '<p class="small muted" style="margin:0">' + T("ct.lede") + "</p>" +
-      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-ct-find>✏️ ' + T("fam.fix") + '…</button><button type="button" class="btn-s" data-ct-add>➕ ' + T("ct.newWord") + "</button></div>" +
+      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-ct-find>⟦pencil⟧ ' + T("fam.fix") + '…</button><button type="button" class="btn-s" data-ct-add>⟦plus⟧ ' + T("ct.newWord") + "</button></div>" +
       (l.length ? '<ul class="ct-list">' + l.map(function (it) {
         return '<li class="' + (it.undone ? "undone" : "") + '"><span>' + esc(label(it)) + (it.sent ? ' <span class="muted small">· ' + T("ct.sent") + "</span>" : "") + "</span>" +
           (it.op === "fix" || it.op === "tr" ? '<button type="button" class="btn-s" data-ct-undo="' + CP.attr(it.id) + '">' + T(it.undone ? "ct.redo" : "ct.undo") + "</button>" : "") +
@@ -144,8 +144,8 @@
     var out = [];
     CP.ensureQ();
     CP.ORDER.forEach(function (k, i) { if (out.length < 25 && CP.search.rank(CP.Q[i], sq) >= 0) { var w = CP.WORDS[k]; out.push([k, w.hz + " · " + w.py + " · " + CP.gloss(w)]); } });
-    PHRASES.forEach(function (g, gi) { g.items.forEach(function (p, ri) { if (out.length < 40 && S.rank(S.key(p[0], p[1], p[2]), sq) >= 0) out.push(["phr:" + gi + ":" + ri, "💬 " + p[1] + " · " + p[2]]); }); });
-    DIALOGS.forEach(function (d) { d.lines.forEach(function (l, li) { if (out.length < 55 && S.rank(S.key(l[1], l[2], l[3]), sq) >= 0) out.push(["dlg:" + d.id + ":" + li, "🗨️ " + l[2] + " · " + l[3]]); }); });
+    PHRASES.forEach(function (g, gi) { g.items.forEach(function (p, ri) { if (out.length < 40 && S.rank(S.key(p[0], p[1], p[2]), sq) >= 0) out.push(["phr:" + gi + ":" + ri, "⟦chat⟧ " + p[1] + " · " + p[2]]); }); });
+    DIALOGS.forEach(function (d) { d.lines.forEach(function (l, li) { if (out.length < 55 && S.rank(S.key(l[1], l[2], l[3]), sq) >= 0) out.push(["dlg:" + d.id + ":" + li, "⟦chat⟧ " + l[2] + " · " + l[3]]); }); });
     return out.length ? out.map(function (x) { return '<button type="button" class="goto-row ct-hit" data-ct-target="' + CP.attr(x[0]) + '"><span class="han" lang="zh-CN">' + esc(x[1]) + "</span></button>"; }).join("") : '<p class="muted">Niente trovato.</p>';
   }
   CP.contribFind = function () {

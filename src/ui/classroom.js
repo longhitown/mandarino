@@ -103,7 +103,7 @@
     var l = list().filter(function (p) { var n = daysLeft(p.d); return n == null || n >= -SHOW_PAST_DAYS; });
     if (!l.length) return "";
     var p = l[0], g = progress(p);
-    return '<button type="button" class="panel cls-banner" data-cls-settings><span aria-hidden="true">👩‍🏫</span><span><b>' + esc(T("cls.banner", { t: p.t })) + "</b><small>" + esc(T(p.c === "it" ? "cls.progIt" : "cls.progZh", { s: g.done, n: g.n, p: g.pct })) + (p.d ? " · " + esc(dueText(p)) : "") + "</small></span></button>";
+    return '<button type="button" class="panel cls-banner" data-cls-settings><span aria-hidden="true">⟦teacher⟧</span><span><b>' + esc(T("cls.banner", { t: p.t })) + "</b><small>" + esc(T(p.c === "it" ? "cls.progIt" : "cls.progZh", { s: g.done, n: g.n, p: g.pct })) + (p.d ? " · " + esc(dueText(p)) : "") + "</small></span></button>";
   }
   function goTo(p) {
     var g = progress(p), U = g.units; if (!U.length) return;
@@ -179,7 +179,7 @@
       '<h4 class="cls-h">' + esc(T("chal.title")) + '</h4><p class="small muted" style="margin:0">' + esc(T("chal.intro")) + "</p>" +
       '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-chal-open>' + esc(T("chal.new")) + "</button></div>" +
       '<label class="small" style="display:grid;gap:4px">' + esc(T("chal.paste")) + '<input type="text" id="tog-code" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="MDC1-… / MDK1-…" data-noi18n></label>' +
-      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-tog-try>' + esc(T("chal.go")) + '</button><button type="button" class="btn-s" data-tog-scan>📷 ' + esc(T("chal.scan")) + "</button></div>" +
+      '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-tog-try>' + esc(T("chal.go")) + '</button><button type="button" class="btn-s" data-tog-scan>⟦camera⟧ ' + esc(T("chal.scan")) + "</button></div>" +
       '<h4 class="cls-h" id="set-class">' + esc(T("cls.title")) + "</h4>" +
       (l.length ? l.map(cardHTML).join("") : '<p class="small muted" style="margin:0">' + esc(T("cls.empty")) + "</p>") +
       '<div class="acts" style="margin:0"><button type="button" class="btn-s" data-cls-import>' + esc(T("cls.import")) + '</button><input type="file" id="cls-file" accept="application/json,.json,.txt" hidden></div>' +

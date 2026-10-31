@@ -13,7 +13,7 @@ terze parti. Tutto quello che fai nell'app resta sul tuo dispositivo. Lo stesso 
 
 I progressi (parole, ripassi, punti, lezioni), le impostazioni, i contributi non ancora mandati, i sigilli e il nickname
 facoltativo stanno nella memoria del browser o dell'app (`localStorage` e IndexedDB, chiavi `cp-*`). Nessuno li riceve.
-Si cancellano con ⚙️ → Dati e sincronizzazione, oppure cancellando i dati del sito o disinstallando l'app.
+Si cancellano con Impostazioni → Dati e sincronizzazione, oppure cancellando i dati del sito o disinstallando l'app.
 
 ### Quando l'app usa la rete
 
@@ -21,10 +21,10 @@ L'app funziona tutta offline. La rete si usa solo in questi casi, che decidi tu:
 
 | Che cosa | Quando | Che cosa parte | Dove |
 |---|---|---|---|
-| **Controllo degli aggiornamenti** (solo app Android scaricata dal sito o da GitHub: nelle versioni di Google Play e di F-Droid non esiste, aggiorna lo store) | al massimo una volta al giorno; si spegne in ⚙️ | una richiesta senza dati personali | GitHub (`api.github.com`) |
-| **Voce online** | solo se la accendi in ⚙️ → Suoni e musica → Voce (spenta di base) | il testo cinese da leggere | un servizio di sintesi vocale di Google, non ufficiale |
+| **Controllo degli aggiornamenti** (solo app Android scaricata dal sito o da GitHub: nelle versioni di Google Play e di F-Droid non esiste, aggiorna lo store) | al massimo una volta al giorno; si spegne in Impostazioni | una richiesta senza dati personali | GitHub (`api.github.com`) |
+| **Voce online** | solo se la accendi in Impostazioni → Suoni e musica → Voce (spenta di base) | il testo cinese da leggere | un servizio di sintesi vocale di Google, non ufficiale |
 | **Riconoscimento della voce** negli esercizi di pronuncia | solo quando tocchi il microfono | l'audio di quello che dici | nel browser Chrome lo elabora il fornitore del browser (Google); nell'app Android il riconoscitore del telefono, che può funzionare anche offline |
-| **Controllo del pacchetto voci** (⚙️ → Comunità e voci → «Controlla aggiornamenti») | solo quando tocchi il pulsante, mai da sola | una richiesta `GET` senza cookie e senza intestazione Referer a `https://mandarinoapp.org/voci/index.json`, un piccolo elenco pubblico (versione, data, numero di voci, dimensione, file). Non parte nessun dato tuo: la richiesta è uguale per tutti | `mandarinoapp.org` (GitHub Pages: come per ogni visita al sito può registrare l'indirizzo IP, vedi sotto). Nell'app resta solo l'ultimo esito (data, numero, dimensione, quando hai controllato), in `localStorage` alla chiave `md-voicepack`, fuori dai backup. Per ora non scarica nulla |
+| **Controllo del pacchetto voci** (Impostazioni → Comunità e voci → «Controlla aggiornamenti») | solo quando tocchi il pulsante, mai da sola | una richiesta `GET` senza cookie e senza intestazione Referer a `https://mandarinoapp.org/voci/index.json`, un piccolo elenco pubblico (versione, data, numero di voci, dimensione, file). Non parte nessun dato tuo: la richiesta è uguale per tutti | `mandarinoapp.org` (GitHub Pages: come per ogni visita al sito può registrare l'indirizzo IP, vedi sotto). Nell'app resta solo l'ultimo esito (data, numero, dimensione, quando hai controllato), in `localStorage` alla chiave `md-voicepack`, fuori dai backup. Per ora non scarica nulla |
 | **Link esterni** (sostegno, social, GitHub, e-mail) | solo quando li tocchi | quello che apri tu | il sito che apri |
 | **Musica e dizionario dei nomi** (versione web) | al primo ascolto di un brano, al primo uso dei «nomi e termini» del Lettore | la richiesta del file | lo stesso sito dell'app |
 | **Aggiornamenti dell'app** (versione web) | all'apertura, se c'è rete | la richiesta della versione nuova | lo stesso sito dell'app |
@@ -55,7 +55,7 @@ salva niente nel tuo browser: font, script e immagini arrivano tutti dal sito st
 
 - **Microfono:** solo per gli esercizi di pronuncia e solo mentre li usi. L'oscilloscopio dei toni lavora sul dispositivo;
   la registrazione non viene salvata né inviata.
-- **Scambio linguistico (facoltativo, spento di base):** solo se apri ⚙️ → Suoni e musica → Scambio linguistico e confermi il foglio
+- **Scambio linguistico (facoltativo, spento di base):** solo se apri Impostazioni → Suoni e musica → Scambio linguistico e confermi il foglio
   del consenso, registri la tua voce mentre leggi frasi dell'app. Le registrazioni restano solo sul telefono finché non le mandi tu
   (un file `.zip` che invii come vuoi: nessun caricamento automatico). Se le mandi, possono essere pubblicate nell'app con licenza CC BY 4.0;
   le ascolta soltanto chi gestisce il progetto. Si possono cancellare in qualsiasi momento dallo stesso foglio. Solo per maggiorenni.
@@ -127,7 +127,7 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 ### 保存在你设备上的内容
 
 学习进度（词语、复习、积分、课程）、设置、尚未发送的贡献、印章和可选的昵称保存在浏览器或应用的存储中（`localStorage` 和 IndexedDB，键名 `cp-*`）。
-没有人会收到这些数据。可以在 ⚙️ → 数据与同步 中删除，或清除网站数据、卸载应用。
+没有人会收到这些数据。可以在 设置 → 数据与同步 中删除，或清除网站数据、卸载应用。
 
 ### 应用什么时候联网
 
@@ -135,10 +135,10 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 
 | 内容 | 时间 | 发送什么 | 发往哪里 |
 |---|---|---|---|
-| **检查更新**（仅限从网站或 GitHub 下载的安卓应用；Google Play 和 F-Droid 版本没有这个功能，由商店负责更新） | 每天最多一次；可在 ⚙️ 中关闭 | 一个不含个人数据的请求 | GitHub（`api.github.com`） |
-| **在线语音** | 只有在 ⚙️ → 声音和音乐 → 语音 中打开后（默认关闭） | 要朗读的文字 | 谷歌的一个非官方语音合成服务 |
+| **检查更新**（仅限从网站或 GitHub 下载的安卓应用；Google Play 和 F-Droid 版本没有这个功能，由商店负责更新） | 每天最多一次；可在 设置 中关闭 | 一个不含个人数据的请求 | GitHub（`api.github.com`） |
+| **在线语音** | 只有在 设置 → 声音和音乐 → 语音 中打开后（默认关闭） | 要朗读的文字 | 谷歌的一个非官方语音合成服务 |
 | **语音识别**（发音练习） | 只有点麦克风时 | 你说话的音频 | 在 Chrome 浏览器中由浏览器提供方（谷歌）处理；在安卓应用中由手机的识别器处理，可能离线 |
-| **检查语音包**（⚙️ → 社区与声音 → “检查更新”） | 只有点按钮时，绝不会自动进行 | 向 `https://mandarinoapp.org/voci/index.json` 发出一个不带 Cookie、不带 Referer 的 `GET` 请求，取回一份公开的小清单（版本、日期、录音数量、大小、文件）。不会发送任何你的数据：这个请求对所有人都一样 | `mandarinoapp.org`（GitHub Pages：和访问网站一样，可能记录 IP 地址，见下文）。应用里只保留最近一次的结果（日期、数量、大小、检查时间），存在 `localStorage` 的 `md-voicepack` 键里，不进入备份。目前不下载任何内容 |
+| **检查语音包**（设置 → 社区与声音 → “检查更新”） | 只有点按钮时，绝不会自动进行 | 向 `https://mandarinoapp.org/voci/index.json` 发出一个不带 Cookie、不带 Referer 的 `GET` 请求，取回一份公开的小清单（版本、日期、录音数量、大小、文件）。不会发送任何你的数据：这个请求对所有人都一样 | `mandarinoapp.org`（GitHub Pages：和访问网站一样，可能记录 IP 地址，见下文）。应用里只保留最近一次的结果（日期、数量、大小、检查时间），存在 `localStorage` 的 `md-voicepack` 键里，不进入备份。目前不下载任何内容 |
 | **外部链接**（支持、社交媒体、GitHub、电子邮件） | 只有点击时 | 你打开的内容 | 你打开的网站 |
 | **音乐和人名地名词典**（网页版） | 第一次播放某首曲子、第一次使用阅读器的“人名和术语”时 | 文件请求 | 应用所在的同一网站 |
 | **应用更新**（网页版） | 打开应用且有网络时 | 新版本请求 | 应用所在的同一网站 |
@@ -164,7 +164,7 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 - **通知（安卓）：** 只用于可选的提醒和后台音乐。
 - **Pleco**（可选，默认关闭，仅限手机）：打开后点击“在 Pleco 中打开”，词语会传给你手机上的 Pleco 应用，不会发送到网络。
 
-- **语言交流（可选，默认关闭）：** 只有在你打开 ⚙️ → 声音和音乐 → 语言交换并确认同意书之后，才会在你朗读应用里的句子时录下你的声音。录音在你自己发送之前只保存在手机上（一个 `.zip` 文件，你想怎么发都行：不会自动上传）。如果你发送，录音可能以 CC BY 4.0 许可发布在应用里；只有项目管理者会听到。可以随时在同一界面删除。仅限成年人。
+- **语言交流（可选，默认关闭）：** 只有在你打开 设置 → 声音和音乐 → 语言交换并确认同意书之后，才会在你朗读应用里的句子时录下你的声音。录音在你自己发送之前只保存在手机上（一个 `.zip` 文件，你想怎么发都行：不会自动上传）。如果你发送，录音可能以 CC BY 4.0 许可发布在应用里；只有项目管理者会听到。可以随时在同一界面删除。仅限成年人。
 - **安卓的其他权限：** 联网（表格里列出的请求）、振动、听音或录音时的音频管理、开机（仅用于恢复可选的提醒）、前台服务（仅用于后台音乐）。这些权限都不会读取你的通讯录、位置、信息或文件。
 
 ### 安卓自动备份

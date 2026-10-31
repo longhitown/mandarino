@@ -1,4 +1,4 @@
-/* màndarínō · «Novità» (⚙️ → Informazioni): l'elenco dei cambiamenti, dal più recente, per far vedere come l'app è cresciuta.
+/* màndarínō · «Novità» (Impostazioni → Informazioni): l'elenco dei cambiamenti, dal più recente, per far vedere come l'app è cresciuta.
    Ogni voce: { v: titolo (it), vz: titolo (zh), d: "AAAA-MM-GG", it: [righe], zh: [righe] }. Righe brevi (una frase), scritte per chi studia,
    non per chi programma; solo cose vere, ricavate dalla storia del progetto (git). Una versione nuova va in cima; tools/build.mjs controlla
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
@@ -9,13 +9,13 @@ var CHANGELOG = [
       "Su Android, il nuovo widget «Ripasso rapido» (4×4): cinque minuti di ripasso dalla schermata Home, una carta alla volta.",
       "Il microfono ora funziona anche sui telefoni dove prima falliva.",
       "Voce e brani più affidabili: corretti nove difetti dell'audio.",
-      "Nuova pagina ⚙️ → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in ⚙️ → Aspetto, con l'anteprima."
+      "Nuova pagina Impostazioni → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in Impostazioni → Aspetto, con l'anteprima."
     ],
     zh: [
       "安卓上新增“快速复习”小组件（4×4）：在主屏幕上用五分钟，一张一张复习卡片。",
       "麦克风现在也能在以前出问题的手机上使用。",
       "语音和音乐更稳定：修复了九处音频问题。",
-      "新页面 ⚙️ → 社区与声音（语言交换、语音包）；小组件在 ⚙️ → 外观，可先看预览。"
+      "新页面 设置 → 社区与声音（语言交换、语音包）；小组件在 设置 → 外观，可先看预览。"
     ] },
   { v: "Scambio linguistico", vz: "语言交换", d: "2026-10-29",
     it: [

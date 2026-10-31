@@ -57,8 +57,8 @@
        Mai hz: è la chiave dei progressi in cp-srs-v1. Per un carattere sbagliato si usa flag.
      - add: una parola nuova (section, py, hz, it).   - flag: una segnalazione (target, why).
      - tr: la traduzione giusta di una frase del laboratorio (target = i caratteri della frase, new = l'italiano, old = quello
-       che diceva il laboratorio): vale subito nel laboratorio di chi la scrive, con l'etichetta «✏️ tua traduzione».
-     Le correzioni dell'utente si applicano subito alla sua copia, con l'etichetta «✏️ tua correzione», e si possono annullare. ---- */
+       che diceva il laboratorio): vale subito nel laboratorio di chi la scrive, con l'etichetta «pencil tua traduzione».
+     Le correzioni dell'utente si applicano subito alla sua copia, con l'etichetta «pencil tua correzione», e si possono annullare. ---- */
   var CKEY = "cp-community-contribs", CJKONLY = /^[㐀-鿿]+$/;
   function clean(py) { var c = String(py).replace(/[!?,;:…"“”«»()（），。？！、]/g, " ").replace(/\.(?=\s|$)/g, " ").trim(); return c ? syllables(c.replace(/\s+/g, " ")) : []; }
   function cjkCount(h) { return Array.from(String(h)).filter(function (c) { return CJK.test(c); }).length; }
@@ -131,7 +131,7 @@
   var STAR = '<button type="button" class="fav%ON%" aria-pressed="%PR%" aria-label="' + attr(t("w.fav")) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 17l-5.4 3 1.2-6L3.3 9.8l6.1-.7z"/></svg></button>';
   function rowHTML(i) {
     var k = ORDER[i], w = WORDS[k], st = CP.state ? CP.state(k) : 0, fav = !!(CP.favs && CP.favs.has(k));
-    var note = (w.note ? '<span class="note">' + esc(w.note) + "</span>" : "") + (w.mine ? '<span class="note mine-tag">✏️ ' + t("w.mine") + '</span>' : "");
+    var note = (w.note ? '<span class="note">' + esc(w.note) + "</span>" : "") + (w.mine ? '<span class="note mine-tag">⟦pencil⟧ ' + t("w.mine") + '</span>' : "");
     return '<tr data-k="' + attr(k) + '"' + (st ? ' class="st-' + st + '"' : "") + ">" +
       '<td class="py"><span class="m m-py">' + pinyinHTML(w.py) + "</span></td>" +
       '<td class="hz" lang="zh-CN"><span class="m m-hz" lang="zh-CN">' + hanziHTML(w.hz, w.py) + "</span></td>" +

@@ -49,7 +49,7 @@
   /* ---- invio: il telefono vecchio ---- */
   CP.qrSend = function () {
     if (CP.closeSheet) CP.closeSheet();
-    var o = overlay('<h3 style="margin:0">📱→ ' + esc(T("qr.send")) + '</h3><p class="small muted" style="margin:0">' + esc(T("qr.sendHint")) + "</p>" +
+    var o = overlay('<h3 style="margin:0">⟦phone⟧→ ' + esc(T("qr.send")) + '</h3><p class="small muted" style="margin:0">' + esc(T("qr.sendHint")) + "</p>" +
       '<canvas class="qr-cv" aria-label="' + CP.attr(T("qr.cvAria")) + '"></canvas><div class="qr-st small" aria-live="polite">' + esc(T("qr.preparing")) + "</div>");
     var cv = o.querySelector("canvas"), st = o.querySelector(".qr-st");
     pack().then(function (bytes) {
@@ -73,7 +73,7 @@
   /* ---- ricezione: il telefono nuovo ---- */
   CP.qrReceive = function () {
     if (CP.closeSheet) CP.closeSheet();
-    var o = overlay('<h3 style="margin:0">📷 ' + esc(T("qr.recv")) + '</h3><p class="small muted" style="margin:0">' + esc(T("qr.recvHint")) + "</p>" +
+    var o = overlay('<h3 style="margin:0">⟦camera⟧ ' + esc(T("qr.recv")) + '</h3><p class="small muted" style="margin:0">' + esc(T("qr.recvHint")) + "</p>" +
       '<div class="qr-cam"><video playsinline muted autoplay></video><span class="qr-aim" aria-hidden="true"></span></div><div class="qr-grid" aria-hidden="true"></div><div class="qr-st small" aria-live="polite">' + esc(T("qr.camOpen")) + "</div>");
     var video = o.querySelector("video"), st = o.querySelector(".qr-st"), grid = o.querySelector(".qr-grid");
     var got = {}, sid = "", tot = 0, done = false, stopCam = function () {};
@@ -96,7 +96,7 @@
       if (!bytes || crc32(bytes) !== sid) { done = false; got = {}; sid = ""; st.textContent = T("qr.bad"); return; }
       unpack(bytes).then(function (obj) { return Store.importObj(obj, "merge"); }).then(function (r) {
         if (!r || !r.ok) throw new Error("bad");
-        stopCam(); st.textContent = "✅ " + T("qr.ok"); CP.sfx("ok");
+        stopCam(); st.textContent = "⟦check⟧ " + T("qr.ok"); CP.sfx("ok");
         setTimeout(function () { location.reload(); }, 1200);
       }).catch(function () { done = false; st.textContent = T("qr.bad"); });
     }
@@ -133,7 +133,7 @@
   /* leggere un QR qualsiasi (per esempio il codice di un sigillo): onText(testo) → true per chiudere */
   CP.qrScan = function (title, hint, onText) {
     if (CP.closeSheet) CP.closeSheet();
-    var o = overlay('<h3 style="margin:0">📷 ' + esc(title) + '</h3><p class="small muted" style="margin:0">' + esc(hint) + '</p><div class="qr-cam"><video playsinline muted autoplay></video><span class="qr-aim" aria-hidden="true"></span></div><div class="qr-st small" aria-live="polite">' + esc(T("qr.camOpen")) + "</div>");
+    var o = overlay('<h3 style="margin:0">⟦camera⟧ ' + esc(title) + '</h3><p class="small muted" style="margin:0">' + esc(hint) + '</p><div class="qr-cam"><video playsinline muted autoplay></video><span class="qr-aim" aria-hidden="true"></span></div><div class="qr-st small" aria-live="polite">' + esc(T("qr.camOpen")) + "</div>");
     var stop = camera(o, o.querySelector("video"), o.querySelector(".qr-st"), function (t) { if (onText(t)) close(); });
     stopFns.push(stop);
   };

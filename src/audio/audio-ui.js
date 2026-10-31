@@ -6,12 +6,12 @@
 
   /* ---- 1. pulsanti nella barra ---- */
   var grp = document.querySelector(".bar .grp"), first = document.getElementById("guide-btn");
-  /* nella barra resta solo 🎵; i tre stati dell'audio stanno in ⚙️ (CP.audioMode / CP.setAudioMode) */
+  /* nella barra resta solo music; i tre stati dell'audio stanno in gear (CP.audioMode / CP.setAudioMode) */
   var vol = document.createElement("button"); vol.type = "button"; vol.id = "vol-btn"; vol.className = "iconbtn emo";
   var mus = document.createElement("button"); mus.type = "button"; mus.id = "music-btn"; mus.className = "iconbtn emo";
   grp.insertBefore(mus, document.getElementById("settings-btn"));
   function mode() { return !pref.sfx ? "mute" : (pref.auto ? "all" : "fx"); }
-  var MODES = { all: ["🔊", "Audio: voce ed effetti", "Voce ed effetti attivi."], fx: ["🔉", "Audio: solo effetti", "Solo effetti: la voce parte solo se tocchi 🔊 sulla parola."], mute: ["🔇", "Audio: muto", "Muto: nessun effetto né musica. La voce parte solo se tocchi 🔊 sulla parola."] };
+  var MODES = { all: ["⟦speaker⟧", "Audio: voce ed effetti", "Voce ed effetti attivi."], fx: ["⟦volume-low⟧", "Audio: solo effetti", "Solo effetti: la voce parte solo se tocchi ⟦speaker⟧ sulla parola."], mute: ["⟦mute⟧", "Audio: muto", "Muto: nessun effetto né musica. La voce parte solo se tocchi ⟦speaker⟧ sulla parola."] };
   function paintVol() {
     var m = mode(), st = CP.audioState(), pend = m !== "mute" && (st === "suspended" || st === "interrupted");
     vol.textContent = MODES[m][0]; vol.setAttribute("aria-label", MODES[m][1] + (pend ? ". L'audio è in pausa: tocca per sbloccarlo" : ". Tocca per cambiare"));
@@ -80,7 +80,7 @@
       var opt = function (cur) { return vs.map(function (v) { return '<option value="' + CP.attr(v.voiceURI) + '"' + (v.voiceURI === cur ? " selected" : "") + ">" + esc(v.name) + " (" + esc(v.lang) + ")</option>"; }).join(""); };
       h += '<div class="small" style="font-weight:700;margin-top:12px">' + CP.t("vo.ab") + "</div>" +
         '<div class="ab"><label>A<select id="ab-a">' + opt(AB.a) + '</select></label><label>B<select id="ab-b">' + opt(AB.b) + "</select></label></div>" +
-        '<div class="acts"><button type="button" class="btn-s" data-ab="a">▶ ' + CP.t("vo.play", { x: "A" }) + '</button><button type="button" class="btn-s" data-ab="b">▶ ' + CP.t("vo.play", { x: "B" }) + "</button></div>" +
+        '<div class="acts"><button type="button" class="btn-s" data-ab="a">⟦play⟧ ' + CP.t("vo.play", { x: "A" }) + '</button><button type="button" class="btn-s" data-ab="b">⟦play⟧ ' + CP.t("vo.play", { x: "B" }) + "</button></div>" +
         '<div class="acts"><button type="button" class="btn-s" data-abpick="a">' + CP.t("vo.use", { x: "A" }) + '</button><button type="button" class="btn-s" data-abpick="b">' + CP.t("vo.use", { x: "B" }) + "</button></div>";
     } else if (!itc) h += '<p class="small muted" style="margin:10px 0 0">' + CP.t("vo.one") + "</p>";
     h += "</div>";
@@ -89,7 +89,7 @@
     if (itc) return h;   /* corso di italiano: il pacchetto per pubblicare l'app non serve a chi studia */
     h += '<div class="vab" id="pwa-box"><div class="small" style="font-weight:700">' + CP.t("pwa.title") + "</div>" +
       '<p class="small muted" style="margin:2px 0 6px">' + CP.t(ps && ps.standalone ? "pwa.installed" : ps && ps.http ? "pwa.https" : "pwa.need") + "</p>" +
-      (CP.dev() ? '<button type="button" class="btn-s" id="pwa-dl">📦 ' + CP.t("pwa.dl") + "</button>" : "") + "</div>";
+      (CP.dev() ? '<button type="button" class="btn-s" id="pwa-dl">⟦box⟧ ' + CP.t("pwa.dl") + "</button>" : "") + "</div>";
     return h;
   };
   function playVoice(uri) {

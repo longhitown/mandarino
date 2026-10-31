@@ -1,5 +1,5 @@
 /* ===== màndarínō · pannello «Parla»: un solo posto per dire una parola o una frase e vedere il proprio tono.
-   Prende il posto di «Registra e confronta» e dell'oscilloscopio 〰️ (prima erano due pannelli diversi, con due logiche).
+   Prende il posto di «Registra e confronta» e dell'oscilloscopio wave (prima erano due pannelli diversi, con due logiche).
    Funziona offline: tocchi il microfono, parli, si ferma da solo quando smetti. Poi mostra la tua curva sopra la forma
    dei toni, sillaba per sillaba, con l'aderenza (giudizio indicativo), e fa riascoltare te e la voce guida.
    Il cerchio intorno al microfono si allarga con il volume: si vede subito se il microfono ti sente. ===== */
@@ -112,7 +112,7 @@
       '<canvas class="vp-cv" aria-label="' + CP.attr(T("vp.cv")) + '"></canvas>' +
       '<div class="vp-ctl"><button type="button" class="vp-mic" data-vp-go aria-label="' + CP.attr(T("vp.speak")) + '">' + MIC_SVG + '</button>' +
       '<div class="vp-side"><p class="vp-st" aria-live="polite"></p><div class="vp-meter" aria-hidden="true"><i></i></div></div></div>' +
-      '<div class="acts vp-acts"><button type="button" class="btn-s" data-vp-me disabled>▶ ' + T("vp.me") + '</button><button type="button" class="btn-s" data-vp-tts>🔊 ' + T("vp.guide") + '</button><button type="button" class="btn-s" data-vp-both disabled>⇄ ' + T("vp.both") + "</button></div>";
+      '<div class="acts vp-acts"><button type="button" class="btn-s" data-vp-me disabled>⟦play⟧ ' + T("vp.me") + '</button><button type="button" class="btn-s" data-vp-tts>⟦speaker⟧ ' + T("vp.guide") + '</button><button type="button" class="btn-s" data-vp-both disabled>⇄ ' + T("vp.both") + "</button></div>";
     host.appendChild(d);
     var cv = d.querySelector("canvas"), st = d.querySelector(".vp-st"), go = d.querySelector("[data-vp-go]"), meter = d.querySelector(".vp-meter i");
     var me = d.querySelector("[data-vp-me]"), both = d.querySelector("[data-vp-both]"), ses = null, url = "", audio = null, res = null, anim = 0;
@@ -149,8 +149,8 @@
         maxSec: Math.min(8, 1.2 + 0.45 * syl.length),
         onFrame: function (f) {
           level(f.level);
-          if (f.state === "wait") status("🔴 " + T("vp.wait"));
-          else if (f.state === "voice") status("🔴 " + T("vp.hear"));
+          if (f.state === "wait") status("⟦dot⟧ " + T("vp.wait"));
+          else if (f.state === "voice") status("⟦dot⟧ " + T("vp.hear"));
           paint(cv, syl, f.pts, null);
         },
         onEnd: function (e) {

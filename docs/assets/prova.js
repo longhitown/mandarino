@@ -10,6 +10,8 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); };
   var shuffle = function (a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
   var css = function (v) { return getComputedStyle(d.documentElement).getPropertyValue(v).trim(); };
+  /* l'icona «Avvia» del set di icone (icone/svg/ui/play.svg), nel colore del testo del pulsante */
+  var PLAY = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="currentColor" fill-opacity=".18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px"><path d="M8 5.7V18.3L18.9 12Z"/></svg>';
   var el = function (tag, cls, html) { var e = d.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 
   function Score(sec) {
@@ -70,7 +72,7 @@
     function view() {
       host.innerHTML = "";
       host.appendChild(el("p", "q", "Round <b>" + (round + 1) + "</b> di " + N + " · sillaba «<b>" + SYL[order[round]][0] + "</b>»"));
-      var play = el("button", "btn small pulse", "▶ Ascolta il tono"); play.type = "button";
+      var play = el("button", "btn small pulse", PLAY + "Ascolta il tono"); play.type = "button";
       play.addEventListener("click", function () { play.classList.remove("pulse"); M.tone(want); });
       var opts = el("div", "opts tonopts");
       [1, 2, 3, 4].forEach(function (n) {
@@ -148,7 +150,7 @@
     Quiz(host, sc, { pool: W, n: 5, points: 4, cls: "",
       counter: function (a, n) { return "Domanda <b>" + a + "</b> di " + n; },
       stem: function (w) { var s = el("div", "stem"); s.appendChild(el("p", "word", '<span class="hz" lang="zh-CN">' + w[0] + '</span><span class="py">' + w[1] + "</span>"));
-        if (canSay) { var b = el("button", "btn ghost small", "▶ Ascolta"); b.type = "button"; b.addEventListener("click", function () { say(w[0]); }); s.appendChild(b); } return s; },
+        if (canSay) { var b = el("button", "btn ghost small", PLAY + "Ascolta"); b.type = "button"; b.addEventListener("click", function () { say(w[0]); }); s.appendChild(b); } return s; },
       options: function (w) { return shuffle([w].concat(shuffle(W.filter(function (x) { return x !== w; })).slice(0, 3))); },
       label: function (o) { return o[2]; }, isRight: function (w, o) { return w === o; },
       feedback: function (w, right) { return (right ? "Giusto! " : "Era «" + w[2] + "». ") + '<span lang="zh-CN">' + w[0] + "</span> si legge <b>" + w[1] + "</b>."; },
@@ -168,7 +170,7 @@
     Quiz(host, sc, { pool: ZW, n: 5, points: 4,
       counter: function (a, n) { return "第 <b>" + a + "</b> 题，共 " + n + " 题"; },
       stem: function (w) { var s = el("div", "stem"); s.appendChild(el("p", "word", '<span class="hz it" lang="it">' + w[0] + "</span>"));
-        if (itVoice()) { var b = el("button", "btn ghost small", "▶ 听发音"); b.type = "button"; b.addEventListener("click", function () { sayIt(w[0]); }); s.appendChild(b); } return s; },
+        if (itVoice()) { var b = el("button", "btn ghost small", PLAY + "听发音"); b.type = "button"; b.addEventListener("click", function () { sayIt(w[0]); }); s.appendChild(b); } return s; },
       options: function (w) { return shuffle([w].concat(shuffle(ZW.filter(function (x) { return x !== w; })).slice(0, 3))); },
       label: function (o) { return '<span lang="zh-CN">' + o[1] + "</span>"; }, isRight: function (w, o) { return w === o; },
       feedback: function (w, right) { return (right ? "答对了！" : "正确答案是「" + w[1] + "」。") + '<span lang="it">' + w[0] + "</span> = " + w[1] + "。"; },
@@ -195,7 +197,7 @@
       host.innerHTML = "";
       Quiz(host, sc, { pool: ZW, n: 5, points: 5,
         counter: function (a, n) { return "第 <b>" + a + "</b> 题，共 " + n + " 题：先听，再选意思"; },
-        stem: function (w) { var s = el("div", "stem"); var b = el("button", "btn small pulse", "▶ 听一听"); b.type = "button"; b.addEventListener("click", function () { b.classList.remove("pulse"); sayIt(w[0]); }); s.appendChild(b); return s; },
+        stem: function (w) { var s = el("div", "stem"); var b = el("button", "btn small pulse", PLAY + "听一听"); b.type = "button"; b.addEventListener("click", function () { b.classList.remove("pulse"); sayIt(w[0]); }); s.appendChild(b); return s; },
         options: function (w) { return shuffle([w].concat(shuffle(ZW.filter(function (x) { return x !== w; })).slice(0, 3))); },
         label: function (o) { return '<span lang="zh-CN">' + o[1] + "</span>"; }, isRight: function (w, o) { return w === o; },
         feedback: function (w, right) { return (right ? "听对了！" : "正确答案是「" + w[1] + "」。") + '<span lang="it">' + w[0] + "</span> = " + w[1] + "。"; },

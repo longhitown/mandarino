@@ -46,7 +46,7 @@
   function combo(k) {
     var c = bar.querySelector(".fx-combo");
     if (k < 2) { c.hidden = true; return; }
-    c.hidden = false; c.textContent = "🔥 " + k;
+    c.hidden = false; c.textContent = "⟦flame⟧ " + k;
     c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop");
   }
   /* sbuffo di particelle dal centro di un elemento */
@@ -75,9 +75,9 @@
     if (!root || !window.MutationObserver || !seen) return;
     new MutationObserver(function () {
       var v = root.querySelector(".verdict.ok, .ls-opt.right, .bub.ok");
-      if (v && !seen.has(v)) { seen.add(v); burst(v, /superata|🎉/.test(v.textContent || "")); if (CP.haptic) CP.haptic(12); }
+      if (v && !seen.has(v)) { seen.add(v); burst(v, /superata|confetti/.test((v.textContent || "") + v.innerHTML)); if (CP.haptic) CP.haptic(12); }
       var w = root.querySelector(".ls-quiz h3");
-      if (w && !seen.has(w) && /🎉/.test(w.textContent)) { seen.add(w); burst(w, true); }
+      if (w && !seen.has(w) && /confetti/.test(w.innerHTML)) { seen.add(w); burst(w, true); }
     }).observe(root, { childList: true, subtree: true });
   }
   watch(document.getElementById("build-root"));

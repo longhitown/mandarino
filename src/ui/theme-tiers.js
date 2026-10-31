@@ -2,7 +2,7 @@
 (function () {
   var CP = window.CP, root = document.documentElement;
   /* ---- temi ---- */
-  var ORDER = ["light", "sepia", "dark"], ICON = { light: "☀️", sepia: "📜", dark: "🌙" };
+  var ORDER = ["light", "sepia", "dark"], ICON = { light: "⟦sun⟧", sepia: "⟦scroll⟧", dark: "⟦moon⟧" };
   var NAME = { light: "Chiaro", sepia: "Carta di Riso (Seppia)", dark: "Notte Giada" };
   var META = { light: "#14594A", sepia: "#F4EFE6", dark: "#0F1412" };
   function system() { return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
@@ -33,8 +33,8 @@
 
   /* ---- filtro per livello (scheda Parole) ---- */
   /* i livelli sono i capitoli del Percorso (path/path.js, data/levels.js): stessi nomi, stesse tappe */
-  var ICO = ["🌱", "🌿", "🍃", "🌳", "🏔️", "🔭"];
-  var TIERS = [{ k: "all", t: "🗂️ " + CP.t("path.all") }].concat((CP.chapters || []).map(function (c, i) {
+  var ICO = ["⟦sprout⟧", "⟦leaf⟧", "⟦leaf⟧", "⟦tree⟧", "⟦mountain⟧", "⟦telescope⟧"];
+  var TIERS = [{ k: "all", t: "⟦cards⟧ " + CP.t("path.all") }].concat((CP.chapters || []).map(function (c, i) {
     return { k: i, t: ICO[i] + " " + (i + 1) + " · " + CP.t("chap." + i) + (/^HSK/.test(c.hsk) ? " (" + c.hsk + ")" : ""), ids: c.idx.map(function (j) { return SECTIONS[j].id; }) };
   }));
   var tierEl = document.getElementById("tiers"), tier = "all";

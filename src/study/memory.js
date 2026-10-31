@@ -110,7 +110,7 @@
   CP.homeNotice = function () {
     var st = window.Store ? Store.status() : { ls: true };
     if (!st.ls) return '<div class="notice" role="alert">' + T("bk.noStore") + "</div>";
-    if (window.Store && Store.backupDue(totalReviews())) return '<div class="notice" role="status"><p>' + T("bk.weekly") + '</p><button type="button" class="btn-s" id="bk-down2">⬇ ' + T("bk.down") + "</button></div>";
+    if (window.Store && Store.backupDue(totalReviews())) return '<div class="notice" role="status"><p>' + T("bk.weekly") + '</p><button type="button" class="btn-s" id="bk-down2">⟦download⟧ ' + T("bk.down") + "</button></div>";
     return "";
   };
   /* il backup su file sostituisce il vecchio «Salva o sposta»; il ripristino accetta anche quel formato (v:2) */
@@ -119,7 +119,7 @@
     var ts = parseInt(lget("cp-backup-ts"), 10);
     return '<details class="panel" id="bk"><summary>' + T("set.data") + "</summary>" +
       '<p class="muted small">' + T("bk.lede") + "</p>" +
-      '<div class="acts"><button type="button" id="bk-down">⬇ ' + T("bk.down") + '</button><button type="button" id="bk-up">⬆ ' + T("bk.up") + "</button></div>" +
+      '<div class="acts"><button type="button" id="bk-down">⟦download⟧ ' + T("bk.down") + '</button><button type="button" id="bk-up">⟦upload⟧ ' + T("bk.up") + "</button></div>" +
       '<input type="file" id="bk-file" accept="application/json,.json,.txt" hidden>' +
       '<p class="small muted" id="bk-msg" aria-live="polite">' + (ts ? T("bk.last", { d: new Date(ts).toLocaleDateString(LANG === "zh" ? "zh-CN" : "it-IT") }) : T("bk.never")) +
       (st.idb ? " " + T("bk.idb") : "") + "</p>" +
@@ -133,7 +133,7 @@
     if (e.target.id === "ret-sel") { CP.srs.setRetention(parseInt(e.target.value, 10) / 100); fillMem(); }
     if (e.target.id === "bk-file") { var f0 = e.target.files && e.target.files[0]; if (f0) CP.restoreFile(f0, document.getElementById("bk-msg")); }
   });
-  /* ripristino da file (anche dal foglio ⚙️): backup V5+ con unione, oppure il vecchio testo v:2 */
+  /* ripristino da file (anche dal foglio gear): backup V5+ con unione, oppure il vecchio testo v:2 */
   CP.restoreFile = function (f, msg) {
     msg = msg || { set textContent(v) { CP.toast(v); } };
     {

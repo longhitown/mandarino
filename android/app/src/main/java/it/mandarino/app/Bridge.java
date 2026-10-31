@@ -658,7 +658,7 @@ public class Bridge {
 
     /** apre una parola nel dizionario Pleco: intento plecoapi://x-callback-url/s?q=… diretto al pacchetto di Pleco.
      *  Solo caratteri cinesi, al massimo 16. false se Pleco non è installato (ui/pleco.js mostra allora un messaggio).
-     *  La chiama solo un tocco di chi studia, con l'opzione accesa in ⚙️. */
+     *  La chiama solo un tocco di chi studia, con l'opzione accesa in Impostazioni. */
     @JavascriptInterface
     public boolean openPleco(String text) {
         if (text == null) return false;

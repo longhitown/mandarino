@@ -2,7 +2,7 @@
    il corso resta «cinese per italiani». Ogni testo dell'interfaccia passa da qui: t("chiave", { variabile: valore }).
    Regola (controllata dai test e2e in cinese su 20 schermate): un testo visibile è o una chiave t(), o pinyin,
    o contenuto di studio in italiano dentro un elemento lang="it" (traduzioni, titoli delle tappe, lezioni, dialoghi).
-   Le chiavi mancanti in zh ricadono sull'italiano. Lingua scelta in ⚙️, salvata in cp-lang: cambiarla ricarica l'app. */
+   Le chiavi mancanti in zh ricadono sull'italiano. Lingua scelta in gear, salvata in cp-lang: cambiarla ricarica l'app. */
 var I18N = {};
 var LANG = (function () { try { var l = localStorage.getItem("cp-lang"); return l === "zh" ? "zh" : "it"; } catch (e) { return "it"; } })();
 function t(key, vars) {

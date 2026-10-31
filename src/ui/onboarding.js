@@ -8,7 +8,7 @@
         ciao / grazie / buongiorno), poi la prima carta;
      b. le basi: cinque domande su di sé, il test (ui/placement.js), il livello proposto che si può correggere, la conferma;
      c. un altro dispositivo: niente test, direttamente a sincronizzazione, QR o backup (pwa/sync.js, pwa/qr-transfer.js).
-   CP.onboarding.open(passo) lo riapre (⚙️ → «Rifai il test di livello»). Un'azione primaria per schermata. ===== */
+   CP.onboarding.open(passo) lo riapre (gear → «Rifai il test di livello»). Un'azione primaria per schermata. ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc;
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -61,7 +61,7 @@
       var other = IT ? '<button type="button" class="onb-link" data-course-set="zh" lang="it">🇮🇹 Voglio imparare il cinese</button>' : '<button type="button" class="onb-link" data-course-set="it" lang="zh-CN">🇨🇳 我是中国人，我想学意大利语</button>';
       return '<div class="onb-head"><svg class="onb-mini" viewBox="300 30 200 200" aria-hidden="true" focusable="false"><use href="#mandarin-symbol"/></svg><h2>' + esc(L("onb.hello")) + "</h2><p>" + esc(L("onb.helloSub")) + "</p></div>" +
         '<div class="onb-doors">' +
-        door("zero", "🌱", L("onb.zero"), L("onb.zeroSub")) + door("basics", "🧭", L("onb.basics"), L("onb.basicsSub")) + door("have", "📲", L("onb.have"), L("onb.haveSub")) + "</div>" +
+        door("zero", "⟦sprout⟧", L("onb.zero"), L("onb.zeroSub")) + door("basics", "⟦compass⟧", L("onb.basics"), L("onb.basicsSub")) + door("have", "⟦phone-share⟧", L("onb.have"), L("onb.haveSub")) + "</div>" +
         '<div class="onb-foot">' + other + '<button type="button" class="onb-link" data-onb-later>' + esc(T("onb.later")) + "</button></div>";
     },
     purpose: function () {
@@ -100,7 +100,7 @@
     },
     have: function () {
       return '<div class="onb-head"><h2>' + esc(T("onb.haveT")) + "</h2><p>" + esc(T("onb.haveSub2")) + '</p></div><div class="onb-doors">' +
-        door("h-sync", "☁️", T("onb.hSync"), T("onb.hSyncSub")) + door("h-qr", "📷", T("onb.hQr"), T("onb.hQrSub")) + door("h-file", "💾", T("onb.hFile"), T("onb.hFileSub")) + "</div>" + back("door");
+        door("h-sync", "⟦cloud⟧", T("onb.hSync"), T("onb.hSyncSub")) + door("h-qr", "⟦camera⟧", T("onb.hQr"), T("onb.hQrSub")) + door("h-file", "⟦save⟧", T("onb.hFile"), T("onb.hFileSub")) + "</div>" + back("door");
     }
   };
   function door(id, ico, t, sub) { return '<button type="button" class="onb-door" data-onb-door="' + id + '"><span class="onb-dico" aria-hidden="true">' + ico + '</span><span><b>' + esc(t) + "</b><small>" + esc(sub) + "</small></span></button>"; }
@@ -113,7 +113,7 @@
     var cards = TONES.map(function (t, i) {
       return '<button type="button" class="onb-tone t' + (i + 1) + '" data-onb-say="' + t[0] + '"><span class="han" lang="zh-CN">' + t[0] + '</span><span class="py">' + CP.pinyinHTML(t[1]) + "</span>" + CP.toneCurveHTML(t[1]) + "<small>" + esc(T(t[2])) + "</small></button>";
     }).join("");
-    var q = quiz.got < 0 ? '<p><b>' + esc(T("onb.toneQ")) + '</b></p><button type="button" class="btn-s" data-onb-say="' + TONES[quiz.a][0] + '" data-onb-q>🔊 ' + esc(T("onb.toneAgain")) + '</button><div class="onb-chips">' + TONES.map(function (t, i) { return '<button type="button" data-onb-tq="' + i + '"><span class="han" lang="zh-CN">' + t[0] + "</span> " + CP.pinyinHTML(t[1]) + "</button>"; }).join("") + "</div>"
+    var q = quiz.got < 0 ? '<p><b>' + esc(T("onb.toneQ")) + '</b></p><button type="button" class="btn-s" data-onb-say="' + TONES[quiz.a][0] + '" data-onb-q>⟦speaker⟧ ' + esc(T("onb.toneAgain")) + '</button><div class="onb-chips">' + TONES.map(function (t, i) { return '<button type="button" data-onb-tq="' + i + '"><span class="han" lang="zh-CN">' + t[0] + "</span> " + CP.pinyinHTML(t[1]) + "</button>"; }).join("") + "</div>"
       : '<p class="verdict ' + (quiz.got === quiz.a ? "ok" : "") + '">' + esc(T(quiz.got === quiz.a ? "onb.toneOk" : "onb.toneNo", { c: TONES[quiz.a][0] + " " + TONES[quiz.a][1] })) + "</p>";
     return '<div class="onb-head"><h2>' + esc(T("onb.tonesT")) + "</h2><p>" + esc(T("onb.tonesSub")) + '</p></div><div class="onb-tones">' + cards + "</div>" + q +
       '<button type="button" class="btn-main" data-onb-next="finish"' + (quiz.got < 0 ? " disabled" : "") + ">" + esc(T("onb.firstCard")) + "</button>";
@@ -123,7 +123,7 @@
     if (!quiz) quiz = { got: -1 };
     var cards = WORDS_IT.map(function (w) {
       var syl = w[1].split("·").map(function (s) { return s === s.toUpperCase() ? "<b>" + esc(s.toLowerCase()) + "</b>" : esc(s); }).join("·");
-      return '<button type="button" class="onb-tone" data-onb-sayit="' + w[0] + '"><span class="onb-it" lang="it">' + syl + "</span><small>" + esc(w[2]) + " 🔊</small></button>";
+      return '<button type="button" class="onb-tone" data-onb-sayit="' + w[0] + '"><span class="onb-it" lang="it">' + syl + "</span><small>" + esc(w[2]) + " ⟦speaker⟧</small></button>";
     }).join("");
     var opts = ["buon", "gior", "no"];
     var q = quiz.got < 0 ? '<p><b>' + esc(T("onb.stressQ")) + '</b></p><div class="onb-chips">' + opts.map(function (o, i) { return '<button type="button" data-onb-sq="' + i + '" lang="it">' + o + "</button>"; }).join("") + "</div>"

@@ -111,7 +111,7 @@
     }).join("") + "</div>";
   }
   function countHTML() {
-    return '<p class="lr-count" id="lr-count" aria-live="polite"><span>⚗️ ' + esc(T("lr.count")) + "</span> <b>" + foundCount() + "</b> <small>" + esc(T("lr.of", { t: COUNT })) + "</small></p>";
+    return '<p class="lr-count" id="lr-count" aria-live="polite"><span>⟦flask⟧ ' + esc(T("lr.count")) + "</span> <b>" + foundCount() + "</b> <small>" + esc(T("lr.of", { t: COUNT })) + "</small></p>";
   }
   function layoutLine(rec) {
     var v = [];

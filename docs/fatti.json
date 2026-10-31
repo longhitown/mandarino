@@ -1,0 +1,41 @@
+{
+  "$descrizione": "Fatti verificati di màndarínō, ricavati dal codice da tools/fatti.mjs. Non modificare a mano: node tools/fatti.mjs --scrivi",
+  "nome": "màndarínō",
+  "versioneNelCodice": "0.9.0",
+  "corsoDiCinese": {
+    "parole": 6385,
+    "sezioni": 220,
+    "dialoghi": 32,
+    "frasiVerificate": 378,
+    "lezioni": 55,
+    "standard": "HSK 3.0"
+  },
+  "corsoDiItaliano": {
+    "lezioni": 51,
+    "perChiParla": "cinese (mandarino)"
+  },
+  "app": {
+    "icone": 158,
+    "brani": 22,
+    "piattaforme": [
+      "Android (APK)",
+      "Web (browser, installabile)"
+    ]
+  },
+  "lingue": [
+    "it",
+    "zh-CN"
+  ],
+  "promesse": {
+    "prezzo": "gratis, senza acquisti né abbonamenti",
+    "pubblicita": false,
+    "registrazione": false,
+    "tracciamento": false,
+    "offline": true,
+    "datiSulDispositivo": true,
+    "licenzaCodice": "MIT",
+    "licenzaGrafica": "CC BY 4.0",
+    "codice": "https://github.com/longhitown/mandarino",
+    "sito": "https://mandarinoapp.org"
+  }
+}

@@ -1,5 +1,5 @@
 /* ===== màndarínō · corso di italiano: gli esercizi del ripasso.
-   Stesso motore (CP.exEngine, gruppo ESERCIZI, caricato al primo uso), stessi stili (⚙️: Guidato, Misto, Classico = le
+   Stesso motore (CP.exEngine, gruppo ESERCIZI, caricato al primo uso), stessi stili (gear: Guidato, Misto, Classico = le
    carte di prima), stesse regole del voto (mai Facile da una scelta multipla); il voto passa da CP.itApi.grade(voce, g,
    meta), che scrive cp-it-srs-v1 nel formato di sempre. Le parole nuove si presentano prima (parola, cinese, forme, frase).
    Tipi (prefisso «it-», distinti da quelli del cinese nel registro del motore):
@@ -76,7 +76,7 @@
   function words(s) { return String(s).replace(/[.,!?¿¡;:«»"]/g, "").split(/\s+/).filter(Boolean); }
 
   /* ---- disegno ---- */
-  function sayIt(text, big) { return '<div class="ex-listen"><button type="button" class="say' + (big ? " big" : "") + '" data-it-say="' + CP.attr(text) + '" aria-label="' + CP.attr(T("itx.listen")) + '">🔊</button>' + (clip(text) ? '<span class="tag small">' + esc(T("itx.real")) + "</span>" : "") + "</div>"; }
+  function sayIt(text, big) { return '<div class="ex-listen"><button type="button" class="say' + (big ? " big" : "") + '" data-it-say="' + CP.attr(text) + '" aria-label="' + CP.attr(T("itx.listen")) + '">⟦speaker⟧</button>' + (clip(text) ? '<span class="tag small">' + esc(T("itx.real")) + "</span>" : "") + "</div>"; }
   function itBig(e) { return '<div class="it-front" lang="it">' + esc(e.it) + "</div>"; }
   function zhBig(e) { return '<div class="ex-zhq">' + A().zhHTML(e.zh, e.py) + "</div>"; }
   function mc(right, wrong, r, extra) { var o = D().options(right, wrong, r); return Object.assign({ kind: "mc", opts: o.opts, right: o.right }, extra || {}); }
@@ -129,7 +129,7 @@
         var g = c[Math.floor(r() * c.length)], wrong = D().shuffle(g.set.membri.filter(function (m) { return m !== g.t; }), r).slice(0, 3); if (!wrong.length) return null;
         return mc(esc(g.t), wrong.map(esc), r, { prompt: '<div class="ex-sent" lang="it">' + holed(g.s, g.t) + '</div><div class="cd-note" lang="zh-CN">' + esc(g.s.zh) + "</div>", lang: "it", say: g.s.it, sentence: g.s, note: g.set.nota_zh });
       },
-      risposta: function (it) { if (it.note) { var fb = document.querySelector("#it-ex-root .ex-fb"); if (fb) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="zh-CN">💡 ' + esc(it.note) + "</p>"); } } });
+      risposta: function (it) { if (it.note) { var fb = document.querySelector("#it-ex-root .ex-fb"); if (fb) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="zh-CN">⟦bulb⟧ ' + esc(it.note) + "</p>"); } } });
     reg({ id: "it-ordina", famiglia: 1, q: "itx.q.ord",
       richiede: function (e) { return sentences(e).some(function (s) { var n = words(s.it).length; return n >= 3 && n <= 8; }); },
       crea: function (e, ctx, r) {
@@ -143,7 +143,7 @@
     var checkNote = function (it, res) {
       if (!res.typed || res.ok || !CP.itCheck) return;
       var c = CP.itCheck(res.typed), fb = document.querySelector("#it-ex-root .ex-fb");
-      if (fb && c && c.issues && c.issues.length) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="zh-CN">💡 ' + c.issues.map(function (x) { return esc(x.zh) + (x.fix ? ' → <b lang="it">' + esc(x.fix) + "</b>" : ""); }).join("<br>") + "</p>");
+      if (fb && c && c.issues && c.issues.length) fb.insertAdjacentHTML("afterbegin", '<p class="ex-note small" lang="zh-CN">⟦bulb⟧ ' + c.issues.map(function (x) { return esc(x.zh) + (x.fix ? ' → <b lang="it">' + esc(x.fix) + "</b>" : ""); }).join("<br>") + "</p>");
     };
     reg({ id: "it-scrivi", famiglia: 2, q: "itx.q.scrivi",
       richiede: function (e) { return String(e.say || e.it).length <= 28; },
