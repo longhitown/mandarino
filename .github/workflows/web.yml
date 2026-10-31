@@ -27,8 +27,26 @@ jobs:
       - name: Prove veloci (senza browser)
         run: node tools/unit.mjs
 
+      # Il 31 ottobre 2026 questo passo è rimasto appeso per 30 minuti (scarico di Chromium o apt sul server) e ha fatto cadere
+      # tutta la corsa; una seconda corsa identica è passata. Quindi: i browser si tengono in cache, ogni tentativo ha un tempo
+      # massimo e si riprova fino a tre volte. Un guasto vero (versione che non esiste, rete morta) fallisce comunque, in meno di 12 minuti.
+      - name: Cache dei browser di Playwright
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package.json') }}
+
       - name: Playwright e Chromium
-        run: npm install --no-audit --no-fund && npx playwright install --with-deps chromium
+        timeout-minutes: 12
+        run: |
+          npm install --no-audit --no-fund
+          for i in 1 2 3; do
+            if timeout 200 npx playwright install --with-deps chromium; then exit 0; fi
+            echo "::warning::Playwright: tentativo $i fallito o troppo lento, riprovo"
+            sleep 10
+          done
+          echo "::error::Playwright: non sono riuscito a installare Chromium in tre tentativi"
+          exit 1
 
       - name: Prove nel browser
         # un solo nuovo tentativo se la prova fallisce: un guasto vero fallisce due volte, un'incertezza del browser di prova (visto solo nella CI) no
