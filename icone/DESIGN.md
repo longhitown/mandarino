@@ -81,7 +81,7 @@ La costruzione, sopra la griglia a nove quadri:
 
 ![Libro, lente, campana e lucchetto sopra la griglia a nove quadri](design/04-nove-quadri.svg)
 
-I colori su tre fondi: la carta di riso, il tema scuro (`#FF9A3D` e `#FF5A4D`) e il pulsante pieno, dove tutto diventa avorio:
+I colori su tre fondi: la carta di riso, il tema scuro (`#FF9A3D` e `#E5483C`) e il pulsante pieno, dove tutto diventa avorio:
 
 ![Le stesse icone sulla carta di riso, sul tema scuro e dentro un pulsante verde bosco](design/06-tre-colori-tre-fondi.svg)
 

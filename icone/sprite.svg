@@ -193,16 +193,15 @@
   <circle cx="15.2" cy="15.2" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-dolls" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="6.4" cy="6" r="2.2" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M3.4 20L5 10.4H7.8L9.4 20Z" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="17.6" cy="6" r="2.2" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M14.6 20L16.2 10.4H19L20.6 20Z" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="6.4" cy="14" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
-  <circle cx="17.6" cy="14" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="6.4" cy="5.8" r="2.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6.4 8.4C4.4 10.4 3.8 15 3.6 20H9.2C9 15 8.4 10.4 6.4 8.4Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="17.6" cy="5.8" r="2.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M17.6 8.4C15.6 10.4 15 15 14.8 20H20.4C20.2 15 19.6 10.4 17.6 8.4Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="6.4" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="17.6" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="12" r="8.4" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="12" cy="12" r="3.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="12" cy="12" r="5.6" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <path d="M4.8 14.4V18.2Q4.8 19.4 6 19.4H18Q19.2 19.4 19.2 18.2V14.4" style="stroke:var(--im,#DB5F00)"/>
@@ -484,13 +483,9 @@
   <circle cx="17.2" cy="6.8" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-octopus" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M7 11A5 5 0 0 1 17 11V13.5H7Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
-  <path d="M7.6 13.5C7 17 5.6 18.4 4.4 18.4" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M10.2 13.5C10 17 9.4 19 8.4 19.8" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M13.8 13.5C14 17 14.6 19 15.6 19.8" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M16.4 13.5C17 17 18.4 18.4 19.6 18.4" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="10" cy="10.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
-  <circle cx="14" cy="10.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <path d="M12 11.4L7.2 19.6H16.8Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M3.6 7.2L20.4 13.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="10.4" r="1.7" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <path d="M12 3.6C7.2 3.6 3.6 7 3.6 11.5C3.6 16 7 20.4 11.6 20.4C13.2 20.4 13.6 19.4 13.1 18.4C12.6 17.4 13.2 16.4 14.4 16.4H16.6C19 16.4 20.4 15 20.4 12.6C20.4 7.6 16.7 3.6 12 3.6Z" style="stroke:var(--im,#DB5F00)"/>
@@ -739,10 +734,11 @@
   <circle cx="17.4" cy="14.8" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-teacup" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4 9H20Q20 17 12 17T4 9Z" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M9.4 19.6H14.6" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M12 17V19.6" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="12" cy="12.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <path d="M4 11H20Q20 18.6 12 18.6T4 11Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.4 21H14.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M12 18.6V21" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.2 4.4Q10.4 6 9.2 7.6M13.4 4.4Q14.6 6 13.4 7.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-teapot" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <path d="M6 11.4Q6 8.2 12 8.2T18 11.4V15Q18 19.2 12 19.2T6 15Z" style="stroke:var(--im,#DB5F00)"/>
@@ -752,10 +748,13 @@
   <circle cx="12" cy="13.6" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-telescope" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M3.5 11.4L14.4 6.2L16.6 10.8L5.8 16Z" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M16 5.4L20.4 3.8L21.4 6.6L17 8.4" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M10 13.2L8.2 20.4M12.6 12.2L15.4 20.4" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="10.8" cy="11.4" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <path d="M3.6 10.4L15.6 8.8V13.2L3.6 13.8Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M16.5 7.8H18.1Q19 7.8 19 8.7V13.499999999999998Q19 14.399999999999999 18.1 14.399999999999999H16.5Q15.6 14.399999999999999 15.6 13.499999999999998V8.7Q15.6 7.8 16.5 7.8Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.4 9.8V13.6M12 9.3V13.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9L7 20.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9V20.8" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9L12.8 20.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="17.3" cy="11.1" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-thumbs" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <path d="M4.7 11H6.1Q7 11 7 11.9V18.6Q7 19.5 6.1 19.5H4.7Q3.8 19.5 3.8 18.6V11.9Q3.8 11 4.7 11Z" style="stroke:var(--im,#DB5F00)"/>
@@ -835,8 +834,10 @@
   <circle cx="12" cy="17" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M2.8 12Q5.4 6.5 8 12T13.2 12T18.4 12T21.2 10" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="2.8" cy="12" r="1.1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <path d="M2.8 9Q5.4 4 8 9T13.2 9T18.4 9T21.2 7.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M2.8 16Q5.4 11 8 16T13.2 16T18.4 16T21.2 14.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="2.8" cy="9" r="1.1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="2.8" cy="16" r="1.1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </symbol>
 <symbol id="i-write" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
   <path d="M5 19.5L6.2 15.6L15.8 6L18.2 8.4L8.6 18Z" style="stroke:var(--im,#DB5F00)"/>

@@ -44,11 +44,11 @@ Ogni icona prende i colori da tre variabili CSS (con i valori di riserva già ne
 |---|---|---|---|
 | `--im` | il tratto | `#DB5F00` | `#FF9A3D` |
 | `--iv` | il velo (16 %) dei corpi pieni | `#DB5F00` | `#FF9A3D` |
-| `--ia` | i punti pieni (cinabro) | `#C0281D` | `#FF5A4D` |
+| `--ia` | i punti pieni (cinabro) | `#C0281D` | `#E5483C` |
 
 ```css
 .pulsante-pieno { --im: #FAF7EE; --iv: #FAF7EE; --ia: #FAF7EE; }   /* in avorio dentro un pulsante pieno */
-@media (prefers-color-scheme: dark) { :root { --im: #FF9A3D; --iv: #FF9A3D; --ia: #FF5A4D; } }
+@media (prefers-color-scheme: dark) { :root { --im: #FF9A3D; --iv: #FF9A3D; --ia: #E5483C; } }
 ```
 
 Per un'icona sola basta aprire il suo file `.svg`; per una pagina o un documento si usano i file `svg/` o lo sprite. Per i nomi vedi `manifest.json`
@@ -92,9 +92,9 @@ Su Windows (PowerShell): `Get-FileHash .\sprite.svg -Algorithm SHA256`. Il risul
 <!-- somme:inizio -->
 | File | SHA-256 |
 |---|---|
-| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `4090367c589077ff09c6dff127ae171bb0fd430212e38830dbd6c7c773089413` |
+| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `c5d0df14906c4d5a0a619e70c06121ed3c4fb23c1ffc159e71a7a41eea6da259` |
 | `icone/manifest.json` (nomi, categorie, emoji sostituite) | `6dd8612906631a7236d1a22242888f2871634cbf632a5176dc080d99684bd404` |
-| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 150 icone) | `d6b6781be64f4f3cd54e7008a4268b9c8c0d616f9169e58b99125cdc4c58dfa7` (somma del suo contenuto) |
+| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 150 icone) | `0087793cbc22a05783eb143148473c93c8b65d6deaea9ca77f47d01ff00a55c3` (somma del suo contenuto) |
 <!-- somme:fine -->
 
 Le somme del pacchetto compresso (`.zip`) delle release e quelle degli adesivi si aggiungono qui a ogni release.

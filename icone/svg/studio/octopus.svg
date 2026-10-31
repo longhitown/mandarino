@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
   <title id="t">Perno</title>
-  <path d="M7 11A5 5 0 0 1 17 11V13.5H7Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
-  <path d="M7.6 13.5C7 17 5.6 18.4 4.4 18.4" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M10.2 13.5C10 17 9.4 19 8.4 19.8" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M13.8 13.5C14 17 14.6 19 15.6 19.8" style="stroke:var(--im,#DB5F00)"/>
-  <path d="M16.4 13.5C17 17 18.4 18.4 19.6 18.4" style="stroke:var(--im,#DB5F00)"/>
-  <circle cx="10" cy="10.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
-  <circle cx="14" cy="10.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <path d="M12 11.4L7.2 19.6H16.8Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M3.6 7.2L20.4 13.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="10.4" r="1.7" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
 </svg>

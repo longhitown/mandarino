@@ -151,7 +151,7 @@ const cartoon = {
 /* ============ figura 6: tre colori, tre fondi ============ */
 {
   const ids = ["flame", "book", "mic"], W = 1000, y0 = 120;
-  const panels = [["Carta di riso", "#FAF7EE", "", INK], ["Tema scuro", "#161A18", "--im:#FF9A3D;--iv:#FF9A3D;--ia:#FF5A4D", "#EDEAE0"], ["Pulsante pieno", "#14594A", "--im:#FAF7EE;--iv:#FAF7EE;--ia:#FAF7EE", "#FAF7EE"]];
+  const panels = [["Carta di riso", "#FAF7EE", "", INK], ["Tema scuro", "#161A18", "--im:#FF9A3D;--iv:#FF9A3D;--ia:#E5483C", "#EDEAE0"], ["Pulsante pieno", "#14594A", "--im:#FAF7EE;--iv:#FAF7EE;--ia:#FAF7EE", "#FAF7EE"]];
   let b = T(24, 40, "Tre colori, tre fondi", { size: 26, bold: true }) + T(24, 62, "Tratto arancio mandarino #DB5F00, cinabro #C0281D solo in punti pieni, velo del tratto al 16 %.", { fill: MUTED, size: 15 }) + T(24, 82, "Sul tema scuro cambiano i valori; nei pulsanti pieni tutto diventa avorio.", { fill: MUTED, size: 15 });
   panels.forEach(([n, bg, vars, fg], k) => {
     const x = 36 + k * 316;
