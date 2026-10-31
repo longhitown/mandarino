@@ -1,7 +1,7 @@
 /* ===== màndarínō · i testi della pagina «Comunità e voci» (ui/community.js), nelle due lingue dell'interfaccia.
    Si caricano con le Impostazioni, al loro primo uso (tools/build.mjs, LAZYMOD). Le chiavi it e zh devono essere le stesse (tools/unit.mjs). ===== */
 Object.assign(I18N.it, {
-  "set.p.community": "Comunità e voci", "set.p.communityD": "Scambio linguistico, registra frasi, contribuisci con la tua voce",
+  "set.p.community": "Comunità e voci", "set.p.communityD": "Registra la tua voce per chi studia, consiglia l'app a un amico, pacchetto voci",
   "set.kwComm": "comunità scambio linguistico voce voci registra registrazioni frasi madrelingua contributo contributi condividi consiglia amico amici invito widget schermata home pacchetto aggiornamenti tatoeba common voice",
   "cm.new": "Ci sono novità", "cm.newItem": "(novità)",
   "cm.mine.t": "Il tuo contributo (solo sul tuo telefono)", "cm.mine.rec": "Frasi registrate", "cm.mine.chk": "Voci verificate",
@@ -30,7 +30,7 @@ Object.assign(I18N.it, {
   "cm.vp.on": "con pacchetto", "cm.vp.off": "nessun pacchetto"
 });
 Object.assign(I18N.zh, {
-  "set.p.community": "社区与声音", "set.p.communityD": "语言交换、录句子、用你的声音做贡献",
+  "set.p.community": "社区与声音", "set.p.communityD": "为学习者录下你的声音，向朋友推荐应用，语音包",
   "set.kwComm": "社区 语言交换 声音 录音 录制 句子 母语 贡献 分享 推荐 朋友 邀请 小组件 桌面 语音包 更新 Tatoeba Common Voice",
   "cm.new": "有新内容", "cm.newItem": "（新）",
   "cm.mine.t": "你的贡献（只在你的手机上）", "cm.mine.rec": "已录句子", "cm.mine.chk": "已核对的录音",
@@ -93,4 +93,16 @@ Object.assign(I18N.zh, {
   "news.sum": "短短几天，自 {d} 起：两门课程、11165 个词、106 课、22 首音乐和四个小组件。应用还在继续成长。",
   "pg.unseen": "待阅读",
   "pg.new": "新"
+});
+Object.assign(I18N.it, {
+  "soc.t": "Canali ufficiali",
+  "soc.p": "Dove trovarci, se ti va. I collegamenti si aprono solo quando li tocchi: l'app non manda niente di tuo e non sa se li hai usati.",
+  "soc.go": "Apri", "soc.open": "Apri {n}", "soc.none": "I canali arriveranno presto.",
+  "set.kwSocial": "social instagram telegram tiktok youtube github canali seguici sito"
+});
+Object.assign(I18N.zh, {
+  "soc.t": "官方频道",
+  "soc.p": "想找我们的话在这里。链接只有你点击时才会打开：应用不会发送任何你的数据，也不知道你是否点过。",
+  "soc.go": "打开", "soc.open": "打开 {n}", "soc.none": "频道很快上线。",
+  "set.kwSocial": "社交媒体 instagram telegram tiktok youtube github 频道 关注 网站"
 });

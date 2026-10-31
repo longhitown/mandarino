@@ -1796,7 +1796,7 @@ try {
     check("Cambio lingua: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
-  /* 8. Impostazioni a pagine: sei carte, ogni voce di prima raggiungibile, due livelli, ricerca, Esc e «Indietro» di Android, in tutti e due i corsi e le due lingue */
+  /* 8. Impostazioni a pagine: sette carte, ogni voce di prima raggiungibile, due livelli, ricerca, Esc e «Indietro» di Android, in tutti e due i corsi e le due lingue */
   {
     /* l'elenco di prima (quattro gruppi con sezioni annidate), voce per voce: id della sezione, pagina in cui sta ora, un comando che deve esserci */
     const VOCI = [
@@ -1814,7 +1814,7 @@ try {
       const tag = " (" + course + "/" + lang + ")";
       await p.evaluate(() => CP.openSettings()); await p.waitForTimeout(150);
       const home = await p.evaluate(() => ({ tiles: document.querySelectorAll("#set-tiles .set-tile").length, pagesShown: [...document.querySelectorAll("[data-set-page]")].filter((x) => !x.hidden).length, details: document.querySelectorAll("#settings details.set-sec, #settings details.set-grp").length, raw: /set\.p\./.test(document.getElementById("settings").innerText), title: document.getElementById("set-title").textContent, back: document.querySelector("[data-set-back]").hidden }));
-      check("Impostazioni: la pagina iniziale ha sei carte e la ricerca, nessuna pagina aperta, nessuna sezione a cascata, testi nella lingua scelta" + tag, home.tiles === 6 && !home.pagesShown && !home.details && !home.raw && home.back && (lang === "zh" ? /设置/.test(home.title) : /Impostazioni/.test(home.title)), JSON.stringify(home));
+      check("Impostazioni: la pagina iniziale ha sette carte e la ricerca, nessuna pagina aperta, nessuna sezione a cascata, testi nella lingua scelta" + tag, home.tiles === 7 && !home.pagesShown && !home.details && !home.raw && home.back && (lang === "zh" ? /设置/.test(home.title) : /Impostazioni/.test(home.title)), JSON.stringify(home));
       const missing = [];
       for (const [id, page, sel] of VOCI) {
         if (course === "it" && (id === "set-contrib")) continue;   /* nel corso di italiano i contributi non ci sono (come prima) */
@@ -1873,12 +1873,12 @@ try {
     await p.click("[data-cm-invite]"); await p.waitForTimeout(200);
     const cp = await p.evaluate(() => window.__copied);
     check("Comunità: «Copia il messaggio» mette negli appunti un testo pulito con mandarinoapp.org e senza parametri di tracciamento", /mandarinoapp\.org/.test(cp || "") && !/utm_|\?/.test(cp || ""), cp);
-    /* il pallino resta se si salta in fondo di corsa, e si toglie solo a pagina letta davvero (ogni schermata in vista), per tutte e sei le pagine */
+    /* il pallino resta se si salta in fondo di corsa, e si toglie solo a pagina letta davvero (ogni schermata in vista), per tutte e sette le pagine */
     const fast = await p.evaluate(async () => { CP.openSettings("look"); await new Promise((r) => setTimeout(r, 300)); const c = document.querySelector("#settings .set-card"); c.scrollTop = c.scrollHeight; await new Promise((r) => setTimeout(r, 1500)); return { tile: document.querySelector('[data-set-open="look"]').classList.contains("has-new") || !!document.querySelector('#settings:not([hidden])') && localStorage.getItem("md-seen-p-look") === null, key: localStorage.getItem("md-seen-p-look"), btn: document.getElementById("settings-btn").classList.contains("has-new") }; });
     check("Pallino «Nuovo»: scorrere di corsa fino in fondo non lo toglie", fast.key === null && fast.btn, JSON.stringify(fast));
     const readAll = await p.evaluate(async () => {
       const keys = {};
-      for (const pg of ["look", "sound", "community", "study", "data", "info"]) {
+      for (const pg of ["look", "sound", "community", "study", "data", "social", "info"]) {
         CP.openSettings(pg); await new Promise((r) => setTimeout(r, 300));
         const c = document.querySelector("#settings .set-card"), ch = c.clientHeight;
         for (let y = 0; y <= c.scrollHeight; y += ch * 0.4) { c.scrollTop = y; await new Promise((r) => setTimeout(r, 560)); }
@@ -1887,7 +1887,7 @@ try {
       }
       return { keys, on: document.getElementById("settings-btn").classList.contains("has-new") };
     });
-    check("Pallino «Nuovo»: leggendo davvero tutte e sei le pagine (una schermata alla volta) il pallino su ⚙️ si spegne", !readAll.on && Object.values(readAll.keys).every(Boolean), JSON.stringify(readAll));
+    check("Pallino «Nuovo»: leggendo davvero tutte e sette le pagine (una schermata alla volta) il pallino su ⚙️ si spegne", !readAll.on && Object.values(readAll.keys).every(Boolean), JSON.stringify(readAll));
     await p.evaluate(() => CP.openSettings("community")); await p.waitForTimeout(300);
     await p.click("[data-cm-check]"); await p.waitForTimeout(400);
     const vp = await p.evaluate(() => ({ msg: document.getElementById("cm-vp-msg").textContent, line: document.getElementById("cm-vp-line").textContent, stored: localStorage.getItem("md-voicepack") }));
