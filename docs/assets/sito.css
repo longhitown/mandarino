@@ -300,3 +300,13 @@ html[lang="zh-CN"] body { font-family: system-ui, -apple-system, "PingFang SC", 
 .statsec { padding-top: 0; }
 .hero { padding-bottom: 28px; }
 .phone video[controls] { cursor: pointer; }
+
+/* confronto con le altre app (tabella sintetica in home) e domande come titoli h3 */
+summary h3 { margin: 0; font: inherit; }
+.tw { overflow-x: auto; margin: 22px 0 14px; }
+table.cmp { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .92rem; background: var(--card); }
+table.cmp caption { text-align: left; color: var(--mute); padding: 0 0 8px; font-size: .85rem; }
+table.cmp th, table.cmp td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+table.cmp thead th { background: color-mix(in srgb, var(--accent) 10%, var(--card)); }
+table.cmp tbody th { font-weight: 700; white-space: nowrap; }
+table.cmp .us { background: color-mix(in srgb, var(--accent) 14%, var(--card)); font-weight: 600; }

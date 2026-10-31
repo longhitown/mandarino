@@ -66,6 +66,12 @@ export function problemi(f) {
   const num = (n) => new RegExp("(^|[^\\d.,])(" + String(n).replace(/(\d)(?=(\d{3})+$)/, "$1[.,]?") + ")(?![\\d])");
   const home = rd("docs/index.html");
   if (!num(f.corsoDiCinese.parole).test(home)) out.push(`docs/index.html non dice ${f.corsoDiCinese.parole} parole`);
+  /* anche la home (testi e FAQ) e il README devono dire i numeri veri: lezioni di cinese, di italiano e parole */
+  for (const [nome, t] of [["docs/index.html", home], ["README.md", rd("README.md")]]) {
+    if (!num(f.corsoDiCinese.parole).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.parole} parole`);
+    if (!new RegExp(`${f.corsoDiCinese.lezioni} lezioni`).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.lezioni} lezioni di cinese`);
+    if (!new RegExp(`${f.corsoDiItaliano.lezioni} (lezioni|节)`).test(t)) out.push(`${nome} non dice ${f.corsoDiItaliano.lezioni} lezioni di italiano`);
+  }
   return out;
 }
 

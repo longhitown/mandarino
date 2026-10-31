@@ -20,19 +20,19 @@ import { load } from "./lib/data.mjs";
 import { SITE, build, graph, ldScript, facts } from "./seo.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const APK = "https://github.com/longhitown/mandarino/releases/latest/download/mandarino.apk";
+export const APK = "https://github.com/longhitown/mandarino/releases/latest/download/mandarino.apk";
 
 /* ---------- testi ---------- */
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+export const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const CJK = /[　-〿㐀-鿿＀-￯]+/g;
 const lc = (s) => s.charAt(0).toLowerCase() + s.slice(1);
 const flat = (s) => String(s).replace(/\*\*/g, "");
 /* **grassetto**; nelle pagine in italiano i caratteri cinesi prendono lang="zh-CN" (lettori di schermo, motori di ricerca) */
-const inl = (s, wrap) => { let h = esc(s).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>"); if (wrap) h = h.replace(CJK, (m) => `<span lang="zh-CN">${m}</span>`); return h; };
+export const inl = (s, wrap) => { let h = esc(s).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>"); if (wrap) h = h.replace(CJK, (m) => `<span lang="zh-CN">${m}</span>`); return h; };
 const py = (p) => String(p).replace(/\./g, "");
 const slug = (id) => String(id).replace(/_/g, "-");
 
-const T = {
+export const T = {
   it: {
     lang: "it", crumbHome: "Home", course: "Corso di cinese per italiani", courseDesc: "Corso di cinese mandarino per italiani, gratuito e offline: lezioni di grammatica con esempi, dialoghi, errori tipici ed esercizi.",
     lessonsHub: "Lezioni di grammatica cinese", wordsHub: "Parole di cinese", open: "Apri l'app", apk: "Scarica l'APK per Android",
@@ -47,7 +47,7 @@ const T = {
   }
 };
 
-const CSS = `:root{--bg:#F5F7F5;--ink:#16201B;--mute:#4A5A52;--accent:#14594A;--line:#D5DED9;--card:#fff;--btn:#14594A;--btnink:#fff}
+export const CSS = `:root{--bg:#F5F7F5;--ink:#16201B;--mute:#4A5A52;--accent:#14594A;--line:#D5DED9;--card:#fff;--btn:#14594A;--btnink:#fff}
 @media (prefers-color-scheme:dark){:root{--bg:#0F1412;--ink:#E9EFEB;--mute:#A9B8B0;--accent:#5CC4A5;--line:#2A3530;--card:#18201C;--btn:#5CC4A5;--btnink:#0F1412}}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif}
 main{max-width:780px;margin:0 auto;padding:16px 16px 56px}a{color:var(--accent)}a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -59,13 +59,14 @@ details{margin:.4em 0;border:1px solid var(--line);border-radius:8px;padding:6px
 .cta{margin:2.2em 0;padding:16px;border:2px solid var(--accent);border-radius:12px;background:var(--card)}.cta h2{margin:0 0 .3em;font-size:1.2rem}
 .btn{display:inline-block;min-height:44px;line-height:44px;padding:0 18px;margin:6px 8px 0 0;border-radius:10px;background:var(--btn);color:var(--btnink);font-weight:700;text-decoration:none}.btn.g{background:transparent;color:var(--accent);border:2px solid var(--accent);line-height:40px}
 .pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:2em}.pn a{display:inline-block;min-height:44px;line-height:44px}footer{margin-top:3em;color:var(--mute);font-size:.88rem}
-ol.opt{margin:.2em 0 .4em}`;
+ol.opt{margin:.2em 0 .4em}
+table.wide{min-width:820px}table.wide td{min-width:130px}table.wide th:first-child,table.wide td:first-child{position:sticky;left:0;background:var(--card);min-width:110px}`;
 
 /* ---------- l'involucro di ogni pagina ---------- */
-function shell({ t, url, title, desc, body, crumbs, nodes, modified }) {
+export function shell({ t, url, title, desc, body, crumbs, nodes, modified, alts, type, main }) {
   const nav = crumbs.map(([n, u], i) => (i < crumbs.length - 1 ? `<a href="${u}">${esc(n)}</a>` : esc(n))).join(" › ");
-  const g = graph([build("Organization", { lang: t.lang }), build("WebSite", { lang: t.lang }),
-    build("WebPage", { url, name: title, description: desc, lang: t.lang, breadcrumb: true, modified, image: SITE + "/img/anteprima.png" }),
+  const g = graph([build("Organization", { lang: t.lang }), build("WebSite", { lang: t.lang }), build("Person"),
+    build("WebPage", { url, name: title, description: desc, lang: t.lang, breadcrumb: true, modified, type, main, image: SITE + "/img/anteprima.png" }),
     build("BreadcrumbList", { url, items: crumbs.map(([n, u]) => [n, SITE + u]) }), ...nodes]);
   return `<!doctype html>
 <html lang="${t.lang}">
@@ -77,6 +78,7 @@ function shell({ t, url, title, desc, body, crumbs, nodes, modified }) {
 <meta name="theme-color" content="#14594A">
 <link rel="canonical" href="${url}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+${(alts || []).map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${u}">`).join("\n")}
 <meta property="og:site_name" content="màndarínō"><meta property="og:type" content="article"><meta property="og:url" content="${url}">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/img/anteprima.png">
 <meta property="og:locale" content="${t.lang === "zh-CN" ? "zh_CN" : "it_IT"}">
@@ -95,10 +97,10 @@ ${body}
 `;
 }
 
-const cta = (t, what, appPath) => `<aside class="cta" aria-labelledby="cta"><h2 id="cta">${esc(t.ctaTitle)}</h2><p>${esc(t.ctaText(what))}</p>
+export const cta = (t, what, appPath) => `<aside class="cta" aria-labelledby="cta"><h2 id="cta">${esc(t.ctaTitle)}</h2><p>${esc(t.ctaText(what))}</p>
 <a class="btn" href="/app/">${esc(t.open)}</a><a class="btn g" href="${APK}">${esc(t.apk)}</a></aside>`;
 
-const table = (caption, heads, rows, cell) => `<div class="tw"><table><caption>${esc(caption)}</caption><thead><tr>${heads.map((h) => `<th scope="col">${esc(h)}</th>`).join("")}</tr></thead><tbody>
+export const table = (caption, heads, rows, cell) => `<div class="tw"><table><caption>${esc(caption)}</caption><thead><tr>${heads.map((h) => `<th scope="col">${esc(h)}</th>`).join("")}</tr></thead><tbody>
 ${rows.map((r) => "<tr>" + r.map((c, i) => `<td>${cell(c, i)}</td>`).join("") + "</tr>").join("\n")}
 </tbody></table></div>`;
 

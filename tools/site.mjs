@@ -16,7 +16,8 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
-import { pagine } from "./pagine.mjs";   /* lezioni e parole come pagine statiche */
+import { pagine } from "./pagine.mjs";
+import { paginePersona, tabellaHome } from "./pagine-sito.mjs";   /* autore e confronto */   /* lezioni e parole come pagine statiche */
 import { SITE, PAGES, decorate, gitDate, sitemapXml, robotsTxt, llmsTxt, llmsFull } from "./seo.mjs";   /* meta, hreflang, JSON-LD, sitemap, robots, llms.txt */
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -183,18 +184,20 @@ function assemble(out) {
   const lastmod = Object.fromEntries(PAGES.filter((x) => !x.noindex).map((x) => [x.path, gitDate(x.sources)]));   /* da git: se la storia manca il campo si omette */
   const put = (p, file, html) => fs.writeFileSync(path.join(out, file), decorate(html, pg(p), ctxOf(p)));
   fs.copyFileSync(path.join(ROOT, "docs/icon.svg"), path.join(out, "icon.svg"));
-  put("/", "index.html", fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8"));
+  const th = tabellaHome();   /* la tabella del confronto sta in un posto solo (docs/ai/confronto.json) e si ripete in home */
+  put("/", "index.html", fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8").replace("<!--CONFRONTO-->", () => th.html).replace("<!--QUANDO-->", () => th.quando));
   put("/partecipa-voci.html", "partecipa-voci.html", fs.readFileSync(path.join(ROOT, "docs/partecipa-voci.html"), "utf8"));
   copyDir(path.join(ROOT, "docs/img"), path.join(out, "img"));
   for (const dir of ["assets", "audio", "licenze"]) copyDir(path.join(ROOT, "docs", dir), path.join(out, dir));   /* stile e script, musica, testi delle licenze */
   put("/404.html", "404.html", fs.readFileSync(path.join(ROOT, "docs/404.html"), "utf8"));
+  for (const k of fs.readdirSync(path.join(ROOT, "docs")).filter((n) => /^[a-f0-9]{32}\.txt$/.test(n))) fs.copyFileSync(path.join(ROOT, "docs", k), path.join(out, k));   /* la chiave di IndexNow (pubblica per progetto) */
   fs.writeFileSync(path.join(out, "robots.txt"), robotsTxt());
   fs.writeFileSync(path.join(out, "llms.txt"), llmsTxt());
   fs.writeFileSync(path.join(out, "llms-full.txt"), llmsFull());
   if (fs.existsSync(path.join(ROOT, "docs/fatti.json"))) fs.copyFileSync(path.join(ROOT, "docs/fatti.json"), path.join(out, "fatti.json"));
   /* le pagine generate dai dati dell'app: lezioni di cinese, lezioni di italiano per chi parla cinese, vocabolario per sezione */
-  const gen = pagine(undefined, { modified: { lessons: gitDate(["src/data/lessons"]), itlessons: gitDate(["src/data/it/lessons"]), vocab: gitDate(["src/data/vocab"]) } });
-  const extra = gen.map((g) => ({ path: g.path, kind: g.kind, prio: g.kind === "hub" ? "0.7" : g.kind === "lesson" ? "0.6" : "0.4", freq: "monthly" }));
+  const gen = [...paginePersona(), ...pagine(undefined, { modified: { lessons: gitDate(["src/data/lessons"]), itlessons: gitDate(["src/data/it/lessons"]), vocab: gitDate(["src/data/vocab"]) } })];
+  const extra = gen.map((g) => ({ path: g.path, kind: g.kind, prio: g.kind === "hub" || g.kind === "confronto" ? "0.8" : g.kind === "author" ? "0.5" : g.kind === "lesson" ? "0.6" : "0.4", freq: "monthly" }));
   for (const g of gen) { const d = path.join(out, g.path); fs.mkdirSync(d, { recursive: true }); fs.writeFileSync(path.join(d, "index.html"), g.html); lastmod[g.path] = gitDate(g.sources); }
   fs.writeFileSync(path.join(out, "sitemap.xml"), sitemapXml({ lastmod, extra }));
   copyDir(path.join(ROOT, "docs/zh"), path.join(out, "zh"));   /* la pagina cinese, quella del QR delle carte */
