@@ -191,7 +191,7 @@ function sandbox() {
   const ext = [...h.matchAll(/<(?:script|img|iframe|source|video|audio)\b[^>]*?(?:src|poster)="([^"]+)"/gi)].map((m) => m[1])
     .concat([...h.matchAll(/<link\b[^>]*\brel="(?:stylesheet|icon|preload|modulepreload)"[^>]*?href="([^"]+)"/gi)].map((m) => m[1])).filter(isExt);
   const scripts = [...h.matchAll(/<script\b([^>]*)>/gi)].map((m) => m[1]);
-  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/"];   /* nascono con la pubblicazione: non stanno in docs/ */
+  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
   const local = [...h.matchAll(/\b(?:src|poster|href)="([^"#?]+)(?:[#?][^"]*)?"/g)].map((m) => m[1])
     .filter((u) => !/^(https?:|mailto:|tel:|\/\/|data:)/i.test(u) && !GENERATI.includes(u)).filter((f) => !fs.existsSync(path.join(DOCS, f)));
   const ctas = (h.match(/class="btn"/g) || []).length;
@@ -251,7 +251,7 @@ function sandbox() {
   /* pagine statiche di lezioni e parole: una sola h1, canonico proprio, risposta in testa, tabelle, JSON-LD valido, nessuno script né risorsa esterna, link interni che arrivano da qualche parte */
   {
     const { pagine } = await import("./pagine.mjs"), { paginePersona } = await import("./pagine-sito.mjs"), { sitemapXml } = await import("./seo.mjs"), P = [...paginePersona(), ...pagine()], why = [], byPath = new Map(P.map((p) => [p.path, p]));
-    if (P.length < 300 || !byPath.has("/confronto/app-per-imparare-cinese/") || !byPath.has("/autore/") || !byPath.has("/zh/autore/") || byPath.size !== P.length) why.push("pagine: " + P.length + " (attese più di 300, tutte diverse)");
+    if (P.length < 300 || !byPath.has("/confronto/app-per-imparare-cinese/") || !byPath.has("/autore/") || !byPath.has("/zh/autore/") || !byPath.has("/zh/compare/learn-italian-apps/") || byPath.size !== P.length) why.push("pagine: " + P.length + " (attese più di 300, tutte diverse)");
     const okPath = new Set([...byPath.keys(), "/", "/app/", "/privacy.html", "/manifesto.html", "/icon.svg"]);
     for (const p of P) {
       const h = p.html, url = "https://mandarinoapp.org" + p.path;
@@ -266,6 +266,14 @@ function sandbox() {
     }
     const sm = sitemapXml({ extra: P.map((x) => ({ path: x.path, kind: x.kind, prio: "0.5", freq: "monthly" })) });
     if (!sm.includes("https://mandarinoapp.org/lezioni/essere/") || !sm.includes("https://mandarinoapp.org/parole/persone/")) why.push("sitemap senza le pagine generate");
+    /* i due confronti: ogni riga ha una cella per ogni app, una fonte https, la data di lettura e la nostra app per prima */
+    for (const lang of ["it", "zh"]) {
+      const C = (await import("./pagine-sito.mjs")).confronto(lang), ids = C.app.map((a) => a.id);
+      if (!C.app[0].nostra || !/^\d{4}-\d{2}-\d{2}$/.test(C.verificatoIl)) why.push("confronto " + lang + ": prima app o data");
+      for (const a of C.app) if (!/^https:\/\//.test(a.fonte)) why.push("confronto " + lang + ": fonte di " + a.nome);
+      for (const r of C.righe) for (const id of ids) if (!r.celle[id] || !r.celle[id].t || !r.celle[id].b) why.push("confronto " + lang + ": cella " + r.id + "/" + id);
+      if (!C.testi.limiti.voci.length || !C.testi.limiti.url.startsWith("https://github.com/longhitown/mandarino")) why.push("confronto " + lang + ": limiti e invito");
+    }
     check("Pagine statiche: " + P.length + " pagine di lezioni e parole, una h1, canonico proprio, risposta in testa, tabelle, un solo script (JSON-LD), link interni validi", !why.length, why.slice(0, 6).join("; "));
   }
   const brani = ["biblioteca", "calligrafia", "bambu"].filter((id) => !["ogg", "m4a"].every((e) => fs.existsSync(path.join(DOCS, "audio", id + "." + e))));

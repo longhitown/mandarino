@@ -91,7 +91,7 @@ ${ldScript(g)}
 <body><main>
 <p class="nav">${nav}</p>
 ${body}
-<footer>${esc(t.foot)} · <a href="/privacy.html">Privacy</a> · <a href="/manifesto.html">Manifesto</a></footer>
+<footer>${esc(t.foot)} · ${t.lang === "zh-CN" ? '<a href="/privacy.html#中文">隐私说明</a> · <a href="/manifesto.html#中文">宣言</a>' : '<a href="/privacy.html">Privacy</a> · <a href="/manifesto.html">Manifesto</a>'}</footer>
 </main></body>
 </html>
 `;

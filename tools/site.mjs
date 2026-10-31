@@ -17,7 +17,7 @@ import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
 import { pagine } from "./pagine.mjs";
-import { paginePersona, tabellaHome } from "./pagine-sito.mjs";   /* autore e confronto */   /* lezioni e parole come pagine statiche */
+import { paginePersona, sezioneHome } from "./pagine-sito.mjs";   /* autore e confronto */   /* lezioni e parole come pagine statiche */
 import { SITE, PAGES, decorate, gitDate, sitemapXml, robotsTxt, llmsTxt, llmsFull } from "./seo.mjs";   /* meta, hreflang, JSON-LD, sitemap, robots, llms.txt */
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -184,8 +184,7 @@ function assemble(out) {
   const lastmod = Object.fromEntries(PAGES.filter((x) => !x.noindex).map((x) => [x.path, gitDate(x.sources)]));   /* da git: se la storia manca il campo si omette */
   const put = (p, file, html) => fs.writeFileSync(path.join(out, file), decorate(html, pg(p), ctxOf(p)));
   fs.copyFileSync(path.join(ROOT, "docs/icon.svg"), path.join(out, "icon.svg"));
-  const th = tabellaHome();   /* la tabella del confronto sta in un posto solo (docs/ai/confronto.json) e si ripete in home */
-  put("/", "index.html", fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8").replace("<!--CONFRONTO-->", () => th.html).replace("<!--QUANDO-->", () => th.quando));
+  put("/", "index.html", fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8").replace("<!--CONFRONTO-IT-->", () => sezioneHome("it")).replace("<!--CONFRONTO-ZH-->", () => sezioneHome("zh")));   /* i confronti stanno in docs/ai/*.json e si ripetono in home */
   put("/partecipa-voci.html", "partecipa-voci.html", fs.readFileSync(path.join(ROOT, "docs/partecipa-voci.html"), "utf8"));
   copyDir(path.join(ROOT, "docs/img"), path.join(out, "img"));
   for (const dir of ["assets", "audio", "licenze"]) copyDir(path.join(ROOT, "docs", dir), path.join(out, dir));   /* stile e script, musica, testi delle licenze */

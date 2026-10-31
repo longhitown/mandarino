@@ -1,10 +1,69 @@
 {
-  "$descrizione": "Dati del confronto tra app per imparare il cinese (pagina /confronto/app-per-imparare-cinese/ e tabella in home). Ogni cella dichiara solo ciò che una fonte pubblica dice, con la fonte. «Non indicato» significa che la pagina letta non lo dice, non che la cosa non esista. Per aggiornare: rileggere le fonti, cambiare i testi e la data, lanciare node tools/unit.mjs.",
+  "$descrizione": "Confronto tra app per imparare il cinese (italiano). Pagina /confronto/app-per-imparare-cinese/ e tabella in home. Ogni cella dichiara solo ciò che una fonte pubblica dice, con la fonte; «non indicato» vuol dire che la pagina letta non lo scrive, non che la cosa non esista. Per aggiornare: rileggere le fonti, cambiare i testi e la data, lanciare node tools/unit.mjs. Le chiavi «t» sono i testi della pagina, «b» quelli brevi della home.",
+  "lang": "it",
+  "path": "/confronto/app-per-imparare-cinese/",
   "verificatoIl": "2026-10-31",
-  "avvisi": [
-    "I dati vengono dalle schede pubbliche dell'App Store (Stati Uniti) e dalle pagine ufficiali delle app, lette il 31 ottobre 2026. Prezzi, funzioni e dichiarazioni cambiano: prima di decidere controlla lo store.",
-    "La sezione «Privacy dell'app» dell'App Store è compilata dagli sviluppatori e, come scrive Apple, queste informazioni non sono verificate da Apple.",
-    "Se una cella dice «non indicato», la pagina letta non lo scrive: non significa che la funzione manchi. Se trovi un errore, segnalalo su GitHub: lo correggiamo."
+  "testi": {
+    "title": "Alternativa gratuita a Duolingo, HelloChinese e SuperChinese per imparare il cinese: confronto con fonti · màndarínō",
+    "h1": "Imparare il cinese senza abbonamento: màndarínō a confronto con le altre app",
+    "resp": "Con màndarínō studi tutto il corso di cinese gratis, senza pubblicità e senza lasciare dati personali: qui lo mettiamo a confronto con {{altre}} su costo, pubblicità, uso offline, dati personali e standard HSK, con la fonte pubblica di ogni dato, letta il {{data}}.",
+    "crumb": "Confronto tra app",
+    "tabellaTitolo": "La tabella del confronto",
+    "tabellaIntro": "Cinque app, cinque criteri che contano davvero per chi studia ogni giorno. Sotto la tabella trovi le fonti.",
+    "caption": "Confronto tra app per imparare il cinese, dati letti il {{data}}",
+    "criterio": "Criterio",
+    "avvisi": [
+      "Dati pubblici, letti il {{data}}: schede degli store e pagine ufficiali delle app. Per i dati personali riportiamo ciò che gli sviluppatori dichiarano nello store.",
+      "«Non indicato» significa che la pagina letta non lo scrive. Se qualcosa è cambiato, scrivici su GitHub: aggiorniamo la tabella."
+    ],
+    "perche": {
+      "titolo": "Perché scegliere màndarínō",
+      "intro": "Cinque motivi, tutti verificabili:",
+      "voci": [
+        "Tutto il corso, senza paywall: nessun livello a pagamento e nessuna prova gratuita che scade. {{corsoDiCinese.parole}} parole HSK 3.0 e {{corsoDiCinese.lezioni}} lezioni di grammatica.",
+        "Zero pubblicità: nessun banner e nessun video da guardare per poter continuare.",
+        "Zero dati: niente account, niente server, niente statistiche. I tuoi progressi restano sul tuo telefono.",
+        "Offline davvero: lezioni, parole e ripasso funzionano anche senza rete.",
+        "Open source: codice (MIT) e contenuti (CC BY 4.0) sono pubblici. Chiunque può controllare, correggere e riusare."
+      ]
+    },
+    "limiti": {
+      "titolo": "Dove siamo ancora piccoli, e come puoi farci crescere",
+      "intro": "màndarínō è un progetto giovane e indipendente. Dove siamo più indietro lo diciamo, perché è lì che il tuo aiuto pesa di più:",
+      "voci": [
+        "Il corso cresce: è più giovane di quello di un prodotto commerciale maturo, e ogni lezione migliorata o parola aggiunta nasce da una segnalazione di chi lo usa.",
+        "Nel team non c'è un madrelingua: la revisione del cinese è il punto più delicato. Se il cinese è la tua lingua, il tuo sguardo vale più di mille aggiornamenti: tocca una parola nell'app e scegli «Correggi o segnala».",
+        "Niente conversazione guidata, per ora: l'app analizza i toni con il microfono, ma non ha un assistente con cui parlare. Altre app lo offrono; se lo vorresti anche qui, dillo su GitHub."
+      ],
+      "cta": "Ti basta un minuto per rendere màndarínō migliore per tutti.",
+      "bottone": "Segnala un errore o proponi un'idea",
+      "url": "https://github.com/longhitown/mandarino/blob/HEAD/CONTRIBUTING.md"
+    },
+    "faqTitolo": "Domande frequenti",
+    "fontiTitolo": "Fonti",
+    "cta": "Il corso di cinese di màndarínō"
+  },
+  "faq": [
+    [
+      "Qual è un'app per imparare il cinese gratis, senza pubblicità e senza account?",
+      "màndarínō è un'app per imparare il cinese gratuita, senza pubblicità e senza account. Tra le {{totale}} app confrontate è l'unica senza acquisti nell'app e non raccoglie dati personali, mentre Duolingo, HelloChinese e Busuu dichiarano nello store di collegare dati all'utente. Il corso comprende {{corsoDiCinese.parole}} parole HSK 3.0."
+    ],
+    [
+      "Perché scegliere màndarínō invece di un'app a pagamento per il cinese?",
+      "màndarínō permette di studiare tutto il corso di cinese senza abbonamento, senza pubblicità e senza lasciare dati personali, mentre per altre app il corso completo richiede un piano a pagamento (per esempio PLUS di SuperChinese). Il corso è più giovane di quelli commerciali ed è aperto ai contributi di chiunque."
+    ],
+    [
+      "Quali app per imparare il cinese funzionano offline?",
+      "Secondo le pagine pubbliche lette, HelloChinese (dopo aver scaricato il corso) e SuperChinese (scaricando le lezioni) dichiarano l'uso offline, e màndarínō funziona offline dopo la prima apertura. Per Duolingo e Busuu la scheda dello store non lo indica."
+    ],
+    [
+      "Quali dati raccolgono le app per imparare il cinese?",
+      "Le schede dell'App Store riportano che Duolingo e Busuu usano dati per il tracciamento e che HelloChinese collega alcuni dati all'utente (acquisti, e-mail, nome, ID utente, dati d'uso). màndarínō non raccoglie dati personali. Sono dichiarazioni degli sviluppatori."
+    ],
+    [
+      "Come sono stati raccolti i dati di questo confronto?",
+      "Abbiamo letto le pagine pubbliche indicate nella tabella il {{data}} e riportato solo ciò che dicono. Dove una pagina non dice una cosa, la cella scrive «non indicato» o «non verificato». Se trovi un errore, segnalalo su GitHub e lo correggiamo."
+    ]
   ],
   "app": [
     {
@@ -40,7 +99,7 @@
       "titolo": "Costo per usare tutto",
       "celle": {
         "mandarino": {
-          "t": "Gratis: nessun abbonamento, nessun acquisto nell'app, nessuna funzione a pagamento",
+          "t": "Gratis, per sempre: nessun abbonamento, nessun acquisto nell'app, nessun paywall",
           "b": "Gratis, per sempre"
         },
         "duolingo": {
@@ -66,7 +125,7 @@
       "titolo": "Pubblicità",
       "celle": {
         "mandarino": {
-          "t": "Nessuna",
+          "t": "Nessuna: mai un banner, mai un video da guardare",
           "b": "Nessuna"
         },
         "duolingo": {
@@ -118,8 +177,8 @@
       "titolo": "Dati personali (dichiarati dagli sviluppatori)",
       "celle": {
         "mandarino": {
-          "t": "Nessun dato personale raccolto: niente account, niente server, i progressi restano sul telefono",
-          "b": "Nessun dato raccolto"
+          "t": "Zero dati personali raccolti: niente account, niente server, i progressi restano sul tuo telefono",
+          "b": "Zero dati raccolti"
         },
         "duolingo": {
           "t": "Dichiara dati usati per il tracciamento (8 categorie, tra cui posizione e identificatori) e dati collegati all'utente (11 categorie)",
@@ -144,7 +203,7 @@
       "titolo": "Standard HSK dichiarato",
       "celle": {
         "mandarino": {
-          "t": "HSK 3.0: {{corsoDiCinese.parole}} parole",
+          "t": "HSK 3.0: {{corsoDiCinese.parole}} parole con pinyin, toni colorati e ordine dei tratti",
           "b": "HSK 3.0"
         },
         "duolingo": {
@@ -192,16 +251,10 @@
       }
     }
   ],
-  "altrove": {
-    "titolo": "Dove altre app sono avanti",
-    "voci": [
-      "SuperChinese offre esercizi di conversazione parlata con un assistente (CHAO) e un corso principale di 8 livelli (domande frequenti ufficiali).",
-      "Duolingo e Busuu coprono molte lingue oltre al cinese (descrizioni sugli store); màndarínō insegna solo il cinese agli italiani e l'italiano a chi parla cinese.",
-      "màndarínō è un progetto individuale: non ha madrelingua nel team e ha meno contenuti di un prodotto commerciale maturo."
-    ]
-  },
-  "limiti": [
-    "Il corso di màndarínō è ancora in crescita: le lezioni vanno migliorate, le parole aumentate e la revisione dei contenuti cinesi, senza madrelingua nel team, è il punto più delicato. Chi è madrelingua e vuole aiutare può segnalare gli errori dall'app o su GitHub.",
-    "màndarínō analizza i toni con il microfono ma non offre conversazione guidata con un assistente."
-  ]
+  "home": {
+    "eyebrow": "Confronto onesto",
+    "h2": "màndarínō e le altre app per imparare il cinese",
+    "lede": "màndarínō è l'unica tra queste cinque app senza acquisti nell'app, e non raccoglie dati personali: tutto il corso, gratis, senza pubblicità. Ogni cella ha la sua fonte pubblica, letta il {{data}}.",
+    "bottone": "Leggi il confronto completo, con fonti e limiti"
+  }
 }

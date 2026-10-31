@@ -1,0 +1,261 @@
+{
+  "$descrizione": "Confronto tra app per imparare l'italiano, per chi parla cinese (pagina /zh/compare/learn-italian-apps/ e tabella nella home cinese). Stesse regole di confronto.json: ogni cella dice solo ciò che una fonte pubblica dichiara; «未注明» vuol dire che la pagina letta non lo scrive, «未核实» che non l'abbiamo verificato.",
+  "lang": "zh",
+  "path": "/zh/compare/learn-italian-apps/",
+  "verificatoIl": "2026-10-31",
+  "testi": {
+    "title": "免费学意大利语的应用：màndarínō 与 Duolingo、Busuu、Mondly、Babbel 的对比（含数据来源）",
+    "h1": "学意大利语不想订阅？màndarínō 与其他应用的对比",
+    "resp": "使用 màndarínō，你可以免费学完整个意大利语课程：没有广告，也不会留下任何个人数据。这里把它与 {{altre}} 在费用、广告、离线使用、个人数据和中文界面上做了对比，每个数据都注明公开来源（读取于 {{data}}）。",
+    "crumb": "应用对比",
+    "tabellaTitolo": "对比表",
+    "tabellaIntro": "五款应用，六个每天学习都会遇到的问题。表格下面列出了数据来源。",
+    "caption": "学意大利语的应用对比，数据读取于 {{data}}",
+    "criterio": "对比项",
+    "avvisi": [
+      "公开数据，读取于 {{data}}：来自应用商店页面和应用的官方页面。个人数据一栏，我们列出的是开发者在商店里的声明。",
+      "“未注明”表示我们读到的页面没有写这一项。如果信息有变化，请在 GitHub 告诉我们，我们会更新表格。"
+    ],
+    "perche": {
+      "titolo": "为什么选择 màndarínō",
+      "intro": "六个理由，都可以核实：",
+      "voci": [
+        "整个课程免费，没有付费关卡：没有收费的级别，也没有会过期的试用。意大利语课程共 {{corsoDiItaliano.lezioni}} 节课。",
+        "没有广告：没有横幅，也不用先看视频才能继续学。",
+        "不收集数据：没有账号，没有服务器，没有统计。你的学习进度只保存在你的手机上。",
+        "真正离线：第一次打开或安装之后，课程、词汇和复习都不需要网络。",
+        "用中文讲解：每节课都用中文解释，并列出常见错误，还有动词变位练习。",
+        "开源：代码（MIT 许可）和内容（CC BY 4.0）都是公开的，任何人都可以检查、更正和再利用。"
+      ]
+    },
+    "limiti": {
+      "titolo": "我们还小的地方，以及你怎么帮我们变好",
+      "intro": "màndarínō 是一个年轻的独立项目。我们哪里还不够好，就直接告诉你，因为你的帮助在那里最有价值：",
+      "voci": [
+        "课程还在成长：它比成熟的商业产品更年轻，每一次改进课程、增加词汇，都来自使用者的反馈。",
+        "中文讲解还没有母语者审校：团队里没有中文母语者，所以中文表达是最需要把关的地方。如果中文是你的母语，你的眼睛比一千次更新都珍贵：在应用里点开一个词，就可以更正或反馈。",
+        "暂时没有对话练习：应用可以用麦克风分析声调，但还没有可以陪你聊天的助手。有些应用提供这项功能；如果你也希望这里有，请在 GitHub 告诉我们。"
+      ],
+      "cta": "只要一分钟，就能让 màndarínō 对所有人更好。",
+      "bottone": "反馈错误或提出想法",
+      "url": "https://github.com/longhitown/mandarino/blob/HEAD/CONTRIBUTING.md#中文"
+    },
+    "faqTitolo": "常见问题",
+    "fontiTitolo": "数据来源",
+    "cta": "这些意大利语课程"
+  },
+  "faq": [
+    [
+      "有没有免费学意大利语、又没有广告的应用？",
+      "màndarínō 是一款免费的意大利语学习应用：没有广告，也不需要账号。在这 {{totale}} 款对比的应用中，只有它没有内购，并且不收集个人数据；Duolingo、Busuu、Mondly 和 Babbel 都声明会把一些数据与用户关联。意大利语课程共 {{corsoDiItaliano.lezioni}} 节课，用中文讲解。"
+    ],
+    [
+      "为什么选择 màndarínō，而不是付费的意大利语应用？",
+      "màndarínō 让你不用订阅就能学完整个意大利语课程，没有广告，也不会留下个人数据；而其他应用的完整课程需要付费订阅。课程比商业产品更年轻，也欢迎任何人参与改进。"
+    ],
+    [
+      "学意大利语的应用中，哪些可以离线使用？",
+      "根据读取到的公开页面，Babbel 在商店页面写明可以下载课程离线学习，màndarínō 在第一次打开之后也可以离线使用。Duolingo、Busuu 和 Mondly 的商店页面没有注明这一点。"
+    ],
+    [
+      "这些应用会收集哪些数据？",
+      "App Store 页面显示：Duolingo、Busuu、Mondly 和 Babbel 都声明有用于追踪的数据，并且有与用户关联的数据。màndarínō 不收集个人数据。这些都是开发者自己的声明。"
+    ],
+    [
+      "这个对比的数据是怎么来的？",
+      "我们在 {{data}} 读取了表格里列出的公开页面，只写页面上说的内容。页面没有写的项目，单元格里写“未注明”或“未核实”，不做任何推测。如果你发现错误，请在 GitHub 告诉我们，我们会更正。"
+    ]
+  ],
+  "app": [
+    {
+      "id": "mandarino",
+      "nome": "màndarínō",
+      "nostra": true,
+      "fonte": "https://mandarinoapp.org/zh/"
+    },
+    {
+      "id": "duolingo",
+      "nome": "Duolingo",
+      "fonte": "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"
+    },
+    {
+      "id": "busuu",
+      "nome": "Busuu",
+      "fonte": "https://apps.apple.com/us/app/busuu-language-learning/id379968583"
+    },
+    {
+      "id": "mondly",
+      "nome": "Mondly",
+      "fonte": "https://apps.apple.com/us/app/mondly-learn-languages/id987873536"
+    },
+    {
+      "id": "babbel",
+      "nome": "Babbel",
+      "fonte": "https://apps.apple.com/us/app/babbel-language-learning/id829587759"
+    }
+  ],
+  "righe": [
+    {
+      "id": "costo",
+      "titolo": "使用全部内容的费用",
+      "celle": {
+        "mandarino": {
+          "t": "永久免费：没有订阅，没有内购，没有付费关卡",
+          "b": "永久免费"
+        },
+        "duolingo": {
+          "t": "可免费下载，含内购；付费订阅名为 Super Duolingo",
+          "b": "含内购（Super）"
+        },
+        "busuu": {
+          "t": "可免费下载，含内购；使用全部功能需要订阅（Premium 或 Premium Plus）",
+          "b": "含内购（Premium）"
+        },
+        "mondly": {
+          "t": "可免费下载，含内购；使用全部课程和功能需要订阅",
+          "b": "含内购，需订阅"
+        },
+        "babbel": {
+          "t": "可免费下载，含内购；完整课程需要订阅（3 个月、6 个月、12 个月或终身）",
+          "b": "完整课程需订阅"
+        }
+      }
+    },
+    {
+      "id": "pubblicita",
+      "titolo": "广告",
+      "celle": {
+        "mandarino": {
+          "t": "没有广告：没有横幅，也不用看视频",
+          "b": "没有广告"
+        },
+        "duolingo": {
+          "t": "商店页面称 Super Duolingo“无广告”，没有说明免费版的情况",
+          "b": "Super 无广告"
+        },
+        "busuu": {
+          "t": "App Store 页面标注“含广告”（Contains Advertising）",
+          "b": "商店标注含广告"
+        },
+        "mondly": {
+          "t": "商店页面未提及",
+          "b": "未注明"
+        },
+        "babbel": {
+          "t": "商店页面未提及",
+          "b": "未注明"
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "titolo": "离线使用",
+      "celle": {
+        "mandarino": {
+          "t": "可以：第一次打开或安装之后，课程、词汇和复习都不需要网络",
+          "b": "可以"
+        },
+        "duolingo": {
+          "t": "商店页面未注明",
+          "b": "未注明"
+        },
+        "busuu": {
+          "t": "商店页面未注明",
+          "b": "未注明"
+        },
+        "mondly": {
+          "t": "商店页面未注明",
+          "b": "未注明"
+        },
+        "babbel": {
+          "t": "可以：商店页面写明可以下载课程离线学习",
+          "b": "可下载课程离线学"
+        }
+      }
+    },
+    {
+      "id": "dati",
+      "titolo": "个人数据（开发者声明）",
+      "celle": {
+        "mandarino": {
+          "t": "不收集任何个人数据：没有账号，没有服务器，进度只保存在你的手机上",
+          "b": "不收集任何数据"
+        },
+        "duolingo": {
+          "t": "声明用于追踪的数据 8 类（含位置和标识符），与用户关联的数据 11 类",
+          "b": "声明有追踪"
+        },
+        "busuu": {
+          "t": "声明用于追踪的数据（标识符、使用数据），与用户关联的数据 7 类",
+          "b": "声明有追踪"
+        },
+        "mondly": {
+          "t": "声明用于追踪的数据 1 类（标识符），与用户关联的数据 5 类",
+          "b": "声明有追踪"
+        },
+        "babbel": {
+          "t": "声明用于追踪的数据 3 类（购买、标识符、使用数据），与用户关联的数据 5 类",
+          "b": "声明有追踪"
+        }
+      }
+    },
+    {
+      "id": "cinese",
+      "titolo": "中文界面或中文讲解",
+      "celle": {
+        "mandarino": {
+          "t": "意大利语课程用中文讲解，共 {{corsoDiItaliano.lezioni}} 节课",
+          "b": "中文讲解"
+        },
+        "duolingo": {
+          "t": "商店页面未注明",
+          "b": "未注明"
+        },
+        "busuu": {
+          "t": "商店页面未注明",
+          "b": "未注明"
+        },
+        "mondly": {
+          "t": "商店页面的界面语言列表含简体中文",
+          "b": "界面含简体中文"
+        },
+        "babbel": {
+          "t": "商店页面的语言列表不含中文",
+          "b": "语言列表无中文"
+        }
+      }
+    },
+    {
+      "id": "codice",
+      "titolo": "公开源代码",
+      "celle": {
+        "mandarino": {
+          "t": "有：开源，MIT 许可，代码在 GitHub",
+          "b": "有（MIT）"
+        },
+        "duolingo": {
+          "t": "未核实",
+          "b": "未核实"
+        },
+        "busuu": {
+          "t": "未核实",
+          "b": "未核实"
+        },
+        "mondly": {
+          "t": "未核实",
+          "b": "未核实"
+        },
+        "babbel": {
+          "t": "未核实",
+          "b": "未核实"
+        }
+      }
+    }
+  ],
+  "home": {
+    "eyebrow": "诚实对比",
+    "h2": "màndarínō 与其他学意大利语的应用",
+    "lede": "在这五款应用中，只有 màndarínō 没有内购，并且不收集个人数据：整个课程免费，没有广告。每个数据都有公开来源，读取于 {{data}}。",
+    "bottone": "阅读完整对比（含来源和我们的不足）"
+  }
+}
