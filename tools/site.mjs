@@ -16,6 +16,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { createRequire } from "module";
+import { pagine } from "./pagine.mjs";   /* lezioni e parole come pagine statiche */
 import { SITE, PAGES, decorate, gitDate, sitemapXml, robotsTxt, llmsTxt, llmsFull } from "./seo.mjs";   /* meta, hreflang, JSON-LD, sitemap, robots, llms.txt */
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -191,7 +192,11 @@ function assemble(out) {
   fs.writeFileSync(path.join(out, "llms.txt"), llmsTxt());
   fs.writeFileSync(path.join(out, "llms-full.txt"), llmsFull());
   if (fs.existsSync(path.join(ROOT, "docs/fatti.json"))) fs.copyFileSync(path.join(ROOT, "docs/fatti.json"), path.join(out, "fatti.json"));
-  fs.writeFileSync(path.join(out, "sitemap.xml"), sitemapXml({ lastmod }));
+  /* le pagine generate dai dati dell'app: lezioni di cinese, lezioni di italiano per chi parla cinese, vocabolario per sezione */
+  const gen = pagine(undefined, { modified: { lessons: gitDate(["src/data/lessons"]), itlessons: gitDate(["src/data/it/lessons"]), vocab: gitDate(["src/data/vocab"]) } });
+  const extra = gen.map((g) => ({ path: g.path, kind: g.kind, prio: g.kind === "hub" ? "0.7" : g.kind === "lesson" ? "0.6" : "0.4", freq: "monthly" }));
+  for (const g of gen) { const d = path.join(out, g.path); fs.mkdirSync(d, { recursive: true }); fs.writeFileSync(path.join(d, "index.html"), g.html); lastmod[g.path] = gitDate(g.sources); }
+  fs.writeFileSync(path.join(out, "sitemap.xml"), sitemapXml({ lastmod, extra }));
   copyDir(path.join(ROOT, "docs/zh"), path.join(out, "zh"));   /* la pagina cinese, quella del QR delle carte */
   put("/zh/", "zh/index.html", fs.readFileSync(path.join(ROOT, "docs/zh/index.html"), "utf8"));
   put("/privacy.html", "privacy.html", privacyPage());

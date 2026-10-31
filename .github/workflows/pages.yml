@@ -9,7 +9,7 @@ name: pages
 on:
   push:
     branches: [main]
-    paths: ["src/**", "docs/index.html", "docs/404.html", "docs/assets/**", "docs/audio/**", "docs/licenze/**", "docs/zh/**", "docs/icon.svg", "docs/img/**", "docs/ai/**", "docs/fatti.json", "src/data/social.js", "PRIVACY.md", "MANIFESTO.md", "tools/build.mjs", "tools/site.mjs", "tools/seo.mjs", "tools/fatti.mjs", ".github/workflows/pages.yml"]
+    paths: ["src/**", "docs/index.html", "docs/404.html", "docs/assets/**", "docs/audio/**", "docs/licenze/**", "docs/zh/**", "docs/icon.svg", "docs/img/**", "docs/ai/**", "docs/fatti.json", "src/data/social.js", "PRIVACY.md", "MANIFESTO.md", "tools/build.mjs", "tools/site.mjs", "tools/seo.mjs", "tools/fatti.mjs", "tools/pagine.mjs", "src/data/**", ".github/workflows/pages.yml"]
   release:
     types: [published]
   workflow_dispatch:
