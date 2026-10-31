@@ -1056,5 +1056,21 @@ function sandbox() {
     fp.length === 64 && mk.includes(fp.toUpperCase().match(/../g).join(":")) && ["NOTICE.md", "README.md", "LEGGIMI.md"].every((n) => fs.readFileSync(path.join(ROOT, n), "utf8").includes("MARCHIO.md")), fp);
 }
 
+/* ---- Impostazioni: Social in fondo, Informazioni ultima, canali senza tracciamento ---- */
+{
+  const rd = (p) => fs.readFileSync(path.join(SRC, p), "utf8");
+  const cx = {}; vm.runInNewContext(rd("data/social.js") + ";this.S=SOCIAL;", cx);
+  const S = cx.S || [], withUrl = S.filter((x) => x.url);
+  check("Social: ogni canale ha id, nome e testo in italiano e in cinese; un indirizzo, se c'è, è https senza parametri di tracciamento; almeno uno è attivo",
+    S.length >= 4 && new Set(S.map((x) => x.id)).size === S.length && S.every((x) => x.id && x.nome && x.it && x.zh && (!x.url || (/^https:\/\/[^\s?#]+$/.test(x.url) && !/utm_|fbclid|igshid/i.test(x.url)))) && withUrl.length >= 2, withUrl.length + " attivi");
+  const html = rd("index.html"), tiles = [...html.matchAll(/data-set-open="([a-z]+)"/g)].map((m) => m[1]);
+  check("Impostazioni: ordine delle voci, con Social in fondo e Informazioni ultima (e una pagina per ognuna)", tiles.join() === "look,sound,community,study,data,social,info" && tiles.every((t) => html.includes('data-set-page="' + t + '"')), tiles.join());
+  const sp = rd("ui/settings-pages.js"), pg = ((sp.match(/var PAGES = \[([^\]]*)\]/) || [])[1] || "").replace(/[\s"]/g, "");
+  check("Impostazioni: il codice delle pagine segue lo stesso ordine (Social penultima, Informazioni ultima)", pg === "look,sound,community,study,data,social,info", pg);
+  const ts = vm.createContext({}); vm.runInContext("var I18N = { it: {}, zh: {} };", ts); for (const p of ["i18n/settings.js", "i18n/community.js"]) vm.runInContext(rd(p), ts);
+  const keys = ["look", "sound", "community", "study", "data", "social", "info"].flatMap((k) => ["set.p." + k, "set.p." + k + "D"]), miss = keys.filter((k) => !ts.I18N.it[k] || !ts.I18N.zh[k]);
+  check("Impostazioni: ogni pagina ha titolo e descrizione in italiano e in cinese (e la descrizione dice che cosa c'è, non è vuota)", !miss.length && keys.filter((k) => /D$/.test(k)).every((k) => ts.I18N.it[k].length > 30 && ts.I18N.zh[k].length > 8), miss.join(", "));
+}
+
 console.log("\n" + results.filter(Boolean).length + "/" + results.length + " prove superate.");
 process.exit(results.every(Boolean) ? 0 : 1);

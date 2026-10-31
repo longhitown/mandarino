@@ -1,4 +1,4 @@
-/* ===== ⚙️ Impostazioni: una schermata con sei carte (Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Informazioni),
+/* ===== ⚙️ Impostazioni: una schermata con sette carte (Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni),
    ognuna apre una pagina propria con «Indietro»: due livelli, mai sezioni annidate (docs/ux-architettura.md). In cima c'è la ricerca.
    I moduli aggiungono le loro sezioni con CP.settingsExtras: una funzione che rende HTML (pagina «Studio») oppure
    { group: "data"|"adv"|"info", html }. La sezione finisce nella pagina del suo id (PAGE_OF) o, se non lo conosce, in quella del gruppo.
@@ -9,7 +9,7 @@
 (function () {
   var CP = window.CP, el = document.getElementById("settings");
   if (!el) return;
-  var PAGES = ["look", "sound", "community", "study", "data", "info"];
+  var PAGES = ["look", "sound", "community", "study", "data", "social", "info"];
   /* la pagina di ogni sezione nota e l'ordine in cui compare: le sezioni dei moduli arrivano in ordine di caricamento, qui si mettono a posto */
   var ORDER = {
     look: ["set-look", "set-lang", "set-widgets"],
@@ -17,17 +17,18 @@
     community: ["set-scambio", "set-mine", "set-thanks", "set-invite", "set-voicepack"],
     study: ["set-course", "set-exstyle", "set-level", "set-anat", "set-pleco", "set-reminder", "set-together"],
     data: ["set-sync", "set-data", "set-export", "set-contrib"],
+    social: ["set-social"],
     info: ["set-about", "set-support", "set-news", "set-privacy"]
   };
   var PAGE_OF = {}; PAGES.forEach(function (p) { ORDER[p].forEach(function (id) { PAGE_OF[id] = p; }); });
-  var GROUP_PAGE = { data: "data", adv: "study", info: "info", sound: "sound", community: "community" };
+  var GROUP_PAGE = { data: "data", adv: "study", info: "info", sound: "sound", community: "community", social: "social" };
   /* i nomi vecchi dei gruppi e delle pagine continuano ad aprire la pagina giusta */
   var ALIAS = { "grp-ess": "look", "grp-data": "data", "grp-adv": "study", "grp-info": "info" };
   PAGES.forEach(function (p) { ALIAS[p] = p; ALIAS["page-" + p] = p; });
   /* nomi comodi per la nuova pagina (lo scambio linguistico stava in «Suoni e musica») */
   ALIAS["grp-community"] = "community"; ALIAS.scambio = "community"; ALIAS.widget = "look"; ALIAS.voci = "community";
   /* parole in più per la ricerca, per le sezioni fisse (il resto si cerca nel testo della sezione) */
-  var KW = { "set-look": "set.kwLook", "set-sound": "set.kwSound", "set-scambio": "set.kwComm", "set-mine": "set.kwComm", "set-thanks": "set.kwComm", "set-invite": "set.kwComm", "set-widgets": "set.kwComm", "set-voicepack": "set.kwComm" };
+  var KW = { "set-look": "set.kwLook", "set-sound": "set.kwSound", "set-scambio": "set.kwComm", "set-mine": "set.kwComm", "set-thanks": "set.kwComm", "set-invite": "set.kwComm", "set-widgets": "set.kwComm", "set-voicepack": "set.kwComm", "set-social": "set.kwSocial" };
   var cur = "", lastTile = null, q = document.getElementById("set-q"), tiles = document.getElementById("set-tiles"), hits = document.getElementById("set-hits"),
     back = el.querySelector("[data-set-back]"), head = document.getElementById("set-title"), card = el.querySelector(".set-card");
   function pageEl(p) { return el.querySelector('[data-set-page="' + p + '"]'); }

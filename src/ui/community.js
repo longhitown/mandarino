@@ -16,7 +16,7 @@
      «Letta» vuol dire: scorsa fino in fondo, fermandosi in ogni schermata abbastanza da vederla (vedi readStart).
      Chi scorre di corsa vede il pallino restare: è fatto apposta, perché le Impostazioni si guardino, non si saltino.
      Solo un punto e un testo per i lettori di schermo, mai numeri né suoni. */
-  var PAGES = ["look", "sound", "community", "study", "data", "info"], KP = "md-seen-p-";
+  var PAGES = ["look", "sound", "community", "study", "data", "social", "info"], KP = "md-seen-p-";
   function seenVal(p) { return p === "info" ? ver() : "1"; }   /* Informazioni (con le Novità) torna «nuova» a ogni versione */
   function unseen(p) { return get(KP + p) !== seenVal(p); }
   function dots() {

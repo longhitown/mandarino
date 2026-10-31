@@ -45,7 +45,7 @@ Questa mappa dice dove sta ogni funzione e quando compare. Vale per i due corsi.
 
 | Foglio o strato | Classe | Note |
 |---|---|---|
-| ⚙️ Impostazioni | — | foglio dal basso: ricerca, sei riquadri e sei pagine |
+| ⚙️ Impostazioni | — | foglio dal basso: ricerca, sette riquadri e sette pagine |
 | 🔍 Cerca ovunque | R | |
 | 🎵 Jukebox | R | |
 | Dettaglio parola e famiglia del carattere | R | |
@@ -63,7 +63,7 @@ Questa mappa dice dove sta ogni funzione e quando compare. Vale per i due corsi.
 ### Impostazioni: inventario voce per voce
 
 Prima erano un foglio lungo con quattro gruppi (Essenziali, Dati e privacy, Avanzate, Informazioni e supporto) e sezioni che si
-aprivano a cascata. Ora sono una pagina con sei riquadri e sei pagine (vedi la proposta, sotto). Ogni voce di prima c'è
+aprivano a cascata. Ora sono una pagina con sette riquadri e sette pagine (vedi la proposta, sotto). Ogni voce di prima c'è
 ancora; `e2e.mjs` controlla l'elenco (25 comandi, in tutti e due i corsi e nelle due lingue). «Quanto serve»: **ogni giorno**,
 **a volte**, **raramente**, **una volta sola** (poi si dimentica).
 
@@ -131,7 +131,7 @@ gli strumenti compaiono per gradi (le soglie sono in `src/ui/unlock.js`):
 Prima di quel momento lo strumento si vede nella sua carta con «si apre dopo…». Non sparisce mai, e
 ⚙️ → Studio → «Livello e schede» → «Mostra tutto» lo apre subito.
 
-**Impostazioni: sei riquadri, sei pagine.** ⚙️ apre un foglio con la ricerca e sei riquadri grandi. Ogni riquadro apre una
+**Impostazioni: sette riquadri, sette pagine.** ⚙️ apre un foglio con la ricerca e sette riquadri grandi. Ogni riquadro apre una
 pagina propria, con il titolo, «‹ Indietro» e «Chiudi». Profondità massima: due livelli (riquadri → pagina). Dentro una pagina le
 sezioni sono sempre aperte, una sotto l'altra, e non si annidano.
 
@@ -193,7 +193,7 @@ ha tutto sbloccato.
 | ripasso | 复习 | le carte che oggi è il momento di rivedere |
 | serie | 连续天数 | i giorni di studio di fila |
 | grado | 等级 | il titolo che cresce con i punti (XP) |
-| pagina (delle impostazioni) | 设置页 | una delle sei schermate di ⚙️: Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Informazioni (外观, 声音和音乐, 社区与声音, 学习, 数据与同步, 关于) |
+| pagina (delle impostazioni) | 设置页 | una delle sette schermate di ⚙️: Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione, Social, Informazioni (外观, 声音和音乐, 社区与声音, 学习, 数据与同步, 社交媒体, 关于) |
 | riquadro | 入口 | il pulsante grande della pagina iniziale di ⚙️ che apre una pagina (da non confondere con la «carta» da ripassare) |
 
 ## 4. Regole controllate dagli audit
@@ -242,3 +242,9 @@ sulla rivelazione progressiva e sull'onboarding: aiuto «a richiesta», non tour
 - **Pallino «Nuovo»** su ⚙️ e su ogni pagina delle Impostazioni (`ui/community.js`): si toglie solo a pagina letta davvero, cioè ogni
   «schermata» in vista per mezzo secondo (due secondi e mezzo se la pagina è corta). Chi scorre di corsa lo vede restare.
 - I **widget** stanno in ⚙️ → Aspetto, con l'anteprima dei quattro, visibile anche fuori da Android.
+
+## Ordine e descrizioni delle Impostazioni
+
+- **Ordine:** le sezioni che servono a studiare stanno in alto (Aspetto, Suoni e musica, Comunità e voci, Studio, Dati e sincronizzazione); **Social** e, ultima, **Informazioni** stanno in fondo, per non dar loro lo stesso peso.
+- **Descrizioni:** ogni riquadro dice che cosa c'è dentro, con le parole che si leggono nelle sezioni (non un elenco di etichette). Quando si aggiunge una sezione a una pagina, si rilegge la descrizione della pagina.
+- **Social** (`data/social.js`, `ui/social.js`): solo collegamenti che si aprono al tocco, senza incorporati né contatori. Una voce senza indirizzo non compare: per aggiungere un canale si scrive il suo https:// nel file.
