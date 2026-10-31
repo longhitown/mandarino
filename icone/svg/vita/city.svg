@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Città</title>
+  <path d="M4.8 10H8.2Q9 10 9 10.8V19.2Q9 20 8.2 20H4.8Q4 20 4 19.2V10.8Q4 10 4.8 10Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.600000000000001 4.6H14.4Q15.200000000000001 4.6 15.200000000000001 5.3999999999999995V19.2Q15.200000000000001 20 14.4 20H10.600000000000001Q9.8 20 9.8 19.2V5.3999999999999995Q9.8 4.6 10.600000000000001 4.6Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M16.8 12H19.599999999999998Q20.4 12 20.4 12.8V19.2Q20.4 20 19.599999999999998 20H16.8Q16 20 16 19.2V12.8Q16 12 16.8 12Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M3 20.5H21" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12.5" cy="8.4" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="12.5" cy="12" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

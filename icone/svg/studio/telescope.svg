@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Lontano</title>
+  <path d="M3.6 10.4L15.6 8.8V13.2L3.6 13.8Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M16.5 7.8H18.1Q19 7.8 19 8.7V13.499999999999998Q19 14.399999999999999 18.1 14.399999999999999H16.5Q15.6 14.399999999999999 15.6 13.499999999999998V8.7Q15.6 7.8 16.5 7.8Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.4 9.8V13.6M12 9.3V13.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9L7 20.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9V20.8" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 13.9L12.8 20.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="17.3" cy="11.1" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

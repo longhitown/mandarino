@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Slancio</title>
+  <path d="M12 3.5C15.5 6 16.5 10.5 15.4 15H8.6C7.5 10.5 8.5 6 12 3.5Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M8.6 11.6L5.4 15L8.2 15.6M15.4 11.6L18.6 15L15.8 15.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.4 18.4Q12 21 13.6 18.4" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="9.6" r="1.5" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Statistiche</title>
+  <path d="M5.3 12H7.3Q8.1 12 8.1 12.8V18.7Q8.1 19.5 7.3 19.5H5.3Q4.5 19.5 4.5 18.7V12.8Q4.5 12 5.3 12Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M11 7H12.999999999999998Q13.799999999999999 7 13.799999999999999 7.8V18.7Q13.799999999999999 19.5 12.999999999999998 19.5H11Q10.2 19.5 10.2 18.7V7.8Q10.2 7 11 7Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M16.7 4H18.7Q19.5 4 19.5 4.8V18.7Q19.5 19.5 18.7 19.5H16.7Q15.9 19.5 15.9 18.7V4.8Q15.9 4 16.7 4Z" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="5" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

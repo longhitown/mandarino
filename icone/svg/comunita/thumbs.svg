@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Mi piace</title>
+  <path d="M4.7 11H6.1Q7 11 7 11.9V18.6Q7 19.5 6.1 19.5H4.7Q3.8 19.5 3.8 18.6V11.9Q3.8 11 4.7 11Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M7 11.4L10.6 4.8Q12 4 12.8 5.4L11.8 9.6H18.4Q19.8 9.8 19.6 11.2L18.4 18Q18.1 19.5 16.6 19.5H7" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="5.4" cy="15.2" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

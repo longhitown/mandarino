@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Bandierina</title>
+  <path d="M6.5 4V20.5" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6.5 5.4C9.5 3.8 11.5 7.2 15 5.6C16.5 4.9 17.8 5 18.5 5.4V12.6C17.8 12.2 16.5 12 15 12.7C11.5 14.3 9.5 10.9 6.5 12.5" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="6.5" cy="20.5" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

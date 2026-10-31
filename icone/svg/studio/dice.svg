@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Caso</title>
+  <path d="M7.5 4.5H16.5Q19.5 4.5 19.5 7.5V16.5Q19.5 19.5 16.5 19.5H7.5Q4.5 19.5 4.5 16.5V7.5Q4.5 4.5 7.5 4.5Z" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="8.8" cy="8.8" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="12" cy="12" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="15.2" cy="15.2" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

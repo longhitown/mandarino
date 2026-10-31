@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Amici</title>
+  <circle cx="8" cy="7" r="2.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M3.6 20V16Q3.6 12.6 8 12.6T12.4 16V20" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="16.6" cy="8.2" r="2.1" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M13.6 20V17.4Q13.6 14.4 16.6 14.4T20 17.4V20" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="11.2" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

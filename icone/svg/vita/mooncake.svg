@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Dolce della luna</title>
+  <path d="M12 3.1L13.71 4.49L15.86 3.98L16.8 5.98L18.96 6.45L18.94 8.66L20.68 10.02L19.7 12L20.68 13.98L18.94 15.34L18.96 17.55L16.8 18.02L15.86 20.02L13.71 19.51L12 20.9L10.29 19.51L8.14 20.02L7.2 18.02L5.04 17.55L5.06 15.34L3.32 13.98L4.3 12L3.32 10.02L5.06 8.66L5.04 6.45L7.2 5.98L8.14 3.98L10.29 4.49Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="12" r="4.4" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="12" r="1.5" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

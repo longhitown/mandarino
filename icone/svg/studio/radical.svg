@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Radicale</title>
+  <path d="M10 4.5H5.5Q4.5 4.5 4.5 5.5V18.5Q4.5 19.5 5.5 19.5H10" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M14 4.5H18.5Q19.5 4.5 19.5 5.5V18.5Q19.5 19.5 18.5 19.5H14" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="12" r="1.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Bambole</title>
+  <circle cx="6.4" cy="5.8" r="2.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6.4 8.4C4.4 10.4 3.8 15 3.6 20H9.2C9 15 8.4 10.4 6.4 8.4Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="17.6" cy="5.8" r="2.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M17.6 8.4C15.6 10.4 15 15 14.8 20H20.4C20.2 15 19.6 10.4 17.6 8.4Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="6.4" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="17.6" cy="14.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

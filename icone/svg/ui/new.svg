@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Nuovo</title>
+  <path d="M12 2.6L14.22 5.15L17.53 4.4L17.82 7.77L20.94 9.1L19.2 12L20.94 14.9L17.82 16.23L17.53 19.6L14.22 18.85L12 21.4L9.78 18.85L6.47 19.6L6.18 16.23L3.06 14.9L4.8 12L3.06 9.1L6.18 7.77L6.47 4.4L9.78 5.15Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="12" r="1.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

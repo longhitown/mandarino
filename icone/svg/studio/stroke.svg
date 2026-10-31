@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Tratto</title>
+  <path d="M5 8H16.5Q19 8 19 10.5V17Q19 19.5 16.5 19.5" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="5" cy="8" r="1.5" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

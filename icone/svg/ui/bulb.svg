@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Suggerimento</title>
+  <path d="M9 17V15.8C9 14.6 7 13.4 7 10.3A5 5 0 0 1 17 10.3C17 13.4 15 14.6 15 15.8V17Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 20.2H14.2" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="10.3" r="1.4" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Mano aperta</title>
+  <path d="M8.2 12V6.2Q8.2 5 9.4 5T10.6 6.2V11" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.6 11V4.2Q10.6 3 11.8 3T13 4.2V11" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M13 11V5Q13 3.8 14.2 3.8T15.4 5V12" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M15.4 12V8Q15.4 6.8 16.6 6.8T17.8 8V14.5Q17.8 19.5 12.6 20.5Q9 20.5 7.4 18L5.2 14Q4.6 12.9 5.6 12.4T7.4 13L8.2 14.2V12" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="17" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

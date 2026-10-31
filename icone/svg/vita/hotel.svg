@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Albergo</title>
+  <path d="M6.6 4H17.4Q19 4 19 5.6V18.4Q19 20 17.4 20H6.6Q5 20 5 18.4V5.6Q5 4 6.6 4Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.6 8H10.6M13.4 8H15.4M8.6 12H10.6M13.4 12H15.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10 20V16.4H14V20" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="6.2" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

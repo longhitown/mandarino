@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Terzo tono</title>
+  <path d="M4.5 8.5C6.5 11.5 9 17.5 12 17.5C15 17.5 17.5 13.5 19.5 7.5" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="4.5" cy="8.5" r="1.4" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

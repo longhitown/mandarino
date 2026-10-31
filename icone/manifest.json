@@ -1,5 +1,5 @@
 {
-  "versione": "0.1.0",
+  "versione": "0.2.0",
   "set": "D2 · Mandarino & Cinabro",
   "licenza": "CC BY 4.0",
   "autore": "Claudio Longhitano",
@@ -285,7 +285,8 @@
       "emoji": [
         "⬆"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/upload.svg"
     },
     {
       "id": "undo",
@@ -295,7 +296,8 @@
       "emoji": [
         "↩"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/undo.svg"
     },
     {
       "id": "swap",
@@ -305,7 +307,8 @@
       "emoji": [
         "↔"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/swap.svg"
     },
     {
       "id": "plus",
@@ -315,7 +318,8 @@
       "emoji": [
         "➕"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/plus.svg"
     },
     {
       "id": "close",
@@ -325,7 +329,8 @@
       "emoji": [
         "❌"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/close.svg"
     },
     {
       "id": "warning",
@@ -335,7 +340,8 @@
       "emoji": [
         "⚠"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/warning.svg"
     },
     {
       "id": "bulb",
@@ -345,7 +351,8 @@
       "emoji": [
         "💡"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/bulb.svg"
     },
     {
       "id": "sparkle",
@@ -355,7 +362,8 @@
       "emoji": [
         "✨"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/sparkle.svg"
     },
     {
       "id": "pause",
@@ -365,7 +373,8 @@
       "emoji": [
         "⏸"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/pause.svg"
     },
     {
       "id": "stop",
@@ -375,7 +384,8 @@
       "emoji": [
         "⏹"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/stop.svg"
     },
     {
       "id": "next",
@@ -385,7 +395,8 @@
       "emoji": [
         "⏭"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/next.svg"
     },
     {
       "id": "prev",
@@ -395,7 +406,8 @@
       "emoji": [
         "⏮"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/prev.svg"
     },
     {
       "id": "rewind",
@@ -405,7 +417,8 @@
       "emoji": [
         "⏪"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/rewind.svg"
     },
     {
       "id": "repeat",
@@ -415,7 +428,8 @@
       "emoji": [
         "🔁"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/repeat.svg"
     },
     {
       "id": "shuffle",
@@ -425,7 +439,8 @@
       "emoji": [
         "🔀"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/shuffle.svg"
     },
     {
       "id": "refresh",
@@ -435,7 +450,8 @@
       "emoji": [
         "🔄"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/refresh.svg"
     },
     {
       "id": "volume-low",
@@ -445,7 +461,8 @@
       "emoji": [
         "🔉"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/volume-low.svg"
     },
     {
       "id": "mute",
@@ -455,7 +472,8 @@
       "emoji": [
         "🔇"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/mute.svg"
     },
     {
       "id": "headphones",
@@ -465,7 +483,8 @@
       "emoji": [
         "🎧"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/headphones.svg"
     },
     {
       "id": "slow",
@@ -475,7 +494,8 @@
       "emoji": [
         "🐢"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/slow.svg"
     },
     {
       "id": "fast",
@@ -485,7 +505,8 @@
       "emoji": [
         "🐇"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/fast.svg"
     },
     {
       "id": "confetti",
@@ -495,7 +516,8 @@
       "emoji": [
         "🎉"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/confetti.svg"
     },
     {
       "id": "puzzle",
@@ -505,7 +527,8 @@
       "emoji": [
         "🧩"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/puzzle.svg"
     },
     {
       "id": "scroll",
@@ -515,7 +538,8 @@
       "emoji": [
         "📜"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/scroll.svg"
     },
     {
       "id": "notes",
@@ -525,7 +549,8 @@
       "emoji": [
         "📝"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/notes.svg"
     },
     {
       "id": "flag",
@@ -535,7 +560,8 @@
       "emoji": [
         "🚩"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/flag.svg"
     },
     {
       "id": "noodles",
@@ -545,7 +571,8 @@
       "emoji": [
         "🍜"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/noodles.svg"
     },
     {
       "id": "bag",
@@ -555,7 +582,8 @@
       "emoji": [
         "🛍"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/bag.svg"
     },
     {
       "id": "phone",
@@ -565,7 +593,8 @@
       "emoji": [
         "📱"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/phone.svg"
     },
     {
       "id": "phone-share",
@@ -575,7 +604,8 @@
       "emoji": [
         "📲"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/phone-share.svg"
     },
     {
       "id": "briefcase",
@@ -585,7 +615,8 @@
       "emoji": [
         "💼"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/briefcase.svg"
     },
     {
       "id": "plane",
@@ -595,7 +626,8 @@
       "emoji": [
         "✈"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/plane.svg"
     },
     {
       "id": "handshake",
@@ -605,7 +637,8 @@
       "emoji": [
         "🤝"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/handshake.svg"
     },
     {
       "id": "coffee",
@@ -615,7 +648,8 @@
       "emoji": [
         "☕"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/coffee.svg"
     },
     {
       "id": "walk",
@@ -625,7 +659,8 @@
       "emoji": [
         "🚶"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/walk.svg"
     },
     {
       "id": "calm",
@@ -635,7 +670,8 @@
       "emoji": [
         "🧘"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/calm.svg"
     },
     {
       "id": "dice",
@@ -645,7 +681,8 @@
       "emoji": [
         "🎲"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/dice.svg"
     },
     {
       "id": "mortarboard",
@@ -655,7 +692,8 @@
       "emoji": [
         "🎓"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/mortarboard.svg"
     },
     {
       "id": "masks",
@@ -665,7 +703,8 @@
       "emoji": [
         "🎭"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/masks.svg"
     },
     {
       "id": "eye",
@@ -675,7 +714,8 @@
       "emoji": [
         "👁"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/eye.svg"
     },
     {
       "id": "eyes",
@@ -685,7 +725,8 @@
       "emoji": [
         "👀"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/eyes.svg"
     },
     {
       "id": "save",
@@ -695,7 +736,8 @@
       "emoji": [
         "💾"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/save.svg"
     },
     {
       "id": "ruler",
@@ -705,7 +747,8 @@
       "emoji": [
         "📐"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/ruler.svg"
     },
     {
       "id": "flask",
@@ -716,7 +759,8 @@
         "⚗",
         "🧪"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/flask.svg"
     },
     {
       "id": "slot",
@@ -726,7 +770,8 @@
       "emoji": [
         "🎰"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/slot.svg"
     },
     {
       "id": "sprout",
@@ -736,7 +781,8 @@
       "emoji": [
         "🌱"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/sprout.svg"
     },
     {
       "id": "compass",
@@ -746,7 +792,8 @@
       "emoji": [
         "🧭"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/compass.svg"
     },
     {
       "id": "dot",
@@ -756,7 +803,8 @@
       "emoji": [
         "🔴"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/dot.svg"
     },
     {
       "id": "hanzi",
@@ -766,7 +814,8 @@
       "emoji": [
         "🈯"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/hanzi.svg"
     },
     {
       "id": "mail",
@@ -777,7 +826,8 @@
         "✉",
         "📧"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/mail.svg"
     },
     {
       "id": "octopus",
@@ -787,7 +837,8 @@
       "emoji": [
         "🐙"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/octopus.svg"
     },
     {
       "id": "rocket",
@@ -797,7 +848,8 @@
       "emoji": [
         "🚀"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/rocket.svg"
     },
     {
       "id": "clock",
@@ -807,7 +859,8 @@
       "emoji": [
         "🕒"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/clock.svg"
     },
     {
       "id": "hospital",
@@ -817,7 +870,8 @@
       "emoji": [
         "🏥"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/hospital.svg"
     },
     {
       "id": "dolls",
@@ -827,7 +881,8 @@
       "emoji": [
         "🎎"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/dolls.svg"
     },
     {
       "id": "train",
@@ -838,7 +893,8 @@
         "🚆",
         "🚇"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/train.svg"
     },
     {
       "id": "bandage",
@@ -848,7 +904,8 @@
       "emoji": [
         "🩹"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/bandage.svg"
     },
     {
       "id": "scales",
@@ -858,7 +915,8 @@
       "emoji": [
         "⚖"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/scales.svg"
     },
     {
       "id": "alarm",
@@ -868,7 +926,8 @@
       "emoji": [
         "⏰"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/alarm.svg"
     },
     {
       "id": "clip",
@@ -878,7 +937,8 @@
       "emoji": [
         "📎"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/clip.svg"
     },
     {
       "id": "hand",
@@ -888,7 +948,8 @@
       "emoji": [
         "🫳"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/hand.svg"
     },
     {
       "id": "hourglass",
@@ -898,7 +959,8 @@
       "emoji": [
         "⏳"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/hourglass.svg"
     },
     {
       "id": "link",
@@ -908,7 +970,8 @@
       "emoji": [
         "🔗"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/link.svg"
     },
     {
       "id": "palette",
@@ -918,7 +981,8 @@
       "emoji": [
         "🎨"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/palette.svg"
     },
     {
       "id": "help",
@@ -928,7 +992,8 @@
       "emoji": [
         "❓"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/help.svg"
     },
     {
       "id": "trend",
@@ -938,7 +1003,8 @@
       "emoji": [
         "📈"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/trend.svg"
     },
     {
       "id": "chart",
@@ -948,7 +1014,8 @@
       "emoji": [
         "📊"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/chart.svg"
     },
     {
       "id": "medal",
@@ -958,7 +1025,8 @@
       "emoji": [
         "🏅"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/medal.svg"
     },
     {
       "id": "clipboard",
@@ -968,7 +1036,8 @@
       "emoji": [
         "📋"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/clipboard.svg"
     },
     {
       "id": "bricks",
@@ -978,7 +1047,8 @@
       "emoji": [
         "🧱"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/bricks.svg"
     },
     {
       "id": "folder",
@@ -988,7 +1058,8 @@
       "emoji": [
         "📂"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/folder.svg"
     },
     {
       "id": "teacher",
@@ -998,7 +1069,8 @@
       "emoji": [
         "👩‍🏫"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/teacher.svg"
     },
     {
       "id": "microscope",
@@ -1008,7 +1080,8 @@
       "emoji": [
         "🔬"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/microscope.svg"
     },
     {
       "id": "telescope",
@@ -1018,7 +1091,8 @@
       "emoji": [
         "🔭"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/telescope.svg"
     },
     {
       "id": "brain",
@@ -1028,7 +1102,8 @@
       "emoji": [
         "🧠"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/brain.svg"
     },
     {
       "id": "map",
@@ -1038,7 +1113,8 @@
       "emoji": [
         "🗺"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/map.svg"
     },
     {
       "id": "speaking",
@@ -1048,7 +1124,8 @@
       "emoji": [
         "🗣"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/speaking.svg"
     },
     {
       "id": "new",
@@ -1058,7 +1135,8 @@
       "emoji": [
         "🆕"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/new.svg"
     },
     {
       "id": "leaf",
@@ -1069,7 +1147,8 @@
         "🌿",
         "🍃"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/leaf.svg"
     },
     {
       "id": "tree",
@@ -1079,7 +1158,8 @@
       "emoji": [
         "🌳"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/tree.svg"
     },
     {
       "id": "mountain",
@@ -1089,7 +1169,8 @@
       "emoji": [
         "🏔"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/mountain.svg"
     },
     {
       "id": "signal",
@@ -1099,7 +1180,8 @@
       "emoji": [
         "📶"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/signal.svg"
     },
     {
       "id": "sponge",
@@ -1109,7 +1191,8 @@
       "emoji": [
         "🧽"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/sponge.svg"
     },
     {
       "id": "thumbs",
@@ -1119,7 +1202,8 @@
       "emoji": [
         "👍"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/thumbs.svg"
     },
     {
       "id": "sun",
@@ -1129,7 +1213,8 @@
       "emoji": [
         "☀"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/sun.svg"
     },
     {
       "id": "moon",
@@ -1139,7 +1224,8 @@
       "emoji": [
         "🌙"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/moon.svg"
     },
     {
       "id": "hotel",
@@ -1149,7 +1235,8 @@
       "emoji": [
         "🏨"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/hotel.svg"
     },
     {
       "id": "wave",
@@ -1159,7 +1246,8 @@
       "emoji": [
         "〰"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/wave.svg"
     },
     {
       "id": "book-open",
@@ -1169,7 +1257,8 @@
       "emoji": [
         "📖"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/book-open.svg"
     },
     {
       "id": "books",
@@ -1179,7 +1268,8 @@
       "emoji": [
         "📚"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/books.svg"
     },
     {
       "id": "write",
@@ -1189,7 +1279,8 @@
       "emoji": [
         "✍"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/write.svg"
     },
     {
       "id": "tone-1",
@@ -1197,7 +1288,8 @@
       "zh": "第一声",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/tone-1.svg"
     },
     {
       "id": "tone-2",
@@ -1205,7 +1297,8 @@
       "zh": "第二声",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/tone-2.svg"
     },
     {
       "id": "tone-3",
@@ -1213,7 +1306,8 @@
       "zh": "第三声",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/tone-3.svg"
     },
     {
       "id": "tone-4",
@@ -1221,7 +1315,8 @@
       "zh": "第四声",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/tone-4.svg"
     },
     {
       "id": "tone-0",
@@ -1229,7 +1324,8 @@
       "zh": "轻声",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/tone-0.svg"
     },
     {
       "id": "radical",
@@ -1237,7 +1333,8 @@
       "zh": "部首",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/radical.svg"
     },
     {
       "id": "stroke",
@@ -1245,7 +1342,8 @@
       "zh": "笔画",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/stroke.svg"
     },
     {
       "id": "pinyin",
@@ -1253,7 +1351,8 @@
       "zh": "拼音",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/pinyin.svg"
     },
     {
       "id": "lantern",
@@ -1261,7 +1360,8 @@
       "zh": "灯笼",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/lantern.svg"
     },
     {
       "id": "fan",
@@ -1269,7 +1369,8 @@
       "zh": "扇子",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/fan.svg"
     },
     {
       "id": "chopsticks",
@@ -1277,7 +1378,8 @@
       "zh": "筷子",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/chopsticks.svg"
     },
     {
       "id": "teapot",
@@ -1285,7 +1387,8 @@
       "zh": "茶壶",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/teapot.svg"
     },
     {
       "id": "dumpling",
@@ -1293,7 +1396,8 @@
       "zh": "饺子",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/dumpling.svg"
     },
     {
       "id": "bowl",
@@ -1301,7 +1405,8 @@
       "zh": "碗",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/bowl.svg"
     },
     {
       "id": "house",
@@ -1309,7 +1414,8 @@
       "zh": "家",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/house.svg"
     },
     {
       "id": "family",
@@ -1317,7 +1423,8 @@
       "zh": "家人",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/family.svg"
     },
     {
       "id": "school",
@@ -1325,7 +1432,8 @@
       "zh": "学校",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/school.svg"
     },
     {
       "id": "city",
@@ -1333,7 +1441,8 @@
       "zh": "城市",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/city.svg"
     },
     {
       "id": "sea",
@@ -1341,7 +1450,8 @@
       "zh": "海",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/sea.svg"
     },
     {
       "id": "flower",
@@ -1349,7 +1459,8 @@
       "zh": "花",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/flower.svg"
     },
     {
       "id": "seal",
@@ -1357,7 +1468,8 @@
       "zh": "印章",
       "categoria": "comunita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/seal.svg"
     },
     {
       "id": "jade",
@@ -1365,7 +1477,8 @@
       "zh": "玉",
       "categoria": "comunita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/jade.svg"
     },
     {
       "id": "mandarin",
@@ -1373,7 +1486,8 @@
       "zh": "橘子",
       "categoria": "comunita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/mandarin.svg"
     },
     {
       "id": "gift",
@@ -1381,7 +1495,8 @@
       "zh": "礼物",
       "categoria": "comunita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/gift.svg"
     },
     {
       "id": "qr",
@@ -1389,7 +1504,8 @@
       "zh": "二维码",
       "categoria": "ui",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/ui/qr.svg"
     },
     {
       "id": "friends",
@@ -1397,7 +1513,8 @@
       "zh": "朋友",
       "categoria": "comunita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/comunita/friends.svg"
     },
     {
       "id": "dialogue",
@@ -1405,7 +1522,8 @@
       "zh": "对话",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/dialogue.svg"
     },
     {
       "id": "ear",
@@ -1413,7 +1531,8 @@
       "zh": "耳朵",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/ear.svg"
     },
     {
       "id": "train-ticket",
@@ -1421,7 +1540,8 @@
       "zh": "车票",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/train-ticket.svg"
     },
     {
       "id": "flower-card",
@@ -1431,7 +1551,8 @@
       "emoji": [
         "🎴"
       ],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/flower-card.svg"
     },
     {
       "id": "teacup",
@@ -1439,7 +1560,8 @@
       "zh": "茶杯",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/teacup.svg"
     },
     {
       "id": "bamboo",
@@ -1447,7 +1569,8 @@
       "zh": "竹子",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/bamboo.svg"
     },
     {
       "id": "mooncake",
@@ -1455,7 +1578,8 @@
       "zh": "月饼",
       "categoria": "vita",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/vita/mooncake.svg"
     },
     {
       "id": "ink",
@@ -1463,7 +1587,8 @@
       "zh": "墨",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/ink.svg"
     },
     {
       "id": "brush",
@@ -1471,7 +1596,8 @@
       "zh": "毛笔",
       "categoria": "studio",
       "emoji": [],
-      "stato": "da-disegnare"
+      "stato": "disegnata",
+      "file": "svg/studio/brush.svg"
     }
   ]
 }

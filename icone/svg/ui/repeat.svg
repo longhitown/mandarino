@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Ripeti</title>
+  <path d="M5 11V10Q5 7.5 7.5 7.5H18" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M15.2 4.8L18.2 7.5L15.2 10.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M19 13V14Q19 16.5 16.5 16.5H6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.8 13.8L5.8 16.5L8.8 19.2" style="stroke:var(--im,#DB5F00)"/>
+</svg>
