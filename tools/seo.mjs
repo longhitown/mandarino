@@ -95,6 +95,17 @@ export const make = {
     need("BreadcrumbList", p, ["url", "items"]);
     return { "@type": "BreadcrumbList", "@id": p.url + "#breadcrumb", itemListElement: p.items.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) };
   },
+  /* un corso (la raccolta di lezioni) e una lezione che ne fa parte: pagine generate da tools/pagine.mjs */
+  Course(p) {
+    need("Course", p, ["url", "name", "description", "lang"]);
+    return { "@type": "Course", "@id": p.url + "#course", url: p.url, name: p.name, description: p.description, inLanguage: p.lang, isAccessibleForFree: true,
+      provider: ref(ID.org), publisher: ref(ID.org), numberOfLessons: p.lessons };
+  },
+  LearningResource(p) {
+    need("LearningResource", p, ["url", "name", "description", "lang", "course"]);
+    return { "@type": "LearningResource", "@id": p.url + "#lesson", url: p.url, name: p.name, description: p.description, inLanguage: p.lang, learningResourceType: p.type || "lesson",
+      teaches: p.teaches, isAccessibleForFree: true, isPartOf: ref(p.course), mainEntityOfPage: ref(p.url + "#webpage"), publisher: ref(ID.org), author: ref(ID.org), dateModified: p.modified };
+  },
   Article(p) {
     need("Article", p, ["url", "headline", "description", "image", "lang"]);
     return { "@type": "Article", "@id": p.url + "#article", mainEntityOfPage: ref(p.url + "#webpage"), headline: p.headline, description: p.description,
@@ -205,7 +216,7 @@ export function decorate(html, page, ctx = {}) {
 
 /* ---------- sitemap, robots, llms.txt ---------- */
 export function sitemapXml(ctx = {}) {
-  const urls = PAGES.filter((p) => !p.noindex).map((p) => {
+  const urls = PAGES.filter((p) => !p.noindex).concat(ctx.extra || []).map((p) => {
     const alt = p.kind === "home" ? ALT.concat([["x-default", "/"]]).map(([l, a]) => `\n    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${a}"/>`).join("") : "";
     const lm = ctx.lastmod && ctx.lastmod[p.path];
     const img = p.path === "/" ? `\n    <image:image><image:loc>${SITE}/img/anteprima.png</image:loc></image:image>` : p.path === "/manifesto.html" ? `\n    <image:image><image:loc>${SITE}/img/manifesto-og.png</image:loc></image:image>` : "";
@@ -253,6 +264,9 @@ export function llmsTxt() {
 - [Presentazione (italiano)](${SITE}/): che cos'è, funzioni, come si installa, domande frequenti
 - [Presentazione (中文)](${SITE}/zh/): 给中国人的意大利语
 - [Provala nel browser](${SITE}/app/): l'app completa, funziona anche senza connessione
+- [Lezioni di grammatica cinese](${SITE}/lezioni/): le lezioni del corso con esempi, dialoghi, errori tipici ed esercizi, una pagina per lezione
+- [Parole di cinese](${SITE}/parole/): il vocabolario per sezione e per livello HSK, con pinyin e traduzione
+- [意大利语课程](${SITE}/zh/lessons/): 给说中文的人的意大利语语法课程
 - [Manifesto](${SITE}/manifesto.html): i princìpi del progetto, in italiano e cinese
 - [Privacy](${SITE}/privacy.html): cosa non viene raccolto
 - [Testo completo per assistenti](${SITE}/llms-full.txt): tutto questo file e le risposte alle domande più comuni, in un solo testo
