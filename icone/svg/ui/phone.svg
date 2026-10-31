@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Telefono</title>
+  <path d="M9.4 3H14.6Q17 3 17 5.4V18.6Q17 21 14.6 21H9.4Q7 21 7 18.6V5.4Q7 3 9.4 3Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.5 5.8H13.5" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="18" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

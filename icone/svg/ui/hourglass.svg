@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Attesa</title>
+  <path d="M6.5 4H17.5" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6.5 20H17.5" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M7.6 4V6.6Q7.6 9.6 12 12Q16.4 9.6 16.4 6.6V4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M7.6 20V17.4Q7.6 14.4 12 12Q16.4 14.4 16.4 17.4V20" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 18.4Q12 16.4 14.2 18.4Z" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

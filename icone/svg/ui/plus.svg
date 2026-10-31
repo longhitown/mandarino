@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Aggiungi</title>
+  <path d="M12 5.5V9.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M12 14.8V18.5" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M5.5 12H9.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M14.8 12H18.5" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="12" r="1.5" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Ospedale</title>
+  <path d="M5.6 5H18.4Q20 5 20 6.6V18.4Q20 20 18.4 20H5.6Q4 20 4 18.4V6.6Q4 5 5.6 5Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.8 20V17H14.2V20" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.8 8.4H13.2V10.8H15.6V13.2H13.2V15.6H10.8V13.2H8.4V10.8H10.8Z" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

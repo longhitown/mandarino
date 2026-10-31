@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Occhio attento</title>
+  <path d="M2.5 12C3.6 9.6 5.4 8.4 6.8 8.4S10 9.6 11 12C10 14.4 8.2 15.6 6.8 15.6S3.6 14.4 2.5 12Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M13 12C14 9.6 15.8 8.4 17.2 8.4S20.4 9.6 21.5 12C20.4 14.4 18.6 15.6 17.2 15.6S14 14.4 13 12Z" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="7" cy="12" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="17.4" cy="12" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

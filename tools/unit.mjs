@@ -1046,7 +1046,8 @@ function sandbox() {
   const p = IC.problems(), ep = IC.emojiProblems(), m = JSON.parse(fs.readFileSync(path.join(ROOT, "icone/manifest.json"), "utf8"));
   check("icone: manifest, file SVG (griglia 24, tratto 1,8, solo variabili di colore), sprite e somme SHA-256 sono in regola", p.length === 0, p.slice(0, 3).join(" | "));
   check("icone: ogni emoji dell'app ha la sua icona nel manifest (e, con la sostituzione attiva, nessuna resta nel codice)", ep.length === 0, ep.slice(0, 3).join(" | "));
-  check("icone: la fase 1 è di 150 voci, con nomi in italiano e in cinese, e le disegnate sono almeno 24", m.icone.length >= 150 && m.icone.every((i) => i.it && i.zh) && m.icone.filter((i) => i.stato === "disegnata").length >= 24, m.icone.length + " voci");
+  check("icone: la fase 1 è completa: 150 voci con nomi in italiano e in cinese, tutte disegnate", m.icone.length >= 150 && m.icone.every((i) => i.it && i.zh && i.stato === "disegnata"), m.icone.filter((i) => i.stato === "disegnata").length + " disegnate su " + m.icone.length);
+  check("icone: il kit e gli adesivi hanno lo strumento (tools/icone-kit.mjs) e la guida (icone/ADESIVI.md), richiamati da ICONE.md", fs.existsSync(path.join(ROOT, "tools/icone-kit.mjs")) && fs.existsSync(path.join(ROOT, "icone/ADESIVI.md")) && /ADESIVI\.md/.test(fs.readFileSync(path.join(ROOT, "icone/ICONE.md"), "utf8")), "");
   const fig = ["01-dal-carattere-al-segno", "02-evoluzione", "03-sottrazione", "04-nove-quadri", "05-dove-ci-siamo-fermati", "06-tre-colori-tre-fondi"];
   const dm = fs.readFileSync(path.join(ROOT, "icone/DESIGN.md"), "utf8");
   check("icone: DESIGN.md racconta l'evoluzione con le sei figure, tutte presenti e richiamate", fig.every((n) => fs.existsSync(path.join(ROOT, "icone/design", n + ".svg")) && dm.includes("design/" + n + ".svg")), "");

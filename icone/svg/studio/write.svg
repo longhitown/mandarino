@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Scrittura a mano</title>
+  <path d="M5 19.5L6.2 15.6L15.8 6L18.2 8.4L8.6 18Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M13.8 8L16.2 10.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M3.8 21H20.5" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M5 19.5L6 16.4L8 18.4Z" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

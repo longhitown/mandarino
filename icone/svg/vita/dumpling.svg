@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Ravioli</title>
+  <path d="M3 16.5C3 10.5 7.5 7 12 7C16.5 7 21 10.5 21 16.5Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M7.6 8.6Q8.4 10.4 8 12.4M10.6 7.6Q11 10 10.6 12.6M13.6 7.6Q13.4 10 13.8 12.6M16.4 8.6Q15.6 10.4 16 12.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M5 19.5H19" style="stroke:var(--im,#DB5F00)"/>
+</svg>

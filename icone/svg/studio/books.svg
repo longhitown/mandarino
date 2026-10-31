@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Biblioteca</title>
+  <path d="M5 5H7Q8 5 8 6V18.5Q8 19.5 7 19.5H5Q4 19.5 4 18.5V6Q4 5 5 5Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.4 4H12.4Q13.4 4 13.4 5V18.5Q13.4 19.5 12.4 19.5H10.4Q9.4 19.5 9.4 18.5V5Q9.4 4 10.4 4Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M15.6 6.6L19.3 5.6L21.4 18.2L17.6 19.2Z" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="6" cy="8.2" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="11.4" cy="7.4" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

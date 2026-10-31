@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Mescola</title>
+  <path d="M4 7H7.5C13 7 11 17 16.5 17H20" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M17.5 14.2L20.3 17L17.5 19.8" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M4 17H7.5C8.8 17 9.8 16.4 10.5 15.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M13.5 8.6C14.2 7.7 15.2 7 16.5 7H20" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M17.5 4.2L20.3 7L17.5 9.8" style="stroke:var(--im,#DB5F00)"/>
+</svg>

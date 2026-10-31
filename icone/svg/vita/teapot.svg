@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Teiera</title>
+  <path d="M6 11.4Q6 8.2 12 8.2T18 11.4V15Q18 19.2 12 19.2T6 15Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M18 11.6L21.2 8.6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M6 11.4H4.6Q3.6 11.4 3.6 12.8T4.6 15.2H6" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.4 8.2V6.6H13.6V8.2" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="13.6" r="1.2" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

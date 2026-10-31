@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Pennello</title>
+  <path d="M18.6 3.6L11 11.2" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M11 11.2C9 11.2 7 12.6 6.6 15.4C6.2 17.8 5.2 19 4 19.8C7.6 20.6 12 19.6 13 15.2C13.4 13.2 12.6 12 11 11.2Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <circle cx="5.4" cy="20.6" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

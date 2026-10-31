@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Cerotto</title>
+  <path d="M8.96 19.57L19.57 8.96A3.2 3.2 0 0 0 15.04 4.43L4.43 15.04A3.2 3.2 0 0 0 8.96 19.57Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.2 9.2L14.8 14.8" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="10.6" cy="13.4" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="13.4" cy="10.6" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Misura</title>
+  <path d="M4.2 15.4L15.4 4.2L19.8 8.6L8.6 19.8Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M7.4 12.6L9.6 14.8M10.2 9.8L12.4 12M13 7L15.2 9.2" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="17" cy="13.2" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

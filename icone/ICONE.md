@@ -5,7 +5,7 @@ ci siamo arrivati: [DESIGN.md](DESIGN.md). Questo file è la specifica.
 
 | | |
 |---|---|
-| **Versione del set** | 0.1.0 (fase 1 in corso: 24 icone disegnate su 150) |
+| **Versione del set** | 0.2.0 (fase 1 completa: 150 icone disegnate su 150) |
 | **Licenza** | [CC BY 4.0](../LICENZE/ICONE.txt) |
 | **Autore** | Claudio Longhitano (con l'assistente di IA Claude: vedi [NOTICE.md](../NOTICE.md)) |
 | **Marchio** | il nome màndarínō e il logo **non** sono inclusi nella licenza: [MARCHIO.md](../MARCHIO.md) |
@@ -28,6 +28,7 @@ màndarínō lo approvi: [MARCHIO.md](../MARCHIO.md).
 | `sprite.svg` | Tutte le icone disegnate in un solo file, con `<symbol id="i-…">`; si genera, non si modifica a mano |
 | `SHA256SUMS.txt` | La somma SHA-256 di ogni file del set, nel formato di `sha256sum` |
 | `DESIGN.md`, `design/` | Il concept e le figure dell'evoluzione grafica |
+| `ADESIVI.md` | Gli adesivi per Telegram e WhatsApp: che cosa c'è nel pacchetto e come si pubblica e si aggiunge |
 
 ## Come si usano
 
@@ -91,9 +92,9 @@ Su Windows (PowerShell): `Get-FileHash .\sprite.svg -Algorithm SHA256`. Il risul
 <!-- somme:inizio -->
 | File | SHA-256 |
 |---|---|
-| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `2f37902e26bf86c1e98b95f01bf117d4f6167bacf1984ac86c4d683de6f9e88c` |
-| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `fcb1a979140f92f88565c4e1159005031c5140dcd57da5346220112dcbe76d5d` |
-| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 24 icone) | `2df3709c76f9445d3095b4f16e67a10b428f2026f10901feb2786cbb880f5b61` (somma del suo contenuto) |
+| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `4090367c589077ff09c6dff127ae171bb0fd430212e38830dbd6c7c773089413` |
+| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `6dd8612906631a7236d1a22242888f2871634cbf632a5176dc080d99684bd404` |
+| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 150 icone) | `d6b6781be64f4f3cd54e7008a4268b9c8c0d616f9169e58b99125cdc4c58dfa7` (somma del suo contenuto) |
 <!-- somme:fine -->
 
 Le somme del pacchetto compresso (`.zip`) delle release e quelle degli adesivi si aggiungono qui a ogni release.
@@ -109,5 +110,5 @@ Un catalogo compatto e coerente è meglio di uno enorme e sbiadito.
 ## Distribuzione
 
 - **Nell'app:** sprite incorporato, usato al posto delle emoji (PR dedicata).
-- **Kit grafico** (cartella con gli SVG ottimizzati e i PNG a 4×), **adesivi** per Telegram e WhatsApp e **pacchetto per il web**: nelle release, con le somme in questa pagina.
+- **Kit grafico** (SVG, PNG a 96 e 512 px, sprite, manifest) e **adesivi** per Telegram e WhatsApp: `node tools/icone-kit.mjs` li costruisce in `dist-kit/`, due file `.zip` riproducibili (stessi file, stessi byte) e le somme SHA-256 da incollare qui a ogni release. Come si aggiungono: [ADESIVI.md](ADESIVI.md).
 - **Codici di testo** (per esempio `:mand-fiamma:`): solo uso interno, nell'app e sul sito.

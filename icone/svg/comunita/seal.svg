@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Sigillo</title>
+  <path d="M6.4 12H17.6Q19 12 19 13.4V18.6Q19 20 17.6 20H6.4Q5 20 5 18.6V13.4Q5 12 6.4 12Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M9.6 12V6.8Q9.6 4.6 12 4.6T14.4 6.8V12" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="12" cy="16" r="1.4" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

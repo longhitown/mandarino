@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Pulisci</title>
+  <path d="M6.4 10H17.6Q20 10 20 12.4V15.6Q20 18 17.6 18H6.4Q4 18 4 15.6V12.4Q4 10 6.4 10Z" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="9" cy="6.4" r="1.6" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="14.6" cy="5.2" r="2.2" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="18.2" cy="7.8" r="1.2" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="8.6" cy="14" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="13" cy="14.6" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="16.6" cy="13.8" r="0.9" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

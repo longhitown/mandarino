@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Treno</title>
+  <path d="M7.6 3.5H16.4Q19 3.5 19 6.1V14.4Q19 17 16.4 17H7.6Q5 17 5 14.4V6.1Q5 3.5 7.6 3.5Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.3 6.4H15.700000000000001Q16.6 6.4 16.6 7.300000000000001V9.700000000000001Q16.6 10.600000000000001 15.700000000000001 10.600000000000001H8.3Q7.4 10.600000000000001 7.4 9.700000000000001V7.300000000000001Q7.4 6.4 8.3 6.4Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M7.8 20.5L9.4 17M16.2 20.5L14.6 17M5 20.5H19" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="8.6" cy="13.8" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="15.4" cy="13.8" r="1" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

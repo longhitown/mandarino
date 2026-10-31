@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Caffè</title>
+  <path d="M5 9H16V14.6Q16 19 12 19H9Q5 19 5 14.6Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M16 10.4H17.4A2.4 2.4 0 0 1 17.4 15.2H16" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M8.4 3.6Q9.6 5 8.4 6.4M12 3.6Q13.2 5 12 6.4" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M4 21.5H17" style="stroke:var(--im,#DB5F00)"/>
+</svg>

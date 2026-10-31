@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Dialogo</title>
+  <path d="M3.8 5H13.6Q14.6 5 14.6 6V10.6Q14.6 11.6 13.6 11.6H8L5.6 14V11.6H3.8Q2.8 11.6 2.8 10.6V6Q2.8 5 3.8 5Z" style="stroke:var(--im,#DB5F00)"/>
+  <path d="M10.2 14.4V15.4Q10.2 16.4 11.2 16.4H16L18.4 18.8V16.4H20.2Q21.2 16.4 21.2 15.4V10.8Q21.2 9.8 20.2 9.8H17" style="stroke:var(--im,#DB5F00)"/>
+  <circle cx="6.2" cy="8.3" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="9.2" cy="8.3" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+  <circle cx="11.8" cy="8.3" r="0.8" style="fill:var(--ia,#C0281D);stroke:var(--ia,#C0281D)" stroke-width="0.8"/>
+</svg>

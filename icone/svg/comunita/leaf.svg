@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t">
+  <title id="t">Foglia</title>
+  <path d="M5 19C5 10.4 10 5.4 19.4 4.6C19.4 13 15 18.8 6 19.4Z" style="fill:var(--iv,#DB5F00);fill-opacity:.16;stroke:var(--im,#DB5F00)"/>
+  <path d="M5 19L14 10" style="stroke:var(--im,#DB5F00)"/>
+</svg>
