@@ -1,0 +1,17 @@
+màndarínō is an app for learning Mandarin Chinese starting from Italian, and Italian starting from Chinese. It suits complete beginners and anyone preparing for the HSK exam. It is free, works without a network connection, has no ads and no accounts, and collects no data: your progress stays on your phone.
+
+<b>Chinese course (for Italian speakers)</b>
+• 6385 HSK 3.0 words, levels 1-5, in six chapters and stages, with characters (hanzi), pinyin, tones and an example sentence for every word
+• spaced repetition with flashcards (FSRS): ten words a day, read aloud
+• a placement test of a few minutes at the start, so you begin at the right point
+• 55 grammar lessons, dialogues, sentence patterns and a lab that translates only when it is sure
+• tone ear training, pronunciation with the microphone, stroke order
+
+<b>Italian course (for Chinese speakers)</b>
+• 51 lessons explained in Chinese, 4780 words, sentence and conjugation exercises, an Italian sentence checker
+
+<b>Yours alone</b>
+• sync without a server: a file in your own cloud, or QR codes from one phone to another
+• Anki export, "Today" widget, optional reminder, music for studying
+
+The code is free (MIT) and the content is CC BY 4.0. You can suggest corrections directly from the app.

@@ -1,0 +1,2 @@
+• Added the English store listing (F-Droid and Google Play).
+• No other changes in the app: anyone on 0.9.0 can update without noticing a thing.

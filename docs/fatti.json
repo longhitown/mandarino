@@ -1,7 +1,7 @@
 {
   "$descrizione": "Fatti verificati di màndarínō, ricavati dal codice da tools/fatti.mjs. Non modificare a mano: node tools/fatti.mjs --scrivi",
   "nome": "màndarínō",
-  "versioneNelCodice": "0.9.0",
+  "versioneNelCodice": "0.9.1",
   "corsoDiCinese": {
     "parole": 6385,
     "sezioni": 220,
