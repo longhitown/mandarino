@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* màndarínō · il dataset aperto del vocabolario («italian-chinese-hsk3-vocabulary»).
 
-   Esporta dal codice del progetto una tabella pulita (caratteri, pinyin, italiano, sezione, livello HSK 3.0, frequenza) in CSV e JSON,
+   Esporta dal codice del progetto una tabella pulita (caratteri, pinyin, italiano, nota, sezione, livello HSK 3.0) in CSV e JSON,
    con la scheda del dataset (dataset card, anche per Hugging Face), la nota sulle licenze e le impronte SHA-256.
    Il controllo delle licenze è in docs/dataset-licenze.md: qui è anche nel codice, perché lo strumento si rifiuta di esportare
    se il dato di partenza non è tra quelli ammessi.
@@ -26,8 +26,7 @@ export const NOME = "italian-chinese-hsk3-vocabulary", VERSIONE = "1.0.0";
 /* le sole origini ammesse nella v1, con la licenza. Tutto il resto (tratti, struttura dei caratteri, lessico italiano, frasi) non entra nel dataset: ha licenze diverse (docs/dataset-licenze.md) */
 export const AMMESSI = {
   "src/data/vocab/": "CC BY 4.0 (contenuti didattici del progetto, LICENZE/CONTENUTI.txt)",
-  "src/data/levels.js": "MIT (complete-hsk-vocabulary, Yanis Zafirópulos)",
-  "src/data/freq.js": "MIT (complete-hsk-vocabulary, Yanis Zafirópulos)"
+  "src/data/levels.js": "MIT (complete-hsk-vocabulary, Yanis Zafirópulos)"
 };
 
 const rd = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
@@ -40,10 +39,9 @@ export function righe() {
   const D = load(SRC);
   const livelli = mappa("src/data/levels.js", "HSK_LEVEL"), liv = new Map();
   for (const [l, s] of Object.entries(livelli)) for (const w of String(s).split("|")) if (w && !liv.has(w)) liv.set(w, +l);
-  const rango = new Map(String(D.WORD_FREQ).split("|").map((w, i) => [w, i + 1]).reverse());
   const out = [];
   for (const s of D.SECTIONS) for (const w of s.words) {
-    out.push({ hanzi: w[1], pinyin: String(w[0]).replace(/\./g, ""), italiano: w[2], nota: w[3] || "", sezione: s.id, titolo_sezione: s.title, livello_hsk: liv.get(w[1]) || "", frequenza_rango: rango.get(w[1]) || "" });
+    out.push({ hanzi: w[1], pinyin: String(w[0]).replace(/\./g, ""), italiano: w[2], nota: w[3] || "", sezione: s.id, titolo_sezione: s.title, livello_hsk: liv.get(w[1]) || "" });
   }
   return { rows: out, files: D.files, sezioni: D.SECTIONS.length };
 }
@@ -91,11 +89,11 @@ tags:
 
 # ${NOME} · versione ${VERSIONE}
 
-**Italiano.** Il vocabolario cinese-italiano che sta dietro a [màndarínō](https://mandarinoapp.org), l'app gratuita, offline e senza pubblicità per imparare il cinese (per italiani) e l'italiano (per chi parla cinese). ${n} voci con caratteri, pinyin, significato in italiano, sezione tematica, livello HSK 3.0 e posizione nella frequenza d'uso.
+**Italiano.** Il vocabolario cinese-italiano che sta dietro a [màndarínō](https://mandarinoapp.org), l'app gratuita, offline e senza pubblicità per imparare il cinese (per italiani) e l'italiano (per chi parla cinese). ${n} voci con caratteri, pinyin, significato in italiano, sezione tematica, livello HSK 3.0.
 
-**English.** The Chinese–Italian vocabulary behind [màndarínō](https://mandarinoapp.org), a free, offline, ad-free app for learning Chinese (for Italian speakers) and Italian (for Chinese speakers). ${n} entries with Chinese characters, pinyin, Italian meaning, thematic section, HSK 3.0 level and frequency rank.
+**English.** The Chinese–Italian vocabulary behind [màndarínō](https://mandarinoapp.org), a free, offline, ad-free app for learning Chinese (for Italian speakers) and Italian (for Chinese speakers). ${n} entries with Chinese characters, pinyin, Italian meaning, thematic section, HSK 3.0 level.
 
-**中文。** 这是 [màndarínō](https://mandarinoapp.org)（免费、离线、无广告的中文和意大利语学习应用）所用的中意词汇表：共 ${n} 条，含汉字、拼音、意大利语释义、主题分组、HSK 3.0 等级和词频排名。
+**中文。** 这是 [màndarínō](https://mandarinoapp.org)（免费、离线、无广告的中文和意大利语学习应用）所用的中意词汇表：共 ${n} 条，含汉字、拼音、意大利语释义、主题分组、HSK 3.0 等级。
 
 ## Colonne
 
@@ -107,13 +105,12 @@ tags:
 | \`nota\` | Una nota d'uso, quando c'è |
 | \`sezione\`, \`titolo_sezione\` | La sezione dell'app in cui compare la parola (identificatore e titolo) |
 | \`livello_hsk\` | Il livello HSK 3.0, da 1 a 6, secondo complete-hsk-vocabulary; vuoto se la parola è oltre l'HSK 1-6 o non è nella lista (${conLiv} voci hanno un livello: ${perLiv}) |
-| \`frequenza_rango\` | La posizione nella frequenza d'uso, dalla più comune (1); vuoto se non è nella lista |
 
 Formati: \`vocabulary.csv\` (UTF-8, virgola, intestazione) e \`vocabulary.json\` (elenco di oggetti).
 
 ## Come è stato fatto
 
-Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svolto con l'aiuto di un assistente di intelligenza artificiale (Claude, Anthropic), sotto la direzione dell'autore; ne parliamo apertamente perché in molti paesi la tutela di ciò che produce un'IA è ancora incerta. I controlli sono automatici: ortografia dell'italiano (Hunspell e Morph-it!) e pinyin confrontato con CC-CEDICT, che serve solo come controllo e non è copiato nei dati. I livelli e la frequenza vengono da complete-hsk-vocabulary.
+Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svolto con l'aiuto di un assistente di intelligenza artificiale (Claude, Anthropic), sotto la direzione dell'autore; ne parliamo apertamente perché in molti paesi la tutela di ciò che produce un'IA è ancora incerta. I controlli sono automatici: ortografia dell'italiano (Hunspell e Morph-it!) e pinyin confrontato con CC-CEDICT, che serve solo come controllo e non è copiato nei dati. I livelli HSK 3.0 vengono da complete-hsk-vocabulary (che li prende da elkmovie/hsk30, MIT). La frequenza d'uso non è inclusa: ha origine in dati con licenza diversa (CC BY-SA 4.0).
 
 ## Limiti noti
 
@@ -123,7 +120,7 @@ Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svo
 
 ## Licenza e come citare
 
-I dati sono pubblicati con la licenza [Creative Commons Attribuzione 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.it). I livelli HSK e la frequenza vengono da complete-hsk-vocabulary (licenza MIT): vedi \`NOTICE.md\`. Il nome «màndarínō» e il logo non sono compresi nella licenza (vedi [MARCHIO.md](https://github.com/longhitown/mandarino/blob/HEAD/MARCHIO.md)).
+I dati sono pubblicati con la licenza [Creative Commons Attribuzione 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.it). I livelli HSK vengono da complete-hsk-vocabulary (licenza MIT): vedi \`NOTICE.md\`. Il nome «màndarínō» e il logo non sono compresi nella licenza (vedi [MARCHIO.md](https://github.com/longhitown/mandarino/blob/HEAD/MARCHIO.md)).
 
 > màndarínō, di Claudio Longhitano. ${NOME}, versione ${VERSIONE}. https://mandarinoapp.org
 
@@ -142,7 +139,7 @@ function nota() {
 
 I dati di ${NOME} sono © 2026 Claudio Longhitano, pubblicati con la licenza CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/legalcode.it): puoi copiarli, ridistribuirli, adattarli e usarli anche a fini commerciali, citando «màndarínō, di Claudio Longhitano», con il link alla licenza e indicando se hai fatto modifiche.
 
-Le colonne \`livello_hsk\` e \`frequenza_rango\` sono ricavate da complete-hsk-vocabulary (https://github.com/drkameleon/complete-hsk-vocabulary), che ha la licenza MIT. Il suo avviso è qui sotto e va conservato in ogni copia sostanziale.
+La colonna \`livello_hsk\` è ricavata da complete-hsk-vocabulary (https://github.com/drkameleon/complete-hsk-vocabulary), che ha la licenza MIT. Il suo avviso è qui sotto e va conservato in ogni copia sostanziale. Quel progetto riporta le liste HSK 3.0 di elkmovie/hsk30 (MIT, https://github.com/elkmovie/hsk30), da cui vengono i livelli; versione usata: commit 7ac65bf1a6387d35f1ade478906172a19311c7f9 (23 marzo 2026).
 
 ---
 
@@ -153,7 +150,7 @@ ${rd("LICENZE/MIT-complete-hsk-vocabulary.txt").trim()}
 export function costruisci() {
   const r = controlla();
   if (r.problemi.length) throw new Error("dataset non esportabile:\n  " + r.problemi.slice(0, 20).join("\n  "));
-  const cols = ["hanzi", "pinyin", "italiano", "nota", "sezione", "titolo_sezione", "livello_hsk", "frequenza_rango"];
+  const cols = ["hanzi", "pinyin", "italiano", "nota", "sezione", "titolo_sezione", "livello_hsk"];
   const CSV = [cols.join(","), ...r.rows.map((x) => cols.map((c) => csv(x[c])).join(","))].join("\n") + "\n";
   const JSONF = JSON.stringify(r.rows.map((x) => Object.fromEntries(cols.map((c) => [c, x[c]]))), null, 1) + "\n";
   const NOTE = nota();
@@ -170,7 +167,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     const d = costruisci();
     if (!solo) { fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(OUT, { recursive: true }); for (const [n, c] of d.files) fs.writeFileSync(path.join(OUT, n), c); }
     console.log(`✓ dataset ${NOME} ${VERSIONE}: ${d.righe} voci${solo ? " (controllo, niente scritto)" : " in dist-dataset/"}`);
-    const prima = rd("THIRD-PARTY-NOTICES.md").includes("commit non annotato");
-    if (prima) console.log("  · da fare prima di pubblicare: il commit di complete-hsk-vocabulary non è annotato (THIRD-PARTY-NOTICES.md): rilancia node tools/levels.mjs e annota la versione");
+    const riga = rd("THIRD-PARTY-NOTICES.md").split("\n").find((l) => l.includes("complete-hsk-vocabulary (Yanis")) || "";
+    if (!/commit `[0-9a-f]{40}`/.test(riga)) console.log("  · da fare prima di pubblicare: il commit di complete-hsk-vocabulary non è annotato in THIRD-PARTY-NOTICES.md");
   } catch (e) { console.error("✗ " + e.message); process.exit(1); }
 }

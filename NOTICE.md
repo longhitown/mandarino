@@ -35,6 +35,8 @@ Questi file hanno la licenza della loro fonte.
 | `wiki/zh-it.txt` | wikidict-it, dati di Wikidata | CC0 |
 | `it/lexicon.js` | genere, plurale e forme ricavati da Morph-it! | LGPL, una delle due licenze di Morph-it! |
 
+`levels.js` e `freq.js` sono MIT come il progetto da cui vengono, ma quel progetto raccoglie dati di altri (anche CC BY-SA 4.0, per la frequenza): le fonti, una per una, sono in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
 ## Contributi
 
 Se mi proponi una correzione o una parola (dall'app, con una issue o per e-mail), accetti che venga pubblicata con la
