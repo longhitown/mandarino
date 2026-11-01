@@ -64,7 +64,10 @@ async function images() {
       ? [async () => {}, async () => { await d.evaluate(() => CP.show("words", true, true)); }, async () => { await d.evaluate(() => CP.show("study", true, true)); }, async () => { await d.evaluate(() => CP.show("build", true, true)); }]
       : [async () => {}, async () => { await d.evaluate(() => CP.itShow && CP.itShow("words")); }, async () => { await d.evaluate(() => CP.itShow && CP.itShow("review")); }, async () => { await d.evaluate(() => CP.itShow && CP.itShow("conj")); }];
     let i = 1;
-    for (const go of shots) { await go(); await d.waitForTimeout(900); await d.evaluate(() => scrollTo(0, 0)); await d.screenshot({ path: path.join(img, "phoneScreenshots", i++ + ".png") }); }
+    /* le schermate di it-IT, en-US e zh-CN (phoneScreenshots) sono scelte a mano (carta della parola, orecchio ai toni, parole, frasi) e non si
+       riscrivono da sole: con --schermate si rifanno queste quattro più semplici (le schede della Parole, dello Studio e delle Frasi) */
+    if (process.argv.includes("--schermate")) for (const go of shots) { await go(); await d.waitForTimeout(900); await d.evaluate(() => scrollTo(0, 0)); await d.screenshot({ path: path.join(img, "phoneScreenshots", i++ + ".png") }); }
+    else i = fs.readdirSync(path.join(img, "phoneScreenshots")).length + 1;
     await ctx.close();
     console.log("✓ " + L + ": icon.png, featureGraphic.png, phoneScreenshots/1-" + (i - 1) + ".png");
   }
