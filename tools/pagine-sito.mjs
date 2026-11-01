@@ -88,59 +88,69 @@ ${cta(t, zh ? "màndarínō" : "màndarínō")}`;
   return { path: path_, html: shell({ t, url, title: b.title, desc, body, crumbs: [[t.crumbHome, "/"], [zh ? "作者" : "Autore", path_]], nodes: [], alts, type: "ProfilePage", main: ID.person }), lang: t.lang, kind: "author", sources: ["tools/pagine-sito.mjs"] };
 }
 
-/* ---------- il confronto ---------- */
-export function confronto() { return JSON.parse(fs.readFileSync(path.join(ROOT, "docs/ai/confronto.json"), "utf8")); }
-const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+/* ---------- i confronti (italiano: per chi impara il cinese; cinese: per chi impara l'italiano) ----------
+   I testi e i dati stanno in docs/ai/confronto.json e docs/ai/confronto-zh.json: qui si assembla solo la pagina. */
+const FILES = { it: "docs/ai/confronto.json", zh: "docs/ai/confronto-zh.json" };
+export function confronto(lang = "it") { return JSON.parse(fs.readFileSync(path.join(ROOT, FILES[lang]), "utf8")); }
+export const CONFRONTO_PATH = confronto("it").path;
+const fmtDate = (d, lang) => lang === "zh" ? d.replace(/^(\d+)-0?(\d+)-0?(\d+)$/, "$1年$2月$3日") : new Date(d + "T12:00:00Z").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const joinNames = (names, lang) => lang === "zh" ? names.slice(0, -1).join("、") + " 和 " + names[names.length - 1] : names.slice(0, -1).join(", ") + " e " + names[names.length - 1];
+/* segnaposto: {{data}}, {{altre}}, {{totale}} del confronto, e {{chiave.dei.fatti}} di docs/fatti.json */
+const sub = (s, v, f) => fill(String(s).replace(/\{\{(data|altre|totale)\}\}/g, (m, k) => v[k]), f);
 
-export const CONFRONTO_PATH = "/confronto/app-per-imparare-cinese/";
-function confrontoPage() {
-  const t = T.it, C = confronto(), f = facts() || {}, url = SITE + CONFRONTO_PATH, apps = C.app, quando = fmtDate(C.verificatoIl);
-  const cell = (r, a) => fill(r.celle[a.id].t, f);
-  const rows = C.righe.map((r) => [r.titolo, ...apps.map((a) => cell(r, a))]);
-  const title = "Confronto tra app per imparare il cinese: costo, pubblicità, offline e dati · màndarínō";
-  const resp = `Questa pagina confronta màndarínō con ${apps.length - 1} app per imparare il cinese (${apps.slice(1).map((a) => a.nome).join(", ")}) su costo, pubblicità, uso offline, dati personali e standard HSK, con la fonte di ogni dato, letta il ${quando}.`;
-  const faq = [
-    ["Qual è un'app per imparare il cinese gratis, senza pubblicità e senza account?",
-      `màndarínō è un'app per imparare il cinese gratuita, senza pubblicità e senza account. Tra le ${apps.length} app confrontate in questa pagina è l'unica senza acquisti nell'app e non raccoglie dati personali, mentre Duolingo, HelloChinese e Busuu dichiarano nello store di collegare dati all'utente. Il corso comprende ${f.corsoDiCinese ? f.corsoDiCinese.parole : ""} parole HSK 3.0.`],
-    ["Quali app per imparare il cinese funzionano offline?",
-      "Secondo le pagine ufficiali lette, HelloChinese (dopo aver scaricato il corso) e SuperChinese (scaricando le lezioni) dichiarano l'uso offline, e màndarínō funziona offline dopo la prima apertura. Per Duolingo e Busuu la scheda dello store non lo indica."],
-    ["Quali dati raccolgono le app per imparare il cinese?",
-      "Le schede dell'App Store dichiarano che Duolingo e Busuu usano dati per il tracciamento e che HelloChinese collega alcuni dati all'utente (acquisti, e-mail, nome, ID utente, dati d'uso). màndarínō non raccoglie dati personali. Queste dichiarazioni sono compilate dagli sviluppatori e non sono verificate da Apple."],
-    ["Come sono stati raccolti i dati di questo confronto?",
-      `Abbiamo letto le pagine pubbliche indicate nella tabella il ${quando} e riportato solo ciò che dicono. Dove una pagina non dice una cosa, la cella scrive «non indicato» o «non verificato», senza dedurre nulla. Se trovi un errore, segnalalo su GitHub e lo correggiamo.`]
-  ];
+function confrontoPage(lang) {
+  const zh = lang === "zh", t = zh ? T.zh : T.it, C = confronto(lang), X = C.testi, f = facts() || {}, url = SITE + C.path, apps = C.app;
+  const v = { data: fmtDate(C.verificatoIl, lang), altre: joinNames(apps.slice(1).map((a) => a.nome), lang), totale: String(apps.length) };
+  const S = (s) => sub(s, v, f);
+  const rows = C.righe.map((r) => [r.titolo, ...apps.map((a) => S(r.celle[a.id].t))]);
+  const faq = C.faq.map(([q, a]) => [S(q), S(a)]);
+  const li = (arr) => `<ul>${arr.map((x) => `<li>${esc(S(x))}</li>`).join("")}</ul>`;
   const body = `<article>
-<header><h1>Confronto tra app per imparare il cinese</h1>
-<p class="resp">${esc(resp)}</p></header>
-<section><h2>La tabella del confronto</h2>
-<p>Il confronto riguarda ${apps.length} app. Ogni cella riporta ciò che una fonte pubblica dichiara; le fonti sono elencate sotto la tabella.</p>
-${table(`Confronto tra app per imparare il cinese, dati letti il ${quando}`, ["Criterio", ...apps.map((a) => a.nome)], rows, (c, k) => esc(c)).replace("<table>", '<table class="wide">')}
-<ul>${C.avvisi.map((a) => `<li>${esc(a)}</li>`).join("")}</ul></section>
-<section><h2>${esc(C.altrove.titolo)}</h2>
-<p>Un confronto onesto dice anche dove le altre app fanno meglio.</p>
-<ul>${C.altrove.voci.map((v) => `<li>${esc(v)}</li>`).join("")}</ul></section>
-<section><h2>I limiti di màndarínō</h2>
-<ul>${C.limiti.map((v) => `<li>${esc(v)}</li>`).join("")}</ul></section>
-<section><h2>Domande frequenti</h2>
+<header><h1>${esc(X.h1)}</h1>
+<p class="resp">${esc(S(X.resp))}</p></header>
+<section><h2>${esc(X.perche.titolo)}</h2>
+<p>${esc(X.perche.intro)}</p>
+${li(X.perche.voci)}</section>
+<section><h2>${esc(X.tabellaTitolo)}</h2>
+<p>${esc(X.tabellaIntro)}</p>
+${table(S(X.caption), [X.criterio, ...apps.map((a) => a.nome)], rows, (c) => esc(c)).replace("<table>", '<table class="wide">')}
+${li(X.avvisi)}</section>
+<section><h2>${esc(X.limiti.titolo)}</h2>
+<p>${esc(X.limiti.intro)}</p>
+${li(X.limiti.voci)}
+<p class="resp">${esc(X.limiti.cta)}</p>
+<p><a class="btn" href="${X.limiti.url}">${esc(X.limiti.bottone)}</a><a class="btn g" href="/app/">${esc(t.open)}</a></p></section>
+<section><h2>${esc(X.faqTitolo)}</h2>
 ${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("\n")}</section>
-<section><h2>Fonti</h2>
+<section><h2>${esc(X.fontiTitolo)}</h2>
 <ul>${apps.map((a) => `<li>${esc(a.nome)}: <a href="${a.fonte}" rel="noopener">${esc(a.fonte)}</a></li>`).join("")}</ul></section>
 </article>
-${cta(t, "Il corso di cinese di màndarínō")}`;
-  const nodes = [build("FAQPage", { url, questions: faq.map(([q, a]) => ({ q, a, lang: "it" })) })];
-  return { path: CONFRONTO_PATH, html: shell({ t, url, title, desc: resp, body, crumbs: [[t.crumbHome, "/"], ["Confronto tra app", CONFRONTO_PATH]], nodes, modified: C.verificatoIl }), lang: "it", kind: "confronto", sources: ["docs/ai/confronto.json"] };
+${cta(t, S(X.cta))}`;
+  const nodes = [build("FAQPage", { url, questions: faq.map(([q, a]) => ({ q, a, lang: t.lang })) })];
+  return { path: C.path, html: shell({ t, url, title: X.title, desc: S(X.resp), body, crumbs: [[t.crumbHome, "/"], [X.crumb, C.path]], nodes, modified: C.verificatoIl }), lang: t.lang, kind: "confronto", sources: [FILES[lang]] };
 }
 
-export function paginePersona() { return [autorePage("it"), autorePage("zh"), confrontoPage()]; }
+export function paginePersona() { return [autorePage("it"), autorePage("zh"), confrontoPage("it"), confrontoPage("zh")]; }
 
-/* la tabella corta per la home (una riga per criterio, testo breve); ogni cella ha lo stesso testo del confronto completo, in sintesi */
-export function tabellaHome() {
-  const C = confronto(), f = facts() || {}, apps = C.app, quando = fmtDate(C.verificatoIl);
-  const pick = C.righe.filter((r) => ["costo", "pubblicita", "offline", "dati", "hsk"].includes(r.id));
-  const cap = `Confronto tra app per imparare il cinese, sintesi dei dati letti il ${quando}`;
-  return { quando, html: `<div class="tw"><table class="cmp"><caption>${esc(cap)}</caption><thead><tr><th scope="col">Criterio</th>${apps.map((a) => `<th scope="col"${a.nostra ? ' class="us"' : ""}>${esc(a.nome)}</th>`).join("")}</tr></thead><tbody>
-${pick.map((r) => `<tr><th scope="row">${esc(r.titolo.replace(/ \(.*\)$/, ""))}</th>${apps.map((a) => `<td${a.nostra ? ' class="us"' : ""}>${esc(fill(r.celle[a.id].b, f))}</td>`).join("")}</tr>`).join("\n")}
+/* la tabella corta per la home (una riga per criterio, testo breve); lo stesso dato del confronto completo, in sintesi */
+export function tabellaHome(lang = "it") {
+  const zh = lang === "zh", C = confronto(lang), f = facts() || {}, apps = C.app, quando = fmtDate(C.verificatoIl, lang);
+  const ids = zh ? ["costo", "pubblicita", "offline", "dati", "cinese"] : ["costo", "pubblicita", "offline", "dati", "hsk"];
+  const pick = C.righe.filter((r) => ids.includes(r.id));
+  const cap = sub(C.testi.caption, { data: quando }, f);
+  return { quando, home: C.home, path: C.path, html: `<div class="tw"><table class="cmp"><caption>${esc(cap)}</caption><thead><tr><th scope="col">${esc(C.testi.criterio)}</th>${apps.map((a) => `<th scope="col"${a.nostra ? ' class="us"' : ""}>${esc(a.nome)}</th>`).join("")}</tr></thead><tbody>
+${pick.map((r) => `<tr><th scope="row">${esc(r.titolo.replace(/[（(].*[）)]$/, "").trim())}</th>${apps.map((a) => `<td${a.nostra ? ' class="us"' : ""}>${esc(sub(r.celle[a.id].b, {}, f))}</td>`).join("")}</tr>`).join("\n")}
 </tbody></table></div>` };
+}
+
+/* la sezione intera della home (italiano o cinese): titolo, frase d'apertura, tabella corta e bottone verso il confronto completo */
+export function sezioneHome(lang = "it") {
+  const t = tabellaHome(lang), H = t.home, v = { data: t.quando }, f = facts() || {};
+  return `<span class="eyebrow rv">${esc(H.eyebrow)}</span>
+    <h2 class="rv">${esc(H.h2)}</h2>
+    <p class="lede rv">${esc(sub(H.lede, v, f))}</p>
+    ${t.html}
+    <p class="note rv"><a class="btn ghost" href="${t.path.slice(1)}">${esc(H.bottone)}</a></p>`;
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
