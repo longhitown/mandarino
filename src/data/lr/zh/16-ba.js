@@ -15,8 +15,8 @@ LESSON_RICH.zh["ba"] = {
     "enunciato": "La costruzione con 把 mette in primo piano **che cosa succede a una cosa**. Lo schema è: chi agisce + 把 + la cosa + verbo + qualcosa che dice come finisce la cosa. Risponde alla domanda «che cosa fa il soggetto a questa cosa?»: la cosa si nomina per prima e poi si dice che cosa le accade.",
     "schema": ["chi agisce", "把", "la cosa", "verbo", "risultato · luogo · direzione"],
     "punti": [
-      { "ok": true, "t": "**La cosa è nota o precisa**: 把那本书买了 (quel libro, di cui si parla), non 把一本书买了. Una cosa qualunque si nomina con la frase normale." },
-      { "ok": true, "t": "**Il verbo non è mai nudo**: dopo il verbo c'è un risultato (做完, 洗干净), una direzione (拿出去, 带回来), un luogo (放在桌子上), un 了 con i verbi di cambiamento (忘了, 卖了), un raddoppio (看看) o un numero di volte (看了两遍)." },
+      { "ok": true, "t": "**La cosa è nota o precisa**: 把那本书买了 (quel libro, di cui si parla), più naturale di 把一本书买了. Una cosa qualunque si nomina di solito con la frase normale." },
+      { "ok": true, "t": "**Il verbo si accompagna sempre a qualcosa**: dopo il verbo c'è un risultato (做完, 洗干净), una direzione (拿出去, 带回来), un luogo (放在桌子上), un 了 con i verbi di cambiamento (忘了, 卖了), un raddoppio (看看) o un numero di volte (看了两遍)." },
       { "ok": true, "t": "**Negazione, verbi modali e avverbi stanno prima di 把**: 我没把门关上, 你应该把药吃了, 别把杯子放在那里." },
       { "ok": true, "t": "**Chi agisce può anche non volerlo**: 我把钥匙丢了 («ho perso le chiavi») è corretto." },
       { "ok": false, "t": "**Non si usa con i verbi di stato o di inclinazione** (是, 有, 喜欢, 像), con i risultativi di percezione (看见, 听懂) né con una cosa che nasce dall'azione stessa: si dice 我喜欢这个汉字, mai 我把这个汉字喜欢." }
@@ -76,7 +76,7 @@ LESSON_RICH.zh["ba"] = {
     ] },
     { "q": "Dici dove hai messo il libro che state cercando, quindi una cosa nota. Quale frase?", "opzioni": [
       { "t": "我把那本书放在桌子上了。", "ok": true, "perche": "那本书 è una cosa precisa, di cui si parla: è quello che 把 chiede." },
-      { "t": "我把一本书放在桌子上了。", "ok": false, "perche": "一本书 è un libro qualunque, non noto: con 把 la cosa deve essere precisa." }
+      { "t": "我把一本书放在桌子上了。", "ok": false, "perche": "Il libro che cercate è noto: 一本书 lo presenterebbe come un libro qualunque, mentre 把 chiede una cosa precisa." }
     ] },
     { "q": "Come dici «Mi piace questo carattere»?", "opzioni": [
       { "t": "我喜欢这个汉字。", "ok": true, "perche": "喜欢 è un verbo di inclinazione: non fa niente all'oggetto, quindi usa la frase normale." },
@@ -88,7 +88,7 @@ LESSON_RICH.zh["ba"] = {
     ] },
     { "q": "Tutti i compiti, uno per uno, sono finiti: «tutti» riguarda l'oggetto. Quale frase?", "opzioni": [
       { "t": "我把作业都做完了。", "ok": true, "perche": "都 dopo l'oggetto di 把 conta le cose: tutti i compiti." },
-      { "t": "我都把作业做完了。", "ok": false, "perche": "都 prima di 把 conta le persone: «noi tutti abbiamo finito i compiti»." }
+      { "t": "我都把作业做完了。", "ok": false, "perche": "都 prima di 把 si riferisce a chi agisce (con più persone: 我们都把作业做完了) oppure vale «ormai»: non dice che i compiti sono tutti finiti." }
     ] },
     { "q": "Come dici «Metti il libro sul tavolo»?", "opzioni": [
       { "t": "请把书放在桌子上。", "ok": true, "perche": "放在桌子上 dice dove finisce il libro." },
@@ -98,7 +98,7 @@ LESSON_RICH.zh["ba"] = {
       { "t": "请把窗户打开。", "ok": true, "perche": "把 + la cosa + il verbo con il suo risultato (打开)." },
       { "t": "请把打开窗户。", "ok": false, "perche": "Dopo 把 viene subito la cosa; il verbo viene dopo l'oggetto, non prima." }
     ] },
-    { "q": "Come dici «Devi prendere la medicina»?", "opzioni": [
+    { "q": "Come dici «Dovresti prendere la medicina»?", "opzioni": [
       { "t": "你应该把药吃了。", "ok": true, "perche": "I verbi modali (应该) stanno prima di 把." },
       { "t": "你把药应该吃了。", "ok": false, "perche": "Dopo la cosa non può comparire un modale: va prima di 把." }
     ] }
@@ -116,7 +116,7 @@ LESSON_RICH.zh["ba"] = {
     "esercizi": [
       { "q": "B dice che rimette a posto le cose. Quale battuta?", "opzioni": [
         { "t": "我先把东西放回去。", "ok": true, "perche": "把 + la cosa + il verbo con la direzione (放回去)." },
-        { "t": "我先放东西回去。", "ok": false, "perche": "Qui la cosa è nota e conta dove finisce: la forma naturale è con 把." }
+        { "t": "我先放回去东西。", "ok": false, "perche": "La cosa è nota e conta dove finisce: l'oggetto non resta in coda dopo la direzione, passa davanti al verbo con 把." }
       ] },
       { "q": "A dice di non mettere i vestiti sporchi sul letto. Quale frase?", "opzioni": [
         { "t": "别把脏衣服放在床上。", "ok": true, "perche": "Il divieto 别 sta prima di 把." },
@@ -135,11 +135,11 @@ LESSON_RICH.zh["ba"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Perché si parla di «disposizione»", "t": "La grammatica cinese del Novecento ha chiamato questa costruzione «forma di disposizione» (处置式): chi agisce dispone della cosa, la sposta, la trasforma. Oggi molti manuali preferiscono parlare di manipolazione dell'oggetto, ma l'idea è la stessa: la frase racconta che cosa accade a una cosa per mano di qualcuno, o di qualcosa." },
-    { "titolo": "把 e 被: due facce della stessa scena", "t": "Con 把 la cosa viene dopo chi agisce: 他把杯子打碎了. Con 被 chi subisce diventa soggetto: 杯子被他打碎了. Dove l'italiano userebbe un passivo, il cinese usa spesso 把, oppure una frase in cui la cosa è il tema e basta il verbo con il suo risultato: 作业做完了." },
+    { "titolo": "Perché si parla di «disposizione»", "t": "La grammatica cinese del Novecento ha chiamato questa costruzione «forma di disposizione» (处置式): chi agisce dispone della cosa, la sposta, la trasforma. Oggi molti manuali la chiamano semplicemente «costruzione con 把», ma l'idea è la stessa: la frase racconta che cosa accade a una cosa per mano di qualcuno, o di qualcosa." },
+    { "titolo": "把 e 被: due facce della stessa scena", "t": "Con 把 la cosa viene dopo chi agisce: 他把杯子打碎了. Con 被 chi subisce diventa soggetto: 杯子被他打碎了. Dove l'italiano userebbe un passivo, il cinese può usare 把, oppure una frase in cui la cosa è il tema e basta il verbo con il suo risultato: 作业做完了." },
     { "titolo": "弄 e 搞, i verbi tuttofare", "t": "弄 e 搞 sono verbi molto generici («fare, sistemare, combinare») e compaiono spesso con 把, perché si adattano a qualsiasi risultato: 把门弄坏了 («ho rotto la porta»), 把事情搞清楚 («chiarire la faccenda»)." }
   ],
-  "pragmatica": "把 è la forma naturale per richieste, ordini e istruzioni: 把门关上！ è più diretta e più chiara di una frase senza 把. Non è però obbligatoria: spesso esiste anche la frase normale (我做完作业了), che mette l'accento sull'azione invece che sull'effetto sulla cosa. L'uso con una cosa generica appartiene al registro argomentativo.",
+  "pragmatica": "把 è la forma naturale per richieste, ordini e istruzioni: 把门关上！ è frequentissima e chiara. Non è però obbligatoria: spesso esiste anche la frase normale (我做完作业了), che mette l'accento sull'azione invece che sull'effetto sulla cosa.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "他把咖啡喝完了。", "opzioni": [
       { "t": "Ha finito il caffè.", "ok": true, "perche": "喝完 = bere fino alla fine; 把 dice che il caffè è la cosa su cui si è agito." },
@@ -156,14 +156,14 @@ LESSON_RICH.zh["ba"] = {
     { "k": "trasforma", "base": "我关上了门。", "consegna": "Riscrivi la frase con 把: la porta è la cosa di cui parli.", "accetta": ["我把门关上了。", "我把门关了。"], "rifiutate": [
       { "t": "我把门关。", "perche": "Il verbo è nudo: dopo 关 manca il risultato (上) o il 了." }
     ], "perche": "Con 把 la porta va prima del verbo e il verbo si porta il suo risultato: 把门关上了." },
-    { "k": "trasforma", "base": "你吃药。", "consegna": "Trasforma l'ordine con 把: «Prendi la medicina (tutta)!».", "accetta": ["你把药吃了。", "把药吃了。"], "rifiutate": [
+    { "k": "trasforma", "base": "你吃药。", "consegna": "Trasforma l'ordine con 把: «Prendi la medicina (tutta)!».", "accetta": ["你把药吃了。", "把药吃了。", "你把药吃完。", "把药吃完。", "把药吃掉。"], "rifiutate": [
       { "t": "你把药吃。", "perche": "Manca il 了 (o un altro risultato): il verbo non può restare nudo." }
     ], "perche": "吃了 chiude l'azione: la medicina è la cosa su cui si agisce." },
     { "k": "trasforma", "base": "他打碎了杯子。", "consegna": "Riscrivi la frase con il bicchiere come soggetto, usando 被.", "accetta": ["杯子被他打碎了。"], "rifiutate": [
       { "t": "杯子把他打碎了。", "perche": "把 introduce la cosa su cui si agisce: qui significherebbe che il bicchiere ha rotto lui." }
     ], "perche": "Con 被 il bicchiere diventa soggetto e chi agisce si introduce con 被." },
-    { "k": "scrivi", "q": "Scrivi in cinese, con 把: «Non ho ancora finito i compiti.»", "a": "我还没把作业做完。", "accetta": ["我还没把作业写完。", "我还没有把作业做完。"], "perche": "还 e 没 stanno prima di 把; dopo la cosa, il verbo con il suo risultato (做完)." },
-    { "k": "scrivi", "q": "Scrivi in cinese, con 把: «Metti il libro sul tavolo.»", "a": "请把书放在桌子上。", "accetta": ["把书放在桌子上。", "请把书放到桌子上。"], "perche": "放在桌子上 dice dove finisce il libro." },
+    { "k": "scrivi", "q": "Scrivi in cinese, con 把: «Non ho ancora finito i compiti.»", "a": "我还没把作业做完。", "accetta": ["我还没把作业写完。", "我还没有把作业做完。", "我还没有把作业写完。"], "perche": "还 e 没 stanno prima di 把; dopo la cosa, il verbo con il suo risultato (做完)." },
+    { "k": "scrivi", "q": "Scrivi in cinese, con 把: «Metti il libro sul tavolo.»", "a": "请把书放在桌子上。", "accetta": ["把书放在桌子上。", "请把书放到桌子上。", "把书放到桌子上。", "请把书放在桌上。", "把书放在桌上。"], "perche": "放在桌子上 dice dove finisce il libro." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你的手机在哪里？" },
       { "chi": "B", "t": "我＿手机放在桌子上了。", "buco": true }
@@ -185,8 +185,7 @@ LESSON_RICH.zh["ba"] = {
     "Sai riconoscere quando 把 non si usa e quando conviene il passivo con 被."
   ],
   "fonti": [
-    "Modern Mandarin Chinese Grammar, cap. 20 (la costruzione di disposizione) e cap. 21 (il passivo)",
-    "Chinese: An Essential Grammar, par. 20.1 (把) e 20.2 (被)",
-    "MandarinBean, pagine sulla frase con 把 e sulla frase con 被 (confronto delle spiegazioni)"
+    "Chinese Grammar Wiki (AllSet Learning), pagina «Using ba sentences»: oggetto noto, verbo con risultato o direzione, negazione prima di 把, verbi psicologici e di percezione esclusi",
+    "Chinese Grammar Wiki (AllSet Learning), stessa pagina: 都 prima di 把 riferito a chi agisce (我们都把作业做完了)"
   ]
 };
