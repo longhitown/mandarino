@@ -276,6 +276,18 @@ function sandbox() {
     }
     check("Pagine statiche: " + P.length + " pagine di lezioni e parole, una h1, canonico proprio, risposta in testa, tabelle, un solo script (JSON-LD), link interni validi", !why.length, why.slice(0, 6).join("; "));
   }
+  /* dataset aperto: esportabile (licenze dichiarate nei documenti, righe complete, tante quante le parole del corso), con scheda, avvisi MIT e impronte */
+  {
+    const { costruisci } = await import("./dataset.mjs"), why = [];
+    try {
+      const d = costruisci(), by = Object.fromEntries(d.files), n = d.fatti.corsoDiCinese.parole;
+      if (d.righe !== n || by["vocabulary.csv"].trim().split("\n").length !== n + 1 || JSON.parse(by["vocabulary.json"]).length !== n) why.push("numero di righe");
+      if (!/^license: cc-by-4\.0$/m.test(by["README.md"]) || !by["README.md"].includes("mandarinoapp.org") || !by["README.md"].includes(String(n))) why.push("scheda");
+      if (!by["NOTICE.md"].includes("MIT License") || !by["NOTICE.md"].includes("Yanis")) why.push("avviso MIT");
+      for (const l of by["SHA256SUMS.txt"].trim().split("\n")) { const [h, nome] = l.split("  "); if (!by[nome] || !/^[a-f0-9]{64}$/.test(h)) why.push("impronta di " + nome); }
+    } catch (e) { why.push(e.message.split("\n").slice(0, 3).join(" ")); }
+    check("Dataset aperto: esportabile con le licenze in regola, " + 6385 + " voci, scheda CC BY 4.0, avviso MIT e impronte SHA-256", !why.length, why.join("; "));
+  }
   const brani = ["biblioteca", "calligrafia", "bambu"].filter((id) => !["ogg", "m4a"].every((e) => fs.existsSync(path.join(DOCS, "audio", id + "." + e))));
   check("radio del sito: i tre brani esistono in .ogg e .m4a", !brani.length, brani.join(", "));
   const { md2html } = await import("./site.mjs");

@@ -10,7 +10,7 @@ pubblicare e con quali condizioni. Prima di caricare qualunque cosa su GitHub o 
 |---|---|---|---|---|
 | Vocabolario curato: caratteri, pinyin, significato in italiano, sezione | `src/data/vocab/` | scritto per il progetto (con l'aiuto di Claude); il pinyin è controllato con CC-CEDICT ma non copiato | CC BY 4.0 ([CONTENUTI.txt](../LICENZE/CONTENUTI.txt)) | **Sì (v1)** |
 | Livello HSK 3.0 di ogni parola | `src/data/levels.js` | complete-hsk-vocabulary (Yanis Zafirópulos) | MIT | **Sì (v1)**, con l'avviso di copyright MIT |
-| Frequenza d'uso | `src/data/freq.js` | complete-hsk-vocabulary | MIT | Sì, come colonna facoltativa |
+| Frequenza d'uso | `src/data/freq.js` | complete-hsk-vocabulary, che la prende da krmanik/HSK-3.0-words-list (SUBTLEX-CH e altre fonti, CC BY-SA 4.0) | MIT sul progetto, CC BY-SA 4.0 sulle fonti a monte | **No** (tolta dalla v1: vedi sotto) |
 | Lezioni, dialoghi, esercizi, corso di italiano | `src/data/lessons/`, `src/data/it/lessons/`, `dialogs/` | scritti per il progetto | CC BY 4.0 | Sì (v2: file separato) |
 | Frasi d'esempio cinese-italiano | `src/data/ex/frasi-zh.js` e simili | Tatoeba | CC BY 2.0 Francia; ogni frase ha il suo autore in `materiali/crediti/autori-frasi.tsv` | Solo in un file **separato**, con numero di frase e autore |
 | Voci italiane (434 clip) | `materiali/audio/it/` | Tatoeba, voce «NM1» | CC BY 4.0 | Non nel dataset di testo |
@@ -22,7 +22,7 @@ pubblicare e con quali condizioni. Prima di caricare qualunque cosa su GitHub o 
 
 ## Proposta per la prima versione
 
-**`italian-chinese-hsk3-vocabulary` (v1):** una tabella con `hanzi`, `pinyin`, `italiano`, `sezione`, `livello_hsk`, e (facoltativa) `frequenza`, in CSV e JSON.
+**`italian-chinese-hsk3-vocabulary` (v1):** una tabella con `hanzi`, `pinyin`, `italiano`, `nota`, `sezione`, `titolo_sezione`, `livello_hsk`, in CSV e JSON. **Senza la frequenza**: il controllo del 1 novembre 2026 ha mostrato che l'ordine di frequenza di complete-hsk-vocabulary ha origine in dati CC BY-SA 4.0 (SUBTLEX-CH e le liste di krmanik). Mettere quei numeri in un dataset CC BY 4.0 rischierebbe di violare la condivisione allo stesso modo, e non servono.
 
 - **Licenza dichiarata: CC BY 4.0** (la stessa dei contenuti didattici del progetto), con un file `NOTICE` che nomina complete-hsk-vocabulary (MIT) per i livelli e la frequenza, con il suo testo di licenza accanto.
 - **Citazione richiesta:** «màndarínō, di Claudio Longhitano — https://mandarinoapp.org». Il nome e il logo non sono compresi nella licenza ([MARCHIO.md](../MARCHIO.md)): la scheda del dataset lo dice.
@@ -37,7 +37,7 @@ pubblicare e con quali condizioni. Prima di caricare qualunque cosa su GitHub o 
 
 1. **Opere prodotte con l'aiuto di un'IA.** In molti paesi la tutela del testo generato dall'IA è incerta ([NOTICE.md](../NOTICE.md) lo dice già): la licenza CC BY 4.0 dichiara come il progetto vuole che sia usato, non garantisce un diritto. È accettabile, ma va scritto nella scheda.
 2. **L'elenco HSK ufficiale.** L'elenco delle parole di ciascun livello è una lista di fatti, e nel progetto arriva da una fonte con licenza MIT; la lista ufficiale è però pubblicata da un ente cinese e non abbiamo verificato le sue condizioni d'uso. Nel dataset le parole sono quelle del vocabolario del progetto, con il livello da complete-hsk-vocabulary.
-3. **Commit di complete-hsk-vocabulary non annotato** ([THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md)): prima di pubblicare va rigenerato `levels.js` con `tools/levels.mjs` (scrive la data) e annotata la versione nella scheda.
+3. ~~Commit di complete-hsk-vocabulary non annotato~~ **Fatto il 1 novembre 2026**: commit `7ac65bf1a6387d35f1ade478906172a19311c7f9` (23 marzo 2026), verificato rigenerando `levels.js` e `freq.js` ([THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md)).
 4. **Chi pubblica.** Un account GitHub o Hugging Face della persona che firma il progetto; nessuna chiave o token passa dalla chat. La pubblicazione la fa lei, con i comandi che prepariamo.
 5. **Il nome del repository.** Proposta: `longhitown/italian-chinese-hsk3-vocabulary` su GitHub e lo stesso nome su Hugging Face.
 

@@ -34,3 +34,4 @@ build-demo-*/
 /review-*/
 /blocklist*.txt
 /mandarino-voci-*.zip
+/dist-dataset/
