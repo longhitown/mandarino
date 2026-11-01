@@ -27,9 +27,12 @@ jobs:
       - name: Prove veloci (senza browser)
         run: node tools/unit.mjs
 
-      # Il 31 ottobre 2026 questo passo è rimasto appeso per 30 minuti (scarico di Chromium o apt sul server) e ha fatto cadere
-      # tutta la corsa; una seconda corsa identica è passata. Quindi: i browser si tengono in cache, ogni tentativo ha un tempo
-      # massimo e si riprova fino a tre volte. Un guasto vero (versione che non esiste, rete morta) fallisce comunque, in meno di 12 minuti.
+      # Il 31 ottobre e il 1 novembre 2026 questo passo è caduto due volte: la prima rimase appeso 30 minuti, la seconda `apt-get update`
+      # non riusciva a raggiungere lo specchio di Ubuntu del server (azure.archive.ubuntu.com); il «timeout» uccise apt lasciando il
+      # blocco acceso, e i due tentativi dopo fallirono per quello («Could not get lock»). Quindi:
+      #  1. il browser si scarica da solo, senza apt (con cache e tre tentativi: scaricare un file si può interrompere senza danni);
+      #  2. le librerie di sistema di solito ci sono già (il server ha Chrome): si installano con apt solo se Chromium non parte;
+      #  3. apt non si uccide mai da fuori: ha i suoi tempi massimi (20 secondi e tre tentativi) e finisce da solo.
       - name: Cache dei browser di Playwright
         uses: actions/cache@v4
         with:
@@ -37,16 +40,26 @@ jobs:
           key: playwright-${{ runner.os }}-${{ hashFiles('package.json') }}
 
       - name: Playwright e Chromium
-        timeout-minutes: 12
+        timeout-minutes: 15
         run: |
           npm install --no-audit --no-fund
           for i in 1 2 3; do
-            if timeout 200 npx playwright install --with-deps chromium; then exit 0; fi
-            echo "::warning::Playwright: tentativo $i fallito o troppo lento, riprovo"
+            if timeout 180 npx playwright install chromium; then break; fi
+            echo "::warning::Playwright: scarico del browser, tentativo $i fallito o troppo lento"
+            [ "$i" = 3 ] && { echo "::error::Playwright: non sono riuscito a scaricare Chromium in tre tentativi"; exit 1; }
             sleep 10
           done
-          echo "::error::Playwright: non sono riuscito a installare Chromium in tre tentativi"
-          exit 1
+          provo() { node -e "require('playwright').chromium.launch().then(b=>b.close()).catch(e=>{console.error(String(e.message).split('\n')[0]);process.exit(1)})"; }
+          if provo; then echo "Chromium parte: le librerie di sistema ci sono già"; exit 0; fi
+          echo "::warning::Chromium non parte: installo le librerie di sistema"
+          printf 'Acquire::Retries "3";\nAcquire::http::Timeout "20";\nAcquire::https::Timeout "20";\n' | sudo tee /etc/apt/apt.conf.d/99-ci >/dev/null
+          for i in 1 2 3; do
+            if npx playwright install-deps chromium; then break; fi
+            echo "::warning::Playwright: librerie di sistema, tentativo $i fallito"
+            [ "$i" = 3 ] && { echo "::error::Playwright: non sono riuscito a installare le librerie di sistema"; exit 1; }
+            sleep 20
+          done
+          provo
 
       - name: Prove nel browser
         # un solo nuovo tentativo se la prova fallisce: un guasto vero fallisce due volte, un'incertezza del browser di prova (visto solo nella CI) no
