@@ -47,12 +47,12 @@ Builds:
       - node ../../tools/build.mjs
     output: build/outputs/apk/store/release/app-store-release.apk
 
-# Build riproducibili (F-Droid pubblica l'APK firmato da noi se identico a quello costruito da lui): togli i «#» solo dopo aver
-# creato la chiave nuova, aver firmato con quella la release e verificato che l'APK store della Release si ricostruisca uguale.
+# Build riproducibili (F-Droid pubblica l'APK firmato da noi se identico a quello costruito da lui): ATTIVE dal 1 novembre 2026: la chiave c'è e la release r0.9.0 è firmata con quella (impronta qui sotto). Che l'APK store si
+# ricostruisca uguale lo verifica la CI di F-Droid sulla merge request.
 # Il segnaposto è l'impronta SHA-256 del certificato (64 cifre esadecimali minuscole, senza due punti): è quella che il workflow
 # «release» scrive nel riepilogo di ogni corsa. Non è un segreto.
-# Binaries: https://github.com/longhitown/mandarino/releases/download/r%v/mandarino-store.apk
-# AllowedAPKSigningKeys: e706415ebf0e7143b68a3db3258e445bf34f03d04319d12850da3af3703ce59d
+Binaries: https://github.com/longhitown/mandarino/releases/download/r%v/mandarino-store.apk
+AllowedAPKSigningKeys: e706415ebf0e7143b68a3db3258e445bf34f03d04319d12850da3af3703ce59d
 
 # Come F-Droid scopre le versioni nuove: i tag r<x.y.z> (non i v6.7.N delle build per push) e il file android/version.properties
 # (righe semplici versionCode=… e versionName=…, scritte da tools/release.mjs).
