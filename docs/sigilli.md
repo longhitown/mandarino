@@ -15,7 +15,7 @@ Nessuno di questi passaggi manda dati dall'app a un server, e nessun passaggio �
 ## I sigilli del contributo
 
 正 **Correzione** (chi corregge un errore), 加 **Aggiunta** (chi porta parole, frasi o esempi nuovi) e 校 **Revisione** (chi rilegge i contenuti come madrelingua) hanno un
-bollo dentellato arancio, per distinguerli a colpo d'occhio dai sigilli di chi dona. Si chiedono a chi gestisce il progetto, come gli altri; l'app non sa chi li ha e
+bollo dentellato arancio, per distinguerli a colpo d'occhio dai sigilli di chi dona. Si chiedono con una e-mail all'indirizzo di contatto dell'app (oggetto SIGILLO), anche dopo aver mandato il contributo con GitHub; l'app non sa chi li ha e
 non c'è nessun titolo da scegliere. Il nome di chi contribuisce compare in `CONTRIBUTORS.md` solo se la persona lo vuole. Nel codice e nella grafica non c'è
 nessuna soglia: chi li assegna lo decide a mano, caso per caso.
 
