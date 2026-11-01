@@ -228,6 +228,7 @@ try {
     await p.evaluate((c) => CP.seals.offer(c), mk(5, 9)); await p.waitForSelector("[data-seal-add]"); await p.click("[data-seal-add]"); await p.waitForSelector("[data-seal-prefs]");
     check("Sigillo del contributo: si riscatta come gli altri, senza la scelta del titolo, e il bollo arancio è disegnato", await p.evaluate(() => CP.seals.list().length === 4 && CP.seals.best().lvl === 5 && !document.querySelector('input[name="seal-gram"]') && !!document.querySelector(".seal-sheet .seal-svg.seal-l5 path[fill]")));
     await p.click("[data-seal-prefs]"); await p.waitForTimeout(300);
+    check("Sigillo del contributo: la sezione Sostieni dice come chiederlo (e-mail di contatto, oggetto SIGILLO)", await p.evaluate(() => { const t = (document.getElementById("set-support") || {}).textContent || ""; return t.includes(MD_CONFIG.CONTACT_EMAIL) && /SIGILLO/.test(t); }));
     check("Sostegno e sigilli: nessuna richiesta di rete, nessun errore JavaScript", !net.length && !errs.length, net[0] || errs[0]);
     await ctx.close();
     /* interruttori spenti (versione per gli store): nessuna traccia, nemmeno con codici arrivati da un backup */
