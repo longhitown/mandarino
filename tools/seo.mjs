@@ -20,7 +20,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const SITE = "https://mandarinoapp.org";
 const REPO = "https://github.com/longhitown/mandarino";
 const APK = REPO + "/releases/latest/download/mandarino.apk";
-export const ID = { org: SITE + "/#organization", site: SITE + "/#website", android: SITE + "/#android", web: SITE + "/#webapp" };
+export const ID = { org: SITE + "/#organization", site: SITE + "/#website", android: SITE + "/#android", web: SITE + "/#webapp", person: SITE + "/autore/#person" };
 
 /* ---------- cose che stanno già altrove: i canali ufficiali (src/data/social.js) e i fatti verificati (docs/fatti.json) ---------- */
 export function socialUrls() {   /* i canali con un indirizzo, senza il sito stesso: vanno in sameAs, così chi legge sa quali profili sono davvero nostri */
@@ -64,7 +64,7 @@ export const make = {
     need("Organization", p, ["lang"]);
     return { "@type": "Organization", "@id": ID.org, name: "màndarínō", url: SITE + "/", description: TXT[p.lang].org,
       logo: { "@type": "ImageObject", url: SITE + "/app/icon-512.png", width: 512, height: 512 },
-      email: "mandarinoapp@gmail.com", sameAs: [REPO, ...socialUrls()] };
+      email: "mandarinoapp@gmail.com", founder: ref(ID.person), sameAs: [REPO, ...socialUrls()] };
   },
   WebSite(p) {
     need("WebSite", p, ["lang"]);
@@ -74,7 +74,7 @@ export const make = {
     need("WebPage", p, ["url", "name", "description", "lang"]);
     const id = p.url + "#webpage";
     return { "@type": p.type || "WebPage", "@id": id, url: p.url, name: p.name, description: p.description, inLanguage: p.lang,
-      isPartOf: ref(ID.site), publisher: ref(ID.org), about: p.about ? ref(p.about) : undefined, breadcrumb: p.breadcrumb ? ref(p.url + "#breadcrumb") : undefined,
+      isPartOf: ref(ID.site), publisher: ref(ID.org), about: p.about ? ref(p.about) : undefined, mainEntity: p.main ? ref(p.main) : undefined, breadcrumb: p.breadcrumb ? ref(p.url + "#breadcrumb") : undefined,
       primaryImageOfPage: p.image ? { "@type": "ImageObject", url: p.image } : undefined, dateModified: p.modified };
   },
   /* due nodi per la stessa app: l'APK per Android e la versione nel browser (stessi dati, stesso nome) */
@@ -94,6 +94,12 @@ export const make = {
   BreadcrumbList(p) {
     need("BreadcrumbList", p, ["url", "items"]);
     return { "@type": "BreadcrumbList", "@id": p.url + "#breadcrumb", itemListElement: p.items.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) };
+  },
+  /* l'autore: pagina pubblica /autore/ (testo scritto da lui); i profili in sameAs sono solo quelli che ha scelto di rendere pubblici */
+  Person() {
+    return { "@type": "Person", "@id": ID.person, name: "Claudio Longhitano", url: SITE + "/autore/", jobTitle: "Ideatore e autore di màndarínō",
+      alumniOf: { "@type": "CollegeOrUniversity", name: "Università degli Studi di Torino" }, knowsAbout: ["comunicazione", "linguistica applicata", "mediazione culturale"],
+      sameAs: ["https://github.com/longhitown"], worksFor: ref(ID.org) };
   },
   /* un corso (la raccolta di lezioni) e una lezione che ne fa parte: pagine generate da tools/pagine.mjs */
   Course(p) {
@@ -175,7 +181,7 @@ export function gitDate(sources, first = false) {
 export function graphFor(page, html, ctx = {}) {
   if (page.noindex) return null;
   const url = SITE + page.path, meta = readMeta(html), modified = ctx.modified || undefined, lang = page.lang;
-  const nodes = [build("Organization", { lang }), build("WebSite", { lang })];
+  const nodes = [build("Organization", { lang }), build("WebSite", { lang }), build("Person")];
   const crumbs = page.path === "/" || page.path === "/zh/" ? null : [[TXT[lang].crumb, SITE + "/"], [page.crumb, url]];
   if (page.kind === "home") {
     nodes.push(build("WebPage", { url, name: meta.title, description: meta.description, lang, about: ID.android, image: SITE + "/img/anteprima.png", modified }));
@@ -267,6 +273,8 @@ export function llmsTxt() {
 - [Lezioni di grammatica cinese](${SITE}/lezioni/): le lezioni del corso con esempi, dialoghi, errori tipici ed esercizi, una pagina per lezione
 - [Parole di cinese](${SITE}/parole/): il vocabolario per sezione e per livello HSK, con pinyin e traduzione
 - [意大利语课程](${SITE}/zh/lessons/): 给说中文的人的意大利语语法课程
+- [Confronto tra app per imparare il cinese](${SITE}/confronto/app-per-imparare-cinese/): costo, pubblicità, uso offline, dati e standard HSK, con la fonte di ogni dato
+- [Autore](${SITE}/autore/): chi ha ideato e costruito màndarínō, e le fonti dei dati
 - [Manifesto](${SITE}/manifesto.html): i princìpi del progetto, in italiano e cinese
 - [Privacy](${SITE}/privacy.html): cosa non viene raccolto
 - [Testo completo per assistenti](${SITE}/llms-full.txt): tutto questo file e le risposte alle domande più comuni, in un solo testo

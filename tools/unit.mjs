@@ -191,7 +191,7 @@ function sandbox() {
   const ext = [...h.matchAll(/<(?:script|img|iframe|source|video|audio)\b[^>]*?(?:src|poster)="([^"]+)"/gi)].map((m) => m[1])
     .concat([...h.matchAll(/<link\b[^>]*\brel="(?:stylesheet|icon|preload|modulepreload)"[^>]*?href="([^"]+)"/gi)].map((m) => m[1])).filter(isExt);
   const scripts = [...h.matchAll(/<script\b([^>]*)>/gi)].map((m) => m[1]);
-  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/"];   /* nascono con la pubblicazione: non stanno in docs/ */
+  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/"];   /* nascono con la pubblicazione: non stanno in docs/ */
   const local = [...h.matchAll(/\b(?:src|poster|href)="([^"#?]+)(?:[#?][^"]*)?"/g)].map((m) => m[1])
     .filter((u) => !/^(https?:|mailto:|tel:|\/\/|data:)/i.test(u) && !GENERATI.includes(u)).filter((f) => !fs.existsSync(path.join(DOCS, f)));
   const ctas = (h.match(/class="btn"/g) || []).length;
@@ -250,17 +250,17 @@ function sandbox() {
   }
   /* pagine statiche di lezioni e parole: una sola h1, canonico proprio, risposta in testa, tabelle, JSON-LD valido, nessuno script né risorsa esterna, link interni che arrivano da qualche parte */
   {
-    const { pagine } = await import("./pagine.mjs"), { sitemapXml } = await import("./seo.mjs"), P = pagine(), why = [], byPath = new Map(P.map((p) => [p.path, p]));
-    if (P.length < 300 || byPath.size !== P.length) why.push("pagine: " + P.length + " (attese più di 300, tutte diverse)");
+    const { pagine } = await import("./pagine.mjs"), { paginePersona } = await import("./pagine-sito.mjs"), { sitemapXml } = await import("./seo.mjs"), P = [...paginePersona(), ...pagine()], why = [], byPath = new Map(P.map((p) => [p.path, p]));
+    if (P.length < 300 || !byPath.has("/confronto/app-per-imparare-cinese/") || !byPath.has("/autore/") || !byPath.has("/zh/autore/") || byPath.size !== P.length) why.push("pagine: " + P.length + " (attese più di 300, tutte diverse)");
     const okPath = new Set([...byPath.keys(), "/", "/app/", "/privacy.html", "/manifesto.html", "/icon.svg"]);
     for (const p of P) {
       const h = p.html, url = "https://mandarinoapp.org" + p.path;
       if ((h.match(/<h1[ >]/g) || []).length !== 1) why.push(p.path + ": h1 ≠ 1");
       if (!h.includes('<link rel="canonical" href="' + url + '">')) why.push(p.path + ": canonico non proprio");
       if (((/<p class="resp">([\s\S]*?)<\/p>/.exec(h) || [])[1] || "").replace(/<[^>]+>/g, "").length < 40) why.push(p.path + ": manca la risposta in testa");
-      if (!/<table>/.test(h)) why.push(p.path + ": nessuna tabella");
+      if (!/<table[ >]/.test(h)) why.push(p.path + ": nessuna tabella");
       if ((h.match(/<script/g) || []).length !== 1 || !h.includes('type="application/ld+json"')) why.push(p.path + ": script oltre al JSON-LD");
-      if (/(src|href)="https?:\/\/(?!mandarinoapp\.org|github\.com\/longhitown)/.test(h) || /{{|undefined|NaN|\[object/.test(h)) why.push(p.path + ": risorsa esterna o segnaposto");
+      if (/(src|href)="https?:\/\/(?!mandarinoapp\.org|github\.com\/longhitown|apps\.apple\.com\/us\/app\/|www\.superchinese\.com\/faq)/.test(h) || /{{|undefined|NaN|\[object/.test(h)) why.push(p.path + ": risorsa esterna o segnaposto");
       if (h.length > 200000) why.push(p.path + ": troppo grande");
       for (const m of h.matchAll(/href="(\/[^"#?]*)"/g)) if (!okPath.has(m[1])) why.push(p.path + ": link rotto " + m[1]);
     }

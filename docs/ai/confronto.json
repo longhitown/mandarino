@@ -1,0 +1,207 @@
+{
+  "$descrizione": "Dati del confronto tra app per imparare il cinese (pagina /confronto/app-per-imparare-cinese/ e tabella in home). Ogni cella dichiara solo ciò che una fonte pubblica dice, con la fonte. «Non indicato» significa che la pagina letta non lo dice, non che la cosa non esista. Per aggiornare: rileggere le fonti, cambiare i testi e la data, lanciare node tools/unit.mjs.",
+  "verificatoIl": "2026-10-31",
+  "avvisi": [
+    "I dati vengono dalle schede pubbliche dell'App Store (Stati Uniti) e dalle pagine ufficiali delle app, lette il 31 ottobre 2026. Prezzi, funzioni e dichiarazioni cambiano: prima di decidere controlla lo store.",
+    "La sezione «Privacy dell'app» dell'App Store è compilata dagli sviluppatori e, come scrive Apple, queste informazioni non sono verificate da Apple.",
+    "Se una cella dice «non indicato», la pagina letta non lo scrive: non significa che la funzione manchi. Se trovi un errore, segnalalo su GitHub: lo correggiamo."
+  ],
+  "app": [
+    {
+      "id": "mandarino",
+      "nome": "màndarínō",
+      "nostra": true,
+      "fonte": "https://mandarinoapp.org/privacy.html"
+    },
+    {
+      "id": "duolingo",
+      "nome": "Duolingo",
+      "fonte": "https://apps.apple.com/us/app/duolingo-language-lessons/id570060128"
+    },
+    {
+      "id": "hellochinese",
+      "nome": "HelloChinese",
+      "fonte": "https://apps.apple.com/us/app/hellochinese-learn-chinese/id1001507516"
+    },
+    {
+      "id": "superchinese",
+      "nome": "SuperChinese",
+      "fonte": "https://www.superchinese.com/faq"
+    },
+    {
+      "id": "busuu",
+      "nome": "Busuu",
+      "fonte": "https://apps.apple.com/us/app/busuu-language-learning/id379968583"
+    }
+  ],
+  "righe": [
+    {
+      "id": "costo",
+      "titolo": "Costo per usare tutto",
+      "celle": {
+        "mandarino": {
+          "t": "Gratis: nessun abbonamento, nessun acquisto nell'app, nessuna funzione a pagamento",
+          "b": "Gratis, per sempre"
+        },
+        "duolingo": {
+          "t": "Scaricabile gratis, con acquisti nell'app; l'abbonamento a pagamento si chiama Super Duolingo",
+          "b": "Acquisti nell'app (Super)"
+        },
+        "hellochinese": {
+          "t": "Scaricabile gratis, con acquisti nell'app e abbonamenti",
+          "b": "Acquisti nell'app"
+        },
+        "superchinese": {
+          "t": "Solo una selezione di lezioni è gratuita; il corso completo richiede PLUS (piani da 1 mese, 12 mesi o a vita)",
+          "b": "Corso completo a pagamento"
+        },
+        "busuu": {
+          "t": "Scaricabile gratis, con acquisti nell'app; per tutte le funzioni serve un abbonamento (Premium o Premium Plus)",
+          "b": "Acquisti nell'app (Premium)"
+        }
+      }
+    },
+    {
+      "id": "pubblicita",
+      "titolo": "Pubblicità",
+      "celle": {
+        "mandarino": {
+          "t": "Nessuna",
+          "b": "Nessuna"
+        },
+        "duolingo": {
+          "t": "La scheda descrive Super Duolingo come «senza pubblicità»; non dice altro sulla versione gratuita",
+          "b": "Super è senza pubblicità"
+        },
+        "hellochinese": {
+          "t": "Non indicata nelle pagine ufficiali lette",
+          "b": "Non indicata"
+        },
+        "superchinese": {
+          "t": "Non menzionata nelle domande frequenti",
+          "b": "Non indicata"
+        },
+        "busuu": {
+          "t": "La scheda dell'App Store riporta «Contains Advertising» (contiene pubblicità)",
+          "b": "Dichiarata nello store"
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "titolo": "Uso senza connessione",
+      "celle": {
+        "mandarino": {
+          "t": "Sì: dopo la prima apertura o l'installazione, lezioni, parole e ripasso funzionano senza rete",
+          "b": "Sì"
+        },
+        "duolingo": {
+          "t": "Non indicato nella scheda",
+          "b": "Non indicato"
+        },
+        "hellochinese": {
+          "t": "Sì, dopo aver scaricato il corso (scheda App Store)",
+          "b": "Sì, dopo il download"
+        },
+        "superchinese": {
+          "t": "Sì: lezioni e materiali si scaricano nell'app (domande frequenti)",
+          "b": "Sì, scaricando le lezioni"
+        },
+        "busuu": {
+          "t": "Non indicato nella scheda",
+          "b": "Non indicato"
+        }
+      }
+    },
+    {
+      "id": "dati",
+      "titolo": "Dati personali (dichiarati dagli sviluppatori)",
+      "celle": {
+        "mandarino": {
+          "t": "Nessun dato personale raccolto: niente account, niente server, i progressi restano sul telefono",
+          "b": "Nessun dato raccolto"
+        },
+        "duolingo": {
+          "t": "Dichiara dati usati per il tracciamento (8 categorie, tra cui posizione e identificatori) e dati collegati all'utente (11 categorie)",
+          "b": "Tracciamento dichiarato"
+        },
+        "hellochinese": {
+          "t": "Dichiara dati collegati all'utente (acquisti, e-mail, nome, ID utente, dati d'uso); non dichiara il tracciamento",
+          "b": "Dati collegati all'utente"
+        },
+        "superchinese": {
+          "t": "Non verificato: non abbiamo letto la sezione privacy dello store",
+          "b": "Non verificato"
+        },
+        "busuu": {
+          "t": "Dichiara dati usati per il tracciamento (identificatori e dati d'uso) e dati collegati all'utente (7 categorie)",
+          "b": "Tracciamento dichiarato"
+        }
+      }
+    },
+    {
+      "id": "hsk",
+      "titolo": "Standard HSK dichiarato",
+      "celle": {
+        "mandarino": {
+          "t": "HSK 3.0: {{corsoDiCinese.parole}} parole",
+          "b": "HSK 3.0"
+        },
+        "duolingo": {
+          "t": "Non indicato nella scheda",
+          "b": "Non indicato"
+        },
+        "hellochinese": {
+          "t": "«Corsi basati sui livelli HSK»; non precisa se 2.0 o 3.0",
+          "b": "Livelli HSK (versione non precisata)"
+        },
+        "superchinese": {
+          "t": "Corso principale HSK 1-5; HSK 7-9 nella sezione «Discover»; HSK 3.0 non menzionato",
+          "b": "HSK 1-5 (3.0 non menzionato)"
+        },
+        "busuu": {
+          "t": "Non indicato nella scheda",
+          "b": "Non indicato"
+        }
+      }
+    },
+    {
+      "id": "codice",
+      "titolo": "Codice sorgente pubblico",
+      "celle": {
+        "mandarino": {
+          "t": "Sì: open source, licenza MIT, su GitHub",
+          "b": "Sì (MIT)"
+        },
+        "duolingo": {
+          "t": "Non verificato",
+          "b": "Non verificato"
+        },
+        "hellochinese": {
+          "t": "Non verificato",
+          "b": "Non verificato"
+        },
+        "superchinese": {
+          "t": "Non verificato",
+          "b": "Non verificato"
+        },
+        "busuu": {
+          "t": "Non verificato",
+          "b": "Non verificato"
+        }
+      }
+    }
+  ],
+  "altrove": {
+    "titolo": "Dove altre app sono avanti",
+    "voci": [
+      "SuperChinese offre esercizi di conversazione parlata con un assistente (CHAO) e un corso principale di 8 livelli (domande frequenti ufficiali).",
+      "Duolingo e Busuu coprono molte lingue oltre al cinese (descrizioni sugli store); màndarínō insegna solo il cinese agli italiani e l'italiano a chi parla cinese.",
+      "màndarínō è un progetto individuale: non ha madrelingua nel team e ha meno contenuti di un prodotto commerciale maturo."
+    ]
+  },
+  "limiti": [
+    "Il corso di màndarínō è ancora in crescita: le lezioni vanno migliorate, le parole aumentate e la revisione dei contenuti cinesi, senza madrelingua nel team, è il punto più delicato. Chi è madrelingua e vuole aiutare può segnalare gli errori dall'app o su GitHub.",
+    "màndarínō analizza i toni con il microfono ma non offre conversazione guidata con un assistente."
+  ]
+}
