@@ -12,7 +12,7 @@ const KEYS = ["v", "svolta", "scopri", "regola", "logica", "mappa", "esempi", "c
 const TIPI = ["scegli", "buco", "ordine", "scrivi", "trasforma", "minidialogo"];
 const MAPPE = ["catena", "timeline", "albero", "tabella"];
 /* parole che non possono stare nel testo di una lezione: nessuna incertezza dichiarata, nessun segnaposto */
-const VIETATE = /bozza|da verificare|non verificat|non documentat|da confermare|TODO|FIXME|XXX|\?\?\?|lorem|草稿|待核实|待确认|未经证实/i;
+const VIETATE = /bozza|da verificare|non verificat|non documentat|da confermare|\bTODO\b|FIXME|XXX|\?\?\?|lorem|草稿|待核实|待确认|未经证实/i;
 const EMOJI = /\p{Extended_Pictographic}/u;
 
 /* lunghezze minime: in caratteri (nel cinese un carattere vale circa due lettere) */
