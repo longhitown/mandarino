@@ -10,6 +10,9 @@
 Categories:
   - Science & Education
 License: MIT
+AuthorName: Claudio Longhitano
+AuthorEmail: mandarinoapp@gmail.com
+AuthorWebSite: https://mandarinoapp.org/autore/
 WebSite: https://mandarinoapp.org/
 SourceCode: https://github.com/longhitown/mandarino
 IssueTracker: https://github.com/longhitown/mandarino/issues
@@ -30,9 +33,9 @@ RepoType: git
 Repo: https://github.com/longhitown/mandarino.git
 
 Builds:
-  - versionName: 0.9.0
-    versionCode: 1000
-    commit: r0.9.0
+  - versionName: 0.9.1
+    versionCode: 1001
+    commit: 3261efd406882c6276d35dfcbe29e93f94fc67d7   # F-Droid vuole l'hash completo, non il nome del tag (r0.9.1)
     subdir: android/app
     # dist/ (l'app web che finisce nel pacchetto) si costruisce con Node: solo moduli integrati, nessun pacchetto npm, nessuna rete.
     # Serve Node 20 o più recente (engines di package.json): CONTROLLA quale versione dà apt nella buildserver in uso.
@@ -59,5 +62,5 @@ AllowedAPKSigningKeys: e706415ebf0e7143b68a3db3258e445bf34f03d04319d12850da3af37
 AutoUpdateMode: Version r%v
 UpdateCheckMode: Tags ^r\d+\.\d+\.\d+$
 UpdateCheckData: android/version.properties|versionCode=(\d+)|.|versionName=(.*)
-CurrentVersion: 0.9.0
-CurrentVersionCode: 1000
+CurrentVersion: 0.9.1
+CurrentVersionCode: 1001
