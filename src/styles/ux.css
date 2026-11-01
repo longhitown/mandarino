@@ -676,3 +676,6 @@ body.in-session #study-root.is-card > .ex-card { align-content: start; }
 .btn-main, .cpills button.on, .dtab.on, .tags button.on, .mpick button.on, .tdir .badge.on, .pad-chars button.on, .tiers button.on, .card-acts .say.big, .grades .g-good,
 .welcome-goal button.on, .onb-chips button.on, .ex-listen .say, .itp-node.now .itp-dot, .stop.done .node, .ls-card.done .ls-n { --im: var(--bg); --iv: var(--bg); --ia: var(--bg); }
 .vp-mic, .seal { --im: #fff; --iv: #fff; --ia: #fff; }
+
+/* i tre pulsanti in alto a destra (cerca, cuffie, impostazioni) usano le icone del set D2: ignorano il tratto generico dei pulsanti-icona */
+.iconbtn svg.ic { width: 24px; height: 24px; fill: none; stroke: none; stroke-width: 1.8; vertical-align: middle; }
