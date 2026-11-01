@@ -2,9 +2,9 @@
    - gear → Informazioni → «Sostieni il progetto»: il perché, un link (aperto solo da un tocco) alla pagina di
      sostegno (MD_CONFIG.SUPPORT_URL), la riga sui sigilli, la trasparenza. Nessun importo, nessun contatore, nessun
      invito che si ripete: l'app non sa chi ha donato né quanto, e non manda niente a nessuno.
-   - I sigilli sono solo estetici: non aprono nulla. Tre livelli, disegnati qui in SVG («ispirati alla scrittura a sigillo»,
+   - I sigilli sono solo estetici: non aprono nulla. Sei livelli: tre per chi dona e tre per chi contribuisce (4-6), disegnati qui in SVG («ispirati alla scrittura a sigillo»,
      non forme storiche): 支 Sostegno (quadrato), 交 Cultura (rotondo, consumato), 永 Custodire (rettangolo imperiale dentro
-     il mandarino, bordo a circuito). Arrivano come codice firmato dall'autore (core/seal-code.js): da un link (#seal=…),
+     il mandarino, bordo a circuito); 正 Correzione, 加 Aggiunta e 校 Revisione (bollo dentellato arancio, per chi contribuisce). Arrivano come codice firmato dall'autore (core/seal-code.js): da un link (#seal=…),
      incollando il codice o inquadrando il QR. Prima di salvarlo l'app chiede conferma; poi chiede, se si vuole, come
      essere chiamati (in italiano: al maschile, al femminile o senza titolo, predefinito) e se mostrare il sigillo nelle
      immagini condivise. Dati: cp-seal-v1 (codici uniti tra dispositivi, preferenze del più recente).
@@ -28,17 +28,26 @@
   var GLYPH = {
     1: ["M24 30H76", "M50 14V48", "M28 54H70Q62 74 30 88", "M40 64Q56 80 78 88"],                                   /* 支 */
     2: ["M50 12L53 20", "M18 28H82", "M38 36L28 48", "M62 36L74 48", "M34 54Q52 78 80 88", "M68 52Q50 78 20 88"],     /* 交 */
-    3: ["M47 10L54 17", "M34 25H56V84Q56 90 48 86", "M22 46H42Q36 62 18 76", "M58 52L76 38", "M58 54Q68 70 84 84"]  /* 永 */
+    3: ["M47 10L54 17", "M34 25H56V84Q56 90 48 86", "M22 46H42Q36 62 18 76", "M58 52L76 38", "M58 54Q68 70 84 84"],  /* 永 */
+    4: ["M22 22H78", "M50 22V78", "M50 46H70", "M33 46V76", "M16 80H84"],                                          /* 正 */
+    5: ["M16 40H44V76Q44 84 36 82", "M38 22Q36 52 14 80", "M58 36H84V82H58Z"],                                    /* 加 */
+    6: ["M10 46H42", "M26 22V82", "M24 50Q18 66 8 76", "M28 54Q36 66 44 74", "M67.0 30.2L68.6 34.4", "M50.4 38.6H83.6", "M60.8 42.7L55.6 49.0", "M73.2 42.7L79.5 49.0", "M58.7 52.1Q68.0 64.6 82.6 69.8", "M76.4 51.0Q67.0 64.6 51.4 69.8"]                                                         /* 校 = 木 + 交 */
   };
-  var CH = { 1: "支", 2: "交", 3: "永" }, PY = { 1: "zhī", 2: "jiāo", 3: "yǒng" }, uid = 0;
+  var CH = { 1: "支", 2: "交", 3: "永", 4: "正", 5: "加", 6: "校" }, PY = { 1: "zhī", 2: "jiāo", 3: "yǒng", 4: "zhèng", 5: "jiā", 6: "jiào" }, uid = 0;
+  /* il bollo dentellato dei sigilli del contributo: 14 denti sul cerchio di raggio 44 */
+  var BOLLO = (function () { var p = []; for (var i = 0; i <= 140; i++) { var t = i / 140 * Math.PI * 2, r = 44 + 2.4 * Math.cos(14 * t); p.push((50 + r * Math.cos(t)).toFixed(2) + " " + (50 + r * Math.sin(t)).toFixed(2)); } return "M" + p.join("L") + "Z"; })();
   function glyph(lvl, color, w, tf) { return '<g transform="' + (tf || "") + '" fill="none" stroke="' + color + '" stroke-width="' + w + '" stroke-linecap="round" stroke-linejoin="round">' + GLYPH[lvl].map(function (d) { return '<path d="' + d + '"/>'; }).join("") + "</g>"; }
   function svg(lvl, px, label) {
     var id = "sl" + (++uid), red = "var(--seal-red, #B8322A)", paper = "var(--seal-paper, #F6EEDD)";
     var filt = '<filter id="' + id + '" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="' + (lvl === 2 ? 0.08 : 0.12) + '" numOctaves="3" seed="' + (lvl * 7) + '" result="n"/>' +
       '<feDisplacementMap in="SourceGraphic" in2="n" scale="' + (lvl === 2 ? 3 : 1.6) + '" xChannelSelector="R" yChannelSelector="G" result="d"/>' +
       '<feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 ' + (lvl === 2 ? -9 : -12) + " " + (lvl === 2 ? 6.2 : 8.6) + '" result="m"/><feComposite in="d" in2="m" operator="in"/></filter>';
-    var body;
-    if (lvl === 1) body = '<g filter="url(#' + id + ')"><rect x="6" y="6" width="88" height="88" rx="9" fill="' + red + '"/><g opacity=".14"><svg x="18" y="18" width="64" height="64" viewBox="300 30 200 200"><use href="#mandarin-symbol"/></svg></g>' + glyph(1, paper, 8, "translate(10 10) scale(.8)") + "</g>";
+    var body, ora = "var(--seal-orange, #DB5F00)", cin = "var(--seal-cinnabar, #C0281D)";
+    if (lvl > 3) {
+      /* il filtro «consumato» lavora solo sulla sagoma (pochi buchi): il glifo resta pulito e leggibile anche a 40 px */
+      filt = '<filter id="' + id + '" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="' + (lvl * 5 + 3) + '" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="d"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -9 8.6" result="m"/><feComposite in="d" in2="m" operator="in"/></filter>';
+      body = '<g filter="url(#' + id + ')"><path d="' + BOLLO + '" fill="' + ora + '"/></g><circle cx="50" cy="50" r="37.5" fill="none" stroke="' + cin + '" stroke-width="1.8"/>' + glyph(lvl, paper, lvl === 6 ? 6 : 7, "translate(20 20) scale(.6)") + '<circle cx="50" cy="13.5" r="2.6" fill="' + cin + '"/>';
+    } else if (lvl === 1) body = '<g filter="url(#' + id + ')"><rect x="6" y="6" width="88" height="88" rx="9" fill="' + red + '"/><g opacity=".14"><svg x="18" y="18" width="64" height="64" viewBox="300 30 200 200"><use href="#mandarin-symbol"/></svg></g>' + glyph(1, paper, 8, "translate(10 10) scale(.8)") + "</g>";
     else if (lvl === 2) body = '<g filter="url(#' + id + ')"><circle cx="50" cy="50" r="44" fill="none" stroke="' + red + '" stroke-width="6"/><circle cx="50" cy="50" r="37" fill="none" stroke="' + red + '" stroke-width="1.5"/>' + glyph(2, red, 7, "translate(17 17) scale(.66)") + "</g>";
     else {
       var circuit = "";
@@ -57,12 +66,13 @@
     var red = "#B8322A", paper = "#F6EEDD", stroke = function (col, w, tx, ty, sx, sy) { x.save(); x.translate(tx, ty); x.scale(sx, sy); x.strokeStyle = col; x.lineWidth = w; x.lineCap = "round"; x.lineJoin = "round"; GLYPH[lvl].forEach(function (d) { x.stroke(new Path2D(d)); }); x.restore(); };
     if (lvl === 1) { x.fillStyle = red; x.fill(new Path2D("M15 6H85Q94 6 94 15V85Q94 94 85 94H15Q6 94 6 85V15Q6 6 15 6Z")); stroke(paper, 8 / 0.8, 10, 10, 0.8, 0.8); }
     else if (lvl === 2) { x.strokeStyle = red; x.lineWidth = 6; x.beginPath(); x.arc(50, 50, 44, 0, 7); x.stroke(); x.lineWidth = 1.5; x.beginPath(); x.arc(50, 50, 37, 0, 7); x.stroke(); stroke(red, 7 / 0.66, 17, 17, 0.66, 0.66); }
+    else if (lvl > 3) { x.fillStyle = "#DB5F00"; x.fill(new Path2D(BOLLO)); x.strokeStyle = "#C0281D"; x.lineWidth = 1.8; x.beginPath(); x.arc(50, 50, 37.5, 0, 7); x.stroke(); stroke(paper, (lvl === 6 ? 6 : 7) / 0.6, 20, 20, 0.6, 0.6); x.fillStyle = "#C0281D"; x.beginPath(); x.arc(50, 13.5, 2.6, 0, 7); x.fill(); }
     else { x.strokeStyle = red; x.lineWidth = 3; x.stroke(new Path2D("M50 14C78 14 94 34 94 56C94 80 74 94 50 94C26 94 6 80 6 56C6 34 22 14 50 14Z")); x.fillStyle = red; x.fillRect(28, 26, 44, 50); stroke(paper, 6 / 0.38, 32, 31, 0.36, 0.4); }
     x.restore();
   }
 
   /* ---- titolo facoltativo: tre forme in i18n/titles.js, «senza titolo» se manca ---- */
-  function title(lvl, o) { o = o || load(); return LANG === "zh" ? CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), "x") : CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), o.gram || "n"); }
+  function title(lvl, o) { if (lvl > 3) return ""; o = o || load(); return LANG === "zh" ? CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), "x") : CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), o.gram || "n"); }
 
   /* ---- verifica in sottofondo: si mostra subito l'ultimo esito salvato, poi si ricontrolla ---- */
   function recheck() {
@@ -101,7 +111,7 @@
   /* preferenze: come essere chiamati (solo in italiano), nome facoltativo, condivisione nelle immagini */
   function prefs(lvl, fresh) {
     var o = load(), g = o.gram || "n";
-    var gram = LANG === "zh" ? "" : '<fieldset class="seal-gram"><legend><b>' + esc(T("seal.gramQ")) + "</b></legend>" +
+    var gram = LANG === "zh" || lvl > 3 ? "" : '<fieldset class="seal-gram"><legend><b>' + esc(T("seal.gramQ")) + "</b></legend>" +
       [["n", T("seal.gramN")], ["m", T("seal.gramM", { t: CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), "m") || T("seal.n" + lvl) })], ["f", T("seal.gramF", { t: CP.tg("seal.t" + lvl + (lvl === 2 && IT ? "it" : ""), "f") || T("seal.n" + lvl) })]].map(function (x) {
         return '<label class="chk"><input type="radio" name="seal-gram" value="' + x[0] + '"' + (g === x[0] ? " checked" : "") + "> " + esc(x[1]) + "</label>";
       }).join("") + "</fieldset>";

@@ -1,12 +1,12 @@
 /* ===== màndarínō · codici dei sigilli di gratitudine: formato e verifica della firma (funzioni pure, senza pagina: le
    prove in Node le usano così come sono, lo strumento di emissione le usa per scrivere i codici).
    Codice: MDS1.<payload>.<firma>, in base64url. Il payload è il testo «1.<kid>.<livello>.<anno>.<numero>»: versione, chiave,
-   livello (1 Sostegno, 2 Cultura, 3 Custodire), anno dell'edizione, numero progressivo. Nessun dato personale.
+   livello (1 Sostegno, 2 Cultura, 3 Custodire; 4 Correzione, 5 Aggiunta, 6 Revisione), anno dell'edizione, numero progressivo. Nessun dato personale.
    Firma: ECDSA P-256 con SHA-256, nella forma «grezza» r‖s di 64 byte che vuole WebCrypto (lo strumento di emissione firma con
    dsaEncoding: 'ieee-p1363'). La chiave pubblica sta in MD_CONFIG.SEAL_PUBKEYS ({ kid, jwk }); quella privata solo sul
    computer dell'autore. Un'app offline non può verificare un pagamento: verifica soltanto che l'autore abbia firmato. ===== */
 var MDSeal = (function () {
-  var PREFIX = "MDS1", LEVELS = { 1: 1, 2: 1, 3: 1 };
+  var PREFIX = "MDS1", LEVELS = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1 };
   function b64u(bytes) { var s = ""; for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
   function unb64u(s) {
     if (!/^[A-Za-z0-9_-]*$/.test(s)) throw new Error("b64");

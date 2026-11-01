@@ -118,8 +118,10 @@ function sandbox() {
   check("sigilli: un codice firmato in Node (ieee-p1363) si verifica con WebCrypto", good.ok && good.seal.lvl === 2 && good.seal.num === 7, JSON.stringify(good));
   const code = mk(1, 3), tampered = code.slice(0, code.indexOf(".") + 3) + (code[code.indexOf(".") + 3] === "A" ? "B" : "A") + code.slice(code.indexOf(".") + 4);
   const res = { tampered: (await S.verify(tampered, KEYS)).err, kid: (await S.verify(mk(1, 3, "zz"), KEYS)).err, der: (await S.verify(mk(1, 3, "t1", true), KEYS)).err, format: (await S.verify("MDS1.abc", KEYS)).err, short: (await S.verify(code.slice(0, 30), KEYS)).err };
-  const p4 = S.make("t1", 4, 2026, 1), lvl4 = await S.verify(S.encode(p4, new Uint8Array(nodeCrypto.sign("sha256", Buffer.from(p4), { key: privateKey, dsaEncoding: "ieee-p1363" }))), KEYS);
+  const p4 = S.make("t1", 7, 2026, 1), lvl4 = await S.verify(S.encode(p4, new Uint8Array(nodeCrypto.sign("sha256", Buffer.from(p4), { key: privateKey, dsaEncoding: "ieee-p1363" }))), KEYS);
   check("sigilli: alterato, chiave sconosciuta, firma DER, livello fuori intervallo, formato errato → rifiutati", res.tampered && res.kid === "kid" && res.der === "sig" && res.format === "format" && res.short && lvl4.err === "level", JSON.stringify(res) + " " + JSON.stringify(lvl4));
+  const contr = await Promise.all([4, 5, 6].map((l) => S.verify(mk(l, 11), KEYS)));
+  check("sigilli del contributo: i livelli 4 (Correzione), 5 (Aggiunta) e 6 (Revisione) si verificano come gli altri", contr.every((r, i) => r.ok && r.seal.lvl === i + 4 && r.seal.num === 11), JSON.stringify(contr));
   /* unione tra dispositivi */
   const { Store, LS } = sandbox();
   LS.setItem("cp-seal-v1", JSON.stringify({ codes: { "1-2026-3": { code: "a" } }, gram: "f", name: "Ada", share: 1, t: 100 }));
