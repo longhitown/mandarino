@@ -114,9 +114,11 @@ jobs:
           "$BT/apksigner" verify "$S"
           unzip -l "$D" | grep -q "assets/www/index.html"
           unzip -l "$S" | grep -q "assets/www/index.html"
-          cert() { "$BT/apksigner" verify --print-certs "$1" | sed -n 's/^Signer #1 certificate SHA-256 digest: //p' | tr 'A-F' 'a-f'; }
+          # l'output di apksigner cambia con la versione: «Signer #1 certificate SHA-256 digest: …» (vecchio) oppure «V2 Signer: certificate SHA-256 digest: …» (nuovo)
+          cert() { "$BT/apksigner" verify --print-certs "$1" | grep -m1 'certificate SHA-256 digest' | sed 's/.*digest: *//' | tr -d ' \r' | tr 'A-F' 'a-f'; }
           CD=$(cert "$D"); CS=$(cert "$S")
           if [ -z "$CD" ] || [ "$CD" != "$CS" ]; then
+            "$BT/apksigner" verify --print-certs "$D" | head -8 || true   # a vantaggio di chi legge il log, se il formato cambia ancora
             echo "::error::I due APK non hanno lo stesso certificato (diretto: «$CD», store: «$CS»)."; exit 1
           fi
           if "$BT/apksigner" verify --print-certs "$D" | grep -q "CN=Android Debug"; then
