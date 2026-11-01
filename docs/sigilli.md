@@ -1,6 +1,6 @@
 # Sigilli di gratitudine: come funzionano e perché la chiave si genera in privato
 
-I sigilli (支 Sostegno, 交 Cultura, 永 Custodire) sono un ringraziamento estetico per chi sostiene màndarínō. **Non aprono nessuna funzione, né
+I sigilli (支 Sostegno, 交 Cultura, 永 Custodire) sono un ringraziamento estetico per chi sostiene màndarínō; altri tre (正 Correzione, 加 Aggiunta, 校 Revisione) ringraziano chi contribuisce al progetto. **Non aprono nessuna funzione, né
 ora né in futuro.** L'app non sa chi ha donato né quanto, e non contatta nessuno.
 
 ## Come funziona
@@ -12,10 +12,17 @@ ora né in futuro.** L'app non sa chi ha donato né quanto, e non contatta nessu
 
 Nessuno di questi passaggi manda dati dall'app a un server, e nessun passaggio è automatico: l'e-mail la manda una persona.
 
+## I sigilli del contributo
+
+正 **Correzione** (chi corregge un errore), 加 **Aggiunta** (chi porta parole, frasi o esempi nuovi) e 校 **Revisione** (chi rilegge i contenuti come madrelingua) hanno un
+bollo dentellato arancio, per distinguerli a colpo d'occhio dai sigilli di chi dona. Si chiedono a chi gestisce il progetto, come gli altri; l'app non sa chi li ha e
+non c'è nessun titolo da scegliere. Il nome di chi contribuisce compare in `CONTRIBUTORS.md` solo se la persona lo vuole. Nel codice e nella grafica non c'è
+nessuna soglia: chi li assegna lo decide a mano, caso per caso.
+
 ## Il codice
 
 `MDS1.<contenuto>.<firma>`, in base64url. Il contenuto è il testo `1.<kid>.<livello>.<anno>.<numero>`: versione, nome della chiave, livello
-(1 Sostegno, 2 Cultura, 3 Custodire), anno dell'edizione e numero progressivo. **Nessun dato personale.** La firma è ECDSA P-256 con SHA-256, nella
+(1 Sostegno, 2 Cultura, 3 Custodire; 4 Correzione, 5 Aggiunta, 6 Revisione), anno dell'edizione e numero progressivo. **Nessun dato personale.** La firma è ECDSA P-256 con SHA-256, nella
 forma «grezza» r‖s di 64 byte che WebCrypto legge direttamente.
 
 Il verificatore è pubblico e si legge in `src/core/seal-code.js`; la schermata è in `src/ui/seals.js`. La verifica avviene tutta sul telefono, anche senza rete.
