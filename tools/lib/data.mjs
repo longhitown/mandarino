@@ -25,6 +25,11 @@ export function load(srcDir) {
   const ctx = vm.createContext({ SECTIONS: [], DIALOGS: [], LESSONS: [], ITLESSONS: [], LESSON_RICH: { zh: {}, it: {} } });
   const files = scripts.filter((s) => s.src.startsWith("data/"));
   for (const s of files) vm.runInContext(fs.readFileSync(path.join(srcDir, s.src), "utf8"), ctx, { filename: s.src });
+  /* le lezioni-capitolo si leggono anche se l'elenco in index.html non è ancora aggiornato (lo controlla tools/lezioni-indice.mjs --verifica) */
+  for (const c of ["zh", "it"]) {
+    const dir = path.join(srcDir, "data/lr", c); if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => /^\d+-.+\.js$/.test(x)).sort()) if (!files.some((s) => s.src === "data/lr/" + c + "/" + f)) vm.runInContext(fs.readFileSync(path.join(dir, f), "utf8"), ctx, { filename: "data/lr/" + c + "/" + f });
+  }
   const g = (n) => vm.runInContext("typeof " + n + " === 'undefined' ? undefined : " + n, ctx);
   return {
     files: files.map((s) => s.src),
