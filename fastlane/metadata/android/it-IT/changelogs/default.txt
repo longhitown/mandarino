@@ -1,4 +1,4 @@
-• Su Android, il nuovo widget «Ripasso rapido» (4×4): cinque minuti di ripasso dalla schermata Home, una carta alla volta.
-• Il microfono ora funziona anche sui telefoni dove prima falliva.
-• Voce e brani più affidabili: corretti nove difetti dell'audio.
-• Nuova pagina Impostazioni → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in Impostazioni → Aspetto, con l'anteprima.
+• Prima versione pubblica di màndarínō: gratuita, offline e senza pubblicità.
+• Cinese per italiani: 6.385 parole HSK 3.0, 55 lezioni di grammatica, dialoghi, ordine dei tratti e toni con il microfono.
+• Italiano per chi parla cinese: 51 lezioni spiegate in cinese.
+• Ripasso a intervalli (FSRS), nessun account e nessun dato raccolto: i progressi restano sul telefono.

@@ -5,7 +5,7 @@ La cartella `fastlane/metadata/android/<lingua>/` (titolo, descrizioni, immagini
 store (`node tools/store-assets.mjs` genera da lì le schede in docs/store/).
 
 **La ricetta.** La bozza per il repository `fdroiddata` (GitLab) è [fdroiddata/it.mandarino.app.yml](fdroiddata/it.mandarino.app.yml).
-Prima di proporla va provata con gli strumenti di F-Droid (`fdroid lint`, `fdroid build`): qui non è stato possibile. Come si rilascia
+**Controllata il 1 novembre 2026** con fdroidserver 2.4.5 e la vera cartella `config/` di fdroiddata: `fdroid lint` e `fdroid rewritemeta` senza errori. Il file nel formato canonico che F-Droid richiede (senza commenti, con i campi nell'ordine giusto) è [fdroiddata/it.mandarino.app.canonico.yml](fdroiddata/it.mandarino.app.canonico.yml): è quello da usare per la merge request. Resta da provare `fdroid build` (la fa la CI di F-Droid sulla merge request) e, per le build riproducibili, il confronto con l'APK della Release. Come si rilascia
 e che cosa succede in F-Droid dopo un tag: [rilascio.md](rilascio.md).
 
 **Build.** F-Droid costruisce da sé, dal codice: serve `node tools/build.mjs` prima di Gradle (il pacchetto contiene `dist/`).
