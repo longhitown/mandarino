@@ -575,6 +575,26 @@ try {
       return { dl, au, nRev, nList, page, play };
     });
     check("Lezioni: mini-dialogo con audio, un ripasso ogni cinque lezioni, le lezioni aggiuntive si caricano all'apertura dell'elenco, il ripasso si fa come un quiz", rz.dl >= 3 && rz.au >= rz.dl && rz.nRev === Math.floor(rz.nList / 5) && rz.nList >= 35 && rz.page && rz.play, JSON.stringify(rz));
+    /* lezione-capitolo (data/lr/): si apre, le domande danno il «perché», gli esercizi di ogni tipo si fanno fino al risultato che salva il punteggio */
+    const lz = await p.evaluate(async () => {
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      CP.studyHome(); CP.show("build", true); CP.build.openLesson("ba"); await wait(60);
+      const root = !!document.querySelector("[data-lz-root]"), secs = document.querySelectorAll("[data-lz-sec]").length;
+      document.querySelector('[data-lz="reveal"]').click(); const rev = !document.getElementById("lz-ans").hidden;
+      document.querySelector('[data-lz="opt"]').click(); await wait(30); const why = document.querySelector(".lz-fb .lz-verdict") && document.querySelector(".lz-fb").textContent.length > 20;
+      document.querySelector('[data-lz="run"]').click(); await wait(30);
+      const kinds = new Set(); let g = 0;
+      while (!document.querySelector(".lz-result") && g++ < 40) {
+        const run = document.getElementById("lz-run");
+        if (run.querySelector('[data-lz="rop"]')) { kinds.add("scelta"); run.querySelector('[data-lz="rop"]').click(); }
+        else if (run.querySelector(".lz-bank")) { kinds.add("ordine"); while (run.querySelector('.lz-bank [data-lz="pk"]:not([disabled])')) run.querySelector('.lz-bank [data-lz="pk"]:not([disabled])').click(); run.querySelector('[data-lz="chk"]').click(); }
+        else if (run.querySelector("#lz-in")) { kinds.add("scrivi"); run.querySelector("#lz-in").value = "x"; run.querySelector('[data-lz="chk"]').click(); }
+        else break;
+        await wait(20); const nx = document.querySelector('[data-lz="rnext"]'); if (!nx) break; nx.click(); await wait(20);
+      }
+      return { root, secs, rev, why, kinds: [...kinds], res: !!document.querySelector(".lz-result"), saved: CP.lessons.progress("ba").best != null };
+    });
+    check("Lezione-capitolo: sezioni, «mostra la risposta», perché di ogni scelta, esercizi di più tipi fino al risultato che salva", lz.root && lz.secs >= 8 && lz.rev && lz.why && lz.kinds.length >= 3 && lz.res && lz.saved, JSON.stringify(lz));
     check("Esercizi con le frasi: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
@@ -871,7 +891,7 @@ try {
     const res = await p.evaluate(() => {
       const out = [], click = (sel) => { const e = document.querySelector(sel); if (!e) throw new Error("manca " + sel); e.click(); };
       try { document.getElementById("fam").hidden = true; } catch (e) {}
-      for (const l of ITLESSONS.filter((x) => x.n <= 30)) {
+      for (const l of ITLESSONS.filter((x) => x.n <= 30 && !window.LRL("it", x.id))) {
         CP.itShow("lessons"); if (document.querySelector("[data-itl-back]")) click("[data-itl-back]");
         click('[data-itl-open="' + l.id + '"]'); click("[data-itl-quiz]");
         for (const q of l.quiz) {
@@ -1022,6 +1042,7 @@ try {
       const out = [], click = (sel) => { const e = document.querySelector(sel); if (!e) throw new Error("manca " + sel); e.click(); };
       CP.show("build", true);
       for (const l of CP.lessons.list()) {
+        if (window.LRL("zh", l.id)) continue;   /* le lezioni-capitolo hanno i loro esercizi: provati nella prova «Lezione-capitolo» */
         CP.build.openLesson(l.id); click("[data-ls-quiz]");
         for (const q of l.quiz) {
           if (q.k === "order") {

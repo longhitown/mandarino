@@ -19,6 +19,8 @@ import vm from "vm";
 import { fileURLToPath } from "url";
 import { assets, load, check } from "./lib/data.mjs";
 import { lab, verify, checkLessons, checkExamples } from "./lib/lab.mjs";
+import { checkRicche } from "./lib/ricche.mjs";
+import { aggiornato as aggiornatoLR } from "./lezioni-indice.mjs";
 import { sprite as icoSprite } from "./icone.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -38,6 +40,9 @@ if (c.err.length) fail("dati non validi:\n  " + c.err.slice(0, 30).join("\n  ") 
        le lezioni (src/data/lessons) devono usare solo parole del vocabolario e avere esercizi ben fatti */
 const LAB = lab(SRC), gv = verify(LAB), le = checkLessons(LAB), ee = checkExamples(LAB);
 if (le.length) fail("lezioni non valide:\n  " + le.slice(0, 20).join("\n  "));
+{ const re = ["zh", "it"].flatMap((c) => checkRicche(LAB, c));
+  if (re.length) fail("lezioni ricche non valide:\n  " + re.slice(0, 30).join("\n  "));
+  if (!aggiornatoLR(fs.readFileSync(path.join(SRC, "index.html"), "utf8").replace(/\r\n/g, "\n")).ok) fail("l'elenco delle lezioni ricche in src/index.html non è aggiornato: node tools/lezioni-indice.mjs"); }
 /* la lavagna deve avere ordine e direzione dei tratti per ogni carattere del vocabolario (si rigenerano con tools/strokes.mjs) */
 { const sctx = vm.createContext({}); vm.runInContext(fs.readFileSync(path.join(SRC, "data/strokes.js"), "utf8"), sctx);
   const ST = vm.runInContext("STROKES", sctx), miss = new Set();
@@ -191,7 +196,7 @@ for (const [name, src] of LAZYCODE) {
 /* moduli dell'app che servono solo a qualcuno e solo in certi momenti (il test di livello, il correttore di frasi italiane):
    testo inerte nel file unico, eseguito la prima volta che il codice tocca una delle loro proprietà di CP. Il blocco va al
    posto dell'ultimo file del gruppo, quando CP esiste già. */
-const LAZYMOD = [{ props: ["placement", "onboarding"], files: ["data/placement.js", "ui/placement.js", "ui/onboarding.js"] }, { props: ["itCheck", "itCheckHTML"], files: ["it/checker.js"] }, { props: ["challenge", "classroom"], files: ["i18n/together.js", "ui/challenge.js", "ui/classroom.js"] }, { props: ["credits"], files: ["i18n/credits-t12.js", "ui/credits.js"] }, { props: ["icoBoot", "ico", "plain", "icoImg"], files: ["ui/ico.js"] }, { props: ["shareCard"], files: ["ui/share-card.js"] }, { props: ["unlockPop"], files: ["i18n/grow.js", "ui/grow.js"] }, { props: ["openSettings", "repaintSettings"], files: ["i18n/settings.js", "i18n/community.js", "data/changelog.js", "data/social.js", "ui/social.js", "ui/community.js", "ui/settings-pages.js"] }, { props: ["diary"], files: ["i18n/diary.js", "data/diary.js", "ui/diary.js"] }, { props: ["voiceDl"], files: ["i18n/voice.js", "ui/voice-dl.js"] }, { props: ["scambio"], files: ["i18n/scambio.js", "ui/scambio.js"] }, { props: ["micDiag", "srDiag", "srTest"], files: ["selftest/mic-diag.js"] }, { props: ["wq"], files: ["pwa/wq.js"] }, { props: ["voiceTag"], files: ["i18n/voice-tag.js", "ui/voice-tag.js"] }];
+const LAZYMOD = [{ props: ["placement", "onboarding"], files: ["data/placement.js", "ui/placement.js", "ui/onboarding.js"] }, { props: ["itCheck", "itCheckHTML"], files: ["it/checker.js"] }, { props: ["challenge", "classroom"], files: ["i18n/together.js", "ui/challenge.js", "ui/classroom.js"] }, { props: ["credits"], files: ["i18n/credits-t12.js", "ui/credits.js"] }, { props: ["icoBoot", "ico", "plain", "icoImg"], files: ["ui/ico.js"] }, { props: ["shareCard"], files: ["ui/share-card.js"] }, { props: ["lezione", "lzCss"], files: ["ui/lezione-css.js", "ui/lezione.js"] }, { props: ["unlockPop"], files: ["i18n/grow.js", "ui/grow.js"] }, { props: ["openSettings", "repaintSettings"], files: ["i18n/settings.js", "i18n/community.js", "data/changelog.js", "data/social.js", "ui/social.js", "ui/community.js", "ui/settings-pages.js"] }, { props: ["diary"], files: ["i18n/diary.js", "data/diary.js", "ui/diary.js"] }, { props: ["voiceDl"], files: ["i18n/voice.js", "ui/voice-dl.js"] }, { props: ["scambio"], files: ["i18n/scambio.js", "ui/scambio.js"] }, { props: ["micDiag", "srDiag", "srTest"], files: ["selftest/mic-diag.js"] }, { props: ["wq"], files: ["pwa/wq.js"] }, { props: ["voiceTag"], files: ["i18n/voice-tag.js", "ui/voice-tag.js"] }];
 for (const m of LAZYMOD) {
   const group = m.files.map((f) => scripts.find((x) => x.src === f)); if (group.some((x) => !x)) fail("LAZYMOD: manca uno di " + m.files.join(", ") + " in src/index.html");
   const code = group.map((x) => "/* ---- " + x.src + " ---- */\n" + fs.readFileSync(path.join(SRC, x.src), "utf8").trimEnd()).join("\n").replace(/<\/script/gi, "<\\/script");
@@ -232,6 +237,13 @@ for (const g of GROUPS) {
     out = out.replace(sc.tag, () => '<script type="text/plain" id="' + id + '">\n/* ---- ' + sc.src + " ---- */\n" + code + "\n</script>" + loader);
   });
   group.forEach((x) => scripts.splice(scripts.indexOf(x), 1));
+}
+/* lezioni ricche (data/lr/<corso>/NN-<id>.js): un blocco di testo per lezione, eseguito da window.LRL (src/boot.js) quando la lezione si apre */
+for (const s of scripts.filter((x) => /^data\/lr\/(zh|it)\/\d+-[^/]+\.js$/.test(x.src))) {
+  const [, c, id] = /^data\/lr\/(zh|it)\/\d+-(.+)\.js$/.exec(s.src);
+  const code = fs.readFileSync(path.join(SRC, s.src), "utf8").trimEnd().replace(/<\/script/gi, "<\\/script");
+  out = out.replace(s.tag + "\n", () => '<script type="text/plain" id="lr-' + c + "-" + id + '">\n' + code + "\n</script>\n");
+  scripts.splice(scripts.indexOf(s), 1);
 }
 for (const s of scripts) {
   const code = fs.readFileSync(path.join(SRC, s.src), "utf8").trimEnd().replace(/<\/script/gi, "<\\/script");
