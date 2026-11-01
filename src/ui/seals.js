@@ -142,7 +142,7 @@
     if (DON) {
       h += '<p style="margin:0">' + esc(T("sup.text", { l: lingua() })) + "</p>" +
         '<a class="btn-s sup-go" href="' + CP.attr(C.SUPPORT_URL) + '" target="_blank" rel="noopener noreferrer">' + esc(T("sup.go")) + "</a>";
-      if (SEALS) h += '<p class="small" style="margin:0">' + esc(T("sup.seals")) + "</p>" + '<p class="small" style="margin:0">' + esc(T("sup.sealsC")) + "</p>";
+      if (SEALS) h += '<p class="small" style="margin:0">' + esc(T("sup.seals")) + "</p>";
       h += '<p class="small muted" style="margin:0">' + esc(T("sup.privacy")) + "</p>";
     }
     if (SEALS && KEYS.length) {
