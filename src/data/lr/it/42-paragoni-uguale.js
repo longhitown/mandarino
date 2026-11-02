@@ -22,7 +22,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
       { "ok": true, "t": "**后面是代词时**用重读形式：come me、come te、quanto lui。如果后面有动词，才用主语形式或完整的从句：come sono io、come sembra。" },
       { "ok": true, "t": "**否定**：non è (così) … come … 表示“没有……那么……”：Questo vino non è così buono come quello." },
       { "ok": true, "t": "**相同与不同**：uguale a、identico a、simile a、diverso da；还有 lo stesso / la stessa ＋ 名词：Il mio cognome è uguale al tuo. Abbiamo lo stesso insegnante." },
-      { "ok": false, "t": "**不要混用**：不说 così … quanto、tanto … come 这样前后不配套的组合（比较名词数量时尤其要用 tanto … quanto）；也不要用 di 表示“一样”，di 用在 più / meno 的比较里。" }
+      { "ok": false, "t": "**不要混用**：学习时先用配套的组合 così … come、tanto … quanto（口语里偶尔也能听到 tanto … come 这样的混用，但考试和写作最好不用）；比较名词数量时要用 tanto … quanto，并随名词变形；也不要用 di 表示“一样”，di 用在 più / meno 的比较里。" }
     ]
   },
   "logica": [
@@ -130,12 +130,12 @@ LESSON_RICH.it["paragoni-uguale"] = {
     ]
   },
   "tranello": {
-    "errore": "说汉语的人常把“一样”直接放到后面，或者在 come 后面照用 io、tu：*Marco è alto come io*、*Ha tanti libri come me*、*Il mio è uguale di tuo*。还有人把“没有……那么”说成 *meno … come*。",
+    "errore": "说汉语的人常把“一样”直接放到后面，或者在 come 后面照用 io、tu：*Marco è alto come io*、*Ho tanto libri quanto lui*（数量要变形）、*Il mio è uguale di tuo*。还有人把“没有……那么”说成 *meno … come*。",
     "perche": "汉语里“跟……一样”“比”“没有”是三套不同的词，而且“一样多”不要求任何变形。意大利语则要选对一组配套的词（così … come、tanto … quanto），数量要变形，uguale / diverso 后面要有固定的介词（a、da），代词要换成重读形式。",
     "esci": "先问：比较的是什么？①形容词或副词：(così) … come；②数量：tanto … quanto，都随名词变形；③动作：动词 ＋ quanto；④相同或不同：uguale **a**、diverso **da**。然后看 come 后面：没有动词，代词就是 me、te、lui。",
     "esempi": [
       { "sbagliata": "Marco è alto come io.", "giusta": "Marco è alto come me." },
-      { "sbagliata": "Ho tanti libri come lui.", "giusta": "Ho tanti libri quanti ne ha lui." },
+      { "sbagliata": "Ho tanto libri quanto lui.", "giusta": "Ho tanti libri quanti ne ha lui." },
       { "sbagliata": "Il mio è uguale di tuo.", "giusta": "Il mio è uguale al tuo." },
       { "sbagliata": "Non è tanto caro di quello.", "giusta": "Non è così caro come quello." }
     ]
@@ -175,7 +175,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
     ] },
     { "k": "ordine", "t": "marco è alto come me", "tr": "马可和我一样高。" },
     { "k": "ordine", "t": "non è così caro come quello", "tr": "没有那个那么贵。" },
-    { "k": "scrivi", "q": "用意大利语写：“你的手机和我的不同。”（用 diverso）", "a": "Il tuo telefono è diverso dal mio.", "accetta": ["Il tuo telefono è diverso dal mio", "Il tuo è diverso dal mio.", "Il tuo cellulare è diverso dal mio.", "Il tuo telefono è diverso da il mio."], "perche": "diverso 后面接 da：da ＋ il mio ＝ dal mio。" },
+    { "k": "scrivi", "q": "用意大利语写：“你的手机和我的不同。”（用 diverso）", "a": "Il tuo telefono è diverso dal mio.", "accetta": ["Il tuo telefono è diverso dal mio", "Il tuo è diverso dal mio.", "Il tuo cellulare è diverso dal mio."] , "perche": "diverso 后面接 da：da ＋ il mio ＝ dal mio。" },
     { "k": "scrivi", "q": "用意大利语写：“他工作得和我一样多。”", "a": "Lavora quanto me.", "accetta": ["Lui lavora quanto me.", "Lavora tanto quanto me.", "Lui lavora tanto quanto me.", "Lavora come me."], "perche": "动作的比较：动词 ＋ quanto，后面的“我”用重读形式 me。" },
     { "k": "trasforma", "consegna": "改成“和……一样”，用 come ＋ 重读代词。", "base": "Io sono alto, e anche tu sei alto.", "accetta": ["Sono alto come te.", "Io sono alto come te.", "Sono alto quanto te.", "Io sono alto quanto te.", "Sono alto come te!"], "rifiutate": [
       { "t": "Sono alto come tu.", "perche": "come 后面没有动词，不用主语形式 tu，要用 te。" }
@@ -199,7 +199,8 @@ LESSON_RICH.it["paragoni-uguale"] = {
     "你会避开 *come io*、*uguale di*、*tanto … come* 这样的常见错误。"
   ],
   "fonti": [
-    "Wikipedia (inglese), «Italian grammar» (letta in parte: «sono alto come te», «sono più alto di te»; la parte letta non tratta tanto … quanto)",
+    "University of Vermont, Cristina Mazzoni, «il sito di grammatica italiana: comparatives and superlatives» (letta: comparativo di uguaglianza (così) … come e (tanto) … quanto per aggettivi e avverbi senza accordo, per i nomi con accordo, per i verbi senza accordo; così e tanto opzionali)",
+    "Wikipedia (inglese), «Italian grammar» (letta in parte: «sono alto come te», «sono più alto di te»)",
     "Tatoeba (ita.tsv, grep): «tanto quanto» (101), «così come» (73), «come me» (259), «come te» (243)"
   ]
 };
