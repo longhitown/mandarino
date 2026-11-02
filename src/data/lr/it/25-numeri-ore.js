@@ -156,7 +156,7 @@ LESSON_RICH.it["numeri-ore"] = {
     { "titolo": "两种钟点：书面用 24 小时，口语用 12 小时", "t": "火车、飞机、电影和营业时间用二十四小时制：Il treno parte alle diciotto e venti。朋友之间说话更常用十二小时制，再加上一段时间的说明：alle sei del pomeriggio, alle otto di sera, alle tre di notte。两种说法都对，场合不同。" },
     { "titolo": "问日期的两种方式", "t": "最常用的是 Che giorno è oggi?（今天几号？）和 Che data è oggi?。口语里还有一种很有意大利味的问法：Quanti ne abbiamo oggi?（今天几号？），回答 Ne abbiamo cinque（五号）。这里的 ne 指“月份里的日子”。" },
     { "titolo": "tré 为什么有重音，tre 却没有", "t": "意大利语的单音节词通常不带重音符号，所以单独的 tre 不写重音。但是 ventitré、trentatré 这样的复合词有两个以上的音节，重音落在最后一个音节，必须写出来。" },
-    { "titolo": "逗号和小数点", "t": "意大利语的小数用逗号，千位用点，和汉语相反：3,50 是三点五，1.250 是一千二百五十。读价格时不读逗号：3,50 € 是 tre euro e cinquanta。千万以上的数用 milione：due milioni di euro（两百万欧元），后面要加 di。" }
+    { "titolo": "逗号和小数点", "t": "意大利语的小数用逗号，千位用点，和汉语相反：3,50 是三点五，1.250 是一千二百五十。读价格时不读逗号：3,50 € 是 tre euro e cinquanta。百万以上的数用 milione：due milioni di euro（两百万欧元），后面要加 di。" }
   ],
   "pragmatica": "向陌生人问时间，说 Scusi, che ore sono?（对长辈、不熟的人用 Lei）；对朋友说 Che ore sono? 就行。付款时店员会说 Sono dodici euro（一共十二欧元）或 Fa dodici euro；你可以问 Quanto costa? 或 Quant'è?。约时间时说 Ci vediamo alle otto 之后，再确认一次 Alle otto, giusto? 最保险。",
   "esercizi": [
@@ -215,9 +215,7 @@ LESSON_RICH.it["numeri-ore"] = {
     "你会问价格和说价格：Quanto costa? Costa dodici euro e cinquanta。"
   ],
   "fonti": [
-    "Think in Italian, «How to Tell the Time in Italian» (è l'una e sono le, mezzogiorno, mezzanotte, e mezza, meno, alle, uso delle 24 ore)",
-    "Mango Languages, «How to tell time in Italian» (domande con Che ore sono, a + articolo, dalle…alle, intorno alle, 12 e 24 ore)",
-    "Think in Italian, «How to say the date in Italian» (ordine giorno-mese-anno, primo, minuscole, l'otto ottobre)",
+    "Think in Italian, «How to tell the time» (aperta e letta: è l'una vs sono le, mezzogiorno e mezzanotte con è, e/meno per i minuti, alle e all'una, sistema delle 24 ore)",
     "Tatoeba (ita.tsv), ricerche mirate: Sono le due meno un quarto, È l'una, È mezzogiorno, Domani è il primo maggio, Costa trenta euro, Sono nato nel 1979"
   ]
 };

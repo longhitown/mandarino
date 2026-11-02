@@ -221,7 +221,6 @@ LESSON_RICH.it["congiuntivo"] = {
   ],
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «congiuntivo» (verbo reggente e modo; credere con indicativo o congiuntivo; sapere con indicativo)",
-    "Wikipedia in inglese, voce «Italian verbs» (formazione del congiuntivo presente e forme irregolari)",
     "Wikipedia in inglese, voce «Italian grammar» (usi del congiuntivo; letta solo in parte)",
     "Tatoeba (ita.tsv), interrogato per le frasi con penso che, credo che, spero che, voglio che, è necessario che"
   ]

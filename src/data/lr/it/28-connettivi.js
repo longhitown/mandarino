@@ -12,14 +12,14 @@ LESSON_RICH.it["connettivi"] = {
     "risposta": "每个句子**只有一个**连接词。原因在前，用 **siccome**；结果在后，用 **quindi**；主句在前、原因在后，用 **perché**。三个词不能叠用：*Perché piove, quindi…* 是错的。第四句也一样：**anche se** 一个词就表示“虽然”，后面不用再加“但是”(ma)。汉语的成对连接词，意大利语只取其一。"
   },
   "regola": {
-    "enunciato": "意大利语用**一个**连接词连接两个分句，汉语常见的成对连接词（因为……所以、虽然……但是、如果……就）只翻译其中一个。表示**原因**：perché 放在主句后面，siccome 放在句首；表示**结果**：quindi、perciò、dunque 放在第二个分句开头；表示**条件**：se；表示**让步**：anche se 后面用直陈式，benché、sebbene、nonostante 后面用虚拟式；表示**对比**：ma、però。",
+    "enunciato": "意大利语用**一个**连接词连接两个分句，汉语常见的成对连接词（因为……所以、虽然……但是、如果……就）只翻译其中一个。表示**原因**：perché 放在主句后面，siccome 放在句首；表示**结果**：quindi、perciò、dunque 放在第二个分句开头；表示**条件**：se；表示**让步**：anche se 后面用直陈式，benché、sebbene 后面用虚拟式（nonostante 后面接名词或虚拟式）；表示**对比**：ma、però。",
     "schema": ["原因：perché / siccome", "结果：quindi / perciò", "条件：se", "让步：anche se / benché", "对比：ma / però"],
     "punti": [
       { "ok": true, "t": "**perché** 引出原因，通常放在主句之后：Non esco perché ho mal di testa. 同一个词也表示“为什么”（Perché non esci?）。" },
       { "ok": true, "t": "**siccome** 也是“因为”，通常放在句首，原因是对方已经知道的或显而易见的：Siccome è tardi, prendo un taxi. 书面和较正式的语体里还有 poiché、dato che、visto che。" },
       { "ok": true, "t": "**quindi、perciò、dunque** 引出结果：Ho mal di testa, quindi resto a letto. 口语里还常用 allora，意思是“那么、所以”。" },
       { "ok": true, "t": "**se** 引出真实的条件，后面用直陈式现在时（也可以用将来时）：Se hai fame, mangia. Se domani piove, resto a casa. **quando** 说的是“……的时候”，条件一定会发生：Quando arrivi, chiamami." },
-      { "ok": true, "t": "**anche se** 表示“即使、虽然”，后面用直陈式：Anche se è tardi, esco. **benché、sebbene、nonostante** 的意思也是“虽然”，但后面用虚拟式：Benché sia tardi, esco. nonostante 后面也可以接名词：Nonostante la pioggia, esco." },
+      { "ok": true, "t": "**anche se** 表示“即使、虽然”，后面用直陈式：Anche se è tardi, esco. **benché、sebbene** 的意思也是“虽然”，后面用虚拟式：Benché sia tardi, esco. **nonostante** 后面可以接名词（Nonostante la pioggia, esco），也可以接虚拟式的分句（Nonostante sia tardi, esco）。" },
       { "ok": true, "t": "**ma、però** 引出对比：È buono, ma è caro. mentre 表示“……的同时”，也可以表示对比：Leggo mentre aspetto." },
       { "ok": false, "t": "**不叠用**：不说 *Perché piove, quindi…*、*Anche se piove, ma…*、*Benché è tardi*（benché 要用虚拟式）。" },
       { "ok": false, "t": "**se 后面不用条件式**：真实的条件说 Se hai tempo, vieni；不说 *Se avresti tempo*。" }
@@ -39,7 +39,7 @@ LESSON_RICH.it["connettivi"] = {
       ["所以", "quindi, perciò, dunque, allora", "第二个分句开头", "直陈式"],
       ["如果", "se", "前面或后面", "直陈式（现在时或将来时）"],
       ["虽然、即使", "anche se", "前面或后面", "直陈式"],
-      ["虽然、尽管（较正式）", "benché, sebbene, nonostante", "前面或后面", "虚拟式"],
+      ["虽然、尽管（较正式）", "benché, sebbene, nonostante", "前面或后面", "benché、sebbene 用虚拟式；nonostante 接名词或虚拟式"],
       ["但是", "ma, però", "第二个分句开头", "直陈式"],
       ["……的同时", "mentre", "前面或后面", "直陈式"]
     ],
@@ -223,7 +223,7 @@ LESSON_RICH.it["connettivi"] = {
     "你会用 ma、però、mentre 连接对比和同时进行的事。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «connettivi» (tipi: causali perché e siccome, consecutivi quindi e dunque, concessivi anche se e sebbene, condizionale se; modo dopo sebbene e anche se)",
+    "Treccani, Enciclopedia dell'Italiano, voce «connettivi» (tipi: causali perché e siccome, consecutivi quindi e dunque, concessivi anche se e sebbene, condizionale se; il modo dopo sebbene e anche se non è spiegato con una regola esplicita; pagina letta)",
     "Wikipedia in inglese, voce «Italian grammar» (usi del congiuntivo e del periodo ipotetico; letta solo in parte)",
     "Tatoeba (ita.tsv), interrogato per le frasi con siccome, anche se, benché, sebbene, nonostante"
   ]

@@ -149,7 +149,7 @@ LESSON_RICH.it["si-impersonale"] = {
   "curiosi": [
     { "titolo": "annunci：Affittasi、Vendesi、Cercasi", "t": "在房屋、商店的告示里，常常看到 Affittasi appartamento（出租公寓）、Vendesi bicicletta（出售自行车）、Cercasi cameriere（招聘服务员）。这是书写的老形式：si 接在动词的后面，写成一个词。口语里不这样说，口语里说 Si affitta un appartamento。" },
     { "titolo": "Si prega di…：公共场所的客气提示", "t": "车站、银行、医院里常有 Si prega di non fumare（请勿吸烟）、Si prega di attendere（请稍候）。动词用单数，语气客气，不是命令。它是一个固定的书面说法，写给不特定的大家看，口语里朋友之间不会这么说。" },
-    { "titolo": "口语里的 si：也可以是“我们”", "t": "意大利人邀请朋友时，经常用 si 代替 noi：Domani si va al cinema? 的意思是“明天我们去看电影怎么样？”。在托斯卡纳，Noi si va 这样的说法也能在口语里听到。书面语里则通常说 noi andiamo。" },
+    { "titolo": "口语里的 si：也可以是“我们”", "t": "意大利人邀请朋友时，经常用 si 代替 noi：Domani si va al cinema? 的意思是“明天我们去看电影怎么样？”。在一些地区的口语里，Noi si va 这样的说法也能听到。书面语里则通常说 noi andiamo。" },
     { "titolo": "被动的 si 和无人称的 si 的界线", "t": "语法书把 si vendono case（有名词，动词一致）叫“被动的 si”，把 si dorme（没有宾语）叫“无人称的 si”，两者之间的分界其实很细。口语里有时也会听到 si vende case 这样不一致的说法，但在考试和正式的文章里，复数名词配复数动词是标准。" }
   ],
   "pragmatica": "si 让话变得客观、有礼貌：Non si fuma 比 Non fumare 更像规矩，Si può? 比 Posso? 更像是把决定权交给在场的大家。问路和问词汇时 Come si dice…? Come si arriva…? 最自然，也不会冒犯任何人。说自己的习惯时，用 io 更准确；说“人们一般这样做”时，用 si。书写告示用 Si prega di…，朋友之间用 si 邀约：Si va?",
@@ -207,10 +207,7 @@ LESSON_RICH.it["si-impersonale"] = {
     "你会用 ci si 和 si è + 复数形容词，如 Ci si alza presto、Quando si è stanchi。"
   ],
   "fonti": [
-    "Accademia della Crusca, Consulenza linguistica, «Usi e funzioni del pronome clitico si» (si impersonale, si passivante, accordo del participio, regola della persona)",
-    "DICO (Dubbi sull'Italiano, Consulenza Online, Università di Messina), «Si passivante e si impersonale» (accordo del verbo con il soggetto plurale, confine tra i due usi)",
-    "Wikipedia (inglese), «Italian grammar», sezione sul si impersonale (combinazione con altri clitici, uso di essere nei tempi composti, aggettivo al maschile plurale)",
-    "Ricerca web sul si impersonale (ci si con i riflessivi, essere + aggettivo plurale), sintesi dei risultati consultata",
-    "Tatoeba (ita.tsv): controllo della naturalezza di Come si dice, Si può + infinito, si mangia bene, ci si alza presto"
+    "Wikipedia (inglese), «Italian grammar», sezione sul si impersonale (lettura parziale: essere con aggettivo al maschile plurale, esempio Si è sempre stanchi),",
+    "Tatoeba (ita.tsv): controllo della naturalezza di Come si dice, Si può + infinito (260), si mangia bene (10); «ci si alza presto» non compare nel corpus"
   ]
 };

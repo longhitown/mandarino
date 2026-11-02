@@ -16,7 +16,7 @@ LESSON_RICH.it["modali"] = {
     "schema": ["主语", "potere / volere / dovere / sapere（变位）", "不定式（不变）", "其他成分"],
     "punti": [
       { "ok": true, "t": "**potere** 表示“能、可以、有条件做”，也用来问和给许可：Posso entrare? 否定 **non posso** 表示“不能、不行”。" },
-      { "ok": true, "t": "**volere** 表示“想、要”：Voglio un caffè. 后面也可以接名词。想客气地说，用条件式 **vorrei**（上一课学过）。" },
+      { "ok": true, "t": "**volere** 表示“想、要”：Voglio un caffè. 后面也可以接名词。想客气地说，用条件式 **vorrei**（第 21 课学过）。" },
       { "ok": true, "t": "**dovere** 表示“得、必须”：Devo studiare. 它还有“应该”和“欠（钱）”的意思，后面会讲。" },
       { "ok": true, "t": "**sapere** + 不定式表示“会（学过的本领）”：So guidare. 没有学过的话，用 non so：Non so cucinare." },
       { "ok": true, "t": "**代词的位置有两种**：放在情态动词前（Lo voglio vedere），或者接在不定式后面写成一个词（Voglio vederlo）。意思完全一样。" },
@@ -213,7 +213,7 @@ LESSON_RICH.it["modali"] = {
     "你会把代词放到情态动词前后：Lo posso fare / Posso farlo。"
   ],
   "fonti": [
-    "Think in Italian, «Potere, volere, dovere in the past» (l'ausiliare del modale segue l'infinito; esempi con dovuto, potuto, voluto)",
+    "Think in Italian, «Passato Prossimo: Potere, Volere, Dovere, Sapere» (aperta e letta: ausiliare secondo il verbo principale, accordo con essere, esempi ho dovuto e è dovuta)",
     "Tatoeba (ita.tsv), ricerche mirate: Posso entrare, Devo andare, So nuotare, Lo posso fare, Posso farlo, Non puoi fumare, Non ho potuto, Ho dovuto, Sono dovuto, Voglio mangiare"
   ]
 };
