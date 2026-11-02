@@ -208,6 +208,16 @@ LESSON_RICH.zh["hai-zai-you"] = {
     "Sai aggiungere informazioni con 还 e confrontare con 比…还.",
     "Sai riconoscere gli errori di chi traduce «ancora» e «di nuovo» con una sola parola."
   ],
+  "glosse": {
+    "我想再看一次": "Voglio vederlo ancora una volta",
+    "明天再来吧": "Vieni di nuovo domani",
+    "吃了饭再走": "Mangia e poi vai",
+    "我不再抽烟了": "Non fumo più",
+    "又要开会了": "Di nuovo una riunione!",
+    "他没再来过": "Non è più venuto",
+    "他还想再来": "Vuole venire ancora",
+    "你还在学中文吗": "Studi ancora il cinese?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Comparing zai and you»: 再 per il futuro, 又 per il passato, 再 come «un altro» e «poi», 又 in 明天又是星期一",
     "Chinese Grammar Wiki (AllSet Learning), «Expressing not anymore with le»: negazione con 了 finale",

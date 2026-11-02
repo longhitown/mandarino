@@ -210,6 +210,22 @@ LESSON_RICH.zh["fangwei"] = {
     "Sai scegliere tra 前面, 后面, 左边, 右边, 旁边, 对面 e 中间 e usare le forme brevi 上 e 里 con i nomi comuni.",
     "Sai descrivere un nome con il suo luogo e 的 (学校旁边的银行) e dare indicazioni dal tuo punto di vista."
   ],
+  "glosse": {
+    "学校前面有": "Davanti alla scuola c'è",
+    "银行在学校前面": "La banca è davanti alla scuola",
+    "银行在学校左边": "La banca è a sinistra della scuola",
+    "学校左边有一家银行": "A sinistra della scuola c'è una banca",
+    "学校左边是银行": "A sinistra della scuola c'è la banca",
+    "小王和小张中间": "Tra Xiao Wang e Xiao Zhang",
+    "坐在他左边": "Seduto alla sua sinistra",
+    "学校旁边的银行": "La banca accanto alla scuola",
+    "桌子上面有一个手机": "Sul tavolo c'è un cellulare",
+    "超市在银行前面": "Il supermercato è davanti alla banca",
+    "银行在超市前面": "La banca è davanti al supermercato",
+    "请往前面走": "Vada avanti, per favore",
+    "三十岁左右": "Sui trent'anni",
+    "银行的左边": "A sinistra della banca"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing location with zai... shang / xia / li»: 在 + luogo + 上 / 下 / 里 / 旁边, i «nomi di luogo» 方位词 con forma a uno e a due caratteri (上 / 上面 / 上边)",
     "CC-CEDICT, voci 上面, 下面, 前面, 后面, 里面, 外面, 左边, 右边, 旁边, 对面, 中间 (consultate nel dizionario locale)",

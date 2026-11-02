@@ -207,6 +207,11 @@ LESSON_RICH.it["pronomi-indiretti"] = {
     "你会在近过去时里让分词保持不变：Le ho regalato un libro。",
     "你会在朋友之间用 ti，对用 Lei 称呼的人用 Le。"
   ],
+  "glosse": {
+    "Gli dico la verità": "我对他说实话。",
+    "Ho dato loro un consiglio": "我给了他们一个建议。",
+    "Telefona a me, non a lui": "给我打电话，不要给他打。"
+  },
   "fonti": [
     "Humanities LibreTexts, D'accordo (Blum e Gemmani), sezione 3.06 «Pronomi oggetto combinati» (glie- con lo, la, li, le, ne; il participio non concorda con gli e le; pagina letta)",
     "Tatoeba (ita.tsv), frasi contate con grep: «Le ho detto» (224), «Le ho dato» (49), «Gli piace» (336), «Le piace» (523), «Gli ho telefonato» (2)"

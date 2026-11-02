@@ -213,6 +213,15 @@ LESSON_RICH.zh["interrogative"] = {
     "Sai scegliere tra 几 e 多少, e usare 哪 + classificatore per «quale».",
     "Sai evitare 吗 con le parole interrogative e riconoscere le domande sbagliate."
   ],
+  "glosse": {
+    "你什么时候去": "Quando vai?",
+    "你为什么去": "Perché vai?",
+    "你们学校有多少学生": "Quanti studenti ha la vostra scuola?",
+    "你喜欢哪本书": "Quale libro ti piace?",
+    "你的朋友怎么样": "Come sta il tuo amico?",
+    "你想吃点什么吗": "Che cosa vuoi mangiare?",
+    "你怎么不吃": "Come mai non mangi?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Interrogative pronouns»: chi, che cosa, dove, quando, perché, come; 几 e 多少; le parole restano al loro posto",
     "Tatoeba (cinese-italiano), frasi come 你想吃什么？ e 你的中文老师是谁？, consultato con tools/lezioni-check.mjs",

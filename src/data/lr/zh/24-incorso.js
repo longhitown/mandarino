@@ -196,6 +196,22 @@ LESSON_RICH.zh["incorso"] = {
     "Sai negare il progressivo con 没在 e capire quando 在 è un luogo e quando è azione in corso.",
     "Sai usare il progressivo nel passato e nel futuro, e distinguerlo da 了 e 着."
   ],
+  "glosse": {
+    "妈妈在做饭呢": "La mamma sta cucinando",
+    "你在做什么": "Che cosa stai facendo?",
+    "我在看书呢": "Sto leggendo",
+    "你没在吃任何东西": "Non stavi mangiando niente",
+    "他在家吃饭": "Mangia a casa",
+    "我知道答案": "So la risposta",
+    "昨天…的时候": "Quando… (ieri)",
+    "我正在洗澡": "Sto facendo la doccia",
+    "明天八点我在上课": "Domani alle otto sono a lezione",
+    "我吃过北京烤鸭": "Ho mangiato l'anatra alla pechinese",
+    "你做什么在": "!Che cosa stai facendo? (ordine sbagliato)",
+    "我在学中文": "Sto studiando cinese",
+    "我现在正在学中文呢": "Adesso sto proprio studiando cinese",
+    "没在做什么": "Niente di particolare"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing actions in progress (full form)» (letta: struttura soggetto + 正在 / 正 / 在 + verbo + 呢, quasi ogni parte è facoltativa, la variante più comune è 在 + verbo, anche 呢 da solo come in 我吃饭呢)",
     "Tatoeba (cmn.tsv), frasi con 正在 e 没在 consultate: 目前我没在做什么事情, 你没在吃任何东西, 会议室正在使用中",

@@ -203,6 +203,20 @@ LESSON_RICH.zh["jiu-cai"] = {
     "Sai usare 如果/因为…就… per la conseguenza e 只有…才… per la condizione unica.",
     "Sai evitare 才…了 con l'ora e 没才, e usare 还没 per «non ancora»."
   ],
+  "glosse": {
+    "我明天就走": "Parto domani",
+    "她每天六点就起床": "Si alza ogni giorno alle sei",
+    "只要你来，我就高兴": "Basta che tu venga e io sono contento",
+    "他才学了三个月": "Ha studiato solo tre mesi",
+    "现在都十点了": "Sono già le dieci",
+    "现在才八点呢": "Sono solo le otto!",
+    "他十点才到的": "È arrivato solo alle dieci",
+    "我还没吃饭": "Non ho ancora mangiato",
+    "他九点才到": "È arrivato solo alle nove",
+    "我只要一杯水": "Voglio solo un bicchiere d'acqua",
+    "他八点才到，因为路上堵车": "È arrivato solo alle otto perché c'era traffico",
+    "他八点到的": "È arrivato alle otto"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Comparing cai and jiu»: 才 = più tardi del previsto, 就 = più presto, entrambi per piccole quantità, 才 + ora = «solo»",
     "Chinese Grammar Wiki (AllSet Learning), «Expressing earliness with jiu»: 就 + 了 per l'anticipo",

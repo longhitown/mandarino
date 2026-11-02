@@ -185,6 +185,19 @@ LESSON_RICH.zh["enfasi"] = {
     "Sai usare 一 + classificatore per dire «neanche uno» e 除了 A 就是 B per dire «o A o B».",
     "Sai togliere 以外 e 连 quando il registro lo permette, senza perdere 都."
   ],
+  "glosse": {
+    "他连饭都没吃": "Non ha mangiato nemmeno il riso.",
+    "连老师都不知道": "Nemmeno l'insegnante lo sa",
+    "连一个人都不认识": "Non conosce nemmeno una persona",
+    "除了他，大家都来了": "Tranne lui, sono venuti tutti.",
+    "除了他，我们去了": "Tranne lui, siamo andati noi",
+    "除了他，我们还去了": "Oltre a lui siamo andati anche noi",
+    "连老师也不知道": "Nemmeno l'insegnante lo sa.",
+    "你连她叫什么都没问": "Non le hai chiesto nemmeno come si chiama?",
+    "除了专业之外，你还有什么爱好": "Oltre alla tua specialità, che altri hobby hai?",
+    "他除了工作就是睡觉": "Oltre a lavorare, dorme e basta.",
+    "我连饭都没时间吃": "Non ho nemmeno il tempo di mangiare!"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing even with lian and dou»: struttura con soggetto e con oggetto, 都 indispensabile, 也 possibile",
     "CC-CEDICT: voci 连, 除了, 以外 e 除外, con il valore «tranne/oltre a» e il modello 除了 A 就是 B",

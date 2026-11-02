@@ -216,6 +216,11 @@ LESSON_RICH.it["comparativi"] = {
     "你会用 il più … 和 -issimo 说出最高级，比如 la città più bella d'Italia。",
     "你会区分 migliore 和 meglio，避免 più migliore、sto più bene 这类错误。"
   ],
+  "glosse": {
+    "la città più bella d'Italia, Marco è il più alto della classe": "意大利最美的城市，马可是班上最高的。",
+    "Questa pizza è più buona di quella": "这个比萨比那个好吃。",
+    "Lui ha più esperienza": "他经验更丰富。"
+  },
   "fonti": [
     "Università del Vermont (C. Mazzoni), pagina di grammatica «Comparatives and Superlatives» (di e che, forme irregolari, superlativo relativo e assoluto; pagina letta)",
     "Tatoeba, corpus italiano locale (ita.tsv): frasi come «Nuota meglio di me», «Vado più spesso a Bruxelles che a Parigi» e «È più difficile di quello che pensi» per il riscontro degli usi"

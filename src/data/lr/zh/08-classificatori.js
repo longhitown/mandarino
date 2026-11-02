@@ -220,6 +220,10 @@ LESSON_RICH.zh["classificatori"] = {
     "Sai distinguere 两 da 二 e usare 这, 那, 哪 e 几 con il classificatore.",
     "Sai chiedere e dire quantità, ore e prezzi in una situazione quotidiana."
   ],
+  "glosse": {
+    "二十二个人": "Ventidue persone",
+    "这个多少钱": "Quanto costa questo?"
+  },
   "fonti": [
     "LibreTexts, CHN101 Elementary Mandarin I, Lesson 4 Grammar: Measure words for counting (个, 杯, 瓶, 只, 条, 块)",
     "Chinese Grammar Wiki (AllSet Learning), «Comparing er and liang»: 两 davanti al classificatore, 十二 e 二十二 con classificatore, 两百 o 二百, 两点",

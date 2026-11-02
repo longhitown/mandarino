@@ -212,6 +212,14 @@ LESSON_RICH.it["domande-prep"] = {
     "你会判断 di dove sei 问的是籍贯，da dove vieni 问的是来处，dove sei 问的是现在在哪里。",
     "你会避开汉语式的语序，写成 Con chi parli?，而不是 Chi parli con?。"
   ],
+  "glosse": {
+    "Di chi sono queste chiavi": "这些钥匙是谁的？",
+    "Quanto tempo ci vuole": "要多长时间？",
+    "a chi lo hai detto": "你对谁说的？",
+    "Qual è il tuo sport preferito": "你最喜欢的运动是什么？",
+    "Di che cosa parli": "你在说什么？",
+    "Da quanto tempo vive qui": "他在这里住多久了？"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «Interrogative dirette» (letta: l'interrogativo apre la frase; la preposizione può precederlo: da dove vieni?, a chi lo hai detto?)",
     "Treccani, Enciclopedia dell'Italiano, voce «Aggettivi e pronomi interrogativi» (letta: cosa come forma ridotta di che cosa, più frequente al nord; che nel resto d'Italia)",

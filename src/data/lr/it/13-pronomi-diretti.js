@@ -220,6 +220,13 @@ LESSON_RICH.it["pronomi-diretti"] = {
     "你会处理两个动词在一起的情况：Voglio vederlo 和 Lo voglio vedere。",
     "你会回答 Non lo so 这样的句子，也会避开把代词放在动词后面或省略宾语的错误。"
   ],
+  "glosse": {
+    "Sai che Anna è partita": "你知道安娜走了吗？",
+    "Hai comprato il pane": "你买面包了吗？",
+    "Chiama me, non lui": "叫我，不要叫他。",
+    "La ringrazio, signor Rossi": "谢谢您，罗西先生。",
+    "La chiamo domani, dottoressa": "我明天给您打电话，医生。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «clitici» (2010): elisione di lo e la, clitici con i verbi modali, enclisi (pagina letta)",
     "Tatoeba (ita.tsv), frasi reali con Non lo so (114), L'ho comprato ieri (2), Li ho visti ieri (3), Le ho viste (43), Mi ha vista (9), Ci ha invitati (6): verificate con grep nel corpus locale"

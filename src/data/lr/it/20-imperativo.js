@@ -212,6 +212,10 @@ LESSON_RICH.it["imperativo"] = {
     "你会把代词接在命令式后面，说 Dimmi、Dammi、Fammi、Siediti，并知道 Lei 的形式例外。",
     "你会在商店、餐厅里听懂并说出 Mi dica! 和 Si accomodi!。"
   ],
+  "glosse": {
+    "Aspetti un attimo, per favore": "请您等一下。",
+    "Potrebbe aspettare un attimo": "您能等一下吗？"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «imperativo» (forme di tu, voi, noi; imperativo negativo con infinito; posizione dei clitici; forme tronche va', fa', di', da', sta')",
     "Tatoeba (ita.tsv), interrogato per Non parlare, Vieni qui, Non ti preoccupare, Dimmi"

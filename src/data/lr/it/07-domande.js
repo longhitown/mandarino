@@ -206,6 +206,16 @@ LESSON_RICH.it["domande"] = {
     "你会用升调提出是非问句，并用 Sì / No 回答，包括 Non bevi caffè? 这样的否定问句。",
     "你会把 dove、che cosa、chi、quando、perché、come、quanto 放在句首提问，并带上介词：Con chi parli?"
   ],
+  "glosse": {
+    "Non mangio più carne": "我不再吃肉了。",
+    "Non è ancora qui": "他还没到。",
+    "Quando parte il treno": "火车几点开？",
+    "A che ora parti": "你几点出发？",
+    "Sei mai stato in Croazia": "你去过克罗地亚吗？",
+    "Mi dispiace, non posso": "对不起，我不行。",
+    "Purtroppo non ho tempo": "很遗憾，我没有时间。",
+    "Scusi, dov'è la stazione": "请问，车站在哪里？"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «negazione» (Bernini, 2011): posizione di non, concordanza negativa con mai, niente, nessuno (pagina letta)",
     "Tatoeba (ita.tsv), frasi reali con Dove vai? (4), Con chi parli? (1), Nessuno (1924): verificate con grep nel corpus locale"

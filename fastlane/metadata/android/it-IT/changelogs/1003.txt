@@ -1,0 +1,3 @@
+• Ogni regola è una scheda: la formula, la regola in una riga, gli esempi con il pinyin sopra ogni parola e la traduzione, e il «Perché» da aprire quando vuoi capire a fondo.
+• In cima alla lezione due interruttori, Pinyin e Traduzioni, per nascondere un aiuto e metterti alla prova.
+• Le forme sbagliate sono barrate, e il ragionamento completo resta sotto «Perché».

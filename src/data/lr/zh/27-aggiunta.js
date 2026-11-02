@@ -190,6 +190,24 @@ LESSON_RICH.zh["aggiunta"] = {
     "Sai dire due azioni simultanee con 一边…一边.",
     "Sai scegliere tra 又…又, 一边…一边 e 不但…而且 a seconda di che cosa vuoi dire."
   ],
+  "glosse": {
+    "又大又干净": "Grande e pulito",
+    "他不但会说中文，而且会写汉字": "Non solo sa parlare cinese, ma sa anche scrivere i caratteri",
+    "不但我喜欢，我朋友也喜欢": "Non solo piace a me, ma anche al mio amico",
+    "这家饭馆不但便宜，还很好吃": "Questo ristorante non solo costa poco, ma è anche molto buono",
+    "他不但会说，而且也会写": "Non solo sa parlare, ma sa anche scrivere",
+    "她一边做饭一边听音乐": "Cucina e intanto ascolta musica",
+    "又便宜又好吃": "Economico e buono",
+    "这里很安静": "Qui è molto tranquillo.",
+    "而且，交通也很方便": "Inoltre i trasporti sono comodi.",
+    "苹果和香蕉": "Mele e banane",
+    "很大和很甜": "!Molto grande e molto dolce (con 和 sbagliato)",
+    "她不但会唱歌，还会跳舞": "Non solo sa cantare, ma sa anche ballare",
+    "他不但不帮我，反而笑我": "Non solo non mi aiuta, ma anzi ride di me",
+    "一边走路一边看手机": "Cammina e intanto guarda il cellulare",
+    "一边睡觉一边吃饭": "Dorme e intanto mangia",
+    "我做饭，他看电视": "Io cucino, lui guarda la TV"
+  },
   "fonti": [
     "CC-CEDICT, voci 不但, 而且, 又 e 反而, consultate nel file locale",
     "Tatoeba (cinese, corpus locale): occorrenze di 不但, 一边 e 又 nel corpus"

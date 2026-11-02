@@ -200,6 +200,14 @@ LESSON_RICH.zh["chongdie"] = {
     "Sai raccontare un'occhiata già data con 看了看 e dire «per niente» con 一点也不.",
     "Sai riconoscere i verbi che non si raddoppiano (是, 有, 喜欢) e correggere gli errori di posizione più comuni."
   ],
+  "glosse": {
+    "我看了看那本书": "Ho dato un'occhiata a quel libro",
+    "帮我找一下钱包": "Aiutami a cercare il portafoglio",
+    "有点不高兴": "Un po' scontento",
+    "我喜欢这个": "Mi piace questo",
+    "我喜欢喜欢你": "!Mi piaci piaci (raddoppio sbagliato)",
+    "他银行里有点钱": "Ha un po' di soldi in banca"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Reduplication of verbs»: AA e V一V con tono casual; ABAB per i verbi di due sillabe (考虑考虑)",
     "CC-CEDICT (cedict_ts.u8), voci 一下, 一点, 有点, 看看, consultate in locale",

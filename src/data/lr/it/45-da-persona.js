@@ -215,6 +215,11 @@ LESSON_RICH.it["da-persona"] = {
     "你会区分去地方（al bar, in banca）和去人（da Marco, dal medico）。",
     "你会用 da me、da te、da noi 邀请别人，也会说 Passo da te 表示顺路去一下。"
   ],
+  "glosse": {
+    "Vieni da me stasera": "你今晚来我这儿吗？",
+    "Ci vediamo da Luca": "我们在卢卡家见。",
+    "Sono dalla nonna, ti richiamo più tardi": "我在奶奶家，晚点给你回电话。"
+  },
   "fonti": [
     "Treccani, La grammatica italiana, voce «Da [preposizione]» (letta: da con nomi di persona, professioni, pronomi e locali; moto da luogo; esempi Vado a studiare da Chiara, Passi da me?; la voce non cita il dentista)",
     "Tatoeba (ita.tsv, grep): «dal dentista» (77), «dal medico» (40), «dalla nonna» (9), «da noi» (209), «Passo da» (5)"

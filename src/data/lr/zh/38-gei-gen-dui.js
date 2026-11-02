@@ -180,6 +180,25 @@ LESSON_RICH.zh["gei-gen-dui"] = {
     "Sai esprimere un atteggiamento verso una persona o una cosa con 对, anche in 对…来说.",
     "Sai scegliere tra 给, 跟 e 对 in base al rapporto con la persona."
   ],
+  "glosse": {
+    "给妈妈打电话": "Telefonare alla mamma",
+    "跟朋友一起去": "Andare con gli amici",
+    "我给你打电话": "Ti telefono",
+    "我跟朋友去爬山": "Vado a fare un'escursione con gli amici",
+    "跟老师说话": "Parlare con l'insegnante",
+    "我对中文很有兴趣": "Mi interessa molto il cinese",
+    "我没给他打电话": "Non gli ho telefonato",
+    "他给我很好": "!Mi dà molto bene (uso sbagliato di 给)",
+    "我给中文有兴趣": "!Mi do interesse al cinese (uso sbagliato di 给)",
+    "给我一杯水": "Dammi un bicchiere d'acqua",
+    "我跟朋友去": "Vado con gli amici",
+    "我和朋友去": "Vado con gli amici",
+    "打电话给你": "Telefonarti",
+    "给你打电话": "Ti telefono",
+    "给我打电话": "Telefonami",
+    "给你发短信": "Ti mando un messaggio",
+    "对中文有兴趣": "Interessarsi al cinese"
+  },
   "fonti": [
     "Tatoeba (cmn.tsv), frasi attestate con 跟我一样 (2 occorrenze) e 给…打电话, verificate nel corpus locale",
     "CC-CEDICT, voci 給/给, 跟, 對/对: significati («to», «for», «with», «towards»)"

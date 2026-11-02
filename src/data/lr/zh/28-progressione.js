@@ -186,6 +186,19 @@ LESSON_RICH.zh["progressione"] = {
     "Sai dire «sempre meno» con 越来越不 e «sempre più persone» con 越来越多的人.",
     "Sai scegliere tra 越来越 (tendenza nel tempo) e 越…越 (due variabili collegate)."
   ],
+  "glosse": {
+    "天气越来越冷": "Il tempo diventa sempre più freddo",
+    "路上的车越来越多": "Sulla strada ci sono sempre più auto",
+    "他越来越爱看书": "Gli piace sempre di più leggere",
+    "我越听越喜欢": "Più ascolto, più mi piace",
+    "越来越更好": "!Sempre più meglio (uso sbagliato)",
+    "一天比一天": "Di giorno in giorno",
+    "情况一天比一天差": "La situazione peggiora di giorno in giorno",
+    "一年比一年": "Di anno in anno",
+    "人越来越多": "La gente è sempre di più",
+    "越想越生气": "Più ci penso, più mi arrabbio",
+    "越来越多的人": "Sempre più persone"
+  },
   "fonti": [
     "CC-CEDICT, voce 越 (yue4), consultata nel file locale",
     "Tatoeba (cinese, corpus locale): occorrenze di 越来越 e 一天比一天"

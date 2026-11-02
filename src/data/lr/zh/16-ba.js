@@ -184,6 +184,20 @@ LESSON_RICH.zh["ba"] = {
     "Sai mettere negazione, avverbi e verbi modali prima di 把.",
     "Sai riconoscere quando 把 non si usa e quando conviene il passivo con 被."
   ],
+  "glosse": {
+    "把作业做完": "Finire i compiti",
+    "把杯子放在桌子上": "Mettere la tazza sul tavolo",
+    "把窗户打开": "Aprire la finestra",
+    "把那本书买了": "Comprare quel libro",
+    "把一本书买了": "Comprare un libro",
+    "放在桌子上": "Mettere sul tavolo",
+    "我没把门关上": "Non ho chiuso la porta",
+    "你应该把药吃了": "Dovresti prendere la medicina",
+    "我喜欢这个汉字": "Mi piace questo carattere",
+    "他把杯子打碎了": "Ha rotto la tazza",
+    "杯子被他打碎了": "La tazza è stata rotta da lui",
+    "作业做完了": "I compiti sono finiti"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «Using ba sentences»: oggetto noto, verbo con risultato o direzione, negazione prima di 把, verbi psicologici e di percezione esclusi",
     "Chinese Grammar Wiki (AllSet Learning), stessa pagina: 都 prima di 把 riferito a chi agisce (我们都把作业做完了)"

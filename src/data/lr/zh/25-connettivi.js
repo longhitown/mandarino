@@ -204,6 +204,19 @@ LESSON_RICH.zh["connettivi"] = {
     "Sai esprimere un contrasto con 虽然… 但是… e scegliere tra 但是, 可是, 不过 e 却.",
     "Sai evitare le coppie sbagliate (虽然…所以, 因为…但是) e combinare le due coppie in una frase."
   ],
+  "glosse": {
+    "因为太累了，所以我想休息": "Poiché sono molto stanco, voglio riposare",
+    "因为太累了，我想休息": "Sono molto stanco, voglio riposare",
+    "我没去，因为下雨了": "Non sono andato perché pioveva",
+    "你为什么没去": "Perché non sei andato?",
+    "因为下雨了": "Perché pioveva",
+    "虽然很贵，但是很好吃": "Anche se costa molto, è molto buono",
+    "他虽然很忙，但是": "Anche se è molto occupato, ma…",
+    "但是他还是来了": "Ma è venuto lo stesso",
+    "这件衣服虽然便宜，却很好看": "Questo vestito costa poco ma è molto bello",
+    "虽然很贵，我买了": "Anche se è caro, l'ho comprato",
+    "很好看，不过有点贵": "È molto bello, però è un po' caro"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing although with suiran and danshi»: 但是 quasi sempre necessario dopo 虽然",
     "CC-CEDICT (cedict_ts.u8), voci 因为, 所以, 虽然, 但是, 可是, 不过, 却, 既然",

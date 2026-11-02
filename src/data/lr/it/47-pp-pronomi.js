@@ -207,6 +207,11 @@ LESSON_RICH.it["pp-pronomi"] = {
     "你会用 ne 说“其中一部分”，并让分词和被数的东西一致，如 ne ho comprate tre。",
     "你会区分直接宾语（l'ho vista）和间接宾语（le ho scritto），知道后者的分词不变。"
   ],
+  "glosse": {
+    "Hai letto il messaggio": "你读了这条消息吗？",
+    "Hai visto Anna e Marco": "你见到安娜和马可了吗？",
+    "Hai visto il film": "你看了这部电影吗？"
+  },
   "fonti": [
     "Wikipedia (inglese), Italian grammar, sezione sull'accordo del participio passato con i pronomi clitici complemento oggetto (lo, la, li, le obbligatorio; mi, ti, ci, vi facoltativo)",
     "Tatoeba (ita.tsv), interrogato con L'ho visto, L'ho vista, Le ho viste, Ci ha visti, Ne ho comprati, Li ho invitati, Le ho telefonato, Non l'ho ancora, Ti ho aspettato"  ]

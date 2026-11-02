@@ -216,6 +216,11 @@ LESSON_RICH.it["partitivo"] = {
     "你会用 un po' di、qualche、alcuni 换一种说法，并且知道 qualche 后面是单数名词。",
     "你会用 ne 接着说：Vuoi del pane? — Sì, ne voglio."
   ],
+  "glosse": {
+    "Vuoi un po' di pane": "你要一点面包吗？",
+    "Hai amici a Roma": "你在罗马有朋友吗？",
+    "Vorrei dell'acqua, per favore": "请给我一点水。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «Partitivo» (letta: singolare del/della per la quantità indeterminata; plurale come plurale dell'indeterminativo; test con un po' di e alcuni; ne partitivo; articolo zero)",
     "Treccani, La grammatica italiana, voce «Partitivo, articolo» (singolare con nomi non numerabili, plurale come plurale dell'indeterminativo)",

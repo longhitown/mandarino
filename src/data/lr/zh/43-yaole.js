@@ -193,6 +193,15 @@ LESSON_RICH.zh["yaole"] = {
     "Sai distinguere il futuro semplice (明天要下雨) dall'imminenza (要下雨了) e dal cambiamento già avvenuto (天黑了).",
     "Sai dire «sono quasi le otto» o «ha quasi trent'anni» con 快…了."
   ],
+  "glosse": {
+    "我要一杯茶": "Voglio una tazza di tè",
+    "他快三十岁了": "Sta per compiere trent'anni",
+    "他是大人了": "Ormai è un adulto",
+    "火车还没开": "Il treno non è ancora partito",
+    "明天就要走了": "Domani parto",
+    "快十二点了": "Manca poco a mezzogiorno",
+    "我们认识快一年了": "Ci conosciamo da quasi un anno"
+  },
   "fonti": [
     "CC-CEDICT, voci 快要 e 就要 («about to»), consultate nel file locale",
     "Tatoeba (cinese, file cmn.tsv): frasi del tipo 天快要下雨了, 她半年后就要出国了, 火车就要进站了, controllate nel corpus locale"

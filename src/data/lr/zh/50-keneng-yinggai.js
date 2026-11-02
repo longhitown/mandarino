@@ -203,6 +203,13 @@ LESSON_RICH.zh["keneng-yinggai"] = {
     "Sai dare un consiglio con 应该 e dire un dovere concreto con 得 e 要.",
     "Sai dire «non serve» con 不用 e «non si fa» con 不应该 o 别."
   ],
+  "glosse": {
+    "他一定知道": "Di sicuro lo sa",
+    "你应该早点睡": "Dovresti andare a letto presto",
+    "他应该已经到了": "Dovrebbe essere già arrivato",
+    "明天可能会下雨": "Domani potrebbe piovere",
+    "他一定会来": "Sicuramente verrà"
+  },
   "fonti": [
     "CC-CEDICT (cedict_ts.u8), voci 可能, 一定, 应该 e 得 (děi): significati di «forse», «di sicuro», «dovrebbe» e «dovere», consultate nel dizionario locale",
     "Tatoeba (cmn.tsv, es. 他可能迷路了, 现在他应该已经到了), verificate con grep nel corpus locale"

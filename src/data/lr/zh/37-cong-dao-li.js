@@ -179,6 +179,27 @@ LESSON_RICH.zh["cong-dao-li"] = {
     "Sai dire quanto manca a un evento con 离 e quanto dura un tragitto con 要.",
     "Sai scegliere tra 从, 到 e 离 senza tradurre ogni «da» italiano allo stesso modo."
   ],
+  "glosse": {
+    "我从北京坐飞机去上海": "Vado da Pechino a Shanghai in aereo",
+    "从星期一到星期五": "Dal lunedì al venerdì",
+    "我八点到学校": "Arrivo a scuola alle otto",
+    "学校离我家很近": "La scuola è vicina a casa mia",
+    "离这儿有三公里": "Sono tre chilometri da qui",
+    "车站离这儿不远": "La stazione non è lontana da qui",
+    "机场离这儿多远": "Quanto è lontano l'aeroporto da qui?",
+    "从这儿到车站要十分钟": "Da qui alla stazione ci vogliono dieci minuti",
+    "我从家去学校": "Vado da casa a scuola",
+    "他离开了北京": "Ha lasciato Pechino",
+    "从八点到十点": "Dalle otto alle dieci",
+    "离圣诞节不远了": "Manca poco a Natale",
+    "离这儿远吗": "È lontano da qui?",
+    "离这儿远不远": "È lontano da qui?",
+    "请问新桥饭店离这儿远不远": "Scusi, l'hotel Xinqiao è lontano da qui?",
+    "距离北京一千公里": "Dista mille chilometri da Pechino",
+    "请问，银行离这儿远吗": "Scusi, la banca è lontana da qui?",
+    "从这儿走到那儿要多长时间": "Quanto tempo ci vuole per andare da qui a là?",
+    "到车站怎么走": "Come si arriva alla stazione?"
+  },
   "fonti": [
     "Tatoeba (cmn.tsv), frasi con 离这儿远, 从这儿到, 新桥饭店离这儿远不远 attestate nel corpus",
     "CC-CEDICT, voci 離/离 («in giving distances»), 從/从, 對, 跟, 給: significati e usi base"

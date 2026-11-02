@@ -205,6 +205,10 @@ LESSON_RICH.it["prima-dopo"] = {
     "你会用 prima … poi … infine 按顺序说一个流程。",
     "你会避开 *prima mangiare*、*dopo mangiare*、*mentre arrivo* 这样的错误。"
   ],
+  "glosse": {
+    "Dopo aver mangiato esco": "吃完饭我就出去。",
+    "Mentre cucino ascolto la radio": "我做饭的时候听广播。"
+  },
   "fonti": [
     "Elon.io, «Temporal Conjunctions: quando, mentre, appena» (letta: quando e appena con indicativo, mentre per azioni contemporanee, prima che + congiuntivo; dopo aver + participio con stesso soggetto)",
     "Think in Italian, «Before and After in Italian: Prima and Dopo Explained» (letta: prima di + infinito con stesso soggetto, prima che + congiuntivo, dopo aver/essere + participio, dopo che + indicativo)",

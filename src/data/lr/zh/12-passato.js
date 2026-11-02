@@ -208,6 +208,12 @@ LESSON_RICH.zh["passato"] = {
     "Sai dire abitudini e stati passati usando solo le parole di tempo, senza 了.",
     "Sai costruire una sequenza con 了 … 就 e distinguere 了 da 过 quando racconti un'esperienza."
   ],
+  "glosse": {
+    "我看了那个电影": "Ho visto quel film",
+    "你喝了什么": "Che cosa hai bevuto?",
+    "他在北京住了三年": "Ha abitato a Pechino tre anni",
+    "明天我吃了饭就去": "Domani, quando avrò mangiato, vado"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing completion with le»: 了 dopo il verbo, quantità, un solo 了 nelle sequenze, uso nel futuro",
     "Chinese Grammar Wiki (AllSet Learning), «Change of state with le» e «Expressing not anymore with le»: 了 finale, 不…了 e 没(有)…了",

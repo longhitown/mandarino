@@ -194,6 +194,18 @@ LESSON_RICH.zh["geng-zui"] = {
     "Sai evitare 很 insieme a 更, 最, 比较, 特别 e a 比, e rinforzare con 得多 per dire «molto più».",
     "Sai negare un grado con 不太 e dire «ciò che mi piace di meno» con 最不."
   ],
+  "glosse": {
+    "他比我还高": "È ancora più alto di me",
+    "一年里一月最冷": "Gennaio è il mese più freddo dell'anno",
+    "我最喜欢茶": "Mi piace di più il tè",
+    "我最想去北京": "Voglio andare soprattutto a Pechino",
+    "他比我高得多": "È molto più alto di me",
+    "他比我高多了": "È molto più alto di me",
+    "今天特别冷": "Oggi fa particolarmente freddo",
+    "我最近很忙": "Di recente sono molto occupato",
+    "最近的银行": "La banca più vicina",
+    "这个菜比较咸": "Questo piatto è piuttosto salato"
+  },
   "fonti": [
     "CC-CEDICT, voci 更, 最, 比较, 特别 (avverbi di grado: «most», «relatively», «especially»), consultate nel dizionario locale",
     "Tatoeba (cmn.tsv, es. 我最喜欢… con 最喜欢, 26 occorrenze), verificate nel corpus locale"

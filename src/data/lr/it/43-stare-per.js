@@ -206,6 +206,15 @@ LESSON_RICH.it["stare-per"] = {
     "你会用 Stavo per + 原形 说过去“正要……的时候”，并接上 quando 和打断的事件。",
     "你会避开两个常见错误：把很远的将来也说成 sto per，以及在 per 后面接副动词或变位动词。"
   ],
+  "glosse": {
+    "Marta sta per uscire": "玛尔塔就要出门了。",
+    "Il treno sta per partire": "火车就要开了。",
+    "Il direttore è sul punto di partire": "经理就要出发了。",
+    "Stavo per uscire, ma ho cambiato idea": "我刚才要出门，但是改主意了。",
+    "L'azienda è sul punto di chiudere": "公司就要关门了。",
+    "Sto per arrivare, fra un attimo ci sono": "我快到了，马上就到。",
+    "Stavo per chiamarti, scusa": "我正要给你打电话，不好意思！"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «strutture perifrastiche» (letta: stare per + infinito come perifrasi imminenziale; confronto con stare + gerundio; «sto partendo» come «sto per partire»)",
     "Tatoeba (ita.tsv, grep): «Sto per» (120), «Stavo per uscire» (7), «Sta per piovere» (1)"

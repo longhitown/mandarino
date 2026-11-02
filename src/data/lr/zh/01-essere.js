@@ -206,6 +206,10 @@ LESSON_RICH.zh["essere"] = {
     "Sai fare una domanda con 吗 o con 是不是 e rispondere con 是 o 不是.",
     "Sai riconoscere quando 是 non serve: davanti ad aggettivi (很) e all'età."
   ],
+  "glosse": {
+    "你是不是学生": "Sei studente?",
+    "我不是中国人，我是意大利人": "Non sono cinese, sono italiano"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Connecting nouns with shi»: schema A 是 B, negazione 不是, 是 solo con i nomi",
     "Wikipedia (inglese), «Chinese grammar»: aggettivi predicativi senza copula, 很 davanti all'aggettivo",

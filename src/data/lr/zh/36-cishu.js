@@ -205,6 +205,23 @@ LESSON_RICH.zh["cishu"] = {
     "Sai collocare pronomi, nomi di persona e di luogo rispetto al numero di volte.",
     "Sai dire la frequenza (un periodo prima del verbo), «mai, nemmeno una volta» e «la prima volta»."
   ],
+  "glosse": {
+    "来过好几次": "Sono venuto diverse volte",
+    "见过他两次": "L'ho visto due volte",
+    "去过北京三次": "Sono stato tre volte a Pechino",
+    "去过三次北京": "Sono stato tre volte a Pechino",
+    "给她打了五次电话": "Le ho telefonato cinque volte",
+    "请再说一遍": "Ripeta, per favore",
+    "这个电影我看了三次": "Ho visto questo film tre volte",
+    "看了三次电影": "Ho visto il film tre volte",
+    "我三次去过": "!Sono stato tre volte (ordine sbagliato)",
+    "我想再看一次": "Voglio vederlo un'altra volta",
+    "他又说了一遍": "Ha ripetuto di nuovo",
+    "请又说一遍": "!Ripeta di nuovo, per favore (parola sbagliata)",
+    "你能再说一遍吗": "Puoi ripeterlo?",
+    "一次又一次": "Una volta dopo l'altra",
+    "这是我第一次说中文": "Questa è la prima volta che parlo cinese."
+  },
   "fonti": [
     "CC-CEDICT, voci 次 e 遍, consultate nel dizionario locale",
     "Tatoeba (cinese, es. 她去过三次法国, 我去过一次京都, 你多久看一次牙医？, 请再说一遍), consultato nei corpora locali"

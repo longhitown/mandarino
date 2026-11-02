@@ -191,6 +191,12 @@ LESSON_RICH.zh["possesso"] = {
     "Sai rispondere «è mio» con 我的 e chiedere «di chi è?» con 谁的.",
     "Sai concatenare due possessori: 我朋友的手机."
   ],
+  "glosse": {
+    "老师的手机": "Il cellulare dell'insegnante",
+    "这本书是谁的": "Di chi è questo libro?",
+    "手机的老师": "!Il cellulare di un insegnante (ordine sbagliato)",
+    "马可的朋友": "L'amico di Marco"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing close possession without de»: 的 omesso con familiari, amici, scuola e lavoro",
     "Tatoeba cinese-italiano (es. 这是我的书, 我们学校在市中心, 我家很大, 这是我的妈妈) e CC-CEDICT, voce 的, consultati nei corpora locali"

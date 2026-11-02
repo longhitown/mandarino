@@ -219,6 +219,13 @@ LESSON_RICH.it["congiuntivo"] = {
     "你会判断该用 che + 虚拟式、di + 不定式，还是直陈式（so che）。",
     "你会用 È necessario che、È importante che 说明什么事有必要。"
   ],
+  "glosse": {
+    "Penso che sia vero": "我觉得这是真的。",
+    "Penso di avere ragione": "我觉得我是对的。",
+    "So che è vero": "我知道这是真的。",
+    "Spero tu stia bene": "希望你好。",
+    "Spero che tu stia bene": "希望你好。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «congiuntivo» (verbo reggente e modo; credere con indicativo o congiuntivo; sapere con indicativo)",
     "Wikipedia in inglese, voce «Italian grammar» (usi del congiuntivo; letta solo in parte)",

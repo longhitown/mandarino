@@ -222,6 +222,16 @@ LESSON_RICH.it["connettivi"] = {
     "你会区分 anche se（说真实的事时用直陈式）和 benché、sebbene、nonostante（虚拟式）表示的让步。",
     "你会用 ma、però、mentre 连接对比和同时进行的事。"
   ],
+  "glosse": {
+    "Se hai fame, mangia": "如果你饿了，就吃吧。",
+    "Se domani piove, resto a casa": "如果明天下雨，我就待在家里。",
+    "Benché sia tardi, esco": "虽然很晚了，我还是出去。",
+    "È buono, ma è caro": "很好吃，但是很贵。",
+    "Resto a casa perché ho la febbre": "我待在家里，因为我发烧了。",
+    "Perché ho la febbre": "因为我发烧了。",
+    "Non vengo perché ho da fare": "我不来，因为我有事。",
+    "Se vieni, ti faccio vedere il giardino": "如果你来，我带你看花园。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «connettivi» (tipi: causali perché e siccome, consecutivi quindi e dunque, concessivi anche se e sebbene, condizionale se; il modo dopo sebbene e anche se non è spiegato con una regola esplicita; pagina letta)",
     "Wikipedia in inglese, voce «Italian grammar» (usi del congiuntivo e del periodo ipotetico; letta solo in parte)",

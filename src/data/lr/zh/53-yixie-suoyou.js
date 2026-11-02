@@ -183,6 +183,15 @@ LESSON_RICH.zh["yixie-suoyou"] = {
     "Sai dire «tutti» e «ogni» con 所有的, 每 e 都 al posto giusto.",
     "Sai chiedere e dire «altro» con 别的 e distinguerlo da 别人."
   ],
+  "glosse": {
+    "买一些水果": "Compro un po' di frutta",
+    "有些人没来": "Alcuni non sono venuti",
+    "每个人都喜欢他": "Tutti gli vogliono bene",
+    "你还要别的吗": "Vuoi altro?",
+    "有的喝茶，有的喝咖啡": "Alcuni bevono tè, altri caffè",
+    "喝一点儿水": "Bevo un po' d'acqua",
+    "还要别的吗": "Vuoi altro?"
+  },
   "fonti": [
     "CC-CEDICT, voci 一些, 有些, 所有, 每, 别的 (glosse «some», «all», «every», «other»), consultate nel dizionario locale",
     "Tatoeba (cmn.tsv, es. 有些人, 每个人都, 所有的), verificate con grep nel corpus locale"

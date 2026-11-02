@@ -177,6 +177,18 @@ LESSON_RICH.zh["risultato"] = {
     "Sai scegliere tra 见 e 到, tra 完 e 好, secondo il verbo e il risultato che vuoi dire.",
     "Sai chiedere di ripetere con 我没听清楚 e dire se hai capito."
   ],
+  "glosse": {
+    "写错了一个字": "Ho sbagliato a scrivere un carattere",
+    "我找到钥匙了": "Ho trovato le chiavi",
+    "我吃完饭了": "Ho finito di mangiare",
+    "我还没看完": "Non ho ancora finito di leggere",
+    "我找了钥匙": "Ho cercato le chiavi",
+    "我听了老师": "Ho ascoltato l'insegnante",
+    "把门关上了": "Ho chiuso la porta",
+    "杯子被打破了": "La tazza è stata rotta",
+    "对不起，我没听清楚，请再说一遍": "Scusi, non ho sentito bene, può ripetere?",
+    "你听懂了吗": "Hai capito?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing result»: complementi di risultato 完, 到, 见, 好, 错 dopo il verbo",
     "CC-CEDICT (voci 听懂, 找到, 看见): significati dei composti, consultati nel dizionario locale",

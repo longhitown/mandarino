@@ -202,6 +202,17 @@ LESSON_RICH.it["con-senza-per"] = {
     "你会用 per 说东西是给谁的，以及做事的目的：È per te，Studio per lavoro，Vado per studiare。",
     "你会避免三个常见错误：Vado a Anna，senza di zucchero，sono a mia madre。"
   ],
+  "glosse": {
+    "Vado al cinema con Anna": "我和安娜去看电影。",
+    "Abito con due amici": "我和两个朋友住在一起。",
+    "Taglio il pane con il coltello": "我用刀切面包。",
+    "Pago con la carta": "我用卡付钱。",
+    "Non posso stare senza di te": "我不能没有你。",
+    "Questo regalo è per te": "这份礼物是给你的。",
+    "Un caffè senza zucchero, per favore": "请来一杯不加糖的咖啡。",
+    "Una pizza senza glutine": "一个无麸质比萨。",
+    "Un panino con prosciutto e senza formaggio": "一个加火腿不加奶酪的三明治。"
+  },
   "fonti": [
     "Treccani, Vocabolario, voce «senza» (letta: privazione o mancanza, senza di con i pronomi, senza + infinito, senza che + congiuntivo; la voce «con» non è stata letta e non è citata)",
     "Tatoeba (ita.tsv, grep): «senza zucchero» (97), «senza dire» (38), «senza ombrello» (5), «senza di te» (143)"

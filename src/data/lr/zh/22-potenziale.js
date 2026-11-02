@@ -188,6 +188,15 @@ LESSON_RICH.zh["potenziale"] = {
     "Sai scegliere tra 不会 (non so), 不能 (non posso, impegno) e il potenziale con 不 (il risultato non arriva).",
     "Sai collocare l'oggetto: dopo il complemento (听不懂中文) o davanti alla frase (这个字我看不懂)."
   ],
+  "glosse": {
+    "你看得见吗": "Riesci a vedere?",
+    "我听不懂上海话": "Non capisco il dialetto di Shanghai",
+    "上海话我听不懂": "Il dialetto di Shanghai non lo capisco",
+    "我不会说中文": "Non so parlare cinese",
+    "请说慢一点": "Parli più piano, per favore",
+    "请再说一遍": "Ripeta, per favore",
+    "明天我去不了": "Domani non riesco ad andare"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Potential complement»: struttura verbo + 得/不 + complemento, domanda con 吗, oggetto dopo il complemento o all'inizio",
     "Chinese Grammar Wiki (AllSet Learning), «Degree complement»: il complemento di grado accetta 很 davanti all'aggettivo, il potenziale no",

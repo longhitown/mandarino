@@ -222,6 +222,10 @@ LESSON_RICH.it["ci-ne"] = {
     "你会说 c'è / ci sono、ci vuole / ci vogliono、ce ne sono 这些最常用的组合。",
     "你会先看动词后面本来的介词，再在 ci 和 ne 之间选择，并把它放在变位动词前面。"
   ],
+  "glosse": {
+    "Sei mai stato a Roma": "你去过罗马吗？",
+    "Ne ho mangiate due": "我吃了两个。"
+  },
   "fonti": [
     "Elon.io, Italian grammar, «Ci vs Ne: Choosing Between Italian's Two Particles» (aperta e letta: scelta secondo la preposizione, ne partitivo, posizione, ce ne, accordo del participio)",
     "Simone Pols, «Clitics in Italian: how to use Ci and Ne» (aperta e letta: ci di luogo, ci con verbi che reggono a, ne con di e da, posizione con l'infinito)",

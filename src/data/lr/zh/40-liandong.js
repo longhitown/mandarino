@@ -179,6 +179,15 @@ LESSON_RICH.zh["liandong"] = {
     "Sai mettere negazione, modali e parole di tempo prima del primo verbo.",
     "Sai evitare l'ordine invertito e la congiunzione 和 tra due verbi."
   ],
+  "glosse": {
+    "他骑车上班": "Va al lavoro in bicicletta",
+    "我用手机看书": "Leggo con il cellulare",
+    "我想去买东西": "Voglio andare a fare spese",
+    "明天我去商店买东西": "Domani vado al negozio a fare spese",
+    "我去北京学过中文": "Sono andato a Pechino a studiare cinese",
+    "为了学中文，他来中国了": "È venuto in Cina per studiare cinese",
+    "他来中国是为了学中文": "È venuto in Cina per studiare cinese"
+  },
   "fonti": [
     "CC-CEDICT, voci 坐 e 用: «prendere (un autobus, un aereo)» per 坐, e uso di 用 come introduttore dello strumento",
     "Tatoeba (cmn.tsv), frasi reali con 我坐飞机去… e 我去买…, lette per controllare l'ordine mezzo prima del movimento"

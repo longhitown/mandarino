@@ -196,6 +196,11 @@ LESSON_RICH.zh["aggettivi"] = {
     "Sai negare un aggettivo con 不 e fare domande con 吗 o con la forma affermativa + negativa.",
     "Sai mettere 也 e 都 nel posto giusto prima di 很."
   ],
+  "glosse": {
+    "他们都很忙": "Sono tutti molto occupati",
+    "这本书是贵，但是很好": "!Questo libro è caro (con 是 sbagliato)",
+    "咖啡很好喝": "Il caffè è molto buono"
+  },
   "fonti": [
     "Wikipedia (inglese), «Chinese grammar»: aggettivi predicativi senza copula, 很 con gli aggettivi e negazione con 不",
     "CC-CEDICT, voce 很 (usata davanti a un aggettivo senza intensificarne il senso)",

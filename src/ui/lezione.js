@@ -36,10 +36,115 @@
   function lab(k) { return LBL[S.corso][k] || k; }
   function CJK(t) { return /[㐀-鿿]/.test(t); }
   /* testo della spiegazione: **grassetto**, [[evidenziato]], i caratteri cinesi nel testo italiano prendono lang="zh-CN" */
-  function rich(t) {
+  /* ---- testo della spiegazione ----
+     Il testo scorre calmo. Un carattere o una parola di cui si parla ha SOLO il pinyin piccolo sopra (ruby); le frasi intere con la loro traduzione escono dal
+     paragrafo e diventano card di esempio (pinyin, caratteri, traduzione). Le traduzioni tra parentesi dopo un termine non si mostrano più: il significato sta
+     nelle card di esempio e nella scheda della parola (si apre toccando il carattere). */
+  /* caratteri che il vocabolario dell'app non ha come parola (citati nelle spiegazioni): il pinyin viene dal dataset dei caratteri */
+  var PYX = { "是": "shì", "儿": "ér", "個": "gè", "巴": "bā", "黎": "lí", "喜": "xǐ", "欢": "huān", "置": "zhì", "把": "bǎ", "评": "píng", "誉": "yù", "入": "rù", "聊": "liáo", "着": "zhe", "著": "zhe", "倘": "tǎng", "若": "ruò", "和": "hé", "语": "yǔ", "距": "jù", "给": "gěi", "澡": "zǎo", "今": "jīn", "与": "yǔ", "同": "tóng", "吗": "ma", "甭": "béng", "刚": "gāng", "才": "cái", "之": "zhī" };
+  function ruby(run) {
+    return CP.segment(run).map(function (x) {
+      var w = x.w, raw = x.raw != null ? x.raw : x.p;
+      if (!w) return Array.from(raw || "").map(function (ch) { return PYX[ch] ? '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(ch) + '">' + esc(ch) + '<rp>(</rp><rt class="py">' + PYX[ch] + "</rt><rp>)</rp></ruby>" : '<span class="han" lang="zh-CN">' + esc(ch) + "</span>"; }).join("");
+      return '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(w.key) + '">' + esc(w.hz) + '<rp>(</rp><rt class="py">' + esc(w.py.replace(/\./g, "")) + "</rt><rp>)</rp></ruby>";
+    }).join("");
+  }
+  function rich(t, rb) {
     var h = esc(String(t)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\[\[(.+?)\]\]/g, "<mark>$1</mark>");
-    if (S.corso === "zh") h = h.replace(/([㐀-鿿，。？！、：；＿…]+)/g, '<span class="han" lang="zh-CN">$1</span>'); else h = h.replace(/(<b>)([A-Za-zÀ-ÿ'’ ,.?!-]+)(<\/b>)/g, '$1<span lang="it">$2</span>$3');
+    if (S.corso === "zh") h = h.replace(/([㐀-鿿，。？！、：；＿…]+)/g, rb ? function (m) { return ruby(m); } : '<span class="han" lang="zh-CN">$1</span>'); else h = h.replace(/(<b>)([A-Za-zÀ-ÿ'’ ,.?!-]+)(<\/b>)/g, '$1<span lang="it">$2</span>$3');
     return h;
+  }
+  var RE_EX_ZH = /([㐀-鿿][㐀-鿿，、：；…]{3,}[。？！]?)\s*[（(]\s*[«“"]([^»”"）)]+)[»”"]\s*[）)]/g;
+  var RE_EX_IT = /((?:[A-Za-zÀ-ÿ'’]+[ ,]+)+[A-Za-zÀ-ÿ'’]+[.?!]?)\s*[（(]([^）)]*[㐀-鿿][^）)]*)[）)]/g;
+  var RE_TERM_ZH = /([㐀-鿿]{1,3})(\*\*)?\s*[（(]\s*[«“"][^»”"）)]+[»”"]\s*[）)]/g;
+  /* le frasi della lezione con la loro traduzione: servono a mettere la traduzione sulle card estratte dal testo */
+  function key(t) { return String(t).replace(/[。？！.?!\s]+$/g, ""); }
+  /* le forme sbagliate che la lezione stessa dichiara (errori tipici, risposte da scartare): in una riga di esempio vengono barrate */
+  function badTable(R) {
+    var o = {}, add = function (t) { if (t) o[key(t)] = 1; };
+    ((R.tranello || {}).esempi || []).forEach(function (x) { add(x.sbagliata); });
+    (R.contrasti || []).forEach(function (q) { (q.opzioni || []).forEach(function (op) { if (op.ok === false) add(op.t); }); });
+    Object.keys(R.glosse || {}).forEach(function (k) { if (/^!/.test(R.glosse[k])) add(k); });
+    (R.esercizi || []).forEach(function (e) { (e.rifiutate || []).forEach(function (x) { add(x.t); }); (e.opzioni || []).forEach(function (op) { if (op.ok === false) add(op.t); }); });
+    return o;
+  }
+  function trTable(R) {
+    var o = {}, add = function (x) { if (x && x.t && x.tr) o[key(x.t)] = x.tr; };
+    ((R.scopri || {}).frasi || []).forEach(add); (R.esempi || []).forEach(function (g) { (g.items || []).forEach(add); }); ((R.dialogo || {}).righe || []).forEach(add);
+    Object.keys(R.glosse || {}).forEach(function (k) { if (!o[key(k)]) o[key(k)] = String(R.glosse[k]).replace(/^!/, ""); });
+    return o;
+  }
+  /* una riga di esempio: la frase (cinese con il pinyin sopra ogni parola, o italiana) e a fianco la traduzione; le forme sbagliate sono barrate */
+  function exRow(t, tr, bad) {
+    var zh = S.corso === "zh"; bad = bad || !!S.bad[key(t)];
+    return '<div class="lz-xr' + (bad ? " bad" : "") + '">' + (bad ? '<span class="lz-xb" aria-hidden="true">' + icon("close") + "</span>" : "") + '<div class="lz-xz" lang="' + (zh ? "zh-CN" : "it") + '">' + (zh ? ruby(t) : esc(t)) + "</div>" +
+      (tr ? '<span class="lz-xg" lang="' + (zh ? "it" : "zh-CN") + '">' + rich(tr) + "</span>" : "") + "</div>";
+  }
+  /* una frase intera (da cinque caratteri, o già presente tra gli esempi) in mezzo al testo diventa card */
+  var RE_RUN_ZH = /[㐀-鿿][㐀-鿿，、：；…]*[。？！]?/g, RE_RUN_IT = /(?:[A-Za-zÀ-ÿ'’]+[ ,]+){3,}[A-Za-zÀ-ÿ'’]+[.?!]?/g;
+  function frasi(txt) {
+    var re = new RegExp((S.corso === "zh" ? RE_RUN_ZH : RE_RUN_IT).source, "g"), out = [], last = 0, m, n;
+    while ((m = re.exec(txt))) {
+      n = S.corso === "zh" ? m[0].replace(/[^㐀-鿿]/g, "").length : 99;
+      if (S.tr[key(m[0])] || (S.corso === "zh" ? n >= 5 : /[.?!]$/.test(m[0]))) { out.push({ txt: txt.slice(last, m.index) }); out.push({ ex: m[0].replace(/[，、：；…]+$/, ""), tr: S.tr[key(m[0])] || "" }); last = m.index + m[0].length; }
+    }
+    out.push({ txt: txt.slice(last) });
+    return out;
+  }
+  function inline(t) { return rich(S.corso === "zh" ? String(t).replace(RE_TERM_ZH, "$1$2") : t, true); }
+  /* una frase che segue «non si dice», «mai», 不说… è una forma sbagliata: si mostra barrata */
+  var RE_BAD = /(?:\bnon(?: si dice| dire| va| è)?|\bmai|\bné|不说|不能说|不要说|错误)[\s:：(（]*$/i;
+  function split(raw) {
+    var re = new RegExp(S.corso === "zh" ? RE_EX_ZH.source : RE_EX_IT.source, "g"), parts = [], last = 0, m;
+    while ((m = re.exec(raw))) { parts.push({ txt: raw.slice(last, m.index) }); parts.push({ ex: m[1], tr: m[2] }); last = m.index + m[0].length; }
+    parts.push({ txt: raw.slice(last) });
+    return parts.reduce(function (a, p) { return a.concat(p.ex ? [p] : frasi(p.txt)); }, []);
+  }
+  function trimTxt(x) { return x.replace(/^[\s,，;；、:：.。)）]+/, "").replace(/[\s,，;；、(（]+$/, ""); }
+  var ITZH = null;
+  function glossIt(t) {
+    if (S.corso !== "it" || !/^[A-Za-zÀ-ÿ'’]+$/.test(t)) return "";
+    if (!ITZH) { ITZH = {}; Object.keys(CP.WORDS || {}).forEach(function (k) { var w = CP.WORDS[k], g = CP.gloss(w).toLowerCase(); if (g && !ITZH[g]) ITZH[g] = w.hz; }); }
+    var z = ITZH[t.toLowerCase()]; return z ? '<small lang="zh-CN">' + esc(z) + "</small>" : "";
+  }
+  function chip(x) { var t = x.trim(); return '<span class="lz-chip">' + (CJK(t) ? rich(t, true) : rich(t) + glossIt(t)) + "</span>"; }
+  /* un punto della regola = una scheda: formula, regola in una riga, esempi, e il resto del discorso sotto «Perché» */
+  function cardPunto(p) {
+    var raw = String(p.t), m = /^\*\*(.+?)\*\*[:：]?\s*/.exec(raw), lead = m ? m[1] : "", rest = (m ? raw.slice(m[0].length) : raw).replace(/^\s*[（(]\s*[«“"][^»”"）)]+[»”"]\s*[）)]\s*[:：]?\s*/, ""), title = lead, chips = [], eq = lead.split(/\s*=\s*/);
+    if (eq.length === 2) { title = eq[0]; chips = eq[1].split(/\s*\+\s*/); } else if (/\s\+\s/.test(lead)) { title = ""; chips = lead.split(/\s*\+\s*/); }
+    var parts = split(rest), body = [], why = [], rule = "";
+    parts.forEach(function (q, i) {
+      if (q.ex) { body.push({ ex: q.ex, tr: q.tr, bad: RE_BAD.test(i ? parts[i - 1].txt || "" : "") }); return; }
+      var x = trimTxt(q.txt); if (!x || /^(e|ed|o|oppure|ma|和|或|或者|non|non si dice|non va|non è|mai|né|不说|不能说|不要说)$/i.test(x)) return;
+      if (!rule && !body.length) { var ss = x.split(/(?<=[.!?。？！])\s+/); rule = ss.shift(); if (ss.length) why.push(ss.join(" ")); return; }
+      if (parts[i + 1] && parts[i + 1].ex && x.length <= 70) { body.push({ cap: x }); return; }
+      why.push(x);
+    });
+    var fm = chips.length ? '<span class="lz-fm">' + chips.map(function (c, i) { return (i ? "<i>+</i>" : "") + chip(c); }).join("") + "</span>" : "";
+    var no = p.ok === false, h = '<div class="lz-card' + (no ? " no" : "") + '"><div class="lz-ch"><span class="lz-pi" aria-hidden="true">' + icon(no ? "close" : "check") + "</span>" +
+      (title ? '<b class="lz-ct">' + inline(title) + "</b>" : "") + (chips.length && !title ? fm : "") + "</div>" + (chips.length && title ? fm : "");
+    if (rule) h += '<p class="lz-rule">' + inline(rule) + "</p>";
+    var xs = []; function fx() { if (xs.length) { h += '<div class="lz-xl">' + xs.join("") + "</div>"; xs = []; } }
+    body.forEach(function (b) { if (b.ex) xs.push(exRow(b.ex, b.tr, b.bad)); else { fx(); h += '<p class="lz-cap">' + inline(b.cap) + "</p>"; } });
+    fx();
+    if (why.length) h += '<details class="lz-why"><summary>' + esc(lab("why")) + "</summary>" + why.map(function (x) { return "<p>" + inline(x) + "</p>"; }).join("") + "</details>";
+    return h + "</div>";
+  }
+  /* il paragrafo diviso: il testo resta un testo; le frasi escono e formano una lista di esempi (cls: classe dei paragrafi) */
+  function prose(t, cls) {
+    var raw = String(t), re = new RegExp(S.corso === "zh" ? RE_EX_ZH.source : RE_EX_IT.source, "g"), parts = [], last = 0, m, out = [], cards = [];
+    while ((m = re.exec(raw))) { parts.push({ txt: raw.slice(last, m.index) }); parts.push({ ex: m[1], tr: m[2] }); last = m.index + m[0].length; }
+    parts.push({ txt: raw.slice(last) });
+    parts = parts.reduce(function (a, p) { return a.concat(p.ex ? [p] : frasi(p.txt)); }, []);
+    function flush() { if (cards.length) { out.push('<div class="lz-xl">' + cards.join("") + "</div>"); cards = []; } }
+    parts.forEach(function (p, i) {
+      if (p.ex) { cards.push(exRow(p.ex, p.tr, RE_BAD.test(i ? parts[i - 1].txt || "" : ""))); return; }
+      var x = p.txt.replace(/^[\s,，;；、:：.。)）]+/, "").replace(/[\s,，;；、(（]+$/, "");
+      if (!x || /^[.。,，;；:：\s]*$/.test(x) || /^(e|ed|o|oppure|ma|和|或|或者)$/i.test(x)) return;
+      flush(); out.push("<p" + (cls ? ' class="' + cls + '"' : "") + ">" + inline(x) + "</p>");
+    });
+    flush();
+    return out.join("");
   }
   /* una frase nella lingua che si impara: intera (con suono) o compatta (dentro un'opzione) */
   function isTarget(t) { return S.corso === "zh" ? CJK(t) && !/[a-zàèéìòù]{3}/i.test(t) : !CJK(t) && /[a-zA-Zàèéìòù]/.test(t); }
@@ -56,20 +161,20 @@
       '<div class="lz-sents">' + s.frasi.map(function (f) { return '<div class="lz-sent">' + sent(f.t) + '<div class="lz-tr" lang="' + (S.corso === "zh" ? "it" : "zh-CN") + '">' + rich(f.tr) + "</div></div>"; }).join("") + "</div>" +
       '<p class="lz-q-text">' + rich(s.domanda) + "</p>" +
       '<button type="button" class="btn-s lz-reveal" data-lz="reveal" aria-expanded="false" aria-controls="lz-ans">' + icon("bulb") + " <span>" + esc(lab("show")) + "</span></button>" +
-      '<div class="lz-ans" id="lz-ans" hidden><p>' + rich(s.risposta) + "</p></div>");
+      '<div class="lz-ans lz-prose" id="lz-ans" hidden>' + prose(s.risposta) + "</div>");
   }
 
   /* ---------- regola ---------- */
   function regola(R) {
     var g = R.regola, sch = g.schema || [];
     return sec("regola", head(2, "regola", "scales") +
-      '<p class="lz-lead">' + rich(g.enunciato) + "</p>" +
+      '<div class="lz-prose">' + prose(g.enunciato, "lz-lead") + "</div>" +
       (sch.length ? '<div class="lz-formula" role="group" aria-label="' + CP.attr(lab("regola")) + '">' + sch.map(function (x, j) { return (j ? '<span class="lz-arrow" aria-hidden="true">→</span>' : "") + '<span class="lz-fx f' + (j % 5) + (CJK(x) && x.length <= 2 ? " key" : "") + '">' + (CJK(x) ? '<span class="han" lang="zh-CN">' + esc(x) + "</span>" : esc(x)) + "</span>"; }).join("") + "</div>" : "") +
-      '<ul class="lz-points">' + g.punti.map(function (p) { return '<li class="' + (p.ok === false ? "no" : "yes") + '"><span class="lz-pi" aria-hidden="true">' + icon(p.ok === false ? "close" : "check") + "</span><span>" + rich(p.t) + "</span></li>"; }).join("") + "</ul>");
+      '<div class="lz-cards">' + g.punti.map(cardPunto).join("") + "</div>");
   }
 
   /* ---------- logica ---------- */
-  function logica(R) { return sec("logica", head(3, "logica", "brain") + '<div class="lz-callout">' + R.logica.map(function (p) { return "<p>" + rich(p) + "</p>"; }).join("") + "</div>"); }
+  function logica(R) { return sec("logica", head(3, "logica", "brain") + '<details class="lz-why lz-why-s"><summary>' + esc(lab("why")) + '</summary><div class="lz-callout">' + R.logica.map(function (p) { return '<div class="lz-prose">' + prose(p) + "</div>"; }).join("") + "</div></details>"); }
 
   /* ---------- mappa visiva ---------- */
   function mappa(R) {
@@ -150,15 +255,15 @@
   /* ---------- il tranello ---------- */
   function tranello(R) {
     var t = R.tranello;
-    return sec("tranello", head(7, "tranello", "warning") + '<div class="lz-trap"><p class="lz-trap-t">' + rich(t.errore) + "</p>" +
+    return sec("tranello", head(7, "tranello", "warning") + '<div class="lz-trap"><div class="lz-prose lz-trap-t">' + prose(t.errore) + "</div>" +
       (t.esempi ? '<div class="lz-pairs">' + t.esempi.map(function (x) { return '<div class="lz-pair"><div class="bad"><span aria-hidden="true">' + icon("close") + '</span><span class="han" lang="' + (S.corso === "zh" ? "zh-CN" : "it") + '">' + esc(x.sbagliata) + '</span></div><div class="good"><span aria-hidden="true">' + icon("check") + '</span><span class="han" lang="' + (S.corso === "zh" ? "zh-CN" : "it") + '">' + esc(x.giusta) + "</span></div></div>"; }).join("") + "</div>" : "") +
-      '<p class="lz-why"><b>' + esc(lab("why")) + ".</b> " + rich(t.perche) + '</p><p class="lz-escape"><b>' + esc(lab("avoid")) + ".</b> " + rich(t.esci) + "</p></div>");
+      '<p class="lz-why"><b>' + esc(lab("why")) + ".</b> " + inline(t.perche) + '</p><p class="lz-escape"><b>' + esc(lab("avoid")) + ".</b> " + inline(t.esci) + "</p></div>");
   }
 
   /* ---------- curiosi e pragmatica ---------- */
   function curiosi(R) {
-    return sec("curiosi", head(8, "curiosi", "telescope") + R.curiosi.map(function (c) { return '<details class="lz-det"><summary><span>' + rich(c.titolo) + '</span><i aria-hidden="true"></i></summary><div class="lz-det-b"><p>' + rich(c.t) + "</p></div></details>"; }).join("") +
-      (R.pragmatica ? '<div class="lz-prag"><h4>' + icon("handshake") + " " + esc(lab("pragmatica")) + "</h4><p>" + rich(R.pragmatica) + "</p></div>" : ""));
+    return sec("curiosi", head(8, "curiosi", "telescope") + R.curiosi.map(function (c) { return '<details class="lz-det"><summary><span>' + rich(c.titolo) + '</span><i aria-hidden="true"></i></summary><div class="lz-det-b lz-prose">' + prose(c.t) + "</div></details>"; }).join("") +
+      (R.pragmatica ? '<div class="lz-prag"><h4>' + icon("handshake") + " " + esc(lab("pragmatica")) + '</h4><div class="lz-prose">' + prose(R.pragmatica) + "</div></div>" : ""));
   }
 
   /* ---------- esercizi ---------- */
@@ -274,15 +379,21 @@
 
   /* ---------- la lezione intera ---------- */
   var ORDER = ["scopri", "regola", "logica", "mappa", "esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"];
+  function view() { try { return JSON.parse(localStorage.getItem("cp-lz-view") || "{}"); } catch (e) { return {}; } }
+  function viewBar() {
+    var v = view(), zh = S.corso === "zh";
+    function sw(k, txt) { return '<button type="button" class="lz-sw" data-lz="view" data-v="' + k + '" aria-pressed="' + (v[k] !== 0) + '">' + esc(txt) + "</button>"; }
+    return '<div class="lz-view" role="group" lang="' + (zh ? "it" : "zh-CN") + '">' + (zh ? sw("py", "Pinyin") : "") + sw("gl", zh ? "Traduzioni" : "译文") + "</div>";
+  }
   function html(l, R, ctx) {
     if (!document.getElementById("lz-css")) { var st = document.createElement("style"); st.id = "lz-css"; st.textContent = CP.lzCss; document.head.appendChild(st); }
-    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null };
+    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null, tr: trTable(R), bad: badTable(R) };
     uid = 0;
     var tocKeys = ["scopri", "regola", "logica"].concat(R.mappa ? ["mappa"] : []).concat(["esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"]);
     var toc = '<nav class="lz-toc" aria-label="' + CP.attr(lab("sections")) + '">' + tocKeys.map(function (k) { return '<button type="button" class="lz-tchip" data-lz="toc" data-to="' + k + '">' + esc(lab(k)) + "</button>"; }).join("") + "</nav>";
     return '<div class="acts lz-back"' + (ctx.corso === "zh" ? ' lang="it"' : "") + '><button type="button" class="btn-s" ' + ctx.backAttr + ">← " + esc(lab("back")) + "</button></div>" +
-      '<article class="lz" data-lz-root data-corso="' + ctx.corso + '"' + (ctx.corso === "zh" ? ' lang="it"' : "") + '><header class="lz-top"><span class="tag muted small">' + ctx.tag + (S.prog.best != null ? " · " + S.prog.best + "%" : "") + (R.svolta ? ' · <span class="lz-svolta">' + (S.corso === "zh" ? "Punto di svolta" : "关键一课") + "</span>" : "") + "</span>" +
-      '<h2 class="lz-title" lang="' + (S.corso === "zh" ? "it" : "zh-CN") + '">' + rich(l.title) + '</h2><p class="lz-goal">' + icon("target") + " " + rich(l.goal) + "</p></header>" +
+      '<article class="lz' + (view().py === 0 ? " lz-nopy" : "") + (view().gl === 0 ? " lz-nogl" : "") + '" data-lz-root data-corso="' + ctx.corso + '"' + (ctx.corso === "zh" ? ' lang="it"' : "") + '><header class="lz-top"><span class="tag muted small">' + ctx.tag + (S.prog.best != null ? " · " + S.prog.best + "%" : "") + (R.svolta ? ' · <span class="lz-svolta">' + (S.corso === "zh" ? "Punto di svolta" : "关键一课") + "</span>" : "") + "</span>" +
+      '<h2 class="lz-title" lang="' + (S.corso === "zh" ? "it" : "zh-CN") + '">' + rich(l.title) + '</h2><p class="lz-goal">' + icon("target") + " " + rich(l.goal) + "</p>" + viewBar() + "</header>" +
       '<div class="lz-sticky"><div class="lz-bar" aria-hidden="true"><i id="lz-bar"></i></div>' + toc + "</div>" +
       scopri(R) + regola(R) + logica(R) + mappa(R) + esempi(R) + contrasti(R) + dialogo(R) + tranello(R) + curiosi(R) + exercises(R) + "</article>";
   }
@@ -290,9 +401,11 @@
   /* ---------- eventi: un solo ascoltatore per tutta la pagina ---------- */
   function find(e, sel) { return e.target && e.target.closest ? e.target.closest(sel) : null; }
   document.addEventListener("click", function (e) {
+    var rb = find(e, ".lz-rb[data-k]"); if (rb && S && CP.openFamily) { try { CP.openFamily(rb.getAttribute("data-k")); } catch (x) {} return; }
     var b = find(e, "[data-lz]"); if (!b || !S || !document.querySelector("[data-lz-root]")) return;
     var a = b.getAttribute("data-lz");
     if (a === "reveal") { var ans = document.getElementById("lz-ans"), open = ans.hidden; ans.hidden = !open; b.setAttribute("aria-expanded", String(open)); b.querySelector("span:last-child").textContent = lab(open ? "hide" : "show"); if (open) { ans.classList.remove("lz-in"); void ans.offsetWidth; ans.classList.add("lz-in"); CP.sfx && CP.sfx("tap"); } return; }
+    if (a === "view") { var v = view(), k = b.getAttribute("data-v"), art0 = document.querySelector("[data-lz-root]"); v[k] = v[k] === 0 ? 1 : 0; try { localStorage.setItem("cp-lz-view", JSON.stringify(v)); } catch (x) {} art0.classList.toggle("lz-nopy", v.py === 0); art0.classList.toggle("lz-nogl", v.gl === 0); b.setAttribute("aria-pressed", String(v[k] !== 0)); return; }
     if (a === "opt") { answer(b.getAttribute("data-q"), +b.getAttribute("data-o")); return; }
     if (a === "tr") { var d = document.getElementById("lz-dlg"), on = !d.classList.contains("tr-on"); d.classList.toggle("tr-on", on); b.setAttribute("aria-pressed", String(on)); b.querySelector("span:last-child").textContent = lab(on ? "trOff" : "trOn"); return; }
     if (a === "toc") { var s = document.getElementById("lz-" + b.getAttribute("data-to")); if (s) { scrollTo(s); try { s.focus({ preventScroll: true }); } catch (x) {} } return; }

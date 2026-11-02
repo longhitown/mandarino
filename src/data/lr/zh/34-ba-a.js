@@ -193,6 +193,9 @@ LESSON_RICH.zh["ba-a"] = {
     "Sai scegliere tra 好啊 (sì volentieri) e 好吧 (sì cedendo) secondo il tuo atteggiamento.",
     "Sai usare 啊 per scaldare un'esclamazione, una domanda con 什么 o il nome di una persona."
   ],
+  "glosse": {
+    "你是中国人吗": "Sei cinese?"
+  },
   "fonti": [
     "CC-CEDICT, voci 吧 (ba5, ba1), 啊 (a5 e altre letture), 吗 (ma5): particella di suggerimento o ipotesi, particella di assenso, particella di domanda sì/no",
     "Tatoeba (cinese, cmn.tsv): frasi con 吧 (我们在这里下车吧, 你是故意的吧？) e con 啊 (这狗跑得多快啊！)"

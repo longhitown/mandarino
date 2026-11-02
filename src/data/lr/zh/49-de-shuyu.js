@@ -194,6 +194,18 @@ LESSON_RICH.zh["de-shuyu"] = {
     "Sai togliere il nome quando è chiaro (我买的, 妈妈做的) e nominare ruoli con 卖菜的, 开车的.",
     "Sai usare la frase con 的 per luoghi e tempi (我们吃饭的地方, 他来的时候)."
   ],
+  "glosse": {
+    "坐在那儿的人": "La persona seduta là",
+    "说中文的女孩": "La ragazza che parla cinese",
+    "我们吃饭的地方": "Il posto dove mangiamo",
+    "他来的时候": "Quando viene",
+    "我昨天看的电影": "Il film che ho visto ieri",
+    "我昨天在商店买的那本书": "Quel libro che ho comprato ieri in negozio",
+    "我看它的电影": "!Il film che lo vedo (pronome di troppo)",
+    "我昨天买的书": "Il libro che ho comprato ieri",
+    "我昨天在商店买的那本很贵的书": "Quel libro molto caro che ho comprato ieri in negozio",
+    "我昨天在商店买了一本书，很贵": "Ieri ho comprato un libro in negozio, molto caro."
+  },
   "fonti": [
     "CC-CEDICT, voce 的 (de5): «used after an attribute when it modifies a noun», consultata nel dizionario locale",
     "Tatoeba (cmn.tsv, interrogato con grep): frasi reali con 他说的话 e 我不明白他说的话, verificate nel corpus locale"

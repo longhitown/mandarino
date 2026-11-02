@@ -179,6 +179,14 @@ LESSON_RICH.zh["zenme"] = {
     "Sai chiedere che cosa è successo con 怎么了, senza 吗.",
     "Sai distinguere 怎么 (come, come mai) da 为什么 (perché)."
   ],
+  "glosse": {
+    "今天天气怎么样": "Com'è il tempo oggi?",
+    "我们去公园怎么样": "Che ne dici di andare al parco?",
+    "你怎么不去": "Come mai non vai?",
+    "你为什么学中文": "Perché studi cinese?",
+    "你觉得这件事怎样": "Che cosa ne pensi di questa faccenda?",
+    "你怎么还没睡": "Come mai non hai ancora dormito?"
+  },
   "fonti": [
     "LibreTexts, CHN101 Elementary Mandarin I, Lesson 7 Grammar: Asking why with zenme (libro di testo costruito su AllSet): 怎么 per il motivo con sorpresa, 怎么 + verbo negato, 怎么 + 不 + aggettivo (letto per intero)",
     "CC-CEDICT, voci 怎么, 怎么了, 怎么样, 怎么办, consultate nel dizionario locale",

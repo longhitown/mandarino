@@ -215,6 +215,24 @@ LESSON_RICH.zh["modali"] = {
     "Sai negare e fare domande con i modali, anche nella forma 会不会, senza aggiungere 吗.",
     "Sai usare 会 per prevedere (明天会下雨) e per dire che qualcuno è bravo (很会做饭)."
   ],
+  "glosse": {
+    "我真想睡觉": "Ho proprio voglia di dormire",
+    "我要一杯茶": "Voglio una tazza di tè",
+    "他不会开车": "Non sa guidare",
+    "他不会忘记": "Non si dimentica",
+    "他很会做饭": "È molto bravo a cucinare",
+    "我今天能来": "Oggi posso venire",
+    "我感冒了，不能去": "Ho il raffreddore, non posso andare",
+    "我可以坐这里吗": "Posso sedermi qui?",
+    "可以用一下吗": "Posso usarlo un momento?",
+    "我也不想去": "Non ho voglia di andare nemmeno io",
+    "你会开车吗": "Sai guidare?",
+    "你会不会开车": "Sai guidare?",
+    "我能说中文": "Posso parlare cinese",
+    "我想要一杯茶": "Vorrei una tazza di tè",
+    "我知道他的名字": "So il suo nome",
+    "今天不能去，我要工作": "Oggi non posso andare, devo lavorare"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Comparing hui, neng, keyi»: 会 per la competenza e per le previsioni, 能 per le circostanze, 可以 per il permesso",
     "Chinese Grammar Wiki (AllSet Learning), «Comparing yao and xiang»: 想 con un nome significa «sentire la mancanza»; 要 può indicare ciò che sta per accadere",

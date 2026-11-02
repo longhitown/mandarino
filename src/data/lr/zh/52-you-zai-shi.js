@@ -205,6 +205,22 @@ LESSON_RICH.zh["you-zai-shi"] = {
     "Sai usare 是 per dare il nome di ciò che si trova in un posto e dare indicazioni (左边是银行).",
     "Sai negare con 不在, 没有, 不是, e non cadi più nell'errore 不有."
   ],
+  "glosse": {
+    "包里有手机、钥匙和书": "Nella borsa ci sono il cellulare, le chiavi e un libro",
+    "这里有没有咖啡馆": "C'è un bar qui?",
+    "那边是银行": "Là c'è una banca",
+    "这里不是银行": "Questa non è una banca",
+    "这里没有超市": "Qui non c'è un supermercato",
+    "桌子上有一本书": "Sul tavolo c'è un libro",
+    "学校前面有公园": "Davanti alla scuola c'è un parco",
+    "左边是银行": "A sinistra c'è la banca",
+    "右边是超市": "A destra c'è il supermercato",
+    "我有一个哥哥": "Ho un fratello maggiore",
+    "他在家看书": "Legge a casa",
+    "这附近有银行吗": "Qui vicino c'è una banca?",
+    "银行在哪儿": "Dov'è la banca?",
+    "前面是公园": "Davanti c'è il parco"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with you»: schema luogo + 有 + oggetto, con 吗 per la domanda (letta per intero)",
     "CC-CEDICT, voci 在, 有 e 是, consultate nel dizionario locale",

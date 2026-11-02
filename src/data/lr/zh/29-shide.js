@@ -187,6 +187,21 @@ LESSON_RICH.zh["shide"] = {
     "Sai negare solo il dettaglio con 不是…的, senza usare 没.",
     "Sai scegliere tra 了, che annuncia un fatto, e 是…的, che ne illumina un particolare."
   ],
+  "glosse": {
+    "跟朋友一起": "Con gli amici",
+    "你什么时候来的": "Quando sei arrivato?",
+    "我昨天到的": "Sono arrivato ieri.",
+    "我不是昨天到的": "Non sono arrivato ieri.",
+    "我是在北京学中文的": "Ho studiato cinese a Pechino",
+    "我是在北京学的中文": "Ho studiato cinese a Pechino",
+    "我是昨天认识他的": "L'ho conosciuto ieri.",
+    "不是昨天，是前天": "Non ieri, ma l'altro ieri.",
+    "我是在网上买手机的": "Ho comprato il cellulare online",
+    "我是在网上买的手机": "Ho comprato il cellulare online",
+    "我是在学校认识他的": "L'ho conosciuto a scuola.",
+    "这个菜是辣的": "Questo piatto è piccante",
+    "他是教书的": "Fa l'insegnante"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «The shi… de construction for emphasizing details»: struttura, posizione di 的 con l'oggetto, 不是 e non 没, 是 omettibile, uso nelle domande",
     "Tatoeba (cmn.tsv): frasi reali come 她是昨天去的, 她是什么时候出生的, consultate per verificare l'uso di 是…的 nelle domande e nelle risposte"

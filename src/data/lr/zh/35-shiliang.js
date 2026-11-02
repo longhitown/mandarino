@@ -204,6 +204,31 @@ LESSON_RICH.zh["shiliang"] = {
     "Sai distinguere un periodo chiuso (un solo 了) da uno che continua (secondo 了).",
     "Sai dire da quanto tempo non fai qualcosa con la durata prima di 没, e chiedere 多久 o 多长时间."
   ],
+  "glosse": {
+    "睡了八个小时": "Ha dormito otto ore",
+    "等了她半个小时": "Ho aspettato lei mezz'ora",
+    "学中文学了两年": "Ho studiato cinese per due anni",
+    "学了两年中文": "Ho studiato cinese per due anni",
+    "两天没睡觉了": "Sono due giorni che non dorme",
+    "我学了两年中文": "Ho studiato cinese per due anni",
+    "我学了两年的中文": "Ho studiato cinese per due anni",
+    "我找了你一个晚上": "Ti ho cercato per una sera intera",
+    "我等她等了半个小时": "Ho aspettato lei mezz'ora",
+    "你等了多久了": "Da quanto tempo aspetti?",
+    "他睡了多长时间": "Quanto tempo ha dormito?",
+    "你睡了几个小时": "Quante ore hai dormito?",
+    "我三年学中文": "!Studio cinese per tre anni (ordine sbagliato)",
+    "我学了中文三年": "Ho studiato cinese per tre anni",
+    "我明天学三个小时": "Domani studio tre ore",
+    "学了两年了": "Ho studiato per due anni",
+    "两天没睡觉": "Sono due giorni che non dorme",
+    "我学中文两年": "Studio cinese da due anni",
+    "一个半小时": "Un'ora e mezza",
+    "你学了多久了": "Da quanto tempo studi?",
+    "你昨天睡了多久": "Quanto hai dormito ieri?",
+    "看了一下午的电视": "Ha guardato la TV tutto il pomeriggio",
+    "坐了十五个小时的飞机": "Ha viaggiato quindici ore in aereo"
+  },
   "fonti": [
     "CC-CEDICT, voci 多久, 半天, 久, 一直, consultate nel dizionario locale",
     "Tatoeba (cinese, es. 我学英语学了4年了, 我已经三天没睡过了！, 我几个月没见过他了), consultato nei corpora locali"

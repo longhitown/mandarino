@@ -211,6 +211,16 @@ LESSON_RICH.it["relativi"] = {
     "你会写出 la città in cui abito、la persona di cui parlo 这样的句子，介词始终紧贴 cui。",
     "你会避开三个常见的错误：漏掉 che、给 che 加介词、在从句里重复代词。"
   ],
+  "glosse": {
+    "Ho comprato un libro": "我买了一本书。",
+    "Il libro è bello": "这本书很好看。",
+    "Il libro che ho comprato è bello": "我买的那本书很好看。",
+    "La città in cui abito": "我住的城市。",
+    "Le amiche alle quali scrivo vivono a Roma": "我写信的朋友们住在罗马。",
+    "Ciò che voglio adesso è un caffè caldo": "我现在想要的是一杯热咖啡。",
+    "Quello di cui ho bisogno è dormire un po'": "我需要的是睡一会儿。",
+    "La persona di cui Lei ha parlato": "您说起的那个人。"
+  },
   "fonti": [
     "Gymglish, Saga Baldoria, Italian grammar, «The relative pronouns che, cui and quale» (aperta e letta: che invariabile, cui dopo preposizione, il quale, il cui, posizione della preposizione)",
     "Think in Italian, «How to use cui in Italian» (aperta e letta: cui sempre dopo preposizione, invariabile, senza articolo, esempi con di cui, con cui, da cui, in cui)",

@@ -200,6 +200,12 @@ LESSON_RICH.zh["zhe"] = {
     "Sai usare verbo 1 + 着 + verbo 2 per dire in che modo si fa un'azione.",
     "Sai scegliere tra 着 (stato), 了 (evento) e 在 (azione in corso), e negare lo stato con 没."
   ],
+  "glosse": {
+    "她穿着红裙子": "Indossa una gonna rossa",
+    "我们走着去": "Andiamo a piedi",
+    "我站着等车": "Aspetto in piedi l'autobus",
+    "我在吃着饭": "!Sto mangiando (uso sbagliato di 着)"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Aspectual particle zhe»: schema verbo + 着 (pagina breve)",
     "Tatoeba (cmn.tsv), esempi consultati: 书架上放着很多字典, 这个位子空着吗, 他闭着眼, 我弟弟还睡着呢, 时间还早着呢, 她终于睡着了, 我现在忙着呢",

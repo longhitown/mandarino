@@ -214,6 +214,9 @@ LESSON_RICH.it["numeri-ore"] = {
     "你会说日期：Oggi è il 2 novembre，并记住只有一号用 primo。",
     "你会问价格和说价格：Quanto costa? Costa dodici euro e cinquanta。"
   ],
+  "glosse": {
+    "Che data è oggi": "今天是几号？"
+  },
   "fonti": [
     "Think in Italian, «How to tell the time» (aperta e letta: è l'una vs sono le, mezzogiorno e mezzanotte con è, e/meno per i minuti, alle e all'una, sistema delle 24 ore)",
     "Tatoeba (ita.tsv), ricerche mirate: Sono le due meno un quarto, È l'una, È mezzogiorno, Domani è il primo maggio, Costa trenta euro, Sono nato nel 1979"

@@ -216,6 +216,9 @@ LESSON_RICH.it["possessivi"] = {
     "你会区分 suo、Suo 和 loro，并知道 suo 不看主人，loro 总带冠词。",
     "你会用 un mio amico 说“我的一个朋友”，并避免用物主词说身体部位：Mi lavo le mani。"
   ],
+  "glosse": {
+    "Mia sorella si chiama Giulia": "我姐姐叫朱莉娅。"
+  },
   "fonti": [
     "Wikipedia (inglese), «Italian grammar», sezione sugli aggettivi possessivi (concordanza, articolo, nomi di parentela, loro, posposizione, proprio)",
     "Tatoeba (ita.tsv), frasi contate con grep: «Mia madre» (441), «Mio padre» (735), «La loro casa» (7), «i miei occhiali» (76)"

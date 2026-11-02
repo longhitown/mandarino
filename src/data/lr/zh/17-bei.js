@@ -180,6 +180,21 @@ LESSON_RICH.zh["bei"] = {
     "Sai scegliere tra 被, 让, 叫 e una frase attiva con 把, secondo la scena e il registro.",
     "Sai riconoscere quando il passivo italiano si traduce con 是…的 o con la cosa come tema."
   ],
+  "glosse": {
+    "钱包被小偷偷走了": "Il portafoglio è stato rubato da un ladro",
+    "批评了一顿": "Una bella strigliata",
+    "又被批评了": "È stato rimproverato di nuovo",
+    "不能被别人知道": "Non può essere saputo da altri",
+    "他被选为班长了": "È stato eletto capoclasse",
+    "她被老师表扬了": "È stata elogiata dall'insegnante",
+    "杯子让弟弟打破了": "La tazza è stata rotta dal fratellino",
+    "这本书是他写的": "Questo libro l'ha scritto lui",
+    "弟弟把杯子打破了": "Il fratellino ha rotto la tazza",
+    "大家选他当班长": "Hanno eletto lui capoclasse",
+    "杯子让他打破了": "La tazza è stata rotta da lui",
+    "我的手机被偷了": "Mi hanno rubato il cellulare",
+    "杯子打破了": "La tazza si è rotta"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «Using \"bei\" sentences»: struttura con agente facoltativo, negazione con 没 prima di 被, tono spesso sfavorevole",
     "CC-CEDICT (voci 被, 偷, 打破, 批评): significati e uso di 被 come verbo e particella",
