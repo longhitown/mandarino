@@ -131,9 +131,8 @@ LESSON_RICH.zh["enfasi"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "连 può cadere, 都 no", "t": "Nel parlato spesso si dice solo 他手机都没有 («non ha nemmeno il telefonino»): 连 cade e il senso resta. Al contrario, 他连手机没有 non si dice. La parola che porta l'enfasi è 都, e 连 la rende più esplicita. Un'alternativa più formale a 连 è 甚至 («addirittura»), che può anche precedere 连: 他甚至连饭都忘了吃。" },
     { "titolo": "都 o 也 dopo 连", "t": "Dopo 连 si trova sia 都 sia 也: 连老师也不知道。 Il senso è lo stesso, ma 都 è più comune e di solito dà più forza alla sorpresa. Se l'elemento dopo 连 è un'intera frase, di solito contiene una parola interrogativa (什么, 哪儿, 谁): 你连她叫什么都没问？" },
-    { "titolo": "以外, 之外 e il caso zero", "t": "Nello scritto e nel parlato curato si trova anche 之外 al posto di 以外: 除了专业之外，你还有什么爱好？ Nel parlato veloce 以外 e 之外 cadono quasi sempre, e resta soltanto 除了 + elemento." },
+    { "titolo": "以外, 之外 e il caso zero", "t": "Nello scritto e nel parlato curato si trova anche 之外 al posto di 以外: 除了专业之外，你还有什么爱好？ Il dizionario CC-CEDICT registra 之外 con il senso di «fuori da, escluso»." },
     { "titolo": "除了 A 就是 B", "t": "È una struttura fissa che significa «o A o B»: chi parla dice che non c'è una terza possibilità. Si usa soprattutto per le abitudini e per descrivere qualcuno con tono scherzoso o critico: 他除了工作就是睡觉。" }
   ],
   "pragmatica": "连 … 都 è la forma naturale per esagerare, lamentarsi o stupirsi: 我连饭都没时间吃！ Ha quasi sempre un tono vivo e affettivo, perciò nello scritto formale si preferisce 甚至. 除了 … 都 è neutro e va bene dappertutto, a voce e per iscritto; quando si ha un dubbio sul senso, controlla se dopo la virgola c'è 都 o 还.",
@@ -187,10 +186,7 @@ LESSON_RICH.zh["enfasi"] = {
     "Sai togliere 以外 e 连 quando il registro lo permette, senza perdere 都."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing even with lian and dou»: struttura con soggetto e con oggetto, 都 indispensabile, 也 possibile, frase con parola interrogativa",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing except and in addition with chule… yiwai»: 都 per l'eccezione, 也 e 还 per l'aggiunta, 以外 omissibile",
-    "Mango Languages, pagina sul rilievo con 连…都/也: negazione con 不 e 没, 连 omissibile e 都 no, 甚至",
-    "Mandarin Temple, pagina «chule yiwai pattern» (HSK 3): 都 esclusivo e 还/也 inclusivo, 以外 spesso omesso nel parlato, errore comune senza 都",
+    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing even with lian and dou»: struttura con soggetto e con oggetto, 都 indispensabile, 也 possibile",
     "CC-CEDICT: voci 连, 除了, 以外 e 除外, con il valore «tranne/oltre a» e il modello 除了 A 就是 B",
     "Tatoeba (cmn.tsv): frasi reali come 这个连小孩都能读, 他连字都不会念, 除了雨天，我都是骑车去上班的, consultate per verificare le due strutture"
   ]

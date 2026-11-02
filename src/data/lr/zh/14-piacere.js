@@ -27,7 +27,7 @@ LESSON_RICH.zh["piacere"] = {
   "logica": [
     "In italiano «piacere» ha il soggetto invertito: la cosa che piace comanda il verbo («mi **piacciono** i cani») e la persona è un complemento («mi, a me»). Il cinese fa come l'inglese «I like»: la persona è il soggetto, il verbo è 喜欢 e la cosa è l'oggetto. Quindi 我喜欢狗 si legge come «io gradisco i cani»: il verbo non si accorda con la cosa e non esiste un plurale diverso.",
     "Anche la persona può essere l'oggetto, e qui l'inversione italiana inganna: «mi piaci» è 我喜欢你 (io provo piacere per te), mentre «ti piaccio» è 你喜欢我. Basta chiedersi: **chi prova il sentimento?** Quella persona va prima di 喜欢.",
-    "喜欢 descrive un sentimento che dura, non un'azione che si compie: per questo prende gradi come 很 e 最 e di norma non si usa con 在 («sto…»). «Voglio un tè adesso» è 我想喝茶, «mi piace il tè in generale» è 我喜欢茶: il gusto generale e il desiderio di un momento sono due verbi diversi."
+    "喜欢 descrive un sentimento che dura, non un'azione che si compie: per questo prende gradi come 很 e 最. «Voglio un tè adesso» è 我想喝茶, «mi piace il tè in generale» è 我喜欢茶: il gusto generale e il desiderio di un momento sono due verbi diversi."
   ],
   "mappa": {
     "tipo": "tabella",

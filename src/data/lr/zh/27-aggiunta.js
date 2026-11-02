@@ -191,8 +191,7 @@ LESSON_RICH.zh["aggiunta"] = {
     "Sai scegliere tra 又…又, 一边…一边 e 不但…而且 a seconda di che cosa vuoi dire."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing \"not only... but also\" with budan... erqie...»: posto del soggetto, 也 e 还 al posto di 而且",
     "CC-CEDICT, voci 不但, 而且, 又 e 反而, consultate nel file locale",
-    "Tatoeba (cinese, corpus locale): esempi autentici di 不但…而且, 一边…一边, 又…又 e 不但不…反而"
+    "Tatoeba (cinese, corpus locale): occorrenze di 不但, 一边 e 又 nel corpus"
   ]
 };

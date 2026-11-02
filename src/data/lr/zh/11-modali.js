@@ -158,8 +158,8 @@ LESSON_RICH.zh["modali"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "想 non vuol dire solo «volere»", "t": "Davanti a un nome o da solo, 想 vuol dire «pensare» e «sentire la mancanza»: 我想你 («mi manchi»), 我想家 («ho nostalgia di casa»), 想一想 («pensaci un po'»). Per ordinare con 想 si può usare 想要: 我想要一杯茶, un po' più morbido di 我要." },
-    { "titolo": "«Sapere» ha due verbi", "t": "L'italiano usa «sapere» per due cose. 会 è il «sapere come fare» (我会开车), 知道 è il «sapere che» (我知道他的名字). Chi dice 我知道游泳 non si fa capire. Per le persone conosciute c'è un terzo verbo, 认识." },
+    { "titolo": "想 non vuol dire solo «volere»", "t": "Davanti a un nome o da solo, 想 vuol dire «pensare» e «sentire la mancanza»: 我想你 («mi manchi»), 我想家 («ho nostalgia di casa»), 想一想 («pensaci un po'»). Per ordinare con 想 si può usare 想要: 我想要一杯茶." },
+    { "titolo": "«Sapere» ha due verbi", "t": "L'italiano usa «sapere» per due cose. 会 è il «sapere come fare» (我会开车), 知道 è il «sapere che» (我知道他的名字). Per la competenza non si usa 知道: si dice 我会游泳. Per le persone conosciute c'è un terzo verbo, 认识." },
     { "titolo": "会…的 e le previsioni", "t": "Quando 会 prevede, in fondo alla frase si aggiunge spesso 的 per dare sicurezza: 他会来的 («verrà, vedrai»). Il negativo 不会 dice «non succederà»: 他不会忘记的 («non se ne dimenticherà»)." },
     { "titolo": "能, 可以 e il «no» gentile", "t": "Alla domanda 我可以坐这里吗？ si risponde 可以 per dire sì. Per dire no si preferisce 不行 o 不好意思 («mi dispiace»), perché 不可以 è netto come un cartello. 能 è più neutro: chiede se le condizioni lo permettono." }
   ],

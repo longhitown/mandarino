@@ -189,7 +189,6 @@ LESSON_RICH.zh["shide"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «The shi… de construction for emphasizing details»: struttura, posizione di 的 con l'oggetto, 不是 e non 没, 是 omettibile, uso nelle domande",
-    "Mandarin Temple, pagina «shi de sentences» (HSK 2): solo fatti passati noti, niente 了, 的 prima o dopo l'oggetto, 是 omesso nel parlato",
-    "Tatoeba (cmn.tsv): frasi reali come 她是昨天去的, 你是和谁一起来的, 她是什么时候出生的, consultate per verificare l'uso di 是…的 nelle domande e nelle risposte"
+    "Tatoeba (cmn.tsv): frasi reali come 她是昨天去的, 她是什么时候出生的, consultate per verificare l'uso di 是…的 nelle domande e nelle risposte"
   ]
 };

@@ -100,7 +100,7 @@ LESSON_RICH.zh["condizioni"] = {
       { "t": "只有睡够了，病才会好。", "ok": true, "perche": "只有…才 esprime che il sonno è condizione necessaria." },
       { "t": "只要睡够了，病就会好。", "ok": false, "perche": "只要…就 dice che il sonno basta, ma non esclude altre vie." }
     ] },
-    { "q": "Che cosa significa 只要你来，我就高兴。?", "opzioni": [
+    { "q": "Che cosa significa 只要你来，我就高兴？", "opzioni": [
       { "t": "Se vieni, sono contento; non serve altro.", "ok": true, "perche": "只要 introduce una condizione che basta." },
       { "t": "Sono contento solo se vieni.", "ok": false, "perche": "«Solo se» sarebbe 只有你来，我才高兴." },
       { "t": "Sono contento anche se non vieni.", "ok": false, "perche": "Non c'è nessuna concessione: la frase lega la gioia alla tua presenza." }
@@ -167,7 +167,7 @@ LESSON_RICH.zh["condizioni"] = {
   },
   "curiosi": [
     { "titolo": "Quattro modi di dire «se»", "t": "如果 è la parola neutra, adatta a ogni situazione. 要是 è la variante colloquiale: il dizionario CC-CEDICT la marca come parlata. 假如 e 倘若 hanno un tono più scritto. Tutte e quattro funzionano con 就 nel risultato. Nel parlato si può anche togliere la parola iniziale e tenere solo 的话: 你去的话，我也去." },
-    { "titolo": "Il 就 che si può omettere", "t": "Nei risultati brevi, soprattutto negli inviti e nei consigli, il 就 può mancare: 如果有困难，给我打电话. Con 就 la frase suona più marcata («in quel caso, allora»); senza è più leggera. In alternativa al 就 si trova anche 那 o 那么 nel registro più parlato." },
+    { "titolo": "Il 就 che si può omettere", "t": "Nei risultati brevi, soprattutto negli inviti e nei consigli, il 就 può mancare: 如果有困难，给我打电话. Con 就 la frase suona più marcata («in quel caso, allora»); senza è più leggera." },
     { "titolo": "Lo stesso filo di 就 e 才", "t": "Nella lezione su 就 e 才 si vede che 就 va con ciò che è facile e rapido, 才 con ciò che è difficile e tardivo. La stessa logica spiega le due coppie di questa lezione: 只要 abbassa l'asticella e porta 就, 只有 la alza e porta 才. La lingua non ha due regole separate: ne ha una, dietro due coppie." },
     { "titolo": "既然: quando la condizione è un fatto noto", "t": "Con 如果 si ipotizza qualcosa che può non accadere; con 既然 si parte da un fatto già vero e già noto: 既然你累了，就休息吧 («dato che sei stanco, riposa»). Anche 既然 porta 就 nella seconda frase." }
   ],
@@ -227,10 +227,8 @@ LESSON_RICH.zh["condizioni"] = {
     "Sai formulare ipotesi irreali in cinese senza cambiare il verbo, affidandoti al contesto."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing if then with ruguo jiu»: posizione di 就, 就 omissibile, 那 e 那么, 的话",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing only if with zhiyou»: struttura 只有…才, 才 con 能, condizione necessaria",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Indicating conditions»: elenco di 如果, 要是, 只要, 只有",
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing if then with ruguo jiu»: 如果 nella condizione e 就 nel risultato",
     "CC-CEDICT (cedict_ts.u8), voci 如果, 要是, 的话, 假如, 倘若, 只要, 只有, 就, 才, 既然, 请客",
-    "Tatoeba (cmn.tsv, interrogato con grep): frasi attestate con 如果…就, 只要…就, 只有…才, 要是…就, 的话…就, 既然…就"
+    "Tatoeba (cmn.tsv, interrogato con grep): occorrenze di 如果, 只要, 只有 e 的话 nel corpus"
   ]
 };

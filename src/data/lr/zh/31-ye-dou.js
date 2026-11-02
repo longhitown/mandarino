@@ -137,7 +137,7 @@ LESSON_RICH.zh["ye-dou"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "都 guarda a sinistra", "t": "Nel parlato 都 si riferisce sempre a ciò che sta alla sua sinistra. Per questo si dice 这些书我都看过 («questi libri li ho letti tutti») e non 我看过都这些书. Quando davanti c'è una parola come 每 («ogni»), il valore è lo stesso: 他每天都跑步. Il gruppo può anche essere implicito: 都 in 大家都 riassume le persone presenti." },
+    { "titolo": "都 guarda a sinistra", "t": "Di solito 都 riprende ciò che sta prima di lui. Per questo si dice 这些书我都看过 («questi libri li ho letti tutti») e non 我看过都这些书. Quando davanti c'è una parola come 每 («ogni»), il valore è lo stesso: 他每天都跑步. Il gruppo può anche essere implicito: 都 in 大家都 riassume le persone presenti." },
     { "titolo": "都 vuol dire anche «già» e «perfino»", "t": "Con altre parole 都 prende significati vicini: 都十点了 («sono già le dieci»), 连他都知道 («lo sa perfino lui»), 一点都不累 («non sono stanco per niente»). Il valore comune è l'idea di «portare al limite»: tutto, già tutto, nemmeno un po'. Sono espressioni da imparare come blocchi." },
     { "titolo": "Due letture del carattere 都", "t": "Il carattere 都 si legge dōu quando è l'avverbio, ma dū nei nomi di città e capitali (首都, «capitale»). Il dizionario CC-CEDICT registra per dū «capitale, metropoli»: è un altro carattere-parola, con un'altra pronuncia, che non si confonde con l'avverbio." },
     { "titolo": "「也」 non è sempre «anche»", "t": "In cinese 也 vale sia «anche» sia «nemmeno», a seconda che la frase sia affermativa o negativa: 我也去 («vado anch'io»), 我也不去 («non vado nemmeno io»). Il dizionario CC-CEDICT registra infatti «also; too; as well; (not ...) either»." }
@@ -193,8 +193,6 @@ LESSON_RICH.zh["ye-dou"] = {
     "Sai evitare gli errori di chi traduce «anche» e «tutti» dall'italiano, mettendoli dopo il verbo."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Chinese word order», sezione sul posto di 也: 也 prima di 很, 都, 不, 没; esempi con 也都 e 也不",
-    "elon.io, scheda «都不 vs 不都: None vs Not All»: 都不 e 不都, 都没 per i fatti passati, il gruppo prima di 都",
     "CC-CEDICT, voci 也 (ye3) e 都 (dou1, du1): «also; too; (not ...) either», «all; both; even; already»",
     "Tatoeba (cinese, cmn.tsv): frasi con 也不 (我爸爸也不喝), 我们都 e 不都 (他们不都是幸福的), riscontro dell'ordine delle parole"
   ]

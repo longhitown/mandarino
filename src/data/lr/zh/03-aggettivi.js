@@ -144,7 +144,7 @@ LESSON_RICH.zh["aggettivi"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Gli aggettivi sono verbi di qualità", "t": "Nelle grammatiche del cinese gli aggettivi predicativi si chiamano spesso «verbi stativi»: 热 non vuol dire «caldo» ma «essere caldo». Questo spiega perché non serve 是 e perché si possono usare gli stessi avverbi dei verbi (也, 都, 不). Spiega anche 好吃 e 好喝: 好 + verbo dà un aggettivo («buono da mangiare», «buono da bere»), che si usa come qualunque altro aggettivo: 咖啡很好喝." },
+    { "titolo": "Gli aggettivi sono verbi di qualità", "t": "Un aggettivo può fare da predicato senza verbo copulativo (Wikipedia, «Chinese grammar»): 热 si traduce «caldo» e la frase non ha bisogno di 是. Con l'aggettivo funzionano anche 也, 都 e 不. Spiega anche 好吃 e 好喝: 好 + verbo dà un aggettivo («buono da mangiare», «buono da bere»), che si usa come qualunque altro aggettivo: 咖啡很好喝." },
     { "titolo": "很 non è sempre «molto»", "t": "Il carattere 很 nei dizionari ha due vite: «molto» quando è accentato (他很高！) e semplice legante quando non lo è. Questo secondo uso è il più frequente nel parlato: 我很好 vuol dire semplicemente «sto bene». Se vuoi essere sicuro di dire «molto» usa 非常 o 特别, che portano sempre il grado forte." },
     { "titolo": "Quando l'aggettivo cambia, arriva 了", "t": "Con gli aggettivi, 了 in fondo alla frase non indica un fatto compiuto ma una trasformazione: 天黑了 («è diventato buio»), 茶凉了 («il tè si è raffreddato»). Se vuoi solo descrivere lo stato, senza il passaggio da una condizione all'altra, 了 non c'è: 茶很凉." }
   ],

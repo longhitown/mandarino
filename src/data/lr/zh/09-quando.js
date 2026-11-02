@@ -16,7 +16,7 @@ LESSON_RICH.zh["quando"] = {
     "schema": ["(quando)", "chi", "quando", "verbo", "che cosa"],
     "punti": [
       { "ok": true, "t": "**Dopo il soggetto o all'inizio**: 我明天去北京 e 明天我去北京 hanno lo stesso contenuto. Con il tempo in apertura si mette il momento in evidenza: è il «quadro» in cui sta tutta la frase." },
-      { "ok": true, "t": "**Dal grande al piccolo**: si parte dalla cornice più ampia e si scende al dettaglio: 明天下午三点, 星期六晚上, 每天早上七点. L'italiano fa spesso l'inverso («alle sette di ogni mattina»)." },
+      { "ok": true, "t": "**Più parole di tempo**: si mettono in sequenza, prima il giorno e poi l'ora: 明天下午三点, 星期六晚上, 每天早上七点." },
       { "ok": true, "t": "**Il tempo precede avverbi e negazione**: 我们今天都在家, 我明天不去, 他昨天也来了. La posizione normale è: soggetto + tempo + (都, 也, 不, 没) + verbo." },
       { "ok": true, "t": "**Tempo prima del luogo**: 我们明天在公司开会 è l'ordine normale (quando, dove, verbo); 我们在公司明天开会 suona scomodo. Quando e dove stanno entrambi prima del verbo." },
       { "ok": true, "t": "**Le domande seguono la stessa posizione**: 你什么时候去北京？ 你几点起床？ La parola interrogativa sta dove starebbe la risposta." },
@@ -36,7 +36,7 @@ LESSON_RICH.zh["quando"] = {
       ["Un momento preciso (今天, 明天, 三点)", "prima del verbo", "我三点去医院。"],
       ["Un momento in apertura", "prima del soggetto", "明天我去医院。"],
       ["Un'abitudine (每天, 常常, 周末)", "prima del verbo", "他周末去公园。"],
-      ["Più parole di tempo", "dal grande al piccolo", "我们明天下午三点开会。"],
+      ["Più parole di tempo", "in sequenza: giorno, poi ora", "我们明天下午三点开会。"],
       ["Tempo e luogo insieme", "tempo, poi luogo, poi verbo", "我们明天在公司开会。"],
       ["Una durata (两个小时, 三年)", "dopo il verbo", "他睡了八个小时。"],
       ["Una frase di tempo (……的时候)", "prima del verbo principale", "我吃饭的时候看电视。"]
@@ -57,7 +57,7 @@ LESSON_RICH.zh["quando"] = {
       { "t": "他常常在晚上给我打电话。", "tr": "Spesso mi telefona la sera.", "nota": "常常 è un avverbio di frequenza e sta prima del verbo, come il tempo." },
       { "t": "爸爸每个星期六去买菜。", "tr": "Ogni sabato papà va a fare la spesa." }
     ] },
-    { "gruppo": "Dal grande al piccolo", "items": [
+    { "gruppo": "Più parole di tempo in sequenza", "items": [
       { "t": "我们明天下午三点开会。", "tr": "Domani pomeriggio alle tre abbiamo una riunione." },
       { "t": "他每天早上六点半起床。", "tr": "Ogni mattina si alza alle sei e mezza." }
     ] },
@@ -79,8 +79,8 @@ LESSON_RICH.zh["quando"] = {
       { "t": "我去学校明天。", "ok": false, "perche": "È la struttura italiana («vado a scuola domani»): in cinese una parola di tempo in fondo alla frase non è una collocazione normale." }
     ] },
     { "q": "Vuoi mettere in evidenza il momento: «Domani sera guardiamo un film».", "opzioni": [
-      { "t": "明天晚上我们看电影。", "ok": true, "perche": "Il tempo può aprire la frase, davanti al soggetto, e va dal grande (明天) al piccolo (晚上)." },
-      { "t": "晚上明天我们看电影。", "ok": false, "perche": "Si parte dalla cornice più ampia: «domani sera», non «sera domani»." }
+      { "t": "明天晚上我们看电影。", "ok": true, "perche": "Il tempo può aprire la frase, davanti al soggetto, e i due momenti stanno in sequenza (明天, poi 晚上)." },
+      { "t": "晚上明天我们看电影。", "ok": false, "perche": "Si dice «domani sera», non «sera domani»: il giorno viene prima dell'ora." }
     ] },
     { "q": "Come dici «Domani non vado a lavorare»?", "opzioni": [
       { "t": "我明天不上班。", "ok": true, "perche": "Il tempo precede la negazione e il verbo: soggetto + 明天 + 不 + verbo." },
@@ -118,7 +118,7 @@ LESSON_RICH.zh["quando"] = {
     ],
     "esercizi": [
       { "q": "Dove sta 明天晚上七点 in 我们明天晚上七点在学校见面?", "opzioni": [
-        { "t": "Prima di 在学校 e del verbo, dal grande al piccolo.", "ok": true, "perche": "Il tempo precede il luogo e va da 明天 a 晚上 a 七点." },
+        { "t": "Prima di 在学校 e del verbo, in sequenza: giorno, sera, ora.", "ok": true, "perche": "Il tempo precede il luogo e va da 明天 a 晚上 a 七点." },
         { "t": "In fondo alla frase, dopo 见面.", "ok": false, "perche": "In cinese un momento non si mette dopo il verbo." },
         { "t": "Subito dopo 见面.", "ok": false, "perche": "Dopo il verbo si mette una durata, non un momento." }
       ] },
@@ -143,13 +143,13 @@ LESSON_RICH.zh["quando"] = {
   "curiosi": [
     { "titolo": "Il tempo che non cambia il verbo", "t": "In cinese il verbo resta invariato: 我去 vale «vado», «andai», «andrò». Ma questo non vuol dire che la lingua ignori il tempo: lo affida a parole come 昨天, 以前, 明天, 以后, e agli aspetti (了, 过, 在). Se il discorso ha già stabilito il quando, la parola di tempo si può omettere: dopo 你昨天去哪儿了？ si risponde 我去公园了 senza ripetere 昨天." },
     { "titolo": "Il tempo prima o dopo il soggetto", "t": "我明天去北京 e 明天我去北京 sono entrambe normali. La seconda mette il momento in primo piano, come una scena che si apre: «Domani... io vado a Pechino». Quando il soggetto è lungo o cambia nel discorso, il tempo in apertura aiuta a restare chiari. Quando si confrontano due persone, il tempo segue ciascun soggetto: 我明天去，他后天去." },
-    { "titolo": "Anno, mese, giorno: sempre dal grande al piccolo", "t": "Le date cinesi vanno dall'anno al giorno: 2025年3月8日, e anche le ore dal più grande al più piccolo: 下午三点二十分. È lo stesso principio della frase, dalla cornice ai dettagli." },
+    { "titolo": "Anno, mese, giorno: l'ordine delle date", "t": "Le date cinesi vanno dall'anno al giorno: 2025年3月8日, e le ore: 下午三点二十分. La data segue sempre questo ordine: anno, mese, giorno." },
     { "titolo": "Il tempo dopo il verbo: la durata", "t": "Dopo il verbo si mette la **quantità di tempo**: 住了三年, 等了一会儿, 休息一天. Con un oggetto la durata sta dopo verbo e oggetto: 学了三年中文 («ho studiato cinese per tre anni»). Per ora basta distinguere «quando» (prima) da «quanto» (dopo)." }
   ],
-  "pragmatica": "Nel parlato quotidiano la parola di tempo si omette volentieri quando il discorso è già chiaro, e si ripete invece per fissare un appuntamento: 明天晚上七点, 学校见 è un messaggio perfetto tra amici. Mettere il tempo in apertura dà un tono più scandito, adatto a orari, avvisi e programmi (明天上午九点开会). Nei messaggi di lavoro conviene scrivere sempre l'ora precisa, dal grande al piccolo.",
+  "pragmatica": "Nel parlato quotidiano la parola di tempo si omette volentieri quando il discorso è già chiaro, e si ripete invece per fissare un appuntamento: 明天晚上七点, 学校见 è un messaggio perfetto tra amici. Mettere il tempo in apertura dà un tono più scandito, adatto a orari, avvisi e programmi (明天上午九点开会). Nei messaggi di lavoro conviene scrivere sempre l'ora precisa.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "他每天早上七点起床。", "opzioni": [
-      { "t": "Ogni mattina si alza alle sette.", "ok": true, "perche": "每天早上七点 è un'abitudine, dal grande al piccolo, prima del verbo." },
+      { "t": "Ogni mattina si alza alle sette.", "ok": true, "perche": "每天早上七点 è un'abitudine, prima del verbo." },
       { "t": "Domani mattina si alza alle sette.", "ok": false, "perche": "Per «domani mattina» servirebbe 明天早上, non 每天." },
       { "t": "Si è alzato alle sette ieri.", "ok": false, "perche": "Manca 昨天, e 每天 indica un'abitudine, non un fatto passato." }
     ] },
@@ -178,7 +178,7 @@ LESSON_RICH.zh["quando"] = {
       { "t": "我不明天去学校。", "perche": "La negazione sta subito davanti al verbo, dopo il tempo." }
     ], "perche": "Soggetto + tempo + 不 + verbo: la negazione si avvicina al verbo." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Ogni giorno bevo una tazza di tè.»", "a": "我每天喝一杯茶。", "accetta": ["每天我喝一杯茶。", "我每天都喝一杯茶。", "每天我都喝一杯茶。", "我每天喝一杯茶"], "perche": "每天 precede il verbo 喝; una tazza (一杯) segue il verbo." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Domani alle tre andiamo al parco.»", "a": "我们明天三点去公园。", "accetta": ["明天三点我们去公园。", "明天我们三点去公园。", "我们明天下午三点去公园。", "明天下午三点我们去公园。"], "perche": "Chi + quando (dal grande al piccolo) + verbo + luogo." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Domani alle tre andiamo al parco.»", "a": "我们明天三点去公园。", "accetta": ["明天三点我们去公园。", "明天我们三点去公园。", "我们明天下午三点去公园。", "明天下午三点我们去公园。"], "perche": "Chi + quando + verbo + luogo: il momento sta prima del verbo, il luogo dopo." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你什么时候去上海？" },
       { "chi": "B", "t": "我＿去。", "buco": true }
@@ -190,7 +190,7 @@ LESSON_RICH.zh["quando"] = {
   ],
   "capaci": [
     "Sai collocare il momento prima del verbo, dopo il soggetto o all'inizio della frase.",
-    "Sai ordinare più parole di tempo dal grande al piccolo (明天下午三点) e metterle prima del luogo.",
+    "Sai mettere più parole di tempo in sequenza (明天下午三点) e metterle prima del luogo.",
     "Sai distinguere un momento (prima del verbo) da una durata (dopo il verbo).",
     "Sai fare e capire domande con 什么时候 e 几点, e frasi con 的时候 e 以后."
   ],

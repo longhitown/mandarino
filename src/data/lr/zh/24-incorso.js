@@ -18,7 +18,7 @@ LESSON_RICH.zh["incorso"] = {
       { "ok": true, "t": "**在** è la forma di tutti i giorni: 我在吃饭, 你在做什么？ **正在** è più esplicita: dice che l'azione è in corso proprio ora, e si sente spesso nel racconto e nei contesti più formali: 他正在开会。" },
       { "ok": true, "t": "**呢** in fondo dà alla frase il tono di «sto facendo proprio adesso» ed è facoltativa: 我在看书呢. Nel parlato 呢 può restare da sola, quando il contesto è chiaro: 他睡觉呢, 妈妈做饭呢." },
       { "ok": true, "t": "**Il momento viene dal contesto**: 昨天你打电话的时候，我正在洗澡 («ieri, quando hai telefonato, stavo facendo la doccia»); 明天八点我在上课 («domani alle otto sarò a lezione»)." },
-      { "ok": true, "t": "**Negazione con 没**: 我没在看电视, 他没在做饭, e sempre senza 了. Una frase negativa non prende 正在: si dice 没在, non 没正在. Si sente anche 不在 + verbo, ma 没在 è la forma di gran lunga più comune e senza ambiguità (不在 si legge facilmente come «non essere in un luogo»)." },
+      { "ok": true, "t": "**Negazione con 没**: 我没在看电视, 他没在做饭, e sempre senza 了. Una frase negativa non prende 正在: si dice 没在, non 没正在. Si sente anche 不在 + verbo, ma 没在 è la forma con cui si nega il progressivo (esempio: 你没在吃任何东西)." },
       { "ok": true, "t": "**Doppio 在**: 他在家 («è a casa») usa 在 come verbo di luogo; 他在吃饭 usa 在 come segnale di azione in corso; 他在家吃饭 dice di solito «mangia a casa» (luogo + verbo); con 呢 in fondo, 他在家吃饭呢, diventa «sta mangiando a casa»." },
       { "ok": false, "t": "**Non per verbi di stato o di cognizione**: 是, 有, 喜欢, 知道, 像, 懂 non si dicono con 在: 我知道答案, mai 我在知道答案. E non si aggiunge 了 per dire «sto mangiando»: 我吃饭了 vuol dire «ho mangiato»." }
     ]
@@ -197,8 +197,6 @@ LESSON_RICH.zh["incorso"] = {
     "Sai usare il progressivo nel passato e nel futuro, e distinguerlo da 了 e 着."
   ],
   "fonti": [
-    "Flexi Classes, Chinese Grammar Bank, «How to use 正在»: 正在 per l'azione in corso adesso, 在 più comune nel quotidiano, schema soggetto + 正在 + verbo + oggetto (老板正在开会)",
-    "Mango Languages, «How to use the aspectual particles zhe and zai in Mandarin Chinese»: 在 prima del verbo e solo con verbi d'azione, 正在 non si usa nelle frasi negative, la negazione davanti a 在 è 没 (più comune) o 不",
     "Tatoeba (cmn.tsv), frasi con 正在 e 没在 consultate: 目前我没在做什么事情, 你没在吃任何东西, 会议室正在使用中",
     "CC-CEDICT, voci 正在 e 呢: significato di «essere in corso di» e usi della particella"
   ]

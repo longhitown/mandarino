@@ -201,8 +201,7 @@ LESSON_RICH.zh["zhe"] = {
     "Sai scegliere tra 着 (stato), 了 (evento) e 在 (azione in corso), e negare lo stato con 没."
   ],
   "fonti": [
-    "Mango Languages, «How to use the aspectual particles zhe and zai in Mandarin Chinese»: 着 per lo stato contro 在 per l'azione in corso, 穿着 contro 在穿, 拿着 contro 在拿, 忘 che prende solo 了, esempi di luogo + verbo + 着 + cosa",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Aspect particle»: i due schemi verbo + 着 e verbo + 着 + verbo (la pagina dedicata a 着 è solo un abbozzo)",
+    "Chinese Grammar Wiki (AllSet Learning), «Aspectual particle zhe»: schema verbo + 着 (pagina breve)",
     "Tatoeba (cmn.tsv), esempi consultati: 书架上放着很多字典, 这个位子空着吗, 他闭着眼, 我弟弟还睡着呢, 时间还早着呢, 她终于睡着了, 我现在忙着呢",
     "CC-CEDICT, voci 着 e 著: letture zhe5, zhao2, zhao1, zhuo2"
   ]

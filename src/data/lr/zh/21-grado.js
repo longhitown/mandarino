@@ -135,7 +135,7 @@ LESSON_RICH.zh["grado"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Tre «de» che si pronunciano uguale", "t": "Il cinese ha tre particelle che si leggono tutte de: 的 (lega un nome a ciò che lo descrive: 我的书), 地 (davanti al verbo, forma l'avverbio: 慢慢地走) e 得 (dopo il verbo, introduce il complemento: 走得很慢). Nella lingua parlata si dice sempre allo stesso modo; nello scritto accurato si distinguono. In questa lezione conta 得: dopo il verbo, quando devi giudicare come si fa un'azione." },
+    { "titolo": "Tre «de» che si pronunciano uguale", "t": "Il cinese ha tre particelle che si leggono tutte de: 的 (lega un nome a ciò che lo descrive: 我的书), 地 (davanti al verbo, forma l'avverbio: 慢慢地走) e 得 (dopo il verbo, introduce il complemento: 走得很慢). Si pronunciano allo stesso modo. In questa lezione conta 得: dopo il verbo, quando devi giudicare come si fa un'azione." },
     { "titolo": "Il giudizio può anche descrivere l'effetto", "t": "Dopo 得 non c'è solo un aggettivo come 好 o 快. Si possono aggiungere frasi che descrivono il risultato dell'azione: 笑得很开心 («rideva allegro»), 忙得没有时间吃饭 («così impegnato da non aver tempo di mangiare»). La struttura è la stessa: verbo + 得 + descrizione. Sono forme frequenti nel parlato e nei racconti." },
     { "titolo": "Senza 很, il confronto sottinteso", "t": "Un aggettivo nudo dopo 得, come in 他跑得快, suona come un contrasto: lui corre veloce (e altri no). Per una semplice descrizione si mette 很 (che qui ha poco valore di «molto»): 他跑得很快. Per un tratto negativo si dice 跑得不快, che vale «non corre veloce»." }
   ],

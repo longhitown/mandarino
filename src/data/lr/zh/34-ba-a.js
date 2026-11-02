@@ -139,7 +139,7 @@ LESSON_RICH.zh["ba-a"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Un carattere, tre voci", "t": "Il dizionario CC-CEDICT registra 吧 con più letture. Con il tono neutro (ba) è la particella di suggerimento o ipotesi di questa lezione; con il primo tono (bā) è il prestito «bar» (locale dove si beve o si naviga in rete) e compare in parole come 酒吧 e 网吧. Anche 啊 ha più letture: il tono neutro è la particella di assenso e di calore, gli altri toni sono interiezioni di sorpresa o di dubbio." },
+    { "titolo": "Un carattere, tre voci", "t": "Il dizionario CC-CEDICT registra 吧 con più letture. Con il tono neutro (ba) è la particella di suggerimento o ipotesi di questa lezione; con il primo tono (bā) è il prestito «bar» (locale dove si beve o si naviga in rete) e compare in parole come 酒吧 e 网吧. Anche 啊 ha più letture: gli altri toni (a1, a2, a3) sono interiezioni di sorpresa o di dubbio." },
     { "titolo": "Il suono di 啊", "t": "Dopo certe vocali la particella si pronuncia diversamente: dopo a, o, e, i, ü diventa ya (e talvolta si scrive 呀), dopo u, ao, ou diventa wa (哇), dopo n diventa na (哪). Per questo si trovano scritte sia 好啊 sia 好呀, e chi ascolta sente la stessa particella. Nello scritto si può usare sempre 啊; le altre forme servono a rendere il parlato." },
     { "titolo": "吧 nelle ipotesi", "t": "Con parole come 大概, 也许, 应该, 吧 mette il segno di una supposizione: 他大概在家吧 («sarà a casa»), 应该没问题吧 («dovrebbe andare tutto bene, no?»). Chi parla non afferma nulla con certezza e lascia a chi ascolta l'ultima parola." }
   ],
@@ -194,9 +194,6 @@ LESSON_RICH.zh["ba-a"] = {
     "Sai usare 啊 per scaldare un'esclamazione, una domanda con 什么 o il nome di una persona."
   ],
   "fonti": [
-    "HSK Lord, scheda «Suggestion with 吧»: suggerimento, supposizione con richiesta di conferma, 好吧 come cedimento, 吧 non insieme a 吗",
-    "Chinese Boost, pagina «The sentence particles 吧 (ba) and 吗 (ma)»: 吧 ammorbidisce e chiede conferma, 吗 per le domande sì/no",
-    "Mango Languages, articolo «How to use the modal particle 啊 (a)»: funzioni di 啊 (assenso, esclamazione, sollecito, richiamo) e varianti di suono ya, wa, na",
     "CC-CEDICT, voci 吧 (ba5, ba1), 啊 (a5 e altre letture), 吗 (ma5): particella di suggerimento o ipotesi, particella di assenso, particella di domanda sì/no",
     "Tatoeba (cinese, cmn.tsv): frasi con 吧 (我们在这里下车吧, 你是故意的吧？) e con 啊 (这狗跑得多快啊！)"
   ]

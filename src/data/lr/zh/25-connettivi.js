@@ -20,7 +20,7 @@ LESSON_RICH.zh["connettivi"] = {
       { "ok": true, "t": "**La ragione può venire dopo**: 我没去，因为下雨了. Qui c'è solo 因为, che aggiunge il motivo a un fatto già detto; è anche la risposta normale a 为什么: 你为什么没去？ 因为下雨了." },
       { "ok": true, "t": "**虽然… 但是…** = «anche se…, però…»: 虽然很贵，但是很好吃. In cinese la seconda parola non si omette: l'italiano «anche se è caro, è buono» ha una parola sola, il cinese ne ha due. **可是** è più parlato di 但是, **不过** è più morbido («solo che»)." },
       { "ok": true, "t": "**Posizione di 虽然 e di 因为**: stanno all'inizio della prima frase. Con lo stesso soggetto 虽然 può seguirlo: 他虽然很忙，但是…. Dopo 但是 (e 可是) c'è la frase del contrasto, spesso con 还是 «ugualmente»: 但是他还是来了." },
-      { "ok": true, "t": "**Dopo il soggetto, 却 al posto di 但是**: 这件衣服虽然便宜，却很好看. È più scritto; 却 sta dopo il soggetto e davanti al verbo o all'aggettivo." },
+      { "ok": true, "t": "**Dopo il soggetto, 却 al posto di 但是**: 这件衣服虽然便宜，却很好看. Il connettivo 却 sta dopo il soggetto e davanti al verbo o all'aggettivo." },
       { "ok": false, "t": "**Le due coppie non si mescolano**: 虽然…所以, 因为…但是 non funzionano, perché dicono cose opposte. La concessione chiede un contrasto (但是), la causa chiede una conseguenza (所以)." }
     ]
   },
@@ -90,7 +90,7 @@ LESSON_RICH.zh["connettivi"] = {
       { "t": "所以我很难过。", "ok": false, "perche": "所以 porterebbe un risultato; a «perché?» si risponde con la causa." },
       { "t": "虽然我很难过。", "ok": false, "perche": "虽然 apre una concessione e lascia la frase in sospeso." }
     ] },
-    { "q": "Che cosa significa 他虽然很累，但是还在学习。?", "opzioni": [
+    { "q": "Che cosa significa 他虽然很累，但是还在学习？", "opzioni": [
       { "t": "Anche se è stanco, continua a studiare.", "ok": true, "perche": "虽然 apre la concessione (è stanco), 但是 il contrasto (studia ancora)." },
       { "t": "Siccome è stanco, studia.", "ok": false, "perche": "Per «siccome» servirebbe 因为…所以; la stanchezza qui non è la causa." },
       { "t": "Se è stanco, studia.", "ok": false, "perche": "«Se» è un'ipotesi (如果); 虽然 introduce un fatto vero." }
@@ -149,8 +149,7 @@ LESSON_RICH.zh["connettivi"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "之所以… 是因为…: la ragione in primo piano", "t": "Nello scritto e nel discorso formale esiste la forma 他之所以没来，是因为生病了: «il motivo per cui non è venuto è che era malato». Mette in primo piano il fatto, e la ragione arriva dopo, introdotta da 是因为. Nel parlato di tutti i giorni basta 他没来，因为生病了." },
-    { "titolo": "Quattro modi di dire «però»", "t": "但是 è il «però» neutro; 可是 è più parlato e più caldo; 不过 è più morbido e introduce una riserva («solo che»); 却 è del registro scritto e sta dopo il soggetto. Con 虽然 si usano 但是, 可是 o 却: 不过 funziona anche senza 虽然, come in 很好看，不过有点贵." },
+    { "titolo": "Quattro modi di dire «però»", "t": "但是 è il «però» neutro; 可是 è più parlato e più caldo; 不过 è più morbido e introduce una riserva («solo che»); 却 sta dopo il soggetto. Con 虽然 si usano 但是, 可是 o 却: 不过 funziona anche senza 虽然, come in 很好看，不过有点贵." },
     { "titolo": "既然: «dato che», un fatto già noto", "t": "既然 introduce una ragione che chi parla e chi ascolta già conoscono e da cui si trae una conclusione: 既然你累了，就休息吧 («dato che sei stanco, riposa»). Diversamente da 因为, non spiega ma parte dal fatto noto. Di solito la seconda frase porta 就: ne riparliamo nella lezione sulle condizioni." }
   ],
   "pragmatica": "Nel parlato quotidiano si sente soprattutto 所以 da solo e 因为 da solo come risposta a 为什么: la coppia completa è più frequente quando si spiega con ordine o si scrive. 虽然…但是 invece conserva sempre il suo «però»: toglierlo suona incompleto. 可是 e 不过 danno un tono più caldo e conversazionale di 但是, che resta il neutro adatto a ogni situazione, anche formale.",
@@ -206,9 +205,8 @@ LESSON_RICH.zh["connettivi"] = {
     "Sai evitare le coppie sbagliate (虽然…所以, 因为…但是) e combinare le due coppie in una frase."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Cause and effect with yinwei and suoyi»: 因为 e 所以 in coppia o da soli, ragione dopo il risultato",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing although with suiran and danshi»: 但是 o 可是 necessari dopo 虽然, posizione di 虽然 rispetto al soggetto",
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing although with suiran and danshi»: 但是 quasi sempre necessario dopo 虽然",
     "CC-CEDICT (cedict_ts.u8), voci 因为, 所以, 虽然, 但是, 可是, 不过, 却, 既然",
-    "Tatoeba (cmn.tsv, interrogato con grep): frasi attestate con 因为…所以, 虽然…但是, 既然…就"
+    "Tatoeba (cmn.tsv, interrogato con grep): frasi attestate con 虽然…但是 e 既然"
   ]
 };

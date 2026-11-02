@@ -19,7 +19,7 @@ LESSON_RICH.zh["bei"] = {
       { "ok": true, "t": "**Il verbo di norma non resta nudo**: dopo il verbo c'è 了, un risultato (打破, 吃完, 偷走) o una quantità (批评了一顿). Senza questo la frase resta sospesa." },
       { "ok": true, "t": "**Negazione, avverbi e verbi modali stanno prima di 被**: 没被偷, 又被批评了, 会被偷, 不能被别人知道. Per il passato si usa 没 (anche 没有); 不 vale per il presente e per le regole generali." },
       { "ok": true, "t": "**Il tono è di solito spiacevole**: furto, rimprovero, danno, inganno. Con cose neutre o belle si usa 被 soprattutto nei contesti di cronaca o di annunci: 他被选为班长了, 她被老师表扬了." },
-      { "ok": true, "t": "**Nel parlato esistono 让 e 叫**: 杯子让弟弟打破了, 他叫妈妈骂了一顿. Con 让 e 叫 chi agisce **va sempre detto**: la forma senza agente è solo di 被." },
+      { "ok": true, "t": "**Nel parlato esistono 让 e 叫**: 杯子让弟弟打破了, 他叫妈妈骂了一顿. Con 让 e 叫 l'agente compare nella frase: 杯子让弟弟打破了." },
       { "ok": false, "t": "**Non è l'unico modo per tradurre un passivo italiano.** «Questo libro è stato scritto da lui» è 这本书是他写的; «la cena è pronta» è 饭做好了. 被 si usa quando c'è un evento che capita a qualcuno, non per ogni participio passato." }
     ]
   },
@@ -135,7 +135,7 @@ LESSON_RICH.zh["bei"] = {
   "curiosi": [
     { "titolo": "Il 被 di una volta: «ricevere»", "t": "被 è anche il carattere di «coperta, piumone» (被子), e come verbo letterario significa «subire»: chi è 被 qualcosa ne è coperto o colpito. Questo spiega il tono: la costruzione è nata per dire ciò che si riceve senza volerlo, quasi sempre un danno." },
     { "titolo": "Il passivo moderno e le traduzioni", "t": "Nello scritto, soprattutto in giornali, comunicati e testi accademici, 被 compare anche con fatti neutri e positivi (被选为, 被评为, 被誉为). Nel parlato di tutti i giorni questi casi sono meno frequenti e si preferisce la frase attiva: 大家选他当班长." },
-    { "titolo": "被 più 给, 让 e 叫", "t": "Nel parlato compare anche 给 prima del verbo, per rinforzare l'evento: 杯子被他给打破了. Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了); nello scritto formale si trova la forma 为…所 (为人所知: «noto alla gente»), che nel parlato non compare." }
+    { "titolo": "被 più 给, 让 e 叫", "t": "Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了): l'agente resta visibile nella frase." }
   ],
   "pragmatica": "被 è la forma naturale per lamentarsi o per raccontare un guaio: 我的手机被偷了 si dice a un amico, a un poliziotto, al telefono. Chi vuole essere cortese con chi ha causato il danno lo evita e dice solo: 杯子打破了, 对不起. Con 让 e 叫 il tono è familiare e conversazionale.",
   "esercizi": [

@@ -187,9 +187,7 @@ LESSON_RICH.zh["progressione"] = {
     "Sai scegliere tra 越来越 (tendenza nel tempo) e 越…越 (due variabili collegate)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing \"more and more\" with yuelaiyue»: 越来越 con aggettivi e verbi, 不 e 了",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing \"the more... the more...\" with yue… yue…»: un soggetto, due soggetti, 越…越不",
     "CC-CEDICT, voce 越 (yue4), consultata nel file locale",
-    "Tatoeba (cinese, corpus locale): esempi autentici di 越来越, 越…越, 越…越不 e 一天比一天"
+    "Tatoeba (cinese, corpus locale): occorrenze di 越来越 e 一天比一天"
   ]
 };

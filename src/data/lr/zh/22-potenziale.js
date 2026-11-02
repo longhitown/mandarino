@@ -12,7 +12,7 @@ LESSON_RICH.zh["potenziale"] = {
     "risposta": "In mezzo c'è **得** oppure **不**. Il verbo (听, 吃, 找) e il suo risultato (懂, 完, 到) sono già uniti in 听懂, 吃完, 找到; mettendo 得 si dice che il risultato **si può raggiungere**, mettendo 不 che **non si può**. Non è «non voglio» né «non so»: è «ce la faccio / non ce la faccio»."
   },
   "regola": {
-    "enunciato": "Per dire se è **possibile** arrivare a un risultato si mette **得** (sì) o **不** (no) tra il verbo e il suo complemento di risultato: 听懂 → 听得懂 «riesco a capire», 听不懂 «non riesco a capire». È il complemento potenziale. Nella lingua di ogni giorno la forma con 不 è molto più frequente di quella con 得.",
+    "enunciato": "Per dire se è **possibile** arrivare a un risultato si mette **得** (sì) o **不** (no) tra il verbo e il suo complemento di risultato: 听懂 → 听得懂 «riesco a capire», 听不懂 «non riesco a capire». È il complemento potenziale. La forma con 不 è molto usata nel parlato.",
     "schema": ["chi", "verbo", "得 / 不", "risultato"],
     "punti": [
       { "ok": true, "t": "**Base**: verbo + 得/不 + risultato. I risultati più comuni sono 懂 (capire), 见 (percepire), 到 (arrivare a prendere), 完 (finire), 清楚 (in modo chiaro), 起 (permettersi), 了 (liǎo, riuscire): 看不见, 买不到, 吃不完." },
