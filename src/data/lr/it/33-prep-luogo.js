@@ -27,7 +27,7 @@ LESSON_RICH.it["prep-luogo"] = {
   "logica": [
     "为什么顺序和汉语相反？汉语的“上、下、里、旁边”是名词性的词，可以放在名词后面，像“桌子的上面”。意大利语的 sopra、sotto、dentro、dietro 本来是副词，没有名词的作用，要找一个名词来“支撑”：sopra il tavolo。所以它们也能单独用，不带名词：Il libro è sopra.（书在上面。）Aspetto fuori.（我在外面等。）",
     "第二类（vicino a、accanto a、davanti a）本来是形容词或名词加 a，意思是“靠着……、面对着……”，所以要保留 a。第三类 lontano da 的 da 表示“离开的起点”：远，就是“从……分开”。这样想，a 表示靠近、da 表示分开，选择就有了道理。",
-    "人称代词的规则很容易记：位置词后面如果是 a / da，代词直接跟在后面（a me、da te）；如果位置词本来不带小词（sopra、sotto、dentro、dietro），遇到代词就补一个 di，因为意大利语不愿意把两个“光杆”词直接连在一起。"
+    "人称代词的规则很容易记：位置词后面如果是 a / da，代词直接跟在后面（a me、da te）；如果位置词本来不带小词（sopra、sotto、dentro、dietro），遇到代词就补一个 di，这是这一类词的固定用法。"
   ],
   "mappa": {
     "tipo": "tabella",
@@ -203,7 +203,7 @@ LESSON_RICH.it["prep-luogo"] = {
     "你会用 tra、fra、di fronte a、a destra di 这些词给别人指路。"
   ],
   "fonti": [
-    "Wikipedia italiano, voce «Preposizione» (preposizioni proprie, improprie e locuzioni prepositive; consultata la pagina generale, non i dettagli sulla reggenza)",
+    "Wikipedia italiano, voce «Preposizione» (letta: preposizioni proprie e improprie, sopra, sotto, davanti, vicino come improprie, locuzioni prepositive; la pagina non tratta nel dettaglio i valori di luogo)",
     "Tatoeba (ita.tsv): frasi consultate con vicino a, lontano da, accanto a, dietro per controllare la naturalezza delle costruzioni"
   ]
 };

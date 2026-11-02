@@ -148,7 +148,7 @@ LESSON_RICH.it["prep-tempo"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "da 与过去时：Non lo vedo da due anni", "t": "da + 现在时是最常见的搭配：Non lo vedo da due anni（我两年没见他了）。在否定句里，也可以听到过去时：Non l'ho visto da due anni。两种说法都对，现在时更口语，过去时强调“到现在为止从来没有”。如果要说过去某个时刻之前的持续，用未完成过去时：Lo aspettavo da un'ora quando è arrivato（他来的时候我已经等了一个小时了）。" },
+    { "titolo": "da 与过去时：Non lo vedo da due anni", "t": "da + 现在时是最常见的搭配：Non lo vedo da due anni（我两年没见他了）。在否定句里，也可以听到过去时：Non l'ho visto da due anni。两种说法都对，现在时更口语。如果要说过去某个时刻之前的持续，用未完成过去时：Lo aspettavo da un'ora quando è arrivato（他来的时候我已经等了一个小时了）。" },
     { "titolo": "fa 的来源", "t": "fa 本来是动词 fare（做）的第三人称现在时，原义是“……在这里过去了”。所以 due giorni fa 字面上是“两天过去了”，放在时间后面。这也解释了为什么 fa 是固定的，不随人称变化。" },
     { "titolo": "星期几要不要冠词", "t": "说“这个星期一”，不用冠词，也不用介词：Lunedì vado dal dentista。说“每个星期一”，用定冠词：Il lunedì vado in piscina。同样，la sera、la mattina 表示“每天晚上、每天早上”的习惯。" }
   ],

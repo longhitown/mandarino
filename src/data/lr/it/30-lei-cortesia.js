@@ -149,7 +149,7 @@ LESSON_RICH.it["lei-cortesia"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "从 Voi 到 Lei：一段历史", "t": "意大利语最早的尊称是 voi（你们），Lei 在十六、十七世纪开始流行，到十九世纪末成为通行的尊称。一九三八年墨索里尼政府曾下令用 voi 代替 Lei，但战后 Lei 又回来了。今天，在意大利南部（如坎帕尼亚），voi 仍常用来表示对长辈的尊敬，北方则没有这个用法。" },
+    { "titolo": "从 Voi 到 Lei：一段历史", "t": "意大利语很早就用 voi（你们）来表示尊敬，Lei 自文艺复兴起开始使用，后来成为通行的尊称。今天，在一些地区（如坎帕尼亚）的口语里，voi 仍可以用来表示对一个人的尊敬。" },
     { "titolo": "tu 的扩张", "t": "二十世纪下半叶，tu 越来越多地取代 Lei：店员和顾客、医生和病人之间、电子邮件里，甚至对陌生人，用 tu 都已很常见。同事之间，职位相当时通常互相用 tu，不管年龄。所以有人对你说 tu，不一定是不尊重你。不确定时，可以先用 Lei，等对方说 Diamoci del tu 再改。" },
     { "titolo": "Salve：不确定时的问候", "t": "Buongiorno（上午到下午）、Buonasera（傍晚以后；在南方午饭后就开始说）是标准问候。Salve 介于 ciao 和 buongiorno 之间，不指定对方是 tu 还是 Lei，在店里、电梯里、遇到不知道怎么称呼的人时很好用。" },
     { "titolo": "Ella 和 Loro", "t": "古老的尊称 Ella 现在很少见，只出现在官方公文里。Loro 是 Lei 的复数，如今口语里更常用 voi 来称呼几个人。在酒吧里，你有时还会听到服务员问一桌客人 Desiderano?，这是 Loro 的残留。" }
@@ -208,9 +208,7 @@ LESSON_RICH.it["lei-cortesia"] = {
     "你会用 Diamoci del tu 或 Possiamo darci del tu? 自然地转换称呼。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «allocutivi, pronomi» (tu, Lei, Voi, Loro; maiuscole; accordo di Lei con il sesso del destinatario; uso del voi nel Sud)",
-    "Wikipedia (inglese), «Italian grammar», sezione sul Lei di cortesia (terza persona, imperativo mutuato dal congiuntivo, clitici proclitici, voi e Loro)",
-    "Ricerca web su Treccani (vocabolario «lei») e Accademia della Crusca sui pronomi di cortesia, solo sintesi dei risultati",
+    "Wikipedia (inglese), «Italian grammar», sezione sul Lei di cortesia (letta: terza persona, origine da Vossignoria, imperativo mutuato dal congiuntivo, clitici proclitici, voi ancora formale in Campania, Loro)",
     "Tatoeba (ita.tsv): controllo della naturalezza di Mi scusi, Si accomodi, Aspetti un attimo, Prenda la prima strada a destra, La ringrazio molto, Possiamo darci del tu?, Mi dia"
   ]
 };

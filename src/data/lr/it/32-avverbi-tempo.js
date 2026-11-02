@@ -217,8 +217,7 @@ LESSON_RICH.it["avverbi-tempo"] = {
     "你会区分 appena 的两种用法（刚刚、一……就……），也会用 ormai 提醒时间。"
   ],
   "fonti": [
-    "Think in Italian, «Adverbs of Time» (posizione di già, ancora, appena, mai con il passato prossimo; doppia negazione con mai; mai davanti al verbo), consultata per intero",
-    "Tatoeba (ita.tsv), controllo di frasi con hai già mangiato, non abito più, sei mai stato in, appena arrivo, ormai è tardi",
-    "Lezione di base 32 (avverbi-tempo) di questo corso, di cui il capitolo è l'approfondimento"
+    "Think in Italian, «Adverbs of Time» (letta in parte: già, ancora, appena, mai tra ausiliare e participio; non ... ancora = not yet; mai nelle domande; la pagina non tratta non ... più)",
+    "Tatoeba (ita.tsv), frasi contate con grep: «Hai già mangiato» (14), «Non abito più» (7), «Sei mai stato in» (25), «Appena arrivo» (3), «Ormai è tardi» (1)"
   ]
 };

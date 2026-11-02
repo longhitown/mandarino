@@ -210,8 +210,7 @@ LESSON_RICH.it["avverbi-modo"] = {
     "你会用 meglio、peggio 做比较，不再说 più bene。"
   ],
   "fonti": [
-    "Think in Italian, «Adverbs Formed From Adjectives» (formazione in -mente, caduta della e con -le/-re, avverbi irregolari bene, male, meglio, peggio), consultata per intero",
-    "Tatoeba (ita.tsv), controllo di frasi con parla bene, ho molti amici, parla più lentamente, sto meglio",
-    "Lezione di base 31 (avverbi-modo) di questo corso, di cui il capitolo è l'approfondimento"
+    "Elon.io, Italian Adverbs: Overview (letta: formazione in -mente dal femminile singolare, caduta della e con -le/-re, bene, male, meglio, peggio, piano e forte come avverbi)",
+    "Tatoeba (ita.tsv), frasi contate con grep: «Parla bene» (9), «Ho molti amici» (18), «Parla più lentamente» (5), «Sto meglio» (5)"
   ]
 };
