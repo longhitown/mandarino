@@ -208,8 +208,7 @@ LESSON_RICH.it["passato"] = {
     "你会把 già、ancora、mai 放在助动词和分词之间，问对方的经历。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «passato prossimo» (formazione con essere o avere, accordo del participio): letta",
-    "Risultati di ricerca web su passato prossimo, ausiliare e accordo del participio (sintesi di Mango Languages, italki, FastItalian): confronto sulle regole di base e sulla posizione di già e ancora",
-    "Tatoeba (ita.tsv): interrogato con Mi sono alzato, Siamo andati, Ho fatto colazione e Non ho ancora, per controllare la naturalezza delle frasi"
+    "Treccani, Enciclopedia dell'Italiano, voce «passato prossimo» (Wiberg, 2011): formazione con essere o avere, accordo del participio (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Mi sono alzato (27), Siamo andati (165), Ho fatto colazione (6), Non ho ancora (257): verificate con grep nel corpus locale"
   ]
 };

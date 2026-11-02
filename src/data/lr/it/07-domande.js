@@ -207,7 +207,7 @@ LESSON_RICH.it["domande"] = {
     "你会把 dove、che cosa、chi、quando、perché、come、quanto 放在句首提问，并带上介词：Con chi parli?"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «negazione»: posizione di non, concordanza negativa con mai, niente, nessuno",
-    "Tatoeba (ita.tsv), ricerca di frasi con Dove vai?, Con chi parli?, Quanti anni hai?, Nessuno … per controllare l'uso naturale"
+    "Treccani, Enciclopedia dell'Italiano, voce «negazione» (Bernini, 2011): posizione di non, concordanza negativa con mai, niente, nessuno (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Dove vai? (4), Con chi parli? (1), Nessuno (1924): verificate con grep nel corpus locale"
   ]
 };

@@ -204,7 +204,7 @@ LESSON_RICH.it["pronuncia"] = {
     "你会判断重音的位置，并在 città、caffè、perché 这类词里写出重音符号。"
   ],
   "fonti": [
-    "Wikipedia (inglese), Italian phonology: consonanti geminate, /ɲ ʃ ʎ/ sempre geminate tra vocali, accento lessicale e dominanza della parossitona, gorgia toscana",
-    "Tatoeba (ita.tsv), controllo dell'uso reale di gnocchi, figlio, pesce, scuola, chiave, ghiaccio, uova, città, spaghetti, schiena, bruschetta e dei due caffè"
+    "Wikipedia (inglese), «Italian phonology»: consonanti geminate, accento lessicale e dominanza della parossitona, gorgia toscana (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con gnocchi, figlio, pesce, scuola, chiave, uova, città, spaghetti: verificate con grep nel corpus locale"
   ]
 };

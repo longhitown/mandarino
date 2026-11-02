@@ -211,7 +211,7 @@ LESSON_RICH.it["presente"] = {
     "你会用现在时说此刻的事、习惯和马上要做的事，以及用 da 说“已经……了”。"
   ],
   "fonti": [
-    "Wikipedia (inglese), «Italian verbs», sezione sul presente indicativo: schemi -are, -ere, -ire e verbi in -isc-",
-    "Tatoeba (ita.tsv), ricerca di frasi con cerchi, Quanti anni hai?, Non fumo più, Sei stanco, Dormite per controllare forme e uso"
+    "Wikipedia (inglese), «Italian verbs», sezione «Present»: tabelle di amare, credere, dormire, finire (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Quanti anni hai? (8), Sei stanco (14), Non fumo più (1): verificate con grep nel corpus locale"
   ]
 };

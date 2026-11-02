@@ -221,9 +221,7 @@ LESSON_RICH.it["pronomi-diretti"] = {
     "你会回答 Non lo so 这样的句子，也会避开把代词放在动词后面或省略宾语的错误。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «clitici» (elisione di lo e la, posizione con verbi modali, enclisi in testi formali)",
-    "Treccani, Enciclopedia dell'Italiano, voce «pronomi personali» (proclisi ed enclisi, imperativo, verbi modali)",
-    "D'accordo! Intermediate Italian (Blum e Gemmani, LibreTexts), sezione «Pronomi oggetto diretto» (forme, posizione, accordo del participio, elisione)",
-    "Tatoeba (ita.tsv), controllo delle frasi: Non lo so, L'ho comprato ieri, Li ho visti ieri, Le ho viste, Mi ha vista, Ci ha invitati"
+    "Treccani, Enciclopedia dell'Italiano, voce «clitici» (2010): elisione di lo e la, clitici con i verbi modali, enclisi (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Non lo so (114), L'ho comprato ieri (2), Li ho visti ieri (3), Le ho viste (43), Mi ha vista (9), Ci ha invitati (6): verificate con grep nel corpus locale"
   ]
 };

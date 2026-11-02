@@ -213,8 +213,7 @@ LESSON_RICH.it["futuro"] = {
     "你会用 Sarà… 和 Saranno le… 来猜测现在的情况，并且不把汉语的“会”（能力）译成将来时。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «futuro» (futuro epistemico, usi iussivo e deontico, presente per futuro)",
-    "D'accordo! Intermediate Italian (Blum e Gemmani, LibreTexts), sezione «Indicativo futuro» (formazione, ortografia, radici irregolari, uso nelle subordinate temporali)",
-    "Tatoeba (ita.tsv), controllo delle frasi: Domani andrò…, Sarà difficile…, Che tempo farà domani?, Ti telefonerò stasera, Verrò…, Dovrò…"
+    "Treccani, Enciclopedia dell'Italiano, voce «futuro»: futuro epistemico, iussivo e deontico, presente per il futuro (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Domani andrò (23), Sarà difficile (23), Verrò (104), Dovrò (92), Ti telefonerò stasera (1): verificate con grep nel corpus locale"
   ]
 };

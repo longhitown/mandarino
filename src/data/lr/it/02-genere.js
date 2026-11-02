@@ -217,7 +217,7 @@ LESSON_RICH.it["genere"] = {
     "你会避开 *due libro*、*due caffès*、*una problema* 这样的汉语母语者常见错误。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «plurale» (nomi invariabili, uovo/uova, mano/mani, nomi in -a maschili e in -ista)",
-    "Tatoeba (ita.tsv), controllo dell'uso reale di amici, amiche, laghi, banche, medici, valigie, camicie, le uova, le mani, i problemi, i turisti"
+    "Treccani, Enciclopedia dell'Italiano, voce «plurale» (Cimaglia, 2011): nomi invariabili, uovo/uova, mano/mani, nomi in -a maschili e in -ista (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con amici, amiche, laghi, banche, medici, le uova, le mani: verificate con grep nel corpus locale"
   ]
 };

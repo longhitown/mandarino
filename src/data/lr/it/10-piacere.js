@@ -217,8 +217,7 @@ LESSON_RICH.it["piacere"] = {
     "你会用 Il film mi è piaciuto 说刚看完、吃完以后的感受。"
   ],
   "fonti": [
-    "Italiano Bello, «Le piace – the verb piacere and the indirect pronouns» (piace e piacciono, pronomi deboli e forti, anche/neanche a me, negazione, infinito): letta",
-    "Risultati di ricerca web su piacere e pronomi indiretti (sintesi di italki, Lingoda, FastItalian): confronto sulla struttura di base",
-    "Tatoeba (ita.tsv): interrogato con Mi piacciono, Non mi piace, Ti è piaciuto, mi è piaciuto e Ti piace, per controllare la naturalezza delle frasi"
+    "Treccani, Enciclopedia dell'Italiano, voce «Personali, pronomi» (Da Milano, 2011), sezione «Pronomi reduplicati»: la costruzione «a me mi piace» (pagina letta; non analizza piacere a fondo)",
+    "Tatoeba (ita.tsv), frasi reali con Mi piacciono (371), Non mi piace (627), Ti piace (514), Ti è piaciuto (36), mi è piaciuto (62): verificate con grep nel corpus locale"
   ]
 };

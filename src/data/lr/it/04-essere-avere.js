@@ -208,7 +208,7 @@ LESSON_RICH.it["essere-avere"] = {
     "你会用 c'è / ci sono 说“某处有某物”，不和 avere 混淆。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «articolo» (formule senza articolo come avere fame)",
-    "Tatoeba, corpus italiano locale (ita.tsv): riscontro di Ho fame, Ho sete, Ho freddo, Ho sonno, Ho paura, Hanno ragione, Sono di Tokyo, Siete…, C'è…, Ci sono…"
+    "Treccani, Enciclopedia dell'Italiano, voce «articolo» (Grandi, 2010), sezione «Formule senza articolo» (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con Ho fame (22), Ho sete (14), Ho freddo (13), Ho sonno (10), Ho paura (188), Hanno ragione (11): verificate con grep nel corpus locale"
   ]
 };

@@ -207,8 +207,7 @@ LESSON_RICH.it["articoli"] = {
     "你会避开 il studente、un'amico、i studenti、Ho amico 这类汉语母语者常见的错误。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «articolo» (forme dell'articolo determinativo e indeterminativo, condizioni d'uso, casi particolari: nomi propri, nomi unici, formule senza articolo)",
-    "Risultati di una ricerca web su il, lo, gli e s+consonante, z, gn, ps (dispense universitarie e LibreTexts, Passo dopo passo: Italiano 1), controllo delle condizioni d'uso di lo e gli",
-    "Tatoeba, corpus italiano locale (ita.tsv): riscontro di uno studente, lo zio, gli zaini, un'amica"
+    "Treccani, Enciclopedia dell'Italiano, voce «articolo» (Grandi, 2010): forme dell'articolo, nomi propri, formule senza articolo (pagina letta)",
+    "Tatoeba (ita.tsv), frasi reali con lo zio (33), gli zaini (1), un'amica (283): verificate con grep nel corpus locale"
   ]
 };
