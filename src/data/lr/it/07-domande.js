@@ -12,7 +12,7 @@ LESSON_RICH.it["domande"] = {
     "risposta": "①否定词 **non** 放在动词前面。②“从来不”要用**两个**否定词：non 加 mai，缺一个都不对。③是非问句的词序和陈述句一样，只靠**升调**（书面上加问号）表示提问，没有“吗”。④疑问词 dove 放在**句首**，而汉语的“哪里”留在原来的位置（你住在哪里）。"
   },
   "regola": {
-    "enunciato": "否定句：在变位动词前面加 **non**。如果还有 mai、niente、nessuno、più 等否定词，且它们在动词**后面**，非 non 不可（Non bevo mai）。提问：是非问句不改变词序，只用升调；特殊疑问句把**疑问词放在句首**，后面是动词，主语常常放在动词之后。",
+    "enunciato": "否定句：在变位动词前面加 **non**。如果还有 mai、niente、nessuno、più 等否定词，且它们在动词**后面**，非 non 不可（Non bevo mai；问句里的 mai 是“曾经”，不加 non：Sei mai stato in Cina?）。提问：是非问句不改变词序，只用升调；特殊疑问句把**疑问词放在句首**，后面是动词，主语常常放在动词之后。",
     "schema": ["Non", "动词", "mai / niente", "｜", "疑问词", "动词", "?"],
     "punti": [
       { "ok": true, "t": "**non 的位置**：紧挨着变位动词前面；如果有宾语代词，non 在代词前面：Non parlo cinese. Non lo so. Non ci vado." },
@@ -144,7 +144,7 @@ LESSON_RICH.it["domande"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "口语里漏掉的 non", "t": "在一些口语变体里，主要是北部，有时会听到不带 non 的说法，比如 C'era nessuno。在问句里 non 也可以省略：Sei mai stato in Croazia? 这里的 mai 是“曾经”。这些都是口语的特点；书写和正式场合要用完整的否定：Non c'era nessuno。" },
+    { "titolo": "口语里漏掉的 non", "t": "在一些口语变体里，有时会听到不带 non 的说法，比如 C'era nessuno。在问句里 non 也可以省略：Sei mai stato in Croazia? 这里的 mai 是“曾经”。这些都是口语的特点；书写和正式场合要用完整的否定：Non c'era nessuno。" },
     { "titolo": "perché：为什么，也是因为", "t": "perché 既是疑问词，也是连词。Perché non vieni?（你为什么不来？）— Perché ho sonno.（因为我困了。）问和答用同一个词，说话时靠语调和上下文区分：问句通常是升调，回答是降调。" },
     { "titolo": "Che cosa、cosa、che", "t": "“什么”有三种说法：Che cosa fai? Cosa fai? Che fai? 意思相同，Che cosa 稍微完整，Cosa 和 Che 在口语里更常用。后面接名词时只用 che：Che libro leggi?（你在读什么书？）" }
   ],
