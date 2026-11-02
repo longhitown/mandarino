@@ -21,7 +21,7 @@ LESSON_RICH.zh["ba-a"] = {
       { "ok": true, "t": "**啊 scalda**: 好啊 («volentieri»), 是啊 («già, è vero»), 这个菜真好吃啊！ («che buono questo piatto!»), 小王啊，你过来一下 (chiamare per nome in modo affettuoso). Dopo una vocale il suono può cambiare (ya, wa, na), ma si può scrivere sempre 啊." },
       { "ok": true, "t": "**好吧 e 好啊**: 好啊 è un sì convinto, 好吧 è un sì di chi cede («e va bene»). La scelta dipende da come ti senti, non dal significato di 好." },
       { "ok": true, "t": "**吧 e 吗 sono alternativi**: 吗 chiede un'informazione a cui non conosci la risposta (你是中国人吗？), 吧 verifica un'ipotesi o propone." },
-      { "ok": false, "t": "**Mai insieme e mai in testa alla frase**: 你是中国人吗吧？, 吧我们走. Di solito neppure con le parole interrogative (什么, 谁, 哪儿) si usa 吧: 你叫什么名字吧？ non esiste come domanda; con 什么 si usa 啊 per scaldare (你叫什么名字啊？)." }
+      { "ok": false, "t": "**Mai insieme e mai in testa alla frase**: 你是中国人吗吧？, 吧我们走. Di solito neppure con le parole interrogative (什么, 谁, 哪儿) si usa 吧: 你叫什么名字吧？ non è una domanda normale; con 什么 si usa 啊 per scaldare (你叫什么名字啊？)." }
     ]
   },
   "logica": [

@@ -17,7 +17,7 @@ LESSON_RICH.zh["shide"] = {
     "punti": [
       { "ok": true, "t": "**Il fatto è già noto** a chi parla e a chi ascolta; la frase dice un particolare in più. Per questo è la forma ideale per le domande: 你是什么时候来的？ 你是怎么来的？ 你是在哪儿学的中文？" },
       { "ok": true, "t": "**Il dettaglio può essere di vari tipi**: tempo (昨天), luogo (在北京), modo (坐火车, 用手机), compagnia (跟朋友一起), anche l'autore: 这个菜是我妈妈做的 (è stata la mamma a farlo)." },
-      { "ok": true, "t": "**Il 是 si può togliere nel parlato, il 的 no**: 你什么时候来的？ 我昨天到的。 Con la negazione, invece, 是 è obbligatorio: 我不是昨天到的。" },
+      { "ok": true, "t": "**Il 是 si può togliere nel parlato, il 的 di solito resta**: 你什么时候来的？ 我昨天到的。 Con la negazione, invece, 是 è obbligatorio: 我不是昨天到的。" },
       { "ok": true, "t": "**Con un oggetto**, 的 sta in fondo oppure subito dopo il verbo: 我是在北京学中文的 e 我是在北京学的中文 si dicono tutte e due; con un pronome come oggetto si preferisce 的 in fondo: 我是昨天认识他的。" },
       { "ok": true, "t": "**Negazione con 不是…的**: 我不是一个人来的 («non sono venuto da solo», ma sono venuto). Si nega solo il dettaglio, non il fatto. 没 non si usa in questa costruzione." },
       { "ok": false, "t": "**Niente 了 dentro la costruzione**: 我是昨天来了 non si dice. Neppure si usa per annunciare una novità: «Sono arrivato!» è 我到了, senza 是…的." }
@@ -136,7 +136,7 @@ LESSON_RICH.zh["shide"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Perché 是 sparisce e 的 resta", "t": "Nel parlato di tutti i giorni 是 si omette quasi sempre: 你什么时候来的？ 我昨天到的。 Il 的 non cade mai: è lui a segnalare che la frase mette in luce un dettaglio. Il 是 serve però quando si nega (不是) o quando si vuole che la scelta del dettaglio sia chiarissima, per esempio nella correzione: 不是昨天，是前天。" },
+    { "titolo": "Perché 是 sparisce e 的 resta", "t": "Nel parlato di tutti i giorni 是 si omette spesso: 你什么时候来的？ 我昨天到的。 Il 的 di solito resta: è lui a segnalare che la frase mette in luce un dettaglio. Il 是 serve però quando si nega (不是) o quando si vuole che la scelta del dettaglio sia chiarissima, per esempio nella correzione: 不是昨天，是前天。" },
     { "titolo": "Il 的 prima o dopo l'oggetto", "t": "Con un oggetto ci sono due posti per 的: in fondo (我是在网上买手机的) o subito dopo il verbo (我是在网上买的手机). Sono tutti e due corretti, e la seconda forma è molto comune nel parlato. Con un pronome come oggetto si preferisce in fondo: 我是在学校认识他的。 Attenzione: con il 的 prima dell'oggetto, senza una parola di tempo, la frase può anche suonare come un'abitudine." },
     { "titolo": "Gli altri 是…的", "t": "Esistono altre frasi con 是 e 的 che non hanno a che fare con il passato. 这个菜是辣的 descrive una proprietà («è piccante»); 他是教书的 dice il mestiere («fa l'insegnante»). Hanno lo stesso scheletro, ma non c'è nessun fatto noto di cui illuminare un dettaglio." }
   ],

@@ -20,7 +20,7 @@ LESSON_RICH.zh["essere"] = {
       { "ok": true, "t": "**Negazione con 不 davanti a 是**: 我不是老师. Davanti a un quarto tono 不 cambia pronuncia in bú: 不是 si legge bú shì, ma si scrive sempre 不." },
       { "ok": true, "t": "**也 e 都 stanno tra il soggetto e 是**: 我也是学生 («anche io sono studente»), 我们都是学生 («siamo tutti studenti»). Con 不: 我也不是老师 («nemmeno io sono insegnante»)." },
       { "ok": true, "t": "**Domande**: 你是学生吗？ con 吗 in fondo; oppure 你是不是学生？ con la forma «è / non è». Si risponde ripetendo il verbo: 是 («è così»), 不是 («non è così»). Con una parola interrogativa questa rimane al suo posto: 这是什么？, 他是谁？" },
-      { "ok": false, "t": "**Niente 是 davanti a un aggettivo**: 我很累, non 我是累. Neppure con l'età (我二十岁), con i giorni (今天星期一) o con un luogo, dove si usa 在 (我在家). 是 serve solo se dopo c'è un nome." }
+      { "ok": false, "t": "**Niente 是 davanti a un aggettivo**: 我很累, non 我是累. Neppure con l'età (我二十岁) o con un luogo, dove si usa 在 (我在家). 是 serve di regola davanti a un nome (学生, 老师, 星期一); le altre funzioni di 是 arrivano più avanti." }
     ]
   },
   "logica": [
@@ -38,7 +38,7 @@ LESSON_RICH.zh["essere"] = {
       ["Domanda sì o no", "…吗 · 是不是", "你是中国人吗？"],
       ["Come sei (qualità)", "很 + aggettivo, senza 是", "我很忙。"],
       ["Età", "numero + 岁, senza 是", "我二十岁。"],
-      ["Giorno della settimana", "senza 是", "今天星期一。"]
+      ["Giorno della settimana", "是 + giorno", "今天是星期一。"]
     ]
   },
   "esempi": [
@@ -69,7 +69,7 @@ LESSON_RICH.zh["essere"] = {
     { "gruppo": "Dove l'italiano dice «sono» e il cinese no", "items": [
       { "t": "我很忙。", "tr": "Sono occupato.", "nota": "Aggettivo: 很, non 是." },
       { "t": "我二十岁。", "tr": "Ho vent'anni." },
-      { "t": "今天星期一。", "tr": "Oggi è lunedì." }
+      { "t": "今天是星期一。", "tr": "Oggi è lunedì.", "nota": "星期一 è un nome: con 是 la frase è la forma normale; nel parlato rapido si sente anche senza." }
     ] }
   ],
   "contrasti": [
@@ -137,7 +137,7 @@ LESSON_RICH.zh["essere"] = {
   "tranello": {
     "errore": "Chi parla italiano mette 是 davanti agli aggettivi (我是累, 我是高兴), davanti all'età o ai luoghi, e dimentica 人 nella nazionalità (我是意大利). Spesso mette anche 不 al posto sbagliato (我是不老师).",
     "perche": "In italiano «essere» regge nomi, aggettivi, età e luoghi: il cervello cerca un verbo prima di ogni cosa. In cinese 是 collega solo due nomi, e il paese e la persona di quel paese sono due nomi diversi (意大利 e 意大利人).",
-    "esci": "Prima di scrivere 是 guarda che cosa viene dopo. Un nome (学生, 老师, 意大利人)? Allora 是. Un aggettivo? Allora 很 e niente 是. Un numero con 岁 o un giorno? Niente 是. E per negare metti 不 subito prima di 是: 不是.",
+    "esci": "Prima di scrivere 是 guarda che cosa viene dopo. Un nome (学生, 老师, 意大利人)? Allora 是. Un aggettivo? Allora 很 e niente 是. Un numero con 岁? Niente 是. Un giorno è un nome: 今天是星期一. E per negare metti 不 subito prima di 是: 不是.",
     "esempi": [
       { "sbagliata": "我是累。", "giusta": "我很累。" },
       { "sbagliata": "我是意大利。", "giusta": "我是意大利人。" },
@@ -147,7 +147,7 @@ LESSON_RICH.zh["essere"] = {
   },
   "curiosi": [
     { "titolo": "Un carattere che vuol dire anche «giusto»", "t": "Nel dizionario 是 ha anche il senso di «corretto, vero» e risponde bene a una domanda: 是 equivale a «è così», 不是 a «non è così». In una domanda di conferma, 是的 («sì, è così») è un'altra risposta normale." },
-    { "titolo": "Il sì e il no si dicono con il verbo", "t": "Il cinese non ha un «sì» e un «no» come parole separate: si risponde ripetendo il verbo della domanda. A 你是学生吗？ si risponde 是 o 不是; a 你忙吗？ si risponde 忙 o 不忙. Quando vuoi dire «hai ragione» o «è giusto» si usa invece 对." },
+    { "titolo": "Il sì e il no si dicono con il verbo", "t": "Di solito il cinese non risponde con un «sì» e un «no» come parole separate: si ripete il verbo della domanda. A 你是学生吗？ si risponde 是 o 不是; a 你忙吗？ si risponde 忙 o 不忙. Quando vuoi dire «hai ragione» o «è giusto» si usa invece 对." },
     { "titolo": "Il tono di 不 cambia, la scrittura no", "t": "不 si legge bù quando sta davanti a un tono alto, ascendente o basso, ma diventa bú davanti a un quarto tono: 不是 si pronuncia bú shì. L'app mostra il pinyin con il tono della pronuncia reale. Nella scrittura in caratteri resta 不 in ogni caso." },
     { "titolo": "Un 是 con l'accento", "t": "Quando si pronuncia 是 con forza, serve a confermare o a contrapporre: 是 a metà frase può dire «è proprio così», anche davanti a un aggettivo. È un uso di enfasi che incontrerai più avanti (per esempio nella struttura 是…的) e che non riguarda le frasi neutre di questa lezione." }
   ],
@@ -204,7 +204,7 @@ LESSON_RICH.zh["essere"] = {
     "Sai presentarti con 是: dire come ti chiami, che lavoro fai e di che nazionalità sei (paese + 人).",
     "Sai negare con 不是 e mettere 也 e 都 nel posto giusto, prima di 是.",
     "Sai fare una domanda con 吗 o con 是不是 e rispondere con 是 o 不是.",
-    "Sai riconoscere quando 是 non serve: davanti ad aggettivi (很), età e giorni."
+    "Sai riconoscere quando 是 non serve: davanti ad aggettivi (很) e all'età."
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Connecting nouns with shi»: schema A 是 B, negazione 不是, 是 solo con i nomi",

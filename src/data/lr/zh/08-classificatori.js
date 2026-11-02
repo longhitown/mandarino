@@ -21,7 +21,7 @@ LESSON_RICH.zh["classificatori"] = {
       { "ok": true, "t": "**Un po' di libertà nel parlato**: dopo un verbo il 一 si può togliere (我买本书, 来杯茶), e il nome si può omettere quando è chiaro: 你要几杯？ — 我要两杯。" },
       { "ok": true, "t": "**Il tempo**: 年, 天 e 分钟 si contano senza classificatore (三年, 两天, 十分钟); 月, 星期 e 小时 vogliono 个 (三个月, 两个星期, 两个小时). Attenzione: 三月 vuol dire «marzo»." },
       { "ok": true, "t": "**Quanti?** Con numeri piccoli si usa 几 + classificatore (你有几个孩子？); per le quantità grandi o i prezzi, 多少 (这个多少钱？), che non vuole il classificatore." },
-      { "ok": false, "t": "**Il classificatore non si salta**: 我有三朋友, 这书很贵, 一书 sono errori. Tra numero (o 这/那) e nome ci vuole sempre il classificatore, tranne nelle espressioni di tempo viste sopra." },
+      { "ok": false, "t": "**Il classificatore non si salta**: 我有三朋友, 这书很贵, 一书 sono errori. Nella lingua di tutti i giorni, tra numero (o 这/那) e nome ci vuole il classificatore, tranne nelle espressioni di tempo viste sopra." },
       { "ok": false, "t": "**Niente 的 tra classificatore e nome**: si dice 三个朋友, non 三个的朋友. Il classificatore si lega al nome come un unico blocco." }
     ]
   },
