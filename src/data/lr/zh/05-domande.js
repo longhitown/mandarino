@@ -26,7 +26,7 @@ LESSON_RICH.zh["domande"] = {
   },
   "logica": [
     "In italiano una domanda sì o no si riconosce dalla melodia e dal punto interrogativo: «Hai fame?» e «Hai fame.» hanno le stesse parole. Il cinese fa lo stesso lavoro con una piccola particella: **吗** è come il punto interrogativo che si pronuncia. Si mette alla fine perché la frase si costruisce per intero e solo dopo si «apre» la domanda. Per questo l'ordine non cambia mai: non esiste nessun equivalente di «Hai tu fame?».",
-    "L'altra strada, **verbo + 不 + verbo**, mette sul tavolo le due risposte possibili: 去不去 vuol dire «vai, non vai?». Il parlante fa già vedere le due alternative e la risposta ne sceglie una. È anche per questo che «sì» e «no» non esistono come parole fisse: il cinese risponde con il verbo stesso. «Vai?» — «Vado.» / «Non vado.» Se vuoi essere ancora più chiaro, ripeti anche il soggetto: 我去。",
+    "L'altra strada, **verbo + 不 + verbo**, mette sul tavolo le due risposte possibili: 去不去 vuol dire «vai, non vai?». Il parlante fa già vedere le due alternative e la risposta ne sceglie una. È anche per questo che di solito «sì» e «no» non sono parole fisse: il cinese risponde con il verbo stesso. «Vai?» — «Vado.» / «Non vado.» Se vuoi essere ancora più chiaro, ripeti anche il soggetto: 我去。",
     "Una domanda negativa come 你不去吗？ («non vai?») in italiano si risponde «sì» per dire «vado» o «no» per dire «non vado», ma i due «sì» e «no» sono ambigui. In cinese la risposta segue il **fatto**, non la forma della domanda: 去 se vai, 不去 se non vai. Ripetere il verbo elimina il dubbio."
   ],
   "mappa": {

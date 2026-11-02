@@ -27,7 +27,7 @@ LESSON_RICH.zh["interrogative"] = {
   "logica": [
     "In italiano la parola interrogativa va all'inizio: «**Dove** vai?», «**Che cosa** mangi?». Il cinese non sposta niente. La domanda è una frase completa con un **vuoto** al posto dell'informazione che manca, e la parola interrogativa è il segnaposto: 你吃＿ diventa 你吃什么. La risposta riempie il vuoto, e per questo ha lo stesso identico ordine: 我吃饺子. Se sai fare una frase affermativa, sai già fare tutte queste domande.",
     "Perché 吗 non serve? Perché 吗 trasforma una frase completa in una domanda sì o no. Con 什么, 谁, 哪里 la frase ha già un vuoto da riempire, quindi il tipo di risposta è chiaro. La stessa cosa spiega la posizione di 什么时候, 怎么 e 为什么 davanti al verbo: in cinese, tempo, modo e motivo stanno prima del verbo (我明天去, 我坐车去), quindi le parole interrogative corrispondenti stanno là.",
-    "Anche la differenza tra 几 e 多少 ha una logica semplice: 几 presuppone una quantità piccola e per questo è sempre seguito da un classificatore (几个, 几本). 多少 non presuppone niente e per questo si usa con i prezzi, le popolazioni, i totali. Quando non sai quanto sarà grande il numero, 多少 è sicuro."
+    "Anche la differenza tra 几 e 多少 ha una logica semplice: 几 presuppone una quantità piccola e per questo è di solito seguito da un classificatore (几个, 几本; con le parole di tempo no: 几天, 几年). 多少 non presuppone niente e per questo si usa con i prezzi, le popolazioni, i totali. Quando non sai quanto sarà grande il numero, 多少 è sicuro."
   ],
   "mappa": {
     "tipo": "tabella",

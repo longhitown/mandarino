@@ -20,7 +20,7 @@ LESSON_RICH.zh["negazione"] = {
       { "ok": true, "t": "**没有** nega 有: 我没有钱 («non ho soldi»), 家里没有人. Nel parlato 有 si può omettere: 我没钱. Mai 不有." },
       { "ok": true, "t": "**没 + verbo** nega un fatto che non è accaduto, senza 了: 我没吃饭, 他今天没来. Si può dire anche 没有 + verbo (我没有吃饭): è più marcato e frequente nelle risposte." },
       { "ok": true, "t": "**还没 + verbo** per «non ancora»: 我还没吃饭. **没 + verbo + 过** per «mai»: 我没去过中国." },
-      { "ok": true, "t": "**Risposte brevi**: si ripete il verbo negato. 你去吗？ — 不去。 你吃了吗？ — 没吃 / 没有。 Non esiste una parola «no» separata: si risponde con 不 o 没(有), seguiti o no dal verbo." },
+      { "ok": true, "t": "**Risposte brevi**: si ripete il verbo negato. 你去吗？ — 不去。 你吃了吗？ — 没吃 / 没有。 Di solito non si risponde con un «no» separato: si risponde con 不 o 没(有), seguiti o no dal verbo." },
       { "ok": false, "t": "**Il passato da solo non decide**: abitudini, qualità e volontà del passato restano con 不 (以前我不喝咖啡, 昨天我不忙). Nei fatti accaduti non si usa 不 per negare: 我昨天不去 vuol dire «ieri non volevo andare / non sono andato per scelta», non «non ci sono andato»." },
       { "ok": false, "t": "**Con 没 non si mette 了** dopo il verbo: 我没吃了饭 non esiste. Il 了 di fatto compiuto e 没 si escludono." }
     ]
