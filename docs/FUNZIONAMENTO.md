@@ -119,9 +119,9 @@ Ogni tappa può avere le sue lezioni e il suo dialogo; il Taccuino del viaggiato
 Il ripasso del giorno («Oggi»: ripassi, nuove, *Inizia*), «Orecchio ai toni», la **sfida di 60 secondi**, i progressi (con il racconto settimanale), i backup, il Foglio di lavoro in PDF. Il **giorno di studio cambia alle 4 del mattino**.
 Sessione a schermo pieno, con due soli controlli principali (Ascolta, Parla) e il resto in «⋯»; limite giornaliero di parole nuove.
 
-### Il motore del ripasso: FSRS-6
+### Il motore del ripasso: FSRS-6 con l'estensione ML-FSRS-32
 
-`core/fsrs.js` è un porting fedele di **py-fsrs (FSRS-6, 21 parametri)**, verificato vettore per vettore. Le parole tornano quando la probabilità di ricordarle sta calando; i quattro voti (Di nuovo, Difficile, Bene, Facile) mostrano l'intervallo vero.
+`core/fsrs.js` è un porting fedele di **py-fsrs (FSRS-6, 21 parametri)**, verificato vettore per vettore, esteso con **ML-FSRS-32**: undici parametri in più, pensati per il cinese e pienamente retrocompatibili (senza informazioni sull'esercizio, o con il parametro `dial` a 0, il risultato è identico a FSRS-6). L'estensione tiene conto di quattro cose: se hai sbagliato solo il tono, la parola non torna a zero; scrivere pesa più che riconoscere, e riconoscere più che scegliere tra quattro o due opzioni; una frase d'esempio ricca di indizi vale un po' meno di una parola isolata; in una parola di più caratteri contano i caratteri che già studi. I pesi aggiunti (w21–w31) sono valori di partenza dedotti dalla letteratura, non ancora stimati su ripassi reali di studenti. Le parole tornano quando la probabilità di ricordarle sta calando; i quattro voti (Di nuovo, Difficile, Bene, Facile) mostrano l'intervallo vero.
 **Una scelta multipla giusta non vale mai «Facile».** Ogni ripasso finisce nel registro (IndexedDB, con ripiego in `localStorage`).
 
 ### Tre stili di ripasso (Impostazioni → Studio → Stile di ripasso)
@@ -315,7 +315,7 @@ Dipendenze di terzi dentro l'app: pochi file in `src/vendor/` (jsPDF per il Fogl
 |---|---|---|
 | Dati e lezioni validi, frasi cinesi fatte di parole del vocabolario, ogni file di dati elencato | `node tools/build.mjs` | passa |
 | Frasi verificate, regole di traduzione | `node tools/grammar.mjs` | 378/378 |
-| Prove veloci senza browser (taglio in parole, FSRS, QR, sigilli, sito, peso dell'avvio, widget) | `node tools/unit.mjs` | 229/229 |
+| Prove veloci senza browser (taglio in parole, FSRS, QR, sigilli, sito, peso dell'avvio, widget) | `node tools/unit.mjs` | 237/237 |
 | Prove nel browser (benvenuto, corsi, immersione, sincronizzazione, QR, sigilli, musica, voce, impostazioni, apertura…) | `node tools/e2e.mjs` | 352/352 |
 | Regole di interfaccia e accessibilità | `node tools/ux-audit.mjs` | nessun problema |
 | Documenti: link, ancore, parole vietate, strutture protette | `node tools/check-docs.mjs --strict` | 0 errori |
