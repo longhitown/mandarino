@@ -27,8 +27,8 @@ LESSON_RICH.it["bisogno-voglia"] = {
   },
   "logica": [
     "汉语的“需要”是一个及物动词，主语是需要的人：我需要帮助。意大利语没有这样的单词，而是说“有一种需要”：avere bisogno。“想要做某事”也一样：avere voglia。所以变位的是 avere，bisogno 和 voglia 前面不加冠词，后面的 di 引出需要的东西或想做的事。Treccani 词典对 bisogno 的说明是：通常带 di 引出的补语，如 bisogno d'aria、di luce、di soldi；对 voglia 的说明是：在日常语言里指做某事的好心情或坏心情，如 un ragazzo che ha, non ha voglia di studiare，比 volontà 更随意、不那么郑重。",
-    "servire 和 volerci 的主语都不是说话的人。Mi serve una penna 字面是“一支笔对我有用”，主语是 una penna，所以复数时动词也变复数：Mi servono due penne。Ci vogliono due ore 的主语是“两个小时”。Treccani 词典把 volerci 解释为 essere necessario o opportuno、occorrere，例句有 per un vestito ci vogliono tre metri di stoffa。所以动词跟着时间或东西变化，不跟着“我”变化。",
-    "volerci 和 metterci 意思很近，区别在“是谁”：volerci 说客观需要的时间，不管是谁（Ci vuole un'ora per arrivare），metterci 说某个人花的时间（Ci metto un'ora）。英语教学资料（Think in Italian）把这叫作“客观”和“主观”：volerci 只有 ci vuole 和 ci vogliono 两种形式，metterci 则按主语变位。"
+    "servire 和 volerci 的主语都不是说话的人。Mi serve una penna 字面是“一支笔对我有用”，主语是 una penna，所以复数时动词也变复数：Mi servono due penne。Ci vogliono due ore 的主语是“两个小时”。所以动词跟着时间或东西变化，不跟着“我”变化。",
+    "volerci 和 metterci 意思很近，区别在“是谁”：volerci 说客观需要的时间，不管是谁（Ci vuole un'ora per arrivare），metterci 说某个人花的时间（Ci metto un'ora）。volerci 只有 ci vuole 和 ci vogliono 两种形式，metterci 则按主语变位。"
   ],
   "mappa": {
     "tipo": "tabella",
@@ -155,7 +155,7 @@ LESSON_RICH.it["bisogno-voglia"] = {
   "curiosi": [
     { "titolo": "Ho bisogno che tu mi aiuti", "t": "bisogno 后面除了 di + 名词或动词原形，还可以接 che：当需要的是“另一个人做某事”时，用 avere bisogno che + 虚拟式现在时：Ho bisogno che tu mi aiuti（我需要你帮我）。如果需要的是自己做的事，就用 di + 动词原形：Ho bisogno di dormire。" },
     { "titolo": "voglia：好心情和坏心情", "t": "Treccani 词典说，voglia 在日常语言里比 volontà 更随意，指做某事的好心情或坏心情，所以有 di buona voglia（乐意地）和 controvoglia（不情愿地、malvolentieri）这样的说法。因此 Non ho voglia di studiare 说的是“不想学、没心情”，不是“我不能学”，也不是“我不需要学”。" },
-    { "titolo": "volerci 不只用于时间", "t": "volerci 说“需要”的时候，后面也可以是东西和品质：Treccani 词典的例句有 per un vestito ci vogliono tre metri di stoffa（做一件衣服需要三米布）、ci vuole un bel coraggio a presentarsi in quel modo!（那样出现要有相当的勇气！）、ci vuol pazienza!（要有耐心！）。" }
+    { "titolo": "volerci 不只用于时间", "t": "volerci 说“需要”的时候，后面也可以是东西和品质：常见的例子有 per un vestito ci vogliono tre metri di stoffa（做一件衣服需要三米布）、ci vuole un bel coraggio a presentarsi in quel modo!（那样出现要有相当的勇气！）、ci vuol pazienza!（要有耐心！）。" }
   ],
   "pragmatica": "点东西时，意大利人常说 Vorrei un caffè，而不说 Voglio；聊天时 Ho voglia di una bibita ghiacciata 很自然。拒绝邀请时可以说 Non ho voglia，更委婉的说法是 Non me la sento。请别人帮忙时，Mi serve una mano（我需要一个人帮忙）既直接又友好。问路程时，Quanto ci vuole? 问客观需要的时间，Quanto ci metti? 问对方自己花的时间。",
   "esercizi": [
@@ -219,7 +219,6 @@ LESSON_RICH.it["bisogno-voglia"] = {
     "Treccani, Vocabolario on line, voce «voglia» (disposizione a fare qualche cosa: ha, non ha voglia di studiare; di buona voglia, controvoglia)",
     "Treccani, Vocabolario on line, voce «volere²», accezione 10 (volerci: essere necessario o opportuno, occorrere; ci vogliono tre metri di stoffa)",
     "Think in Italian, «Ci Vuole: Italian Grammar Lesson» (volerci solo alla terza persona, singolare e plurale; metterci e il soggetto)",
-    "Italiano Bello, pagina «Metterci e volerci» (volerci impersonale, metterci con soggetto; ausiliari essere e avere)",
-    "Tatoeba (ita.tsv), controllo della naturalezza di ho bisogno di, ho voglia di, mi serve, ci vuole, ci vogliono, ci metto, ci ho messo"
+    "Tatoeba (ita.tsv, grep): «Ho bisogno di» (843), «Ho voglia di» (100), «Mi serve» (341), «Ci vuole» (136), «ci metto» (22), «ci ho messo» (9)"
   ]
 };

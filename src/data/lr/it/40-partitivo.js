@@ -27,7 +27,7 @@ LESSON_RICH.it["partitivo"] = {
   "logica": [
     "汉语没有冠词，“买一些书、喝一点水”里的“一些、一点”常常可以不说，直接说“买书、喝水”。意大利语的名词前面通常要有冠词或别的限定词：un libro、il libro、dei libri。部分冠词就是专门说“一部分、不确定数量”的那一个：它告诉听的人，你说的不是“那一个”，也不是“全部”。",
     "为什么单数和复数不完全一样？意大利语语法学家（Treccani《意大利语百科》）指出：严格说，真正的部分冠词是单数的 del、della，对应“一点”，和不可数名词连用；复数的 dei、delle 更像是不定冠词 un / una 的复数形式，因为 un / una 本身没有复数。检验方法：bevete del latte 可以换成 bevete un po' di latte，但不能说 bevete qualche latte；hai degli amici 可以换成 hai alcuni amici。",
-    "部分冠词需要一个“不确定”的宾语。Vorremmo della carne（我们想要一点肉）可以；Odiamo la carne 却不能说 odiamo della carne，因为 odiare 说的是确定的、泛指的东西。否定句说的是“没有”，不是“一点”，所以通常省略。Treccani 还说，部分冠词在意大利语里非常常见，所以要习惯它。"
+    "部分冠词需要一个“不确定”的宾语。Vorremmo della carne（我们想要一点肉）可以；Odiamo la carne 却不能说 odiamo della carne，因为 odiare 说的是确定的、泛指的东西。否定句说的是“没有”，不是“一点”，所以通常省略。"
   ],
   "mappa": {
     "tipo": "tabella",
@@ -155,8 +155,8 @@ LESSON_RICH.it["partitivo"] = {
   },
   "curiosi": [
     { "titolo": "ne：用来接着说“一点”", "t": "说过 del pane 之后，再提到同样的东西，意大利人常用 ne：Vuoi del pane? — Sì, ne voglio. 问数量时也用：Me ne dai un chilo?（你给我一公斤好吗？）Treccani 指出，代词 ne 也承担“部分”的作用，常常和部分冠词搭配出现。" },
-    { "titolo": "del succo 和 dei succhi 不一样", "t": "液体用单数：del succo 是“一点果汁”。如果用复数 dei succhi，意思就变成“几种果汁”，比如苹果的、梨的。所以点饮料或买牛奶时，说 del latte、dell'acqua，不说复数。纽约大学的 ALLORA 语法参考书专门提醒了这一点。" },
-    { "titolo": "介词后面：con alcuni amici 还是 con degli amici？", "t": "语法书说，介词后面最好用零冠词或 alcuni：esco con amici、esco con alcuni amici。但口语里 esco con degli amici 非常常见。在 di 和 da 后面，部分冠词不能用，要换成 alcuni 这样的词：Parlo di alcune idee，不说 Parlo di delle idee。" },
+    { "titolo": "del succo 和 dei succhi 不一样", "t": "液体用单数：del succo 是“一点果汁”。如果用复数 dei succhi，意思就变成“几种果汁”，比如苹果的、梨的。所以点饮料或买牛奶时，说 del latte、dell'acqua，不说复数。" },
+    { "titolo": "介词后面：con alcuni amici 还是 con degli amici？", "t": "介词后面，口语里 esco con degli amici 很常见，也可以换成 alcuni：esco con alcuni amici。在 di 和 da 后面，部分冠词不能用，要换成 alcuni 这样的词：Parlo di alcune idee，不说 Parlo di delle idee。" },
     { "titolo": "抽象名词：del coraggio、c'è del buono", "t": "部分冠词也能和抽象名词连用：Mario ha del coraggio（马里奥有一点勇气）、quel pianista ha del talento（那位钢琴家有一些天赋）、In questo libro c'è del buono（这本书里有好的东西）。fare del bene（做点好事）和 fare bene（做得好）意思不同。" }
   ],
   "pragmatica": "点菜、买东西、招待客人时，部分冠词最自然：Vorrei dell'acqua, per favore. Vuoi del vino? Prendo delle olive. 写购物清单、说数量、回答否定的问题时则省略：pane, latte, un chilo di mele; Non ho tempo; Non c'è problema。拿不准时，想一想这是不是“一点、一些”：是，就用；说“没有”或数量已经说清楚，就不用。",
@@ -217,10 +217,10 @@ LESSON_RICH.it["partitivo"] = {
     "你会用 ne 接着说：Vuoi del pane? — Sì, ne voglio."
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «Partitivo» (partitivo singolare e plurale; sostituzione con un po' di e alcuni; verbi che richiedono un oggetto determinato; articolo zero; ne partitivo)",
-    "Treccani, La grammatica italiana, voce «Partitivo, articolo» (singolare con nomi non numerabili, plurale come plurale dell'indeterminativo; alcuno dopo di e da)",
-    "University of Iowa, D'accordo! (pressbooks), capitolo «Partitivi» (qualche, alcuni, un po' di; partitivo non espresso nelle frasi negative e spesso nelle interrogative)",
-    "New York University, ALLORA Online Grammar Reference, sezione 10.8 «Partitives» (del succo e dei succhi; un po' di; qualche)",
-    "Tatoeba (ita.tsv), controllo della naturalezza di vuoi del, vorrei dell'acqua, ci sono degli, non ho soldi, un chilo di, un po' di"
+    "Treccani, Enciclopedia dell'Italiano, voce «Partitivo» (letta: singolare del/della per la quantità indeterminata; plurale come plurale dell'indeterminativo; test con un po' di e alcuni; ne partitivo; articolo zero)",
+    "Treccani, La grammatica italiana, voce «Partitivo, articolo» (singolare con nomi non numerabili, plurale come plurale dell'indeterminativo)",
+    "University of Iowa, D'accordo! (pressbooks), capitolo «Partitivi» (qualche, alcuni, un po' di; partitivo non espresso nelle frasi negative)",
+    "New York University, ALLORA Online Grammar Reference, sezione 10.8 «Partitives» (un po' di; qualche)",
+    "Tatoeba (ita.tsv, grep): «Vuoi del» (76), «dell'acqua» (612), «degli amici» (166), «un chilo di» (28), «Non ho soldi» (30)"
   ]
 };

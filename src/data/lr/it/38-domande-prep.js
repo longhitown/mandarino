@@ -215,6 +215,7 @@ LESSON_RICH.it["domande-prep"] = {
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «Interrogative dirette» (letta: l'interrogativo apre la frase; la preposizione può precederlo: da dove vieni?, a chi lo hai detto?)",
     "Treccani, Enciclopedia dell'Italiano, voce «Aggettivi e pronomi interrogativi» (letta: cosa come forma ridotta di che cosa, più frequente al nord; che nel resto d'Italia)",
+    "University of North Carolina, Learn Italian, pagina «Interrogatives» (la preposizione sta davanti all'interrogativo; quanto tempo ci vuole; dov'è e qual è)",
     "Tatoeba (ita.tsv, grep): «Con chi esci» (4), «Da dove vieni» (9), «Di dove sei» (4), «Per quanto tempo» (133), «Quanto tempo ci vuole» (29), «Di chi è» (154)"
   ]
 };
