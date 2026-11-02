@@ -162,7 +162,7 @@ LESSON_RICH.it["ci-ne"] = {
   "curiosi": [
     { "titolo": "Ce la faccio, ce l'ho：ci 变成了动词的一部分", "t": "在 Ce la faccio（我做得到）、Non ce la faccio più（我撑不住了）这样的固定说法里，ci（ce）已经不再指任何地点，它和 la 一起成了动词 farcela 的一部分。Ce l'ho 在口语里是“我有它”的意思：Hai un euro? Sì, ce l'ho. 这类说法没有逐字的翻译，要整句记。" },
     { "titolo": "Me ne vado, non ne posso più：ne 在动词里", "t": "andarsene（走掉）、non poterne più（受不了）、dimenticarsene（忘记）里的 ne 同样已经成了动词的一部分：Me ne vado a casa.（我回家了。）Non ne posso più.（我受不了了。）Me ne sono dimenticato.（我忘了。）前面的 me 是反身代词，随主语变化：te ne vai、se ne va。" },
-    { "titolo": "Ci vediamo 里的 ci 不是地点", "t": "Ci vediamo domani! 里的 ci 是“彼此”（我们互相见面），所以才是“明天见”，不是“在那儿见”。意大利语里同一个 ci 有几种身份：地点、a + 事情、第一人称复数代词（我们），所以先看整个句子，再决定它是哪一种。" },
+    { "titolo": "Ci vediamo 里的 ci 不是地点", "t": "Ci vediamo domani! 里的 ci 是“彼此”（我们互相见面），所以才是“明天见”，不是“在那儿见”。意大利语里同一个 ci 有几种身份：地点、a + 事情、互相（彼此），所以先看整个句子，再决定它是哪一种。" },
     { "titolo": "数量的 ne 和过去分词", "t": "ne 表示数量，用复合时态时，过去分词要和被代替的名词一致：Ho mangiato le mele → Ne ho mangiate due. 如果 ne 只是 di + 事情，不表示数量，分词不变：Ne ho parlato.（我谈过这件事。）" }
   ],
   "pragmatica": "日常说话里，ci 和 ne 非常多。Ci penso io 是主动帮忙的话，Che ne pensi? 是请对方说看法，Ne vuoi ancora? 是请客时的问话，Ci vediamo 是告别时说的。对不认识的人或在正式场合，把 tu 换成 Lei 即可：Quanti ne vuole? Che ne pensa?",
@@ -224,7 +224,7 @@ LESSON_RICH.it["ci-ne"] = {
   ],
   "fonti": [
     "Elon.io, Italian grammar, «Ci vs Ne: Choosing Between Italian's Two Particles» (aperta e letta: scelta secondo la preposizione, ne partitivo, posizione, ce ne, accordo del participio)",
-    "Simone Pols, «Clitics in Italian: how to use Ci and Ne» (aperta e letta: ci di luogo, ci pronominale, ci reciproco, ne con di e da, posizione con l'infinito)",
+    "Simone Pols, «Clitics in Italian: how to use Ci and Ne» (aperta e letta: ci di luogo, ci con verbi che reggono a, ne con di e da, posizione con l'infinito)",
     "Tatoeba (ita.tsv), interrogato con ricerche su «Ci vado», «Ne ho», «Ce ne sono», «Ci penso», «Ne sono sicuro», «Che ne pensi», «Ci vuole», «Ci metto», «Ce la faccio», «Me ne vado», «Non ne posso più», «Ci vediamo»"
   ]
 };

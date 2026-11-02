@@ -27,8 +27,8 @@ LESSON_RICH.it["imperativo"] = {
   },
   "logica": [
     "汉语的命令式几乎不变形：“来！”“请坐”“别走”，动词原样不动，靠“请”“别”“吧”这样的小词让语气变软或变硬。意大利语不一样：动词要根据**听话的人**改变词尾。对朋友说 aspetta，对陌生人说 aspetti，对一群人说 aspettate。这和第 30 课的 tu / Lei 是同一件事：谁在听，就用谁的那一套。",
-    "为什么 tu 的否定要用不定式？因为 tu 的肯定命令式本身就是一个很短的形式，在前面加 non 听起来容易和陈述句 non parli（你不说话）混在一起。意大利语于是借用了不定式来做“别……”：non parlare。这是一个很古老的习惯，今天仍然完全规范。对 Lei、noi、voi，肯定形式已经够清楚，所以只需要加 non。",
-    "代词为什么要放在后面？命令式是一个“召唤”，动词要最先出口，代词紧跟着：Dimmi, Aspettami, Siediti。对 Lei 的形式来自接续式，接续式的代词本来就放在动词前面，所以说 Mi dica, Si accomodi。最后记住一个提示：va'、fa'、da'、di'、sta' 这些短形式后面加代词时，代词的辅音要写两遍，因为说话时重音要落在前面的那个音节上，听起来就像一个长辅音。"
+    "为什么 tu 的否定要用不定式？因为 tu 的肯定命令式本身就是一个很短的形式，在前面加 non 听起来容易和陈述句 non parli（你不说话）混在一起。意大利语于是借用了不定式来做“别……”：non parlare。这是传统语法的做法，今天仍然是规范的写法。对 Lei、noi、voi，肯定形式已经够清楚，所以只需要加 non。",
+    "代词为什么要放在后面？命令式是一个“召唤”，动词要最先出口，代词紧跟着：Dimmi, Aspettami, Siediti。对 Lei 的形式来自接续式，接续式的代词本来就放在动词前面，所以说 Mi dica, Si accomodi。最后记住一个提示：va'、fa'、da'、di'、sta' 这些短形式后面加代词时，代词的辅音要写两遍，因为这些短形式是单音节的重读词，后面代词的辅音会在发音上被加强，所以写成两遍。"
   ],
   "mappa": {
     "tipo": "tabella",
@@ -187,7 +187,7 @@ LESSON_RICH.it["imperativo"] = {
     { "k": "ordine", "t": "non dimenticare le chiavi", "tr": "别忘了钥匙。" },
     { "k": "scrivi", "q": "用意大利语对朋友说：“告诉我！”", "a": "Dimmi!", "accetta": ["Dimmi", "Dimmi.", "dimmi!", "dimmi"], "perche": "di' + mi，代词的辅音写两遍：dimmi。" },
     { "k": "scrivi", "q": "用意大利语对一位陌生人（用 Lei）说：“请坐。”", "a": "Si accomodi.", "accetta": ["Si sieda.", "Prego, si accomodi.", "Si accomodi, prego.", "Si accomodi!"], "perche": "Lei 的命令式，代词 si 放在动词前面：si accomodi 或 si sieda 都是自然的说法。" },
-    { "k": "trasforma", "consegna": "改成命令式（对朋友 tu）。", "base": "Mi dici la verità.", "accetta": ["Dimmi la verità.", "Dimmi la verità!", "Dimmi la verita."], "rifiutate": [
+    { "k": "trasforma", "consegna": "改成命令式（对朋友 tu）。", "base": "Mi dici la verità.", "accetta": ["Dimmi la verità.", "Dimmi la verità!"], "rifiutate": [
       { "t": "Di' mi la verità.", "perche": "代词要和短形式连成一个词，并且辅音写两遍：dimmi。" }
     ], "perche": "dire 的短形式 di' 加代词 mi，变成 dimmi。" },
     { "k": "trasforma", "consegna": "改成否定命令（对朋友 tu）。", "base": "Corri!", "accetta": ["Non correre!", "Non correre.", "Non correre"], "rifiutate": [
@@ -214,7 +214,6 @@ LESSON_RICH.it["imperativo"] = {
   ],
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «imperativo» (forme di tu, voi, noi; imperativo negativo con infinito; posizione dei clitici; forme tronche va', fa', di', da', sta')",
-    "Wikipedia in inglese, «Italian grammar», sezione sull'imperativo (lettura parziale: forme di tu/Lei/noi/voi e posizione dei pronomi)",
     "Tatoeba (ita.tsv), interrogato per Non parlare, Vieni qui, Non ti preoccupare, Dimmi"
   ]
 };

@@ -150,7 +150,7 @@ LESSON_RICH.it["preposizioni-articolate"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "合并是怎么来的", "t": "在古老的意大利语文本里，常常看到 in lo、per lo、da la 这样的分写，也有 nel、col 这样的合写，两种拼法并存。后来规范把 a、da、di、in、su 的合并固定下来，这就是今天的写法。读音上本来就是连在一起读的，所以合并其实是书写追上了发音。" },
+    { "titolo": "合并是怎么来的", "t": "早期的书面语里，介词和冠词有时分开写，有时合在一起，两种拼法并存。后来规范把 a、da、di、in、su 的合并固定下来，这就是今天的写法。读音上本来就是连在一起读的，所以合并其实是书写追上了发音。" },
     { "titolo": "con 和 per：col、coi、pel", "t": "con 只和 il、i 合成 col、coi，这两个形式今天仍然偶尔出现，口语和一些书面语里能听到，但 con il、con i 才是最常见、最稳妥的写法。per 的合并形式 pel、pei 是旧形式，现在几乎不用，如今写 per il、per i 就对了。tra 和 fra 不合并，两者意思一样，可以按顺耳选：tra amici，fra i monti。" },
     { "titolo": "不用冠词的固定说法", "t": "一些很常用的说法没有冠词，自然也没有合并：a casa、a scuola、in ufficio、in centro、in bicicletta、per strada、da solo。这些说法要整体记。比较：Vado a scuola（我去上学）和 Vado nella scuola di mio figlio（我走进我儿子的学校）。前一句说的是“上学”这个行为，后一句说的是一座具体的建筑。" }
   ],
@@ -217,7 +217,7 @@ LESSON_RICH.it["preposizioni-articolate"] = {
     "你会区分去地方（al cinema）和去某人那里（dal medico），并知道城市前用 a，不加冠词。"
   ],
   "fonti": [
-    "Wikipedia in inglese, «Italian grammar», sezione sulle preposizioni articolate (lettura parziale: elenco delle preposizioni che si fondono, con e per, tra/fra, locuzioni senza articolo)",
+    "Wikipedia in inglese, «Italian grammar», sezione sulle preposizioni articolate (sezione letta: forme di a, da, di, in, su con gli articoli; con e per facoltativi; locuzioni senza articolo)",
     "Tatoeba (ita.tsv), interrogato per Vado al cinema, Il libro è sul tavolo, Torno dalla stazione"
   ]
 };

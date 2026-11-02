@@ -192,7 +192,7 @@ LESSON_RICH.it["comparativi"] = {
     ] },
     { "k": "ordine", "t": "oggi sto meglio di ieri", "tr": "今天我比昨天好些。" },
     { "k": "ordine", "t": "è la città più bella d'Italia", "tr": "这是意大利最美的城市。" },
-    { "k": "scrivi", "q": "用意大利语写：“马可比我矮。”", "a": "Marco è più basso di me.", "accetta": ["Marco è meno alto di me.", "Marco e più basso di me.", "Marco è più piccolo di me."], "perche": "più ＋ 形容词 ＋ di me：basso 的反义是 alto，meno alto 也可以。" },
+    { "k": "scrivi", "q": "用意大利语写：“马可比我矮。”", "a": "Marco è più basso di me.", "accetta": ["Marco è meno alto di me.", "Marco è più piccolo di me."], "perche": "più ＋ 形容词 ＋ di me：basso 的反义是 alto，meno alto 也可以。" },
     { "k": "scrivi", "q": "用意大利语写：“这部手机比那部贵。”", "a": "Questo telefono è più caro di quello.", "accetta": ["Questo telefono costa più di quello.", "Questo telefono è più costoso di quello.", "Questo cellulare è più caro di quello.", "Questo telefono è più caro di quell'altro."], "perche": "più caro di quello：quello 是代词，代替 telefono。" },
     { "k": "trasforma", "consegna": "改成“马可比我高”，用 più。", "base": "Marco è alto.", "accetta": ["Marco è più alto di me."], "rifiutate": [
       { "t": "Marco è più alto che me.", "perche": "比较两个人，代词前面用 di，不用 che。" },
@@ -217,7 +217,7 @@ LESSON_RICH.it["comparativi"] = {
     "你会区分 migliore 和 meglio，避免 più migliore、sto più bene 这类错误。"
   ],
   "fonti": [
-    "Università del Vermont (C. Mazzoni), pagina di grammatica «Comparatives and Superlatives» (di e che, forme irregolari, superlativo relativo e assoluto, quanto e come)",
+    "Università del Vermont (C. Mazzoni), pagina di grammatica «Comparatives and Superlatives» (di e che, forme irregolari, superlativo relativo e assoluto; pagina letta)",
     "Tatoeba, corpus italiano locale (ita.tsv): frasi come «Nuota meglio di me», «Vado più spesso a Bruxelles che a Parigi» e «È più difficile di quello che pensi» per il riscontro degli usi"
   ]
 };
