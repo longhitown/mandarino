@@ -164,7 +164,7 @@ LESSON_RICH.it["piacere"] = {
       { "t": "Mi piace i ravioli.", "ok": false, "perche": "动词要和 ravioli 一致，复数不能用 piace。" },
       { "t": "Io piaccio i ravioli.", "ok": false, "perche": "Io piaccio 不能表达“我喜欢”，主语应该是被喜欢的东西。" }
     ] },
-    { "k": "scegli", "q": "朋友之间聊天，Le piace il mare. 里的 Le 是谁？", "opzioni": [
+    { "k": "scegli", "q": "朋友在说另一个女生：Le piace il mare.（不是对你说）这里的 Le 指的是谁？", "opzioni": [
       { "t": "她", "ok": true, "perche": "le 是“她”的间接代词，Le piace il mare = 她喜欢海。" },
       { "t": "他", "ok": false, "perche": "“他”是 gli，不是 le。" },
       { "t": "我们", "ok": false, "perche": "“我们”是 ci，不是 le。" }

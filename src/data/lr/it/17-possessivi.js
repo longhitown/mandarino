@@ -156,7 +156,7 @@ LESSON_RICH.it["possessivi"] = {
   "curiosi": [
     { "titolo": "物主词放在名词后面：casa mia, amico mio", "t": "物主词也可以放在名词后面，表示强调或亲近。最常见的是 casa mia（我家）、colpa mia（我的错）以及称呼和感叹：Amico mio!（我的朋友！）、Mamma mia!、Dio mio!。这时物主词前面没有冠词。日常说“去我家”，意大利人常说 vieni a casa mia。" },
     { "titolo": "i miei、i tuoi：指家人", "t": "在口语里，i miei 和 i tuoi 常常指“我的父母、我的家人”：Stasera cena dai miei.（今晚在我爸妈家吃饭。）这是一个固定的用法，形式总是阳性复数。" },
-    { "titolo": "suo 说不清楚的时候：proprio", "t": "当第三人称的物主词指的就是句子的主语时，可以用 proprio 代替 suo，避免弄混：Marco ha chiamato il proprio avvocato（马可叫了他自己的律师），而 Marco ha chiamato il suo avvocato 也可能指别人的律师。语法书指出，proprio 在口语里用得越来越少，多见于书面语；口语里更多的是用 suo，或者说 di lui / di lei。" },
+    { "titolo": "suo 说不清楚的时候：proprio", "t": "当第三人称的物主词指的就是句子的主语时，可以用 proprio 代替 suo，避免弄混：Marco ha chiamato il proprio avvocato（马可叫了他自己的律师），而 Marco ha chiamato il suo avvocato 也可能指别人的律师。proprio 多见于书面语；口语里更常见的是用 suo，或者说 di lui / di lei。" },
     { "titolo": "mamma、papà 和 babbo", "t": "mamma 和 papà 比 madre、padre 更亲切，它们前面通常加冠词：la mia mamma、il mio papà。在意大利中部（特别是托斯卡纳），人们常说 babbo 代替 papà：il mio babbo。写作文或写正式的东西时，更多用 mia madre、mio padre。" }
   ],
   "pragmatica": "介绍家人时，直接说 Mia sorella si chiama Giulia.，不加冠词。对不熟的人或长辈，把 tuo 换成 Suo：Come sta Sua madre?（您的母亲好吗？）。意大利语很多时候在主人很明显的时候不说物主词：Ho perso il portafoglio.（我把钱包丢了。）、Metto le chiavi in tasca.（我把钥匙放进口袋里。）比 Ho perso il mio portafoglio 更自然；说 il mio 通常是为了和别人的东西对比。",
@@ -218,6 +218,6 @@ LESSON_RICH.it["possessivi"] = {
   ],
   "fonti": [
     "Wikipedia (inglese), «Italian grammar», sezione sugli aggettivi possessivi (concordanza, articolo, nomi di parentela, loro, posposizione, proprio)",
-    "Tatoeba (ita.tsv), interrogato per frasi con «Mia madre», «Mio padre», «La loro casa», «i miei occhiali»: controllo della naturalezza delle strutture"
+    "Tatoeba (ita.tsv), frasi contate con grep: «Mia madre» (441), «Mio padre» (735), «La loro casa» (7), «i miei occhiali» (76)"
   ]
 };

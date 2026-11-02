@@ -182,7 +182,7 @@ LESSON_RICH.it["dimostrativi"] = {
     ] },
     { "k": "ordine", "t": "quanto costano quelle scarpe nere", "tr": "那双黑鞋多少钱？" },
     { "k": "ordine", "t": "quest'estate andiamo in montagna con quegli amici", "tr": "今年夏天我们和那些朋友去山里。" },
-    { "k": "scrivi", "q": "用意大利语写：“这本书很有意思。”", "a": "Questo libro è interessante.", "accetta": ["Questo libro è molto interessante.", "Questo libro è davvero interessante.", "Questo è un libro interessante.", "Questo libro e interessante."], "perche": "libro 是阳性单数，所以用 questo；interessante 阴阳同形，单数也是 -e。" },
+    { "k": "scrivi", "q": "用意大利语写：“这本书很有意思。”", "a": "Questo libro è interessante.", "accetta": ["Questo libro è molto interessante.", "Questo libro è davvero interessante.", "Questo è un libro interessante."], "perche": "libro 是阳性单数，所以用 questo；interessante 阴阳同形，单数也是 -e。" },
     { "k": "scrivi", "q": "用意大利语写：“那些钥匙是我的。”", "a": "Quelle chiavi sono mie.", "accetta": ["Quelle chiavi sono le mie.", "Quelle sono le mie chiavi.", "Quelle chiavi sono le mie chiavi."], "perche": "chiavi 是阴性复数，所以用 quelle；mie 也是阴性复数。" },
     { "k": "trasforma", "consegna": "把“这本书”改成“那本书”，其他不变。", "base": "Questo libro è nuovo.", "accetta": ["Quel libro è nuovo."], "rifiutate": [
       { "t": "Quello libro è nuovo.", "perche": "libro 前面用 il，所以是短形式 quel，不是 quello。" }
@@ -207,6 +207,6 @@ LESSON_RICH.it["dimostrativi"] = {
   ],
   "fonti": [
     "Mango Languages, «How to use the demonstratives questo and quello in Italian» (forme di questo e quello, elisione, aggettivo e pronome, codesto, ciò)",
-    "Tatoeba, corpus italiano locale (ita.tsv): frasi con Questa, Quella, Quell' per controllare la naturalezza degli esempi"
+    "Tatoeba (ita.tsv), frasi contate con grep: «Quest'anno» (96), «Quella sera» (13), «Quegli studenti» (4), «Quelle chiavi» (3), «Quelli sono» (66)"
   ]
 };

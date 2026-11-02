@@ -153,7 +153,7 @@ LESSON_RICH.it["gerundio"] = {
   },
   "curiosi": [
     { "titolo": "意大利语不像英语那样常用进行式", "t": "英语里说“我在做什么”几乎总要用进行式，意大利语不是这样。普通现在时也可以表示此刻的事：Che fai?（你在做什么？）、Cosa leggi?（你在读什么？）都很自然。语法书也指出，意大利语的进行式用得比英语少，很多时候可以用简单形式代替。进行式的作用是把“就是现在、正在进行”说得更清楚。" },
-    { "titolo": "古老的意大利语里没有 stare + 副动词", "t": "Treccani 的《意大利语百科》说，stare + 副动词这种结构在最古老的意大利语里没有出现；那时（以及后来的文学语言里）更常见的是 andare、venire 和 mandare 加副动词。今天的书面语里还能看到 va aumentando（在不断增加）、viene dicendo（一直在说）这样的说法，表示一个慢慢展开的过程。" },
+    { "titolo": "古老的意大利语里没有 stare + 副动词", "t": "Treccani 的《意大利语百科》说，stare + 副动词这种结构在最古老的意大利语里没有出现；那时更常见的是 venire 和 mandare 加副动词。文学作品里还能看到 andò scemando（渐渐减弱了）、venivo tentando（我一直在尝试）这样的说法，表示一个慢慢展开的过程。" },
     { "titolo": "和西班牙语不同：没有“吃了一个小时”的进行式", "t": "西班牙语可以说 estuve estudiando（我学了一阵子），意大利语的 stare 却不能用在近过去时或远过去时里：不说 sono stato studiando。要表达“学了一个小时”，意大利语说 Ho studiato per un'ora。这一点对说汉语的人也很重要，因为汉语的“了”可以和“在”的意思连在一起想，但意大利语要分开处理。" },
     { "titolo": "夸张的进行式：Sto morendo di fame", "t": "意大利人常用进行式夸张地说话：Sto morendo di fame!（我快饿死了！）Sto morendo di freddo!（我快冻死了！）这里的 morendo 并不是真的“正在死”，只是表示感觉非常强烈、正在持续。" }
   ],
@@ -217,8 +217,8 @@ LESSON_RICH.it["gerundio"] = {
     "你会分清什么时候用进行式，什么时候用普通现在时：习惯和将来的安排不用进行式。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «gerundio» (perifrasi con stare e andare, limiti con il passato perfettivo, forma semplice e composta, clitici)",
-    "Wikipedia (inglese), «Italian grammar», sezioni sull'aspetto progressivo con stare + gerundio e sul gerundio (uso meno frequente che in inglese, enclisi dei clitici)",
-    "Tatoeba (ita.tsv), interrogato per le frasi con «sto/stai + gerundio» e «stava + gerundio»: conferma della naturalezza di sto cercando, sto leggendo, che stai facendo"
+    "Treccani, Enciclopedia dell'Italiano, voce «gerundio» (perifrasi progressiva con stare; stare non forma il passato perfettivo progressivo; esempi antichi andò scemando, stavano bevendo; pagina letta)",
+    "Wikipedia (inglese), «Italian grammar», sezione sull'aspetto progressivo con stare + gerundio (uso meno frequente che in inglese, sostituibile con i tempi semplici; pagina letta)",
+    "Tatoeba (ita.tsv), frasi contate con grep: «Sto cercando» (331), «Sto leggendo» (117), «Stai facendo» (47), «Stavo facendo» (22), «Stava leggendo» (17)"
   ]
 };

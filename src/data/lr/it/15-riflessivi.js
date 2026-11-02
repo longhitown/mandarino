@@ -26,7 +26,7 @@ LESSON_RICH.it["riflessivi"] = {
   },
   "logica": [
     "汉语说“我起床”“我洗澡”“他穿衣服”，动词后面不需要“自己”，“自己”只在强调时才出现。意大利语不同：alzare 的意思是“把某个东西抬起来”，alzarsi 才是“起床”（把自己抬起来）。动作的对象如果就是做动作的人，就要在动词前用一个代词把它标出来。所以 Marco lava il bambino 和 Marco si lava 是两个不同的句子：前者洗别人，后者洗自己。",
-    "有些动词的意思因为加了代词而变了：chiamare 是“呼叫、打电话给某人”，chiamarsi 是“名字叫……”；Chiamo Marco 是“我叫马可（过来）”，Mi chiamo Marco 才是“我叫马可”。这类动词要连代词整个记下来，不要按汉语去猜“自己”在哪里。",
+    "有些动词的意思因为加了代词而变了：chiamare 是“呼叫、打电话给某人”，chiamarsi 是“名字叫……”；Chiamo Marco 是“我叫（呼叫）马可”，Mi chiamo Marco 才是“我叫马可”。这类动词要连代词整个记下来，不要按汉语去猜“自己”在哪里。",
     "近过去时用 essere，可以这样想：动作回到主语自己，主语既是做的人，也是受影响的人，所以和 essere 一类动词一样，分词要和主语的性和数一致：Maria si è alzata, i ragazzi si sono alzati。有直接宾语时也一样，用的还是 essere：Si è lavata le mani。"
   ],
   "mappa": {
@@ -215,8 +215,7 @@ LESSON_RICH.it["riflessivi"] = {
     "你会区分有代词和没有代词的动词：lavare 和 lavarsi，svegliare 和 svegliarsi。"
   ],
   "fonti": [
-    "Treccani, La grammatica italiana, voce «verbi riflessivi» (riflessivi diretti, indiretti, reciproci)",
-    "Humanities LibreTexts, Spunti: Italiano elementare 2, sezione 1.02 «I verbi riflessivi e reciproci» (pronomi, essere e accordo del participio, coppie perdere / perdersi e aiutare / aiutarsi)",
-    "Tatoeba (ita.tsv), controllo diretto di frasi con «Mi sono svegliato», «Si è alzata», «Mi lavo le mani», «Mi sono tagliato», «Si sono sposati»"
+    "Treccani, Enciclopedia dell'Italiano, voce «verbi-riflessivi» (riflessivi diretti, indiretti e reciproci; accordo del participio con essere; pagina letta)",
+    "Tatoeba (ita.tsv), frasi contate con grep: «Mi sono svegliato» (44), «Si è alzata» (8), «Mi lavo le mani» (4), «Mi sono tagliato» (11), «Si sono sposati» (20)"
   ]
 };

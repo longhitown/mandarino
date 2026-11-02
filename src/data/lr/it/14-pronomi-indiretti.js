@@ -208,8 +208,7 @@ LESSON_RICH.it["pronomi-indiretti"] = {
     "你会在朋友之间用 ti，对用 Lei 称呼的人用 Le。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «pronomi» (clitici dativi gli, le, loro; posizione dei clitici accanto al verbo)",
-    "Humanities LibreTexts, D'accordo (Blum e Gemmani), sezione 3.04 «Pronomi oggetto indiretto» (forme, gli e loro, posizione, nessun accordo del participio, elenco di verbi con a + persona)",
-    "Tatoeba (ita.tsv), controllo diretto di frasi con «Gli ho telefonato», «Le ho detto», «Le ho dato», «Gli piace», «Le piace»"
+    "Humanities LibreTexts, D'accordo (Blum e Gemmani), sezione 3.06 «Pronomi oggetto combinati» (glie- con lo, la, li, le, ne; il participio non concorda con gli e le; pagina letta)",
+    "Tatoeba (ita.tsv), frasi contate con grep: «Le ho detto» (224), «Le ho dato» (49), «Gli piace» (336), «Le piace» (523), «Gli ho telefonato» (2)"
   ]
 };
