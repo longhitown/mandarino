@@ -724,8 +724,8 @@ function sandbox() {
   const ctx = {}; vm.runInNewContext(fs.readFileSync(path.join(SRC, "data/changelog.js"), "utf8") + ";this.C=CHANGELOG;", ctx);
   const bad = (ctx.C || []).filter((e) => !(e.v && e.d && Array.isArray(e.it) && Array.isArray(e.zh) && e.it.length > 0 && e.it.length === e.zh.length && e.it.concat(e.zh).every((r) => typeof r === "string" && r.length > 5))).map((e) => e.v);
   check("Novità (data/changelog.js): ogni versione ha versione, data e le righe in italiano e in cinese, in pari numero", (ctx.C || []).length > 0 && !bad.length, bad.join(", "));
-  const top = ctx.C[0], topTxt = top.it.join(" ");
-  check("Novità: la versione in cima parla di scambio linguistico, widget (Ripasso rapido) e microfono", /[Ss]cambio linguistico/.test(topTxt) && /Ripasso rapido/.test(topTxt) && /[Mm]icrofono/.test(topTxt) && /小组件/.test(top.zh.join(" ")), top.v);
+  const top = ctx.C[0], topTxt = top.it.join(" "), wid = ctx.C.find((e) => e.v === "Widget e microfono") || { it: [], zh: [] }, widTxt = wid.it.join(" ");
+  check("Novità: la voce dei widget (scambio linguistico, Ripasso rapido, microfono) resta nell'elenco e la versione in cima parla di ricerca sulla memoria in italiano e in cinese", /[Ss]cambio linguistico/.test(widTxt) && /Ripasso rapido/.test(widTxt) && /[Mm]icrofono/.test(widTxt) && /小组件/.test(wid.zh.join(" ")) && /Ricerca sulla memoria/.test(topTxt) && /记忆研究/.test(top.zh.join(" ")), top.v);
   /* la richiesta di rete: una sola fetch verso l'esterno in tutta l'app (ui/community.js), dentro checkPack, che parte solo dal click sul pulsante */
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? (e.name === "data" ? [] : walk(path.join(d, e.name))) : e.name.endsWith(".js") ? [path.join(d, e.name)] : []);
   const ext = walk(SRC).filter((f) => /fetch\(\s*["'`]https?:\/\//.test(fs.readFileSync(f, "utf8")) || /PACK_URL/.test(fs.readFileSync(f, "utf8")) && /fetch\(\s*PACK_URL/.test(fs.readFileSync(f, "utf8"))).map((f) => path.relative(SRC, f).split(path.sep).join("/"));

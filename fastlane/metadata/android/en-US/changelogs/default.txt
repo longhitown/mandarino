@@ -1,2 +1,3 @@
-• Added the English store listing (F-Droid and Google Play).
-• No other changes in the app: anyone on 0.9.0 can update without noticing a thing.
+• Review now takes more into account: if you only get the tone wrong the word is not reset to zero, writing counts for more than picking from options, and characters you already know help with compound words.
+• New Settings → Community and voices → Memory research section (optional, off by default): if you wish, you can send your reviews anonymously to help improve the review scheduling. Nothing is sent on its own.
+• A website page explains how review works and what is verified so far.

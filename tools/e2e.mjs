@@ -1897,7 +1897,7 @@ try {
     const tile = await p.evaluate(() => document.querySelector('[data-set-open="community"]').classList.contains("has-new"));
     await p.click('[data-set-open="community"]'); await p.waitForTimeout(500);
     const pg = await p.evaluate(() => ({ secs: [...document.querySelectorAll('[data-set-page="community"] .set-sec')].map((x) => x.id), n: document.getElementById("cm-n-rec").textContent + "/" + document.getElementById("cm-n-chk").textContent, widgets: !!document.querySelector('[data-set-page="community"] #set-widgets') }));
-    check("Comunità: la voce «Nuovo» c'è, la pagina ha scambio, numeri (0/0 senza registrazioni), ringraziamenti, invito, pacchetto voci e ricerca sulla memoria (i widget stanno in Aspetto)", tile && pg.secs.join() === "set-scambio,set-mine,set-thanks,set-invite,set-voicepack,set-research" && pg.n === "0/0" && !pg.widgets, JSON.stringify(pg));
+    check("Comunità: la voce «Nuovo» c'è, la pagina ha scambio, numeri (0/0 senza registrazioni), ringraziamenti, invito, pacchetto voci e ricerca sulla memoria (i widget stanno in Aspetto)", tile && pg.secs.join() === "set-scambio,set-mine,set-research,set-thanks,set-invite,set-voicepack" && pg.n === "0/0" && !pg.widgets, JSON.stringify(pg));
     await p.evaluate(() => { Object.defineProperty(navigator, "clipboard", { value: { writeText: (t) => { window.__copied = t; return Promise.resolve(); } }, configurable: true }); });
     await p.click("[data-cm-invite]"); await p.waitForTimeout(200);
     const cp = await p.evaluate(() => window.__copied);
