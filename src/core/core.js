@@ -105,7 +105,10 @@
     if (apply) {
       var card = r.st == null ? SCH.newCard(now) : toCard(r);
       wasReview = card.state === FSRS.REVIEW;
-      var nc = SCH.review(card, g + 1, now);
+      /* ML-FSRS-32: per una parola di più caratteri, la stabilità dei caratteri che l'utente già studia (sconto morfemico) */
+      var hs = WORDS[k] && WORDS[k].hz ? Array.from(WORDS[k].hz) : [], m = meta || {};
+      if (hs.length > 1) m = Object.assign({}, m, { ncomp: hs.length, comps: hs.filter(function (h) { return h !== k && S[h] && S[h].st > 0; }).map(function (h) { return S[h].st; }) });
+      var nc = SCH.review(card, g + 1, now, m);
       r.st = nc.st; r.df = nc.df; r.sd = nc.state; r.sp = nc.step; r.lr = now; r.d = nc.due;
       r.rp = (r.rp || 0) + 1; if (g === 0 && wasReview) r.lp = (r.lp || 0) + 1;
     }

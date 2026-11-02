@@ -1,13 +1,16 @@
-/* FSRS in JavaScript puro. Porting fedele di py-fsrs (open-spaced-repetition/py-fsrs, HEAD) = FSRS-6, 21 parametri.
-   La specifica chiedeva FSRS-4.5 (17 pesi, curva con esponente -0,5): FSRS-6 e' la versione attuale e la generalizza
-   (decay = w[20]); l'ho scelta perche' si puo' verificare vettore per vettore contro l'implementazione di riferimento.
+/* FSRS in JavaScript puro. Porting fedele di py-fsrs (open-spaced-repetition/py-fsrs, HEAD, MIT) = FSRS-6, 21 parametri,
+   con l'estensione ML-FSRS-32.1 (11 parametri in più, w21..w31: toni, tipo di esercizio, morfologia degli hanzi).
+   Il flusso (stati, passi, fuzz, intervalli) è quello di FSRS-6: le estensioni cambiano solo la stabilità di un ripasso lungo
+   (>= 1 giorno) e, senza informazioni dal chiamante, valgono 1 (o 0): review(carta, voto, ora) dà esattamente FSRS-6.
+   dial in [0,1]: 0 = FSRS-6 esatto. w0..w20 sono i pesi di py-fsrs; w21..w31 sono valori di partenza, NON stimati su ripassi reali.
    I pesi sono UNA costante isolata (FSRS.DEFAULT_W): sostituibile. Nessun ottimizzatore ufficiale: vedi FSRS.calibrate. */
 (function (root) {
   "use strict";
   var DAY = 86400000, MIN = 60000;
-  var DEFAULT_W = [0.212, 1.2931, 2.3065, 8.2956, 6.4133, 0.8334, 3.0194, 0.001, 1.8722, 0.1666, 0.796, 1.4835, 0.0614, 0.2629, 1.6483, 0.6014, 1.8729, 0.5425, 0.0912, 0.0658, 0.1542];
-  var LB = [0.001, 0.001, 0.001, 0.001, 1, 0.001, 0.001, 0.001, 0, 0, 0.001, 0.001, 0.001, 0.001, 0, 0, 1, 0, 0, 0, 0.1];
-  var UB = [100, 100, 100, 100, 10, 4, 4, 0.75, 4.5, 0.8, 3.5, 5, 0.25, 0.9, 4, 1, 6, 2, 2, 0.8, 0.8];
+  var DEFAULT_W = [0.212, 1.2931, 2.3065, 8.2956, 6.4133, 0.8334, 3.0194, 0.001, 1.8722, 0.1666, 0.796, 1.4835, 0.0614, 0.2629, 1.6483, 0.6014, 1.8729, 0.5425, 0.0912, 0.0658, 0.1542,
+    0.8158, 1, 0.2, 0.12, 0.18, 0.5, 0.5, 0.4, 0.4, 0.35, 0.1]; /* 21 sforzo, 22 scelta multipla, 23 oblio attivo, 24 rapidità, 25 lentezza, 26-27 tono, 28-29 morfemi, 30 indizio, 31 sonno */
+  var LB = [0.001, 0.001, 0.001, 0.001, 1, 0.001, 0.001, 0.001, 0, 0, 0.001, 0.001, 0.001, 0.001, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0, 0, 0, 0.1, 0.1, 0, 0, 0, 0];
+  var UB = [100, 100, 100, 100, 10, 4, 4, 0.75, 4.5, 0.8, 3.5, 5, 0.25, 0.9, 4, 1, 6, 2, 2, 0.8, 0.8, 1.5, 1, 0.8, 0.8, 0.8, 0.9, 1, 1.5, 1.5, 0.6, 0.5];
   var SMIN = 0.001, DMIN = 1, DMAX = 10;
   var FUZZ = [{ s: 2.5, e: 7, f: 0.15 }, { s: 7, e: 20, f: 0.1 }, { s: 20, e: Infinity, f: 0.05 }];
   var LEARNING = 1, REVIEW = 2, RELEARNING = 3;
@@ -23,13 +26,15 @@
   function Scheduler(o) {
     o = o || {};
     this.w = (o.w || DEFAULT_W).slice();
-    if (this.w.length !== 21) throw new Error("servono 21 parametri");
-    for (var i = 0; i < 21; i++) if (!(this.w[i] >= LB[i] && this.w[i] <= UB[i])) throw new Error("parametro " + i + " fuori limiti: " + this.w[i]);
+    if (this.w.length === 21) this.w = this.w.concat(DEFAULT_W.slice(21));
+    if (this.w.length !== 32) throw new Error("servono 21 o 32 parametri");
+    for (var i = 0; i < 32; i++) if (!(this.w[i] >= LB[i] && this.w[i] <= UB[i])) throw new Error("parametro " + i + " fuori limiti: " + this.w[i]);
     this.retention = o.retention || 0.9;
     this.learningSteps = o.learningSteps || [];          /* ms; vuoto = una parola nuova entra subito in "ripasso" */
     this.relearningSteps = o.relearningSteps || [10 * MIN];
     this.maxInterval = o.maxInterval || 36500;
     this.fuzz = !!o.fuzz; this.rng = o.rng || Math.random;
+    this.dial = typeof o.dial === "number" ? Math.min(1, Math.max(0, o.dial)) : 1;
     /* giorni trascorsi: di default giorni interi da 24 ore, come py-fsrs. Con dayOf (tempo -> numero del giorno) si contano
        i giorni del calendario, come Anki: la sera e la mattina dopo sono due giorni diversi anche se passano meno di 24 ore */
     this.dayOf = typeof o.dayOf === "function" ? o.dayOf : null;
@@ -77,7 +82,6 @@
     var hp = r === HARD ? this.w[15] : 1, eb = r === EASY ? this.w[16] : 1;
     return S * (1 + Math.exp(this.w[8]) * (11 - D) * Math.pow(S, -this.w[9]) * (Math.exp((1 - R) * this.w[10]) - 1) * hp * eb);
   };
-  P._nextS = function (D, S, R, r) { return clampS(r === AGAIN ? this._forgetS(D, S, R) : this._recallS(D, S, R, r)); };
   P._fuzzed = function (days) {
     if (days < 2.5) return days;
     var delta = 1;
@@ -86,42 +90,51 @@
     lo = Math.max(2, lo); hi = Math.min(hi, this.maxInterval); lo = Math.min(lo, hi);
     return Math.min(pround(this.rng() * (hi - lo + 1) + lo), this.maxInterval);
   };
-  /* un ripasso: restituisce una NUOVA carta */
-  P.review = function (card, rating, now) {
-    var c = { state: card.state, step: card.step, st: card.st, df: card.df, due: card.due, last: card.last };
+  /* un ripasso: restituisce una NUOVA carta. meta (tutto facoltativo): type (id dell'esercizio), kind "mc"|"type", k (opzioni),
+     tone (sbagliato solo il tono), hint (c'era una frase d'aiuto), comps (stabilità dei caratteri già studiati), ncomp (caratteri
+     della parola), ms + base (tempo di risposta e tempo abituale dell'utente), nights (notti, solo se date dal chiamante) */
+  P.review = function (card, rating, now, meta) {
+    var m = meta || {}, c = { state: card.state, step: card.step, st: card.st, df: card.df, due: card.due, last: card.last };
     var since = c.last != null ? this.elapsed(c.last, now) : null;
     var interval; /* ms */
-    var self = this;
+    var self = this, w = this.w, dial = this.dial, saved = false;
+    var k = m.k || (m.kind === "mc" || /^mc-/.test(m.type || "") ? 4 : 0), M = m.kind === "type" ? 1 : 0.45;
+    var cs = (m.comps || []).filter(function (x) { return x > 0; }), sBar = 0, fPrior = 0;
+    if (cs.length) { for (var j = 0; j < cs.length; j++) sBar += cs[j]; sBar /= cs.length; fPrior = Math.min(1, cs.length / Math.max(1, m.ncomp || cs.length)); }
+    var morph = dial * w[28] * Math.log(1 + sBar) * fPrior;   /* giorni di stabilità «in prestito» dai caratteri già noti */
     function days(d) { return d * DAY; }
     function toReview() { c.state = REVIEW; c.step = null; return days(self.interval(c.st)); }
-    function updateS(useLearningFallthrough) {
-      if (c.st == null || c.df == null) { c.st = self._s0(rating); c.df = self._d0(rating, true); return; }
-      if (since !== null && since < 1) { c.st = self._shortS(c.st, rating); c.df = self._nextD(c.df, rating); }
-      else { c.st = self._nextS(c.df, c.st, self.retrievability(c, now), rating); c.df = self._nextD(c.df, rating); }
-    }
-    if (c.state === LEARNING) {
-      updateS();
-      var steps = this.learningSteps;
-      if (steps.length === 0 || (c.step >= steps.length && rating >= HARD)) interval = toReview();
-      else if (rating === AGAIN) { c.step = 0; interval = steps[0]; }
-      else if (rating === HARD) {
-        if (c.step === 0 && steps.length === 1) interval = steps[0] * 1.5;
-        else if (c.step === 0 && steps.length >= 2) interval = (steps[0] + steps[1]) / 2;
-        else interval = steps[c.step];
-      } else if (rating === GOOD) {
-        if (c.step + 1 === steps.length) interval = toReview(); else { c.step += 1; interval = steps[c.step]; }
-      } else interval = toReview();
-    } else if (c.state === REVIEW) {
-      if (since !== null && since < 1) c.st = this._shortS(c.st, rating);
-      else c.st = this._nextS(c.df, c.st, this.retrievability(c, now), rating);
-      c.df = this._nextD(c.df, rating);
+    function updateS() {
+      if (c.st == null || c.df == null) { c.st = clampS(self._s0(rating) + (rating >= HARD ? morph : 0)); c.df = clampD(self._d0(rating, false) - dial * w[29] * fPrior); return; }
+      if (since !== null && since < 1) { c.st = self._shortS(c.st, rating); c.df = self._nextD(c.df, rating); return; }
+      var S = c.st, D = c.df, R = self.retrievability(c, now), ds = self._nextD(D, rating);
       if (rating === AGAIN) {
+        var f = self._forgetS(D, S, R);
+        if (m.tone && dial > 0 && c.state === REVIEW) { /* sbagliato solo il tono: si salva parte del solco, in proporzione a R */
+          c.st = clampS(Math.max(0.1, f + dial * Math.max(0, S * w[26] - f) * R));
+          ds = clampD(w[7] * self._d0(EASY, false) + (1 - w[7]) * (D + 2 * w[6] * (1 - dial * w[27]) * (10 - D) / 9));
+          saved = true;
+        } else c.st = clampS(f * (1 + dial * w[23] * Math.max(0, M - 0.45)));
+      } else {
+        var s6 = self._recallS(D, S, R, rating), phi = 1 + w[21] * (M - 0.45);   /* sforzo richiesto dall'esercizio */
+        if (k > 0) phi *= Math.max(0.5, 1 - w[22] / k);                                             /* a caso si indovina 1 volta su k */
+        if (m.hint || /^(buco|ordina|ascolto-frase|minidialogo)/.test(m.type || "")) phi /= 1 + w[30];   /* una frase aiuta a ricordare */
+        if (m.nights > 1) phi *= 1 + w[31] * (Math.exp(-1) - Math.exp(-m.nights)) / (1 + S / 7);   /* notti di sonno oltre la prima */
+        if (m.base > 0 && m.ms >= 250 && m.ms <= 30000 && w[24] + w[25] > 1e-6) phi *= 1 + (w[24] - w[25]) / 2 - (w[24] + w[25]) / 2 * Math.tanh(Math.log(m.ms / m.base) - Math.atanh((w[25] - w[24]) / (w[24] + w[25])));
+        phi = 1 + dial * (Math.min(1.8, Math.max(0.4, phi)) - 1);
+        var md = morph > 0 ? morph * (1 - R) * Math.exp(-S / sBar) : 0;
+        c.st = clampS(phi === 1 && !md ? s6 : S + Math.max(0, s6 - S) * phi + md);
+      }
+      c.df = ds;
+    }
+    updateS();
+    if (c.state === REVIEW) {
+      if (rating === AGAIN && !saved) {
         if (this.relearningSteps.length === 0) interval = days(this.interval(c.st));
         else { c.state = RELEARNING; c.step = 0; interval = this.relearningSteps[0]; }
       } else interval = days(this.interval(c.st));
-    } else { /* RELEARNING */
-      updateS();
-      var rs = this.relearningSteps;
+    } else { /* LEARNING e RELEARNING: stessi passi, liste diverse */
+      var rs = c.state === LEARNING ? this.learningSteps : this.relearningSteps;
       if (rs.length === 0 || (c.step >= rs.length && rating >= HARD)) interval = toReview();
       else if (rating === AGAIN) { c.step = 0; interval = rs[0]; }
       else if (rating === HARD) {
@@ -162,8 +175,7 @@
   function studyDay(t) { var d = new Date(t - 4 * 3600000); return Math.round(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / DAY); }
 
   var FSRS = { studyDay: studyDay, Scheduler: Scheduler, DEFAULT_W: DEFAULT_W, LB: LB, UB: UB, LEARNING: LEARNING, REVIEW: REVIEW, RELEARNING: RELEARNING,
-    AGAIN: AGAIN, HARD: HARD, GOOD: GOOD, EASY: EASY, DAY: DAY, pround: pround, calibrate: calibrate, VERSION: "FSRS-6 (port di py-fsrs)" };
+    AGAIN: AGAIN, HARD: HARD, GOOD: GOOD, EASY: EASY, DAY: DAY, pround: pround, calibrate: calibrate, VERSION: "FSRS-6 + ML-FSRS-32.1 (py-fsrs, 32 parametri)" };
   root.FSRS = FSRS;
   if (typeof module !== "undefined" && module.exports) module.exports = FSRS;
 })(typeof window !== "undefined" ? window : globalThis);
-
