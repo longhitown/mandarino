@@ -45,8 +45,8 @@
   function ruby(run) {
     return CP.segment(run).map(function (x) {
       var w = x.w, raw = x.raw != null ? x.raw : x.p;
-      if (!w) return Array.from(raw || "").map(function (ch) { return PYX[ch] ? '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(ch) + '">' + esc(ch) + "<rp>(</rp><rt>" + PYX[ch] + "</rt><rp>)</rp></ruby>" : '<span class="han" lang="zh-CN">' + esc(ch) + "</span>"; }).join("");
-      return '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(w.key) + '">' + esc(w.hz) + "<rp>(</rp><rt>" + esc(w.py.replace(/\./g, "")) + "</rt><rp>)</rp></ruby>";
+      if (!w) return Array.from(raw || "").map(function (ch) { return PYX[ch] ? '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(ch) + '">' + esc(ch) + '<rp>(</rp><rt class="py">' + PYX[ch] + "</rt><rp>)</rp></ruby>" : '<span class="han" lang="zh-CN">' + esc(ch) + "</span>"; }).join("");
+      return '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(w.key) + '">' + esc(w.hz) + '<rp>(</rp><rt class="py">' + esc(w.py.replace(/\./g, "")) + "</rt><rp>)</rp></ruby>";
     }).join("");
   }
   function rich(t, rb) {
