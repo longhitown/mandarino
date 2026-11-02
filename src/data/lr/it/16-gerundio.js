@@ -216,6 +216,11 @@ LESSON_RICH.it["gerundio"] = {
     "你会用 stavo + 副动词说过去某一时刻正在做的事，比如 Stavo dormendo quando hai chiamato。",
     "你会分清什么时候用进行式，什么时候用普通现在时：习惯和将来的安排不用进行式。"
   ],
+  "glosse": {
+    "Che cosa stai facendo": "你在做什么？",
+    "Alle otto starò dormendo": "八点我会在睡觉。",
+    "Che cosa sta facendo": "您在做什么？"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «gerundio» (perifrasi progressiva con stare; stare non forma il passato perfettivo progressivo; esempi antichi andò scemando, stavano bevendo; pagina letta)",
     "Wikipedia (inglese), «Italian grammar», sezione sull'aspetto progressivo con stare + gerundio (uso meno frequente che in inglese, sostituibile con i tempi semplici; pagina letta)",

@@ -188,6 +188,20 @@ LESSON_RICH.zh["dove"] = {
     "Sai distinguere 在 + luogo (dove) da 在 + verbo (azione in corso).",
     "Sai usare 住在, 坐在 e 放在 con il luogo dopo il verbo e chiedere dove con 哪儿 e 哪里."
   ],
+  "glosse": {
+    "他在北京住了三年": "Ha abitato a Pechino tre anni",
+    "你的手机在桌子上": "Il tuo cellulare è sul tavolo",
+    "我在图书馆看书": "Leggo in biblioteca",
+    "他在打电话": "Sta telefonando",
+    "他在家看电视": "Guarda la TV a casa",
+    "我没在看电视": "Non sto guardando la TV",
+    "坐在椅子上": "Seduto sulla sedia",
+    "放在桌子上": "Messo sul tavolo",
+    "写在黑板上": "Scritto sulla lavagna",
+    "桌子上有一本书": "Sul tavolo c'è un libro",
+    "我的书在桌子上": "Il mio libro è sul tavolo",
+    "这是我的桌子": "Questo è il mio tavolo"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Indicating location with zai before verbs»: soggetto + 在 + luogo + verbo, il luogo prima del verbo",
     "Wikipedia (inglese), «Chinese grammar»: 在 davanti al verbo per le azioni in corso",

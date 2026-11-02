@@ -192,6 +192,15 @@ LESSON_RICH.zh["ye-dou"] = {
     "Sai distinguere 都不 («nessuno») da 不都 («non tutti») e dire «nemmeno» con 也不.",
     "Sai evitare gli errori di chi traduce «anche» e «tutti» dall'italiano, mettendoli dopo il verbo."
   ],
+  "glosse": {
+    "我们也都喝茶": "Anche noi beviamo tutti il tè",
+    "他是学生，我也是学生": "Lui è studente, e anch'io sono studente",
+    "她很累，我也很累": "Lei è molto stanca, e anch'io sono molto stanco",
+    "他没来，你也没来": "Lui non è venuto, e nemmeno tu sei venuto",
+    "我是学生也": "!Io sono studente anche (posizione sbagliata)",
+    "也我是学生": "!Anche io sono studente (ordine sbagliato)",
+    "大家都来了": "Sono venuti tutti"
+  },
   "fonti": [
     "CC-CEDICT, voci 也 (ye3) e 都 (dou1, du1): «also; too; (not ...) either», «all; both; even; already»",
     "Tatoeba (cinese, cmn.tsv): frasi con 也不 (我爸爸也不喝), 我们都 e 不都 (他们不都是幸福的), riscontro dell'ordine delle parole"

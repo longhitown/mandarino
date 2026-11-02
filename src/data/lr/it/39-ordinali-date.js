@@ -211,6 +211,10 @@ LESSON_RICH.it["ordinali-date"] = {
     "你会用 nel 说年份，用 a / in 说月份，并区分 sabato 和 il sabato。",
     "你会读世纪和君主的名字：il Novecento、Luigi quattordicesimo。"
   ],
+  "glosse": {
+    "Che giorno è oggi": "今天是几号？",
+    "Quanti ne abbiamo oggi": "今天是几号？"
+  },
   "fonti": [
     "Wikipedia (inglese), «Date and time notation in Italy» (primo per il primo del mese, cardinali per gli altri giorni, articolo davanti alla data, mesi e giorni in minuscolo)",
     "Tatoeba (ita.tsv, grep): «il primo maggio» (4), «Che giorno è oggi» (7), «Quanti ne abbiamo» (3), «il ventesimo» (2)"

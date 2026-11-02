@@ -40,10 +40,12 @@
      Il testo scorre calmo. Un carattere o una parola di cui si parla ha SOLO il pinyin piccolo sopra (ruby); le frasi intere con la loro traduzione escono dal
      paragrafo e diventano card di esempio (pinyin, caratteri, traduzione). Le traduzioni tra parentesi dopo un termine non si mostrano più: il significato sta
      nelle card di esempio e nella scheda della parola (si apre toccando il carattere). */
+  /* caratteri che il vocabolario dell'app non ha come parola (citati nelle spiegazioni): il pinyin viene dal dataset dei caratteri */
+  var PYX = { "是": "shì", "儿": "ér", "個": "gè", "巴": "bā", "黎": "lí", "喜": "xǐ", "欢": "huān", "置": "zhì", "把": "bǎ", "评": "píng", "誉": "yù", "入": "rù", "聊": "liáo", "着": "zhe", "著": "zhe", "倘": "tǎng", "若": "ruò", "和": "hé", "语": "yǔ", "距": "jù", "给": "gěi", "澡": "zǎo", "今": "jīn", "与": "yǔ", "同": "tóng", "吗": "ma", "甭": "béng", "刚": "gāng", "才": "cái", "之": "zhī" };
   function ruby(run) {
     return CP.segment(run).map(function (x) {
       var w = x.w, raw = x.raw != null ? x.raw : x.p;
-      if (!w) return '<span class="han" lang="zh-CN">' + esc(raw || "") + "</span>";
+      if (!w) return Array.from(raw || "").map(function (ch) { return PYX[ch] ? '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(ch) + '">' + esc(ch) + "<rp>(</rp><rt>" + PYX[ch] + "</rt><rp>)</rp></ruby>" : '<span class="han" lang="zh-CN">' + esc(ch) + "</span>"; }).join("");
       return '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(w.key) + '">' + esc(w.hz) + "<rp>(</rp><rt>" + esc(w.py.replace(/\./g, "")) + "</rt><rp>)</rp></ruby>";
     }).join("");
   }
@@ -57,14 +59,24 @@
   var RE_TERM_ZH = /([㐀-鿿]{1,3})(\*\*)?\s*[（(]\s*[«“"][^»”"）)]+[»”"]\s*[）)]/g;
   /* le frasi della lezione con la loro traduzione: servono a mettere la traduzione sulle card estratte dal testo */
   function key(t) { return String(t).replace(/[。？！.?!\s]+$/g, ""); }
+  /* le forme sbagliate che la lezione stessa dichiara (errori tipici, risposte da scartare): in una riga di esempio vengono barrate */
+  function badTable(R) {
+    var o = {}, add = function (t) { if (t) o[key(t)] = 1; };
+    ((R.tranello || {}).esempi || []).forEach(function (x) { add(x.sbagliata); });
+    (R.contrasti || []).forEach(function (q) { (q.opzioni || []).forEach(function (op) { if (op.ok === false) add(op.t); }); });
+    Object.keys(R.glosse || {}).forEach(function (k) { if (/^!/.test(R.glosse[k])) add(k); });
+    (R.esercizi || []).forEach(function (e) { (e.rifiutate || []).forEach(function (x) { add(x.t); }); (e.opzioni || []).forEach(function (op) { if (op.ok === false) add(op.t); }); });
+    return o;
+  }
   function trTable(R) {
     var o = {}, add = function (x) { if (x && x.t && x.tr) o[key(x.t)] = x.tr; };
     ((R.scopri || {}).frasi || []).forEach(add); (R.esempi || []).forEach(function (g) { (g.items || []).forEach(add); }); ((R.dialogo || {}).righe || []).forEach(add);
+    Object.keys(R.glosse || {}).forEach(function (k) { if (!o[key(k)]) o[key(k)] = String(R.glosse[k]).replace(/^!/, ""); });
     return o;
   }
   /* una riga di esempio: la frase (cinese con il pinyin sopra ogni parola, o italiana) e a fianco la traduzione; le forme sbagliate sono barrate */
   function exRow(t, tr, bad) {
-    var zh = S.corso === "zh";
+    var zh = S.corso === "zh"; bad = bad || !!S.bad[key(t)];
     return '<div class="lz-xr' + (bad ? " bad" : "") + '">' + (bad ? '<span class="lz-xb" aria-hidden="true">' + icon("close") + "</span>" : "") + '<div class="lz-xz" lang="' + (zh ? "zh-CN" : "it") + '">' + (zh ? ruby(t) : esc(t)) + "</div>" +
       (tr ? '<span class="lz-xg" lang="' + (zh ? "it" : "zh-CN") + '">' + rich(tr) + "</span>" : "") + "</div>";
   }
@@ -74,7 +86,7 @@
     var re = new RegExp((S.corso === "zh" ? RE_RUN_ZH : RE_RUN_IT).source, "g"), out = [], last = 0, m, n;
     while ((m = re.exec(txt))) {
       n = S.corso === "zh" ? m[0].replace(/[^㐀-鿿]/g, "").length : 99;
-      if (n >= 5 || S.tr[key(m[0])]) { out.push({ txt: txt.slice(last, m.index) }); out.push({ ex: m[0].replace(/[，、：；…]+$/, ""), tr: S.tr[key(m[0])] || "" }); last = m.index + m[0].length; }
+      if (S.tr[key(m[0])] || (S.corso === "zh" ? n >= 5 : /[.?!]$/.test(m[0]))) { out.push({ txt: txt.slice(last, m.index) }); out.push({ ex: m[0].replace(/[，、：；…]+$/, ""), tr: S.tr[key(m[0])] || "" }); last = m.index + m[0].length; }
     }
     out.push({ txt: txt.slice(last) });
     return out;
@@ -375,7 +387,7 @@
   }
   function html(l, R, ctx) {
     if (!document.getElementById("lz-css")) { var st = document.createElement("style"); st.id = "lz-css"; st.textContent = CP.lzCss; document.head.appendChild(st); }
-    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null, tr: trTable(R) };
+    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null, tr: trTable(R), bad: badTable(R) };
     uid = 0;
     var tocKeys = ["scopri", "regola", "logica"].concat(R.mappa ? ["mappa"] : []).concat(["esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"]);
     var toc = '<nav class="lz-toc" aria-label="' + CP.attr(lab("sections")) + '">' + tocKeys.map(function (k) { return '<button type="button" class="lz-tchip" data-lz="toc" data-to="' + k + '">' + esc(lab(k)) + "</button>"; }).join("") + "</nav>";

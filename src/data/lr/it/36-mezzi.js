@@ -207,6 +207,9 @@ LESSON_RICH.it["mezzi"] = {
     "你会在说具体的一辆车或一班车时选择 con + 冠词：con la macchina di Marco，con il treno delle otto。",
     "你会区分 andare in treno（怎么去）、prendere il treno（乘某一班）和 guidare（驾驶）。"
   ],
+  "glosse": {
+    "Vado al lavoro a piedi": "我步行去上班。"
+  },
   "fonti": [
     "Think in Italian, «Transport in Italian» (letta: in + mezzo senza articolo, a piedi, con + articolo per un mezzo preciso, in piedi vs a piedi)",
     "Tatoeba (ita.tsv, grep): «in treno» (284), «in autobus» (251), «in bici» (343), «a piedi» (555), «con il treno» (9), «con la macchina» (18)"

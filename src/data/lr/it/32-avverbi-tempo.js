@@ -216,6 +216,16 @@ LESSON_RICH.it["avverbi-tempo"] = {
     "你会用 sempre、di solito、spesso、a volte、ogni tanto 说出做一件事有多经常。",
     "你会区分 appena 的两种用法（刚刚、一……就……），也会用 ormai 提醒时间。"
   ],
+  "glosse": {
+    "Non ho ancora risposto": "我还没回答。",
+    "Non siamo mai stati a Roma": "我们从没去过罗马。",
+    "Vado spesso al cinema": "我常去看电影。",
+    "Studio sempre la sera": "我总是晚上学习。",
+    "Non hai ancora mangiato": "你还没吃饭吗？",
+    "Non hai già mangiato": "!你已经吃过了吗？",
+    "Abiti sempre a Roma": "你还住在罗马吗？",
+    "Abiti ancora a Roma": "你还住在罗马吗？"
+  },
   "fonti": [
     "Think in Italian, «Adverbs of Time» (letta in parte: già, ancora, appena, mai tra ausiliare e participio; non ... ancora = not yet; mai nelle domande; la pagina non tratta non ... più)",
     "Tatoeba (ita.tsv), frasi contate con grep: «Hai già mangiato» (14), «Non abito più» (7), «Sei mai stato in» (25), «Appena arrivo» (3), «Ormai è tardi» (1)"

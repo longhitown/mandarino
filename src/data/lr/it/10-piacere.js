@@ -216,6 +216,11 @@ LESSON_RICH.it["piacere"] = {
     "你会回答 Anche a me、Neanche a me、A me no，对比自己和别人的喜好。",
     "你会用 Il film mi è piaciuto 说刚看完、吃完以后的感受。"
   ],
+  "glosse": {
+    "Ti piace il mare": "你喜欢海吗？",
+    "A Luca piace il vino": "卢卡喜欢葡萄酒。",
+    "Ai miei genitori piacciono le montagne": "我父母喜欢山。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «Personali, pronomi» (Da Milano, 2011), sezione «Pronomi reduplicati»: la costruzione «a me mi piace» (pagina letta; non analizza piacere a fondo)",
     "Tatoeba (ita.tsv), frasi reali con Mi piacciono (371), Non mi piace (627), Ti piace (514), Ti è piaciuto (36), mi è piaciuto (62): verificate con grep nel corpus locale"

@@ -194,6 +194,28 @@ LESSON_RICH.zh["quando"] = {
     "Sai distinguere un momento (prima del verbo) da una durata (dopo il verbo).",
     "Sai fare e capire domande con 什么时候 e 几点, e frasi con 的时候 e 以后."
   ],
+  "glosse": {
+    "每天早上七点": "Ogni mattina alle sette",
+    "明天下午三点": "Domani pomeriggio alle tre",
+    "星期六晚上": "Sabato sera",
+    "我明天不去": "Domani non vado",
+    "他昨天也来了": "Anche lui è venuto ieri",
+    "我们明天在公司开会": "Domani facciamo una riunione in ufficio",
+    "你什么时候去北京": "Quando vai a Pechino?",
+    "你几点起床": "A che ora ti alzi?",
+    "我吃饭的时候看电视": "Guardo la TV mentre mangio",
+    "他下班以后回家": "Torna a casa dopo il lavoro",
+    "他睡了八个小时": "Ha dormito otto ore",
+    "等了一个小时": "Ho aspettato un'ora",
+    "我八个小时睡": "!Dormo otto ore (ordine sbagliato)",
+    "你昨天去哪儿了": "Dove sei andato ieri?",
+    "我去公园了": "Sono andato al parco",
+    "我明天去，他后天去": "Io vado domani, lui dopodomani",
+    "下午三点二十分": "Le tre e venti del pomeriggio",
+    "等了一会儿": "Ho aspettato un momento",
+    "明天晚上七点": "Domani sera alle sette",
+    "明天上午九点开会": "Domani mattina alle nove c'è una riunione"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Time words and word order»: il tempo prima del soggetto o subito dopo, sempre prima del verbo; in fondo alla frase suona innaturale",
     "LibreTexts, CHN101 Elementary Mandarin I, Lesson 4 Grammar: Chinese word order with time, place and attributives: la durata (三年, 三个月) va in fondo, dopo il verbo",

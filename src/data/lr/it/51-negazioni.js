@@ -222,6 +222,9 @@ LESSON_RICH.it["negazioni"] = {
     "你会判断位置：否定词在动词前面不用 non，在动词后面必须有 non。",
     "你会用 Neanche io 或 Nemmeno io 回应别人的否定句，也会用 né … né 说“既不……也不”。"
   ],
+  "glosse": {
+    "siamo andati in Italia": "我们去过意大利了。"
+  },
   "fonti": [
     "Think in Italian, «Negative Sentences in Italian» (non, niente, nulla, nessuno, mai, né… né…; doppia negazione e posizione dell'espressione negativa)",
     "University of Vermont, Cristina Mazzoni, «il sito di grammatica italiana: negatives (i negativi)» (non… mai, non… ancora, non… più, né… né, neanche, nemmeno, neppure, nessuno, nessun, niente, nulla)",

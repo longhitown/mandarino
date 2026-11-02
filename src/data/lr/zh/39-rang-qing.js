@@ -182,6 +182,20 @@ LESSON_RICH.zh["rang-qing"] = {
     "Sai scegliere tra 请 e 让 guardando se chiedi, inviti, permetti o provochi un effetto.",
     "Sai costruire la frase con la persona di mezzo, senza «che» né preposizioni."
   ],
+  "glosse": {
+    "妈妈不让我": "La mamma non mi lascia",
+    "消息让我很高兴": "La notizia mi rende molto felice",
+    "他的话让我生气": "Le sue parole mi fanno arrabbiare",
+    "妈妈不让我去": "La mamma non mi lascia andare",
+    "别让他一个人去": "Non lasciarlo andare da solo",
+    "请不要大声说话": "Non parli ad alta voce, per favore",
+    "让我很高兴": "Mi rende molto felice",
+    "我请你你来": "!Ti invito a te venire (ripetizione sbagliata)",
+    "老师叫我们回家": "L'insegnante ci dice di tornare a casa",
+    "这个结果使大家很高兴": "Questo risultato rende tutti molto felici",
+    "我们各付各的": "Ognuno paga per sé",
+    "请让我看看": "Mi lasci vedere, per favore"
+  },
   "fonti": [
     "CC-CEDICT, voci 请, 让 e 叫: sensi di invitare, pregare e offrire; lasciare, far fare, rendere; 让 come agente passivo; 叫 come agente passivo",
     "Tatoeba (cmn.tsv), esempi con 请你… e 让我… frasi reali con 请你… e 让我… (per esempio 让我试试, 请你不要哭), lette per controllare l'ordine delle parole"

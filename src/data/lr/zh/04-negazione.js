@@ -208,6 +208,15 @@ LESSON_RICH.zh["negazione"] = {
     "Sai dire «non ancora» con 还没 e «mai» con 没…过.",
     "Sai rispondere con una negazione breve a una domanda (不去, 没有)."
   ],
+  "glosse": {
+    "我没有吃饭": "Non ho mangiato",
+    "以前我不喝咖啡": "Prima non bevevo caffè",
+    "昨天我不忙": "Ieri non ero occupato",
+    "他不喝咖啡": "Non beve caffè",
+    "我们都不去": "Nessuno di noi va",
+    "我们不都去": "Non andiamo tutti",
+    "不去，我很累": "Non vado, sono stanco"
+  },
   "fonti": [
     "Wikipedia (inglese), «Chinese grammar»: 不 come negatore più comune, 没 per 有 e per eventi compiuti",
     "CC-CEDICT, voci 不 (bù, bú) e 没 (méi): cambio di tono e uso come negazione di 有",

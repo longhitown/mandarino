@@ -199,6 +199,16 @@ LESSON_RICH.zh["zhengfan-haishi"] = {
     "Sai distinguere 还是 (domande e domande indirette) da 或者 (affermazioni).",
     "Sai chiudere una proposta con 好不好 e riconoscere gli errori più comuni (吗 in più, 有不有)."
   ],
+  "glosse": {
+    "你喝不喝茶": "Bevi il tè?",
+    "你是不是中国人": "Sei cinese?",
+    "喜欢不喜欢": "Piace o non piace",
+    "我不知道他喝茶还是咖啡": "Non so se beve tè o caffè.",
+    "你喝茶还是咖啡吗": "!Bevi tè o caffè? (con 吗 sbagliato)",
+    "你是不是学生吗": "!Sei studente? (con 吗 sbagliato)",
+    "你去不去啊": "Vai, eh?",
+    "你去不去呢": "Vai o no?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Affirmative-negative question»: V不V, 有没有 (la negazione di 有 è 没), 不 dopo la prima sillaba (喜不喜欢), oggetto tra V e 不 V",
     "CC-CEDICT (cedict_ts.u8), voci 还是, 或者, 一下, consultate in locale",

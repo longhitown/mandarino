@@ -204,6 +204,15 @@ LESSON_RICH.zh["avere"] = {
     "Sai fare le domande con 有…吗 e con 有没有, e rispondere con 有 o 没有.",
     "Sai scegliere tra 有 (c'è una cosa nuova), 在 (dove sta una cosa nota) e 是 (chi o che cos'è)."
   ],
+  "glosse": {
+    "我有一个哥哥": "Ho un fratello maggiore",
+    "你有时间吗": "Hai tempo?",
+    "你有没有时间": "Hai tempo?",
+    "这里有一个超市": "Qui c'è un supermercato",
+    "有的人喜欢茶，有的人喜欢咖啡": "Ad alcuni piace il tè, ad altri il caffè",
+    "这个人很有钱": "Quest'uomo è molto ricco",
+    "请问，这里有洗手间吗": "Scusi, qui c'è un bagno?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with you»: luogo + 有 + cosa, domanda con 吗",
     "Chinese Grammar Wiki (AllSet Learning), «Negation of you with mei»: 没 nega 有, mai 不有; 没有 si accorcia in 没",

@@ -212,6 +212,9 @@ LESSON_RICH.it["futuro"] = {
     "你会判断什么时候用现在时加时间词说计划，什么时候用将来时做承诺和预测。",
     "你会用 Sarà… 和 Saranno le… 来猜测现在的情况，并且不把汉语的“会”（能力）译成将来时。"
   ],
+  "glosse": {
+    "Domani vado al mare": "明天我去海边。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «futuro»: futuro epistemico, iussivo e deontico, presente per il futuro (pagina letta)",
     "Tatoeba (ita.tsv), frasi reali con Domani andrò (23), Sarà difficile (23), Verrò (104), Dovrò (92), Ti telefonerò stasera (1): verificate con grep nel corpus locale"

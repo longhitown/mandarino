@@ -218,6 +218,10 @@ LESSON_RICH.it["opinioni"] = {
     "你会用 mi sembra、mi pare 说“我觉得像……”，并且知道后面可以接名词或 che + 虚拟式。",
     "你会用 sono d'accordo、non sono d'accordo、hai ragione 表态，用 Che ne pensi? 问别人的看法。"
   ],
+  "glosse": {
+    "una teoria a riguardo": "关于这件事我有一个看法。",
+    "Che ne pensi di questa idea": "你觉得这个主意怎么样？"
+  },
   "fonti": [
     "Accademia della Crusca, Consulenza linguistica, «Uso del congiuntivo» (credere, ritenere, supporre con il congiuntivo; sapere, dire, sostenere con l'indicativo; pensare con indicativo e con congiuntivo)",
     "Northwestern University, Open Books, Intermediate Italian Grammar 1, «Congiuntivo vs. infinito» (pensare, credere: che + congiuntivo con soggetti diversi, di + infinito con lo stesso soggetto)",

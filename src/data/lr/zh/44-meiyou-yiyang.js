@@ -194,6 +194,22 @@ LESSON_RICH.zh["meiyou-yiyang"] = {
     "Sai scegliere tra 跟…一样, 没有 e 比 secondo il rapporto, mettendo l'aggettivo al posto giusto e senza 很.",
     "Sai aggiungere «un po'» o «molto» al confronto con 比…一点 e 比…多了."
   ],
+  "glosse": {
+    "没有昨天热": "Non fa caldo come ieri",
+    "我没有他高": "Non sono alto come lui",
+    "他汉语说得跟老师一样好": "Parla cinese bene come l'insegnante",
+    "她也跟我一样高": "Anche lei è alta come me",
+    "我们都跟他一样忙": "Siamo tutti occupati come lui",
+    "他没有我高多了": "Non è molto più alto di me",
+    "他比我高多了": "È molto più alto di me",
+    "他没有我高": "Non è alto come me",
+    "他跟我不一样高": "Non è alto quanto me",
+    "我比他矮一点": "Sono un po' più basso di lui",
+    "他话说得跟老师一样": "Parla come l'insegnante",
+    "他笑得像孩子一样": "Ride come un bambino",
+    "跟我想的不一样": "Diverso da come penso",
+    "你做的菜跟饭馆的一样好吃": "Quello che cucini è buono come quello del ristorante!"
+  },
   "fonti": [
     "CC-CEDICT, voci 一样 e 没有, consultate nel file locale",
     "Tatoeba (cinese, file cmn.tsv): frasi come Ken跟Bill一样高 e 他话说得跟老师一样, controllate nel corpus locale"

@@ -214,6 +214,10 @@ LESSON_RICH.it["riflessivi"] = {
     "你会说身体和衣服的动作，不用物主词：Mi lavo le mani, Mi metto il cappotto。",
     "你会区分有代词和没有代词的动词：lavare 和 lavarsi，svegliare 和 svegliarsi。"
   ],
+  "glosse": {
+    "Mi devo alzare presto": "我得早点起床。",
+    "Mi sono lavato le mani": "我洗了手。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «verbi-riflessivi» (riflessivi diretti, indiretti e reciproci; accordo del participio con essere; pagina letta)",
     "Tatoeba (ita.tsv), frasi contate con grep: «Mi sono svegliato» (44), «Si è alzata» (8), «Mi lavo le mani» (4), «Mi sono tagliato» (11), «Si sono sposati» (20)"

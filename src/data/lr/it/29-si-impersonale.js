@@ -206,6 +206,18 @@ LESSON_RICH.it["si-impersonale"] = {
     "你会判断 si 后面的动词用单数还是复数，如 si vende il pane、si vendono scarpe。",
     "你会用 ci si 和 si è + 复数形容词，如 Ci si alza presto、Quando si è stanchi。"
   ],
+  "glosse": {
+    "Si mangia la pizza": "这里吃比萨。",
+    "Si mangiano due pizze": "这里卖两个比萨。",
+    "Qui si dorme bene": "在这里睡得好。",
+    "A teatro non si parla": "在剧院里不说话。",
+    "Non si deve correre": "不要跑。",
+    "Si possono comprare i biglietti online": "可以在网上买票。",
+    "Ci si alza presto in campagna": "在乡下人们起得早。",
+    "Ci si sente bene qui": "在这里感觉很好。",
+    "Quando si è stanchi, si dorme male": "累的时候，人睡得不好。",
+    "Domani si va al cinema": "明天去看电影吗？"
+  },
   "fonti": [
     "Wikipedia (inglese), «Italian grammar», sezione sul si impersonale (lettura parziale: essere con aggettivo al maschile plurale, esempio Si è sempre stanchi),",
     "Tatoeba (ita.tsv): controllo della naturalezza di Come si dice, Si può + infinito (260), si mangia bene (10); «ci si alza presto» non compare nel corpus"

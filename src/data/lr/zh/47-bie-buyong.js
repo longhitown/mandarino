@@ -200,6 +200,14 @@ LESSON_RICH.zh["bie-buyong"] = {
     "Sai distinguere 别 (comando), 不用 (non serve) e 不要 + nome (non voglio) a seconda di quello che vuoi dire.",
     "Sai usare 别…了 per far smettere qualcuno o per avvertirlo, e 还是别…了 per dire «meglio di no»."
   ],
+  "glosse": {
+    "你不用等我": "Non serve che mi aspetti",
+    "我们还是别去了": "Meglio non andare",
+    "昨天我没去": "Ieri non sono andato",
+    "我不喝咖啡": "Non bevo caffè",
+    "请不用拍照": "Non serve fotografare",
+    "您不用担心": "Non si preoccupi"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Negative commands with bie»: 别 + verbo, più rapido e forte di 不要, pensato come sua contrazione",
     ,

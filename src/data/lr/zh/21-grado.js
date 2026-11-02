@@ -191,6 +191,22 @@ LESSON_RICH.zh["grado"] = {
     "Sai negare il giudizio (睡得不好) e dire «troppo» (来得太晚了).",
     "Sai chiedere e confrontare: 他唱得好吗？, 他跑得比我快."
   ],
+  "glosse": {
+    "中文说得很好": "Parla molto bene il cinese",
+    "说中文说得很好": "Parla molto bene il cinese",
+    "她唱得很好": "Canta molto bene",
+    "我睡得不好": "Dormo male",
+    "他跑得很快": "Corre molto veloce",
+    "我说得不好": "Non parlo bene",
+    "他写得不太清楚": "Non scrive molto chiaramente",
+    "我不说得好": "!Non parlo bene (negazione al posto sbagliato)",
+    "中文他说得很好": "Il cinese lo parla molto bene",
+    "他说得好吗": "Parla bene?",
+    "他说得好不好": "Parla bene?",
+    "我不睡得好": "!Non dormo bene (negazione al posto sbagliato)",
+    "你唱得真好": "Canti davvero bene",
+    "你做饭做得真好吃": "Cucini davvero bene"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Degree complement»: struttura verbo + 得 + giudizio, verbo ripetuto o oggetto davanti, forme errate con 得 dopo l'oggetto",
     "Chinese Grammar Wiki (AllSet Learning), «State complement»: ripetizione del verbo quando c'è un oggetto (做作业做得很慢)",

@@ -198,6 +198,14 @@ LESSON_RICH.it["paragoni-uguale"] = {
     "你会用 non è così … come 说“没有那么……”，用 uguale a、lo stesso、diverso da 说相同与不同。",
     "你会避开 *come io*、*uguale di*、*tanto … come* 这样的常见错误。"
   ],
+  "glosse": {
+    "Anna è alta come Marco": "安娜和马可一样高。",
+    "Corre veloce quanto me": "他跑得和我一样快。",
+    "È tanto bravo quanto modesto": "他既聪明又谦虚。",
+    "Questo vino non è così buono come quello": "这种酒没有那种好。",
+    "Il mio cognome è uguale al tuo": "我的姓和你的一样。",
+    "Abbiamo lo stesso insegnante": "我们有同一位老师。"
+  },
   "fonti": [
     "University of Vermont, Cristina Mazzoni, «il sito di grammatica italiana: comparatives and superlatives» (letta: comparativo di uguaglianza (così) … come e (tanto) … quanto per aggettivi e avverbi senza accordo, per i nomi con accordo, per i verbi senza accordo; così e tanto opzionali)",
     "Wikipedia (inglese), «Italian grammar» (letta in parte: «sono alto come te», «sono più alto di te»)",

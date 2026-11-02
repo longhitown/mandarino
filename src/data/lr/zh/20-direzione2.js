@@ -216,6 +216,15 @@ LESSON_RICH.zh["direzione2"] = {
     "Sai collocare l'oggetto nelle costruzioni 把…拿出来, 拿出…来, 下起雨来.",
     "Sai formare il negativo del risultato: 想不起来, 看不出来, 说不下去."
   ],
+  "glosse": {
+    "拿出手机来": "Tirare fuori il cellulare",
+    "把手机拿出来": "Tirare fuori il cellulare",
+    "他没站起来": "Non si è alzato",
+    "他看起来很累": "Sembra molto stanco",
+    "看起来很好": "Sembra molto buono",
+    "但是吃起来很酸": "Ma è molto aspro",
+    "你看起来很累": "Sembri molto stanco"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来/去 secondo il punto di chi parla, luogo tra verbo e coppia",
     "CC-CEDICT, voci 想起来, 看起来, 停下来, 站起来, 起来 (inizio e continuazione) e 下去; Tatoeba (cinese-italiano, es. 现在我想起来了, 她看起来不幸福, 请继续说下去, 玛丽站起来穿上了外套)"

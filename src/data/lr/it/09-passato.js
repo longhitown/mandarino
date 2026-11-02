@@ -207,6 +207,10 @@ LESSON_RICH.it["passato"] = {
     "你会让用 essere 的分词随主语变成 -o、-a、-i、-e。",
     "你会把 già、ancora、mai 放在助动词和分词之间，问对方的经历。"
   ],
+  "glosse": {
+    "Non ho ancora finito": "我还没做完。",
+    "Ho fatto, ho detto, ho scritto": "我做了，说了，写了。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «passato prossimo» (Wiberg, 2011): formazione con essere o avere, accordo del participio (pagina letta)",
     "Tatoeba (ita.tsv), frasi reali con Mi sono alzato (27), Siamo andati (165), Ho fatto colazione (6), Non ho ancora (257): verificate con grep nel corpus locale"

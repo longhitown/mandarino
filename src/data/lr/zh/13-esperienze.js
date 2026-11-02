@@ -206,6 +206,20 @@ LESSON_RICH.zh["esperienze"] = {
     "Sai dire «non ho mai» con 没(有)…过 e «mai in vita mia» con 从来没…过.",
     "Sai chiedere e rispondere a «sei mai stato…?» e dire quante volte con 次."
   ],
+  "glosse": {
+    "我吃过饺子": "Ho mangiato i ravioli",
+    "她去过巴黎": "È stata a Parigi",
+    "我昨天吃了饺子": "Ieri ho mangiato i ravioli",
+    "你有没有去过中国": "Sei mai stato in Cina?",
+    "你去过中国没有": "Sei mai stato in Cina?",
+    "去过两次北京": "Sono stato due volte a Pechino",
+    "去过北京两次": "Sono stato due volte a Pechino",
+    "见过他两次": "L'ho visto due volte",
+    "他当过老师": "È stato insegnante",
+    "他在北京工作过": "Ha lavorato a Pechino",
+    "可是我很想去": "Ma ho molta voglia di andarci",
+    "谢谢，我吃过了": "Grazie, ho già mangiato"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing experiences with guo»: V + 过 per un'esperienza senza data, negazione con 没 + verbo + 过",
     "CC-CEDICT, voce 过 (guo, guò); Tatoeba cinese-italiano (es. 她去过巴黎, 我从没去过欧洲, 他已经吃过午饭了), consultati nei corpora locali"

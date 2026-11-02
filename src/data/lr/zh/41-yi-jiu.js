@@ -188,6 +188,15 @@ LESSON_RICH.zh["yi-jiu"] = {
     "Sai distinguere «appena» (一…就), «solo dopo» (才) e «poi» (再).",
     "Sai fare una richiesta o una promessa come 你一到就给我发个信息."
   ],
+  "glosse": {
+    "小狗就跑进来了": "Il cagnolino è subito entrato di corsa",
+    "你一到就马上给我打电话": "Appena arrivi, telefonami subito",
+    "他一看见我": "Appena mi ha visto",
+    "他刚吃完饭": "Ha appena finito di mangiare",
+    "一旦开始，就不能停": "Una volta cominciato, non si può fermare.",
+    "你一到就告诉我": "Appena arrivi, dimmelo",
+    "你怎么一…就…": "Come mai appena… subito…?"
+  },
   "fonti": [
     "Tatoeba (cmn.tsv, interrogato in locale), ricerca del modello 一…就: ad esempio 一到家就, 一回家就, 一着火就 attestati come uso corrente; 一 davanti al primo verbo e 就 davanti al secondo",
     "CC-CEDICT (cedict_ts.u8), voci 一下, 一旦, 一起, 刚 e 刚刚: significati di «d'un tratto», «una volta che», «da poco»"

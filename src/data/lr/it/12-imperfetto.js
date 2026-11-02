@@ -207,6 +207,9 @@ LESSON_RICH.it["imperfetto"] = {
     "你会判断 sapere、conoscere、volere 在过去时里的意思有什么不同。",
     "你会避开“了 = 近过去时”的错误，先问：这是完成的事，还是一个场景。"
   ],
+  "glosse": {
+    "Sono rimasto a casa perché ero stanco": "我待在家里，因为我累了。"
+  },
   "fonti": [
     "Treccani, Enciclopedia dell'Italiano, voce «imperfetto» (usi: abitudine, descrizione, azione in corso, imperfetto di cortesia)",
     "Northwestern Open Books, Intermediate Italian Grammar 1, capitolo 1 (ripasso di passato prossimo e imperfetto) e appendice su sapere e conoscere",

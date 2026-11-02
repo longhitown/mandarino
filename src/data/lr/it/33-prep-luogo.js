@@ -202,6 +202,15 @@ LESSON_RICH.it["prep-luogo"] = {
     "你会在位置词后面使用 me、te、lui 等重读代词，并在 sopra / sotto / dietro / dentro 后面补 di。",
     "你会用 tra、fra、di fronte a、a destra di 这些词给别人指路。"
   ],
+  "glosse": {
+    "Il libro è sopra il tavolo": "书在桌子上面。",
+    "La palla è dietro la porta": "球在门后面。",
+    "Abito lontano dal mare": "我住得离海很远。",
+    "Aspetto fuori dalla scuola": "我在学校外面等。",
+    "Resta tra me e te": "这是我们俩之间的秘密。",
+    "La banca è a destra della stazione": "银行在车站右边。",
+    "La farmacia è davanti alla stazione, di fronte alla banca": "药店在车站前面，银行对面。"
+  },
   "fonti": [
     "Think in Italian, «Adverbs of Place: Italian Grammar Lesson» (letta: vicino a, lontano da con l'articolo; dentro con o senza a; sopra e sotto senza preposizione; davanti e dietro con a)",
     "Tatoeba (ita.tsv): frasi consultate con vicino a, lontano da, accanto a, dietro per controllare la naturalezza delle costruzioni"

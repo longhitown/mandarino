@@ -172,8 +172,8 @@ window.CP.lzCss = `
 .lz-view { display: flex; gap: 8px; margin: 10px 0 0; }
 .lz-sw { border: .5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-size: .85rem; cursor: pointer; }
 .lz-sw[aria-pressed="false"] { opacity: .55; text-decoration: line-through; }
-.lz-nopy .lz-xz rt, .lz-nopy .lz-rb rt { display: none; }
-.lz-nogl .lz-xg { display: none; }
+.lz-nopy .lz-xz rt, .lz-nopy .lz-rb rt, .lz-nopy .lp { display: none; }
+.lz-nogl .lz-xg, .lz-nogl .lz-tr { display: none; }
 .lz-xb { display: inline-flex; align-self: center; margin-right: 6px; color: var(--t4); }
 .lz-xb svg { width: 16px; height: 16px; }
 

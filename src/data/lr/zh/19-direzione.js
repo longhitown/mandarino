@@ -203,6 +203,16 @@ LESSON_RICH.zh["direzione"] = {
     "Sai collocare il luogo tra il verbo di direzione e 来/去 (回家去, 进房间来).",
     "Sai raccontare chi entra, esce o torna con 了 e con un verbo di modo (跑出去, 走进来)."
   ],
+  "glosse": {
+    "走进教室来": "Entrare in classe",
+    "带一本书来": "Portare un libro",
+    "送你回家去": "Accompagnarti a casa",
+    "带来了一杯茶": "Ha portato una tazza di tè",
+    "他还没回来": "Non è ancora tornato",
+    "你过去看看": "Vai a vedere",
+    "我马上过去": "Vado subito",
+    "请不要进来": "Non entrate, per favore"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来 e 去 secondo la posizione di chi parla, luogo prima di 来/去 (回中国来, non 回来中国), omissione di 来/去 nel parlato",
     "CC-CEDICT, voci 进来, 出去, 回来, 过来, 过去, 入口, 出口 (uscita, esportazione), 进口 (importazione, ingresso)",

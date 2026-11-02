@@ -196,6 +196,13 @@ LESSON_RICH.it["ristorante-negozio"] = {
     "你会在商店里说 la prendo / lo prendo，并用 con la carta 询问付款方式。",
     "你会对陌生的服务员和店员用 Lei 的形式，用 grazie、prego 收尾。"
   ],
+  "glosse": {
+    "Per me un tè, grazie": "我要一杯茶，谢谢。",
+    "Mi porti il conto": "请把账单给我。",
+    "Avete un tavolo per due": "有两个人的位子吗？",
+    "C'è un menù in inglese": "有英文菜单吗？",
+    "Il conto, per favore": "请结账。"
+  },
   "fonti": [
     "Treccani, Vocabolario, voce «volere» (letta: desiderio attenuato e richiesta, es. «vorrei un po' di vino», «vuole anche un po' di contorno?»; la voce non tratta esplicitamente vorrei di cortesia)",
     "Tatoeba (ita.tsv, grep): «Vorrei un» (250), «Volevo un» (18), «Posso avere» (210), «Quanto costano» (31), «Avete un tavolo» (3)"

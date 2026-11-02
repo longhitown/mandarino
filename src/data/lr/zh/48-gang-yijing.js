@@ -199,6 +199,18 @@ LESSON_RICH.zh["gang-yijing"] = {
     "Sai negare un fatto di poco fa con 刚才…没 e collegare due azioni vicine con 刚…就.",
     "Sai distinguere tra 刚 (vicinanza al presente) e 刚才 (un punto di pochi minuti fa)."
   ],
+  "glosse": {
+    "我刚才吃了一个苹果": "Poco fa ho mangiato una mela",
+    "已经很晚了": "Ormai è tardi",
+    "已经十点了": "Sono già le dieci",
+    "我还没吃饭": "Non ho ancora mangiato",
+    "他还没起床呢": "Non si è ancora alzato",
+    "昨天刚才到": "!Sono arrivato ieri (uso sbagliato di 刚才)",
+    "他才意识到自己已经上当": "Si è accorto solo ora di essere stato ingannato",
+    "我学中文已经两年了": "Studio cinese ormai da due anni",
+    "你吃了没有": "Hai mangiato?",
+    "刚才对不起": "Scusa per prima"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Comparing gang and gangcai»: 刚 avverbio tra soggetto e verbo, 刚才 parola di tempo di pochi minuti, 刚 di solito senza 了",
     "CC-CEDICT, voci 刚, 刚才, 刚刚, 已经; Tatoeba (cmn.tsv: es. 我刚才在洗澡, 我已经看过这部电影了, 他还没来), consultati con grep in locale"

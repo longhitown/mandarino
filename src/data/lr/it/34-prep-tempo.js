@@ -204,6 +204,16 @@ LESSON_RICH.it["prep-tempo"] = {
     "你会用 in 说“用了多久完成”，用 entro 说“最迟什么时候”，用 fino a 说“待到什么时候”。",
     "你会用 alle、dal … al …、durante、in estate 等表达钟点、范围、季节和过程。"
   ],
+  "glosse": {
+    "Studio italiano da due anni": "我学意大利语学了两年。",
+    "Ho dormito per otto ore": "我睡了八个小时。",
+    "Resto a Roma per una settimana": "我在罗马待一个星期。",
+    "Ho dormito otto ore": "我睡了八个小时。",
+    "Torno fra due ore": "两个小时后我回来。",
+    "Sono arrivato due ore fa": "我两个小时前到的。",
+    "Resto fino a domenica": "我待到星期天。",
+    "Durante la cena non uso il telefono": "晚餐时我不用手机。"
+  },
   "fonti": [
     "Wikipedia italiano, voce «Preposizione» (quadro generale delle preposizioni proprie e improprie; non tratta nel dettaglio i complementi di tempo)",
     "Tatoeba (ita.tsv): frasi consultate con da tre anni, due giorni fa, fra due mesi per controllare la naturalezza delle costruzioni"

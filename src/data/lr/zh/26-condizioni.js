@@ -226,6 +226,17 @@ LESSON_RICH.zh["condizioni"] = {
     "Sai riconoscere le coppie sbagliate (只有…就, 只要…才) e la posizione di 就 e 才 dopo il soggetto.",
     "Sai formulare ipotesi irreali in cinese senza cambiare il verbo, affidandoti al contesto."
   ],
+  "glosse": {
+    "下雨的话，我们就在家": "Se piove, stiamo a casa",
+    "如果你累的话，就休息吧": "Se sei stanco, riposa",
+    "我们就在家": "Allora stiamo a casa",
+    "只有多练习，才会说得好": "Solo se ti eserciti molto parlerai bene",
+    "只要买票，就能进去": "Basta comprare il biglietto per entrare",
+    "只有买票，才能进去": "Solo con il biglietto si può entrare",
+    "你去的话，我也去": "Se vai tu, vengo anch'io",
+    "如果有困难，给我打电话": "Se hai difficoltà, telefonami",
+    "如果你累了，就休息吧": "Se sei stanco, riposa"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing if then with ruguo jiu»: 如果 nella condizione e 就 nel risultato",
     "CC-CEDICT (cedict_ts.u8), voci 如果, 要是, 的话, 假如, 倘若, 只要, 只有, 就, 才, 既然, 请客",

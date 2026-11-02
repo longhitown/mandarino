@@ -211,6 +211,24 @@ LESSON_RICH.zh["piacere"] = {
     "Sai fare e rispondere a domande sui gusti con 吗, con 喜欢不喜欢 e con 还是.",
     "Sai distinguere 喜欢, 想, 好吃 e 好喝: un gusto stabile, un desiderio del momento, il sapore di una cosa."
   ],
+  "glosse": {
+    "在家看电影": "Guardare un film a casa",
+    "我们都喜欢这里": "Ci piace a tutti qui",
+    "他喜欢做饭": "Gli piace cucinare",
+    "她喜欢唱歌": "Le piace cantare",
+    "我不喜欢咖啡": "Non mi piace il caffè",
+    "我从来没喜欢过他": "Non mi è mai piaciuto lui",
+    "你喜欢茶吗": "Ti piace il tè?",
+    "你喜欢不喜欢茶": "Ti piace il tè?",
+    "我喜欢的颜色": "Il colore che mi piace",
+    "我最喜欢的歌": "La canzone che mi piace di più",
+    "我要一杯茶": "Voglio una tazza di tè",
+    "我喜欢喝茶": "Mi piace bere tè",
+    "我喜欢上了这个城市": "Mi è piaciuta questa città",
+    "我不太喜欢辣的": "Non amo molto il piccante",
+    "我不喜欢辣的": "Non mi piace il piccante",
+    "这个菜很好吃": "Questo piatto è molto buono"
+  },
   "fonti": [
     "CC-CEDICT, voce 喜歡 / 喜欢 (to like; to be fond of), consultata nel dizionario locale",
     "Tatoeba (cinese-italiano, es. 我喜欢茶), consultato nei corpora locali"

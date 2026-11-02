@@ -214,6 +214,18 @@ LESSON_RICH.zh["paragoni"] = {
     "Sai dire «non così … come» con 没有 o 不如 e «uguale» con 跟 … 一样.",
     "Sai paragonare anche le azioni con 早, 多, 少 e con 跑得快."
   ],
+  "glosse": {
+    "他比我更高": "Lui è ancora più alto di me",
+    "他比我还高": "Lui è ancora più alto di me",
+    "这个不如那个好": "Questo non è buono quanto quello",
+    "他不比我高": "Lui non è più alto di me",
+    "他比我多买了一本": "Ha comprato un libro in più di me",
+    "他跑得比我快": "Corre più veloce di me",
+    "天气越来越冷": "Il tempo diventa sempre più freddo",
+    "比起北京，上海更热闹": "Rispetto a Pechino, Shanghai è più vivace",
+    "这个比那个贵一点": "Questo costa un po' più di quello",
+    "我没有你高": "Non sono alto come te"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Basic comparisons with bi»: Noun1 + 比 + Noun2 + aggettivo, niente 很 nel confronto, aggettivo positivo dopo 比",
     "CC-CEDICT, voce 比 (to compare; more adj. than) e Tatoeba (cinese, es. 今天比昨天暖和, 你不比我矮, 我媽媽比我早起), consultati nei corpora locali"

@@ -8,7 +8,7 @@
    corso "zh": spiegazioni in italiano, esempi in cinese (con pinyin automatico). corso "it": spiegazioni in cinese, esempi in italiano. */
 
 const CJK = /[㐀-鿿]/, CJKRUN = /[㐀-鿿＿]+/g;
-const KEYS = ["v", "svolta", "scopri", "regola", "logica", "mappa", "esempi", "contrasti", "dialogo", "tranello", "curiosi", "pragmatica", "esercizi", "capaci", "fonti"];
+const KEYS = ["v", "svolta", "scopri", "regola", "logica", "mappa", "esempi", "contrasti", "dialogo", "tranello", "curiosi", "pragmatica", "esercizi", "capaci", "glosse", "fonti"];
 const TIPI = ["scegli", "buco", "ordine", "scrivi", "trasforma", "minidialogo"];
 const MAPPE = ["catena", "timeline", "albero", "tabella"];
 /* parole che non possono stare nel testo di una lezione: nessuna incertezza dichiarata, nessun segnaposto */
@@ -50,6 +50,11 @@ export function checkRicche(L, corso) {
     const tutto = JSON.stringify(Object.assign({}, r, { fonti: undefined }));
     if (!ids.has(id)) e("non esiste la lezione di base con questo id");
     for (const k of Object.keys(r)) if (!KEYS.includes(k)) e(`campo sconosciuto «${k}»`);
+    /* glosse: frasi di esempio nel testo con la loro traduzione (o «!traduzione» se la forma è sbagliata) */
+    if (r.glosse !== undefined) {
+      if (!r.glosse || typeof r.glosse !== "object" || Array.isArray(r.glosse)) e("glosse deve essere un oggetto frase → traduzione");
+      else for (const [k, t] of Object.entries(r.glosse)) if (typeof t !== "string" || t.replace(/^!/, "").trim().length < 2 || k.trim().length < 2) e("glosse: voce «" + k + "» senza traduzione");
+    }
     if (r.v !== 1) e("v deve essere 1");
     const kb = Buffer.byteLength(JSON.stringify(r)); if (kb < 9000) e(`troppo breve (${kb} byte): una lezione ricca è un capitolo, almeno 9000 byte`); if (kb > 70000) e(`troppo lunga (${kb} byte)`);
     if (VIETATE.test(tutto)) e("contiene una parola vietata (incertezza dichiarata o segnaposto): " + (tutto.match(VIETATE) || [""])[0]);

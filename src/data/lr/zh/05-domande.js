@@ -203,6 +203,15 @@ LESSON_RICH.zh["domande"] = {
     "Sai rispondere a una domanda ripetendo il verbo, anche a una domanda negativa.",
     "Sai scegliere tra 吗, 吧, 呢 e 还是 secondo ciò che vuoi chiedere."
   ],
+  "glosse": {
+    "你有没有时间": "Hai tempo?",
+    "我喝茶或者咖啡都可以": "Per me va bene tè o caffè",
+    "你想吃点儿什么吗": "Che cosa vuoi mangiare?",
+    "你想吃什么": "Che cosa vuoi mangiare?",
+    "对，我是学生": "Sì, sono studente",
+    "你吃了没有": "Hai mangiato?",
+    "您是老师吗": "Lei è insegnante?"
+  },
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Yes-no questions with ma»: 吗 in fondo a una frase affermativa, niente 吗 insieme a una parola interrogativa",
     "Wikipedia (inglese), «A-not-A question»: la forma A-not-A e il confronto con la domanda con 吗",
