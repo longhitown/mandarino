@@ -767,7 +767,7 @@ function sandbox() {
   /* applicare un voto: stesso risultato del motore dell'app con l'ora originale, intervallo compreso */
   {
     const w = world(); const before = fresh(w, "好", T0), t = before.d + 2 * H;
-    const ref = new w.ctx.FSRS.Scheduler({ retention: 0.9, fuzz: false, dayOf: w.ctx.FSRS.studyDay }).review({ state: before.sd, step: before.sp, st: before.st, df: before.df, due: before.d, last: before.lr }, 3, t);
+    const ref = new w.ctx.FSRS.Scheduler({ retention: 0.9, fuzz: false, dayOf: w.ctx.FSRS.studyDay }).review({ state: before.sd, step: before.sp, st: before.st, df: before.df, due: before.d, last: before.lr }, 3, t, { nights: w.ctx.FSRS.studyDay(t) - w.ctx.FSRS.studyDay(before.lr) });
     w.queue.list = [vote("a1", "好", 2, t)];
     const n = w.CP.wq.run(), r = w.CP.S()["好"];
     check("Widget ripasso: un voto in coda si applica con l'ora del voto (stessa scheda del motore FSRS, scadenza calcolata da quell'ora)", n === 1 && r.lr === t && r.d === ref.due && r.st === ref.st && r.n === before.n + 1, JSON.stringify([n, r, ref]));
@@ -816,6 +816,37 @@ function sandbox() {
       const ra = wa.CP.S()["你好"], rb = wb.CP.S()["你好"], f0 = new F.Scheduler({ fuzz: false }).review(new F.Scheduler().newCard(t1), 3, t1);
       check("ML-FSRS-32: una parola di più caratteri noti parte con più stabilità e meno difficoltà; senza caratteri noti è identica a FSRS-6", ra.st > rb.st && ra.df < rb.df && rb.st === f0.st && rb.df === f0.df, JSON.stringify([ra, rb]));
     }
+  }
+  /* notti e tempo abituale di risposta (core/core.js) e ricerca facoltativa (ui/research.js, ui/research-stub.js) */
+  {
+    const F0 = world().ctx.FSRS, D1 = 86400000, wr = world();
+    wr.ctx.Store.logAll = () => Promise.resolve(wr.logs); Object.assign(wr.CP, { esc: String, closeSheet() {}, version: "test" });
+    const rsSrc = fs.readFileSync(path.join(SRC, "ui/research.js"), "utf8"), stubSrc = fs.readFileSync(path.join(SRC, "ui/research-stub.js"), "utf8");
+    vm.runInContext(rsSrc, wr.ctx, { filename: "ui/research.js" });
+    const R = wr.CP.research;
+    /* nights e base arrivano al motore: 3 giorni di studio dopo il primo ripasso, tempo abituale = la prima risposta; la stessa carta dal motore con la stessa meta */
+    wr.CP.grade("好", 2, false, { at: T0, ms: 1000, kind: "mc", k: 4, type: "mc-pinyin" });
+    wr.CP.grade("好", 2, false, { at: T0 + 3 * D1, ms: 2000, kind: "mc", k: 4, type: "mc-pinyin" });
+    const e1 = wr.logs[0], e2 = wr.logs[1], rec = wr.CP.S()["好"], c1 = JSON.parse(JSON.stringify(wr.CP.S()["好"]));
+    const rt = JSON.parse(wr.mem["md-rt-v1"] || "{}");
+    check("Notti e tempo abituale: nights = giorni di studio dall'ultimo ripasso (0 alla prima volta), base = media mobile delle tue risposte per tipo di esercizio (la prima risposta all'inizio), salvata fuori dal backup", e1[7] && e1[7].nt === 0 && e1[7].bs === 1000 && e2[7].nt === 3 && e2[7].bs === 1000 && rt.mc === 1100 && !Object.keys(wr.mem).some((k) => /^cp-.*rt/.test(k)), JSON.stringify([e1, e2, rt]));
+    const wf = world(); wf.CP.grade("好", 2, false, { at: T0, ms: 1000, kind: "mc", k: 4, type: "mc-pinyin" });
+    const f1 = JSON.parse(JSON.stringify(wf.CP.S()["好"])), sch = new F0.Scheduler({ retention: 0.9, fuzz: false, dayOf: F0.studyDay });
+    const ref2 = sch.review({ state: f1.sd, step: f1.sp, st: f1.st, df: f1.df, due: f1.d, last: f1.lr }, 3, T0 + 3 * D1, { kind: "mc", k: 4, type: "mc-pinyin", ms: 2000, nights: 3, base: 1000 });
+    check("Notti e tempo abituale: CP.grade dà alla carta lo stesso risultato del motore con quella meta (sonno e rapidità attivi)", rec.st === ref2.st && rec.df === ref2.df, JSON.stringify([rec, ref2]));
+    const wn = world(); wn.CP.grade("好", 2, false, { at: T0 }); wn.CP.grade("好", 2, false, { at: T0 + 2 * H });
+    check("Registro dei ripassi: 7 elementi senza dati del motore (lettori vecchi invariati), 8 con kind/k/tono/caratteri/notti", wn.logs[0].length === 7 && wn.logs[1].length === 7 && e2.length === 8 && Object.keys(e2[7]).sort().join() === "bs,cp,k,kd,nt,tn");
+    /* ricerca: spenta di base, nessuna rete, file con solo chiavi note e solo parole del dizionario */
+    check("Ricerca: spenta di base (consent() = null) e senza rete (nessun fetch, XMLHttpRequest o beacon), il consenso in md-srs-research-consent (non cp-), la sezione solo in Impostazioni → Comunità e voci", R.consent() === null && !/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(rsSrc + stubSrc) && /md-srs-research-consent/.test(rsSrc) && /group: "community"/.test(stubSrc) && !/addEventListener\("load"|setInterval/.test(rsSrc));
+    wr.LS.setItem("md-srs-research-consent", JSON.stringify({ v: 1, t: T0, age: true, cc0: true, aware: true, id: "a1b2c3d4e5f67890", sent: 0 }));
+    wr.CP.grade("你", 3, false, { at: T0 + 5 * D1, ms: 900, kind: "type", type: "scrivi-pinyin" });
+    wr.logs.push([T0 + 6 * D1, "parola-mia", 3, 800, "mc", 0.9, 0], [T0 + 7 * D1, "好", 3, 500, "ip", 0.8, 1]);   /* una parola aggiunta dalla persona (non del dizionario) e una ripetizione */
+    const ex = await R.buildExport(), RK = ["app", "app_version", "cards", "engine", "engine_version", "exported_at", "license", "retention", "reviews", "schema", "summary", "user_anon_id"].join();
+    const rk = new Set(["t", "k", "g", "ms", "type", "pred_r", "retry", "kind", "k_opts", "tone_err", "comps", "nights", "base_ms"]);
+    check("Ricerca: il file ha schema mandarino-srs-research-v1, codice casuale, CC0, solo chiavi note, nessuna parola che non sia del dizionario, carte con st/df/reps/lapses", ex.schema === "mandarino-srs-research-v1" && ex.license === "CC0-1.0" && ex.engine === "ML-FSRS-32.1" && Object.keys(ex).sort().join() === RK && /^[0-9a-f]{16}$/.test(R.consent().id) && ex.user_anon_id === "a1b2c3d4e5f67890" && ex.reviews.length === 4 && ex.reviews.every((r) => Object.keys(r).every((k) => rk.has(k)) && wr.CP.WORDS[r.k]) && ex.summary.total_reviews === 4 && ex.summary.cards_tracked === 2 && Object.keys(ex.cards["好"]).sort().join() === "df,lapses,reps,sd,st" && !/parola-mia/.test(JSON.stringify(ex)), JSON.stringify(ex).slice(0, 300));
+    check("Ricerca: conta come pronti solo i ripassi di parole già viste (non le prime volte né le ripetizioni), il minimo per mandare è 300, e dopo un invio il file ha solo i ripassi nuovi", R.ready(wr.logs, 0) === 1 && R.MIN === 300 && R.build(wr.logs, T0 + 3 * D1).reviews.length === 2 && JSON.parse(R.text(ex)).reviews.length === ex.reviews.length && JSON.parse(R.text(ex)).reviews[0].k === ex.reviews[0].k, R.ready(wr.logs, 0));
+    R.revoke();
+    check("Ricerca: la revoca cancella il consenso e il codice casuale", R.consent() === null && wr.LS.getItem("md-srs-research-consent") === null);
   }
   /* esattamente una volta anche se l'ack va perso (app chiusa a metà): l'id è già scritto in md-wq-done */
   {

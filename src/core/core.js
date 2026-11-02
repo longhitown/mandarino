@@ -76,6 +76,14 @@
     return Math.max(1, Math.min(6, Math.floor(Math.log2(Math.max(1, r.st)) + 1)));
   }
   function toCard(r) { return { state: r.sd, step: r.sp, st: r.st, df: r.df, due: r.d, last: r.lr }; }
+  /* tempo abituale di risposta, per tipo di esercizio: media mobile dei tuoi ultimi ripassi (solo su questo dispositivo, md-rt-v1); finché non c'è, 2500 ms */
+  var RT = null;
+  function rtBase(kd, ms) {
+    if (!RT) try { RT = JSON.parse(localStorage.getItem("md-rt-v1")) || {}; } catch (e) { RT = {}; }
+    var b = RT[kd] || ms || 2500;
+    if (ms >= 250 && ms <= 30000) { RT[kd] = Math.round(RT[kd] ? b + (ms - b) / 10 : ms); try { localStorage.setItem("md-rt-v1", JSON.stringify(RT)); } catch (e) {} }
+    return b;
+  }
   CP.S = function () { return S; };
   CP.setS = function (obj) { S = obj || {}; Object.keys(S).forEach(function (k) { migrate(S[k]); }); CP.save(); CP.mark(); };
   CP.save = function () { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
@@ -106,8 +114,9 @@
       var card = r.st == null ? SCH.newCard(now) : toCard(r);
       wasReview = card.state === FSRS.REVIEW;
       /* ML-FSRS-32: per una parola di più caratteri, la stabilità dei caratteri che l'utente già studia (sconto morfemico) */
-      var hs = WORDS[k] && WORDS[k].hz ? Array.from(WORDS[k].hz) : [], m = meta || {};
-      if (hs.length > 1) m = Object.assign({}, m, { ncomp: hs.length, comps: hs.filter(function (h) { return h !== k && S[h] && S[h].st > 0; }).map(function (h) { return S[h].st; }) });
+      /* notti: i cambi di giorno di studio (le 4 del mattino) dall'ultimo ripasso; base: il tuo tempo abituale di risposta. Chi chiama può passarli lui */
+      var hs = WORDS[k] && WORDS[k].hz ? Array.from(WORDS[k].hz) : [], m = Object.assign({ nights: r.lr != null ? Math.max(0, FSRS.studyDay(now) - FSRS.studyDay(r.lr)) : 0, base: rtBase((meta && meta.kind) || "c", meta && meta.ms) }, meta);
+      if (hs.length > 1) { m.ncomp = hs.length; m.comps = hs.filter(function (h) { return h !== k && S[h] && S[h].st > 0; }).map(function (h) { return S[h].st; }); }
       var nc = SCH.review(card, g + 1, now, m);
       r.st = nc.st; r.df = nc.df; r.sd = nc.state; r.sp = nc.step; r.lr = now; r.d = nc.due;
       r.rp = (r.rp || 0) + 1; if (g === 0 && wasReview) r.lp = (r.lp || 0) + 1;
@@ -115,7 +124,12 @@
     r.b = boxOf(r);
     S[k] = r;
     CP.save(); CP.mark();
-    if (window.Store) Store.log([now, k, g + 1, (meta && meta.ms) || 0, (meta && meta.type) || "", pred == null ? null : Math.round(pred * 1000) / 1000, retry ? 1 : 0]);
+    if (window.Store) {
+      var lg = [now, k, g + 1, (meta && meta.ms) || 0, (meta && meta.type) || "", pred == null ? null : Math.round(pred * 1000) / 1000, retry ? 1 : 0];
+      /* 8° elemento, solo se serve: i dati del motore (esercizio, opzioni, tono, caratteri noti, notti, tempo abituale) per la ricerca facoltativa */
+      if (m && (m.kind || m.k || m.tone || m.nights > 1 || (m.comps && m.comps.length))) lg.push({ kd: m.kind || "", k: m.k || 0, tn: !!m.tone, cp: m.comps || [], nt: m.nights, bs: m.base });
+      Store.log(lg);
+    }
     if (CP.onGrade && !(meta && meta.quiet)) CP.onGrade(k, g, !!retry);
   };
   CP.mark = function () {

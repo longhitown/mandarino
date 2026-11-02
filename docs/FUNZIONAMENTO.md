@@ -315,7 +315,7 @@ Dipendenze di terzi dentro l'app: pochi file in `src/vendor/` (jsPDF per il Fogl
 |---|---|---|
 | Dati e lezioni validi, frasi cinesi fatte di parole del vocabolario, ogni file di dati elencato | `node tools/build.mjs` | passa |
 | Frasi verificate, regole di traduzione | `node tools/grammar.mjs` | 378/378 |
-| Prove veloci senza browser (taglio in parole, FSRS, QR, sigilli, sito, peso dell'avvio, widget) | `node tools/unit.mjs` | 237/237 |
+| Prove veloci senza browser (taglio in parole, FSRS, QR, sigilli, sito, peso dell'avvio, widget) | `node tools/unit.mjs` | 245/245 |
 | Prove nel browser (benvenuto, corsi, immersione, sincronizzazione, QR, sigilli, musica, voce, impostazioni, apertura…) | `node tools/e2e.mjs` | 352/352 |
 | Regole di interfaccia e accessibilità | `node tools/ux-audit.mjs` | nessun problema |
 | Documenti: link, ancore, parole vietate, strutture protette | `node tools/check-docs.mjs --strict` | 0 errori |
