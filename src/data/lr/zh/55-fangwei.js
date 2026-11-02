@@ -17,11 +17,11 @@ LESSON_RICH.zh["fangwei"] = {
     "punti": [
       { "ok": true, "t": "**Prima il riferimento, poi la parola di posizione**: 桌子上面, 学校前面, 我家旁边, 他左边. Il blocco intero è un luogo e non si spezza." },
       { "ok": true, "t": "**Due schemi per dire dove**: con 在 si dice dove sta una cosa già nota (银行在学校左边); con 有 si presenta una cosa nuova, prima il luogo e poi la cosa (学校左边有一家银行). Con 是 si identifica ciò che occupa quel posto (学校左边是银行)." },
-      { "ok": true, "t": "**面 o 边, a seconda della parola**: 上面, 下面, 前面, 后面, 里面, 外面, 对面; 左边, 右边, 旁边. Per 上, 下, 前, 后, 里, 外 esistono anche le forme con 边 (前边, 后边, 上边…), registrate dal dizionario come equivalenti. 左 e 右 vogliono 边, 中间 ha la sua forma fissa." },
-      { "ok": true, "t": "**Con 上, 下 e 里 si può restare brevi**: 桌子上, 床下, 包里, 家里. Nel parlato queste forme brevi sono le più comuni." },
+      { "ok": true, "t": "**面 o 边, a seconda della parola**: 上面, 下面, 前面, 后面, 里面, 外面, 对面; 左边, 右边, 旁边. Per 上, 下, 前, 后, 里, 外 esistono anche le forme con 边 (前边, 后边, 上边…), registrate dal dizionario come equivalenti. Per «sinistra» e «destra» si usa di solito 左边 e 右边 (il dizionario dà anche 左面 e 右面); 中间 ha la sua forma fissa." },
+      { "ok": true, "t": "**Con 上, 下 e 里 si può restare brevi**: 桌子上, 床下, 包里, 家里. Queste forme brevi sono molto usate dopo un nome comune." },
       { "ok": true, "t": "**Il riferimento può essere una persona**: 他旁边, 我前面, 你左边, 小王和小张中间. Dopo 坐在 o 站在 il blocco indica dove ci si siede o si sta: 坐在他左边 «alla sua sinistra»." },
       { "ok": true, "t": "**的 serve quando il luogo descrive un nome**: 学校旁边的银行 «la banca accanto alla scuola». Tra riferimento e parola di posizione 的 è facoltativo con le forme lunghe (学校(的)前面)." },
-      { "ok": false, "t": "**Non si dice 前, 后, 左, 右, 旁 da soli dopo un nome**, nel parlato: non 学校左, 我家旁, ma 学校左边, 我家旁边. E **non si aggiunge 里 o 上 a città e paesi**: 他在北京, non 他在北京里." }
+      { "ok": false, "t": "**Dopo un nome di solito non si lasciano 左, 右, 旁 da soli**: non 学校左, 我家旁, ma 学校左边, 我家旁边. Anche 前 e 后 da soli sono rari (esiste 门前, «davanti alla porta»): per iniziare usa 前面 e 后面. E **non si aggiunge 里 o 上 a città e paesi**: 他在北京, non 他在北京里." }
     ]
   },
   "logica": [
@@ -35,14 +35,14 @@ LESSON_RICH.zh["fangwei"] = {
       ["sopra", "上面 / 上边", "sì: 桌子上", "书在桌子上面。"],
       ["sotto", "下面 / 下边", "sì: 桌子下", "猫在椅子下面。"],
       ["dentro", "里面 / 里边", "sì: 包里", "手机在包里面。"],
-      ["fuori", "外面 / 外边", "di solito no: usa 外面", "他在房子外面。"],
-      ["davanti", "前面 / 前边", "no: usa 前面", "学校前面有一个公园。"],
-      ["dietro", "后面 / 后边", "no: usa 后面", "车在学校后面。"],
-      ["a sinistra", "左边", "no: usa 左边", "银行在学校左边。"],
-      ["a destra", "右边", "no: usa 右边", "我坐在他右边。"],
-      ["accanto", "旁边", "no: usa 旁边", "我家旁边有一家书店。"],
-      ["di fronte", "对面", "no: usa 对面", "咖啡店在马路对面。"],
-      ["in mezzo, tra", "中间", "no: usa 中间", "我坐在小王和小张中间。"]
+      ["fuori", "外面 / 外边", "di solito si usa 外面", "他在房子外面。"],
+      ["davanti", "前面 / 前边", "di solito si usa 前面", "学校前面有一个公园。"],
+      ["dietro", "后面 / 后边", "di solito si usa 后面", "车在学校后面。"],
+      ["a sinistra", "左边", "di solito si usa 左边", "银行在学校左边。"],
+      ["a destra", "右边", "di solito si usa 右边", "我坐在他右边。"],
+      ["accanto", "旁边", "di solito si usa 旁边", "我家旁边有一家书店。"],
+      ["di fronte", "对面", "di solito si usa 对面", "咖啡店在马路对面。"],
+      ["in mezzo, tra", "中间", "di solito si usa 中间", "我坐在小王和小张中间。"]
     ]
   },
   "esempi": [
@@ -96,8 +96,8 @@ LESSON_RICH.zh["fangwei"] = {
       { "t": "书在桌子的上。", "ok": false, "perche": "Con la forma breve 的 non si mette: 的 si aggiunge soltanto davanti a una forma lunga (桌子的上面)." }
     ] },
     { "q": "Come dici «La banca è a sinistra della scuola»?", "opzioni": [
-      { "t": "银行在学校左边。", "ok": true, "perche": "左 nel parlato vuole 边: 左边 è la parola intera." },
-      { "t": "银行在学校左。", "ok": false, "perche": "左 da solo non regge il luogo; serve 左边." }
+      { "t": "银行在学校左边。", "ok": true, "perche": "Per «a sinistra» si usa la parola intera 左边." },
+      { "t": "银行在学校左。", "ok": false, "perche": "左 da solo qui non forma il luogo; serve 左边." }
     ] },
     { "q": "Dici soltanto che una persona si trova a Pechino (la città). Quale frase?", "opzioni": [
       { "t": "他在北京。", "ok": true, "perche": "Con città e paesi 在 basta: non serve nessuna parola di posizione." },
@@ -152,7 +152,7 @@ LESSON_RICH.zh["fangwei"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Le due sillabe che seguono", "t": "Le parole con 面 si dicono spesso con la seconda sillaba debole: 前面 si sente qiánmian, 里面 lǐmian. Il dizionario CC-CEDICT registra per 上面, 下面, 前面, 里面 e 外面 anche la pronuncia con il tono neutro, accanto a quella con il quarto tono. Le forme con 边 (前边, 后边, 左边, 右边) sono date come equivalenti di quelle con 面, tranne 左 e 右, che hanno soltanto 边." },
+    { "titolo": "Le due sillabe che seguono", "t": "Le parole con 面 si dicono spesso con la seconda sillaba debole: 前面 si sente qiánmian, 里面 lǐmian. Il dizionario CC-CEDICT registra per 上面, 下面, 前面, 里面 e 外面 anche la pronuncia con il tono neutro, accanto a quella con il quarto tono. Le forme con 边 (前边, 后边) sono date come equivalenti di quelle con 面. Per 左 e 右 il dizionario dà sia 左边, 右边 sia 左面, 右面." },
     { "titolo": "前面 e 后面 oltre lo spazio", "t": "Il dizionario dà a 前面 anche il senso di «precedente, sopra (in un testo)» e a 后面 quello di «più avanti, dopo»: sono parole di ordine, oltre che di luogo. Nello spazio dicono anche «avanti» e «indietro»: 请往前面走 «Vada avanti». Quando il contesto è una fila o un percorso, 前面 è ciò che sta più avanti." },
     { "titolo": "左右 vuol dire anche «circa»", "t": "Dopo un numero, 左右 significa «circa»: 三十岁左右 «sui trent'anni». Come 左边 e 右边, anche 左右 resta legato alla coppia sinistra-destra, ma qui non indica nessuna posizione." },
     { "titolo": "Quando 里 e 上 non si aggiungono", "t": "Con città e paesi si dice 在中国, 在北京, senza parole di posizione: la città è già un luogo. Con alcuni eventi, invece, 上 è obbligatorio: 在会议上 «alla riunione», 在课上 «a lezione»." }
@@ -171,7 +171,7 @@ LESSON_RICH.zh["fangwei"] = {
     ] },
     { "k": "buco", "zh": "银行在学校＿。", "tr": "La banca è accanto alla scuola.", "opzioni": [
       { "t": "旁边", "ok": true, "perche": "旁边 è la parola intera per «accanto»." },
-      { "t": "旁", "ok": false, "perche": "Nel parlato 旁 non sta da solo dopo un nome." },
+      { "t": "旁", "ok": false, "perche": "La parola intera per «accanto» è 旁边: 旁 da solo non si usa così." },
       { "t": "边旁", "ok": false, "perche": "Le due sillabe sono in ordine inverso: la parola è 旁边." }
     ] },
     { "k": "buco", "zh": "我家＿有一家书店。", "tr": "Davanti a casa mia c'è una libreria.", "opzioni": [
@@ -211,6 +211,7 @@ LESSON_RICH.zh["fangwei"] = {
     "Sai descrivere un nome con il suo luogo e 的 (学校旁边的银行) e dare indicazioni dal tuo punto di vista."
   ],
   "fonti": [
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing location with zai... shang / xia / li»: 在 + luogo + 上 / 下 / 里 / 旁边, i «nomi di luogo» 方位词 con forma a uno e a due caratteri (上 / 上面 / 上边)",
     "CC-CEDICT, voci 上面, 下面, 前面, 后面, 里面, 外面, 左边, 右边, 旁边, 对面, 中间 (consultate nel dizionario locale)",
     "Tatoeba (cmn.tsv, es. 我坐在他旁边, 小山后面有个美丽的山谷), verificate con grep nel corpus locale"
   ]

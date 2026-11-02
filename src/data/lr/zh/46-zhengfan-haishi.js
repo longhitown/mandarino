@@ -201,7 +201,6 @@ LESSON_RICH.zh["zhengfan-haishi"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Affirmative-negative question»: V不V, 有没有 (la negazione di 有 è 没), 不 dopo la prima sillaba (喜不喜欢), oggetto tra V e 不 V",
-    "Chinese Grammar Wiki (AllSet Learning), «Asking questions»: schema A + 还是 + B nelle domande (你要喝茶还是咖啡？)",
     "CC-CEDICT (cedict_ts.u8), voci 还是, 或者, 一下, consultate in locale",
     "Tatoeba (cmn.tsv, consultato in locale): frasi con 还是 (你乘飞机还是乘火车去), 是不是, 有没有, 去不去, 或者, usate per controllare l'uso"
   ]

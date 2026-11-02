@@ -20,7 +20,7 @@ LESSON_RICH.zh["gang-yijing"] = {
       { "ok": true, "t": "**已经 + verbo + 了** dice che l'azione, o lo stato, c'è già: 他已经走了. Funziona con aggettivi e orari (已经很晚了, 已经十点了) e, con la negazione, dà «non più»: 我已经不喝咖啡了." },
       { "ok": true, "t": "**还没(有) + verbo** dice «non ancora»: 我还没吃饭, 他还没来. Non porta 了 e la frase si può chiudere con 呢 (他还没起床呢) per dare il senso di «sta ancora così». 还 viene prima di 没." },
       { "ok": true, "t": "**刚…就…** dice che due azioni si seguono subito: 他刚到就走了 («è arrivato e se n'è andato quasi subito»)." },
-      { "ok": false, "t": "**Per negare un fatto di poco fa non si dice 刚没, ma 刚才没**: 刚才我没看见你. E dopo un tempo lontano non va 刚才: «solo ieri» è 昨天刚, non 昨天刚才. 刚 non apre mai la frase." }
+      { "ok": false, "t": "**Per negare un fatto di poco fa si usa di solito 刚才…没**: 刚才我没看见你. E dopo un tempo lontano non va 刚才: «solo ieri» è 昨天刚, non 昨天刚才. 刚 sta davanti al verbo o all'aggettivo, non in testa alla frase." }
     ]
   },
   "logica": [
@@ -76,7 +76,7 @@ LESSON_RICH.zh["gang-yijing"] = {
     ] },
     { "q": "Come dici «Poco fa non ti ho visto»?", "opzioni": [
       { "t": "刚才我没看见你。", "ok": true, "perche": "刚才 è una parola di tempo e si può negare con 没." },
-      { "t": "我刚没看见你。", "ok": false, "perche": "刚 non si usa con 没 per negare un fatto passato; si cambia in 刚才…没." }
+      { "t": "刚才我不看见你。", "ok": false, "perche": "Un fatto passato si nega con 没, non con 不: 刚才我没看见你." }
     ] },
     { "q": "Qualcuno ti chiede 你吃饭了吗？ e tu hai già mangiato.", "opzioni": [
       { "t": "我已经吃了。", "ok": true, "perche": "已经 si chiude con 了: il fatto è compiuto." },
@@ -137,18 +137,18 @@ LESSON_RICH.zh["gang-yijing"] = {
     ]
   },
   "tranello": {
-    "errore": "Gli studenti mettono 刚 dopo il verbo (我到刚), usano 刚 con 没 (我刚没看见你), scrivono 刚才 con un tempo lontano (昨天刚才到), dimenticano il 了 dopo 已经 (我已经吃) o scambiano 还 e 没 (没还来).",
+    "errore": "Gli studenti mettono 刚 dopo il verbo (我到刚), scrivono 刚才 con un tempo lontano (昨天刚才到), dimenticano il 了 dopo 已经 (我已经吃) o scambiano 还 e 没 (没还来).",
     "perche": "L'italiano dice «appena», «poco fa» e «già» come avverbi liberi, anche in coda alla frase («sono arrivato appena»). In cinese 刚 e 已经 stanno nel punto fisso tra soggetto e verbo, mentre 刚才 è una parola di tempo con le sue regole. Inoltre l'italiano usa «ancora non» e «non ancora» in modo intercambiabile; in cinese l'unico ordine è 还没.",
-    "esci": "Prima il soggetto, poi la parola (刚, 已经, 还), poi il verbo. Se vuoi negare un fatto di poco fa, passa a 刚才…没. Se dici già, chiudi con 了. Se dici ancora no, apri con 还没.",
+    "esci": "Prima il soggetto, poi la parola (刚, 已经, 还), poi il verbo. Se vuoi negare un fatto di poco fa, usa 刚才…没. Se dici già, chiudi con 了. Se dici ancora no, apri con 还没.",
     "esempi": [
       { "sbagliata": "我到刚。", "giusta": "我刚到。" },
-      { "sbagliata": "我刚没看见你。", "giusta": "刚才我没看见你。" },
+      { "sbagliata": "刚才我不看见你。", "giusta": "刚才我没看见你。" },
       { "sbagliata": "我已经吃。", "giusta": "我已经吃了。" },
       { "sbagliata": "他没还来。", "giusta": "他还没来。" }
     ]
   },
   "curiosi": [
-    { "titolo": "刚刚 e 刚好", "t": "刚刚 è la forma raddoppiata di 刚 e significa lo stesso, solo con un tono più marcato: 我刚刚到. Non va confusa con 刚好, che vuol dire «proprio, giusto, per l'appunto»: 刚好十点 («sono le dieci in punto»), 他刚好在家 («era proprio in casa»). In letteratura 刚 significa «duro, saldo» (CC-CEDICT)." },
+    { "titolo": "刚刚 e 刚好", "t": "刚刚 è la forma raddoppiata di 刚 e significa lo stesso, solo con un tono più marcato: 我刚刚到. Non va confusa con 刚好, che vuol dire «proprio, giusto, per l'appunto»: 刚好十点 («sono le dieci in punto»), 他刚好在家 («era proprio in casa»). Da solo, come carattere, 刚 significa anche «duro, saldo» (CC-CEDICT)." },
     { "titolo": "已经 senza 了", "t": "Nelle frasi isolate il 了 finale è quasi obbligatorio, ma può cadere dove la frase prosegue o dipende da un'altra, soprattutto nello scritto: 他才意识到自己已经上当. Nel parlato si sente anche già + durata: 我学中文已经两年了, dove il 了 dice «fino a ora»." },
     { "titolo": "还没…呢", "t": "Aggiungere 呢 in fondo a una frase con 还没 dà il senso di «e la cosa dura ancora»: 他还没起床呢 («dorme ancora»). Senza 呢 la frase è più neutra: 他还没起床. Per chiedere se una cosa è fatta si dice 你吃了没有？ oppure 你吃了吗？." }
   ],
@@ -171,12 +171,12 @@ LESSON_RICH.zh["gang-yijing"] = {
     ] },
     { "k": "buco", "zh": "他＿没吃饭。", "tr": "Non ha ancora mangiato.", "opzioni": [
       { "t": "还", "ok": true, "perche": "还没 = non ancora: la frase nega che il fatto sia avvenuto finora." },
-      { "t": "刚", "ok": false, "perche": "刚没 non si usa per negare un fatto." },
+      { "t": "刚", "ok": false, "perche": "Per «non ancora» la forma è 还没; 刚 dice «appena»." },
       { "t": "别", "ok": false, "perche": "别 è un divieto o un consiglio: qui si descrive un fatto, non si dà un ordine." }
     ] },
     { "k": "ordine", "t": "刚才你说什么", "tr": "Che cosa hai detto poco fa?", "alt": ["你刚才说什么"] },
     { "k": "ordine", "t": "天已经黑了", "tr": "Ormai è buio." },
-    { "k": "trasforma", "base": "我到。", "consegna": "Dì che sei appena arrivato.", "accetta": ["我刚到。", "我刚到了。"], "rifiutate": [
+    { "k": "trasforma", "base": "我到。", "consegna": "Dì che sei appena arrivato.", "accetta": ["我刚到。"], "rifiutate": [
       { "t": "我到刚。", "perche": "刚 va prima del verbo, tra soggetto e verbo: mai dopo il verbo." }
     ], "perche": "刚 si mette tra soggetto e verbo." },
     { "k": "trasforma", "base": "他吃饭了。", "consegna": "Dì che non ha ancora mangiato.", "accetta": ["他还没吃饭。", "他还没有吃饭。", "他还没吃饭呢。"], "rifiutate": [
@@ -201,7 +201,6 @@ LESSON_RICH.zh["gang-yijing"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Comparing gang and gangcai»: 刚 avverbio tra soggetto e verbo, 刚才 parola di tempo di pochi minuti, 刚 di solito senza 了",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing \"already\" with yijing»: 已经 + verbo o aggettivo + 了, 已经 + ora + 了",
     "CC-CEDICT, voci 刚, 刚才, 刚刚, 已经; Tatoeba (cmn.tsv: es. 我刚才在洗澡, 我已经看过这部电影了, 他还没来), consultati con grep in locale"
   ]
 };
