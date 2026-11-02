@@ -12,11 +12,11 @@ LESSON_RICH.it["negazioni"] = {
     "risposta": "否定词 **niente、mai、nessuno、più** 放在**动词后面**时，动词前面必须再加一个 **non**：**Non** vedo **niente**，**Non** vado **mai**。两个否定不会互相抵消，而是加强否定。如果否定词放在**动词前面**，就不用 non：**Nessuno** lo sa。所以 Nessuno lo sa 和 Non lo sa nessuno 意思一样。"
   },
   "regola": {
-    "enunciato": "意大利语的否定以 **non** 为基础，放在变位动词前面。**niente / nulla**（什么都没有）、**nessuno**（没有人）、**mai**（从来不）、**più**（不再）、**ancora**（还没）、**neanche / nemmeno / neppure**（连……也不）如果放在动词**后面**，前面必须有 **non**（双重否定）；放在动词**前面**时，不用 non。",
+    "enunciato": "意大利语的否定以 **non** 为基础，放在变位动词前面。**niente / nulla**（什么都没有）、**nessuno**（没有人）、**mai**（从来不）、**più**（不再）、**ancora**（还没）、**neanche / nemmeno / neppure**（连……也不）在陈述句里，如果放在动词**后面**，前面必须有 **non**（双重否定）；放在动词**前面**时，不用 non。问句里的 mai 例外（Hai mai visto…?）。",
     "schema": ["non", "动词", "niente / nessuno / mai / più"],
     "punti": [
       { "ok": true, "t": "**非** = **non** + 动词。Lei **non** viene. 复合时态里，non 放在助动词前面：Noi **non** siamo andati in Italia." },
-      { "ok": true, "t": "**双重否定**：否定词在动词后面时，前面必须有 non。**Non** vedo **niente**. **Non** viene **nessuno**. **Non** vado **mai** al cinema. 这里的两个否定不会互相抵消。" },
+      { "ok": true, "t": "**双重否定**：否定词在动词后面时，前面必须有 non。**Non** vedo **niente**. **Non** viene **nessuno**. **Non** vado **mai** al cinema. 这里的两个否定不会互相抵消。注意：问句里的 mai 是“曾经”，不加 non：Hai mai visto un panda?（你见过熊猫吗？）；senza mai 也不加 non。" },
       { "ok": true, "t": "否定词放在**动词前面**时，不用 non：**Nessuno** lo sa. **Niente** mi convince. 此时动词是肯定形式。" },
       { "ok": true, "t": "**non … più**（不再）：Non fumo **più**. **non … ancora**（还没有）：Non ho **ancora** mangiato." },
       { "ok": true, "t": "**多个否定词**可以连用，顺序是 mai 在 niente / nessuno 前面：Non vedo **mai nessuno**. Non ho **mai** detto **niente** a **nessuno**." },
