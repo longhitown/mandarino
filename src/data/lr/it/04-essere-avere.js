@@ -147,7 +147,7 @@ LESSON_RICH.it["essere-avere"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "不发音的 h 有什么用", "t": "ho、hai、ha、hanno 开头的 h 不发音，它的作用是和别的词区分开：o（或）和 ho（我有），ai（给…的）和 hai（你有），a（到、在）和 ha（他有），anno（年）和 hanno（他们有）。同样，è（是）带重音，e（和）不带。写的时候不能省。" },
+    { "titolo": "不发音的 h 有什么用", "t": "ho、hai、ha、hanno 开头的 h 不发音，它的作用是和别的词区分开：o（或）和 ho（我有），ai（a + i，“到…那些”）和 hai（你有），a（到、在）和 ha（他有），anno（年）和 hanno（他们有）。同样，è（是）带重音，e（和）不带。写的时候不能省。" },
     { "titolo": "为什么说“有饥饿”", "t": "意大利语、法语（avoir faim）、西班牙语（tener hambre）、德语（Hunger haben）都把饥饿、口渴、寒冷看成主语“拥有”的东西。英语 I am hungry 用 be 是少数。所以对说汉语的人，只要记住：感觉和年龄用“有”，就和这些语言一致。" },
     { "titolo": "对不熟的人用 Lei", "t": "对不熟的人、长辈或客人，意大利语用敬称 Lei，动词用第三人称单数：Lei è italiano? Ha fame, signora? 朋友之间用 tu：Sei italiano? Hai fame?" }
   ],
