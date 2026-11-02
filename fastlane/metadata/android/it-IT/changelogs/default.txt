@@ -1,3 +1,3 @@
-• Il ripasso ora tiene conto di più cose: se sbagli solo il tono la parola non torna a zero, scrivere pesa più che scegliere tra le opzioni, e i caratteri che già conosci aiutano nelle parole composte.
-• Nuova sezione Impostazioni → Comunità e voci → Ricerca sulla memoria (facoltativa, spenta di base): se vuoi, mandi in forma anonima i tuoi ripassi per aiutare a migliorare il ripasso. Niente parte da solo.
-• Sul sito, una pagina spiega come funziona il ripasso e che cosa è già verificato.
+• Ogni lezione di cinese (55) e di italiano (51) diventa un capitolo: scopri la regola da solo, regola, esempi, scelte a confronto, dialogo, errori tipici, curiosità ed esercizi di più tipi.
+• Dopo ogni risposta vedi il perché: anche le risposte sbagliate ti dicono che cosa non va.
+• Il ripasso tiene conto del tono, del tipo di esercizio e dei caratteri che conosci già; la nuova sezione Ricerca sulla memoria è facoltativa e spenta di base.
