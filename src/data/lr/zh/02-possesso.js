@@ -17,7 +17,7 @@ LESSON_RICH.zh["possesso"] = {
     "punti": [
       { "ok": true, "t": "**Ordine inverso rispetto all'italiano**: 我的书 («io-di libro»), 老师的手机 («insegnante-di cellulare»). In italiano si dice «il libro dell'insegnante»: il cinese parte da chi possiede." },
       { "ok": true, "t": "**Con le cose 的 serve**: 我的书, 你的手机, 他的车. Senza 的, in una frase neutra, il risultato suona incompleto." },
-      { "ok": true, "t": "**Con familiari e persone vicine 的 è facoltativo**: 我妈妈 e 我的妈妈 sono tutti e due corretti; la forma breve è la più naturale nel parlato, quella con 的 è più marcata o più formale." },
+      { "ok": true, "t": "**Con familiari e persone vicine 的 è facoltativo**: 我妈妈 e 我的妈妈 sono tutti e due corretti, perché con un rapporto stretto il 的 si può omettere." },
       { "ok": true, "t": "**Con casa, scuola, azienda 的 spesso cade**: 我家, 我们学校, 我们公司. Il possessore è visto come parte di quel gruppo, non come un padrone." },
       { "ok": true, "t": "**Il nome dopo 的 può sparire se è già noto**: 这本书是我的 («questo libro è mio»), 那个是他的. Così 我的 diventa «il mio» come pronome. Domanda: 这是谁的书？ o 这本书是谁的？" },
       { "ok": true, "t": "**Si possono concatenare**: 我朋友的手机 («il cellulare del mio amico»), 我妈妈的朋友 («l'amico di mia madre»). Il possessore più lontano dalla cosa sta per primo." },
@@ -136,10 +136,10 @@ LESSON_RICH.zh["possesso"] = {
   },
   "curiosi": [
     { "titolo": "Un solo 的 per molti usi", "t": "Il possesso è solo uno degli usi di 的. La stessa particella lega al nome qualsiasi cosa lo descriva: un possessore (我的书), una qualità (好看的书, «un bel libro»), un'intera frase (我买的书, «il libro che ho comprato»). In tutti i casi lo schema è lo stesso: tutto ciò che sta davanti a 的 descrive il nome che viene dopo." },
-    { "titolo": "Quando si aggiunge 的 a un familiare", "t": "我的妈妈 è una frase corretta, ma con 的 si mette l'accento su chi possiede: «proprio la mia madre», in contrasto con quella di un altro. Per esempio, 这是我的妈妈 si usa quando si presenta la madre a qualcuno con un certo risalto. Nel parlato quotidiano prevale la forma breve." },
+    { "titolo": "Il 的 con i familiari", "t": "Con familiari, amici stretti, fidanzati, scuola e lavoro il 的 si può omettere: l'omissione dipende dal tipo di rapporto. Con persone con cui il rapporto non è così stretto, la forma con 的 è quella normale: 我的老师, 我的朋友." },
     { "titolo": "Un carattere, più pronunce", "t": "Come particella, 的 si legge de, in tono neutro. Lo stesso carattere si legge in modo diverso in poche parole: 的确 (díquè, «davvero») e 目的 (mùdì, «scopo»). Non sono parole del possesso, ma conviene saperlo quando le incontri. L'app mostra la lettura corretta in ogni parola." }
   ],
-  "pragmatica": "Nelle presentazioni e nei dialoghi di ogni giorno usa 我朋友, 我妈妈, 我家 per le persone e i luoghi vicini, e 我的, 你的 per gli oggetti. Per indicare che una cosa è tua e non altrui, 我的 con il tono marcato è la scelta giusta: 这是我的 («questo è mio, non tuo»). Con una persona che non conosci, o in un contesto formale, la forma con 的 (我的妈妈, 我的老师) risulta più educata.",
+  "pragmatica": "Nelle presentazioni e nei dialoghi di ogni giorno usa 我朋友, 我妈妈, 我家 per le persone e i luoghi vicini, e 我的, 你的 per gli oggetti. Per indicare che una cosa è tua e non altrui, 我的 con il tono marcato è la scelta giusta: 这是我的 («questo è mio, non tuo»). Con persone con cui non c'è un rapporto stretto, la forma con 的 (我的妈妈, 我的老师) è quella normale.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "老师的书很贵。", "opzioni": [
       { "t": "Il libro dell'insegnante è caro.", "ok": true, "perche": "老师的书 = «il libro dell'insegnante», e 很贵 = «è caro»." },
@@ -193,7 +193,6 @@ LESSON_RICH.zh["possesso"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Expressing close possession without de»: 的 omesso con familiari, amici, scuola e lavoro",
-    "LibreTexts, CHN101 Elementary Mandarin, Lesson 3 Grammar: possesso senza 的",
     "Tatoeba cinese-italiano (es. 这是我的书, 我们学校在市中心, 我家很大, 这是我的妈妈) e CC-CEDICT, voce 的, consultati nei corpora locali"
   ]
 };

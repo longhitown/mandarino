@@ -20,7 +20,7 @@ LESSON_RICH.zh["negazione"] = {
       { "ok": true, "t": "**没有** nega 有: 我没有钱 («non ho soldi»), 家里没有人. Nel parlato 有 si può omettere: 我没钱. Mai 不有." },
       { "ok": true, "t": "**没 + verbo** nega un fatto che non è accaduto, senza 了: 我没吃饭, 他今天没来. Si può dire anche 没有 + verbo (我没有吃饭): è più marcato e frequente nelle risposte." },
       { "ok": true, "t": "**还没 + verbo** per «non ancora»: 我还没吃饭. **没 + verbo + 过** per «mai»: 我没去过中国." },
-      { "ok": true, "t": "**Risposte brevi**: si ripete il verbo negato. 你去吗？ — 不去。 你吃了吗？ — 没吃 / 没有。 Un «no» secco in cinese non esiste; si risponde con 不 o 没(有) seguito o no dal verbo." },
+      { "ok": true, "t": "**Risposte brevi**: si ripete il verbo negato. 你去吗？ — 不去。 你吃了吗？ — 没吃 / 没有。 Non esiste una parola «no» separata: si risponde con 不 o 没(有), seguiti o no dal verbo." },
       { "ok": false, "t": "**Il passato da solo non decide**: abitudini, qualità e volontà del passato restano con 不 (以前我不喝咖啡, 昨天我不忙). Nei fatti accaduti non si usa 不 per negare: 我昨天不去 vuol dire «ieri non volevo andare / non sono andato per scelta», non «non ci sono andato»." },
       { "ok": false, "t": "**Con 没 non si mette 了** dopo il verbo: 我没吃了饭 non esiste. Il 了 di fatto compiuto e 没 si escludono." }
     ]
@@ -150,7 +150,7 @@ LESSON_RICH.zh["negazione"] = {
   "curiosi": [
     { "titolo": "不 cambia tono: bù o bú", "t": "不 si pronuncia bù, ma davanti a una sillaba di quarto tono diventa bú: 不是 (bú shì), 不去 (bú qù), 不要 (bú yào). Davanti agli altri toni resta bù: 不喝, 不忙, 不好. Nelle forme come 好不好 il 不 in mezzo si pronuncia leggero. Il pinyin dell'app segue questa regola in automatico." },
     { "titolo": "没 è la forma breve di 没有", "t": "Nelle frasi con un verbo d'azione, 没 e 没有 sono la stessa cosa: 我没吃饭 = 我没有吃饭. 没有 si sente di più nelle risposte brevi (没有。) e nello scritto; 没 è il più comune quando segue un verbo nel parlato veloce. Al contrario 有 come verbo «avere» ammette 没 solo nella forma breve: 我没钱." },
-    { "titolo": "都不 e 不都", "t": "Con 都 («tutti») l'ordine cambia il senso: 我们都不去 vuol dire «nessuno di noi va», mentre 我们不都去 vuol dire «non andiamo tutti» (qualcuno sì, qualcuno no). Per «nessuno» di solito si preferisce 都不." },
+    { "titolo": "都不 e 不都", "t": "Con 都 («tutti») l'ordine cambia il senso: 我们都不去 vuol dire «nessuno di noi va», mentre 我们不都去 vuol dire «non andiamo tutti» (qualcuno sì, qualcuno no)." },
     { "titolo": "Vietare: 别", "t": "Per un divieto o un consiglio negativo si usa 别 (o, più formale, 不要): 别去 «non andare», 别说了 «non dirlo più». Non è né 不 né 没, ma completa il quadro delle negazioni del cinese." }
   ],
   "pragmatica": "Un «no» in cinese si dice quasi sempre con il verbo: 你去吗？ — 不去。 Il solo 不 dà un tono secco, quasi brusco; si ammorbidisce con 不太 (不太想去 «non ho molta voglia») o con una spiegazione (不去，我很累). 没有 è la risposta normale a una domanda con 了 e anche a 你有…吗？. Nel parlato 没 + verbo è la forma più comune, e 没有 chiude la frase quando si risponde («Ha già mangiato?» — «没有。»).",
@@ -209,7 +209,7 @@ LESSON_RICH.zh["negazione"] = {
     "Sai rispondere con una negazione breve a una domanda (不去, 没有)."
   ],
   "fonti": [
-    "Wikipedia (inglese), «Chinese grammar»: 不 come negatore generale, 没 per eventi compiuti, 没有 per 有 e con 过, caduta di 了",
+    "Wikipedia (inglese), «Chinese grammar»: 不 come negatore più comune, 没 per 有 e per eventi compiuti",
     "CC-CEDICT, voci 不 (bù, bú) e 没 (méi): cambio di tono e uso come negazione di 有",
     "Tatoeba (cinese), frasi di riscontro per 我不喝咖啡, 我没有钱, 我没吃饭, consultate con i corpora locali"
   ]

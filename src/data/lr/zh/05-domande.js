@@ -12,7 +12,7 @@ LESSON_RICH.zh["domande"] = {
     "risposta": "L'ordine è sempre lo stesso: 你想喝茶 resta intatto e la domanda nasce con un **elemento in più**. Nella prima c'è **吗** in fondo; nella seconda il verbo viene detto due volte con **不** in mezzo (想不想); nella terza una piccola domanda di conferma (对吗) segue la frase; nella quarta **还是** offre due scelte, e perciò la risposta non è sì o no ma «tè» oppure «caffè». Le prime tre aspettano un «sì» o un «no»; la quarta no."
   },
   "regola": {
-    "enunciato": "Per trasformare una frase in una domanda a cui si risponde sì o no si aggiunge **吗** **in fondo** alla frase, senza cambiare l'ordine delle parole. In alternativa si usa la forma **verbo + 不 + verbo** (去不去), e in questo caso 吗 non si mette. Non esiste una parola per «sì»: si risponde ripetendo il verbo (去) oppure con 不 + verbo (不去).",
+    "enunciato": "Per trasformare una frase in una domanda a cui si risponde sì o no si aggiunge **吗** **in fondo** alla frase, senza cambiare l'ordine delle parole. In alternativa si usa la forma **verbo + 不 + verbo** (去不去), e in questo caso 吗 non si mette. Di solito non si risponde con una parola «sì» separata: si ripete il verbo (去) oppure si nega con 不 + verbo (不去).",
     "schema": ["frase", "吗", "?"],
     "punti": [
       { "ok": true, "t": "**吗 chiude la frase**: 你是学生 diventa 你是学生吗？ La particella è atona (si pronuncia leggera) e non sposta nulla: soggetto, verbo e oggetto restano al loro posto." },
@@ -91,7 +91,7 @@ LESSON_RICH.zh["domande"] = {
     ] },
     { "q": "Offri una scelta: «Bevi tè o caffè?»", "opzioni": [
       { "t": "你喝茶还是喝咖啡？", "ok": true, "perche": "还是 è la parola per «o» nelle domande: la risposta sceglie uno dei due." },
-      { "t": "你喝茶或者喝咖啡？", "ok": false, "perche": "或者 serve nelle frasi che affermano (茶或者咖啡都可以); nella domanda con due alternative si usa 还是." }
+      { "t": "你喝茶吗咖啡？", "ok": false, "perche": "吗 chiude una domanda sì o no e non separa due alternative: per scegliere tra due cose si usa 还是." }
     ] },
     { "q": "Hai detto «Io sto bene» e vuoi chiedere «e tu?».", "opzioni": [
       { "t": "我很好，你呢？", "ok": true, "perche": "呢 riprende l'argomento appena aperto: «e tu?» senza ripetere la domanda." },
@@ -151,7 +151,7 @@ LESSON_RICH.zh["domande"] = {
     { "titolo": "Il passato: 了 nella domanda", "t": "Per chiedere di un fatto compiuto si mette 了 prima di 吗: 你吃饭了吗？ Nel parlato si sente anche 你吃了没有？ e la risposta è 吃了 oppure 没有 (non ancora). Le due forme sono equivalenti." },
     { "titolo": "吧: indovinare con gentilezza", "t": "吧 trasforma una domanda in una supposizione: chi parla pensa già che la risposta sia «sì» e vuole una conferma. 你是学生吧？ è meno diretta di 你是学生吗？ In una proposta (我们走吧) 吧 vuol dire «andiamo»." }
   ],
-  "pragmatica": "你吃饭了吗？ è anche un modo di salutare: significa «come stai?» e non vuole davvero sapere che cosa hai mangiato. 好吗？ e 行吗？ dopo una proposta sono un modo cortese per lasciare all'altro la scelta. Con persone a cui devi rispetto si usa 您 al posto di 你: 您是老师吗？ La domanda con 吗 si riconosce dalla particella finale: la voce non deve salire come in italiano.",
+  "pragmatica": "你吃饭了吗？ è anche un modo di salutare: significa «come stai?» e non vuole davvero sapere che cosa hai mangiato. 好吗？ e 行吗？ dopo una proposta sono un modo cortese per lasciare all'altro la scelta. Con persone a cui devi rispetto si usa 您 al posto di 你: 您是老师吗？ 吗 è atona: la domanda la segna la particella in fondo, anche quando la voce sale.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "你明天有没有时间？", "opzioni": [
       { "t": "Domani hai tempo?", "ok": true, "perche": "有没有 è la forma «hai, non hai?»: domanda sì o no." },
@@ -204,8 +204,8 @@ LESSON_RICH.zh["domande"] = {
     "Sai scegliere tra 吗, 吧, 呢 e 还是 secondo ciò che vuoi chiedere."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Asking questions»: domande con 吗, forma affermativo-negativa (verbo + 不 + verbo)",
-    "Wikipedia, «A-not-A question»: la forma A-not-A e il suo uso accanto a 吗",
+    "Chinese Grammar Wiki (AllSet Learning), «Yes-no questions with ma»: 吗 in fondo a una frase affermativa, niente 吗 insieme a una parola interrogativa",
+    "Wikipedia (inglese), «A-not-A question»: la forma A-not-A e il confronto con la domanda con 吗",
     "Tatoeba (cinese-italiano), frasi come 你不去吗？ e 你知不知道…？, consultato con tools/lezioni-check.mjs",
     "CC-CEDICT, voci 吗, 吧, 呢, 还是, 对"
   ]

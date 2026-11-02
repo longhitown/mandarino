@@ -146,10 +146,10 @@ LESSON_RICH.zh["avere"] = {
   "curiosi": [
     { "titolo": "Perché 没 e non 不", "t": "Il cinese usa 不 quando dice «non» a un'azione, a una qualità o a un'intenzione (不吃, 不贵, 不去) e usa 没 per negare un fatto, cioè ciò che non c'è o non è avvenuto. 有 è un fatto: la cosa c'è oppure no. Per questo è 没有 e non 不有. Anche per le azioni passate si usa 没: 我没吃饭 («non ho mangiato»), come vedrai nella lezione su 了." },
     { "titolo": "Il gioco 有的…有的", "t": "Con 有 si fanno frasi come 有的人喜欢茶，有的人喜欢咖啡: «alcuni amano il tè, altri il caffè». 有的人 vuol dire letteralmente «ci sono persone che…». È un modo molto comune di dividere un gruppo in parti, senza dover dire quante." },
-    { "titolo": "有 per le qualità: 很有…", "t": "Con la parola «molto» 有 diventa un modo di dire che una cosa ha una certa qualità: 这个人很有钱 vuol dire «questa persona ha molti soldi» (è ricca), 他很有时间 «ha molto tempo libero». L'italiano usa un aggettivo o un'altra costruzione, il cinese resta con il verbo avere." },
+    { "titolo": "有 per le qualità: 很有…", "t": "Con la parola «molto» 有 diventa un modo di dire che una cosa ha una certa qualità: 这个人很有钱 vuol dire «questa persona ha molti soldi» (è ricca). L'italiano usa un aggettivo o un'altra costruzione, il cinese resta con il verbo avere." },
     { "titolo": "我有钱了: 有 con 了", "t": "有 senza 了 descrive un fatto qualsiasi (我有一个姐姐). Con 了 in fondo annuncia un cambiamento: 我有钱了 vuol dire «adesso ho i soldi» (prima no). E il negativo, 我没钱了, vuol dire «non ho più soldi». È la costruzione che si sente più spesso quando finiscono i soldi o il tempo." }
   ],
-  "pragmatica": "有 e 没有 sono anche le risposte brevi più frequenti: 你有时间吗？ — 有。 / 没有。 Per chiedere informazioni si apre con 请问 («scusi»): 请问，这里有洗手间吗？ Davanti a una porta chiusa si domanda 有人吗？ («c'è qualcuno?»). In un negozio 有没有 è molto diretto e adatto a chi parla con un amico o con un venditore; con un cliente si preferisce 你们有…吗？ Per rifiutare un complimento si dice 没有没有, cioè «ma no, per niente».",
+  "pragmatica": "有 e 没有 sono anche le risposte brevi più frequenti: 你有时间吗？ — 有。 / 没有。 Per chiedere informazioni si apre con 请问 («scusi»): 请问，这里有洗手间吗？ Davanti a una porta chiusa si domanda 有人吗？ («c'è qualcuno?»). Tra amici 有没有 è diretto e normale; in un negozio si chiede più volentieri 你们有…吗？ Per rifiutare un complimento si dice 没有没有, cioè «ma no, per niente».",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "冰箱里没有牛奶。", "opzioni": [
       { "t": "In frigo non c'è latte.", "ok": true, "perche": "Luogo + 没有 + cosa: il latte non c'è in quel posto." },
@@ -205,8 +205,8 @@ LESSON_RICH.zh["avere"] = {
     "Sai scegliere tra 有 (c'è una cosa nuova), 在 (dove sta una cosa nota) e 是 (chi o che cos'è)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with 有»: schema luogo + 有 + cosa, domanda con 吗",
-    "Chinese Grammar Wiki (AllSet Learning), «Negation of 有 with 没»: 没有, forma breve 没, nessun 不有",
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with you»: luogo + 有 + cosa, domanda con 吗",
+    "Chinese Grammar Wiki (AllSet Learning), «Negation of you with mei»: 没 nega 有, mai 不有; 没有 si accorcia in 没",
     "CC-CEDICT, voci 有 e 没; Tatoeba (cinese), frasi con 没有时间, 这里有, 有没有, consultate con i corpora locali"
   ]
 };

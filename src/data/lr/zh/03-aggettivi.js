@@ -19,7 +19,7 @@ LESSON_RICH.zh["aggettivi"] = {
       { "ok": true, "t": "**很 lega**: nella frase affermativa neutra l'aggettivo ha quasi sempre 很 davanti. Con la voce che lo accentua, 很 torna a voler dire «molto»; nel parlato normale resta leggero e non si traduce." },
       { "ok": true, "t": "**Un aggettivo nudo suggerisce un confronto**: 这个大，那个小 («questo è grande, quello è piccolo»). Per questo, se descrivi e basta, usa 很: 这个很大." },
       { "ok": true, "t": "**Gradi diversi**: 非常 («molto, davvero»), 真 («davvero», con tono di sorpresa o apprezzamento), 太…了 («troppo»), 有点 («un po'», di solito per cose che non piacciono), 比较 («abbastanza»)." },
-      { "ok": true, "t": "**Negazione con 不**: 不贵 («non è caro»), 不太贵 («non è molto caro»). Al negativo 很 non compare: non si dice 不很贵 nel parlato." },
+      { "ok": true, "t": "**Negazione con 不**: 不贵 («non è caro»). Al negativo di solito 很 non compare; per attenuare si usa 不太贵 («non è molto caro»)." },
       { "ok": true, "t": "**Domanda**: aggettivo + 吗 (你累吗？) oppure aggettivo + 不 + aggettivo (你累不累？). Nelle domande 很 non serve." },
       { "ok": true, "t": "**也 e 都 vengono prima di 很**: 我也很累, 他们都很忙. L'ordine è sempre soggetto, 也/都, 很, aggettivo." },
       { "ok": false, "t": "**Mai 是 davanti all'aggettivo descrittivo**: 我是累, 茶是热 non si dicono. Le uniche eccezioni sono frasi di enfasi o di contrasto (这本书是贵，但是很好), che qui non servono." }
@@ -87,7 +87,7 @@ LESSON_RICH.zh["aggettivi"] = {
     ] },
     { "q": "Dici a un amico che non ti piace del tutto il freddo di oggi: «Oggi fa un po' freddo (e mi dà fastidio)».", "opzioni": [
       { "t": "今天有点冷。", "ok": true, "perche": "有点 porta un giudizio negativo: è la forma giusta per ciò che dispiace." },
-      { "t": "今天很有点冷。", "ok": false, "perche": "Il grado si mette con una parola sola: 很 e 有点 non si sommano." }
+      { "t": "今天太冷。", "ok": false, "perche": "太 dice «troppo», cioè un eccesso: non descrive un fastidio leggero come quello di 有点." }
     ] },
     { "q": "Commenti con un complimento il piatto che hai appena assaggiato: «È davvero buono!»", "opzioni": [
       { "t": "这个菜真好吃。", "ok": true, "perche": "真 è un complimento caldo, adatto a un piatto che piace." },
@@ -95,7 +95,7 @@ LESSON_RICH.zh["aggettivi"] = {
     ] },
     { "q": "Come dici «Questo libro non è caro»?", "opzioni": [
       { "t": "这本书不贵。", "ok": true, "perche": "Con la negazione basta 不 + aggettivo, senza 很." },
-      { "t": "这本书没贵。", "ok": false, "perche": "没 nega un fatto non avvenuto e non si usa davanti a un aggettivo di qualità: qui serve 不." }
+      { "t": "这本书没贵。", "ok": false, "perche": "没 nega un fatto non avvenuto; per dire che un oggetto non è caro la negazione è 不: 这本书不贵。" }
     ] },
     { "q": "Come dici «Anche io sono stanco»?", "opzioni": [
       { "t": "我也很累。", "ok": true, "perche": "也 viene prima di 很: soggetto, 也, 很, aggettivo." },
@@ -198,7 +198,7 @@ LESSON_RICH.zh["aggettivi"] = {
   ],
   "fonti": [
     "Wikipedia (inglese), «Chinese grammar»: aggettivi predicativi senza copula, 很 con gli aggettivi e negazione con 不",
-    "CC-CEDICT, voci 很, 太, 非常 (annotate come «often used before an adjective without intensifying its meaning»)",
+    "CC-CEDICT, voce 很 (usata davanti a un aggettivo senza intensificarne il senso)",
     "Tatoeba (cinese), frasi di riscontro per 我很累, 今天很热, 我不饿, consultate con i corpora locali"
   ]
 };

@@ -68,7 +68,7 @@ LESSON_RICH.zh["interrogative"] = {
       { "t": "这个多少钱？", "tr": "Quanto costa questo?" },
       { "t": "你要哪个？", "tr": "Quale vuoi?" },
       { "t": "你是哪国人？", "tr": "Di che nazionalità sei?" },
-      { "t": "你叫什么名字？", "tr": "Come ti chiami?", "nota": "Letteralmente «ti chiami quale nome?»: 什么 qui è «che» e davanti al nome 名字." }
+      { "t": "你叫什么名字？", "tr": "Come ti chiami?", "nota": "Letteralmente «ti chiami che nome?»: 什么 sta davanti a 名字 e vuol dire «che»." }
     ] }
   ],
   "contrasti": [
@@ -150,7 +150,7 @@ LESSON_RICH.zh["interrogative"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "哪里 e 哪儿", "t": "Le due forme hanno lo stesso significato. 哪儿 è la forma colloquiale del nord (Pechino) e 哪里 è la forma più neutra, che si trova anche nello scritto e nel parlato del sud. Tutte e due si usano per «dove». Inoltre 哪里哪里 è la risposta modesta a un complimento («ma no, figuriamoci»)." },
+    { "titolo": "哪里 e 哪儿", "t": "Le due forme hanno lo stesso significato, «dove». 哪儿 ha la finale -r del parlato; 哪里 è la forma piena. Inoltre 哪里哪里 è la risposta modesta a un complimento («ma no, figuriamoci»)." },
     { "titolo": "Quando la parola interrogativa diventa «qualcosa» o «tutto»", "t": "Con 什么 e 谁 si possono esprimere cose indeterminate. 你想吃点什么吗？ vuol dire «vuoi mangiare qualcosa?» ed è una domanda sì o no, quindi con 吗. Con 都 la parola diventa «tutto»: 我什么都吃 («mangio di tutto»), 谁都可以 («chiunque va bene»). Il significato dipende dalla frase." },
     { "titolo": "怎么, 怎么样, 怎么了", "t": "怎么 + verbo chiede il modo: 怎么去？ («come ci si va?»). 怎么样 chiede il giudizio: 这个怎么样？ («come ti sembra questo?»). 怎么了？ vuol dire «che cosa è successo?» e si dice a chi sembra turbato. Davanti a una negazione 怎么 esprime sorpresa: 你怎么不吃？ («come mai non mangi?»)." },
     { "titolo": "几 per l'ora e la data", "t": "几 si usa anche per l'ora e la data, perché sono numeri piccoli: 现在几点？ («che ore sono?»), 今天几号？ («che giorno è oggi?»), 今天星期几？ («che giorno della settimana è oggi?»). La risposta riempie il vuoto: 现在三点. Qui il classificatore è 点, 号." }
@@ -180,7 +180,7 @@ LESSON_RICH.zh["interrogative"] = {
     { "k": "buco", "zh": "你＿时候去中国？", "tr": "Quando vai in Cina?", "opzioni": [
       { "t": "什么", "ok": true, "perche": "什么时候 è la parola per «quando»." },
       { "t": "哪", "ok": false, "perche": "哪 vuole un classificatore e non forma la parola «quando»." },
-      { "t": "几", "ok": false, "perche": "几时候 non esiste in cinese, quindi non è una scelta possibile." }
+      { "t": "几", "ok": false, "perche": "几 chiede un numero piccolo con un classificatore: per «quando» il modo normale è 什么时候." }
     ] },
     { "k": "ordine", "t": "你的朋友在哪里工作", "tr": "Dove lavora il tuo amico?" },
     { "k": "ordine", "t": "你为什么学中文", "tr": "Perché studi cinese?" },
@@ -214,8 +214,7 @@ LESSON_RICH.zh["interrogative"] = {
     "Sai evitare 吗 con le parole interrogative e riconoscere le domande sbagliate."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Asking questions»: tabella delle parole interrogative e loro posizione",
-    "Wikipedia, «A-not-A question», per distinguere le domande con parola interrogativa da quelle sì o no",
+    "Chinese Grammar Wiki (AllSet Learning), «Interrogative pronouns»: chi, che cosa, dove, quando, perché, come; 几 e 多少; le parole restano al loro posto",
     "Tatoeba (cinese-italiano), frasi come 你想吃什么？ e 你的中文老师是谁？, consultato con tools/lezioni-check.mjs",
     "CC-CEDICT, voci 什么, 谁, 哪里, 哪儿, 几, 多少, 怎么, 为什么"
   ]

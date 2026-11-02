@@ -17,7 +17,7 @@ LESSON_RICH.zh["essere"] = {
     "punti": [
       { "ok": true, "t": "**Una sola forma**: 我是, 你是, 他是, 我们是, 他们是. Anche il genere non conta: 他是老师 e 她是老师 hanno lo stesso verbo e lo stesso nome." },
       { "ok": true, "t": "**Nazionalità = paese + 人** («persona»): 意大利人, 中国人, 美国人. Dopo 是 si usa il nome della persona, non quello del paese: 我是意大利人, non 我是意大利." },
-      { "ok": true, "t": "**Negazione con 不 davanti a 是**: 我不是老师. Nel parlato 不 davanti a un tono discendente diventa bú: 不是 si legge bú shì, ma si scrive sempre 不." },
+      { "ok": true, "t": "**Negazione con 不 davanti a 是**: 我不是老师. Davanti a un quarto tono 不 cambia pronuncia in bú: 不是 si legge bú shì, ma si scrive sempre 不." },
       { "ok": true, "t": "**也 e 都 stanno tra il soggetto e 是**: 我也是学生 («anche io sono studente»), 我们都是学生 («siamo tutti studenti»). Con 不: 我也不是老师 («nemmeno io sono insegnante»)." },
       { "ok": true, "t": "**Domande**: 你是学生吗？ con 吗 in fondo; oppure 你是不是学生？ con la forma «è / non è». Si risponde ripetendo il verbo: 是 («è così»), 不是 («non è così»). Con una parola interrogativa questa rimane al suo posto: 这是什么？, 他是谁？" },
       { "ok": false, "t": "**Niente 是 davanti a un aggettivo**: 我很累, non 我是累. Neppure con l'età (我二十岁), con i giorni (今天星期一) o con un luogo, dove si usa 在 (我在家). 是 serve solo se dopo c'è un nome." }
@@ -146,12 +146,12 @@ LESSON_RICH.zh["essere"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Un carattere che vuol dire anche «giusto»", "t": "Nel cinese antico 是 era soprattutto un pronome dimostrativo («questo») e un aggettivo con il senso di «giusto, vero». Il suo uso come verbo di collegamento si è affermato più tardi. Per questo nel dizionario 是 ha anche il significato di «corretto» e risponde bene a una domanda: 是 equivale a «è così», 不是 a «non è così». In una domanda di conferma, 是的 («sì, è così») è un'altra risposta normale." },
-    { "titolo": "Non esistono «sì» e «no»", "t": "Il cinese non ha parole fisse per «sì» e «no»: si risponde ripetendo il verbo della domanda. A 你是学生吗？ si risponde 是 o 不是; a 你忙吗？ si risponde 忙 o 不忙. Quando vuoi dire «hai ragione» o «è giusto» si usa invece 对." },
+    { "titolo": "Un carattere che vuol dire anche «giusto»", "t": "Nel dizionario 是 ha anche il senso di «corretto, vero» e risponde bene a una domanda: 是 equivale a «è così», 不是 a «non è così». In una domanda di conferma, 是的 («sì, è così») è un'altra risposta normale." },
+    { "titolo": "Il sì e il no si dicono con il verbo", "t": "Il cinese non ha un «sì» e un «no» come parole separate: si risponde ripetendo il verbo della domanda. A 你是学生吗？ si risponde 是 o 不是; a 你忙吗？ si risponde 忙 o 不忙. Quando vuoi dire «hai ragione» o «è giusto» si usa invece 对." },
     { "titolo": "Il tono di 不 cambia, la scrittura no", "t": "不 si legge bù quando sta davanti a un tono alto, ascendente o basso, ma diventa bú davanti a un quarto tono: 不是 si pronuncia bú shì. L'app mostra il pinyin con il tono della pronuncia reale. Nella scrittura in caratteri resta 不 in ogni caso." },
     { "titolo": "Un 是 con l'accento", "t": "Quando si pronuncia 是 con forza, serve a confermare o a contrapporre: 是 a metà frase può dire «è proprio così», anche davanti a un aggettivo. È un uso di enfasi che incontrerai più avanti (per esempio nella struttura 是…的) e che non riguarda le frasi neutre di questa lezione." }
   ],
-  "pragmatica": "Per presentarti dici 我是 e il tuo nome, oppure 我叫 e il tuo nome: tutte e due sono normali. Con una persona che incontri per la prima volta 你是…吗？ è un modo cortese di verificare chi hai davanti. Tra amici si risponde spesso con il solo 是 o 不是, e la risposta lunga (我不是中国人，我是意大利人) si usa quando vuoi correggere un malinteso.",
+  "pragmatica": "Per presentarti dici 我是 e il tuo nome, oppure 我叫 e il tuo nome: tutte e due sono normali. Con una persona che incontri per la prima volta 你是…吗？ serve a verificare chi hai davanti. Tra amici si risponde spesso con il solo 是 o 不是, e la risposta lunga (我不是中国人，我是意大利人) si usa quando vuoi correggere un malinteso.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "她是中国人。", "opzioni": [
       { "t": "Lei è cinese.", "ok": true, "perche": "是 collega 她 e 中国人: paese + 人 dà la nazionalità." },
@@ -208,7 +208,7 @@ LESSON_RICH.zh["essere"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Connecting nouns with shi»: schema A 是 B, negazione 不是, 是 solo con i nomi",
-    "LibreTexts, Introductory Chinese Grammar, «Connecting nouns with shi»: 吗 e 是不是, aggettivi con 很",
+    "Wikipedia (inglese), «Chinese grammar»: aggettivi predicativi senza copula, 很 davanti all'aggettivo",
     "Tatoeba cinese-italiano (es. 你是不是…, 我们都是…, 我也是, 他不是…, 今天星期…) e CC-CEDICT, voce 是, consultati nei corpora locali"
   ]
 };

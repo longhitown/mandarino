@@ -21,7 +21,7 @@ LESSON_RICH.zh["quando"] = {
       { "ok": true, "t": "**Tempo prima del luogo**: 我们明天在公司开会 è l'ordine normale (quando, dove, verbo); 我们在公司明天开会 suona scomodo. Quando e dove stanno entrambi prima del verbo." },
       { "ok": true, "t": "**Le domande seguono la stessa posizione**: 你什么时候去北京？ 你几点起床？ La parola interrogativa sta dove starebbe la risposta." },
       { "ok": true, "t": "**Frasi di tempo con 的时候, 以前, 以后**: 我吃饭的时候看电视, 他下班以后回家. Anche queste espressioni vanno prima del verbo principale." },
-      { "ok": false, "t": "**Non in fondo alla frase**: nella frase normale 我去北京明天 non si dice (solo nel parlato, come aggiunta pensata dopo, si sente un tempo in coda). E la **durata** (三年, 两个小时, 一会儿) segue invece il verbo: 他睡了八个小时, non 他八个小时睡." }
+      { "ok": false, "t": "**Non in fondo alla frase**: nella frase normale 我去北京明天 non si dice. E la **durata** (三年, 两个小时, 一会儿) segue invece il verbo: 他睡了八个小时, non 他八个小时睡." }
     ]
   },
   "logica": [
@@ -100,7 +100,7 @@ LESSON_RICH.zh["quando"] = {
     ] },
     { "q": "Quale domanda significa «Quando parti?»", "opzioni": [
       { "t": "你什么时候走？", "ok": true, "perche": "La parola interrogativa sta nel posto in cui starebbe il momento nella risposta, prima del verbo." },
-      { "t": "你走什么时候？", "ok": false, "perche": "In italiano «parti quando?» è un'alternativa familiare; in cinese 什么时候 non segue il verbo." }
+      { "t": "你走什么时候？", "ok": false, "perche": "In cinese 什么时候 sta prima del verbo, come il momento nella risposta: 你什么时候走？" }
     ] },
     { "q": "«Quando mangio non guardo il telefono.»", "opzioni": [
       { "t": "我吃饭的时候不看手机。", "ok": true, "perche": "La frase di tempo con 的时候 sta prima del verbo principale (dopo il soggetto o in apertura)." },
@@ -144,7 +144,7 @@ LESSON_RICH.zh["quando"] = {
     { "titolo": "Il tempo che non cambia il verbo", "t": "In cinese il verbo resta invariato: 我去 vale «vado», «andai», «andrò». Ma questo non vuol dire che la lingua ignori il tempo: lo affida a parole come 昨天, 以前, 明天, 以后, e agli aspetti (了, 过, 在). Se il discorso ha già stabilito il quando, la parola di tempo si può omettere: dopo 你昨天去哪儿了？ si risponde 我去公园了 senza ripetere 昨天." },
     { "titolo": "Il tempo prima o dopo il soggetto", "t": "我明天去北京 e 明天我去北京 sono entrambe normali. La seconda mette il momento in primo piano, come una scena che si apre: «Domani... io vado a Pechino». Quando il soggetto è lungo o cambia nel discorso, il tempo in apertura aiuta a restare chiari. Quando si confrontano due persone, il tempo segue ciascun soggetto: 我明天去，他后天去." },
     { "titolo": "Anno, mese, giorno: sempre dal grande al piccolo", "t": "Le date cinesi vanno dall'anno al giorno: 2025年3月8日, e anche le ore dal più grande al più piccolo: 下午三点二十分. È lo stesso principio della frase, dalla cornice ai dettagli." },
-    { "titolo": "Il tempo dopo il verbo: la durata", "t": "Dopo il verbo si mette la **quantità di tempo**: 住了三年, 等了一会儿, 休息一天. Quando c'è anche un oggetto, il verbo si ripete oppure si usa la durata come specificazione: 学中文学了三年, 学了三年中文. Sono costruzioni che si studiano più avanti; per ora basta distinguere «quando» (prima) da «quanto» (dopo)." }
+    { "titolo": "Il tempo dopo il verbo: la durata", "t": "Dopo il verbo si mette la **quantità di tempo**: 住了三年, 等了一会儿, 休息一天. Con un oggetto la durata sta dopo verbo e oggetto: 学了三年中文 («ho studiato cinese per tre anni»). Per ora basta distinguere «quando» (prima) da «quanto» (dopo)." }
   ],
   "pragmatica": "Nel parlato quotidiano la parola di tempo si omette volentieri quando il discorso è già chiaro, e si ripete invece per fissare un appuntamento: 明天晚上七点, 学校见 è un messaggio perfetto tra amici. Mettere il tempo in apertura dà un tono più scandito, adatto a orari, avvisi e programmi (明天上午九点开会). Nei messaggi di lavoro conviene scrivere sempre l'ora precisa, dal grande al piccolo.",
   "esercizi": [
@@ -196,7 +196,7 @@ LESSON_RICH.zh["quando"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Time words and word order»: il tempo prima del soggetto o subito dopo, sempre prima del verbo; in fondo alla frase suona innaturale",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing duration with le»: verbo + 了 + durata, la durata segue il verbo",
+    "LibreTexts, CHN101 Elementary Mandarin I, Lesson 4 Grammar: Chinese word order with time, place and attributives: la durata (三年, 三个月) va in fondo, dopo il verbo",
     "Tatoeba (cinese), corpus locale cmn.tsv: 你什么时候…, 他在這裏已經住了兩年了嗎, per la posizione di 什么时候 e il doppio 了 della durata in corso",
     "CC-CEDICT, voci 时候, 以后, 点, per significati e usi"
   ]
