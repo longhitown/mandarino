@@ -139,7 +139,7 @@ LESSON_RICH.zh["potenziale"] = {
   "curiosi": [
     { "titolo": "Il potenziale è un risultato con una porta", "t": "Il complemento potenziale nasce dal complemento di risultato: 听懂 («ascoltare e capire») → 听得懂 / 听不懂. Se togli 得/不, hai il fatto già avvenuto: 我听懂了 («ho capito»). Per questo il potenziale con 不 è così naturale: nel parlato indica un blocco concreto, e con 得 conferma che la strada è libera." },
     { "titolo": "得了 e 不了", "t": "Il verbo 了 (liǎo) significa «finire, riuscire». Dopo 得 o 不 forma verbo + 得了 / 不了, molto frequente per dire se si può portare a termine un'azione: 去不了, 吃不了, 忘不了 («non riesco a dimenticare»). Si scrive 了 ma si pronuncia liǎo, a differenza della particella le." },
-    { "titolo": "Un uso a metà: 看得出来", "t": "Alcune espressioni si usano solo nella forma potenziale e non hanno una versione con il semplice risultato: 看得出来 («si vede, si capisce»), 想不到 («chi l'avrebbe detto»), 受不了 («non ne posso più»). Si imparano come unità." }
+    { "titolo": "Un uso a metà: 看得出来", "t": "Alcune espressioni si usano soprattutto nella forma potenziale, e spesso manca la versione con il semplice risultato: 看得出来 («si vede, si capisce»), 想不到 («chi l'avrebbe detto»), 受不了 («non ne posso più»). Si imparano come unità." }
   ],
   "pragmatica": "听不懂 è la frase più utile per chi studia: è educata, chiara e non incolpa nessuno. Aggiungi 请说慢一点 o 请再说一遍 per chiedere di ripetere. Per dire che qualcosa non è possibile per le circostanze, 不了 è più morbido di 不能: 明天我去不了 suona come «purtroppo non ce la faccio», mentre 我不能去 può sembrare una regola o un divieto. Nella lingua scritta formale il potenziale si usa meno, e si preferiscono 无法 o 不能.",
   "esercizi": [

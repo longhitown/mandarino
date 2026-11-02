@@ -16,7 +16,7 @@ LESSON_RICH.zh["yixie-suoyou"] = {
     "schema": ["一些 / 有些 / 所有的 / 每个 / 别的", "nome", "都", "verbo"],
     "punti": [
       { "ok": true, "t": "**一些 + nome** dice «un po' di, alcuni» senza precisare: 买一些水果, 一些朋友. Sta bene come oggetto e dopo un aggettivo: 好一些 («un po' meglio»). Non si combina con un altro numero." },
-      { "ok": true, "t": "**有些 + nome** indica una parte di un gruppo ed è tipico del soggetto: 有些人没来. Non fa da oggetto (non si dice 买有些水果). Prima di un aggettivo vale «un po', piuttosto»: 我有些累." },
+      { "ok": true, "t": "**有些 + nome** indica una parte di un gruppo ed è tipico del soggetto: 有些人没来. Di solito non fa da oggetto (non si dice 买有些水果). Prima di un aggettivo vale «un po', piuttosto»: 我有些累." },
       { "ok": true, "t": "**所有(的) + nome** significa «tutti i» e di solito chiama 都 prima del verbo: 所有的学生都来了. Con 人 si dice anche 所有人 senza 的." },
       { "ok": true, "t": "**每 + classificatore + nome** significa «ogni»: 每个人, 每本书. Con le parole di tempo il classificatore non serve: 每天, 每年. Il verbo ha quasi sempre 都: 每个人都喜欢他." },
       { "ok": true, "t": "**别的** vuol dire «altro, altri» e sostituisce il nome già noto: 你还要别的吗？ Con le persone si usa spesso **别人** («gli altri»)." },
@@ -25,7 +25,7 @@ LESSON_RICH.zh["yixie-suoyou"] = {
   },
   "logica": [
     "L'italiano ha molte parole per la quantità, ma le usa con una sintassi libera: «tutti sono venuti», «sono venuti tutti», «alcuni sono venuti». Il cinese le allinea tutte nello stesso posto, davanti al nome, e affida a 都 il compito di «sommare» il gruppo davanti al verbo. Per questo 所有 e 每 non bastano da soli: dicono *quale gruppo*, 都 dice *tutti insieme*.",
-    "La differenza tra 一些 e 有些 è una differenza di prospettiva. 一些 dice quanta roba c'è, senza guardare il resto; 有些 guarda il gruppo e ne stacca una parte, spesso in attesa di una seconda parte (有些…有些…). Per questo 有些 ama fare il soggetto e non fa mai da oggetto: l'oggetto è la cosa che si compra o si prende, non una parte del gruppo che si contrappone a un'altra. Quando è davanti a un aggettivo, 有些 diventa un avverbio e vale «piuttosto»."
+    "La differenza tra 一些 e 有些 è una differenza di prospettiva. 一些 dice quanta roba c'è, senza guardare il resto; 有些 guarda il gruppo e ne stacca una parte, spesso in attesa di una seconda parte (有些…有些…). Per questo 有些 ama fare il soggetto e di solito non fa da oggetto: l'oggetto è la cosa che si compra o si prende, non una parte del gruppo che si contrappone a un'altra. Quando è davanti a un aggettivo, 有些 diventa un avverbio e vale «piuttosto»."
   ],
   "mappa": {
     "tipo": "tabella",
@@ -137,7 +137,7 @@ LESSON_RICH.zh["yixie-suoyou"] = {
   "curiosi": [
     { "titolo": "有的, il cugino di 有些", "t": "Accanto a 有些 esiste 有的, con lo stesso senso di «alcuni». I due si scambiano spesso nel parlato. 有的 si ripete volentieri per elencare le parti del gruppo, per esempio 有的喝茶，有的喝咖啡. 有些 resta il preferito davanti a un aggettivo (我有些累)." },
     { "titolo": "一些 e 一点儿", "t": "一些 e 一点儿 si somigliano. 一点儿 si usa tipicamente per quantità piccole di cose non numerabili (喝一点儿水); 一些 è più generale e vale anche per cose numerabili (一些朋友). Dopo un aggettivo si usano entrambi, soprattutto con 比 e con gli imperativi: 快一点儿, 好一些." },
-    { "titolo": "Il plurale dei pronomi: 这些, 那些", "t": "Dentro 这些 e 那些 si riconosce 一些: sono «questi» e «quelli» al plurale. Il cinese non marca il plurale dei nomi, e quando serve lo dice con queste parole: 这些书 («questi libri»), 那些人 («quelle persone»)." }
+    { "titolo": "Il plurale dei pronomi: 这些, 那些", "t": "Dentro 这些 e 那些 c'è 些, la stessa parola di 一些: sono «questi» e «quelli» al plurale. Il cinese non marca il plurale dei nomi, e quando serve lo dice con queste parole: 这些书 («questi libri»), 那些人 («quelle persone»)." }
   ],
   "pragmatica": "Nel parlato quotidiano 每 + 都 e 所有的 + 都 sono frequentissimi per generalizzare («tutti», «ogni volta»). 一些 è la parola neutra per una quantità non precisata; 有些 appare quando si contrappongono due gruppi o si attenua un aggettivo. 别的 chiude le domande al negozio, a tavola, al telefono: 还要别的吗？ è la domanda di servizio più comune.",
   "esercizi": [

@@ -21,7 +21,7 @@ LESSON_RICH.zh["yi-jiu"] = {
       { "ok": true, "t": "**了 solo per un fatto compiuto**: se racconti un evento passato, in fondo puoi mettere 了 (小狗就跑进来了); con il futuro, con le richieste e con le abitudini non si mette." },
       { "ok": true, "t": "**Modali e avverbi stanno dopo 就**, davanti al verbo: 我一下课就要去吃饭, 你一到就马上给我打电话. Il 就 resta attaccato al punto in cui comincia la seconda azione." },
       { "ok": true, "t": "**Il secondo pezzo può essere negativo**: 他一喝咖啡就睡不着, 她一生气就不说话. La negazione appartiene all'azione che segue 就." },
-      { "ok": false, "t": "**Non si scambia 就 con 才 o 再**: 才 dice «solo dopo, non prima» (做完作业才能玩), 再 dice «poi, in un secondo momento». Per «subito» c'è solo 就. Neppure si spezza il verbo: 他一看见我, non 他看一见我." }
+      { "ok": false, "t": "**Non si scambia 就 con 才 o 再**: 才 dice «solo dopo, non prima» (做完作业才能玩), 再 dice «poi, in un secondo momento». In questo schema, per legare la seconda azione alla prima, serve 就. Neppure si spezza il verbo: 他一看见我, non 他看一见我." }
     ]
   },
   "logica": [

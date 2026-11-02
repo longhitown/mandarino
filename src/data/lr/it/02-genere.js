@@ -16,7 +16,7 @@ LESSON_RICH.it["genere"] = {
     "schema": ["-o → -i", "｜", "-a → -e", "｜", "-e → -i"],
     "punti": [
       { "ok": true, "t": "**性看结尾，但 -e 要记**：libro、quaderno 是阳性，casa、mela 是阴性；-e 结尾的词没有规律，要和冠词一起记：il pane、il fiore、il dente 是阳性，la chiave、la notte、la lezione 是阴性。" },
-      { "ok": true, "t": "**规则复数**：-o 变 -i（libro → libri），-a 变 -e（casa → case），-e 变 -i（chiave → chiavi，fiore → fiori）。数量多于一时，名词一定要变。" },
+      { "ok": true, "t": "**规则复数**：-o 变 -i（libro → libri），-a 变 -e（casa → case），-e 变 -i（chiave → chiavi，fiore → fiori）。数量多于一时，名词通常要变（città、caffè、film 这类少数名词不变）。" },
       { "ok": true, "t": "**以 -a 结尾的阳性名词**：problema、programma、sistema 是阳性，复数是 -i：il problema → i problemi。指人的 -ista 同形：il turista 是男游客，la turista 是女游客，复数 i turisti（男或混合）、le turiste（全是女性）。" },
       { "ok": true, "t": "**复数不变的名词**：最后一个元音有重音符号的（città、caffè、università），外来词（film、bar、computer），缩略词（foto、bici、auto）。una città → due città，un film → tre film。" },
       { "ok": true, "t": "**-co、-go、-ca、-ga 的复数**：-ca、-ga 一律变 -che、-ghe（amica → amiche，riga → righe），写 h 是为了保持硬音；-co、-go 多数变 -chi、-ghi（lago → laghi，gioco → giochi），但有些变 -ci（amico → amici，medico → medici），要记。" },

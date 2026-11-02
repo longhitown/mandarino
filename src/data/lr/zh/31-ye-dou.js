@@ -12,12 +12,12 @@ LESSON_RICH.zh["ye-dou"] = {
     "risposta": "Sia 也 sia 都 stanno **dopo il soggetto e prima del verbo** (我也喝, 我们都喝); mai in fondo alla frase e mai davanti al soggetto. Se compaiono insieme, l'ordine è sempre **也 + 都** (我们也都喝茶). La negazione 不 viene **dopo** tutti e due: 他们都不喝茶 vuol dire che non beve nessuno."
   },
   "regola": {
-    "enunciato": "也 («anche, neanche») e 都 («tutti, entrambi, ogni») sono **avverbi**: stanno tra il soggetto e il verbo (o l'aggettivo). 也 aggiunge qualcosa a ciò che è già stato detto; 都 riassume un gruppo che si trova **prima di lui**. Insieme formano 也都, mai 都也, e la negazione li segue: 也不, 都不.",
+    "enunciato": "也 («anche, neanche») e 都 («tutti, entrambi, ogni») sono **avverbi**: stanno tra il soggetto e il verbo (o l'aggettivo). 也 aggiunge qualcosa a ciò che è già stato detto; 都 riassume un gruppo che si trova **prima di lui**. Insieme formano 也都, non 都也, e la negazione li segue: 也不, 都不.",
     "schema": ["chi", "也", "都", "不 · 没", "verbo · aggettivo"],
     "punti": [
       { "ok": true, "t": "**也 aggiunge** una persona o un fatto a quello che c'è già: 他是学生，我也是学生. Funziona anche con gli aggettivi (她很累，我也很累) e sta sempre prima di 很, 都, 不, 没." },
       { "ok": true, "t": "**都 riassume** un gruppo nominato prima: 我们都, 你们都, 大家都, 我和他都, 每天都. Con un solo elemento davanti non ha nulla da riassumere: 我都是老师 non è la frase giusta per «io sono insegnante»." },
-      { "ok": true, "t": "**也 + 都**: 我们也都喜欢咖啡 («anche noi, tutti, amiamo il caffè»). L'ordine inverso (我们都也) non esiste." },
+      { "ok": true, "t": "**也 + 都**: 我们也都喜欢咖啡 («anche noi, tutti, amiamo il caffè»). L'ordine inverso (我们都也) non si usa." },
       { "ok": true, "t": "**也不 e 也没**: una frase negativa con «neanche, nemmeno» si fa con 也 + 不 (non si dice 不也): 我不去，他也不去. Per un fatto passato: 他没来，你也没来." },
       { "ok": true, "t": "**都不 e 不都**: 都不 = nessuno (我们都不去), 不都 = non tutti (我们不都去: qualcuno va, qualcuno no). Si legge da sinistra a destra: 不 nega ciò che gli sta subito dopo. Per un fatto passato si usa 都没: 他们都没来." },
       { "ok": true, "t": "**Complemento davanti al verbo**: se l'oggetto va in testa alla frase, 都 si mette dopo di lui: 这些书我都看过 («questi libri li ho letti tutti»)." },
@@ -26,7 +26,7 @@ LESSON_RICH.zh["ye-dou"] = {
   },
   "logica": [
     "In italiano «anche» e «tutti» si muovono con libertà: «anche io», «io anche», «bevo anche il tè», «tutti noi», «noi tutti». In cinese la posizione è fissa, perché 也 e 都 sono avverbi come 很 e 不: il loro posto è davanti al predicato. Cambia soltanto ciò che hanno alle spalle: 也 guarda **indietro** a una frase già detta («lui beve tè, io pure»); 都 guarda **indietro** a un gruppo («noi, loro, tutti»).",
-    "Per questo la negazione si legge con facilità. 不 nega la parola che lo segue. In 我们都不去, 都 riassume il gruppo e 不 nega il verbo: tutti → non vanno. In 我们不都去, 不 nega 都 stesso: non è vero che vanno tutti. Anche per 也不 vale lo stesso ordine: 也 aggiunge un secondo caso e 不 nega il verbo: «io non vado, lui nemmeno». Il cinese non ha una parola separata per «nemmeno»: lo costruisce con 也 + 不."
+    "Per questo la negazione si legge con facilità. 不 nega la parola che lo segue. In 我们都不去, 都 riassume il gruppo e 不 nega il verbo: tutti → non vanno. In 我们不都去, 不 nega 都 stesso: non è vero che vanno tutti. Anche per 也不 vale lo stesso ordine: 也 aggiunge un secondo caso e 不 nega il verbo: «io non vado, lui nemmeno». Il cinese di solito non usa una parola separata per «nemmeno»: lo costruisce con 也 + 不."
   ],
   "mappa": {
     "tipo": "tabella",

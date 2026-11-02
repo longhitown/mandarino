@@ -12,7 +12,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
     "risposta": "表示“一样”时，形容词后面是 **come**（或 **quanto**）：alto **come** me。前面可以加 **così**（或 **tanto**），也常常省略。比较名词的数量时用 **tanto … quanto**，而且两个词都要和各自的名词一致：**tanti** amici **quanti**…。第三句的 **tanto … quanto** 比较的是同一个人的两种性质；第四句里 **uguale a** 表示“相同”，**non … così … come** 表示“没有那么……”。"
   },
   "regola": {
-    "enunciato": "意大利语的“一样”用**两个相呼应的词**：**(così) 形容词 come** 或 **(tanto) 形容词 quanto**，被比较的对象放在 come / quanto 后面：A è (così) alto come B。比较**数量**时必须用 **tanto … quanto**，并且 tanto 和 quanto 要和各自的名词在性、数上一致；比较**动作**时用 **动词 ＋ quanto**。否定句用 **non è (così) … come** 表示“没有……那么……”。",
+    "enunciato": "意大利语的“一样”用**两个相呼应的词**：**(così) 形容词 come** 或 **(tanto) 形容词 quanto**，被比较的对象放在 come / quanto 后面：A è (così) alto come B。比较**数量**时用 **tanto … quanto**，并且 tanto 和 quanto 要和各自的名词在性、数上一致；比较**动作**时用 **动词 ＋ quanto**。否定句用 **non è (così) … come** 表示“没有……那么……”。",
     "schema": ["A", "è", "(così / tanto)", "形容词", "come / quanto", "B"],
     "punti": [
       { "ok": true, "t": "**形容词和副词**：用 (così) … come 或 (tanto) … quanto，两种说法意思相同。日常口语里 così、tanto 几乎总是省略：Anna è alta come Marco. Corre veloce quanto me." },

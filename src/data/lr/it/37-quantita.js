@@ -19,7 +19,7 @@ LESSON_RICH.it["quantita"] = {
       { "ok": true, "t": "**alcuni / alcune** = 几个、一些，后面接复数名词，要和名词的阴阳性一致：alcuni libri、alcune amiche。意思和 qualche 相近，但 alcuni 还能单独使用：Alcuni di noi sono stanchi（我们中有几个人累了）。" },
       { "ok": true, "t": "**un po' di** = 一点儿，用于不可数的东西：un po' di pane、un po' d'acqua、un po' di tempo。" },
       { "ok": true, "t": "**ogni** = 每，不变形，后面接单数名词，不加冠词：ogni giorno、ogni volta。后面如果是数词，名词用复数：ogni tre giorni（每三天）。" },
-      { "ok": true, "t": "**tutti / tutte** = 所有的，后面一定要有定冠词：tutti gli studenti、tutte le case。单数用 tutto il / tutta la，表示“整个”：tutto il giorno（一整天）、tutta la città（整个城市）。" },
+      { "ok": true, "t": "**tutti / tutte** = 所有的，后面通常要有定冠词（tutti noi、tutti e tre 这类说法除外）：tutti gli studenti、tutte le case。单数用 tutto il / tutta la，表示“整个”：tutto il giorno（一整天）、tutta la città（整个城市）。" },
       { "ok": true, "t": "**nessuno / nessun** = 没有一个。它在动词**后面**时要加 non：Non ho nessun amico。它在动词**前面**时不加 non：Nessuno parla。后面接名词时，形式像不定冠词 un：nessun amico、nessuna amica、nessuno studente。" },
       { "ok": false, "t": "**不要**在 qualche、ogni 后面用复数名词（*qualche amici、*ogni giorni），也不要省略 tutti 后面的冠词（*tutti studenti）。" }
     ]

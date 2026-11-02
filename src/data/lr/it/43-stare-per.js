@@ -134,7 +134,7 @@ LESSON_RICH.it["stare-per"] = {
   },
   "tranello": {
     "errore": "汉语的“就要……了”可以和很远的时间一起用（“我明天就要走了”），于是把所有“就要”都翻成 stare per：*Domani sto per partire*。还有人漏掉 per（*Sto uscire*），或在 per 后面接副动词（*Sto per uscendo*），或不把动词变成原形（*Sta per piove*）。",
-    "perche": "汉语的“要……了”里，“要”只表示将要，没有规定多近。意大利语的 stare per 描述的是“已经站在门口”，只对几分钟之内的事成立。另外汉语动词不变形，学习者容易忘记：per 后面一定是原形，而 stare 要跟着人称和时间变位。",
+    "perche": "汉语的“要……了”里，“要”只表示将要，没有规定多近。意大利语的 stare per 描述的是“已经站在门口”，多半只对几分钟之内的事成立。另外汉语动词不变形，学习者容易忘记：per 后面一定是原形，而 stare 要跟着人称和时间变位。",
     "esci": "先问：这件事是**马上**吗？是，用 stare per + 原形；是明天或下周的计划，用现在时或将来时（Domani parto / Partirò domani）。写完检查三处：有没有 per、per 后面是不是原形、stare 有没有跟主语变位。",
     "esempi": [
       { "sbagliata": "Domani sto per partire.", "giusta": "Domani parto." },

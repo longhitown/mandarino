@@ -20,7 +20,7 @@ LESSON_RICH.zh["you-zai-shi"] = {
       { "ok": true, "t": "**是** apre con il luogo e dice che cos'è quello che si trova lì: 学校前面是公园, 那边是银行. Di solito è una cosa sola (o un insieme unico), non un elenco. La domanda è 是…吗 e la risposta è 是 o 不是." },
       { "ok": true, "t": "**Negazione**: 在 si nega con 不 (他不在家), 是 con 不 (这里不是银行), 有 con 没(有) (这里没有超市). La forma 不有 non esiste." },
       { "ok": true, "t": "**Il luogo viene prima della cosa** con 有 e 是, perché il luogo è il tema della frase: 桌子上有书, non 书有桌子上. Per una cosa che sta su o in un oggetto si aggiunge 上 o 里: 桌子上, 包里." },
-      { "ok": false, "t": "**Non si usa 有 per una cosa già nota**: «Il libro è sul tavolo» è 书在桌子上, non 桌子上有书 (che presenta il libro come novità). E non si mettono due verbi insieme: né 有在, né 在有. Per la persona che è a casa: 他在家, mai 他有在家." }
+      { "ok": false, "t": "**Di solito non si usa 有 per una cosa già nota**: «Il libro è sul tavolo» è 书在桌子上, non 桌子上有书 (che presenta il libro come novità). E non si mettono due verbi insieme: né 有在, né 在有. Per la persona che è a casa: 他在家, mai 他有在家." }
     ]
   },
   "logica": [

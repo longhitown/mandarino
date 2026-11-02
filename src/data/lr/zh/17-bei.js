@@ -135,7 +135,7 @@ LESSON_RICH.zh["bei"] = {
   "curiosi": [
     { "titolo": "Il 被 di una volta: «ricevere»", "t": "被 è anche il carattere di «coperta, piumone» (被子), e come verbo letterario significa «subire»: chi è 被 qualcosa ne è coperto o colpito. Questo spiega il tono: la costruzione è nata per dire ciò che si riceve senza volerlo, quasi sempre un danno." },
     { "titolo": "Il passivo moderno e le traduzioni", "t": "Nello scritto, soprattutto in giornali, comunicati e testi accademici, 被 compare anche con fatti neutri e positivi (被选为, 被评为, 被誉为). Nel parlato di tutti i giorni questi casi sono meno frequenti e si preferisce la frase attiva: 大家选他当班长." },
-    { "titolo": "被 più 给, 让 e 叫", "t": "Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了): l'agente resta visibile nella frase." }
+    { "titolo": "被, 让 e 叫", "t": "Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了): l'agente resta visibile nella frase." }
   ],
   "pragmatica": "被 è la forma naturale per lamentarsi o per raccontare un guaio: 我的手机被偷了 si dice a un amico, a un poliziotto, al telefono. Chi vuole essere cortese con chi ha causato il danno lo evita e dice solo: 杯子打破了, 对不起. Con 让 e 叫 il tono è familiare e conversazionale.",
   "esercizi": [
