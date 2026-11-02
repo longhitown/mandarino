@@ -22,7 +22,7 @@ Dopo settimane di progettazione ingegneristica mirata (non è vero, ma mi voglio
 È cresciuta fino a diventare un ecosistema educativo incredibilmente denso e ricco di funzionalità che unisce i lati migliori degli strumenti linguistici specializzati in un'unica piattaforma. Include:
 
 - Apprendimento strutturato: Un percorso curriculare lineare con lezioni di grammatica complete, scritte nativamente per i parlanti italiani (e un corso speculare di italiano per parlanti cinesi, perché, sai: why not?).
-- Lessico massiccio e ripasso intelligente: Oltre 6.000 parole (con supporto all'HSK 3.0), 5.700 frasi di esempio allineate bi-linguisticamente e un motore di ripetizione dilazionata di nuova generazione FSRS-6.
+- Lessico massiccio e ripasso intelligente: Oltre 6.000 parole (con supporto all'HSK 3.0), 5.700 frasi di esempio allineate bi-linguisticamente e un motore di ripetizione dilazionata di nuova generazione: FSRS-6 esteso con ML-FSRS-32, pensato per le difficoltà del cinese per chi parla italiano.
 - Produzione attiva: Una lavagna attiva per imparare l'esatto ordine dei tratti dei caratteri, il riconoscimento vocale per la valutazione della pronuncia, test sui toni e costruttori di frasi strutturali.
 - Strumenti per il mondo reale: Un lettore "a raggi X" che scompone in token i testi cinesi incollati aggiungendo il pinyin in linea, una "Modalità Guida" a mani libere per l'ascolto in movimento e un Jukebox offline integrato con oltre un'ora di musica originale per la concentrazione.
 
@@ -74,7 +74,7 @@ Il dettaglio di quando l'app usa la rete (poche cose, tutte facoltative) è nell
 它一路长成了一个功能极其丰富、内容相当密集的学习生态，把各类专业语言工具里最好的部分集中在同一个平台上。它包括：
 
 - 系统化学习：线性的课程路径，语法课内容完整，专为说意大利语的人原生编写（还有一套镜像的、给说中文的人学意大利语的课程，因为嘛，why not？）。
-- 海量词汇与智能复习：6000 多个词（支持 HSK 3.0）、5700 多句中意双语对照的例句，以及新一代的 FSRS-6 间隔重复引擎。
+- 海量词汇与智能复习：6000 多个词（支持 HSK 3.0）、5700 多句中意双语对照的例句，以及新一代的 FSRS-6 间隔重复引擎，并针对汉语特点扩展为 ML-FSRS-32。
 - 主动输出：用来学习准确笔顺的书写板、评估发音的语音识别、声调测试，还有句子构建器。
 - 真实世界的工具：“X 光”阅读器，把粘贴进来的中文文本逐词拆开，并在行内加注拼音；解放双手、适合边走边听的“导览模式”；还有内置的离线音乐盒，收录一个多小时的原创专注音乐。
 

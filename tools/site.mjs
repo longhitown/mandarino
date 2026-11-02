@@ -57,17 +57,19 @@ export function md2html(md) {
   flush(); if (inZh) out.push("</section>");
   return out.join("\n");
 }
-function privacyPage() {
-  const md = fs.readFileSync(path.join(ROOT, "PRIVACY.md"), "utf8");
+const privacyPage = () => mdPage("PRIVACY.md", "Privacy · màndarínō", "Informativa sulla privacy di màndarínō: nessun dato raccolto. 隐私说明：不收集任何数据。");
+const motorePage = () => mdPage("docs/motore-ripasso.md", "Il motore del ripasso · màndarínō", "Come funziona il ripasso di màndarínō (FSRS-6 esteso con ML-FSRS-32), che cosa è verificato e a chi appartiene.");
+function mdPage(file, title, description) {
+  const md = fs.readFileSync(path.join(ROOT, file), "utf8");
   return `<!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy · màndarínō</title>
-<meta name="description" content="Informativa sulla privacy di màndarínō: nessun dato raccolto. 隐私说明：不收集任何数据。">
+<title>${title}</title>
+<meta name="description" content="${description}">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<!-- generata da tools/site.mjs a partire da PRIVACY.md: non modificarla a mano -->
+<!-- generata da tools/site.mjs a partire da ${file}: non modificarla a mano -->
 <style>
 :root { --bg: #F5F7F5; --ink: #16201B; --mute: #4A5A52; --accent: #14594A; --line: #D5DED9; --card: #FFFFFF; }
 @media (prefers-color-scheme: dark) { :root { --bg: #0F1412; --ink: #E9EFEB; --mute: #A9B8B0; --accent: #5CC4A5; --line: #2A3530; --card: #18201C; } }
@@ -81,7 +83,7 @@ code { font-size: .9em; } h1 { font-size: 1.8rem; } h2 { margin-top: 2em; } .bac
 </head>
 <body><main>
 <a class="back" href="./">← màndarínō</a>
-${md2html(md)}
+${md2html(md).replace(/href="(?:\.\.\/)?PRIVACY[.]md/g, 'href="privacy.html')}
 </main></body>
 </html>
 `;
@@ -203,6 +205,7 @@ function assemble(out) {
   put("/zh/", "zh/index.html", fs.readFileSync(path.join(ROOT, "docs/zh/index.html"), "utf8"));
   put("/privacy.html", "privacy.html", privacyPage());
   put("/manifesto.html", "manifesto.html", manifestoPage());
+  put("/motore-ripasso.html", "motore-ripasso.html", motorePage());   /* nascosta: noindex, fuori dalla mappa del sito, raggiunta dal piè di pagina */
   copyDir(path.join(ROOT, "dist"), path.join(out, "app"), new Set(["_headers"]));
   fs.writeFileSync(path.join(out, ".nojekyll"), "");
   console.log("✓ sito in " + path.relative(ROOT, out) + ": index.html, 404.html, zh/, privacy.html, manifesto.html, partecipa-voci.html, img/, assets/, audio/, licenze/, robots.txt, llms.txt, llms-full.txt, fatti.json, sitemap.xml, app/");

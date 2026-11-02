@@ -4,6 +4,17 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Ripasso più attento al cinese", vz: "更懂汉语的复习", d: "2026-11-02",
+    it: [
+      "Il ripasso ora tiene conto di più cose: se sbagli solo il tono la parola non torna a zero, scrivere pesa più che scegliere tra le opzioni, e i caratteri che già conosci aiutano nelle parole composte.",
+      "Nuova sezione Impostazioni → Comunità e voci → Ricerca sulla memoria (facoltativa, spenta di base): se vuoi, mandi in forma anonima i tuoi ripassi per aiutare a migliorare il ripasso. Niente parte da solo.",
+      "Sul sito, una pagina spiega come funziona il ripasso e che cosa è già verificato."
+    ],
+    zh: [
+      "复习现在考虑得更多：如果只错了声调，这个词不会被当成完全忘记；写出来比在选项里选更有分量；已经认识的汉字会帮助记忆合成词。",
+      "新增 设置 → 社区与声音 → 记忆研究（自愿参与，默认关闭）：如果你愿意，可以匿名发送你的复习记录，帮助改进复习。不会自动发送任何内容。",
+      "网站上新增一页，说明复习的工作方式以及哪些已经得到验证。"
+    ] },
   { v: "Widget e microfono", vz: "小组件和麦克风", d: "2026-10-31",
     it: [
       "Su Android, il nuovo widget «Ripasso rapido» (4×4): cinque minuti di ripasso dalla schermata Home, una carta alla volta.",

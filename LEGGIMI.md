@@ -30,7 +30,7 @@ Le schede si aprono man mano, così all'inizio vedi poco: nel corso di cinese pr
 
 - **Percorso** è la home: una carta «Continua» con un solo pulsante, che dice che cosa succede (per esempio «Impara 5 parole nuove · 10 ripassi»). Sotto, le tappe e i capitoli. La durata si sceglie tra 5, 10 e 15 minuti.
 - **Studia** raccoglie il ripasso del giorno, l'orecchio ai toni, le sfide, i progressi e i backup.
-- **Ripasso a intervalli (FSRS):** le parole tornano quando stai per dimenticarle. Il giorno di studio cambia alle 4 del mattino.
+- **Ripasso a intervalli (FSRS-6 con l'estensione ML-FSRS-32 per il cinese):** le parole tornano quando stai per dimenticarle. Il giorno di studio cambia alle 4 del mattino.
 - **Serie e gradi:** i punti fanno salire di grado (nomi cinesi inclusi). Un giorno saltato a settimana non spezza la serie, purché non siano due di fila.
 
 ### Tre stili di ripasso

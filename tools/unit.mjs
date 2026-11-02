@@ -193,7 +193,7 @@ function sandbox() {
   const ext = [...h.matchAll(/<(?:script|img|iframe|source|video|audio)\b[^>]*?(?:src|poster)="([^"]+)"/gi)].map((m) => m[1])
     .concat([...h.matchAll(/<link\b[^>]*\brel="(?:stylesheet|icon|preload|modulepreload)"[^>]*?href="([^"]+)"/gi)].map((m) => m[1])).filter(isExt);
   const scripts = [...h.matchAll(/<script\b([^>]*)>/gi)].map((m) => m[1]);
-  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
+  const GENERATI = ["app/", "privacy.html", "manifesto.html", "motore-ripasso.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
   const local = [...h.matchAll(/\b(?:src|poster|href)="([^"#?]+)(?:[#?][^"]*)?"/g)].map((m) => m[1])
     .filter((u) => !/^(https?:|mailto:|tel:|\/\/|data:)/i.test(u) && !GENERATI.includes(u)).filter((f) => !fs.existsSync(path.join(DOCS, f)));
   const ctas = (h.match(/class="btn"/g) || []).length;
@@ -303,8 +303,10 @@ function sandbox() {
   const exCtx = vm.createContext({}); fs.readdirSync(path.join(SRC, "data/examples")).filter((f) => f.endsWith(".js")).forEach((f) => { try { vm.runInContext(fs.readFileSync(path.join(SRC, "data/examples", f), "utf8"), exCtx); } catch (e) {} });
   const nEx = Object.keys(exCtx.EXAMPLES || {}).length;
   const minTracks = fs.readdirSync(path.join(SRC, "audio/tracks")).filter((f) => f !== "index.js").reduce((a, f) => a + +((/sec:\s*(\d+)/.exec(fs.readFileSync(path.join(SRC, "audio/tracks", f), "utf8")) || [0, 0])[1]), 0) / 60;
-  const fsrsV = /VERSION: "FSRS-6/.test(fs.readFileSync(path.join(SRC, "core/fsrs.js"), "utf8"));
-  check("manifesto: «5.700 frasi», «oltre un'ora di musica» e «FSRS-6» sono veri", nEx >= 5700 && minTracks > 60 && fsrsV && /5\.700 frasi/.test(mdM) && /FSRS-6/.test(mdM), nEx + " frasi, " + Math.round(minTracks) + " min");
+  const fsrsV = /VERSION: "(FSRS-6|ML-FSRS-32)/.test(fs.readFileSync(path.join(SRC, "core/fsrs.js"), "utf8"));
+  const moMd = fs.readFileSync(path.join(ROOT, "docs/motore-ripasso.md"), "utf8"), idxH = fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8"), seoM = await import("./seo.mjs");
+  check("Motore del ripasso: pagina nascosta nel piè di pagina (noindex, fuori dalla mappa del sito), con licenza MIT, py-fsrs e il limite dei pesi dichiarati", /href="motore-ripasso\.html"/.test(idxH) && seoM.PAGES.some((p) => p.path === "/motore-ripasso.html" && p.noindex) && !/motore-ripasso/.test(seoM.sitemapXml()) && /licenza MIT/.test(moMd) && /Open Spaced Repetition/.test(moMd) && /non sono stati stimati su ripassi di studenti veri/.test(moMd));
+  check("manifesto: «5.700 frasi», «oltre un'ora di musica» e «FSRS-6» sono veri", nEx >= 5700 && minTracks > 60 && fsrsV && /5\.700 frasi/.test(mdM) && /FSRS-6|ML-FSRS-32/.test(mdM), nEx + " frasi, " + Math.round(minTracks) + " min");
 }
 
 /* ---- versione per gli store: src/config.js con il ponte Android che dice «store» ---- */
@@ -722,8 +724,8 @@ function sandbox() {
   const ctx = {}; vm.runInNewContext(fs.readFileSync(path.join(SRC, "data/changelog.js"), "utf8") + ";this.C=CHANGELOG;", ctx);
   const bad = (ctx.C || []).filter((e) => !(e.v && e.d && Array.isArray(e.it) && Array.isArray(e.zh) && e.it.length > 0 && e.it.length === e.zh.length && e.it.concat(e.zh).every((r) => typeof r === "string" && r.length > 5))).map((e) => e.v);
   check("Novità (data/changelog.js): ogni versione ha versione, data e le righe in italiano e in cinese, in pari numero", (ctx.C || []).length > 0 && !bad.length, bad.join(", "));
-  const top = ctx.C[0], topTxt = top.it.join(" ");
-  check("Novità: la versione in cima parla di scambio linguistico, widget (Ripasso rapido) e microfono", /[Ss]cambio linguistico/.test(topTxt) && /Ripasso rapido/.test(topTxt) && /[Mm]icrofono/.test(topTxt) && /小组件/.test(top.zh.join(" ")), top.v);
+  const top = ctx.C[0], topTxt = top.it.join(" "), wid = ctx.C.find((e) => e.v === "Widget e microfono") || { it: [], zh: [] }, widTxt = wid.it.join(" ");
+  check("Novità: la voce dei widget (scambio linguistico, Ripasso rapido, microfono) resta nell'elenco e la versione in cima parla di ricerca sulla memoria in italiano e in cinese", /[Ss]cambio linguistico/.test(widTxt) && /Ripasso rapido/.test(widTxt) && /[Mm]icrofono/.test(widTxt) && /小组件/.test(wid.zh.join(" ")) && /Ricerca sulla memoria/.test(topTxt) && /记忆研究/.test(top.zh.join(" ")), top.v);
   /* la richiesta di rete: una sola fetch verso l'esterno in tutta l'app (ui/community.js), dentro checkPack, che parte solo dal click sul pulsante */
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? (e.name === "data" ? [] : walk(path.join(d, e.name))) : e.name.endsWith(".js") ? [path.join(d, e.name)] : []);
   const ext = walk(SRC).filter((f) => /fetch\(\s*["'`]https?:\/\//.test(fs.readFileSync(f, "utf8")) || /PACK_URL/.test(fs.readFileSync(f, "utf8")) && /fetch\(\s*PACK_URL/.test(fs.readFileSync(f, "utf8"))).map((f) => path.relative(SRC, f).split(path.sep).join("/"));
@@ -765,13 +767,86 @@ function sandbox() {
   /* applicare un voto: stesso risultato del motore dell'app con l'ora originale, intervallo compreso */
   {
     const w = world(); const before = fresh(w, "好", T0), t = before.d + 2 * H;
-    const ref = new w.ctx.FSRS.Scheduler({ retention: 0.9, fuzz: false, dayOf: w.ctx.FSRS.studyDay }).review({ state: before.sd, step: before.sp, st: before.st, df: before.df, due: before.d, last: before.lr }, 3, t);
+    const ref = new w.ctx.FSRS.Scheduler({ retention: 0.9, fuzz: false, dayOf: w.ctx.FSRS.studyDay }).review({ state: before.sd, step: before.sp, st: before.st, df: before.df, due: before.d, last: before.lr }, 3, t, { nights: w.ctx.FSRS.studyDay(t) - w.ctx.FSRS.studyDay(before.lr) });
     w.queue.list = [vote("a1", "好", 2, t)];
     const n = w.CP.wq.run(), r = w.CP.S()["好"];
     check("Widget ripasso: un voto in coda si applica con l'ora del voto (stessa scheda del motore FSRS, scadenza calcolata da quell'ora)", n === 1 && r.lr === t && r.d === ref.due && r.st === ref.st && r.n === before.n + 1, JSON.stringify([n, r, ref]));
     check("Widget ripasso: dopo l'applicazione la coda è confermata (widgetAck con l'id) e il registro dei ripassi ha il voto con l'ora originale e il tipo «widget»", w.acks.length === 1 && w.acks[0][0] === "a1" && w.logs.some((e) => e[0] === t && e[1] === "好" && e[2] === 3 && e[4] === "widget"), JSON.stringify([w.acks, w.logs]));
     w.CP.wq.run();
     check("Widget ripasso: la coda confermata non si applica una seconda volta", w.CP.S()["好"].n === before.n + 1 && w.acks.length === 1);
+  }
+  /* ML-FSRS-32: l'estensione psicolinguistica sopra FSRS-6 (core/fsrs.js, core/core.js, study/exercises.js) */
+  {
+    const F = world().ctx.FSRS, D1 = 86400000, t20 = T0 + 20 * D1;
+    const mk = (o) => new F.Scheduler(Object.assign({ retention: 0.9, fuzz: false, dayOf: F.studyDay }, o || {}));
+    const card = { state: F.REVIEW, step: null, st: 20, df: 5, due: t20, last: T0 };
+    const R = (m, g, o) => mk(o).review(card, g || 3, t20, m);
+    check("ML-FSRS-32: 32 parametri, e i primi 21 sono quelli di py-fsrs (FSRS-6)", F.DEFAULT_W.length === 32 && JSON.stringify(F.DEFAULT_W.slice(0, 21)) === JSON.stringify([0.212, 1.2931, 2.3065, 8.2956, 6.4133, 0.8334, 3.0194, 0.001, 1.8722, 0.1666, 0.796, 1.4835, 0.0614, 0.2629, 1.6483, 0.6014, 1.8729, 0.5425, 0.0912, 0.0658, 0.1542]));
+    /* senza informazioni, o con dial 0, il motore è FSRS-6: stessa carta, stessa scadenza, per ogni voto e ogni distanza */
+    let same = true, seed = 7; const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
+    const rich = { type: "scrivi-pinyin", kind: "type", k: 4, tone: true, hint: true, comps: [30, 5], ncomp: 3, nights: 3, ms: 900, base: 2500 };
+    for (let i = 0; i < 400 && same; i++) {
+      const c = { state: [F.REVIEW, F.RELEARNING][i % 2], step: i % 2 ? 0 : null, st: 0.5 + rnd() * 80, df: 1 + rnd() * 9, due: 0, last: T0 }, t = T0 + (rnd() < 0.3 ? rnd() * 20 * H : rnd() * 120 * D1), g = 1 + Math.floor(rnd() * 4);
+      const a = JSON.stringify(mk().review(c, g, t)), b = JSON.stringify(mk().review(c, g, t, {})), z = JSON.stringify(mk({ dial: 0 }).review(c, g, t, rich));
+      if (a !== b || a !== z) { same = false; check("ML-FSRS-32: senza meta e con dial 0 = FSRS-6", false, a + " | " + b + " | " + z); }
+    }
+    if (same) check("ML-FSRS-32: senza meta e con dial 0 il motore è FSRS-6 (400 ripassi: carta e scadenza identiche)", true);
+    /* tipo di esercizio: scrivere pesa più che riconoscere, e riconoscere più che indovinare (a 4 o a 2 opzioni) */
+    const sT = R({ kind: "type", type: "scrivi-pinyin" }).st, sF = R({ type: "ip" }).st, s4 = R({ kind: "mc", k: 4, type: "mc-pinyin" }).st, s2 = R({ kind: "mc", k: 2 }).st, s6 = mk({ dial: 0 }).review(card, 3, t20).st;
+    check("ML-FSRS-32: scrivere ≥ ripasso classico (= FSRS-6) > scelta a 4 > scelta a 2, tutti ≥ stabilità di partenza", sT > sF && sF === s6 && sF > s4 && s4 > s2 && s2 >= card.st, [sT, sF, s4, s2].join(" > "));
+    check("ML-FSRS-32: la frase d'aiuto (buco, ordina) abbassa l'incremento, mai sotto la stabilità di partenza", R({ type: "buco" }).st < sF && R({ type: "buco" }).st >= card.st);
+    /* il moltiplicatore non supera mai [0,4; 1,8] volte l'incremento di FSRS-6 */
+    let bounded = true; for (let i = 0; i < 300; i++) { const c = { state: F.REVIEW, step: null, st: 0.3 + rnd() * 200, df: 1 + rnd() * 9, due: 0, last: T0 }, t = T0 + (1 + rnd() * 300) * D1, g = 2 + Math.floor(rnd() * 3); const a = mk({ dial: 0 }).review(c, g, t).st, b = mk().review(c, g, t, rich).st; if (!(b >= c.st && b - c.st <= 1.8 * (a - c.st) + 1e-9 + 0.4 * Math.log(1 + 30) + 1e-9) || !isFinite(b)) bounded = false; }
+    check("ML-FSRS-32: un richiamo riuscito non scende mai sotto la stabilità di partenza e l'incremento è limitato (1,8× FSRS-6 più i giorni dei componenti)", bounded);
+    /* tono: sbagliare solo il tono non porta in riapprendimento e conserva più stabilità di «Di nuovo» */
+    const tone = R({ tone: true, kind: "mc", k: 4, type: "tono" }, 1), plain = R({ kind: "mc", k: 4, type: "tono" }, 1);
+    check("ML-FSRS-32: solo il tono sbagliato → resta in ripasso e conserva più stabilità di «Di nuovo» (che porta al riapprendimento di 10 minuti)", tone.state === F.REVIEW && plain.state === F.RELEARNING && tone.st > plain.st && tone.st <= card.st && tone.due - t20 >= D1, JSON.stringify([tone.state, tone.st, plain.state, plain.st]));
+    /* dall'esercizio al motore, passando da CP.grade: stessi numeri del motore con la stessa meta */
+    {
+      const wa = world(), wb = world(); fresh(wa, "好", T0); fresh(wb, "好", T0); const tt = T0 + 30 * D1;
+      wa.CP.grade("好", 0, false, { at: tt, type: "tono", kind: "mc", k: 4, tone: true }); wb.CP.grade("好", 0, false, { at: tt, type: "tono", kind: "mc", k: 4 });
+      const ra = wa.CP.S()["好"], rb = wb.CP.S()["好"];
+      check("CP.grade passa la meta al motore: errore di tono = ripasso, errore pieno = riapprendimento", ra.sd === F.REVIEW && rb.sd === F.RELEARNING && ra.st > rb.st, JSON.stringify([ra, rb]));
+    }
+    /* parole di più caratteri: i caratteri già studiati abbassano la difficoltà e alzano la stabilità iniziale; senza, nulla cambia */
+    {
+      const wa = world(), wb = world(); for (const x of [wa, wb]) x.CP.WORDS["你好"] = { key: "你好", hz: "你好", py: "ni.hao", it: "ciao", sec: "s" };
+      fresh(wa, "你", T0); fresh(wa, "好", T0); const t1 = T0 + D1;
+      wa.CP.grade("你好", 2, false, { at: t1 }); wb.CP.grade("你好", 2, false, { at: t1 });
+      const ra = wa.CP.S()["你好"], rb = wb.CP.S()["你好"], f0 = new F.Scheduler({ fuzz: false }).review(new F.Scheduler().newCard(t1), 3, t1);
+      check("ML-FSRS-32: una parola di più caratteri noti parte con più stabilità e meno difficoltà; senza caratteri noti è identica a FSRS-6", ra.st > rb.st && ra.df < rb.df && rb.st === f0.st && rb.df === f0.df, JSON.stringify([ra, rb]));
+    }
+  }
+  /* notti e tempo abituale di risposta (core/core.js) e ricerca facoltativa (ui/research.js, ui/research-stub.js) */
+  {
+    const F0 = world().ctx.FSRS, D1 = 86400000, wr = world();
+    wr.ctx.Store.logAll = () => Promise.resolve(wr.logs); Object.assign(wr.CP, { esc: String, closeSheet() {}, version: "test" });
+    const rsSrc = fs.readFileSync(path.join(SRC, "ui/research.js"), "utf8"), stubSrc = fs.readFileSync(path.join(SRC, "ui/research-stub.js"), "utf8");
+    vm.runInContext(rsSrc, wr.ctx, { filename: "ui/research.js" });
+    const R = wr.CP.research;
+    /* nights e base arrivano al motore: 3 giorni di studio dopo il primo ripasso, tempo abituale = la prima risposta; la stessa carta dal motore con la stessa meta */
+    wr.CP.grade("好", 2, false, { at: T0, ms: 1000, kind: "mc", k: 4, type: "mc-pinyin" });
+    wr.CP.grade("好", 2, false, { at: T0 + 3 * D1, ms: 2000, kind: "mc", k: 4, type: "mc-pinyin" });
+    const e1 = wr.logs[0], e2 = wr.logs[1], rec = wr.CP.S()["好"], c1 = JSON.parse(JSON.stringify(wr.CP.S()["好"]));
+    const rt = JSON.parse(wr.mem["md-rt-v1"] || "{}");
+    check("Notti e tempo abituale: nights = giorni di studio dall'ultimo ripasso (0 alla prima volta), base = media mobile delle tue risposte per tipo di esercizio (la prima risposta all'inizio), salvata fuori dal backup", e1[7] && e1[7].nt === 0 && e1[7].bs === 1000 && e2[7].nt === 3 && e2[7].bs === 1000 && rt.mc === 1100 && !Object.keys(wr.mem).some((k) => /^cp-.*rt/.test(k)), JSON.stringify([e1, e2, rt]));
+    const wf = world(); wf.CP.grade("好", 2, false, { at: T0, ms: 1000, kind: "mc", k: 4, type: "mc-pinyin" });
+    const f1 = JSON.parse(JSON.stringify(wf.CP.S()["好"])), sch = new F0.Scheduler({ retention: 0.9, fuzz: false, dayOf: F0.studyDay });
+    const ref2 = sch.review({ state: f1.sd, step: f1.sp, st: f1.st, df: f1.df, due: f1.d, last: f1.lr }, 3, T0 + 3 * D1, { kind: "mc", k: 4, type: "mc-pinyin", ms: 2000, nights: 3, base: 1000 });
+    check("Notti e tempo abituale: CP.grade dà alla carta lo stesso risultato del motore con quella meta (sonno e rapidità attivi)", rec.st === ref2.st && rec.df === ref2.df, JSON.stringify([rec, ref2]));
+    const wn = world(); wn.CP.grade("好", 2, false, { at: T0 }); wn.CP.grade("好", 2, false, { at: T0 + 2 * H });
+    check("Registro dei ripassi: 7 elementi senza dati del motore (lettori vecchi invariati), 8 con kind/k/tono/caratteri/notti", wn.logs[0].length === 7 && wn.logs[1].length === 7 && e2.length === 8 && Object.keys(e2[7]).sort().join() === "bs,cp,k,kd,nt,tn");
+    /* ricerca: spenta di base, nessuna rete, file con solo chiavi note e solo parole del dizionario */
+    check("Ricerca: spenta di base (consent() = null) e senza rete (nessun fetch, XMLHttpRequest o beacon), il consenso in md-srs-research-consent (non cp-), la sezione solo in Impostazioni → Comunità e voci", R.consent() === null && !/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(rsSrc + stubSrc) && /md-srs-research-consent/.test(rsSrc) && /group: "community"/.test(stubSrc) && !/addEventListener\("load"|setInterval/.test(rsSrc));
+    wr.LS.setItem("md-srs-research-consent", JSON.stringify({ v: 1, t: T0, age: true, cc0: true, aware: true, id: "a1b2c3d4e5f67890", sent: 0 }));
+    wr.CP.grade("你", 3, false, { at: T0 + 5 * D1, ms: 900, kind: "type", type: "scrivi-pinyin" });
+    wr.logs.push([T0 + 6 * D1, "parola-mia", 3, 800, "mc", 0.9, 0], [T0 + 7 * D1, "好", 3, 500, "ip", 0.8, 1]);   /* una parola aggiunta dalla persona (non del dizionario) e una ripetizione */
+    const ex = await R.buildExport(), RK = ["app", "app_version", "cards", "engine", "engine_version", "exported_at", "license", "retention", "reviews", "schema", "summary", "user_anon_id"].join();
+    const rk = new Set(["t", "k", "g", "ms", "type", "pred_r", "retry", "kind", "k_opts", "tone_err", "comps", "nights", "base_ms"]);
+    check("Ricerca: il file ha schema mandarino-srs-research-v1, codice casuale, CC0, solo chiavi note, nessuna parola che non sia del dizionario, carte con st/df/reps/lapses", ex.schema === "mandarino-srs-research-v1" && ex.license === "CC0-1.0" && ex.engine === "ML-FSRS-32.1" && Object.keys(ex).sort().join() === RK && /^[0-9a-f]{16}$/.test(R.consent().id) && ex.user_anon_id === "a1b2c3d4e5f67890" && ex.reviews.length === 4 && ex.reviews.every((r) => Object.keys(r).every((k) => rk.has(k)) && wr.CP.WORDS[r.k]) && ex.summary.total_reviews === 4 && ex.summary.cards_tracked === 2 && Object.keys(ex.cards["好"]).sort().join() === "df,lapses,reps,sd,st" && !/parola-mia/.test(JSON.stringify(ex)), JSON.stringify(ex).slice(0, 300));
+    check("Ricerca: conta come pronti solo i ripassi di parole già viste (non le prime volte né le ripetizioni), il minimo per mandare è 300, e dopo un invio il file ha solo i ripassi nuovi", R.ready(wr.logs, 0) === 1 && R.MIN === 300 && R.build(wr.logs, T0 + 3 * D1).reviews.length === 2 && JSON.parse(R.text(ex)).reviews.length === ex.reviews.length && JSON.parse(R.text(ex)).reviews[0].k === ex.reviews[0].k, R.ready(wr.logs, 0));
+    R.revoke();
+    check("Ricerca: la revoca cancella il consenso e il codice casuale", R.consent() === null && wr.LS.getItem("md-srs-research-consent") === null);
   }
   /* esattamente una volta anche se l'ack va perso (app chiusa a metà): l'id è già scritto in md-wq-done */
   {

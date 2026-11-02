@@ -114,6 +114,8 @@
     if (!cur || cur.done) return;
     var w = cur.w, kit = cur.kit, ex = kit.example ? kit.example(w.key) : null;
     cur.done = true; cur.g = res.g; cur.ms = Date.now() - cur.t0;
+    /* sbagliato solo il tono (esercizio «tono», tono sbagliato scritto, distrattore di tono): il motore non azzera il ricordo */
+    cur.tn = !res.ok && (cur.e.exType === "tono" || res.esito === "toni-sbagliati" || !!(cur.item.keys && String(cur.item.keys[res.picked] || "").charAt(0) === "~"));
     stat(w.key, cur.e.exType, res.ok);
     if (!res.ok && cur.item.keys && res.picked != null && CP.exConf) CP.exConf(cur.item.keys[cur.item.right], cur.item.keys[res.picked], cur.e.exType);
     LAD.hist.push(!!res.ok); LAD.last.push(cur.e.exType); if (LAD.last.length > 4) LAD.last.shift();
@@ -133,7 +135,7 @@
   function next(g) {
     if (!cur || !cur.done) return;
     var c = cur; cur = null;
-    c.kit.answer(g == null ? c.g : g, { ms: Math.min(60000, c.ms || 0), type: c.e.exType, quiet: true });
+    c.kit.answer(g == null ? c.g : g, { ms: Math.min(60000, c.ms || 0), type: c.e.exType, quiet: true, kind: c.item.kind, k: c.item.opts ? c.item.opts.length : 0, tone: !!c.tn });
   }
   /* dopo un errore la parola torna a +3 con un altro tipo, e una copia di rinforzo a +8 */
   function requeue(e, q) {

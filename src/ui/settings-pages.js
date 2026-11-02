@@ -14,7 +14,7 @@
   var ORDER = {
     look: ["set-look", "set-lang", "set-widgets"],
     sound: ["set-sound", "vset", "set-mic-box"],
-    community: ["set-scambio", "set-mine", "set-thanks", "set-invite", "set-voicepack"],
+    community: ["set-scambio", "set-mine", "set-research", "set-thanks", "set-invite", "set-voicepack"],
     study: ["set-course", "set-exstyle", "set-level", "set-anat", "set-pleco", "set-reminder", "set-together"],
     data: ["set-sync", "set-data", "set-export", "set-contrib"],
     social: ["set-social"],
@@ -28,7 +28,7 @@
   /* nomi comodi per la nuova pagina (lo scambio linguistico stava in «Suoni e musica») */
   ALIAS["grp-community"] = "community"; ALIAS.scambio = "community"; ALIAS.widget = "look"; ALIAS.voci = "community";
   /* parole in più per la ricerca, per le sezioni fisse (il resto si cerca nel testo della sezione) */
-  var KW = { "set-look": "set.kwLook", "set-sound": "set.kwSound", "set-scambio": "set.kwComm", "set-mine": "set.kwComm", "set-thanks": "set.kwComm", "set-invite": "set.kwComm", "set-widgets": "set.kwComm", "set-voicepack": "set.kwComm", "set-social": "set.kwSocial" };
+  var KW = { "set-look": "set.kwLook", "set-sound": "set.kwSound", "set-scambio": "set.kwComm", "set-mine": "set.kwComm", "set-thanks": "set.kwComm", "set-invite": "set.kwComm", "set-widgets": "set.kwComm", "set-voicepack": "set.kwComm", "set-research": "set.kwComm", "set-social": "set.kwSocial" };
   var cur = "", lastTile = null, q = document.getElementById("set-q"), tiles = document.getElementById("set-tiles"), hits = document.getElementById("set-hits"),
     back = el.querySelector("[data-set-back]"), head = document.getElementById("set-title"), card = el.querySelector(".set-card");
   function pageEl(p) { return el.querySelector('[data-set-page="' + p + '"]'); }

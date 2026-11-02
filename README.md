@@ -10,7 +10,7 @@
 | Offline | Sì, dopo la prima apertura o l'installazione |
 | Cinese per italiani | 6385 parole HSK 3.0 in 220 sezioni, 32 dialoghi, 55 lezioni di grammatica, ordine dei tratti, toni con il microfono |
 | Italiano per chi parla cinese | 51 lezioni spiegate in cinese, con la coniugazione dei verbi |
-| Ripasso | Ripetizione a intervalli con l'algoritmo FSRS |
+| Ripasso | Ripetizione a intervalli con FSRS-6 esteso da ML-FSRS-32 (32 parametri per il cinese) |
 | Dove | Android (APK) e web installabile (PWA) |
 | Licenze | Codice MIT; contenuti didattici, musica e icone CC BY 4.0 |
 

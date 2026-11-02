@@ -4,7 +4,7 @@ Questa pagina descrive com'è fatta l'app e come si costruisce, si prova e si pu
 [LEGGIMI.md](../LEGGIMI.md).
 
 Panoramica. Due corsi in un'app: **il cinese per italiani** e, scelto dal benvenuto o da Impostazioni → Studio → Corso, **意大利语课程, l'italiano per
-chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6,
+chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6 esteso con ML-FSRS-32,
 dialoghi, laboratorio di frasi, pannello «Parla» con la curva dei toni, jukebox di 22 brani originali. Nessuna richiesta di
 rete all'avvio, nessuna libreria caricata da fuori (l'unica di terzi, jsQR, è dentro il file); i progressi restano sul
 telefono (localStorage + copia in IndexedDB), si salvano su file e si sincronizzano senza server (file nel proprio cloud o QR).
@@ -691,7 +691,7 @@ serve. La scelta resta in `cp-ex-style` (preferenza del dispositivo).
 **Come funziona.**
 - **Nessun motore parallelo.** La coda, i tempi, «Esci», la barra e il voto restano quelli di `src/study/study.js`.
   Negli stili Misto e Guidato le carte di prova portano `e.ex`, e la carta la disegna `src/study/exercises.js`
-  (`CP.exEngine`). Il voto passa sempre da `CP.grade`, con il tipo di esercizio in `meta.type`; FSRS non cambia.
+  (`CP.exEngine`). Il voto passa sempre da `CP.grade`, con il tipo di esercizio in `meta.type` (e, per ML-FSRS-32, `meta.kind`, `meta.k` = numero di opzioni, `meta.tone` = errore del solo tono); questi dati servono solo al momento del voto e non si salvano nella carta.
 - **Tipi di base:**
   - riconoscimento: `mc-significato`, `mc-parola`, `mc-pinyin`;
   - misto: `mc-ascolto` (solo se c'è una voce cinese) e `tono` (parole di una sillaba; gli errori vanno al Dottore dei Toni).

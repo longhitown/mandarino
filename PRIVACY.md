@@ -59,6 +59,14 @@ salva niente nel tuo browser: font, script e immagini arrivano tutti dal sito st
   del consenso, registri la tua voce mentre leggi frasi dell'app. Le registrazioni restano solo sul telefono finché non le mandi tu
   (un file `.zip` che invii come vuoi: nessun caricamento automatico). Se le mandi, possono essere pubblicate nell'app con licenza CC BY 4.0;
   le ascolta soltanto chi gestisce il progetto. Si possono cancellare in qualsiasi momento dallo stesso foglio. Solo per maggiorenni.
+- **Ricerca sulla memoria (facoltativa, spenta di base):** solo se apri Impostazioni → Comunità e voci → Ricerca sulla memoria e confermi il foglio del
+  consenso (maggiorenni, licenza CC0), l'app prepara sul telefono un file `.json` con i tuoi ripassi: per ognuno la parola (solo del dizionario dell'app), il voto, il
+  tempo di risposta, il tipo di esercizio, il numero di opzioni, se hai sbagliato solo il tono, la stabilità dei caratteri noti, le notti passate e **l'ora esatta**
+  (da cui si vede a che ora studi), più un **codice casuale** uguale a ogni invio. Non ci sono nome, e-mail, indirizzo IP, posizione, identificativi del telefono né le
+  parole che hai aggiunto tu. Il file lo leggi e lo mandi tu, con l'e-mail o con Condividi (nessun caricamento automatico); l'e-mail mostra il tuo indirizzo a chi la riceve.
+  Se lo mandi, i dati sono rilasciati in pubblico dominio (CC0) e quello che è già stato pubblicato non si può ritirare. Si può revocare la partecipazione in qualsiasi
+  momento dallo stesso foglio (il codice casuale viene cancellato dal telefono); per togliere dati non ancora pubblicati scrivi a mandarinoapp@gmail.com con il codice. Solo per maggiorenni.
+  Il tempo abituale di risposta che l'app usa per il ripasso (`md-rt-v1`) resta sul dispositivo e non entra nei backup.
 - **Fotocamera:** solo per leggere un QR (passaggio a un altro telefono, sigilli). Le immagini non vengono salvate.
 - **Notifiche (Android):** solo per il promemoria facoltativo e per la musica in secondo piano.
 - **Pleco** (facoltativo, spento di base, solo sul telefono): se lo accendi e tocchi «Apri in Pleco», la parola passa
@@ -165,6 +173,7 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 - **Pleco**（可选，默认关闭，仅限手机）：打开后点击“在 Pleco 中打开”，词语会传给你手机上的 Pleco 应用，不会发送到网络。
 
 - **语言交流（可选，默认关闭）：** 只有在你打开 设置 → 声音和音乐 → 语言交换并确认同意书之后，才会在你朗读应用里的句子时录下你的声音。录音在你自己发送之前只保存在手机上（一个 `.zip` 文件，你想怎么发都行：不会自动上传）。如果你发送，录音可能以 CC BY 4.0 许可发布在应用里；只有项目管理者会听到。可以随时在同一界面删除。仅限成年人。
+- **记忆研究（可选，默认关闭）：** 只有在你打开 设置 → 社区与声音 → 记忆研究并确认同意书（成年人，CC0 许可）之后，应用才会在手机上生成一个 `.json` 文件，里面是你的复习记录：每次复习的词（仅限应用词典里的词）、评分、答题用时、练习类型、选项个数、是否只错了声调、已学汉字的稳定度、过去的夜晚数，以及**准确的时间**（由此能看出你几点学习），还有一个每次发送都相同的**随机代码**。文件里没有姓名、电子邮件、IP 地址、位置、手机识别码，也没有你自己添加的词。文件由你自己阅读并用电子邮件或“分享”发送（不会自动上传）；电子邮件会让收件人看到你的邮箱地址。如果你发送，数据将以公有领域（CC0）发布，已经发布的内容无法撤回。你可以随时在同一页面撤销参与（随机代码会从手机上删除）；如需删除尚未发布的数据，请带上代码写信到 mandarinoapp@gmail.com。仅限成年人。复习所用的个人平均答题时间（`md-rt-v1`）只保存在设备上，不进入备份。
 - **安卓的其他权限：** 联网（表格里列出的请求）、振动、听音或录音时的音频管理、开机（仅用于恢复可选的提醒）、前台服务（仅用于后台音乐）。这些权限都不会读取你的通讯录、位置、信息或文件。
 
 ### 安卓自动备份

@@ -1,8 +1,8 @@
 /* ===== màndarínō · i testi della pagina «Comunità e voci» (ui/community.js), nelle due lingue dell'interfaccia.
    Si caricano con le Impostazioni, al loro primo uso (tools/build.mjs, LAZYMOD). Le chiavi it e zh devono essere le stesse (tools/unit.mjs). ===== */
 Object.assign(I18N.it, {
-  "set.p.community": "Comunità e voci", "set.p.communityD": "Registra la tua voce per chi studia, consiglia l'app a un amico, pacchetto voci",
-  "set.kwComm": "comunità scambio linguistico voce voci registra registrazioni frasi madrelingua contributo contributi condividi consiglia amico amici invito widget schermata home pacchetto aggiornamenti tatoeba common voice",
+  "set.p.community": "Comunità e voci", "set.p.communityD": "Registra la tua voce per chi studia, consiglia l'app a un amico, pacchetto voci e ricerca sulla memoria",
+  "set.kwComm": "comunità scambio linguistico voce voci registra registrazioni frasi madrelingua contributo contributi condividi consiglia amico amici invito widget schermata home pacchetto aggiornamenti tatoeba common voice ricerca memoria ripasso fsrs dati anonimi contribuisci",
   "cm.new": "Ci sono novità", "cm.newItem": "(novità)",
   "cm.mine.t": "Il tuo contributo (solo sul tuo telefono)", "cm.mine.rec": "Frasi registrate", "cm.mine.chk": "Voci verificate",
   "cm.mine.note": "Questi numeri restano su questo telefono: non vengono inviati né confrontati con nessuno. «Verificate» sono le voci che il riconoscimento vocale del telefono ha trovato uguali alla frase mostrata.",
@@ -30,8 +30,8 @@ Object.assign(I18N.it, {
   "cm.vp.on": "con pacchetto", "cm.vp.off": "nessun pacchetto"
 });
 Object.assign(I18N.zh, {
-  "set.p.community": "社区与声音", "set.p.communityD": "为学习者录下你的声音，向朋友推荐应用，语音包",
-  "set.kwComm": "社区 语言交换 声音 录音 录制 句子 母语 贡献 分享 推荐 朋友 邀请 小组件 桌面 语音包 更新 Tatoeba Common Voice",
+  "set.p.community": "社区与声音", "set.p.communityD": "为学习者录下你的声音，向朋友推荐应用，语音包和记忆研究",
+  "set.kwComm": "社区 语言交换 声音 录音 录制 句子 母语 贡献 分享 推荐 朋友 邀请 小组件 桌面 语音包 更新 Tatoeba Common Voice 记忆研究 复习 匿名 数据 参与",
   "cm.new": "有新内容", "cm.newItem": "（新）",
   "cm.mine.t": "你的贡献（只在你的手机上）", "cm.mine.rec": "已录句子", "cm.mine.chk": "已核对的录音",
   "cm.mine.note": "这些数字只保存在这台手机上：不会发送，也不会和任何人比较。“已核对”是指手机的语音识别认为与所示句子相符的录音。",
@@ -98,11 +98,13 @@ Object.assign(I18N.it, {
   "soc.t": "Canali ufficiali",
   "soc.p": "Dove trovarci, se ti va. I collegamenti si aprono solo quando li tocchi: l'app non manda niente di tuo e non sa se li hai usati.",
   "soc.go": "Apri", "soc.open": "Apri {n}", "soc.none": "I canali arriveranno presto.",
-  "set.kwSocial": "social instagram telegram tiktok youtube github canali seguici sito"
+  "set.kwSocial": "social instagram telegram tiktok youtube github canali seguici sito",
+  "cm.rs.title": "Ricerca sulla memoria", "cm.rs.lede": "Facoltativo: se vuoi, mandi in forma anonima i tuoi ripassi per aiutare a mettere a punto il ripasso per chi studia cinese. Niente parte da solo.", "cm.rs.open": "Partecipa alla ricerca"
 });
 Object.assign(I18N.zh, {
   "soc.t": "官方频道",
   "soc.p": "想找我们的话在这里。链接只有你点击时才会打开：应用不会发送任何你的数据，也不知道你是否点过。",
   "soc.go": "打开", "soc.open": "打开 {n}", "soc.none": "频道很快上线。",
-  "set.kwSocial": "社交媒体 instagram telegram tiktok youtube github 频道 关注 网站"
+  "set.kwSocial": "社交媒体 instagram telegram tiktok youtube github 频道 关注 网站",
+  "cm.rs.title": "记忆研究", "cm.rs.lede": "自愿参与：如果你愿意，可以匿名发送你的复习记录，帮助改进面向汉语学习者的复习算法。不会自动发送任何内容。", "cm.rs.open": "参与研究"
 });
