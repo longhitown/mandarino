@@ -207,8 +207,7 @@ LESSON_RICH.it["stare-per"] = {
     "你会避开两个常见错误：把很远的将来也说成 sto per，以及在 per 后面接副动词或变位动词。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «strutture perifrastiche» (stare per + infinito come perifrasi imminenziale; confronto con stare + gerundio)",
-    "Tatoeba (ita.tsv), interrogato con le forme sto/stava/stavo per + infinito (frasi come Sta per piovere, Stavo per uscire quando suonò il telefono): controllo di naturalezza degli esempi",
-    "Treccani, Lingua italiana, domande e risposte (grammatica): ricerca sul confronto stare per / stare + gerundio, solo risultato di ricerca consultato"
+    "Treccani, Enciclopedia dell'Italiano, voce «strutture perifrastiche» (letta: stare per + infinito come perifrasi imminenziale; confronto con stare + gerundio; «sto partendo» come «sto per partire»)",
+    "Tatoeba (ita.tsv, grep): «Sto per» (120), «Stavo per uscire» (7), «Sta per piovere» (1)"
   ]
 };

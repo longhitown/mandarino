@@ -160,7 +160,7 @@ LESSON_RICH.it["negazioni"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "双重否定不会互相抵消", "t": "Think in Italian 的说明是：双重否定在意大利语语法里是正确的，而且不会像数学里的负负得正那样互相抵消。它的作用是加强否定的意思。那篇文章的老师还写到，学生说 Non capisco niente 时，他会回答：你用对了双重否定。" },
+    { "titolo": "双重否定不会互相抵消", "t": "Think in Italian 的说明是：双重否定在意大利语语法里是正确的，而且不会像数学里的负负得正那样互相抵消。它的作用是加强否定的意思。" },
     { "titolo": "多个否定词连用", "t": "意大利语可以在一个句子里放好几个否定词，只要最前面有一个 non：Non ho mai detto niente a nessuno（我从来没有对任何人说过什么）。把句子拆开看，每个否定词只负责一个成分：mai 管时间，niente 管内容，nessuno 管对象。" },
     { "titolo": "nessuno 也可以当形容词", "t": "Mazzoni 的语法页把 nessun / nessuna 单独列出，意思是“没有任何”：Non mi piace nessun film italiano（我不喜欢任何意大利电影）、Nessuna amica è simpatica come te（没有哪个朋友像你一样亲切）。作代词时，nessuno 后面的动词和形容词用单数。" },
     { "titolo": "neanche、nemmeno、neppure", "t": "Mazzoni 的语法页把这三个词放在一起，意思是“连……也不”。Neanche io 和 Nemmeno io 都是回应别人的否定句，意思差不多，日常说话里都很常见，选其中一个就好。" }

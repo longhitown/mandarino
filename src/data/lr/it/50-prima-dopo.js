@@ -206,7 +206,8 @@ LESSON_RICH.it["prima-dopo"] = {
     "你会避开 *prima mangiare*、*dopo mangiare*、*mentre arrivo* 这样的错误。"
   ],
   "fonti": [
-    "Tatoeba (ita.tsv): ricerca delle frasi con Prima di uscire, Prima di mangiare, Dopo aver, Appena arrivo, Quando arrivo",
-    "WebSearch: sintesi di risultati su prima di / prima che e dopo + infinito passato / dopo che (thinkinitalian.com, elon.io, dispensa dell'Università di Brooklyn CUNY come risultati elencati)"
+    "Elon.io, «Temporal Conjunctions: quando, mentre, appena» (letta: quando e appena con indicativo, mentre per azioni contemporanee, prima che + congiuntivo; dopo aver + participio con stesso soggetto)",
+    "Think in Italian, «Before and After in Italian: Prima and Dopo Explained» (letta: prima di + infinito con stesso soggetto, prima che + congiuntivo, dopo aver/essere + participio, dopo che + indicativo)",
+    "Tatoeba (ita.tsv, grep): «Prima di uscire» (5), «Dopo aver» (195), «Appena arrivo» (3), «Quando arrivo» (5), «Prima di cena» (1)"
   ]
 };

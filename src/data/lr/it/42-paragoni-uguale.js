@@ -5,7 +5,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
     "frasi": [
       { "t": "Marco è alto come me.", "tr": "马可和我一样高。" },
       { "t": "Ho tanti amici quanti ne hai tu.", "tr": "我的朋友和你的一样多。" },
-      { "t": "Lei è tanto intelligente quanto simpatica.", "tr": "她既聪明又讨人喜欢，两样一样突出。" },
+      { "t": "Lei è tanto intelligente quanto simpatica.", "tr": "她既聪明又讨人喜欢。" },
       { "t": "Il mio telefono è uguale al tuo, ma non è così nuovo come sembra.", "tr": "我的手机和你的一样，不过没有看起来那么新。" }
     ],
     "domanda": "汉语说“A 和 B 一样高”。意大利语里，表示“一样”的词是哪些？形容词前面的词和后面的词，分别是什么？再看第二句：说“一样多”的时候，前后两个词变了形，为什么？",
@@ -144,7 +144,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
     { "titolo": "Dormo come un ghiro：比喻里的 come", "t": "come 也用来做比喻，说“像……一样”：dormire come un ghiro（睡得很沉）、forte come un leone（强壮如狮）、bianco come la neve（洁白如雪）。这类固定比喻在口语里非常多，用的结构和一般的“一样”完全相同：形容词或动词 ＋ come ＋ 名词。" },
     { "titolo": "altrettanto：礼貌的“你也一样”", "t": "别人对你说 Buon appetito! 或 Buon viaggio!，你可以回答 Grazie, altrettanto!（谢谢，你也一样！）。altrettanto 本来的意思就是“同样地、一样多地”，用在祝福的回答里很自然，比重复一遍 Buon appetito 更地道。" },
     { "titolo": "tanto 单独使用：“很、真”", "t": "口语里 tanto 常单独使用，意思是“很”：Sei tanto gentile（你真好）、Grazie tanto（非常感谢）。这时候没有 quanto，也不是在比较。如果句子里没有对象，tanto 往往是在加强语气，而不是在做比较。" },
-    { "titolo": "così … come 与 tanto … quanto 的分别", "t": "在形容词前面，两对词常被当作可以互换的；很多语法书把 così … come 用于形容词和副词，把 tanto … quanto 用于名词和动词。同一个人的两种性质（既聪明又友善）用 tanto … quanto 最清楚，因为 come 容易被理解为“像……那样”。" }
+    { "titolo": "così … come 与 tanto … quanto 的分别", "t": "在形容词前面，两对词常被当作可以互换的；同一个人的两种性质（既聪明又友善）用 tanto … quanto 最清楚，因为 come 容易被理解为“像……那样”。" }
   ],
   "pragmatica": "日常说话时，别人问你“这个和那个一样吗？”，最自然的回答是 Sì, è uguale 或 È quasi uguale。要说“没有那么……”，用 Non è così … come，语气比 È meno … 温和。夸奖别人时，Sei bravo come lui 比直接评分更得体；而当你说 Hai la stessa età di mia sorella 的时候，lo stesso / la stessa 能让对话很快找到共同点。",
   "esercizi": [
@@ -199,9 +199,7 @@ LESSON_RICH.it["paragoni-uguale"] = {
     "你会避开 *come io*、*uguale di*、*tanto … come* 这样的常见错误。"
   ],
   "fonti": [
-    "StudentessaMatta, «Italian Comparisons: Tanto Quanto and Così Come» (regole di così … come e tanto … quanto, accordo con il nome, errori frequenti)",
-    "La Grammatica Italiana (lagrammaticaitaliana.it), lezione sui pronomi personali complemento: forme toniche dopo preposizione, base per come me, come te",
-    "Risultati di ricerca su guide di grammatica italiana (gymglish, migaku, oneworlditaliano, elon.io, lawlessitalian) sul comparativo di uguaglianza, letti come sintesi",
-    "Tatoeba (ita.tsv), interrogato con le sequenze così … come, tanto … quanto, come me, come te, uguale a per verificare la naturalezza delle frasi"
+    "Wikipedia (inglese), «Italian grammar» (letta in parte: «sono alto come te», «sono più alto di te»; la parte letta non tratta tanto … quanto)",
+    "Tatoeba (ita.tsv, grep): «tanto quanto» (101), «così come» (73), «come me» (259), «come te» (243)"
   ]
 };

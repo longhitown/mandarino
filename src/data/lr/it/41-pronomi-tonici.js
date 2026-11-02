@@ -203,8 +203,7 @@ LESSON_RICH.it["pronomi-tonici"] = {
     "你会用 sé 表示“自己”，用 Lei 表示对一位需要尊敬的人说“您”。"
   ],
   "fonti": [
-    "La Grammatica Italiana (lagrammaticaitaliana.it), lezione sui pronomi personali complemento: elenco delle forme toniche (me, te, lui, lei, noi, voi, loro, sé) e uso dopo preposizione",
-    "Risultati di ricerca su schede di grammatica italiana (Wikipedia, viv-it.org, grammarmama.com, dante-learning.com) sui pronomi tonici dopo preposizione e nei paragoni, letti come sintesi",
-    "Tatoeba (ita.tsv), interrogato con le sequenze come me, come te, senza di me, secondo me, tra me e te per verificare la naturalezza delle frasi"
+    "Treccani, Enciclopedia dell'Italiano, voce «Pronomi personali» (letta: forme toniche libere, lui e lei come forme oblique, loro con residuo dativo; la pagina non tratta l'uso dopo preposizione)",
+    "Tatoeba (ita.tsv, grep): «con me» (2107), «per te» (1275), «secondo me» (40), «come me» (259), «tra me e te» (3), «senza di te» (143)"
   ]
 };

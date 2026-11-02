@@ -216,8 +216,7 @@ LESSON_RICH.it["da-persona"] = {
     "你会用 da me、da te、da noi 邀请别人，也会说 Passo da te 表示顺路去一下。"
   ],
   "fonti": [
-    "Corpus Tatoeba (ita.tsv), ricerca di «dal dentista», «dal medico», «dall'avvocato», «dalla nonna», «da noi», «da te», «Passo da», per controllare la naturalezza delle frasi",
-    "italiano-bello.com, pagina «preposizioni con andare» (da con le persone, senza articolo davanti a nomi e possessivi di parentela singolari, con articolo davanti a professioni)",
-    "LibreTexts, Passo dopo Passo: Italiano 1, capitolo 3, «Preposizioni semplici e articolate» (da + persona, forme dal, dallo, dall', dalla, dai, dagli, dalle)"
+    "Treccani, La grammatica italiana, voce «Da [preposizione]» (letta: da con nomi di persona, professioni, pronomi e locali; moto da luogo; esempi Vado a studiare da Chiara, Passi da me?; la voce non cita il dentista)",
+    "Tatoeba (ita.tsv, grep): «dal dentista» (77), «dal medico» (40), «dalla nonna» (9), «da noi» (209), «Passo da» (5)"
   ]
 };

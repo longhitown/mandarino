@@ -144,10 +144,10 @@ LESSON_RICH.it["ristorante-negozio"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Il coperto：座位费", "t": "在不少意大利饭馆，账单上有一项 coperto，是每人一份的座位费，包含餐具、桌布和面包篮之类。它通常写在菜单上，点餐之前就可以看到；有的地区会换一个叫法，写成 servizio 或 pane e coperto。看到菜单上的这一项，不是多收钱，是当地的习惯做法。" },
-    { "titolo": "咖啡吧：先付钱，再拿小票", "t": "在很多意大利的 bar，常见的流程是先到收银台说想要什么、付钱，拿到小票（scontrino），再把小票放在吧台上，说出你要的饮料。站着在吧台（al banco）喝，价格常常比坐在桌子旁（al tavolo）便宜。不同的店做法不一样，进门看看别人怎么做就知道。" },
+    { "titolo": "Il coperto：座位费", "t": "在不少意大利饭馆，账单上有一项 coperto，是每人一份的座位费，包含餐具、桌布和面包篮之类。它通常写在菜单上，点餐之前就可以看到；看到菜单上的这一项，不是多收钱，是当地的习惯做法。" },
+    { "titolo": "咖啡吧：先付钱，再拿小票", "t": "在一些意大利的 bar，流程可能是先到收银台说想要什么、付钱，拿到小票（scontrino），再把小票放在吧台上，说出你要的饮料。站着在吧台（al banco）喝，价格有时比坐在桌子旁（al tavolo）便宜。不同的店做法不一样，进门看看别人怎么做就知道。" },
     { "titolo": "Prego：一个词，几种用法", "t": "prego 可以回答 grazie，意思是“不客气”；也可以在你进门、递东西时说，意思是“请（进、用）”；店员问“下一位”时也说 Prego。同一个词，靠语境决定意思。" },
-    { "titolo": "Volevo un caffè：用未完成过去时表示客气", "t": "在店里，你还会听到 Volevo un'informazione（我想问一下）。volevo 虽然是过去时的形式，这里是在表示客气，让请求更委婉，意思和 vorrei 接近，在柜台前很常见（见第 12 课的“礼貌的未完成过去时”）。" }
+    { "titolo": "Volevo un caffè：用未完成过去时表示客气", "t": "在店里，你还会听到 Volevo un'informazione（我想问一下）。volevo 虽然是过去时的形式，这里是在表示客气，让请求更委婉，意思和 vorrei 接近，在柜台前也能听到（见第 12 课的“礼貌的未完成过去时”）。" }
   ],
   "pragmatica": "在饭馆和商店，开头先打招呼（Buongiorno / Buonasera），请求用 vorrei，结尾说 grazie。对服务员和店员用 Lei，对同龄的年轻店员，现场气氛轻松时用 tu 也可以接受，但先用 Lei 是稳妥的选择。小费不是必须的，满意时可以把账单凑个整数。",
   "esercizi": [
@@ -197,8 +197,7 @@ LESSON_RICH.it["ristorante-negozio"] = {
     "你会对陌生的服务员和店员用 Lei 的形式，用 grazie、prego 收尾。"
   ],
   "fonti": [
-    "Tatoeba (ita.tsv): ricerca delle frasi Il conto, per favore; Avete un tavolo; Posso avere; Quanto costa, per controllare l'uso naturale",
-    "WebSearch: sintesi di risultati su vorrei come condizionale di cortesia e sull'imperfetto di cortesia (volevo)",
-    "WebSearch: sintesi di risultati sul coperto al ristorante (indicazione sul menù, regolamentazione locale)"
+    "Treccani, Vocabolario, voce «volere» (letta: desiderio attenuato e richiesta, es. «vorrei un po' di vino», «vuole anche un po' di contorno?»; la voce non tratta esplicitamente vorrei di cortesia)",
+    "Tatoeba (ita.tsv, grep): «Vorrei un» (250), «Volevo un» (18), «Posso avere» (210), «Quanto costano» (31), «Avete un tavolo» (3)"
   ]
 };

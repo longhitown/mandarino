@@ -146,11 +146,11 @@ LESSON_RICH.it["pp-pronomi"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Quando il participio non si accorda", "t": "宾语是名词、放在动词后面时，分词不变：Ho comprato le mele。有些古老的文章里，分词也会和后面的名词一致，现在已经很少见，但仍然算对。你需要掌握的是代词在前面的情况：Le ho comprate。" },
-    { "titolo": "Mi ha chiamato o mi ha chiamata?", "t": "mi、ti、ci、vi 后面，两种写法都对：Mi ha chiamato 和 Mi ha chiamata。口语里大多数人不加变化；认真的书面语里，人们更常让分词和说话人的性别一致，特别是女性写作者。一般用法里，两种都不会被认为是错的。" },
+    { "titolo": "Quando il participio non si accorda", "t": "宾语是名词、放在动词后面时，分词不变：Ho comprato le mele。你需要掌握的是代词在前面的情况：Le ho comprate。" },
+    { "titolo": "Mi ha chiamato o mi ha chiamata?", "t": "mi、ti、ci、vi 后面，两种写法都对：Mi ha chiamato 和 Mi ha chiamata。口语里常常不加变化；书面语里，有些人更愿意让分词和说话人的性别一致。一般用法里，两种都不会被认为是错的。" },
     { "titolo": "Le mani me le sono lavate", "t": "反身动词用 essere 时，分词跟主语一致：Mi sono lavata。但如果还有一个直接宾语代词，分词会跟着这个代词：Le mani me le sono lavate（手我洗了）。这个现象是同一个规则：前面的直接宾语代词会“带动”分词，后面的课会再见到它。" }
   ],
-  "pragmatica": "回答是非问句，意大利人几乎总是用“Sì, + 代词 + ho + 分词”，而不是重复名词：Hai visto il film? — Sì, l'ho visto. 这和汉语“看了”的短答很像，只是多了代词和词尾。写信和邮件时要特别检查分词词尾，因为书面语里错了一眼就看得出来。",
+  "pragmatica": "回答是非问句，意大利人通常用“Sì, + 代词 + ho + 分词”，而不是重复名词：Hai visto il film? — Sì, l'ho visto. 这和汉语“看了”的短答很像，只是多了代词和词尾。写信和邮件时要特别检查分词词尾，因为书面语里错了一眼就看得出来。",
   "esercizi": [
     { "k": "scegli", "q": "“我吃了它们（i biscotti）”，哪一句对？", "opzioni": [
       { "t": "Li ho mangiati.", "ok": true, "perche": "biscotti 是阳性复数，代词 li，分词 mangiati。" },
@@ -209,7 +209,5 @@ LESSON_RICH.it["pp-pronomi"] = {
   ],
   "fonti": [
     "Wikipedia (inglese), Italian grammar, sezione sull'accordo del participio passato con i pronomi clitici complemento oggetto (lo, la, li, le obbligatorio; mi, ti, ci, vi facoltativo)",
-    "Tatoeba (ita.tsv), interrogato con L'ho visto, L'ho vista, Le ho viste, Ci ha visti, Ne ho comprati, Li ho invitati, Le ho telefonato, Non l'ho ancora, Ti ho aspettato",
-    "Lezioni 9 e 13 di questo corso (passato prossimo e pronomi diretti), per i contenuti rimandati"
-  ]
+    "Tatoeba (ita.tsv), interrogato con L'ho visto, L'ho vista, Le ho viste, Ci ha visti, Ne ho comprati, Li ho invitati, Le ho telefonato, Non l'ho ancora, Ti ho aspettato"  ]
 };
