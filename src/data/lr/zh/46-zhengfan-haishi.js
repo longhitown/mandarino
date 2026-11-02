@@ -200,8 +200,8 @@ LESSON_RICH.zh["zhengfan-haishi"] = {
     "Sai chiudere una proposta con 好不好 e riconoscere gli errori più comuni (吗 in più, 有不有)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Affirmative-negative questions»: V不V, 有没有, verbi di due sillabe, oggetto in fondo",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Comparing haishi and huozhe»: 还是 nelle domande e nelle domande indirette, 或者 nelle affermazioni",
+    "Chinese Grammar Wiki (AllSet Learning), «Affirmative-negative question»: V不V, 有没有 (la negazione di 有 è 没), 不 dopo la prima sillaba (喜不喜欢), oggetto tra V e 不 V",
+    "Chinese Grammar Wiki (AllSet Learning), «Asking questions»: schema A + 还是 + B nelle domande (你要喝茶还是咖啡？)",
     "CC-CEDICT (cedict_ts.u8), voci 还是, 或者, 一下, consultate in locale",
     "Tatoeba (cmn.tsv, consultato in locale): frasi con 还是 (你乘飞机还是乘火车去), 是不是, 有没有, 去不去, 或者, usate per controllare l'uso"
   ]

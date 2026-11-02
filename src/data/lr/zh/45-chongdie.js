@@ -144,9 +144,9 @@ LESSON_RICH.zh["chongdie"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Una er in fondo: 一点儿, 有点儿", "t": "Nella pronuncia pechinese e in tutto il nord si dice spesso 一点儿 (yìdiǎnr) e 有点儿 (yǒudiǎnr), con la consonante r in fondo. Il senso è lo stesso. Nello scritto e nel parlato più neutro si trova senza 儿, ed è la forma che usa il corso." },
+    { "titolo": "Una er in fondo: 一点儿, 有点儿", "t": "Nella pronuncia di Pechino si dice spesso 一点儿 (yìdiǎnr) e 有点儿 (yǒudiǎnr), con la consonante r in fondo. Il senso è lo stesso. Nello scritto e nel parlato più neutro si trova senza 儿, ed è la forma che usa il corso." },
     { "titolo": "有点 con un nome: un caso diverso", "t": "Quando dopo 点 viene un nome e non un aggettivo, 有点 è in realtà 有 + 一点: 他银行里有点钱 vuol dire «in banca ha un po' di soldi». Qui 点 è la quantità e 有 il verbo «avere»: la frase non è una lamentela, è un'informazione. Perciò il discorso su 有点 + aggettivo e su 有 + 一点 + nome riguarda due costruzioni diverse, con la stessa pronuncia." },
-    { "titolo": "一 che sparisce e 看看 che significa «tra poco»", "t": "Il verbo ripetuto può avere un 一 in mezzo (看一看, 试一试) e si dice con la stessa durata breve; nel parlato 一 si perde e resta 看看. Il dizionario CC-CEDICT registra per 看看 anche un uso colloquiale con il senso di «tra poco», come in 看看就到了 («si arriva fra poco»). Nel resto della lezione 看看 vuol dire «dare un'occhiata»." }
+    { "titolo": "一 che sparisce e 看看 che significa «tra poco»", "t": "Il verbo ripetuto può avere un 一 in mezzo (看一看, 试一试) e si dice con la stessa durata breve; nel parlato 一 si perde e resta 看看. Nel resto della lezione 看看 vuol dire «dare un'occhiata»." }
   ],
   "pragmatica": "Il verbo raddoppiato e 一下 sono la cortesia di tutti i giorni: 请等一下, 我看看, 你尝尝 rendono la richiesta leggera e non pesano su chi ascolta. Al negozio, 我就看看 («sto solo guardando») è una frase utile per rifiutare con garbo un aiuto. 有点 è un commento franco, ma attenuato: 有点贵 è molto meno secco di 太贵了, e per questo si usa quando vuoi lamentarti con garbo e cominciare una trattativa. Con 一点 chiedi: 便宜一点, 快一点, 慢一点.",
   "esercizi": [
@@ -201,7 +201,7 @@ LESSON_RICH.zh["chongdie"] = {
     "Sai riconoscere i verbi che non si raddoppiano (是, 有, 喜欢) e correggere gli errori di posizione più comuni."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Reduplication of verbs»: AA e V一V, secondo elemento leggero, verbi di due sillabe ripetuti per intero, tono di richiesta ammorbidita",
+    "Chinese Grammar Wiki (AllSet Learning), «Reduplication of verbs»: AA e V一V con tono casual; ABAB per i verbi di due sillabe (考虑考虑)",
     "CC-CEDICT (cedict_ts.u8), voci 一下, 一点, 有点, 看看, consultate in locale",
     "Tatoeba (cmn.tsv, consultato in locale): frasi con 有点 (今天早上有点冷), 一点 (快一点, 一点都不), 一下 (请帮我找一下), 看看 (让我看看), usate per controllare l'uso"
   ]

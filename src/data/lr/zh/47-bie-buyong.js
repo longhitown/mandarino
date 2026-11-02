@@ -24,7 +24,7 @@ LESSON_RICH.zh["bie-buyong"] = {
   },
   "logica": [
     "L'italiano ha un solo «non»: «non andare», «non serve», «non voglio» usano la stessa parola. Il cinese distingue ciò che la negazione fa. **别** e **不要** appartengono ai comandi: servono a chi parla per influire sul comportamento di qualcuno, perciò non parlano mai di fatti già avvenuti. **不用** appartiene alla necessità: nega il «bisogno» (用 è «usare, avere bisogno»), perciò è la risposta a «devo…?» e a «ti serve…?». La domanda giusta da farsi è: sto proibendo, sto dicendo che non serve, o sto dicendo che non voglio?",
-    "La differenza tra 别 e 不要 è soprattutto di tono, non di significato: 别 è una forma breve e rapida (le grammatiche la presentano come contrazione di 不要), perfetta tra amici e in famiglia; 不要 suona più pieno, e si sente nei discorsi più ordinati e nei cartelli. Esiste perfino 甭 (béng), la contrazione dialettale di 不用 tipica di Pechino. Il quadro è lo stesso in tutte e tre: una negazione corta davanti a un verbo, collocata dopo il soggetto."
+    "La differenza tra 别 e 不要 è soprattutto di tono, non di significato: 别 è una forma breve e rapida (le grammatiche la presentano come contrazione di 不要), perfetta tra amici e in famiglia; 不要 suona più pieno, e si sente nei discorsi più ordinati e nei cartelli. Esiste anche 甭 (béng), forma colloquiale di 不用. Il quadro è lo stesso in tutte e tre: una negazione corta davanti a un verbo, collocata dopo il soggetto."
   ],
   "mappa": {
     "tipo": "tabella",
@@ -201,9 +201,8 @@ LESSON_RICH.zh["bie-buyong"] = {
     "Sai usare 别…了 per far smettere qualcuno o per avvertirlo, e 还是别…了 per dire «meglio di no»."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Negative commands with bie»: 别 / 不要 + verbo, 别 come forma breve e forte di 不要",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing don't need to with buyong»: 不用 + verbo, 不用谢, 不用担心",
-    "Chinese Grammar Bank (flexiclasses.com), «How to use 别»: 请别, differenza di tono con 不要",
-    "CC-CEDICT, voci 别, 不要, 不用, 不必, 甭, 别客气, 不客气; Tatoeba (cmn.tsv: es. 请别在这里拍照, 别客气, 不用等我), consultati con grep in locale"
+    "Chinese Grammar Wiki (AllSet Learning), «Negative commands with bie»: 别 + verbo, più rapido e forte di 不要, pensato come sua contrazione",
+    ,
+        "CC-CEDICT, voci 别, 不要, 不用, 不必, 甭, 别客气, 不客气; Tatoeba (cmn.tsv: es. 请别在这里拍照, 别客气, 不用等我), consultati con grep in locale"
   ]
 };
