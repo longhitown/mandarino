@@ -280,8 +280,8 @@
     uid = 0;
     var tocKeys = ["scopri", "regola", "logica"].concat(R.mappa ? ["mappa"] : []).concat(["esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"]);
     var toc = '<nav class="lz-toc" aria-label="' + CP.attr(lab("sections")) + '">' + tocKeys.map(function (k) { return '<button type="button" class="lz-tchip" data-lz="toc" data-to="' + k + '">' + esc(lab(k)) + "</button>"; }).join("") + "</nav>";
-    return '<div class="acts lz-back"><button type="button" class="btn-s" ' + ctx.backAttr + ">← " + esc(lab("back")) + "</button></div>" +
-      '<article class="lz" data-lz-root data-corso="' + ctx.corso + '"><header class="lz-top"><span class="tag muted small">' + ctx.tag + (S.prog.best != null ? " · " + S.prog.best + "%" : "") + (R.svolta ? ' · <span class="lz-svolta">' + (S.corso === "zh" ? "Punto di svolta" : "关键一课") + "</span>" : "") + "</span>" +
+    return '<div class="acts lz-back"' + (ctx.corso === "zh" ? ' lang="it"' : "") + '><button type="button" class="btn-s" ' + ctx.backAttr + ">← " + esc(lab("back")) + "</button></div>" +
+      '<article class="lz" data-lz-root data-corso="' + ctx.corso + '"' + (ctx.corso === "zh" ? ' lang="it"' : "") + '><header class="lz-top"><span class="tag muted small">' + ctx.tag + (S.prog.best != null ? " · " + S.prog.best + "%" : "") + (R.svolta ? ' · <span class="lz-svolta">' + (S.corso === "zh" ? "Punto di svolta" : "关键一课") + "</span>" : "") + "</span>" +
       '<h2 class="lz-title" lang="' + (S.corso === "zh" ? "it" : "zh-CN") + '">' + rich(l.title) + '</h2><p class="lz-goal">' + icon("target") + " " + rich(l.goal) + "</p></header>" +
       '<div class="lz-sticky"><div class="lz-bar" aria-hidden="true"><i id="lz-bar"></i></div>' + toc + "</div>" +
       scopri(R) + regola(R) + logica(R) + mappa(R) + esempi(R) + contrasti(R) + dialogo(R) + tranello(R) + curiosi(R) + exercises(R) + "</article>";
@@ -330,5 +330,21 @@
     }
   }
 
-  CP.lezione = { html: html, mount: mount };
+  /* lezione ricca (data/lr/<corso>/NN-<id>.js): nel file unico è un blocco di testo eseguito solo quando la lezione si apre; da src/ è uno script normale */
+  function carica(c, id) { var R = LESSON_RICH[c]; if (R && !R[id]) { var el = document.getElementById("lr-" + c + "-" + id); if (el) { var s = document.createElement("script"); s.textContent = el.textContent; document.head.appendChild(s); el.parentNode.removeChild(el); } } return R && R[id] || null; }
+  /* a: [T, prog, nextOf, zhHTML, toks, tileHTML, W, mark] di phrases/lessons.js */
+  function zh(l, a) {
+    var h = { T: a[0], prog: a[1], nextOf: a[2], zh: a[3], toks: a[4], tile: a[5], W: a[6], mark: a[7] };
+    var R = carica("zh", l.id); if (!R) return null;
+    setTimeout(mount, 0);
+    return html(l, R, {
+      corso: "zh", tag: l.review ? h.T("ls.rev") : h.T("ls.n", { n: l.n }), prog: h.prog(l.id), next: l.review ? null : h.nextOf(l),
+      backAttr: "data-ls-back", openAttr: function (id) { return 'data-ls-open="' + CP.attr(id) + '"'; },
+      sent: function (t, compact) { return h.zh(t, compact ? "ls-zh lz-c" : "ls-zh"); },
+      say: function (t) { return CP.audioBtns(t.replace(/[。？！，]/g, "")); },
+      tokens: h.toks, tile: h.tile, tokText: function (b) { return h.W[b.k].hz; }, strip: CP.lab.strip,
+      mark: function (patch) { h.mark(l.id, patch); }
+    });
+  }
+  CP.lezione = { html: html, mount: mount, rich: carica, zh: zh };
 })();

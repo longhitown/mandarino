@@ -253,8 +253,8 @@
   }
   function lessonHTML(l) {
     if (l.review) return reviewHTML(l);
-    var R = window.LRL && window.LRL("it", l.id);
-    if (R && CP.lezione) {
+    var R = CP.lezione.rich("it", l.id);
+    if (R) {
       setTimeout(function () { if (CP.lezione) CP.lezione.mount(); }, 0);
       var pr = lprog()[l.id] || {}, srt = itSorted(), nx = srt[srt.indexOf(l) + 1] || null;
       return CP.lezione.html(l, R, {

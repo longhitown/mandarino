@@ -238,7 +238,7 @@ for (const g of GROUPS) {
   });
   group.forEach((x) => scripts.splice(scripts.indexOf(x), 1));
 }
-/* lezioni ricche (data/lr/<corso>/NN-<id>.js): un blocco di testo per lezione, eseguito da window.LRL (src/boot.js) quando la lezione si apre */
+/* lezioni ricche (data/lr/<corso>/NN-<id>.js): un blocco di testo per lezione, eseguito da CP.lezione.rich (ui/lezione.js) quando la lezione si apre */
 for (const s of scripts.filter((x) => /^data\/lr\/(zh|it)\/\d+-[^/]+\.js$/.test(x.src))) {
   const [, c, id] = /^data\/lr\/(zh|it)\/\d+-(.+)\.js$/.exec(s.src);
   const code = fs.readFileSync(path.join(SRC, s.src), "utf8").trimEnd().replace(/<\/script/gi, "<\\/script");

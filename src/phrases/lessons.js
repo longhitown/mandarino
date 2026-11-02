@@ -58,20 +58,8 @@
   }
 
   /* ---- lezione ---- */
-  /* le lezioni con il capitolo completo (data/lr/zh/, disegnato da ui/lezione.js) hanno la loro pagina; le altre usano quella qui sotto */
-  function richCtx(l) {
-    return {
-      corso: "zh", tag: l.review ? T("ls.rev") : T("ls.n", { n: l.n }), prog: prog(l.id), next: l.review ? null : nextOf(l),
-      backAttr: "data-ls-back", openAttr: function (id) { return 'data-ls-open="' + CP.attr(id) + '"'; },
-      sent: function (t, compact) { return zhHTML(t, compact ? "ls-zh lz-c" : "ls-zh"); },
-      say: function (t) { return CP.audioBtns(t.replace(/[。？！，]/g, "")); },
-      tokens: toks, tile: tileHTML, tokText: function (b) { return W[b.k].hz; }, strip: CP.lab.strip,
-      mark: function (patch) { mark(l.id, patch); }
-    };
-  }
   function lessonHTML(l) {
-    var R = !l.review && window.LRL && window.LRL("zh", l.id);
-    if (R && CP.lezione) return CP.lezione.html(l, R, richCtx(l));
+    var Z = !l.review && CP.lezione.zh(l,[T,prog,nextOf,zhHTML,toks,tileHTML,W,mark]); if (Z) return Z;
     var p = prog(l.id), qn = (l.quiz || []).length;
     return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-ls-back>← ' + T("sub.lessons") + "</button></div>" +
       '<article class="panel ls-lesson"><span class="tag muted small">' + (l.review ? T("ls.rev") : T("ls.n", { n: l.n })) + (p.best != null ? " · " + T("ls.best", { p: p.best }) : "") + "</span>" +
@@ -173,7 +161,6 @@
     var box = document.getElementById("ls-root"); if (!box) return;
     box.innerHTML = html();
     if (CP.immerse && CP.immerse.active() && quiz) CP.immerse.progress(view === "result" ? quiz.l.quiz.length : quiz.i + (quiz.state === "play" ? 0 : 1), quiz.l.quiz.length);
-    if (view === "lesson" && CP.lezione && box.querySelector("[data-lz-root]")) CP.lezione.mount();
     if (top) { try { box.scrollIntoView({ block: "start" }); } catch (e) {} }
   }
   function open(id) { var l = byId(id); if (!l) return; cur = l; view = "lesson"; quiz = null; mark(l.id, { seen: Date.now() }); }
