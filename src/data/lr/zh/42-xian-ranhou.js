@@ -197,6 +197,7 @@ LESSON_RICH.zh["xian-ranhou"] = {
     "Sai usare 先 per invitare e congedarti con frasi come 你先走吧 e 我先走了."
   ],
   "fonti": [
-    "Tatoeba (cmn.tsv, interrogato in locale): frasi con 先…然后/再 e con 以前/以后 dopo un evento, ad esempio 毕业以后, 吃饭以后, 睡觉之前; CC-CEDICT: voci 先, 然后, 最后, 以前, 以后, 之前, 后来, 接着"
+    "Tatoeba (cmn.tsv, interrogato in locale): frasi con 先…然后/再 e con 以前/以后 dopo un evento, ad esempio 毕业以后, 吃饭以后, 睡觉之前",
+    "CC-CEDICT (cedict_ts.u8, consultato in locale): voci 先, 然后, 最后, 以前, 以后, 之前, 后来, 接着"
   ]
 };
