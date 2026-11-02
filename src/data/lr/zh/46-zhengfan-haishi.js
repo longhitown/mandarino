@@ -18,11 +18,11 @@ LESSON_RICH.zh["zhengfan-haishi"] = {
       { "ok": true, "t": "**V不V**: ripeti il verbo con 不 in mezzo: 你去不去？ 你们来不来？ 你想不想喝水？ Funziona anche con gli aggettivi: 这个贵不贵？ 好不好？ L'oggetto sta alla fine: 你喝不喝茶？" },
       { "ok": true, "t": "**有 e 是**: con 有 si usa 没: 你有没有时间？ (mai 有不有). Con 是 si dice 是不是: 你是不是中国人？ La risposta ripete il verbo: 有 o 没有; 是 o 不是." },
       { "ok": true, "t": "**Verbi di due sillabe**: di solito si ripete solo la prima sillaba, 喜不喜欢, 高不高兴, 好不好吃. La ripetizione dell'intera parola (喜欢不喜欢) è possibile, ma più rara." },
-      { "ok": true, "t": "**Passato**: per un fatto avvenuto si usa 没 e 了: 你去没去？ 你吃饭了没有？ Non si dice 你昨天去不去, che chiede una decisione, non un fatto." },
+      { "ok": true, "t": "**Passato**: per un fatto avvenuto si usa 没 e 了: 你去没去？ 你吃饭了没有？ Di solito non si dice 你昨天去不去, che chiede una decisione, non un fatto." },
       { "ok": true, "t": "**还是** collega due possibilità in una domanda: 你喝茶还是咖啡？ 你今天去还是明天去？ 他是老师还是学生？ Chi risponde sceglie una delle due: 我喝茶." },
       { "ok": true, "t": "**或者** serve nelle frasi affermative e dice che le possibilità sono accettabili tutte: 你可以今天或者明天来。 茶或者咖啡都可以。" },
       { "ok": true, "t": "**Domande indirette**: dopo «non so», «voglio sapere» si usa ancora 还是: 我不知道他喝茶还是咖啡。 La frase contiene una scelta che aspetta una risposta." },
-      { "ok": false, "t": "**Niente 吗 in queste domande**: 你去不去吗？ e 你喝茶还是咖啡吗？ non si dicono. Né 或者 nella domanda (你喝茶或者咖啡？), né 有不有." }
+      { "ok": false, "t": "**Niente 吗 in queste domande**: 你去不去吗？ e 你喝茶还是咖啡吗？ non si dicono. Di solito neanche 或者 nella domanda (你喝茶或者咖啡？), e mai 有不有." }
     ]
   },
   "logica": [
@@ -112,7 +112,7 @@ LESSON_RICH.zh["zhengfan-haishi"] = {
       { "chi": "A", "t": "我想看电影。你今天去还是明天去？", "tr": "Vorrei il cinema. Vai oggi o domani?" },
       { "chi": "B", "t": "明天吧，今天我有点累。你累不累？", "tr": "Domani, oggi sono un po' stanco. E tu, sei stanco?" },
       { "chi": "A", "t": "我不累。那我们明天去，好不好？", "tr": "Io no. Allora andiamo domani, ti va?" },
-      { "chi": "B", "t": "好。茶或者咖啡，你想喝什么？", "tr": "Va bene. Tè o caffè, che cosa vuoi bere?" }
+      { "chi": "B", "t": "好。你想喝茶还是咖啡？", "tr": "Va bene. Vuoi bere tè o caffè?" }
     ],
     "esercizi": [
       { "q": "Perché A chiede 有没有时间 e non 有不有时间?", "opzioni": [
