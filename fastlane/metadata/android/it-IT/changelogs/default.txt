@@ -1,3 +1,3 @@
-• Ogni lezione di cinese (55) e di italiano (51) diventa un capitolo: scopri la regola da solo, regola, esempi, scelte a confronto, dialogo, errori tipici, curiosità ed esercizi di più tipi.
-• Dopo ogni risposta vedi il perché: anche le risposte sbagliate ti dicono che cosa non va.
-• Il ripasso tiene conto del tono, del tipo di esercizio e dei caratteri che conosci già; la nuova sezione Ricerca sulla memoria è facoltativa e spenta di base.
+• Ogni regola è una scheda: la formula, la regola in una riga, gli esempi con il pinyin sopra ogni parola e la traduzione, e il «Perché» da aprire quando vuoi capire a fondo.
+• In cima alla lezione due interruttori, Pinyin e Traduzioni, per nascondere un aiuto e metterti alla prova.
+• Le forme sbagliate sono barrate, e il ragionamento completo resta sotto «Perché».

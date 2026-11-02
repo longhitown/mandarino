@@ -4,6 +4,17 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Lezioni a schede", vz: "卡片式课程", d: "2026-11-03",
+    it: [
+      "Ogni regola è una scheda: la formula, la regola in una riga, gli esempi con il pinyin sopra ogni parola e la traduzione, e il «Perché» da aprire quando vuoi capire a fondo.",
+      "In cima alla lezione due interruttori, Pinyin e Traduzioni, per nascondere un aiuto e metterti alla prova.",
+      "Le forme sbagliate sono barrate, e il ragionamento completo resta sotto «Perché»."
+    ],
+    zh: [
+      "每条规则都是一张卡片：公式、一句话规则、每个词上方带拼音的例句和翻译，想深入了解时再展开“为什么”。",
+      "课程顶部有拼音和翻译两个开关，可以隐藏提示来检验自己。",
+      "错误的说法会划掉，完整的推理都在“为什么”里。"
+    ] },
   { v: "Lezioni complete", vz: "完整的课程", d: "2026-11-02",
     it: [
       "Ogni lezione di cinese (55) e di italiano (51) diventa un capitolo: scopri la regola da solo, regola, esempi, scelte a confronto, dialogo, errori tipici, curiosità ed esercizi di più tipi.",
