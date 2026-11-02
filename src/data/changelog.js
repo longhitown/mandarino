@@ -4,6 +4,17 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Lezioni complete", vz: "完整的课程", d: "2026-11-02",
+    it: [
+      "Ogni lezione di cinese (55) e di italiano (51) diventa un capitolo: scopri la regola da solo, regola, esempi, scelte a confronto, dialogo, errori tipici, curiosità ed esercizi di più tipi.",
+      "Dopo ogni risposta vedi il perché: anche le risposte sbagliate ti dicono che cosa non va.",
+      "Il ripasso tiene conto del tono, del tipo di esercizio e dei caratteri che conosci già; la nuova sezione Ricerca sulla memoria è facoltativa e spenta di base."
+    ],
+    zh: [
+      "每一节汉语课（55 节）和意大利语课（51 节）都变成完整的一章：自己发现规则、规则、例句、对比选择、对话、典型错误、趣闻和多种练习。",
+      "每次回答后都能看到原因：错误的答案也会告诉你错在哪里。",
+      "复习会考虑声调、练习类型和你已经认识的汉字；记忆研究自愿参与，默认关闭。"
+    ] },
   { v: "Ripasso più attento al cinese", vz: "更懂汉语的复习", d: "2026-11-02",
     it: [
       "Il ripasso ora tiene conto di più cose: se sbagli solo il tono la parola non torna a zero, scrivere pesa più che scegliere tra le opzioni, e i caratteri che già conosci aiutano nelle parole composte.",
