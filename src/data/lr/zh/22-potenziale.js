@@ -90,7 +90,7 @@ LESSON_RICH.zh["potenziale"] = {
     ] },
     { "q": "Non hai mai imparato a leggere il cinese e un amico ti mostra una frase. Che cosa dici?", "opzioni": [
       { "t": "我不会看汉字。", "ok": true, "perche": "不会 dice che non hai imparato: la capacità manca in generale." },
-      { "t": "我看不了汉字。", "ok": false, "perche": "看不了 dice che in questo momento qualcosa ti impedisce di leggere (luce, occhiali); non dice che non hai imparato." }
+      { "t": "我没看汉字。", "ok": false, "perche": "没看 racconta un fatto: non l'hai letta quella volta; non dice che non sei capace di leggerla." }
     ] },
     { "q": "Un collega è bloccato in riunione. Che cosa significa 他今天来不了?", "opzioni": [
       { "t": "Oggi, per le circostanze, non riesce a venire.", "ok": true, "perche": "不了 (liǎo) indica che le circostanze impediscono di portare a termine l'azione." },
@@ -190,7 +190,7 @@ LESSON_RICH.zh["potenziale"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Potential complement»: struttura verbo + 得/不 + complemento, domanda con 吗, oggetto dopo il complemento o all'inizio",
-    "Chinese Grammar Wiki (AllSet Learning), «Degree complement» e «Complement»: distinzione tra complemento di grado e potenziale",
+    "Chinese Grammar Wiki (AllSet Learning), «Degree complement»: il complemento di grado accetta 很 davanti all'aggettivo, il potenziale no",
     "Tatoeba (cinese), frasi come 对不起，我听不懂 e 我听得见你，但我看不见你, consultate con la raccolta locale cmn.tsv",
     "CC-CEDICT, voci 懂, 完, 了 (liǎo), 起: significati dei risultati usati nel potenziale"
   ]

@@ -53,7 +53,7 @@ LESSON_RICH.zh["esperienze"] = {
     { "gruppo": "Quante volte", "items": [
       { "t": "我坐过一次飞机。", "tr": "Sono stato in aereo una volta." },
       { "t": "这个电影我看过三次。", "tr": "Questo film l'ho visto tre volte." },
-      { "t": "我见过他两次。", "tr": "Lo ho incontrato due volte.", "nota": "Con un pronome come oggetto il numero va dopo il pronome." }
+      { "t": "我见过他两次。", "tr": "L'ho incontrato due volte.", "nota": "Con un pronome come oggetto il numero va dopo il pronome." }
     ] },
     { "gruppo": "Il negativo: 没…过", "items": [
       { "t": "我没吃过日本菜。", "tr": "Non ho mai mangiato cucina giapponese." },
@@ -150,7 +150,7 @@ LESSON_RICH.zh["esperienze"] = {
   },
   "curiosi": [
     { "titolo": "Il verbo 过 e le sue parenti", "t": "Come verbo, 过 (guò) vuol dire «passare, attraversare, trascorrere»: 过马路 (attraversare la strada), 过年 (festeggiare il capodanno). Quando segue un verbo e perde il tono (guo) segna l'esperienza. In una sequenza ha anche un altro senso, «dopo aver finito»: 吃过饭再走 («vai dopo aver mangiato»)." },
-    { "titolo": "吃过了吗？: un saluto", "t": "In molte regioni il saluto classico è 吃了吗？ o 你吃过了吗？ («hai già mangiato?»), una domanda su un fatto di oggi. Si risponde 吃过了, oppure 还没呢. È un modo di mostrare attenzione; non obbliga a invitare a pranzo." },
+    { "titolo": "吃过了吗？: un saluto", "t": "Un saluto frequente è 吃了吗？ o 你吃过了吗？ («hai già mangiato?»), una domanda su un fatto di oggi. Si risponde 吃过了, oppure 还没呢. È un modo di mostrare attenzione; non obbliga a invitare a pranzo." },
     { "titolo": "有人来过: la traccia", "t": "Quando vedi qualcosa fuori posto, 有人来过 vuol dire «qualcuno è passato di qui» e nel presente si vede il segno. È lo stesso uso di 过: il fatto è passato, ma resta una traccia." },
     { "titolo": "曾经 nello scritto", "t": "Nello scritto formale 过 si accompagna spesso a 曾经: 他曾经在北京工作过 («ha lavorato a Pechino un tempo»). Nel parlato basta il solo 过: 他在北京工作过." }
   ],
@@ -207,8 +207,7 @@ LESSON_RICH.zh["esperienze"] = {
     "Sai chiedere e rispondere a «sei mai stato…?» e dire quante volte con 次."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing experiences with guo»: affermativo, 没…过, domande, esempi",
-    "Chinese Grammar Wiki (AllSet Learning), confronto 过 / 了 (da risultati di ricerca: Mandarin Blueprint, GoEast Mandarin)",
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing experiences with guo»: V + 过 per un'esperienza senza data, negazione con 没 + verbo + 过",
     "CC-CEDICT, voce 过 (guo, guò); Tatoeba cinese-italiano (es. 她去过巴黎, 我从没去过欧洲, 他已经吃过午饭了), consultati nei corpora locali"
   ]
 };

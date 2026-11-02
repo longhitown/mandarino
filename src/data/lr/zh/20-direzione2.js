@@ -217,9 +217,7 @@ LESSON_RICH.zh["direzione2"] = {
     "Sai formare il negativo del risultato: 想不起来, 看不出来, 说不下去."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 把 + coppia, oggetto tra le due parti, significati estesi di 起来, 出来, 下去",
-    "HSK Lord, «Compound Directional Complements»: ordine fisso verbo + direzione + 来/去, 想起来, 看出来",
-    "DigMandarin, «The Extended Usages of 起来 and 下去»: inizio, impressione, risultato, continuazione, costruzione V起O来",
-    "CC-CEDICT, voci 想起来, 看起来, 听起来, 好起来, 停下来, 坚持下去, 下来 e Tatoeba (cinese-italiano, es. 现在我想起来了, 她看起来不幸福, 请继续说下去, 玛丽站起来穿上了外套)"
+    "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来/去 secondo il punto di chi parla, luogo tra verbo e coppia",
+    "CC-CEDICT, voci 想起来, 看起来, 停下来, 站起来, 起来 (inizio e continuazione) e 下去; Tatoeba (cinese-italiano, es. 现在我想起来了, 她看起来不幸福, 请继续说下去, 玛丽站起来穿上了外套)"
   ]
 };

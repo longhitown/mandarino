@@ -9,7 +9,7 @@ LESSON_RICH.zh["paragoni"] = {
       { "t": "我跟他一样高。", "tr": "Io e lui siamo alti uguale." }
     ],
     "domanda": "Dove sta la parola «più» nella prima frase? Che cosa viene dopo 比, e dove sta l'aggettivo? Come si dice che la differenza è grande? E come cambia la frase quando non c'è un «più»?",
-    "risposta": "In cinese non c'è nessuna parola per «più»: la frase dice **A 比 B + aggettivo**, cioè «A rispetto a B: veloce». Chi è «più» va per primo, poi viene 比, poi il termine di paragone, e l'aggettivo chiude la frase, **senza 很**. La differenza si aggiunge dopo l'aggettivo (大多了, «molto più grande»). Per «non così … come» si usa 没有 (我没有他高) e per «uguale» 跟 … 一样."
+    "risposta": "In questa struttura non c'è una parola per «più»: la frase dice **A 比 B + aggettivo**, cioè «A rispetto a B: veloce». Chi è «più» va per primo, poi viene 比, poi il termine di paragone, e l'aggettivo chiude la frase, **senza 很**. La differenza si aggiunge dopo l'aggettivo (大多了, «molto più grande»). Per «non così … come» si usa 没有 (我没有他高) e per «uguale» 跟 … 一样."
   },
   "regola": {
     "enunciato": "Per dire che A ha più di una qualità rispetto a B si scrive **A 比 B + aggettivo**: 比 sta tra le due cose confrontate e l'aggettivo è nudo, senza 很. La misura della differenza si mette dopo l'aggettivo (一点, 多了, 五厘米), «ancora più» si dice con 更 o 还 davanti all'aggettivo.",
@@ -154,12 +154,12 @@ LESSON_RICH.zh["paragoni"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Due figure affiancate", "t": "Il carattere 比 mostra due elementi uguali messi uno accanto all'altro, come due persone in fila: l'idea è quella di «mettere a fianco per misurare». La ritrovi in 比赛 (una gara, dove si confrontano le prestazioni), in 比如 («per esempio») e in 比例 («rapporto, proporzione»)." },
+    { "titolo": "Due figure affiancate", "t": "Il verbo 比 vuol dire «confrontare». La stessa idea sta in 比赛 (una gara, dove si confrontano le prestazioni), in 比如 («per esempio») e in 比例 («rapporto, proporzione»)." },
     { "titolo": "Il punteggio: 三比二", "t": "Nello sport 比 introduce il risultato: 三比二 significa «tre a due». Si dice 中国队三比二赢了 («la squadra cinese ha vinto tre a due»). È lo stesso 比 del confronto: due numeri messi a fronte l'uno dell'altro." },
     { "titolo": "跟 … 比 e 比起: partire dal confronto", "t": "Si può mettere il confronto all'inizio: 跟去年比，今年冷多了 («rispetto all'anno scorso, quest'anno fa molto più freddo»). Nello scritto si trova anche 比起: 比起北京，上海更热闹. Servono quando vuoi presentare prima il termine di paragone." },
     { "titolo": "越来越: sempre più", "t": "Quando non c'è un secondo termine ma un cambiamento nel tempo, si usa 越来越 + aggettivo: 天气越来越冷 («fa sempre più freddo»). Non esiste 比 qui, perché il confronto è con lo stato di prima." }
   ],
-  "pragmatica": "Nel parlato 比 è diretto: 你比我会做饭 è un complimento che mette l'altro in alto. Per attenuare una differenza si dice 一点 invece di 多了: 这个比那个贵一点 suona più morbido. Parlando di se stessi o di persone presenti si preferiscono 没有 e 不如: 我没有你高, 我不如你 sono formule cortesi, mentre 你比我矮 detto in faccia è brusco. Nei negozi i venditori dicono 比别家便宜 («costa meno degli altri») e il cliente può obiettare 比别家贵 («costa più degli altri») per ottenere un ribasso.",
+  "pragmatica": "Nel parlato 比 è diretto: 你比我会做饭 è un complimento che mette l'altro in alto. Per attenuare una differenza si dice 一点 invece di 多了: 这个比那个贵一点 suona più morbido. Parlando di se stessi o di persone presenti si preferiscono 没有 e 不如: 我没有你高, 我不如你 sono formule cortesi, mentre 你比我矮 detto in faccia è brusco.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "他比我高。", "opzioni": [
       { "t": "Lui è più alto di me.", "ok": true, "perche": "Chi è «più» sta per primo: 他 ha più altezza di 我." },
@@ -215,7 +215,7 @@ LESSON_RICH.zh["paragoni"] = {
     "Sai paragonare anche le azioni con 早, 多, 少 e con 跑得快."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Basic comparisons with bi»: ordine A 比 B + aggettivo, divieto di 很, uso di 更, 我比他不高 non corretto, 跟 … 一样 per l'uguaglianza (non 比 con 一样)",
+    "Chinese Grammar Wiki (AllSet Learning), «Basic comparisons with bi»: Noun1 + 比 + Noun2 + aggettivo, niente 很 nel confronto, aggettivo positivo dopo 比",
     "CC-CEDICT, voce 比 (to compare; more adj. than) e Tatoeba (cinese, es. 今天比昨天暖和, 你不比我矮, 我媽媽比我早起), consultati nei corpora locali"
   ]
 };

@@ -68,7 +68,7 @@ LESSON_RICH.zh["piacere"] = {
     ] },
     { "gruppo": "Le persone e le cose che ci piacciono", "items": [
       { "t": "我最喜欢的颜色是蓝色。", "tr": "Il mio colore preferito è il blu." },
-      { "t": "我喜欢她。", "tr": "Lei mi piace.", "nota": "Chi prova il sentimento sta prima: 我 (mi) piace lei." }
+      { "t": "我喜欢她。", "tr": "Lei mi piace.", "nota": "Chi prova il sentimento (我) sta prima; lei è l'oggetto: in italiano si dice «lei mi piace»." }
     ] }
   ],
   "contrasti": [
@@ -150,7 +150,7 @@ LESSON_RICH.zh["piacere"] = {
   },
   "curiosi": [
     { "titolo": "Due caratteri, la stessa gioia", "t": "喜欢 unisce 喜 e 欢, che separatamente significano entrambi «lieto, contento». Li ritrovi in 喜事 (un evento lieto, per esempio un matrimonio) e in 欢迎 («benvenuto»). Il verbo «piacere» nasce quindi dall'idea di «essere contento di»: chi gradisce, è contento." },
-    { "titolo": "喜欢 e 爱", "t": "爱 è più forte e più intimo. Con le persone 我爱你 è una dichiarazione intensa, che si ascolta più nei film e nelle canzoni che nella vita di tutti i giorni; 我喜欢你 invece può essere un'amicizia calda o l'inizio di un sentimento, secondo il contesto. Con le attività, 爱 + verbo è un parlato vivace: 我爱吃面 («adoro mangiare spaghetti»)." },
+    { "titolo": "喜欢 e 爱", "t": "爱 è più forte e più intimo. Con le persone 我爱你 è una dichiarazione intensa, che si ascolta più nei film e nelle canzoni che nella vita di tutti i giorni; 我喜欢你 invece può essere un'amicizia calda o l'inizio di un sentimento, secondo il contesto. Con le attività, 爱 + verbo è più vivace di 喜欢: 我爱做饭 («adoro cucinare»)." },
     { "titolo": "Tre verbi, tre intenzioni", "t": "我喜欢茶 dice un gusto stabile; 我想喝茶 dice che ne hai voglia adesso; 我要一杯茶 è la frase che usi per ordinare. Mettere 喜欢 al posto di 想 cambia il senso: 我喜欢喝茶 non dice che vuoi un tè in questo momento." },
     { "titolo": "喜欢上: cominciare a gradire", "t": "Con 上 il verbo indica l'inizio del sentimento: 我喜欢上了这个城市 vuol dire «mi sono affezionato a questa città» (all'inizio non c'era). È un uso frequente quando si racconta come è cambiato un gusto." }
   ],
@@ -188,7 +188,7 @@ LESSON_RICH.zh["piacere"] = {
     { "k": "trasforma", "base": "你喜欢这个电影。", "consegna": "Trasforma la frase in una domanda sì/no per un amico.", "accetta": ["你喜欢这个电影吗？", "你喜欢不喜欢这个电影？", "你喜欢这个电影吗", "你喜欢这部电影吗？"], "rifiutate": [
       { "t": "你喜欢不喜欢这个电影吗？", "perche": "吗 e la forma «verbo + non + verbo» non si usano insieme." }
     ], "perche": "Per una domanda sì/no basta 吗 in fondo, oppure la forma 喜欢不喜欢 senza 吗." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Mi piace cucinare.»", "a": "我喜欢做饭。", "accetta": ["我喜欢做菜。", "我爱做饭。", "我喜欢煮饭。"], "perche": "喜欢 è seguito direttamente dal verbo: non serve nessuna particella." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Mi piace cucinare.»", "a": "我喜欢做饭。", "accetta": ["我喜欢做菜。", "我爱做饭。"], "perche": "喜欢 è seguito direttamente dal verbo: non serve nessuna particella." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Lei gli piace.» (lui prova piacere per lei)", "a": "他喜欢她。", "perche": "Chi prova il sentimento (lui) è il soggetto; chi lo ispira (lei) è l'oggetto." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Il mio colore preferito è il blu.»", "a": "我最喜欢的颜色是蓝色。", "accetta": ["我最喜欢蓝色。"], "perche": "最 va davanti a 喜欢 e 的 collega la descrizione a 颜色." },
     { "k": "minidialogo", "righe": [
@@ -212,7 +212,7 @@ LESSON_RICH.zh["piacere"] = {
     "Sai distinguere 喜欢, 想, 好吃 e 好喝: un gusto stabile, un desiderio del momento, il sapore di una cosa."
   ],
   "fonti": [
-    "elon.io, riferimento sui verbi cinesi, voce «xihuan, like» (grado davanti al verbo, 不太 come rifiuto morbido, 不 e non 没 per un gusto, oggetto nominale o verbale, 喜欢上)",
-    "CC-CEDICT, voce 喜歡 / 喜欢 (to like; to be fond of) e Tatoeba (cinese, es. 我喜欢茶), consultati nei corpora locali"
+    "CC-CEDICT, voce 喜歡 / 喜欢 (to like; to be fond of), consultata nel dizionario locale",
+    "Tatoeba (cinese-italiano, es. 我喜欢茶), consultato nei corpora locali"
   ]
 };

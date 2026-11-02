@@ -133,8 +133,8 @@ LESSON_RICH.zh["bei"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Il 被 di una volta: «ricevere»", "t": "被 è anche il carattere di «coperta, piumone» (被子), e come verbo antico significa «ricevere, subire»: chi è 被 qualcosa ne è coperto o colpito. Questo spiega il tono: la costruzione è nata per dire ciò che si riceve senza volerlo, quasi sempre un danno." },
-    { "titolo": "Il passivo moderno e le traduzioni", "t": "Nel Novecento le traduzioni dalle lingue europee hanno esteso 被 anche a fatti neutri e positivi (被选为, 被评为, 被誉为), soprattutto nello scritto: giornali, comunicati, testi accademici. Nel parlato di tutti i giorni questi casi sono meno frequenti e si preferisce la frase attiva: 大家选他当班长." },
+    { "titolo": "Il 被 di una volta: «ricevere»", "t": "被 è anche il carattere di «coperta, piumone» (被子), e come verbo letterario significa «subire»: chi è 被 qualcosa ne è coperto o colpito. Questo spiega il tono: la costruzione è nata per dire ciò che si riceve senza volerlo, quasi sempre un danno." },
+    { "titolo": "Il passivo moderno e le traduzioni", "t": "Nello scritto, soprattutto in giornali, comunicati e testi accademici, 被 compare anche con fatti neutri e positivi (被选为, 被评为, 被誉为). Nel parlato di tutti i giorni questi casi sono meno frequenti e si preferisce la frase attiva: 大家选他当班长." },
     { "titolo": "被 più 给, 让 e 叫", "t": "Nel parlato compare anche 给 prima del verbo, per rinforzare l'evento: 杯子被他给打破了. Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了); nello scritto formale si trova la forma 为…所 (为人所知: «noto alla gente»), che nel parlato non compare." }
   ],
   "pragmatica": "被 è la forma naturale per lamentarsi o per raccontare un guaio: 我的手机被偷了 si dice a un amico, a un poliziotto, al telefono. Chi vuole essere cortese con chi ha causato il danno lo evita e dice solo: 杯子打破了, 对不起. Con 让 e 叫 il tono è familiare e conversazionale.",
@@ -181,8 +181,7 @@ LESSON_RICH.zh["bei"] = {
     "Sai riconoscere quando il passivo italiano si traduce con 是…的 o con la cosa come tema."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Using \"bei\" sentences»: struttura, agente facoltativo, verbo non nudo, negazione con 没 prima di 被, valore di solito sfavorevole",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Advanced uses of \"bei\"»: 让 e 叫 come alternative parlate, 给 prima del verbo, forma formale con 所",
+    "Chinese Grammar Wiki (AllSet Learning), pagina «Using \"bei\" sentences»: struttura con agente facoltativo, negazione con 没 prima di 被, tono spesso sfavorevole",
     "CC-CEDICT (voci 被, 偷, 打破, 批评): significati e uso di 被 come verbo e particella",
     "Tatoeba (corpus cinese, ricerca di frasi con 被): conferma della forma con 了 o risultato dopo il verbo"
   ]

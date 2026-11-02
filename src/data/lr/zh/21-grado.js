@@ -16,16 +16,16 @@ LESSON_RICH.zh["grado"] = {
     "schema": ["chi", "(oggetto)", "verbo", "得", "(很) + aggettivo"],
     "punti": [
       { "ok": true, "t": "**得 sta subito dopo il verbo** e prima del giudizio: 她唱得很好, 我睡得不好. Il giudizio è un aggettivo o un'espressione simile: 好, 快, 慢, 早, 晚, 清楚, 高兴." },
-      { "ok": true, "t": "**Il giudizio vuole di solito 很** (o 非常, 太, 真, 不太): 他跑得很快. Un aggettivo nudo, 他跑得快, suona come un confronto implicito («lui corre veloce, io no») e si usa per contrapporre." },
+      { "ok": true, "t": "**Il giudizio vuole di solito 很** (o 非常, 太, 真, 不太): 他跑得很快. Un aggettivo nudo, 他跑得快, spesso suona come un confronto implicito («lui corre veloce, io no»)." },
       { "ok": true, "t": "**Si nega l'aggettivo, non il verbo**: 我说得不好, 他写得不太清楚. La frase 我不说得好 non esiste." },
-      { "ok": true, "t": "**Con un oggetto**: 他说中文说得很好 (verbo ripetuto) oppure 他中文说得很好 (oggetto davanti). Nel parlato la seconda forma è la più frequente; il primo verbo + oggetto si può anche omettere quando il contesto è chiaro: 中文他说得很好." },
+      { "ok": true, "t": "**Con un oggetto**: 他说中文说得很好 (verbo ripetuto) oppure 他中文说得很好 (oggetto davanti). Entrambe sono corrette; con l'oggetto davanti la frase è più breve, e se il contesto è chiaro si può anche dire 中文他说得很好." },
       { "ok": true, "t": "**Domanda**: 他说得好吗？ oppure 他说得好不好？ La risposta ripete verbo e 得: 说得很好 / 说得不好." },
       { "ok": true, "t": "**Confronto**: 他跑得比我快 («corre più veloce di me»), 我说得没有他好 («parlo meno bene di lui»). Il 比 si mette davanti al giudizio, dopo 得." },
       { "ok": false, "t": "**Non si dice** 他说中文得很好 (得 non può seguire un oggetto), né 他说很好 (senza 得 la frase non regge), né 他说得好了 per dire «ha parlato bene ieri»: il complemento di grado descrive il modo, non porta 了." }
     ]
   },
   "logica": [
-    "In italiano il modo dell'azione è un avverbio che sta dopo il verbo: «parla bene», «corre veloce». In cinese gli aggettivi non diventano avverbi con un suffisso (come -mente) e non si mettono direttamente dopo il verbo: tra i due serve un legame, e quel legame è 得. Pensa a 说得很好 come a «il suo parlare è molto buono»: il verbo dice l'azione, 得 introduce la valutazione, l'aggettivo la dà.",
+    "In italiano il modo dell'azione è un avverbio che sta dopo il verbo: «parla bene», «corre veloce». In cinese gli aggettivi non si mettono direttamente dopo il verbo come avverbi (la particella 地 serve solo davanti al verbo): tra i due serve un legame, e quel legame è 得. Pensa a 说得很好 come a «il suo parlare è molto buono»: il verbo dice l'azione, 得 introduce la valutazione, l'aggettivo la dà.",
     "Da qui nasce la regola dell'oggetto. Dopo 得 c'è già un blocco completo (la valutazione), e il verbo con 得 non può trascinarsi dietro anche un oggetto. Il cinese ha due soluzioni, entrambe naturali: **ripetere il verbo** (说中文 prima, 说得很好 dopo: il primo pezzo nomina l'azione con il suo oggetto, il secondo la giudica) oppure **portare l'oggetto davanti** come argomento della frase (中文, 他说得很好: «il cinese, lo parla bene»). Chi legge italiano di solito pensa «parla + cinese + bene» e inserisce 得 troppo tardi."
   ],
   "mappa": {
@@ -193,7 +193,7 @@ LESSON_RICH.zh["grado"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Degree complement»: struttura verbo + 得 + giudizio, verbo ripetuto o oggetto davanti, forme errate con 得 dopo l'oggetto",
-    "Chinese Grammar Wiki (AllSet Learning), «State complement»: ripetizione del verbo quando c'è un oggetto, negazione sul giudizio",
+    "Chinese Grammar Wiki (AllSet Learning), «State complement»: ripetizione del verbo quando c'è un oggetto (做作业做得很慢)",
     "Tatoeba (cinese), frasi come 她的英语说得很好, 你咖啡喝得太多了, consultate con la raccolta locale cmn.tsv",
     "CC-CEDICT, voce 得 (de, dé, děi): uso come particella strutturale dopo il verbo"
   ]

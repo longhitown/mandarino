@@ -52,7 +52,7 @@ LESSON_RICH.zh["modali"] = {
       { "t": "我想喝热茶。", "tr": "Vorrei bere un tè caldo." },
       { "t": "我很想去北京。", "tr": "Ho una gran voglia di andare a Pechino.", "nota": "想 accetta 很: il desiderio ha gradi." },
       { "t": "服务员，我要两个饺子。", "tr": "Cameriere, prendo due ravioli.", "nota": "Al ristorante 要 + nome è normale." },
-      { "t": "我不想吃米饭，我想吃面条。", "tr": "Non ho voglia di riso, ho voglia di noodles." },
+      { "t": "我不想吃米饭，我想吃面条。", "tr": "Non ho voglia di riso, preferisco le tagliatelle." },
       { "t": "明天我要早起。", "tr": "Domani devo alzarmi presto.", "nota": "要 + verbo può dire «devo»." }
     ] },
     { "gruppo": "会: saper fare e prevedere", "items": [
@@ -161,7 +161,7 @@ LESSON_RICH.zh["modali"] = {
     { "titolo": "想 non vuol dire solo «volere»", "t": "Davanti a un nome o da solo, 想 vuol dire «pensare» e «sentire la mancanza»: 我想你 («mi manchi»), 我想家 («ho nostalgia di casa»), 想一想 («pensaci un po'»). Per ordinare con 想 si può usare 想要: 我想要一杯茶, un po' più morbido di 我要." },
     { "titolo": "«Sapere» ha due verbi", "t": "L'italiano usa «sapere» per due cose. 会 è il «sapere come fare» (我会开车), 知道 è il «sapere che» (我知道他的名字). Chi dice 我知道游泳 non si fa capire. Per le persone conosciute c'è un terzo verbo, 认识." },
     { "titolo": "会…的 e le previsioni", "t": "Quando 会 prevede, in fondo alla frase si aggiunge spesso 的 per dare sicurezza: 他会来的 («verrà, vedrai»). Il negativo 不会 dice «non succederà»: 他不会忘记的 («non se ne dimenticherà»)." },
-    { "titolo": "能, 可以 e il «no» gentile", "t": "Alla domanda 我可以坐这里吗？ si risponde 可以 per dire sì. Per dire no si preferisce 不行 o 不好意思，有人 («mi dispiace, è occupato»), perché 不可以 è netto come un cartello. 能 è più neutro: chiede se le condizioni lo permettono." }
+    { "titolo": "能, 可以 e il «no» gentile", "t": "Alla domanda 我可以坐这里吗？ si risponde 可以 per dire sì. Per dire no si preferisce 不行 o 不好意思 («mi dispiace»), perché 不可以 è netto come un cartello. 能 è più neutro: chiede se le condizioni lo permettono." }
   ],
   "pragmatica": "Con gli amici, 我想… e 我要… si alternano senza difficoltà; con un ospite o con una persona più anziana 想 è più morbido, e una richiesta diventa gentile con 可以…吗 o con 能不能…？ Al ristorante 我要… è normale, e con 请给我… si aggiunge cortesia. Per rifiutare, 不行 è diretto; tra amici si attenua con 不好意思 o con la ragione: 今天不能去，我要工作.",
   "esercizi": [
@@ -180,10 +180,10 @@ LESSON_RICH.zh["modali"] = {
       { "t": "想", "ok": false, "perche": "想 è la voglia di una persona, non di un fenomeno." },
       { "t": "可以", "ok": false, "perche": "可以 è il permesso: la pioggia non lo chiede." }
     ] },
-    { "k": "buco", "zh": "这里＿拍照吗？", "tr": "Qui si può fotografare?", "opzioni": [
-      { "t": "可以", "ok": true, "perche": "Chiedi se è permesso: 可以." },
+    { "k": "buco", "zh": "这么黑，这里＿拍照吗？", "tr": "Con questo buio, si riesce a fare foto qui?", "opzioni": [
+      { "t": "能", "ok": true, "perche": "能 guarda alle circostanze: con questo buio si chiede se la cosa è possibile." },
       { "t": "会", "ok": false, "perche": "会 è saper fare o prevedere, non il permesso." },
-      { "t": "在", "ok": false, "perche": "在 non è un modale e non regge un verbo in questo modo." }
+      { "t": "可以", "ok": false, "perche": "可以 chiede un permesso: qui si domanda se è possibile per le condizioni." }
     ] },
     { "k": "ordine", "t": "我明天不能去上班", "tr": "Domani non posso andare al lavoro.", "alt": ["明天我不能去上班"] },
     { "k": "ordine", "t": "你会不会说中文", "tr": "Sai parlare cinese?" },
@@ -216,8 +216,8 @@ LESSON_RICH.zh["modali"] = {
     "Sai usare 会 per prevedere (明天会下雨) e per dire che qualcuno è bravo (很会做饭)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Comparing hui, keyi and neng»: zone di uso, 不可以 contro 不能, 会 per le previsioni",
-    "Chinese Grammar Wiki (AllSet Learning), «Comparing yao and xiang» ed «Expressing desires»: 想 e 要 con verbo e con nome (consultati nei risultati di ricerca)",
+    "Chinese Grammar Wiki (AllSet Learning), «Comparing hui, neng, keyi»: 会 per la competenza e per le previsioni, 能 per le circostanze, 可以 per il permesso",
+    "Chinese Grammar Wiki (AllSet Learning), «Comparing yao and xiang»: 想 con un nome significa «sentire la mancanza»; 要 può indicare ciò che sta per accadere",
     "CC-CEDICT, voci 会, 能, 可以, 想, 要; Tatoeba cinese-italiano (es. 汤姆还不会游泳, 明天可能会下雨), consultati nei corpora locali"
   ]
 };

@@ -146,7 +146,7 @@ LESSON_RICH.zh["direzione"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "我回来了: il saluto di chi rientra", "t": "In molte famiglie chi rientra annuncia 我回来了！ e chi è in casa risponde 你回来了 oppure 欢迎回来. Si vede bene il punto di vista: chi arriva parla già dall'interno della casa e usa 来. È una formula quasi rituale, che si impara come un saluto. Si dice soprattutto rientrando a casa." },
+    { "titolo": "我回来了: il saluto di chi rientra", "t": "Chi rientra in casa può dire 我回来了！ e chi è in casa risponde 你回来了 oppure 欢迎回来. Si vede bene il punto di vista: chi arriva parla già dall'interno della casa e usa 来. È una formula quasi rituale, che si impara come un saluto. Si dice soprattutto rientrando a casa." },
     { "titolo": "Entrata e uscita sul cartello", "t": "Alle porte di stazioni e parchi si leggono 入口 e 出口 («entrata» e «uscita»). Nella lingua parlata 进 e 出 sono i verbi usuali, mentre 入 compare soprattutto nello scritto e sui cartelli. Attenzione a 出口: indica l'«uscita» ma anche l'«esportazione», e 进口 di solito significa «importazione»; il contesto decide." },
     { "titolo": "过来 e 过去: attraversare il confine", "t": "过 è il verbo che indica un passaggio da un lato all'altro. 过来 è molto usato per chiamare qualcuno nel luogo in cui si è: 你过来 «vieni qui». 过去 invita a spostarsi verso un luogo più in là: 你过去看看 «vai a dare un'occhiata». Come parola a sé, 过去 significa anche «il passato» (过去的事 «cose passate»): il contesto fa capire quale dei due sensi è in gioco." },
     { "titolo": "«Arrivo!»: 过去 o 来", "t": "Chi risponde «Arrivo!» dopo essere stato chiamato può dire 我马上过去 «mi muovo subito» (dal punto di vista di chi si muove) oppure 我马上来 «arrivo» (con la testa già nel luogo di chi chiama). Sono due modi di guardare la stessa scena, e tutti e due si ascoltano." }
@@ -206,6 +206,6 @@ LESSON_RICH.zh["direzione"] = {
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来 e 去 secondo la posizione di chi parla, luogo prima di 来/去 (回中国来, non 回来中国), omissione di 来/去 nel parlato",
     "CC-CEDICT, voci 进来, 出去, 回来, 过来, 过去, 入口, 出口 (uscita, esportazione), 进口 (importazione, ingresso)",
-    "Tatoeba (corpus locale cmn.tsv): 进来！, 我能进来吗, 你明天出去吗, 我需要你回家去, 不久派对完结，大家也都回家去了"
+    "Tatoeba (corpus locale cmn.tsv): 进来！, 我能进来吗, 你明天出去吗, 我需要你回家去"
   ]
 };
