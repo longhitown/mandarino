@@ -59,6 +59,7 @@
 
   /* ---- lezione ---- */
   function lessonHTML(l) {
+    var Z = !l.review && CP.lezione.zh(l,[T,prog,nextOf,zhHTML,toks,tileHTML,W,mark]); if (Z) return Z;
     var p = prog(l.id), qn = (l.quiz || []).length;
     return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-ls-back>← ' + T("sub.lessons") + "</button></div>" +
       '<article class="panel ls-lesson"><span class="tag muted small">' + (l.review ? T("ls.rev") : T("ls.n", { n: l.n })) + (p.best != null ? " · " + T("ls.best", { p: p.best }) : "") + "</span>" +

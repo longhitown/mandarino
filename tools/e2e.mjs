@@ -130,7 +130,7 @@ try {
     check("Immersione: ⛶ nasconde schede e menu, resta la barra con l'avanzamento", await p.evaluate(() => document.body.classList.contains("in-focus") && getComputedStyle(document.querySelector(".dock")).display === "none" && !document.getElementById("fx-bar").hidden && document.querySelector("#fx-bar .fx-n").textContent === "0/10"));
     await p.keyboard.press("Escape"); await p.waitForTimeout(150);
     check("Immersione: Esc esce", await p.evaluate(() => !document.body.classList.contains("in-focus") && document.getElementById("fx-bar").hidden));
-    await p.evaluate(() => CP.build.openLesson(CP.lessons.list()[0].id)); await p.click("[data-ls-quiz]"); await p.waitForTimeout(150);
+    await p.evaluate(() => CP.build.openLesson(CP.lessons.reviews()[0].id)); await p.click("[data-ls-quiz]"); await p.waitForTimeout(150);
     check("Immersione: gli esercizi di una lezione partono a schermo pieno", await p.evaluate(() => document.body.classList.contains("in-focus")));
     await p.goBack(); await p.waitForTimeout(200);
     check("Immersione: il tasto Indietro esce", await p.evaluate(() => !document.body.classList.contains("in-focus")));
@@ -556,7 +556,8 @@ try {
     check("Esercizi con le frasi: abbina (almeno quattro coppie)", mt && mt.n >= 4 && mt.ok, JSON.stringify(mt));
     /* quiz delle lezioni: «buco» e «scrivi» (un quiz inventato, messo solo nella pagina) */
     const lq = await p.evaluate(async () => {
-      CP.studyHome(); const L = CP.lessons.list()[0]; L.quiz = [{ k: "buco", zh: "我＿学生。", opts: ["在", "是"], a: 1 }, { k: "scrivi", py: true, a: "shì" }];
+      CP.studyHome(); const L = CP.lessons.list()[0]; CP.lezione.rich("zh", L.id); LESSON_RICH.zh[L.id] = null;   /* qui si prova il quiz della pagina semplice, senza il capitolo */
+      L.quiz = [{ k: "buco", zh: "我＿学生。", opts: ["在", "是"], a: 1 }, { k: "scrivi", py: true, a: "shì" }];
       CP.show("build", true); CP.build.openLesson(L.id); document.querySelector("[data-ls-quiz]").click();
       const hole = !!document.querySelector(".ls-opt"); document.querySelectorAll("[data-ls-opt]")[1].click(); const ok1 = !!document.querySelector(".verdict.ok"); document.querySelector("[data-ls-next]").click();
       const inp = document.getElementById("ls-in"); inp.value = "shi4"; document.querySelector("[data-ls-type]").click();
@@ -575,6 +576,26 @@ try {
       return { dl, au, nRev, nList, page, play };
     });
     check("Lezioni: mini-dialogo con audio, un ripasso ogni cinque lezioni, le lezioni aggiuntive si caricano all'apertura dell'elenco, il ripasso si fa come un quiz", rz.dl >= 3 && rz.au >= rz.dl && rz.nRev === Math.floor(rz.nList / 5) && rz.nList >= 35 && rz.page && rz.play, JSON.stringify(rz));
+    /* lezione-capitolo (data/lr/): si apre, le domande danno il «perché», gli esercizi di ogni tipo si fanno fino al risultato che salva il punteggio */
+    const lz = await p.evaluate(async () => {
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      CP.studyHome(); CP.show("build", true); CP.build.openLesson("ba"); await wait(60);
+      const root = !!document.querySelector("[data-lz-root]"), secs = document.querySelectorAll("[data-lz-sec]").length;
+      document.querySelector('[data-lz="reveal"]').click(); const rev = !document.getElementById("lz-ans").hidden;
+      document.querySelector('[data-lz="opt"]').click(); await wait(30); const vd = document.querySelector(".lz-fb .lz-verdict"), why = !!vd && vd.parentNode.textContent.length > 20;
+      document.querySelector('[data-lz="run"]').click(); await wait(30);
+      const kinds = new Set(); let g = 0;
+      while (!document.querySelector(".lz-result") && g++ < 40) {
+        const run = document.getElementById("lz-run");
+        if (run.querySelector('[data-lz="rop"]')) { kinds.add("scelta"); run.querySelector('[data-lz="rop"]').click(); }
+        else if (run.querySelector(".lz-bank")) { kinds.add("ordine"); while (run.querySelector('.lz-bank [data-lz="pk"]:not([disabled])')) run.querySelector('.lz-bank [data-lz="pk"]:not([disabled])').click(); run.querySelector('[data-lz="chk"]').click(); }
+        else if (run.querySelector("#lz-in")) { kinds.add("scrivi"); run.querySelector("#lz-in").value = "x"; run.querySelector('[data-lz="chk"]').click(); }
+        else break;
+        await wait(20); const nx = document.querySelector('[data-lz="rnext"]'); if (!nx) break; nx.click(); await wait(20);
+      }
+      return { root, secs, rev, why, kinds: [...kinds], res: !!document.querySelector(".lz-result"), saved: CP.lessons.progress("ba").best != null };
+    });
+    check("Lezione-capitolo: sezioni, «mostra la risposta», perché di ogni scelta, esercizi di più tipi fino al risultato che salva", lz.root && lz.secs >= 8 && lz.rev && lz.why && lz.kinds.length >= 3 && lz.res && lz.saved, JSON.stringify(lz));
     check("Esercizi con le frasi: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
@@ -633,7 +654,7 @@ try {
     check("Guidato: nel Percorso la tappa ha il segno «Tappa verificata» (la regola dell'80% non cambia)", badge);
     /* lezioni: «I tuoi errori» e la mini-verifica */
     const ls = await p.evaluate(() => {
-      const L = CP.lessons.list()[0]; CP.show("build", true); CP.build.openLesson(L.id); document.querySelector("[data-ls-quiz]").click();
+      const L = CP.lessons.list()[0]; CP.lezione.rich("zh", L.id); LESSON_RICH.zh[L.id] = null; CP.show("build", true); CP.build.openLesson(L.id); document.querySelector("[data-ls-quiz]").click();
       for (let i = 0; i < L.quiz.length; i++) { const o = document.querySelectorAll("[data-ls-opt]"); if (o.length) o[(L.quiz[i].a + 1) % o.length].click(); else { for (let j = 0; j < 20; j++) { const b = document.querySelector("[data-ls-pick]:not([disabled])"); if (!b) break; b.click(); } const ch = document.querySelector("[data-ls-check]"); if (ch) ch.click(); } document.querySelector("[data-ls-next]").click(); }
       const best = CP.lessons.progress(L.id).best, errs = document.querySelector("[data-ls-errs]"), mini = document.querySelector("[data-ls-mini]");
       mini.click(); const n = document.querySelectorAll("[data-ls-opt]").length;
@@ -857,6 +878,8 @@ try {
     check("Pleco: nel corso di italiano l'opzione non c'è", await p.evaluate(() => !CP.pleco.available()));
     check("Anki, corso di italiano: tutto il lessico, guid unici, 7 colonne, presente dei verbi dalle regole, Morph-it! citato", ak.n > 4000 && ak.uniq === ak.n && ak.cols && ak.deck && ak.morph && ak.conj && !ak.dots, JSON.stringify(ak));
     check("Corso di italiano: interfaccia cinese e schede proprie", await p.evaluate(() => CP.course() === "it" && LANG === "zh" && document.body.classList.contains("course-it") && document.querySelectorAll(".dock-it [data-it-tab]").length === 5));
+    /* le prove qui sotto usano la pagina semplice di ogni lezione (quiz del corso): il capitolo si prova nella prova «Lezione-capitolo» */
+    await p.evaluate(() => { ITLESSONS.forEach((l) => { CP.lezione.rich("it", l.id); LESSON_RICH.it[l.id] = null; }); });
     const ri = await p.evaluate(() => {
       CP.itShow("lessons"); if (document.querySelector("[data-itl-back]")) document.querySelector("[data-itl-back]").click();
       const nodes = document.querySelectorAll(".itp-node.rev").length, real = document.querySelectorAll(".itp-node:not(.rev)").length;
@@ -944,6 +967,7 @@ try {
     const ph = await p.evaluate(() => { const d = new Date(2026, 9, 27), a = CP.itToday.phraseOfDay(d), b = CP.itToday.phraseOfDay(new Date(2026, 9, 27)), pool = CP.itToday.pool(); return { same: a.it === b.it, inPool: pool.some((x) => x.it === a.it), fromPassed: pool.every((x) => x.n <= 2) }; });
     check("Frase del giorno: scelta in modo deterministico tra gli esempi delle lezioni superate", ph.same && ph.inPool && ph.fromPassed, JSON.stringify(ph));
     /* si avvia la lezione corrente e la si supera: anello, serie, «+30 分» e il traguardo con «分享纪念卡» nel messaggio */
+    await p.evaluate(() => { ITLESSONS.forEach((l) => { CP.lezione.rich("it", l.id); LESSON_RICH.it[l.id] = null; }); });   /* qui si prova la pagina semplice, il capitolo ha la sua prova */
     await p.click("[data-itd-go]"); await p.waitForTimeout(200);
     const opened = await p.evaluate(() => /第 3 课/.test((document.querySelector("#view-it .ls-lesson .tag") || {}).textContent || ""));
     const passed = await p.evaluate(() => {
@@ -1022,6 +1046,7 @@ try {
       const out = [], click = (sel) => { const e = document.querySelector(sel); if (!e) throw new Error("manca " + sel); e.click(); };
       CP.show("build", true);
       for (const l of CP.lessons.list()) {
+        CP.lezione.rich("zh", l.id); LESSON_RICH.zh[l.id] = null;   /* qui si prova la pagina semplice con il quiz; il capitolo ha la sua prova «Lezione-capitolo» */
         CP.build.openLesson(l.id); click("[data-ls-quiz]");
         for (const q of l.quiz) {
           if (q.k === "order") {
@@ -1210,7 +1235,8 @@ try {
       ["Laboratorio", () => CP.build.labLoad(CP.segment("我是学生").map((x) => x.w.key), ".")],
       ["Slot", () => CP.build.setSlot()],
       ["Modelli", () => CP.build.setSub("pat")],
-      ["Lezione", () => CP.build.openLesson(CP.lessons.list()[0].id)],
+      ["Lezione-capitolo", () => CP.build.openLesson(CP.lessons.list()[0].id)],
+      ["Lezione", () => { const id = CP.lessons.list()[0].id; CP.lezione.rich("zh", id); LESSON_RICH.zh[id] = null; CP.build.openLesson(id); }],
       ["Esercizi della lezione", () => document.querySelector("[data-ls-quiz]").click()],
       ["Dialogo", () => { CP.immerse.leave(); CP.build.setSub("dlg"); document.querySelector("[data-dlg]").click(); }],
       ["Pensiero", () => CP.build.setSub("thought")],

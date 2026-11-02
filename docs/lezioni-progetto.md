@@ -1,42 +1,35 @@
-# Dalle schede alle lezioni vere: progetto di riscrittura delle lezioni
+# Le lezioni-capitolo
 
-Stato: **linee guida approvate nei principi** (1 novembre 2026), in attesa della verifica delle otto lezioni pilota. Riguarda le 55 lezioni di cinese per italiani e le 51 di
-italiano per chi parla cinese (`src/data/lessons/`, `src/data/lessons-x/`, `src/data/it/lessons/`, `src/data/it/lessons-x/`).
+Le 55 lezioni di cinese per italiani e le 51 di italiano per chi parla cinese diventano capitoli di manuale universitario, pensati per il telefono: la complessità non si taglia, si
+organizza (progressive disclosure e visual chunking). Come si scrive una lezione: [`docs/lezioni-guida.md`](lezioni-guida.md).
 
-## 1. L'obiettivo
+## 1. Che cosa cambia
 
-Oggi una lezione è una scheda di sintesi (in media 1,9 KB di dati). Vogliamo che ogni lezione sia un **capitolo di un manuale universitario**, segmentato per il telefono:
-la complessità non si taglia, si organizza (progressive disclosure e visual chunking).
-
-| | Scheda di sintesi (oggi) | Lezione vera (obiettivo) |
+| | Scheda di sintesi | Lezione-capitolo |
 |---|---|---|
 | Scopo | ricordare formule e definizioni | capire come ragiona la lingua, e perché |
 | Metodo | la regola subito, poi gli esempi | prima l'osservazione, poi la regola |
 | Errori | elenco di frasi sbagliate | l'errore del traduttore: perché lo si fa e come se ne esce |
-| Esercizi | scegli, ordina, completa | scegli tra due regole vicine, trasforma, usa in un mini-dialogo |
-| Estensione | 4-5 paragrafi | tutto ciò che serve, a strati: regola, logica, contrasti, note per i più curiosi |
+| Esercizi | scegli, ordina, completa | scegli tra regole vicine, trasforma, scrivi, usa in un mini-dialogo |
+| Estensione | 4-5 paragrafi | regola, logica, contrasti, dialogo, note per i più curiosi, pragmatica |
 
-**Non si butta niente.** I campi attuali (`body`, `pattern`, `ex`, `dlg`, `traps`, `quiz`) restano e ogni lezione continua a funzionare; i campi nuovi sono facoltativi e si aggiungono lezione per lezione.
+I campi della lezione di base (`body`, `pattern`, `ex`, `dlg`, `traps`, `quiz`) restano: servono alla ricerca, ai ripassi, al diario e al resto dell'app. Il capitolo vive in un file a parte,
+`src/data/lr/<zh|it>/NN-<id>.js`, e sostituisce la pagina della lezione.
 
-## 2. Schermata di una lezione
+## 2. Il percorso
 
-Ordine: **Scopri → Regola → Logica → Esempi → Contrasto → Dialogo → Il tranello → Per i più curiosi → Esercizi.** Rispetta le fasi dell'acquisizione (percezione globale e induttiva,
-poi analisi, poi fissazione e reimpiego). Ogni sezione è un blocco che si può aprire e chiudere; «Regola» e «Esercizi» sono sempre visibili, il resto si apre al tocco, e l'ultimo punto
-raggiunto si ricorda.
+**Scopri → La regola → Il ragionamento → Colpo d'occhio → Esempi → Scegli la regola giusta → Dialogo → Il tranello → Per i più curiosi → Esercizi → Che cosa sai fare ora.**
+Rispetta le fasi dell'acquisizione (osservazione induttiva, analisi, fissazione, reimpiego). L'indice in alto segue la lettura, una barra mostra l'avanzamento, le risposte
+spiegano sempre il «perché», e il risultato elenca ciò che si sa fare.
 
-## 3. Scrittura: la scaletta di ogni lezione
+## 3. Qualità
 
-1. **Scopri**: 3-4 frasi mirate e una domanda; il tocco rivela la risposta e apre la regola.
-2. **Regola**: l'enunciato completo, con soggetto e verbo espliciti, le condizioni e i limiti.
-3. **Logica**: perché la lingua fa così (il ragionamento, non l'etichetta).
-4. **Esempi**: 10-14, graduati e commentati: per il cinese con il pinyin automatico, per l'italiano con la glossa in cinese.
-5. **Contrasto**: esercizi in cui si sceglie tra due regole vicine, con il «perché» per ogni risposta sbagliata.
-6. **Dialogo**: 4-6 battute che usano la regola in una situazione vera, e almeno 2 esercizi che lo usano.
-7. **Il tranello**: l'errore del traduttore (interferenza con la lingua madre).
-8. **Per i più curiosi**: note accademiche e storiche, sfumature di registro; **Pragmatica** quando serve.
-9. **Esercizi**: scelta, buco, ordine, scrittura, **trasformazione**, mini-dialogo.
-
-Esempi, dialoghi ed esercizi sono **creazioni originali**: non si copia nessun testo, esempio o esercizio di manuali.
+- Ogni lezione nasce già nella forma definitiva: fonti incrociate (almeno due, una in inglese), verifica automatica a ogni build, revisione avversaria indipendente.
+- Esempi, dialoghi ed esercizi sono creazioni originali; nessun testo protetto entra nell'app. I manuali di riferimento (Masini, Lavagnino, Tartaglione, Balboni, Serianni, Nuovo Espresso)
+  danno l'ordine degli argomenti e il livello di precisione.
+- Lessico: le frasi cinesi usano parole del vocabolario dell'app (HSK 1-3), così ogni parola è un tocco che apre la sua scheda.
+- Fonti libere usate per i controlli: Tatoeba (CC BY 2.0 Francia), CC-CEDICT, Morph-it!, Mozilla Common Voice (CC0).
+- Le correzioni dopo la pubblicazione entrano nel Libro degli errori: data, voce corretta, soprannome di chi l'ha segnalata.
 
 ## 4. Fonti e Double Check Accademico (al posto delle bozze)
 
@@ -60,15 +53,13 @@ Il controllo di qualità avviene **mentre si scrive**, non dopo la pubblicazione
 Le fonti **libere** che possiamo usare restano: Tatoeba (CC BY 2.0 Francia), Mozilla Common Voice (CC0), CC-CEDICT (solo per controllo), Make Me a Hanzi (struttura dei caratteri), Morph-it!.
 Wikipedia, Wikibooks e Wiktionary (CC BY-SA) si leggono ma non si copiano. Nessun testo protetto entra nell'app; i manuali sono bussola e controllo, mai una fonte da cui trascrivere.
 
-## 5. Parte tecnica
+## 5. Parte tecnica (realizzata)
 
-- **Caricamento pigro (obbligatorio).** Ogni lezione è un blocco di dati letto solo quando la si apre: la densità di testo non pesa mai sull'avvio (oggi `LESSONS` e `ITLESSONS` sono script di avvio, circa 170 KB, con
-  un margine di 4 KB sul limite di 1500 KB). Il meccanismo `lessons-x/` (`window.__mdLoad.LEZIONIX`) si estende a tutte le lezioni di entrambi i corsi, con un blocco **per lezione** (non uno solo per tutte: aprire una lezione non deve analizzare
-  megabyte di dati). Stima: le lezioni diventano 15-30 KB ciascuna, in tutto 2-3 MB nel file unico; da misurare.
-- **Schermata:** `src/phrases/lessons.js` e `src/it/course.js` mostrano le sezioni nuove e i tipi di esercizio `scegli2`, `trasforma`, `minidialogo` (motore dei quiz).
-- **Controlli:** `tools/lib/lab.mjs` (`checkLessons`), `tools/lezioni-check.mjs`, test unit per ogni tipo nuovo, e2e che apre una lezione pilota.
-- **Sito:** `tools/pagine.mjs` rende le lezioni anche come pagine del sito: con i campi nuovi diventano pagine molto più ricche (risposte, tabelle dei contrasti, tranello).
-- **Fasi successive:** FSRS grammaticale (ripasso della struttura, non solo della parola) e il «Perché è sbagliato?» nel laboratorio.
+- **Caricamento pigro.** Ogni lezione è un blocco di testo (`<script type="text/plain" id="lr-<corso>-<id>">`) eseguito da `CP.lezione.rich` (in `src/ui/lezione.js`) solo quando la si apre: non pesa sull'avvio.
+- **Schermata.** `src/ui/lezione.js` (modulo caricato al primo uso, con `src/ui/lezione-css.js`) disegna il capitolo per entrambi i corsi; `src/phrases/lessons.js` e `src/it/course.js` lo collegano.
+- **Controlli.** `tools/lib/ricche.mjs` gira a ogni build (struttura, quantità, una sola risposta giusta, lessico, testo senza segnaposto); `tools/lezioni-ricche-check.mjs` lo lancia da solo;
+  `tools/lezioni-indice.mjs` tiene aggiornato l'elenco in `src/index.html`; l'e2e apre una lezione e fa gli esercizi di ogni tipo.
+- **Dopo.** Ripasso FSRS della struttura grammaticale e «Perché è sbagliato?» nel laboratorio; pagine del sito più ricche per ogni lezione.
 
 ## 6. Piano
 

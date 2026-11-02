@@ -22,15 +22,20 @@ export function assets(srcDir) {
 /* esegue i soli file di dati (src/data/…) in una sandbox e restituisce le strutture globali */
 export function load(srcDir) {
   const { scripts } = assets(srcDir);
-  const ctx = vm.createContext({ SECTIONS: [], DIALOGS: [], LESSONS: [], ITLESSONS: [] });
+  const ctx = vm.createContext({ SECTIONS: [], DIALOGS: [], LESSONS: [], ITLESSONS: [], LESSON_RICH: { zh: {}, it: {} } });
   const files = scripts.filter((s) => s.src.startsWith("data/"));
   for (const s of files) vm.runInContext(fs.readFileSync(path.join(srcDir, s.src), "utf8"), ctx, { filename: s.src });
+  /* le lezioni-capitolo si leggono anche se l'elenco in index.html non è ancora aggiornato (lo controlla tools/lezioni-indice.mjs --verifica) */
+  for (const c of ["zh", "it"]) {
+    const dir = path.join(srcDir, "data/lr", c); if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => /^\d+-.+\.js$/.test(x)).sort()) if (!files.some((s) => s.src === "data/lr/" + c + "/" + f)) vm.runInContext(fs.readFileSync(path.join(dir, f), "utf8"), ctx, { filename: "data/lr/" + c + "/" + f });
+  }
   const g = (n) => vm.runInContext("typeof " + n + " === 'undefined' ? undefined : " + n, ctx);
   return {
     files: files.map((s) => s.src),
     SECTIONS: ctx.SECTIONS, DIALOGS: ctx.DIALOGS, PHRASES: g("PHRASES"), DIALOG_CATS: g("DIALOG_CATS"), THINK: g("THINK"), THINK_CATS: g("THINK_CATS"),
     EX: g("EX"), PATTERNS: g("PATTERNS"), SLOTS: g("SLOTS"), SITUATIONS: g("SITUATIONS"), PATH: g("PATH"),
-    GRAM: g("GRAM"), VERIFIED: g("VERIFIED"), WORD_FREQ: g("WORD_FREQ"), VOCAB_EXPECT: g("VOCAB_EXPECT"), LESSONS: g("LESSONS"), ITLESSONS: g("ITLESSONS"), EXAMPLES: g("EXAMPLES")
+    GRAM: g("GRAM"), VERIFIED: g("VERIFIED"), WORD_FREQ: g("WORD_FREQ"), VOCAB_EXPECT: g("VOCAB_EXPECT"), LESSONS: g("LESSONS"), ITLESSONS: g("ITLESSONS"), LESSON_RICH: ctx.LESSON_RICH, EXAMPLES: g("EXAMPLES")
   };
 }
 

@@ -253,6 +253,20 @@
   }
   function lessonHTML(l) {
     if (l.review) return reviewHTML(l);
+    var R = CP.lezione.rich("it", l.id);
+    if (R) {
+      setTimeout(function () { if (CP.lezione) CP.lezione.mount(); }, 0);
+      var pr = lprog()[l.id] || {}, srt = itSorted(), nx = srt[srt.indexOf(l) + 1] || null;
+      return CP.lezione.html(l, R, {
+        corso: "it", tag: esc(tt("itd.lessonN", { n: l.n })), prog: pr, next: nx,
+        backAttr: "data-itl-back", openAttr: function (id) { return 'data-itl-open="' + CP.attr(id) + '"'; },
+        sent: function (t, compact) { return '<div class="it-big' + (compact ? " lz-c" : "") + '" lang="it">' + esc(t) + "</div>"; },
+        say: function (t) { return sayBtn(t, true); },
+        tokens: words, tile: function (b, attr, used) { return '<button type="button" class="tile it-tile' + (used ? " used" : "") + '" ' + attr + (used ? " disabled" : "") + ' lang="it"><span class="th">' + esc(b.k) + "</span></button>"; },
+        tokText: function (b) { return b.k; }, strip: function (s) { return s.toLowerCase().replace(/[.,!?¿¡;:]/g, "").replace(/\s+/g, " ").trim(); },
+        mark: function (patch) { lmark(l.id, patch); if (patch.done && CP.unlock) CP.unlock.check(); }
+      });
+    }
     var p = lprog()[l.id] || {};
     return '<div class="acts" style="margin:14px 0 0"><button type="button" class="btn-s" data-itl-back>' + Z.back + tt("itc.137") + l.n + tt("itc.138") + (p.best != null ? tt("itc.139") + p.best + "%" : "") + "</span><h3>" + esc(l.title) + '</h3><p class="ls-goal">⟦target⟧ ' + esc(l.goal) + "</p>" +
       l.body.map(function (b) { return "<p>" + rich(b) + "</p>"; }).join("") +
