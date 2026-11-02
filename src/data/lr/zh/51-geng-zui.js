@@ -195,8 +195,7 @@ LESSON_RICH.zh["geng-zui"] = {
     "Sai negare un grado con 不太 e dire «ciò che mi piace di meno» con 最不."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Superlative zui»: 最 davanti all'aggettivo e ai verbi psicologici, 了 facoltativo",
-    "CC-CEDICT, voci 更, 最, 比较, 特别 (valori: avverbio di grado, «most», «relatively», «especially»), consultato nel file locale",
-    "Tatoeba (cinese), frasi con 比我更, 最喜欢, 比较, 特别, consultate nel file locale cmn.tsv"
+    "CC-CEDICT, voci 更, 最, 比较, 特别 (avverbi di grado: «most», «relatively», «especially»), consultate nel dizionario locale",
+    "Tatoeba (cmn.tsv, es. 我最喜欢… con 最喜欢, 26 occorrenze), verificate nel corpus locale"
   ]
 };

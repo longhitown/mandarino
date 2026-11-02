@@ -148,7 +148,7 @@ LESSON_RICH.zh["gang-yijing"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "刚刚 e 刚好", "t": "刚刚 è la forma raddoppiata di 刚 e significa lo stesso, solo con un tono più marcato: 我刚刚到. Non va confusa con 刚好, che vuol dire «proprio, giusto, per l'appunto»: 刚好十点 («sono le dieci in punto»), 他刚好在家 («era proprio in casa»). Nel carattere stesso c'è l'idea di «solido, duro», da cui «proprio giusto» e poi «appena»." },
+    { "titolo": "刚刚 e 刚好", "t": "刚刚 è la forma raddoppiata di 刚 e significa lo stesso, solo con un tono più marcato: 我刚刚到. Non va confusa con 刚好, che vuol dire «proprio, giusto, per l'appunto»: 刚好十点 («sono le dieci in punto»), 他刚好在家 («era proprio in casa»). In letteratura 刚 significa «duro, saldo» (CC-CEDICT)." },
     { "titolo": "已经 senza 了", "t": "Nelle frasi isolate il 了 finale è quasi obbligatorio, ma può cadere dove la frase prosegue o dipende da un'altra, soprattutto nello scritto: 他才意识到自己已经上当. Nel parlato si sente anche già + durata: 我学中文已经两年了, dove il 了 dice «fino a ora»." },
     { "titolo": "还没…呢", "t": "Aggiungere 呢 in fondo a una frase con 还没 dà il senso di «e la cosa dura ancora»: 他还没起床呢 («dorme ancora»). Senza 呢 la frase è più neutra: 他还没起床. Per chiedere se una cosa è fatta si dice 你吃了没有？ oppure 你吃了吗？." }
   ],
@@ -200,8 +200,8 @@ LESSON_RICH.zh["gang-yijing"] = {
     "Sai distinguere tra 刚 (vicinanza al presente) e 刚才 (un punto di pochi minuti fa)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Comparing gang and gangcai»: posizione, 了, negazione con 没, durata",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing already with yijing»: 已经…了, aggettivi, orari, 已经不…了",
-    "CC-CEDICT, voci 刚, 刚才, 刚刚, 已经; Tatoeba (cmn.tsv: es. 他刚到家, 我刚才在洗澡, 我已经看过这部电影了, 他还没来), consultati con grep in locale"
+    "Chinese Grammar Wiki (AllSet Learning), «Comparing gang and gangcai»: 刚 avverbio tra soggetto e verbo, 刚才 parola di tempo di pochi minuti, 刚 di solito senza 了",
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing \"already\" with yijing»: 已经 + verbo o aggettivo + 了, 已经 + ora + 了",
+    "CC-CEDICT, voci 刚, 刚才, 刚刚, 已经; Tatoeba (cmn.tsv: es. 我刚才在洗澡, 我已经看过这部电影了, 他还没来), consultati con grep in locale"
   ]
 };

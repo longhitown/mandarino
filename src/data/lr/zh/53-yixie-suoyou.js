@@ -184,9 +184,7 @@ LESSON_RICH.zh["yixie-suoyou"] = {
     "Sai chiedere e dire «altro» con 别的 e distinguerlo da 别人."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Asking why with zenme»: letta in preparazione della lezione 54, usata qui solo per la posizione di 都",
-    "MandarinBean, articolo sulla differenza tra 一些 e 有些: posizione (oggetto/soggetto) e valore avverbiale di 有些",
-    "CC-CEDICT, voci 一些, 有些, 所有, 每, 别的: glosse interrogate nel file locale",
-    "Tatoeba (cmn.tsv, interrogato in locale): frasi con 有些人, 所有的, 每个人都, 别的, usate come riscontro dell'uso naturale"
+    "CC-CEDICT, voci 一些, 有些, 所有, 每, 别的 (glosse «some», «all», «every», «other»), consultate nel dizionario locale",
+    "Tatoeba (cmn.tsv, es. 有些人, 每个人都, 所有的), verificate con grep nel corpus locale"
   ]
 };

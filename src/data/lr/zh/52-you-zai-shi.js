@@ -206,9 +206,8 @@ LESSON_RICH.zh["you-zai-shi"] = {
     "Sai negare con 不在, 没有, 不是, e non cadi più nell'errore 不有."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with you» e «Alternative existential sentences»: luogo + 有 + oggetto, luogo + 是 + oggetto, luogo + verbo + 着",
-    "Mandarin Bean, «是 (shì) vs 有 (yǒu) vs 在 (zài)»: confronto dell'ordine delle parole e della negazione (不是, 没有, 不在)",
-    "CC-CEDICT, voci 在, 有, 是, consultato nel file locale",
-    "Tatoeba (cinese), frasi con 桌子上有, 旁边有, 里有, 在哪, 不在, consultate nel file locale cmn.tsv"
+    "Chinese Grammar Wiki (AllSet Learning), «Expressing existence with you»: schema luogo + 有 + oggetto, con 吗 per la domanda (letta per intero)",
+    "CC-CEDICT, voci 在, 有 e 是, consultate nel dizionario locale",
+    "Tatoeba (cmn.tsv, es. 桌子上有, 旁边有, 不在), verificate con grep nel corpus locale"
   ]
 };

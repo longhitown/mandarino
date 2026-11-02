@@ -211,9 +211,7 @@ LESSON_RICH.zh["fangwei"] = {
     "Sai descrivere un nome con il suo luogo e 的 (学校旁边的银行) e dare indicazioni dal tuo punto di vista."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing location with zai… shang / xia / li»: riferimento + parola di posizione dopo 在, forme brevi 桌子上, 包里, 旁边, niente parola di posizione con città e paesi",
-    "Mandarin Bean, pagina «The location words» (grammatica delle parole di luogo): ordine nome + parola di posizione, 的 facoltativo con le forme lunghe e non ammesso con quelle brevi, schema 有 con il luogo davanti",
-    "CC-CEDICT, voci 上面, 下面, 前面, 后面, 里面, 外面, 左边, 右边, 旁边, 对面, 中间, 前边, 后边 (forme con 面 e con 边, pronuncia con tono neutro) consultate in cedict_ts.u8",
-    "Tatoeba (corpus cinese, cmn.tsv), frasi con 旁边, 前面, 后面, 中间, 对面, 左边 (es. 我坐在他旁边, 你坐在Meg和我的中间, 小山后面有个美丽的山谷)"
+    "CC-CEDICT, voci 上面, 下面, 前面, 后面, 里面, 外面, 左边, 右边, 旁边, 对面, 中间 (consultate nel dizionario locale)",
+    "Tatoeba (cmn.tsv, es. 我坐在他旁边, 小山后面有个美丽的山谷), verificate con grep nel corpus locale"
   ]
 };

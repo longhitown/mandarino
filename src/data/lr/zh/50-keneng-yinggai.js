@@ -204,8 +204,7 @@ LESSON_RICH.zh["keneng-yinggai"] = {
     "Sai dire «non serve» con 不用 e «non si fa» con 不应该 o 别."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina su 应该: «should», collocazione davanti al verbo e negazione 不应该",
-    "Mango Languages, Mandarin Chinese grammar, «How to express possibility in Mandarin Chinese»: 可能 e 一定 davanti al verbo, 不 dopo di loro, 会 per il futuro",
-    "CC-CEDICT (cedict_ts.u8), voci 可能, 一定, 得 (děi, «to have to / must») e Tatoeba (cmn.tsv, es. 他可能迷路了, 现在他应该已经到了), interrogati con grep"
+    "CC-CEDICT (cedict_ts.u8), voci 可能, 一定, 应该 e 得 (děi): significati di «forse», «di sicuro», «dovrebbe» e «dovere», consultate nel dizionario locale",
+    "Tatoeba (cmn.tsv, es. 他可能迷路了, 现在他应该已经到了), verificate con grep nel corpus locale"
   ]
 };

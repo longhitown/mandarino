@@ -180,8 +180,8 @@ LESSON_RICH.zh["zenme"] = {
     "Sai distinguere 怎么 (come, come mai) da 为什么 (perché)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Asking why with zenme»: 怎么 come «come mai» con sorpresa, verbo negato, 这么 + aggettivo",
-    "CC-CEDICT (file locale), voci 怎么, 怎么了, 怎么样, 怎么办: glosse controllate",
-    "Tatoeba (cmn.tsv, interrogato in locale): frasi con 你怎么了, 怎么办, 怎么写, 怎么回事, ...怎么样 come riscontro dell'uso"
+    "LibreTexts, CHN101 Elementary Mandarin I, Lesson 7 Grammar: Asking why with zenme (libro di testo costruito su AllSet): 怎么 per il motivo con sorpresa, 怎么 + verbo negato, 怎么 + 不 + aggettivo (letto per intero)",
+    "CC-CEDICT, voci 怎么, 怎么了, 怎么样, 怎么办, consultate nel dizionario locale",
+    "Tatoeba (cmn.tsv, es. 你怎么了, 怎么写, 怎么办), verificate con grep nel corpus locale"
   ]
 };

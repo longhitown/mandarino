@@ -20,7 +20,7 @@ LESSON_RICH.zh["de-shuyu"] = {
       { "ok": true, "t": "**Il tempo non si legge nella frase**: 我买的书 può essere «il libro che ho comprato» o «che compro»; lo dicono le parole di tempo (昨天, 以前, 明天) o il contesto." },
       { "ok": true, "t": "**Quando c'è anche 这/那 + classificatore**, la frase di solito sta prima: 我昨天买的那本书 («quel libro che ho comprato ieri»). 的 chiude la frase e il gruppo 那本书 segue." },
       { "ok": true, "t": "**Il nome si può togliere** quando è chiaro: 我买的 («quello che ho comprato»), 妈妈做的 («quello che ha fatto la mamma»). Per le persone, un verbo con 的 nomina anche il mestiere: 卖菜的, 开车的, 做饭的." },
-      { "ok": false, "t": "**Non si mette la frase dopo il nome e non si salta 的**: 书我买的, 我买书的很好看 e e 我喜欢人是他 non sono frasi relative. 的 sta sempre subito prima del nome descritto." }
+      { "ok": false, "t": "**Non si mette la frase dopo il nome e non si salta 的**: 书我买的, 我买书的很好看 e 我喜欢人是他 non sono frasi relative. 的 sta sempre subito prima del nome descritto." }
     ]
   },
   "logica": [
@@ -195,7 +195,7 @@ LESSON_RICH.zh["de-shuyu"] = {
     "Sai usare la frase con 的 per luoghi e tempi (我们吃饭的地方, 他来的时候)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Modifying nouns with phrase + de»: struttura frase + 的 + nome, nome omesso, esempi 妈妈做的菜 e 你教的",
-    "Tatoeba (cmn.tsv, interrogato con grep): frasi reali con 他说的话, 我不明白他说的话 e altre frasi relative con 的"
+    "CC-CEDICT, voce 的 (de5): «used after an attribute when it modifies a noun», consultata nel dizionario locale",
+    "Tatoeba (cmn.tsv, interrogato con grep): frasi reali con 他说的话 e 我不明白他说的话, verificate nel corpus locale"
   ]
 };
