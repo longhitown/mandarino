@@ -148,7 +148,7 @@ LESSON_RICH.it["domande"] = {
     { "titolo": "perché：为什么，也是因为", "t": "perché 既是疑问词，也是连词。Perché non vieni?（你为什么不来？）— Perché ho sonno.（因为我困了。）问和答用同一个词，说话时靠语调和上下文区分：问句通常是升调，回答是降调。" },
     { "titolo": "Che cosa、cosa、che", "t": "“什么”有三种说法：Che cosa fai? Cosa fai? Che fai? 意思相同，Che cosa 稍微完整，Cosa 和 Che 在口语里更常用。后面接名词时只用 che：Che libro leggi?（你在读什么书？）" }
   ],
-  "pragmatica": "直接说 No 会显得生硬，意大利人常常加一个缓冲：Mi dispiace, non posso。Purtroppo non ho tempo。向陌生人提问，先用 Scusi 开头，动词用 Lei 的形式：Scusi, dov'è la stazione? 对朋友说 Scusa, dove vai? 疑问词前面加一个礼貌的开头，就不会像在盘问。",
+  "pragmatica": "直接说 No 会显得生硬，意大利人常常加一个缓冲：Mi dispiace, non posso. Purtroppo non ho tempo.向陌生人提问，先用 Scusi 开头，动词用 Lei 的形式：Scusi, dov'è la stazione? 对朋友说 Scusa, dove vai? 疑问词前面加一个礼貌的开头，就不会像在盘问。",
   "esercizi": [
     { "k": "scegli", "q": "哪一句问“你多大了？”（直译：你有几岁？）", "opzioni": [
       { "t": "Quanti anni hai?", "ok": true, "perche": "quanti 和阳性复数 anni 一致。" },

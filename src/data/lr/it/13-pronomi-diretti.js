@@ -9,7 +9,7 @@ LESSON_RICH.it["pronomi-diretti"] = {
       { "t": "Voglio vederla domani.", "tr": "我想明天见她。" }
     ],
     "domanda": "每一句里，被代替的人或东西在哪里？代词 lo、la、le 放在动词的前面还是后面？第三句的 comprate 为什么以 -e 结尾？第四句的代词放在哪里？",
-    "risposta": "代词**紧贴在变位动词前面**：lo conosco、la trovo、le ho comprate。汉语说“我认识他”，意大利语说成“他认识我”的顺序：他（lo）+ 认识（conosco）。第三句的 comprate 以 -e 结尾，是因为它要和 **le**（阴性复数，指 le scarpe）一致。第四句动词是不定式，代词**接在不定式后面**：vederla（vedere 去掉 e，再加 la）。"
+    "risposta": "代词**紧贴在变位动词前面**：lo conosco、la trovo、le ho comprate。汉语把宾语放在动词后面（认识他），意大利语把代词放在动词前面：lo conosco，字面是“他，我认识”。第三句的 comprate 以 -e 结尾，是因为它要和 **le**（阴性复数，指 le scarpe）一致。第四句动词是不定式，代词**接在不定式后面**：vederla（vedere 去掉 e，再加 la）。"
   },
   "regola": {
     "enunciato": "**直接宾语代词**（pronomi diretti）用来代替前面已经说过的人或东西，这样就不用重复名词。它们是 **mi、ti、lo、la、ci、vi、li、le**；位置在**变位动词的前面**，否定词 non 在代词前面；动词是不定式时，代词接在后面。",
@@ -21,11 +21,11 @@ LESSON_RICH.it["pronomi-diretti"] = {
       { "ok": true, "t": "**命令式**：肯定的命令，代词接在后面，成为一个词：Prendilo! Aspettami! 否定的命令（tu），两种位置都可以：Non lo prendere! / Non prenderlo!" },
       { "ok": true, "t": "**近过去时**：lo、la 在 ho、hai、ha… 前面省略成 **l'**：L'ho comprato. L'ho comprata. li 和 le 不省略：Li ho visti. Le ho viste. 过去分词必须和 lo、la、li、le **在性和数上一致**：L'ho vista（她）、Li ho comprati（那些书）、Le ho mangiate（那些苹果）。" },
       { "ok": true, "t": "**lo 还可以指一件事**：Sai che Anna è partita? — Sì, lo so. Non lo so. 这里的 lo 代替的是整个句子的内容，永远是 lo，不会变成 la。" },
-      { "ok": false, "t": "**不要把代词放在变位动词后面**：不说 Vedo lo，说 Lo vedo。也不要像汉语那样省略宾语：问 Hai comprato il pane? 回答 Sì, l'ho comprato.，不能只说 Sì, ho comprato." }
+      { "ok": false, "t": "**不要把代词放在变位动词后面**：不说 Vedo lo，说 Lo vedo。也不要像汉语那样省略宾语：问 Hai comprato il pane? 回答 Sì, l'ho comprato.，一般不能只说 Sì, ho comprato.，要用代词代替。" }
     ]
   },
   "logica": [
-    "汉语里，宾语可以放在动词后面（我看见他），可以提前（那本书我买了），也可以直接省略（买了）。听的人靠上下文就明白。意大利语的动词几乎总要带上它的宾语，已经说过的东西就用**代词**来代替，而且代词不是独立的词，而是**依附在动词上**，念的时候和动词连成一个词：lo-vedo、la-trovo。这就是为什么它的位置那么固定。",
+    "汉语里，宾语可以放在动词后面（我看见他），可以提前（那本书我买了），也可以直接省略（买了）。听的人靠上下文就明白。意大利语的及物动词通常要带上它的宾语，已经说过的东西一般用**代词**来代替，而且代词不是独立的词，而是**依附在动词上**，念的时候和动词连成一个词：lo-vedo、la-trovo。这就是为什么它的位置那么固定。",
     "汉语的“他、她、它”说出来都是 tā，不分性别，而意大利语的 lo 和 la 要看被代替的**名词**是阳性还是阴性，即使是东西也一样：il libro → lo，la chiave → la。所以学名词的时候，要把性一起记下来。第三人称代词就是这样把“名词的性和数”带进了后面的句子。",
     "过去分词为什么要一致？近过去时里，代词先出现在动词前面，说话人在说出分词的时候已经知道宾语是什么了，所以分词会“回头看”宾语的性和数：L'ho comprata（la torta）。如果宾语是名词放在动词后面，就不一致：Ho comprato la torta。mi、ti、ci、vi 后面的一致是可以的，但不是必须的：Mi ha visto / Mi ha vista 都对。"
   ],
@@ -147,7 +147,7 @@ LESSON_RICH.it["pronomi-diretti"] = {
   },
   "tranello": {
     "errore": "照汉语的语序把代词放在动词后面，或者干脆省略宾语：说成 *Vedo lo*、*Ho comprato la*、*Hai il pane? Sì, ho comprato*；另一个常见的错误是把阴性的东西说成 lo，或者忘了让过去分词和 la、le 一致。",
-    "perche": "汉语的宾语可以放在动词后面，可以省略，“他、她、它”也不分性别；所以学习者容易以为意大利语的代词也是一个能放在动词后面的独立的词，也不一定要出现。其实 lo、la、li、le 是附在动词上的，必须出现，而且要和被代替的名词在性和数上一致。",
+    "perche": "汉语的宾语可以放在动词后面，可以省略，“他、她、它”也不分性别；所以学习者容易以为意大利语的代词也能放在动词后面，或者可以不写出来。其实 lo、la、li、le 是附在动词上的，通常不能省略，而且要和被代替的名词在性和数上一致。",
     "esci": "说完一个宾语之后，再提到它的时候，先问两个问题：①它是阳性还是阴性，单数还是复数？（选 lo, la, li, le）②动词变位了吗？变了就把代词放在它前面；没有变（不定式）就接在后面。近过去时里，再让分词和代词一致：L'ho comprata。",
     "esempi": [
       { "sbagliata": "Vedo lo.", "giusta": "Lo vedo." },
@@ -161,7 +161,7 @@ LESSON_RICH.it["pronomi-diretti"] = {
     { "titolo": "Ce l'ho：和 ci 连在一起", "t": "avere 带直接宾语代词时，口语里常常加上 ci：Hai una penna? — Ce l'ho.（你有笔吗？——有。）Hai le chiavi? — Ce le ho. 这是一个固定的说法，ci 本身没有“这里”的意思。除此之外，还有两个代词同时出现的情况（如 me lo dai?），这要到后面的课再学。" },
     { "titolo": "书面语里的写法", "t": "在正式的书面文字里，代词可以接在过去分词后面：una volta ottenutolo（得到它之后）。在日常口语里，几乎不用这样的形式，而是说 dopo averlo ottenuto 或者 quando l'ho ottenuto。对 Lei（您）说话时，代词用 La，信里常常大写：La ringrazio, signor Rossi." }
   ],
-  "pragmatica": "和朋友聊天，用 lo、la、li、le 避免重复，听起来自然、流畅：Il caffè? Lo prendo io. 对不太熟的人或在正式场合称呼 Lei，代词也用第三人称 La：La chiamo domani, dottoressa. 回答问题的时候，意大利人几乎总用代词，Sì, l'ho fatto 比 Sì, ho fatto 更自然，也更清楚。",
+  "pragmatica": "和朋友聊天，用 lo、la、li、le 避免重复，听起来自然、流畅：Il caffè? Lo prendo io. 对不太熟的人或在正式场合称呼 Lei，代词也用第三人称 La：La chiamo domani, dottoressa. 回答问题的时候，意大利人回答时通常会用代词，Sì, l'ho fatto 比 Sì, ho fatto 更自然，也更清楚。",
   "esercizi": [
     { "k": "scegli", "q": "代替 la torta（蛋糕）应该用哪个代词？", "opzioni": [
       { "t": "la", "ok": true, "perche": "torta 是阴性单数，代词是 la。" },

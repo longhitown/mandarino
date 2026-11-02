@@ -161,7 +161,7 @@ LESSON_RICH.it["passato"] = {
       { "t": "comprare", "ok": false, "perche": "comprare 带宾语，用 avere：ho comprato。" }
     ] },
     { "k": "scegli", "q": "bere（喝）的过去分词是哪一个？", "opzioni": [
-      { "t": "bevuto", "ok": true, "perche": "bere 来自 bevere 的旧形式，分词是 bevuto：ho bevuto un caffè。" },
+      { "t": "bevuto", "ok": true, "perche": "bere 是 bevere 的缩短形式，分词是 bevuto：ho bevuto un caffè。" },
       { "t": "bevato", "ok": false, "perche": "-ato 是 -are 动词的结尾，bere 不是 -are 动词。" },
       { "t": "bevito", "ok": false, "perche": "-ito 是 -ire 动词的结尾，bere 不是 -ire 动词。" }
     ] },
