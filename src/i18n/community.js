@@ -98,11 +98,13 @@ Object.assign(I18N.it, {
   "soc.t": "Canali ufficiali",
   "soc.p": "Dove trovarci, se ti va. I collegamenti si aprono solo quando li tocchi: l'app non manda niente di tuo e non sa se li hai usati.",
   "soc.go": "Apri", "soc.open": "Apri {n}", "soc.none": "I canali arriveranno presto.",
-  "set.kwSocial": "social instagram telegram tiktok youtube github canali seguici sito"
+  "set.kwSocial": "social instagram telegram tiktok youtube github canali seguici sito",
+  "cm.rs.title": "Ricerca sulla memoria", "cm.rs.lede": "Facoltativo: se vuoi, mandi in forma anonima i tuoi ripassi per aiutare a mettere a punto il ripasso per chi studia cinese. Niente parte da solo.", "cm.rs.open": "Partecipa alla ricerca"
 });
 Object.assign(I18N.zh, {
   "soc.t": "官方频道",
   "soc.p": "想找我们的话在这里。链接只有你点击时才会打开：应用不会发送任何你的数据，也不知道你是否点过。",
   "soc.go": "打开", "soc.open": "打开 {n}", "soc.none": "频道很快上线。",
-  "set.kwSocial": "社交媒体 instagram telegram tiktok youtube github 频道 关注 网站"
+  "set.kwSocial": "社交媒体 instagram telegram tiktok youtube github 频道 关注 网站",
+  "cm.rs.title": "记忆研究", "cm.rs.lede": "自愿参与：如果你愿意，可以匿名发送你的复习记录，帮助改进面向汉语学习者的复习算法。不会自动发送任何内容。", "cm.rs.open": "参与研究"
 });

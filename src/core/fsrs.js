@@ -1,9 +1,6 @@
-/* FSRS in JavaScript puro. Porting fedele di py-fsrs (open-spaced-repetition/py-fsrs, HEAD, MIT) = FSRS-6, 21 parametri,
-   con l'estensione ML-FSRS-32.1 (11 parametri in più, w21..w31: toni, tipo di esercizio, morfologia degli hanzi).
-   Il flusso (stati, passi, fuzz, intervalli) è quello di FSRS-6: le estensioni cambiano solo la stabilità di un ripasso lungo
-   (>= 1 giorno) e, senza informazioni dal chiamante, valgono 1 (o 0): review(carta, voto, ora) dà esattamente FSRS-6.
-   dial in [0,1]: 0 = FSRS-6 esatto. w0..w20 sono i pesi di py-fsrs; w21..w31 sono valori di partenza, NON stimati su ripassi reali.
-   I pesi sono UNA costante isolata (FSRS.DEFAULT_W): sostituibile. Nessun ottimizzatore ufficiale: vedi FSRS.calibrate. */
+/* FSRS in JavaScript puro: porting di py-fsrs (MIT) = FSRS-6, 21 parametri, più l'estensione ML-FSRS-32.1 (w21..w31: tono, esercizio, caratteri noti).
+   Il flusso è quello di FSRS-6; senza informazioni dal chiamante, o con dial 0, review(carta, voto, ora) dà esattamente FSRS-6.
+   w0..w20 sono i pesi di py-fsrs; w21..w31 sono valori di partenza, NON stimati su ripassi reali. Pesi isolati in FSRS.DEFAULT_W. */
 (function (root) {
   "use strict";
   var DAY = 86400000, MIN = 60000;
@@ -90,9 +87,8 @@
     lo = Math.max(2, lo); hi = Math.min(hi, this.maxInterval); lo = Math.min(lo, hi);
     return Math.min(pround(this.rng() * (hi - lo + 1) + lo), this.maxInterval);
   };
-  /* un ripasso: restituisce una NUOVA carta. meta (tutto facoltativo): type (id dell'esercizio), kind "mc"|"type", k (opzioni),
-     tone (sbagliato solo il tono), hint (c'era una frase d'aiuto), comps (stabilità dei caratteri già studiati), ncomp (caratteri
-     della parola), ms + base (tempo di risposta e tempo abituale dell'utente), nights (notti, solo se date dal chiamante) */
+  /* un ripasso: restituisce una NUOVA carta. meta (facoltativo): type, kind "mc"|"type", k (opzioni), tone (solo il tono), hint,
+     comps (stabilità dei caratteri noti), ncomp, ms + base (risposta e tempo abituale), nights (notti) */
   P.review = function (card, rating, now, meta) {
     var m = meta || {}, c = { state: card.state, step: card.step, st: card.st, df: card.df, due: card.due, last: card.last };
     var since = c.last != null ? this.elapsed(c.last, now) : null;

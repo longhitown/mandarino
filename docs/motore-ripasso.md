@@ -31,12 +31,11 @@ Senza informazioni sull'esercizio, o con il parametro `dial` a 0, ML-FSRS-32 dà
 
 ## Che cosa è attivo oggi e che cosa no
 
-Attivi: errore del solo tono, tipo di esercizio, scelta multipla, frase d'aiuto, caratteri già noti.
+Sono attivi tutti i fattori: errore del solo tono, tipo di esercizio, scelta multipla, frase d'aiuto, caratteri già noti, rapidità di risposta e sonno.
 
-Previsti dal motore ma non ancora collegati nell'app:
-
-- **Rapidità di risposta.** Servirebbe il tuo tempo abituale di risposta, che l'app non calcola ancora: fissarne uno uguale per tutti penalizzerebbe chi legge più piano.
-- **Sonno.** Servirebbe passare al motore il numero di notti trascorse. Il fattore è piccolo (al massimo il 10% in più) e si esaurisce quando la parola è ormai stabile.
+- **Rapidità di risposta.** Una risposta più veloce del tuo solito conta un po' di più, una più lenta un po' di meno (tra +12% e −18% dell'incremento). Il «solito» è la media mobile dei tuoi ultimi tempi di risposta, uno per tipo di esercizio (scegliere e scrivere hanno tempi diversi), e sta solo su questo dispositivo, fuori dai backup. Finché non c'è, vale 2500 ms.
+- **Sonno.** L'app non sa quando vai a dormire: conta le notti come i cambi di giorno di studio (le 4 del mattino) dall'ultimo ripasso. Il fattore è piccolo (al massimo il 10% in più, di solito meno) e si esaurisce quando la parola è ormai stabile.
+- Come tutto il resto, anche questi due fattori usano parametri di partenza, non misurati su studenti veri.
 
 ## Quanto ci si può fidare
 
@@ -46,6 +45,10 @@ Previsti dal motore ma non ancora collegati nell'app:
 - **Nessuna garanzia di risultati.** Non abbiamo misurato se ML-FSRS-32 faccia imparare di più. Quando ci saranno ripassi reali, raccolti in forma anonima e con il consenso di chi studia, ristimeremo w21–w31 e confronteremo con FSRS-6.
 - **Che cosa è verificato.** Il motore è provato con 237 controlli automatici, tra cui: senza informazioni sull'esercizio dà gli stessi risultati di FSRS-6 su 400 ripassi casuali; un richiamo riuscito non fa mai scendere la stabilità; l'effetto degli esercizi sull'incremento resta tra 0,4 e 1,8 volte quello di FSRS-6.
 
+### Ricerca facoltativa
+
+Per ristimare w21–w31 servono ripassi veri. In Impostazioni → Comunità e voci c'è «Ricerca sulla memoria», spenta di base: se accetti il foglio del consenso (maggiorenni, licenza CC0) l'app prepara sul telefono un file con i tuoi ripassi in forma anonima, che puoi leggere e poi mandare con l'e-mail o con Condividi. L'app non invia niente da sola. Il file contiene l'ora di ogni ripasso (quindi si vede a che ora studi) e un codice casuale, lo stesso a ogni invio; non contiene nome, e-mail, indirizzo IP, posizione né le parole che hai aggiunto tu. Si può mandare dopo almeno 300 ripassi di parole già viste; la soglia è un minimo pratico, perché sotto quel numero i ripassi che toccano i parametri nuovi sono troppo pochi. Il dettaglio, anche per la privacy, è in [Privacy](../PRIVACY.md).
+
 ### I parametri aggiunti
 
 | Parametro | Valore | A che cosa serve |
@@ -53,11 +56,11 @@ Previsti dal motore ma non ancora collegati nell'app:
 | w21 | 0,8158 | quanto conta il tipo di esercizio (scrivere, riconoscere) |
 | w22 | 1,0 | sconto per la scelta multipla: pesa come 1 su k |
 | w23 | 0,2 | quanto si conserva se sbagli scrivendo |
-| w24, w25 | 0,12 e 0,18 | bonus per la risposta rapida e sconto per quella lenta (non ancora collegati) |
+| w24, w25 | 0,12 e 0,18 | bonus per la risposta rapida e sconto per quella lenta |
 | w26, w27 | 0,5 e 0,5 | quanta stabilità si salva e quanto cresce la difficoltà se sbagli solo il tono |
 | w28, w29 | 0,4 e 0,4 | vantaggio dai caratteri già noti, su stabilità e su difficoltà iniziale |
 | w30 | 0,35 | sconto quando c'è una frase d'aiuto |
-| w31 | 0,1 | consolidamento dopo qualche notte (non ancora collegato) |
+| w31 | 0,1 | consolidamento dopo qualche notte |
 
 Il codice è in [src/core/fsrs.js](https://github.com/longhitown/mandarino/blob/main/src/core/fsrs.js), il test automatico del motore in `tools/unit.mjs`.
 

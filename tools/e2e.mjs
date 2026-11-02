@@ -1831,7 +1831,7 @@ try {
     const VOCI = [
       ["set-look", "look", "[data-theme-set=sepia]"], ["set-look", "look", "#hz-plus"], ["set-look", "look", "#opt-toneshapes"], ["set-lang", "look", "[data-lang-set=zh]"],
       ["set-sound", "sound", "[data-audio-set=fx]"], ["set-sound", "sound", "#set-sfxvol"], ["set-sound", "sound", "#set-music"], ["vset", "sound", "#vset-body"], ["set-mic-box", "sound", "#set-mic-close"],
-      ["set-scambio", "community", "[data-sc-open]"], ["set-mine", "community", "#cm-n-rec"], ["set-thanks", "community", "[data-credits]"], ["set-invite", "community", "[data-cm-invite]"], ["set-voicepack", "community", "[data-cm-check]"],
+      ["set-scambio", "community", "[data-sc-open]"], ["set-mine", "community", "#cm-n-rec"], ["set-thanks", "community", "[data-credits]"], ["set-invite", "community", "[data-cm-invite]"], ["set-voicepack", "community", "[data-cm-check]"], ["set-research", "community", "[data-rs-open]"],
       ["set-course", "study", "[data-course-set=it]"], ["set-exstyle", "study", "[data-exs=guided]"], ["set-level", "study", "[data-unl-redo]"], ["set-level", "study", "#opt-showall"], ["set-reminder", "study", "#rm-body"], ["set-together", "study", "[data-chal-open]"],
       ["set-data", "data", "#set-bk-down"], ["set-data", "data", "#set-bk-up"], ["set-sync", "data", "#sy-body"], ["set-contrib", "data", "[data-ct-find]"],
       ["set-about", "info", "#set-welcome"], ["set-about", "info", "#set-selftest"], ["set-about", "info", "[data-credits]"], ["set-news", "info", ".news-list"], ["set-privacy", "info", ".pv-list"], ["set-support", "info", "#set-support .vbody"]
@@ -1897,7 +1897,7 @@ try {
     const tile = await p.evaluate(() => document.querySelector('[data-set-open="community"]').classList.contains("has-new"));
     await p.click('[data-set-open="community"]'); await p.waitForTimeout(500);
     const pg = await p.evaluate(() => ({ secs: [...document.querySelectorAll('[data-set-page="community"] .set-sec')].map((x) => x.id), n: document.getElementById("cm-n-rec").textContent + "/" + document.getElementById("cm-n-chk").textContent, widgets: !!document.querySelector('[data-set-page="community"] #set-widgets') }));
-    check("Comunità: la voce «Nuovo» c'è, la pagina ha scambio, numeri (0/0 senza registrazioni), ringraziamenti, invito e pacchetto voci (i widget stanno in Aspetto)", tile && pg.secs.join() === "set-scambio,set-mine,set-thanks,set-invite,set-voicepack" && pg.n === "0/0" && !pg.widgets, JSON.stringify(pg));
+    check("Comunità: la voce «Nuovo» c'è, la pagina ha scambio, numeri (0/0 senza registrazioni), ringraziamenti, invito, pacchetto voci e ricerca sulla memoria (i widget stanno in Aspetto)", tile && pg.secs.join() === "set-scambio,set-mine,set-thanks,set-invite,set-voicepack,set-research" && pg.n === "0/0" && !pg.widgets, JSON.stringify(pg));
     await p.evaluate(() => { Object.defineProperty(navigator, "clipboard", { value: { writeText: (t) => { window.__copied = t; return Promise.resolve(); } }, configurable: true }); });
     await p.click("[data-cm-invite]"); await p.waitForTimeout(200);
     const cp = await p.evaluate(() => window.__copied);
