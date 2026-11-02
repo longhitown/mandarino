@@ -36,9 +36,21 @@
   function lab(k) { return LBL[S.corso][k] || k; }
   function CJK(t) { return /[㐀-鿿]/.test(t); }
   /* testo della spiegazione: **grassetto**, [[evidenziato]], i caratteri cinesi nel testo italiano prendono lang="zh-CN" */
+  /* i caratteri nel testo italiano: ogni parola con il suo pinyin (colorato come nel resto dell'app) sopra, e la prima volta che compare nella lezione anche
+     il significato. Così la spiegazione si legge e si «sente» anche senza saper leggere i caratteri, e non servono parentesi nel testo. */
+  function ruby(run) {
+    var seen = S.seen || (S.seen = {});
+    return CP.segment(run).map(function (x) {
+      var w = x.w;
+      if (!w) return '<span class="han" lang="zh-CN">' + esc(x.raw) + "</span>";
+      var first = !seen[w.key]; seen[w.key] = 1;
+      var rb = '<ruby class="lz-rb han" lang="zh-CN" data-k="' + CP.attr(w.key) + '">' + CP.hanziHTML(w.hz, w.py) + "<rp>(</rp><rt>" + CP.pinyinHTML(w.py) + "</rt><rp>)</rp></ruby>";
+      return first ? '<span class="lz-w" data-g="' + CP.attr(CP.gloss(w)) + '">' + rb + "</span>" : rb;
+    }).join("");
+  }
   function rich(t) {
     var h = esc(String(t)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\[\[(.+?)\]\]/g, "<mark>$1</mark>");
-    if (S.corso === "zh") h = h.replace(/([㐀-鿿，。？！、：；＿…]+)/g, '<span class="han" lang="zh-CN">$1</span>'); else h = h.replace(/(<b>)([A-Za-zÀ-ÿ'’ ,.?!-]+)(<\/b>)/g, '$1<span lang="it">$2</span>$3');
+    if (S.corso === "zh") h = h.replace(/([㐀-鿿，。？！、：；＿…]+)/g, ruby); else h = h.replace(/(<b>)([A-Za-zÀ-ÿ'’ ,.?!-]+)(<\/b>)/g, '$1<span lang="it">$2</span>$3');
     return h;
   }
   /* una frase nella lingua che si impara: intera (con suono) o compatta (dentro un'opzione) */
@@ -276,7 +288,7 @@
   var ORDER = ["scopri", "regola", "logica", "mappa", "esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"];
   function html(l, R, ctx) {
     if (!document.getElementById("lz-css")) { var st = document.createElement("style"); st.id = "lz-css"; st.textContent = CP.lzCss; document.head.appendChild(st); }
-    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null };
+    S = { l: l, R: R, ctx: ctx, corso: ctx.corso, prog: ctx.prog || {}, q: {}, run: null, seen: {} };
     uid = 0;
     var tocKeys = ["scopri", "regola", "logica"].concat(R.mappa ? ["mappa"] : []).concat(["esempi", "contrasti", "dialogo", "tranello", "curiosi", "esercizi"]);
     var toc = '<nav class="lz-toc" aria-label="' + CP.attr(lab("sections")) + '">' + tocKeys.map(function (k) { return '<button type="button" class="lz-tchip" data-lz="toc" data-to="' + k + '">' + esc(lab(k)) + "</button>"; }).join("") + "</nav>";

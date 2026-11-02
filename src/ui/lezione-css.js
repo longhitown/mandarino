@@ -22,6 +22,12 @@ window.CP.lzCss = `
 .lz-sec p { line-height: 1.6; margin: 0 0 10px; }
 .lz mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; padding: 0 .2em; border-radius: 4px; }
 .lz .han { font-weight: 600; }
+.lz-rb { ruby-position: over; ruby-align: center; }
+.lz-rb rt { font-size: .58em; font-weight: 500; line-height: 1.15; letter-spacing: 0; white-space: nowrap; color: var(--muted); font-family: var(--f-body, inherit); }
+.lz-rb rt [class^="t"] { font-weight: 600; }
+.lz-w { display: inline-block; text-align: center; vertical-align: top; }
+.lz-w::after { content: attr(data-g); display: block; font-size: .6em; font-weight: 500; line-height: 1.1; margin-top: -.15em; color: var(--muted); white-space: nowrap; }
+.lz[data-corso="zh"] .lz-sec p, .lz[data-corso="zh"] .lz-sec li { line-height: 1.95; }
 .lz-tr { color: var(--muted); font-size: .92rem; margin-top: 4px; line-height: 1.45; }
 .lz-sents { display: grid; gap: 10px; margin: 6px 0 14px; }
 .lz-sent { padding: 12px 14px; border-radius: 12px; background: var(--lz-soft); border-left: 4px solid var(--accent); }
