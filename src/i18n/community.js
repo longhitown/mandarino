@@ -1,8 +1,8 @@
 /* ===== màndarínō · i testi della pagina «Comunità e voci» (ui/community.js), nelle due lingue dell'interfaccia.
    Si caricano con le Impostazioni, al loro primo uso (tools/build.mjs, LAZYMOD). Le chiavi it e zh devono essere le stesse (tools/unit.mjs). ===== */
 Object.assign(I18N.it, {
-  "set.p.community": "Comunità e voci", "set.p.communityD": "Registra la tua voce per chi studia, consiglia l'app a un amico, pacchetto voci",
-  "set.kwComm": "comunità scambio linguistico voce voci registra registrazioni frasi madrelingua contributo contributi condividi consiglia amico amici invito widget schermata home pacchetto aggiornamenti tatoeba common voice",
+  "set.p.community": "Comunità e voci", "set.p.communityD": "Registra la tua voce per chi studia, consiglia l'app a un amico, pacchetto voci e ricerca sulla memoria",
+  "set.kwComm": "comunità scambio linguistico voce voci registra registrazioni frasi madrelingua contributo contributi condividi consiglia amico amici invito widget schermata home pacchetto aggiornamenti tatoeba common voice ricerca memoria ripasso fsrs dati anonimi contribuisci",
   "cm.new": "Ci sono novità", "cm.newItem": "(novità)",
   "cm.mine.t": "Il tuo contributo (solo sul tuo telefono)", "cm.mine.rec": "Frasi registrate", "cm.mine.chk": "Voci verificate",
   "cm.mine.note": "Questi numeri restano su questo telefono: non vengono inviati né confrontati con nessuno. «Verificate» sono le voci che il riconoscimento vocale del telefono ha trovato uguali alla frase mostrata.",
@@ -30,8 +30,8 @@ Object.assign(I18N.it, {
   "cm.vp.on": "con pacchetto", "cm.vp.off": "nessun pacchetto"
 });
 Object.assign(I18N.zh, {
-  "set.p.community": "社区与声音", "set.p.communityD": "为学习者录下你的声音，向朋友推荐应用，语音包",
-  "set.kwComm": "社区 语言交换 声音 录音 录制 句子 母语 贡献 分享 推荐 朋友 邀请 小组件 桌面 语音包 更新 Tatoeba Common Voice",
+  "set.p.community": "社区与声音", "set.p.communityD": "为学习者录下你的声音，向朋友推荐应用，语音包和记忆研究",
+  "set.kwComm": "社区 语言交换 声音 录音 录制 句子 母语 贡献 分享 推荐 朋友 邀请 小组件 桌面 语音包 更新 Tatoeba Common Voice 记忆研究 复习 匿名 数据 参与",
   "cm.new": "有新内容", "cm.newItem": "（新）",
   "cm.mine.t": "你的贡献（只在你的手机上）", "cm.mine.rec": "已录句子", "cm.mine.chk": "已核对的录音",
   "cm.mine.note": "这些数字只保存在这台手机上：不会发送，也不会和任何人比较。“已核对”是指手机的语音识别认为与所示句子相符的录音。",

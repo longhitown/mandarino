@@ -1,4 +1,3 @@
-• Su Android, il nuovo widget «Ripasso rapido» (4×4): cinque minuti di ripasso dalla schermata Home, una carta alla volta.
-• Il microfono ora funziona anche sui telefoni dove prima falliva.
-• Voce e brani più affidabili: corretti nove difetti dell'audio.
-• Nuova pagina Impostazioni → Comunità e voci (scambio linguistico, pacchetto voci); i widget stanno in Impostazioni → Aspetto, con l'anteprima.
+• Il ripasso ora tiene conto di più cose: se sbagli solo il tono la parola non torna a zero, scrivere pesa più che scegliere tra le opzioni, e i caratteri che già conosci aiutano nelle parole composte.
+• Nuova sezione Impostazioni → Comunità e voci → Ricerca sulla memoria (facoltativa, spenta di base): se vuoi, mandi in forma anonima i tuoi ripassi per aiutare a migliorare il ripasso. Niente parte da solo.
+• Sul sito, una pagina spiega come funziona il ripasso e che cosa è già verificato.
