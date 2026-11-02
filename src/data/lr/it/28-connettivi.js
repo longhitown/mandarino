@@ -19,7 +19,7 @@ LESSON_RICH.it["connettivi"] = {
       { "ok": true, "t": "**siccome** 也是“因为”，通常放在句首，原因是对方已经知道的或显而易见的：Siccome è tardi, prendo un taxi. 书面和较正式的语体里还有 poiché、dato che、visto che。" },
       { "ok": true, "t": "**quindi、perciò、dunque** 引出结果：Ho mal di testa, quindi resto a letto. 口语里还常用 allora，意思是“那么、所以”。" },
       { "ok": true, "t": "**se** 引出真实的条件，后面用直陈式现在时（也可以用将来时）：Se hai fame, mangia. Se domani piove, resto a casa. **quando** 说的是“……的时候”，条件一定会发生：Quando arrivi, chiamami." },
-      { "ok": true, "t": "**anche se** 表示“即使、虽然”，后面用直陈式：Anche se è tardi, esco. **benché、sebbene** 的意思也是“虽然”，后面用虚拟式：Benché sia tardi, esco. **nonostante** 后面可以接名词（Nonostante la pioggia, esco），也可以接虚拟式的分句（Nonostante sia tardi, esco）。" },
+      { "ok": true, "t": "**anche se** 表示“即使、虽然”，说真实的事时后面用直陈式：Anche se è tardi, esco（说假设的、不太可能的事时也可以用虚拟式，如 Anche se fosse tardi，学习时先记直陈式）。 **benché、sebbene** 的意思也是“虽然”，后面用虚拟式：Benché sia tardi, esco. **nonostante** 后面可以接名词（Nonostante la pioggia, esco），也可以接虚拟式的分句（Nonostante sia tardi, esco）。" },
       { "ok": true, "t": "**ma、però** 引出对比：È buono, ma è caro. mentre 表示“……的同时”，也可以表示对比：Leggo mentre aspetto." },
       { "ok": false, "t": "**不叠用**：不说 *Perché piove, quindi…*、*Anche se piove, ma…*、*Benché è tardi*（benché 要用虚拟式）。" },
       { "ok": false, "t": "**se 后面不用条件式**：真实的条件说 Se hai tempo, vieni；不说 *Se avresti tempo*。" }
@@ -179,7 +179,7 @@ LESSON_RICH.it["connettivi"] = {
     ] },
     { "k": "scegli", "q": "哪个连接词之后要用虚拟式？", "opzioni": [
       { "t": "benché", "ok": true, "perche": "benché 和 sebbene 要求虚拟式。" },
-      { "t": "anche se", "ok": false, "perche": "anche se 后面用直陈式。" },
+      { "t": "anche se", "ok": false, "perche": "说真实的事时，anche se 后面用直陈式；虚拟式是 benché 的固定要求。" },
       { "t": "perché", "ok": false, "perche": "表示原因的 perché 后面用直陈式。" }
     ] },
     { "k": "buco", "zh": "＿ piove, resto a casa.", "tr": "因为下雨，我待在家里。", "opzioni": [
@@ -219,7 +219,7 @@ LESSON_RICH.it["connettivi"] = {
   "capaci": [
     "你会选一个连接词表达因果：perché、siccome、quindi，并避免汉语的成对叠用。",
     "你会用 se 提出条件，用 quando 说“……的时候”。",
-    "你会区分 anche se（直陈式）和 benché、sebbene、nonostante（虚拟式）表示的让步。",
+    "你会区分 anche se（说真实的事时用直陈式）和 benché、sebbene、nonostante（虚拟式）表示的让步。",
     "你会用 ma、però、mentre 连接对比和同时进行的事。"
   ],
   "fonti": [
