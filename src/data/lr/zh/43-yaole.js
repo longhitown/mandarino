@@ -194,7 +194,6 @@ LESSON_RICH.zh["yaole"] = {
     "Sai dire «sono quasi le otto» o «ha quasi trent'anni» con 快…了."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing 'about to' with jiuyao»: schema 就要 + verbo + 了, 就要 e 快要 intercambiabili, 还有 + tempo + 就(要)…了",
     "CC-CEDICT, voci 快要 e 就要 («about to»), consultate nel file locale",
     "Tatoeba (cinese, file cmn.tsv): frasi del tipo 天快要下雨了, 她半年后就要出国了, 火车就要进站了, controllate nel corpus locale"
   ]

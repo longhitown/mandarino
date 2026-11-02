@@ -25,7 +25,7 @@ LESSON_RICH.zh["gei-gen-dui"] = {
   },
   "logica": [
     "L'italiano mette dopo il verbo tutto ciò che riguarda le persone: «telefono **a** mia madre», «vado **con** un amico», «sono gentile **con** lei». Il cinese ha una regola diversa: le informazioni su una persona che accompagnano l'azione (a chi, con chi, verso chi) vanno **prima** del verbo, come una cornice. Il verbo viene dopo ed è la parte più importante della frase.",
-    "Le tre parole nascono da verbi. 给 era «dare» (e lo è ancora: 给我一杯水), quindi la persona che segue è chi riceve. 跟 era «seguire, andare con» (e lo è ancora: 跟我来), quindi la persona è chi accompagna. 对 era «rivolgersi a, essere di fronte a», quindi la persona è chi sta di fronte all'azione o al sentimento. Da questo si capisce perché 对 compare con aggettivi e verbi di atteggiamento (好, 笑, 有兴趣) e 给 con le azioni che portano qualcosa a qualcuno (打电话, 发短信, 买)."
+    "Le tre parole mantengono anche il senso verbale: 给 «dare» (给我一杯水), con la persona che riceve; 跟 «seguire» (跟我来), con la persona che accompagna; 对 «rivolgersi a» (对…说), con la persona verso cui si rivolge l'atteggiamento. Da questo si capisce perché 对 compare con aggettivi e verbi di atteggiamento (好, 笑, 有兴趣) e 给 con le azioni che portano qualcosa a qualcuno (打电话, 发短信, 买)."
   ],
   "mappa": {
     "tipo": "tabella",
@@ -135,7 +135,7 @@ LESSON_RICH.zh["gei-gen-dui"] = {
   },
   "curiosi": [
     { "titolo": "跟 e 和: quasi gemelli", "t": "Davanti a una persona 跟 e 和 si scambiano spesso: 我跟朋友去 e 我和朋友去 hanno lo stesso senso, con 跟 un po' più colloquiale. Per unire due nomi («io e lui») la scelta tipica è 和: 我和他. Con 一样 si usa 跟: 他跟我一样高." },
-    { "titolo": "给 dopo il verbo", "t": "I verbi che trasferiscono qualcosa accettano 给 dopo il verbo: 送给她, 借给他, 卖给朋友, 还给老师. In alcune zone del sud si sente anche 打电话给你, ma la forma di base che si insegna è 给你打电话. In entrambi i casi la persona è il destinatario." },
+    { "titolo": "给 dopo il verbo", "t": "I verbi che trasferiscono qualcosa accettano 给 dopo il verbo: 送给她, 借给他, 卖给朋友, 还给老师. Si sente anche 打电话给你, ma la forma di base che si insegna è 给你打电话. In entrambi i casi la persona è il destinatario." },
     { "titolo": "对 che vuol dire anche «giusto»", "t": "对 è anche l'aggettivo «giusto» (你说得对) e fa parte di 对不起. Il significato di base è «essere di fronte a, rivolgersi a»: da qui vengono «giusto» (corrisponde al vero), «verso» e «riguardo a»." }
   ],
   "pragmatica": "Nel parlato quotidiano 给 è la parola più frequente di questo gruppo, perché compare in telefonate, messaggi e piccoli favori (给我打电话, 给你发短信). 跟 è quasi sempre accompagnato da 一起 quando l'azione è fatta in gruppo. 对 domina nelle espressioni di atteggiamento (对我很好, 对中文有兴趣) e nel punto di vista (对我来说): in una conversazione gentile è molto usato.",
@@ -181,9 +181,7 @@ LESSON_RICH.zh["gei-gen-dui"] = {
     "Sai scegliere tra 给, 跟 e 对 in base al rapporto con la persona."
   ],
   "fonti": [
-    "Mango Languages, «How to use prepositions with indirect objects in Mandarin Chinese»: schema A + preposizione + B + verbo per 给, 跟, 对 e la nota sul 给 dopo il verbo nel sud",
-    "LingoAce, articolo sulle preposizioni cinesi: 给 + destinatario, 跟 + persona, 对 + persona o cosa, collocazione prima del verbo principale",
-    "Tatoeba (cmn.tsv), frasi con 给…打电话, 给…发, 跟…一起, 跟…一样, 对…有兴趣, 对我来说, 送给, interrogate in locale per verificare l'uso naturale",
+    "Tatoeba (cmn.tsv), frasi attestate con 跟我一样 (2 occorrenze) e 给…打电话, verificate nel corpus locale",
     "CC-CEDICT, voci 給/给, 跟, 對/对: significati («to», «for», «with», «towards»)"
   ]
 };

@@ -148,7 +148,7 @@ LESSON_RICH.zh["cishu"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "回 e 趟: parenti di 次", "t": "In lingua parlata **回** si usa come 次: 我去过两回, 看了三回. Ha un sapore più familiare e si trova in frasi come 这是怎么回事. **趟** conta i viaggi di andata e ritorno e le corse: 去一趟北京 («fare un salto a Pechino»), 跑了两趟. Se la persona torna a casa, è una 趟; se ci è stata, è una 次." },
+    { "titolo": "次 e 遍 nel parlato", "t": "Nel parlato 次 e 遍 sono i classificatori standard: 次 per le volte di un episodio, 遍 per un'azione fatta dall'inizio alla fine. Il numero si mette dopo il verbo, come in 去过两次 e 说一遍." },
     { "titolo": "下: l'azione breve", "t": "**下** conta i colpi e i gesti rapidi: 敲了三下 («ha bussato tre volte»). Con il numero 一, 一下ammorbidisce l'azione e la rende breve e leggera: 看一下, 等一下 («dai un'occhiata», «aspetta un attimo»). Qui 一下 non dice più «una volta», dice «un poco»." },
     { "titolo": "第一次, 下次, 上次", "t": "Ogni ordinale con 次 è un nome e si usa dove si usa un nome: 这次, 下次, 上次, 每次, 第一次. Così 下次再说 vuol dire «ne parliamo la prossima volta», e un invito rimandato spesso si chiude con 下次吧." },
     { "titolo": "再 e 又: ancora una volta", "t": "Con 遍 e 次 ricorrono spesso 再 e 又. **再** guarda avanti: 请再说一遍, 我想再看一次. **又** guarda indietro: 他又说了一遍, 又下雨了. Chi dice 请又说一遍 usa un passato dove la richiesta è futura." }
@@ -206,9 +206,7 @@ LESSON_RICH.zh["cishu"] = {
     "Sai dire la frequenza (un periodo prima del verbo), «mai, nemmeno una volta» e «la prima volta»."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Measure words for verbs»: verbo + numero + classificatore, 次, 遍, 下 e pronome oggetto tra verbo e numero",
-    "Chinese Grammar Wiki (AllSet Learning), «Comparing 遍 and 次»: 遍 per l'azione dall'inizio alla fine, 次 per le volte, esempi con 去过三次北京",
-    "mandarintemple.com, pagina HSK 3 su «quantity complement for actions»: pronome oggetto prima del numero (找了他两次)",
-    "CC-CEDICT, voci 次, 遍 e 趟, e Tatoeba (cinese, es. 她去过三次法国, 我去过一次京都, 你多久看一次牙医？, 请再说一遍), consultati con grep sui corpora locali"
+    "CC-CEDICT, voci 次 e 遍, consultate nel dizionario locale",
+    "Tatoeba (cinese, es. 她去过三次法国, 我去过一次京都, 你多久看一次牙医？, 请再说一遍), consultato nei corpora locali"
   ]
 };

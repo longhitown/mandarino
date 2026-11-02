@@ -189,7 +189,6 @@ LESSON_RICH.zh["yi-jiu"] = {
     "Sai fare una richiesta o una promessa come 你一到就给我发个信息."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Events in quick succession with yi... jiu...» (letta per intero): i due usi «appena» e «ogni volta che», soggetti uguali o diversi, 了 con un evento compiuto",
     "Tatoeba (cmn.tsv, interrogato in locale), ricerca del modello 一…就: ad esempio 一到家就, 一回家就, 一着火就 attestati come uso corrente; 一 davanti al primo verbo e 就 davanti al secondo",
     "CC-CEDICT (cedict_ts.u8), voci 一下, 一旦, 一起, 刚 e 刚刚: significati di «d'un tratto», «una volta che», «da poco»"
   ]

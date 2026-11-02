@@ -134,7 +134,7 @@ LESSON_RICH.zh["cong-dao-li"] = {
   },
   "curiosi": [
     { "titolo": "远不远, 近不近: la domanda a coppia", "t": "Oltre a 离这儿远吗？ si sente spesso la forma a coppia 离这儿远不远？ (anche nei corpora di frasi: «请问新桥饭店离这儿远不远？»). Le due forme hanno lo stesso senso; si risponde con 不远, 有点儿远 o con una misura." },
-    { "titolo": "离 nello scritto e nelle indicazioni", "t": "Nello scritto formale si incontra 距, spesso come «距离»: 距离北京一千公里. Nel parlato quotidiano 离 basta. Nelle indicazioni stradali, 离 e 从 spesso lavorano insieme: «地铁站离这儿很近，从这儿一直走就到» (la metro è vicina, da qui si va dritto e si arriva)." },
+    { "titolo": "离 nello scritto e nelle indicazioni", "t": "Nello scritto formale si incontra 距, spesso come «距离»: 距离北京一千公里. Nel parlato quotidiano 离 basta. Nelle indicazioni stradali 离 e 从 possono comparire insieme. " },
     { "titolo": "到 e le sue tre vite", "t": "到 è tra i caratteri più versatili: verbo («arrivare»), preposizione («fino a», «verso») e complemento dopo un altro verbo (听到, 看到, 走到). Se ti confondi, guarda dove sta: all'inizio di un gruppo davanti a un verbo di moto è una preposizione, dopo il verbo indica fino a dove arriva l'azione." }
   ],
   "pragmatica": "Per chiedere la strada, la sequenza naturale è: 离 (è lontano?), 从…到… (quanto ci vuole?), poi un verbo di moto: 请问，银行离这儿远吗？ 从这儿走到那儿要多长时间？ Nel parlato 从 si lascia spesso cadere quando l'origine è evidente (到车站怎么走？), ma 离 è insostituibile quando misuri una distanza.",
@@ -180,10 +180,7 @@ LESSON_RICH.zh["cong-dao-li"] = {
     "Sai scegliere tra 从, 到 e 离 senza tradurre ogni «da» italiano allo stesso modo."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing from… to… with cong… dao…»: struttura 从 + Time/Place 1 + 到 + Time/Place 2, esempi di luogo e di tempo",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Expressing distance» e «Expressing distance with li»: schema Place 1 + 离 + Place 2 + 近/远, domanda con 多远",
-    "LingoAce, articolo sulle preposizioni cinesi: 从 + inizio + 到 + fine prima del verbo, 到 + luogo con verbi di moto",
-    "Tatoeba (cmn.tsv), frasi con 离…远/近, 离…还有, 从…到…, interrogate in locale per verificare l'uso naturale",
+    "Tatoeba (cmn.tsv), frasi con 离这儿远, 从这儿到, 新桥饭店离这儿远不远 attestate nel corpus",
     "CC-CEDICT, voci 離/离 («in giving distances»), 從/从, 對, 跟, 給: significati e usi base"
   ]
 };

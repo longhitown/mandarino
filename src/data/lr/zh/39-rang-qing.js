@@ -136,7 +136,7 @@ LESSON_RICH.zh["rang-qing"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "叫, 使, 让: tre modi di far fare", "t": "Accanto a 让 esistono 叫 e 使. 叫 è molto colloquiale e ha un tono più diretto: 老师叫我们回家 si sente spesso al posto di 老师让我们回家. 使 è più formale e si usa nello scritto: 这个结果使大家很高兴. Il dizionario dà a 叫 anche i sensi di «chiamare» e «essere chiamato»; il senso causativo è uno dei suoi usi. 让 va bene in quasi tutti i registri e per questo è il verbo da conoscere per primo." },
+    { "titolo": "叫, 使, 让: tre modi di far fare", "t": "Accanto a 让 esistono 叫 e 使. 叫 può avere un tono più diretto: 老师叫我们回家 è un'altra forma possibile. 使 è più formale e si usa nello scritto: 这个结果使大家很高兴. Il dizionario dà a 叫 i sensi di «gridare», «chiamare», «ordinare» e di agente di una frase passiva. 让 va bene in quasi tutti i registri e per questo è il verbo da conoscere per primo." },
     { "titolo": "让 al passivo", "t": "Nel parlato 让 può introdurre chi compie l'azione, come 被: 我的杯子让他打碎了 («il mio bicchiere è stato rotto da lui»). Il dizionario la registra come seconda funzione di 让. Per ora ti basta riconoscere il senso quando lo senti: il bicchiere è il soggetto e subisce, e chi agisce segue 让." },
     { "titolo": "请客: l'invito che si paga", "t": "请 contiene l'idea di offrire: 我请你 senza altro vuol già dire «offro io». Il verbo 请客 («offrire un pranzo agli ospiti») e la frase 我请客 dicono che paga chi invita. Tra amici, per dividere il conto si dice invece 我们各付各的, mentre chi propone di pagare dice 这次我请." }
   ],
@@ -183,8 +183,7 @@ LESSON_RICH.zh["rang-qing"] = {
     "Sai costruire la frase con la persona di mezzo, senza «che» né preposizioni."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Causative verbs»: struttura soggetto + verbo causativo + persona + predicato, 让 come causativo più comune nel parlato, 使 più formale, esempi con 请 e con 不让",
-    "CC-CEDICT, voci 请, 让 e 叫: sensi di invitare, pregare e offrire; lasciare, far fare, rendere; 让 come agente passivo; 叫 come causativo",
+    "CC-CEDICT, voci 请, 让 e 叫: sensi di invitare, pregare e offrire; lasciare, far fare, rendere; 让 come agente passivo; 叫 come agente passivo",
     "Tatoeba (cmn.tsv), esempi con 请你… e 让我… frasi reali con 请你… e 让我… (per esempio 让我试试, 请你不要哭), lette per controllare l'ordine delle parole"
   ]
 };

@@ -133,7 +133,7 @@ LESSON_RICH.zh["liandong"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "连动句: il nome di questa costruzione", "t": "I manuali cinesi la chiamano 连动句, «frase a verbi concatenati» (in inglese serial verb construction). Una persona fa più azioni di seguito, senza congiunzioni. Nelle grammatiche del cinese si trovano sotto questo nome quattro funzioni: azioni in successione, scopo, mezzo e strumento. Le quattro hanno la stessa forma e la stessa regola dell'ordine." },
+    { "titolo": "连动句: il nome di questa costruzione", "t": "I manuali cinesi la chiamano 连动句, «frase a verbi concatenati» (in inglese serial verb construction). Una persona fa più azioni di seguito, senza congiunzioni." },
     { "titolo": "有 + nome + azione", "t": "Una variante molto comune usa 有 come primo verbo: 我有一个问题想问你 («ho una domanda da farti»), 我没有时间去 («non ho tempo di andare»). Il nome dopo 有 è l'oggetto, e il verbo che segue dice che cosa si fa con quel nome. Come nelle altre frasi, la negazione (没有) sta prima del primo verbo." },
     { "titolo": "为了: lo scopo detto per primo", "t": "Se vuoi mettere in evidenza lo scopo, il cinese lo anticipa con 为了: 为了学中文，他来中国了. Con 是 si può anche chiudere la frase: 他来中国是为了学中文. In entrambi i casi non si tratta di verbi in fila, ma di una frase con lo scopo esplicito." }
   ],
@@ -180,7 +180,6 @@ LESSON_RICH.zh["liandong"] = {
     "Sai evitare l'ordine invertito e la congiunzione 和 tra due verbi."
   ],
   "fonti": [
-    "HSK Lord, pagina «Serial Verb Construction» (連動句): schema soggetto + V1 + V2, ordine cronologico, funzioni di scopo e di mezzo, negazione prima del primo verbo, errore con 和 tra i verbi",
     "CC-CEDICT, voci 坐 e 用: «prendere (un autobus, un aereo)» per 坐, e uso di 用 come introduttore dello strumento",
     "Tatoeba (cmn.tsv), frasi reali con 我坐飞机去… e 我去买…, lette per controllare l'ordine mezzo prima del movimento"
   ]

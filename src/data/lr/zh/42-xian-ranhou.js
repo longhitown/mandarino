@@ -197,9 +197,6 @@ LESSON_RICH.zh["xian-ranhou"] = {
     "Sai usare 先 per invitare e congedarti con frasi come 你先走吧 e 我先走了."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Sequencing with xian and zai» (letta per intero): struttura 先…再…, 再 col senso di «poi», 先…再说, 接着 e 然后",
-    "Chinese Grammar Bank (Flexiclasses), pagina «以前 and 以后» (letta per intero): tempo vago prima o dopo il soggetto, evento o durata + 以前/以后",
-    "Chinese Grammar Wiki (AllSet Learning), pagina su 之前 e 之后 (letta per intero): relazione con 以前/以后, registro, uso in apertura di frase",
     "Tatoeba (cmn.tsv, interrogato in locale): frasi con 先…然后/再 e con 以前/以后 dopo un evento, ad esempio 毕业以后, 吃饭以后, 睡觉之前; CC-CEDICT: voci 先, 然后, 最后, 以前, 以后, 之前, 后来, 接着"
   ]
 };

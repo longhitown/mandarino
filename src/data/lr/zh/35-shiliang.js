@@ -22,7 +22,7 @@ LESSON_RICH.zh["shiliang"] = {
       { "ok": true, "t": "**Negazione**: la durata viene prima di 没 e di solito il 了 finale chiude la frase: 我两天没睡觉了, 他好几年没回家了. Si dice da quanto tempo manca l'azione; 已经 può rinforzare." },
       { "ok": true, "t": "**Domande**: 多长时间 o, più colloquiale, 多久. 你等了多久了？ 他睡了多长时间？ Con numeri piccoli, che si aspettano sotto la decina, si dice anche 几: 你睡了几个小时？" },
       { "ok": true, "t": "**Abitudini e piani** non hanno 了, ma la durata resta dopo il verbo: 我每天学一个小时中文。 周末我想睡十个小时。" },
-      { "ok": false, "t": "**La durata non sta davanti al verbo** (tranne con 没) e non sta dopo l'oggetto: 我三年学中文 e 我学了中文三年 non si dicono. Il **momento** (昨天, 三点, 明年) invece sta prima del verbo: 我明天学三个小时." }
+      { "ok": false, "t": "**La durata non sta davanti al verbo** (tranne con 没) e non sta dopo l'oggetto: 我三年学中文 e 我学了中文三年 non sono la forma normale. Il **momento** (昨天, 三点, 明年) invece sta prima del verbo: 我明天学三个小时." }
     ]
   },
   "logica": [
@@ -147,7 +147,7 @@ LESSON_RICH.zh["shiliang"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "个 sì, 个 no", "t": "Le unità di tempo si comportano in modo diverso. **年**, **天**, **分钟** e **秒** si contano senza classificatore (两年, 三天, 五分钟). **月** e **星期** chiedono 个 (三个月, 两个星期). **小时** accetta 个 o no (两个小时, 两小时): con 个 suona più parlato." },
+    { "titolo": "个 sì, 个 no", "t": "Le unità di tempo si comportano in modo diverso. **年**, **天**, **分钟** e **秒** si contano senza classificatore (两年, 三天, 五分钟). **月** e **星期** chiedono 个 (三个月, 两个星期). **小时** si usa con o senza 个 (两个小时, 两小时)." },
     { "titolo": "Un'ora e mezza e tre anni e mezzo", "t": "Con unità che hanno il classificatore, 半 sta in mezzo: 一个半小时, 一个半月. Con unità senza classificatore, 半 sta in fondo: 三年半, 两天半. In ogni caso, 半 non si mette davanti al numero. Nel parlato, 半天 vuol dire anche «un bel po' di tempo»: 我等了半天 («ho aspettato un pezzo»)." },
     { "titolo": "多久 e 多长时间", "t": "I due si usano allo stesso modo. 多久 è più breve e colloquiale (è il 久 di 好久不见); 多长时间 è un poco più formale. Con il 了 doppio, la domanda chiede «da quanto tempo, fino a ora»: 你学了多久了？ Senza il secondo 了 la domanda guarda un periodo concluso: 你昨天睡了多久？" },
     { "titolo": "Il 的 della durata", "t": "Tra la durata e l'oggetto può comparire 的: 看了一下午的电视, 坐了十五个小时的飞机. Non cambia la grammatica; dà risalto alla lunghezza, come «ben» in «ho guardato la tv ben tutto il pomeriggio». Con 的 non si ripete il verbo." }
@@ -205,9 +205,7 @@ LESSON_RICH.zh["shiliang"] = {
     "Sai dire da quanto tempo non fai qualcosa con la durata prima di 没, e chiedere 多久 o 多长时间."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing duration with le»: struttura V + 了 + durata + oggetto, 的 tra durata e oggetto, parola di tempo per il periodo concluso",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing ongoing duration with double le»: secondo 了 e ripetizione del verbo con l'oggetto",
-    "Chinese Grammar Wiki (AllSet Learning), «Expressing duration of inaction»: durata prima di 没 e 了 finale",
-    "CC-CEDICT, voci 多久, 半天, 久, 一直, e Tatoeba (cinese, es. 我学英语学了4年了, 我不行了！我已经三天没睡过了！, 我几个月没见过他了), consultati con grep sui corpora locali"
+    "CC-CEDICT, voci 多久, 半天, 久, 一直, consultate nel dizionario locale",
+    "Tatoeba (cinese, es. 我学英语学了4年了, 我已经三天没睡过了！, 我几个月没见过他了), consultato nei corpora locali"
   ]
 };

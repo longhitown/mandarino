@@ -137,7 +137,7 @@ LESSON_RICH.zh["progressione"] = {
   "curiosi": [
     { "titolo": "Il carattere 越", "t": "Il dizionario CC-CEDICT dà a 越 il senso di «oltrepassare, superare» e, come formula, «the more… the more…». L'idea è quella di superare un limite via via: il valore sale, ed è per questo che 越 si appoggia a un aggettivo o a un verbo che indica una scala." },
     { "titolo": "一天比一天", "t": "Un altro modo molto naturale per dire che una cosa cambia nel tempo è 一天比一天 + aggettivo («di giorno in giorno»): 情况一天比一天差. Funziona come 越来越, ma insiste sull'unità di tempo (一年比一年, «di anno in anno»). In questa struttura 比 è davvero un confronto: ogni giorno è confrontato con quello precedente." },
-    { "titolo": "越…越 per il parlato", "t": "Nella conversazione 越…越 si ripete volentieri con lo stesso verbo: 越想越生气 («più ci penso, più mi arrabbio»), 我们越等越不耐烦 («più aspettiamo, più perdiamo la pazienza»). Il primo verbo è l'azione che si ripete, il secondo è lo stato d'animo che ne risulta." }
+    { "titolo": "越…越 per il parlato", "t": "Nella conversazione 越…越 si ripete volentieri con lo stesso verbo: 越说越 è attestato nel corpus («più parla…»). Il primo verbo è l'azione che si ripete, il secondo è lo stato d'animo che ne risulta." }
   ],
   "pragmatica": "越来越 è tra le formule più frequenti per fare un complimento (你的中文越来越好了) o per commentare un cambiamento (人越来越多, 越来越贵). 越…越 serve per consigli e proverbi (越早越好, 越多越好) e per sfoghi (越想越生气). Nello scritto formale compare in analisi di tendenze: 越来越多的人…, spesso come inizio di un articolo.",
   "esercizi": [

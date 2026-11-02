@@ -195,8 +195,6 @@ LESSON_RICH.zh["meiyou-yiyang"] = {
     "Sai aggiungere «un po'» o «molto» al confronto con 比…一点 e 比…多了."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Basic comparisons with yiyang»: schema Nome1 跟/和 Nome2 一样 (+ aggettivo), 不一样, domanda con 吗",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Basic comparisons with meiyou»: schema Nome1 没有 Nome2 + aggettivo («non così… come»), esempio 小张没有小李高, opposto di 比",
     "CC-CEDICT, voci 一样 e 没有, consultate nel file locale",
     "Tatoeba (cinese, file cmn.tsv): frasi come Ken跟Bill一样高 e 他话说得跟老师一样, controllate nel corpus locale"
   ]
