@@ -153,7 +153,7 @@ LESSON_RICH.it["domande-prep"] = {
   "curiosi": [
     { "titolo": "Dov'è, com'è：缩写和撇号", "t": "dove、come、cosa 遇到 è 时，常常去掉最后的元音，加上撇号：Dov'è Roberto? Com'è Laura? Di dov'è Marta? quale 的情况不同：Qual è il tuo sport preferito? 这里没有撇号，只是去掉了 e。" },
     { "titolo": "che cosa、cosa 还是 che？", "t": "“什么”可以说 che cosa，也可以缩短成 cosa 或 che，意思相同。Treccani 的《意大利语百科》说，cosa 在北部很常用，在意大利其他地方更常用的是单独的 che。所以你会听到 Di che cosa parli?、Di cosa parli?、Di che parli? 三种说法，前面的 di 始终不变。" },
-    { "titolo": "cui：古意大利语里“谁”的另一个形式", "t": "在古意大利语里，疑问的“谁”还有一个形式 cui，前面也要带介词，比如但丁和塔索的诗句里的 per cui、a cui。今天问句里只用 chi：Con chi parli? 而 cui 留在了关系从句里，比如 la persona di cui parlo（我说的那个人）。" }
+    { "titolo": "cui 不用于问句", "t": "问句里“谁”只用 chi：Con chi parli?。cui 是关系代词，用在关系从句里，比如 la persona di cui parlo（我说的那个人）。两者不要混用。" }
   ],
   "pragmatica": "接电话时，意大利人常问 Con chi parlo?（请问您是哪位？），很自然，也很礼貌。对不熟的人或长辈用 Lei 的形式：Di dov'è, Lei? Da quanto tempo vive qui? 追问对方没听清的话时，也可以只重复疑问词：A：Vado a Napoli. B：Vai dove?——这是追问和表示惊讶的说法，正常提问仍然用 Dove vai?。",
   "esercizi": [
@@ -213,9 +213,8 @@ LESSON_RICH.it["domande-prep"] = {
     "你会避开汉语式的语序，写成 Con chi parli?，而不是 Chi parli con?。"
   ],
   "fonti": [
-    "Treccani, Enciclopedia dell'Italiano, voce «Interrogative dirette» (l'operatore può essere preceduto da una preposizione: da dove vieni?, a chi lo hai detto?)",
-    "Treccani, Enciclopedia dell'Italiano, voce «Interrogativi, aggettivi e pronomi» (che cosa, cosa e che; cui con preposizione nella lingua antica)",
-    "University of North Carolina, Learn Italian, pagina «Interrogatives» (la preposizione sta sempre davanti all'interrogativo; quanto tempo ci vuole; dov'è e qual è)",
-    "Tatoeba (ita.tsv), controllo della naturalezza di con chi, a chi, di chi, da dove, di dove, da quanto tempo, quanto tempo ci vuole"
+    "Treccani, Enciclopedia dell'Italiano, voce «Interrogative dirette» (letta: l'interrogativo apre la frase; la preposizione può precederlo: da dove vieni?, a chi lo hai detto?)",
+    "Treccani, Enciclopedia dell'Italiano, voce «Aggettivi e pronomi interrogativi» (letta: cosa come forma ridotta di che cosa, più frequente al nord; che nel resto d'Italia)",
+    "Tatoeba (ita.tsv, grep): «Con chi esci» (4), «Da dove vieni» (9), «Di dove sei» (4), «Per quanto tempo» (133), «Quanto tempo ci vuole» (29), «Di chi è» (154)"
   ]
 };

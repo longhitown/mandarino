@@ -5,7 +5,7 @@ LESSON_RICH.it["ordinali-date"] = {
     "frasi": [
       { "t": "Il primo settembre inizia la scuola.", "tr": "九月一号开学。" },
       { "t": "Il due giugno è la festa della Repubblica.", "tr": "六月二号是共和国日。" },
-      { "t": "Abito al terzo piano e non c'è l'ascensore.", "tr": "我住在四楼……不对，是三楼，而且没有电梯。" },
+      { "t": "Abito al terzo piano e non c'è l'ascensore.", "tr": "我住在三楼，而且没有电梯。" },
       { "t": "È la prima volta che mangio il tiramisù.", "tr": "这是我第一次吃提拉米苏。" }
     ],
     "domanda": "先看日期：九月一号用 primo，六月二号用 due。再看“三楼”“第一次”：terzo、prima。哪些地方用的是“第几”的词，哪些地方用的是普通的数字？terzo 和 prima 的结尾为什么不一样？",
@@ -213,6 +213,6 @@ LESSON_RICH.it["ordinali-date"] = {
   ],
   "fonti": [
     "Wikipedia (inglese), «Date and time notation in Italy» (primo per il primo del mese, cardinali per gli altri giorni, articolo davanti alla data, mesi e giorni in minuscolo)",
-    "Tatoeba, corpus italiano locale (ita.tsv): ricerche su «il primo maggio», «Che giorno è oggi», «nel duemila e tredici», «il ventesimo», per verificare gli usi e la naturalezza delle frasi"
+    "Tatoeba (ita.tsv, grep): «il primo maggio» (4), «Che giorno è oggi» (7), «Quanti ne abbiamo» (3), «il ventesimo» (2)"
   ]
 };

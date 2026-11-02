@@ -27,7 +27,7 @@ LESSON_RICH.it["mezzi"] = {
   "logica": [
     "汉语用动词来区分：“坐火车、开车、骑自行车、走路”是四个不同的动词。意大利语把方式交给介词：andare 只管“去”，in 或 a 加上后面的名词再说明怎么去。所以不用再找“坐、开、骑”的意大利语动词，说 andare in treno、andare in bici、andare in macchina 就够了。",
     "为什么 in 后面没有冠词？这里的 in treno、in macchina 说的是“交通方式”这一类，而不是某一辆具体的车，所以名词不需要冠词，和 in città、in vacanza、in ufficio 这类说法是一个思路。一旦说到具体的一辆或一班（macchina di Marco，treno delle undici），名词就被限定了，需要冠词，介词也就换成 con。",
-    "a piedi 的 a 常见的解释是：坐在车里的人是“在车里”（in），靠自己的双脚或牲畜行动的人是“靠着、凭着”（a）。但 in bici、in moto 里人是骑在上面，也说 in，所以最稳妥的记法是：把 in treno、in macchina、in bici 和 a piedi、a cavallo 当作固定搭配来记。"
+    "a piedi 的 a 没有统一的字面解释，而 in bici、in moto 也说 in，所以最稳妥的记法是：把 in treno、in macchina、in bici 和 a piedi、a cavallo 当作固定搭配来记。"
   ],
   "mappa": {
     "tipo": "albero",
@@ -208,9 +208,7 @@ LESSON_RICH.it["mezzi"] = {
     "你会区分 andare in treno（怎么去）、prendere il treno（乘某一班）和 guidare（驾驶）。"
   ],
   "fonti": [
-    "Elon.io, grammatica italiana, «A vs In for places» (pagina in inglese: in per i veicoli, a per il movimento con le proprie gambe o con un animale)",
-    "Think in Italian, «How to say With and Without» (pagina in inglese: con per mezzo o strumento, compresi i mezzi di trasporto, con esempio con il treno)",
-    "Treccani, Vocabolario, voce «con» (preposizione): compagnia, mezzo o strumento, modo, assenza",
-    "Tatoeba (corpus italiano, file ita.tsv locale): frasi con in treno, in autobus, in bicicletta, in aereo, a piedi, con il treno, con l'autobus (controllo dell'uso naturale)"
+    "Think in Italian, «Transport in Italian» (letta: in + mezzo senza articolo, a piedi, con + articolo per un mezzo preciso, in piedi vs a piedi)",
+    "Tatoeba (ita.tsv, grep): «in treno» (284), «in autobus» (251), «in bici» (343), «a piedi» (555), «con il treno» (9), «con la macchina» (18)"
   ]
 };

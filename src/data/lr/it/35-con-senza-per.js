@@ -203,9 +203,7 @@ LESSON_RICH.it["con-senza-per"] = {
     "你会避免三个常见错误：Vado a Anna，senza di zucchero，sono a mia madre。"
   ],
   "fonti": [
-    "Treccani, Vocabolario, voce «con» (preposizione): compagnia, mezzo o strumento, modo, assenza (rimando a «senza»)",
-    "Treccani, Vocabolario, voce «senza»: sostantivo senza articolo, «senza di» con i pronomi, senza + infinito, senza che + congiuntivo",
-    "Think in Italian, «How to say With and Without» (pagina in inglese su con e senza: compagnia, strumento, senza di + pronome, senza + infinito)",
-    "Tatoeba (corpus italiano, file ita.tsv locale): ricerca di senza zucchero, per lavoro, senza dire, senza ombrello, a conferma dell'uso naturale"
+    "Treccani, Vocabolario, voce «senza» (letta: privazione o mancanza, senza di con i pronomi, senza + infinito, senza che + congiuntivo; la voce «con» non è stata letta e non è citata)",
+    "Tatoeba (ita.tsv, grep): «senza zucchero» (97), «senza dire» (38), «senza ombrello» (5), «senza di te» (143)"
   ]
 };

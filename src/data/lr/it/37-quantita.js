@@ -25,7 +25,7 @@ LESSON_RICH.it["quantita"] = {
     ]
   },
   "logica": [
-    "汉语的“几个朋友、每天、所有学生”里，名词本身不分单复数，数量由前面的词来表示。意大利语的名词必须变单数或复数，所以每个数量词都有自己的“搭配习惯”。**qualche** 的意思虽然是复数（几个），形式却是单数；这是因为它的来源是 quale 和 che 的组合，原来的意思是“某一个”，后来才变成了“几个”。所以背的时候要记住：**qualche + 单数**，不要被汉语的“几个”带偏。",
+    "汉语的“几个朋友、每天、所有学生”里，名词本身不分单复数，数量由前面的词来表示。意大利语的名词必须变单数或复数，所以每个数量词都有自己的“搭配习惯”。**qualche** 的意思虽然是复数（几个），形式却是单数；这是 qualche 的特点，它的形式是单数，意思却是几个。所以背的时候要记住：**qualche + 单数**，不要被汉语的“几个”带偏。",
     "**ogni** 的道理类似：“每一个”是一个一个地数，所以用单数。**tutti** 说的是整体，要用“定冠词 + 名词”，因为说话人指的是一个明确的、大家都知道的集合：tutti **gli** studenti 是“这一群学生全部”，不是泛泛的“学生”。",
     "最容易让说汉语的人困惑的是 **nessuno**。汉语说“没有人来”只用一个否定词，而意大利语在动词后面要用**两个**否定：Non è venuto nessuno。这不是“负负得正”，而是**加强否定**，法语（ne … personne）和西班牙语（no … nadie）也是这样。规律很简单：nessuno 在动词前面，就不用 non；nessuno 在动词后面，就要有 non。"
   ],
@@ -154,7 +154,7 @@ LESSON_RICH.it["quantita"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "qualche 从哪里来", "t": "qualche 是由 quale 和 che 合成的，最初的意思近似“某一个”，所以它后面的名词保持单数。这也解释了为什么它没有复数形式、不随阴阳性变化。在正式的书面语里，也可以见到用 alcuno 代替 qualche 的说法，日常口语里则以 qualche 和 alcuni 为主。" },
+    { "titolo": "qualche 从哪里来", "t": "qualche 没有复数形式，也不随阴阳性变化，后面的名词一律是单数。它的来历在语法书里没有统一的说法，记住这个搭配就够用了。在正式的书面语里，也可以见到用 alcuno 代替 qualche 的说法，日常口语里则以 qualche 和 alcuni 为主。" },
     { "titolo": "双重否定不是“负负得正”", "t": "拉丁语里，两个否定会互相抵消；但意大利语和法语、西班牙语一样，nessuno、niente、mai 等词放在动词后面时，必须和 non 一起使用，这叫作“否定呼应”。你可以把 non 看作整个句子的“否定开关”，nessuno 只是告诉你具体是“没有谁”。同样的道理：Non vedo niente（我什么也没看见）、Non vado mai al mare（我从来不去海边）。" },
     { "titolo": "ognuno、ciascuno 和 ogni 的分工", "t": "ogni 只能放在名词前面，不能单独使用。要单独说“每个人”，用代词 **ognuno** 或 **ciascuno**：Ognuno porta qualcosa（每个人都带点东西）。它们和 ogni 一样都是单数，动词也用单数。" }
   ],
@@ -222,7 +222,7 @@ LESSON_RICH.it["quantita"] = {
     "你会用 un po' di 说不可数东西的“一点儿”。"
   ],
   "fonti": [
-    "Treccani, La grammatica italiana (2012), voce «Indefiniti, aggettivi» (qualche e alcuni, ogni, tutti con l'articolo, nessuno e la doppia negazione)",
-    "Tatoeba (ita.tsv), controllo di frasi con qualche, nessuno, ogni volta, tutti gli, tutto il giorno"
+    "UNC Learn Italian, «Indefinites» (letta: qualche solo singolare, alcuni/alcune plurale, ogni singolare invariabile, tutti/tutte con articolo; la pagina non tratta nessuno)",
+    "Tatoeba (ita.tsv, grep): «Non ho visto nessuno» (5), «non risponde nessuno» (2), «tutti gli» (326), «tutto il giorno» (523)"
   ]
 };
