@@ -1,0 +1,29 @@
+# Audit comportamentale: che cosa adottiamo, adattiamo, rimandiamo, rifiutiamo
+
+Stato: **valutazione** (1 novembre 2026), a partire dall'audit di un esperto di economia comportamentale. Non è un elenco da eseguire: è il modo in più per vedere dove
+la versione attuale può migliorare. Ogni voce ha il suo giudizio e il suo costo. Le ricerche citate dall'audit esistono (Buell e Norton 2011 sull'illusione del lavoro;
+Waber e altri 2008 su prezzo e placebo; Aronson e Mills 1959 sull'iniziazione; Norton, Mochon e Ariely sull'effetto IKEA; Wegner sui processi ironici), ma sono studi
+di laboratorio e di commercio: l'effetto in una app gratuita e senza statistiche non si può misurare, quindi si prova in piccolo e si giudica a occhio. Una citazione
+dell'audit (un articolo del 2017 del blog di Duolingo sullo studio «a abbuffate») non l'ho verificata.
+
+| # | Punto dell'audit | Giudizio | Perché | Costo |
+|---|---|---|---|---|
+| 1 | «Perché è gratis»: il paragrafo che dice che costruire l'app è stato facile svaluta il lavoro | **Adottare** | È vero che il lavoro vero non è il codice: sono le parole, le frasi, le voci, le correzioni. Si tiene l'onestà sull'IA e si sposta il racconto dello sforzo dove sta davvero, con numeri verificabili (6.385 parole, 55 + 51 lezioni, frasi di Tatoeba con 441 autori) e non con «centinaia di persone e dozzine di librerie», che è un'esagerazione | piccolo (pagina e testi dell'app) |
+| 2 | Punti e coriandoli contraddicono «non per distrarti» | **Adattare** | I punti sono nella pagina «Provala qui» e nell'app c'è anche l'esperienza (XP, gradi, serie di giorni). Togliere tutto in un colpo è una scelta di prodotto. Prima si aggiunge il Registro (punto 8) e si valuta cosa tenere; i coriandoli del sito si tolgono | medio |
+| 3 | Manca un rito di appartenenza | **Adottare con i sigilli già fatti** | I sigilli del contributo e il Libro degli errori (punto 11) sono il rito: appartenenza guadagnata, non competitiva | già in corso |
+| 4 | Installazione con APK da fonte sconosciuta: attrito tossico | **Adattare** | Vero. Finché Google non conclude, sul sito la strada principale per Android diventa «Aggiungi alla schermata Home» dal browser (nessun avviso di sicurezza); l'APK resta per chi lo vuole. F-Droid ha chiuso la richiesta (serve un'attività di almeno tre mesi); IzzyOnDroid è un'alternativa da verificare | piccolo |
+| 5 | La versione 6.7.293 e la 0.9.0 nella stessa settimana sembrano un'officina | **Adottare** | Le build per ogni push sono ora una sola prerelease «nightly»; restano circa 200 vecchie Release `v6.7.x`. Si possono declassare a prerelease (non si cancella niente e non si toccano i tag): lo faccio solo se lo approvi | piccolo |
+| 6 | Il nome con i segni dei toni non si cerca | **Già fatto** | Titolo e descrizione usano «mandarino app», «app per imparare il cinese»; il sito ha il distintivo «il cinese per italiani» e le pagine per ogni lezione. Mancano segnali sociali (stelle su GitHub, menzioni): si costruiscono con il tempo | in corso |
+| 7 | «Gratis per sempre» come soffitto: il prezzo comunica serietà | **Rifiutare (per ora)** | La promessa resta. La serietà si comunica con ciò che il prezzo non può comprare: lezioni che reggono il confronto con i manuali (vedi `docs/lezioni-progetto.md`), il confronto con le fonti, l'errata pubblico, i sigilli | — |
+| 8 | **Registro dell'oblio**: parole vive, in pericolo, perse; «parole sicure» | **Adottare** (come vista nuova, non al posto di tutto) | FSRS conosce già la probabilità di ricordare ogni parola; mostrarla è onesto e allinea l'app al suo scopo. Mi piace che celebri le «parole sicure» (sopravvissute a 30 giorni) e non l'accumulo. Attenzione al tono: «in pericolo» come salvataggio, non come minaccia | medio (dati già nell'app) |
+| 9 | **Il rifiuto dell'abate**: una schermata solenne all'inizio, una frase scritta («perché studio il cinese») e il primo carattere tracciato | **Adattare** | Mi piace: la frase conservata in locale e rimostrata nei giorni difficili, il tracciato di 学, «l'esame d'ingresso». Non scriverei «se cerchi un gioco ce ne sono di migliori» (sa di provocazione) né «circa un anno»: l'audit stesso dice che la cifra non è ricerca. Tono del progetto: gentile | medio |
+| 10 | **Il coprifuoco**: «Basta così» dopo le dieci parole nuove | **Adattare** | L'app ha già il limite giornaliero (10 parole nuove) e «Personalizza». Basta una schermata di chiusura gentile e, volendo, un piccolo rito (scrivere tre caratteri a memoria) per sbloccarne altre cinque. Il ripasso resta aperto | piccolo |
+| 11 | **Libro degli errori**: elenco pubblico e datato delle correzioni, con il soprannome di chi le ha fatte e il sigillo 正 | **Adottare** | È la scelta più in linea con il progetto: trasforma gli errori in storia e premia chi corregge. Solo con il consenso e solo soprannomi; la riga «ieri qualcuno ha corretto…» in app si valuta dopo | medio (pagina del sito e dati) |
+| 12 | **L'esame del taxi**: esame dal vivo a pagamento con un madrelingua, sigillo 考 | **Rimandare** | Idea affascinante, ma oggi richiederebbe pagamenti, esaminatori pagati, videochiamate (dati personali), fisco e responsabilità: contraddice «nessun dato» e ci porta lontano dal progetto che c'è. Una versione gratuita tra pari (scambio di conversazione tra chi impara, con sigillo) si può valutare più avanti | grande |
+
+## Ordine che propongo
+
+1. Subito (piccoli): punto 1 (testo «Perché è gratis»), punto 4 (installazione dal browser come strada principale su Android), punto 10 (schermata «Basta così»), togliere i coriandoli del sito.
+2. Con le lezioni: i punti 3 e 11 si agganciano ai sigilli e alla rilettura dei madrelingua.
+3. Poi, uno alla volta: punto 8 (Registro), punto 9 (rifiuto dell'abate, versione gentile), punto 2 (che cosa fare di XP e gradi).
+4. Fuori dal piano: punti 7 e 12.
