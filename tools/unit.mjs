@@ -193,7 +193,7 @@ function sandbox() {
   const ext = [...h.matchAll(/<(?:script|img|iframe|source|video|audio)\b[^>]*?(?:src|poster)="([^"]+)"/gi)].map((m) => m[1])
     .concat([...h.matchAll(/<link\b[^>]*\brel="(?:stylesheet|icon|preload|modulepreload)"[^>]*?href="([^"]+)"/gi)].map((m) => m[1])).filter(isExt);
   const scripts = [...h.matchAll(/<script\b([^>]*)>/gi)].map((m) => m[1]);
-  const GENERATI = ["app/", "privacy.html", "manifesto.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
+  const GENERATI = ["app/", "privacy.html", "manifesto.html", "motore-ripasso.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
   const local = [...h.matchAll(/\b(?:src|poster|href)="([^"#?]+)(?:[#?][^"]*)?"/g)].map((m) => m[1])
     .filter((u) => !/^(https?:|mailto:|tel:|\/\/|data:)/i.test(u) && !GENERATI.includes(u)).filter((f) => !fs.existsSync(path.join(DOCS, f)));
   const ctas = (h.match(/class="btn"/g) || []).length;
@@ -304,6 +304,8 @@ function sandbox() {
   const nEx = Object.keys(exCtx.EXAMPLES || {}).length;
   const minTracks = fs.readdirSync(path.join(SRC, "audio/tracks")).filter((f) => f !== "index.js").reduce((a, f) => a + +((/sec:\s*(\d+)/.exec(fs.readFileSync(path.join(SRC, "audio/tracks", f), "utf8")) || [0, 0])[1]), 0) / 60;
   const fsrsV = /VERSION: "(FSRS-6|ML-FSRS-32)/.test(fs.readFileSync(path.join(SRC, "core/fsrs.js"), "utf8"));
+  const moMd = fs.readFileSync(path.join(ROOT, "docs/motore-ripasso.md"), "utf8"), idxH = fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8"), seoM = await import("./seo.mjs");
+  check("Motore del ripasso: pagina nascosta nel piè di pagina (noindex, fuori dalla mappa del sito), con licenza MIT, py-fsrs e il limite dei pesi dichiarati", /href="motore-ripasso\.html"/.test(idxH) && seoM.PAGES.some((p) => p.path === "/motore-ripasso.html" && p.noindex) && !/motore-ripasso/.test(seoM.sitemapXml()) && /licenza MIT/.test(moMd) && /Open Spaced Repetition/.test(moMd) && /non sono stati stimati su ripassi di studenti veri/.test(moMd));
   check("manifesto: «5.700 frasi», «oltre un'ora di musica» e «FSRS-6» sono veri", nEx >= 5700 && minTracks > 60 && fsrsV && /5\.700 frasi/.test(mdM) && /FSRS-6|ML-FSRS-32/.test(mdM), nEx + " frasi, " + Math.round(minTracks) + " min");
 }
 

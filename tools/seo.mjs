@@ -146,6 +146,7 @@ export const PAGES = [
   { path: "/manifesto.html", kind: "article", lang: "it", sources: ["MANIFESTO.md"], prio: "0.6", freq: "yearly", crumb: "Manifesto" },
   { path: "/privacy.html", kind: "page", lang: "it", sources: ["PRIVACY.md"], prio: "0.4", freq: "yearly", crumb: "Privacy" },
   { path: "/404.html", noindex: true, sources: [] },
+  { path: "/motore-ripasso.html", noindex: true, sources: [] },
   { path: "/partecipa-voci.html", src: "docs/partecipa-voci.html", noindex: true, sources: [] }
 ];
 /* le due pagine "casa" sono la stessa cosa in due lingue: si rimandano a vicenda (hreflang) */
