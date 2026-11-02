@@ -12,10 +12,10 @@ LESSON_RICH.it["prep-luogo"] = {
     "risposta": "第一句 **sotto la sedia** 直接跟名词。其余三句要加小词：**accanto a** me、**vicino a**（vicino alla = vicino a + la）、**lontano da**（lontano dal = lontano da + il）。汉语说“椅子**下面**”，位置词放在名词**后面**；意大利语相反，位置词放在名词**前面**：sotto + la sedia。所以学每个位置词，要同时记住它后面“带不带小词、带哪一个”。"
   },
   "regola": {
-    "enunciato": "意大利语的位置词放在名词**前面**，和汉语“桌子上面”的顺序相反。按后面的搭配分三类：**sopra、sotto、dentro、dietro** 后面直接跟名词（sotto la sedia）；**davanti a、accanto a、vicino a、di fronte a、in mezzo a、in fondo a** 后面要带 **a**；**lontano da**（以及 fuori da）后面带 **da**。**tra / fra** 夹在两个对象中间，后面不带小词。",
+    "enunciato": "意大利语的位置词放在名词**前面**，和汉语“桌子上面”的顺序相反。按后面的搭配分三类：**sopra、sotto** 后面直接跟名词（sotto la sedia），**dentro、dietro** 也常直接跟名词，有时带 a（dentro la borsa / dentro alla borsa，dietro il letto / dietro al letto）；**davanti a、accanto a、vicino a、di fronte a、in mezzo a、in fondo a** 后面要带 **a**；**lontano da**（以及 fuori da）后面带 **da**。**tra / fra** 夹在两个对象中间，后面不带小词。",
     "schema": ["essere / stare", "位置词", "（a / da）", "名词或人称代词"],
     "punti": [
-      { "ok": true, "t": "**直接加名词**：sopra、sotto、dentro、dietro。Il libro è sopra il tavolo. La palla è dietro la porta. 名词前面不再加 di。" },
+      { "ok": true, "t": "**直接加名词**：sopra、sotto，dentro、dietro 也常这样用。Il libro è sopra il tavolo. La palla è dietro la porta. dentro、dietro 有时也带 a：dentro alla borsa、dietro al letto。名词前面不加 di。" },
       { "ok": true, "t": "**加 a**：davanti a、accanto a、vicino a、di fronte a、in mezzo a、in fondo a。Il bar è davanti alla stazione.（alla = a + la，合成规则见第 22 课。）" },
       { "ok": true, "t": "**加 da**：lontano da、fuori da。Abito lontano dal mare. Aspetto fuori dalla scuola." },
       { "ok": true, "t": "**后面是“我、你、他”这类人称代词时**，要用重读形式 me、te、lui、lei、noi、voi、loro：davanti a **me**，vicino a **te**。sopra、sotto、dentro、dietro 这时加 **di**：sopra **di** me，dietro **di** lui，sotto **di** noi（dietro 也可以说 dietro a lui）。" },
@@ -158,8 +158,8 @@ LESSON_RICH.it["prep-luogo"] = {
     ] },
     { "k": "scegli", "q": "sopra、sotto、dentro、dietro 遇到代词 me 时，要怎么办？", "opzioni": [
       { "t": "补一个 di：sopra di me", "ok": true, "perche": "这一类位置词本来不带小词，遇到代词补 di。" },
-      { "t": "补一个 a：sopra a me", "ok": false, "perche": "a 用在 vicino、accanto、davanti 这一类后面。" },
-      { "t": "用主格代词：sopra io", "ok": false, "perche": "介词后面永远不用主格代词。" }
+      { "t": "补一个 mi：sopra mi", "ok": false, "perche": "mi 是不重读代词，不能跟在介词后面；这里用 di + me。" },
+      { "t": "用主格代词：sopra io", "ok": false, "perche": "介词后面不用主格代词 io、tu。" }
     ] },
     { "k": "buco", "zh": "Abito ＿ da Roma, ci vogliono due ore di treno.", "tr": "我住得离罗马很远，坐火车要两个小时。", "opzioni": [
       { "t": "lontano", "ok": true, "perche": "lontano da：表示远离某地。" },
@@ -203,7 +203,7 @@ LESSON_RICH.it["prep-luogo"] = {
     "你会用 tra、fra、di fronte a、a destra di 这些词给别人指路。"
   ],
   "fonti": [
-    "Wikipedia italiano, voce «Preposizione» (letta: preposizioni proprie e improprie, sopra, sotto, davanti, vicino come improprie, locuzioni prepositive; la pagina non tratta nel dettaglio i valori di luogo)",
+    "Think in Italian, «Adverbs of Place: Italian Grammar Lesson» (letta: vicino a, lontano da con l'articolo; dentro con o senza a; sopra e sotto senza preposizione; davanti e dietro con a)",
     "Tatoeba (ita.tsv): frasi consultate con vicino a, lontano da, accanto a, dietro per controllare la naturalezza delle costruzioni"
   ]
 };
