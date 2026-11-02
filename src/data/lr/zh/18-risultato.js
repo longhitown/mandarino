@@ -18,7 +18,7 @@ LESSON_RICH.zh["risultato"] = {
       { "ok": true, "t": "**Il risultato sta subito dopo il verbo**, senza nulla in mezzo: 看完, 听懂, 找到, 写错, 准备好. Se c'è un oggetto, segue il blocco: 吃完饭, 写错了一个字." },
       { "ok": true, "t": "**Al passato si aggiunge 了 dopo il blocco**: 我听懂了, 我找到钥匙了. Con un oggetto 了 può stare dopo il blocco (写错了一个字) o in fondo alla frase (我吃完饭了)." },
       { "ok": true, "t": "**La negazione del passato è 没, senza 了**: 我没听懂, 我还没看完. Così si dice che il risultato non è stato raggiunto." },
-      { "ok": true, "t": "**Per la capacità si inserisce 得 o 不**: 听得懂 («riesco a capire»), 听不懂 («non riesco a capire»), 买不到 («non riesco a trovare da comprare»). 没听懂 racconta un fatto passato; 听不懂 dice che non ce la fai." },
+      { "ok": true, "t": "**Per la capacità si inserisce 得 o 不**: 听得懂 («riesco a capire»), 听不懂 («non riesco a capire»), 买不到 («non riesco a comprarlo, non si trova»). 没听懂 racconta un fatto passato; 听不懂 dice che non ce la fai." },
       { "ok": true, "t": "**Ogni risultato ha i suoi verbi**: 见 sta solo dopo verbi dei sensi (看见, 听见); 到 vale per molti verbi (找到, 买到, 看到, 学到); 完 vale per le azioni che si portano a termine (吃完, 做完, 写完)." },
       { "ok": false, "t": "**Il verbo da solo non basta per il risultato**: 我找了钥匙 dice «ho cercato le chiavi», non «le ho trovate»; 我听了老师 non dice «ho capito». E non si dice 我没听懂了 né 我不听懂 per un fatto passato." }
     ]
@@ -57,7 +57,7 @@ LESSON_RICH.zh["risultato"] = {
     ] },
     { "gruppo": "错 e 好: sbagliare, essere pronto", "items": [
       { "t": "对不起，我走错路了。", "tr": "Scusa, ho sbagliato strada." },
-      { "t": "他把我的名字写错了。", "tr": "Ha scritto il mio nome sbagliato.", "nota": "Il risultato si usa anche con 把: il blocco 写错 sta in fondo." },
+      { "t": "他把我的名字写错了。", "tr": "Ha sbagliato a scrivere il mio nome.", "nota": "Il risultato si usa anche con 把: il blocco 写错 sta in fondo." },
       { "t": "行李我已经准备好了。", "tr": "Ho già preparato i bagagli." },
       { "t": "饭做好了，来吃吧。", "tr": "La cena è pronta, vieni a mangiare." }
     ] },
@@ -89,7 +89,7 @@ LESSON_RICH.zh["risultato"] = {
     ] },
     { "q": "Dici che sei riuscito a comprare il biglietto. Quale frase?", "opzioni": [
       { "t": "我买到票了。", "ok": true, "perche": "到 dice che hai ottenuto la cosa: 买到 = riuscire a comprare." },
-      { "t": "我买见票了。", "ok": false, "perche": "见 si usa solo dopo verbi dei sensi (看, 听): comprare non è un senso." }
+      { "t": "我买见票了。", "ok": false, "perche": "见 si usa dopo verbi dei sensi (看, 听): comprare non è un senso." }
     ] },
     { "q": "Dici che hai finito il libro. Quale frase?", "opzioni": [
       { "t": "我看完这本书了。", "ok": true, "perche": "完 dice che l'azione è arrivata alla fine." },
@@ -179,8 +179,7 @@ LESSON_RICH.zh["risultato"] = {
   ],
   "fonti": [
     "Chinese Grammar Wiki (AllSet Learning), pagina «Result complement»: struttura verbo + risultato, negazione con 没, 了 dopo il blocco, elenco dei risultati comuni (见, 到, 完, 错, 好)",
-    "Chinese Grammar Wiki (AllSet Learning), pagine sui risultati 完 e su 到 e 见: 见 dopo verbi dei sensi, 到 con verbi più vari",
-    "CC-CEDICT (voci 听懂, 找到, 看见, 写错, 准备好): significati dei composti",
-    "Tatoeba (corpus cinese, ricerca di frasi con 听不懂, 找到, 看完): conferma di forme e ordine dell'oggetto"
+    "CC-CEDICT (voci 听懂, 找到, 看见): significati dei composti, consultati nel dizionario locale",
+    "Tatoeba (corpus cinese, es. 对不起，我听不懂 · 我找到那把我一直在找的钥匙了 · 我看完電視就上床睡覺了): conferma di forme e ordine dell'oggetto, consultati nei corpora locali"
   ]
 };

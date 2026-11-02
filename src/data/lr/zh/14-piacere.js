@@ -18,8 +18,8 @@ LESSON_RICH.zh["piacere"] = {
       { "ok": true, "t": "**Soggetto = chi prova il piacere**: 我喜欢茶, 她喜欢你, 我们都喜欢这里. Il verbo non cambia con il numero: «mi piace il tè» e «mi piacciono i cani» sono entrambi 我喜欢…" },
       { "ok": true, "t": "**Dopo 喜欢 un nome o un'azione**: 我喜欢狗, 他喜欢做饭, 我喜欢在家看书, 她喜欢唱歌. Non serve «di» né un secondo verbo di collegamento: il verbo segue direttamente." },
       { "ok": true, "t": "**Il grado sta davanti**: 很喜欢 (molto), 非常喜欢, 特别喜欢, 比较喜欢 (abbastanza), 最喜欢 (più di tutto). Per attenuare un rifiuto si dice **不太喜欢** («non molto»), più morbido di 不喜欢." },
-      { "ok": true, "t": "**Negazione con 不**: 我不喜欢咖啡. Per «non mi è mai piaciuto» si usa 没 con 过: 我没喜欢过他." },
-      { "ok": true, "t": "**Domande**: 你喜欢茶吗？ oppure 你喜欢不喜欢茶？. Per scegliere: 你喜欢茶还是咖啡？ La risposta breve ripete il verbo: 喜欢 / 不喜欢." },
+      { "ok": true, "t": "**Negazione con 不**: 我不喜欢咖啡. Per «non mi è mai piaciuto» si usa 没 con 过, di solito rinforzato da 从来: 我从来没喜欢过他." },
+      { "ok": true, "t": "**Domande**: 你喜欢茶吗？ oppure 你喜欢不喜欢茶？ Per scegliere: 你喜欢茶还是咖啡？ La risposta breve ripete il verbo: 喜欢 / 不喜欢." },
       { "ok": true, "t": "**喜欢 + 的 per descrivere**: 我喜欢的颜色, 我最喜欢的歌: «il colore che mi piace», «la canzone che mi piace di più»." },
       { "ok": false, "t": "**Non si inverte** come in italiano: 茶喜欢我 vuol dire «il tè prova piacere per me». E il grado non va dopo: 我喜欢很茶 e 我喜欢茶很 sono errati." }
     ]
@@ -64,7 +64,7 @@ LESSON_RICH.zh["piacere"] = {
     ] },
     { "gruppo": "Chiedere e rispondere", "items": [
       { "t": "你喜欢茶还是咖啡？", "tr": "Ti piace di più il tè o il caffè?", "nota": "还是 offre due possibilità tra cui scegliere." },
-      { "t": "你喜欢不喜欢这个歌？", "tr": "Ti piace questa canzone?", "nota": "La forma 喜欢不喜欢 non vuole 吗." }
+      { "t": "你喜欢不喜欢这首歌？", "tr": "Ti piace questa canzone?", "nota": "La forma 喜欢不喜欢 non vuole 吗." }
     ] },
     { "gruppo": "Le persone e le cose che ci piacciono", "items": [
       { "t": "我最喜欢的颜色是蓝色。", "tr": "Il mio colore preferito è il blu." },
@@ -163,7 +163,7 @@ LESSON_RICH.zh["piacere"] = {
     ] },
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "她不太喜欢咖啡。", "opzioni": [
       { "t": "A lei il caffè non piace molto.", "ok": true, "perche": "不太 = «non molto»: un rifiuto morbido." },
-      { "t": "A lei il caffè non piace per niente.", "ok": false, "perche": "Il rifiuto totale sarebbe 一点儿也不喜欢 o 很不喜欢." },
+      { "t": "A lei il caffè non piace per niente.", "ok": false, "perche": "Il rifiuto totale si direbbe con 一点儿也不喜欢." },
       { "t": "A lei il caffè piace molto.", "ok": false, "perche": "Con 不太 la frase è negativa, non indica un gusto forte." }
     ] },
     { "k": "buco", "zh": "我＿喜欢意大利面。", "tr": "Mi piace moltissimo la pasta.", "opzioni": [
@@ -176,7 +176,7 @@ LESSON_RICH.zh["piacere"] = {
       { "t": "和", "ok": false, "perche": "和 unisce due elementi in un elenco («tè e caffè»), non chiede di scegliere." },
       { "t": "不", "ok": false, "perche": "不 nega: non crea un'alternativa." }
     ] },
-    { "k": "ordine", "t": "我最喜欢周末在家看电影", "tr": "Nel fine settimana ciò che preferisco è guardare un film a casa.", "alt": ["周末我最喜欢在家看电影"] },
+    { "k": "ordine", "t": "我最喜欢周末在家看电影", "tr": "Nel fine settimana ciò che preferisco è guardare un film a casa.", "alt": ["周末我最喜欢在家看电影", "我周末最喜欢在家看电影"] },
     { "k": "ordine", "t": "他不太喜欢吃辣的", "tr": "A lui non piace molto mangiare piccante." },
     { "k": "trasforma", "base": "我喜欢茶。", "consegna": "Di' che ti piace moltissimo: aggiungi un grado.", "accetta": ["我很喜欢茶。", "我非常喜欢茶。", "我特别喜欢茶。"], "rifiutate": [
       { "t": "我喜欢很茶。", "perche": "Il grado va prima del verbo, non davanti al nome." },
@@ -185,10 +185,10 @@ LESSON_RICH.zh["piacere"] = {
     { "k": "trasforma", "base": "我喜欢咖啡。", "consegna": "Di' che il caffè non ti piace.", "accetta": ["我不喜欢咖啡。"], "rifiutate": [
       { "t": "我没喜欢咖啡。", "perche": "没 nega un fatto accaduto; per un gusto si usa 不." }
     ], "perche": "La negazione di un sentimento è 不 + 喜欢." },
-    { "k": "trasforma", "base": "你喜欢这个电影。", "consegna": "Trasforma la frase in una domanda sì/no per un amico.", "accetta": ["你喜欢这个电影吗？", "你喜欢不喜欢这个电影？", "你喜欢这个电影吗?"], "rifiutate": [
+    { "k": "trasforma", "base": "你喜欢这个电影。", "consegna": "Trasforma la frase in una domanda sì/no per un amico.", "accetta": ["你喜欢这个电影吗？", "你喜欢不喜欢这个电影？", "你喜欢这个电影吗", "你喜欢这部电影吗？"], "rifiutate": [
       { "t": "你喜欢不喜欢这个电影吗？", "perche": "吗 e la forma «verbo + non + verbo» non si usano insieme." }
     ], "perche": "Per una domanda sì/no basta 吗 in fondo, oppure la forma 喜欢不喜欢 senza 吗." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Mi piace cucinare.»", "a": "我喜欢做饭。", "accetta": ["我喜欢做菜。", "我爱做饭。"], "perche": "喜欢 è seguito direttamente dal verbo: non serve nessuna particella." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Mi piace cucinare.»", "a": "我喜欢做饭。", "accetta": ["我喜欢做菜。", "我爱做饭。", "我喜欢煮饭。"], "perche": "喜欢 è seguito direttamente dal verbo: non serve nessuna particella." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Lei gli piace.» (lui prova piacere per lei)", "a": "他喜欢她。", "perche": "Chi prova il sentimento (lui) è il soggetto; chi lo ispira (lei) è l'oggetto." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Il mio colore preferito è il blu.»", "a": "我最喜欢的颜色是蓝色。", "accetta": ["我最喜欢蓝色。"], "perche": "最 va davanti a 喜欢 e 的 collega la descrizione a 颜色." },
     { "k": "minidialogo", "righe": [
@@ -212,8 +212,7 @@ LESSON_RICH.zh["piacere"] = {
     "Sai distinguere 喜欢, 想, 好吃 e 好喝: un gusto stabile, un desiderio del momento, il sapore di una cosa."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina sul confronto di base con 比 (usata per l'ordine degli elementi e degli avverbi nei verbi di stato)",
-    "elon.io, riferimento sui verbi cinesi, voce 喜欢 (grado davanti al verbo, oggetto verbale, forme interrogative)",
+    "elon.io, riferimento sui verbi cinesi, voce «xihuan, like» (grado davanti al verbo, 不太 come rifiuto morbido, 不 e non 没 per un gusto, oggetto nominale o verbale, 喜欢上)",
     "CC-CEDICT, voce 喜歡 / 喜欢 (to like; to be fond of) e Tatoeba (cinese, es. 我喜欢茶), consultati nei corpora locali"
   ]
 };

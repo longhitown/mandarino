@@ -16,7 +16,7 @@ LESSON_RICH.zh["bei"] = {
     "schema": ["chi subisce", "(没)", "被", "chi agisce", "verbo + 了 · risultato"],
     "punti": [
       { "ok": true, "t": "**Chi agisce si può tacere**: 我的钱包被偷了 («mi hanno rubato il portafoglio») non dice chi è stato; se si dice, sta tra 被 e il verbo: 钱包被小偷偷走了." },
-      { "ok": true, "t": "**Il verbo non è mai nudo**: dopo il verbo c'è 了, un risultato (打破, 吃完, 偷走) o una quantità (批评了一顿). Senza questo la frase resta sospesa." },
+      { "ok": true, "t": "**Il verbo di norma non resta nudo**: dopo il verbo c'è 了, un risultato (打破, 吃完, 偷走) o una quantità (批评了一顿). Senza questo la frase resta sospesa." },
       { "ok": true, "t": "**Negazione, avverbi e verbi modali stanno prima di 被**: 没被偷, 又被批评了, 会被偷, 不能被别人知道. Per il passato si usa 没 (anche 没有); 不 vale per il presente e per le regole generali." },
       { "ok": true, "t": "**Il tono è di solito spiacevole**: furto, rimprovero, danno, inganno. Con cose neutre o belle si usa 被 soprattutto nei contesti di cronaca o di annunci: 他被选为班长了, 她被老师表扬了." },
       { "ok": true, "t": "**Nel parlato esistono 让 e 叫**: 杯子让弟弟打破了, 他叫妈妈骂了一顿. Con 让 e 叫 chi agisce **va sempre detto**: la forma senza agente è solo di 被." },
@@ -42,7 +42,7 @@ LESSON_RICH.zh["bei"] = {
   "esempi": [
     { "gruppo": "Chi agisce non si dice", "items": [
       { "t": "我的钥匙被拿走了。", "tr": "Mi hanno preso le chiavi.", "nota": "Non c'è un agente: si dice solo che cosa è successo alle chiavi." },
-      { "t": "他的车被撞坏了。", "tr": "Gli hanno distrutto la macchina in un incidente." },
+      { "t": "他的车被撞坏了。", "tr": "La sua macchina è stata urtata e danneggiata." },
       { "t": "门被锁上了。", "tr": "La porta è stata chiusa a chiave.", "nota": "Fatto neutro: la frase informa su uno stato che qualcuno ha causato." }
     ] },
     { "gruppo": "Chi agisce si dice", "items": [
@@ -135,7 +135,7 @@ LESSON_RICH.zh["bei"] = {
   "curiosi": [
     { "titolo": "Il 被 di una volta: «ricevere»", "t": "被 è anche il carattere di «coperta, piumone» (被子), e come verbo antico significa «ricevere, subire»: chi è 被 qualcosa ne è coperto o colpito. Questo spiega il tono: la costruzione è nata per dire ciò che si riceve senza volerlo, quasi sempre un danno." },
     { "titolo": "Il passivo moderno e le traduzioni", "t": "Nel Novecento le traduzioni dalle lingue europee hanno esteso 被 anche a fatti neutri e positivi (被选为, 被评为, 被誉为), soprattutto nello scritto: giornali, comunicati, testi accademici. Nel parlato di tutti i giorni questi casi sono meno frequenti e si preferisce la frase attiva: 大家选他当班长." },
-    { "titolo": "被 più 给, 让 e 叫", "t": "Nel parlato compare anche 给 prima del verbo, per rinforzare l'evento: 杯子被他给打破了. Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了); nello scritto formale si trova la forma 为…所 (为人所知: «noto a tutti»), che nel parlato non compare." }
+    { "titolo": "被 più 给, 让 e 叫", "t": "Nel parlato compare anche 给 prima del verbo, per rinforzare l'evento: 杯子被他给打破了. Nel registro familiare 让 e 叫 sostituiscono 被 (杯子让他打破了); nello scritto formale si trova la forma 为…所 (为人所知: «noto alla gente»), che nel parlato non compare." }
   ],
   "pragmatica": "被 è la forma naturale per lamentarsi o per raccontare un guaio: 我的手机被偷了 si dice a un amico, a un poliziotto, al telefono. Chi vuole essere cortese con chi ha causato il danno lo evita e dice solo: 杯子打破了, 对不起. Con 让 e 叫 il tono è familiare e conversazionale.",
   "esercizi": [
@@ -151,15 +151,15 @@ LESSON_RICH.zh["bei"] = {
     ] },
     { "k": "ordine", "t": "我的钱包被偷了", "tr": "Mi hanno rubato il portafoglio." },
     { "k": "ordine", "t": "杯子被弟弟打破了", "tr": "Il bicchiere l'ha rotto mio fratello." },
-    { "k": "trasforma", "base": "弟弟吃了我的蛋糕。", "consegna": "Riscrivi la frase con la torta come soggetto, usando 被.", "accetta": ["我的蛋糕被弟弟吃了。", "我的蛋糕被弟弟吃掉了。", "我的蛋糕被弟弟吃完了。", "我的蛋糕让弟弟吃了。", "我的蛋糕叫弟弟吃了。"], "rifiutate": [
+    { "k": "trasforma", "base": "弟弟吃了我的蛋糕。", "consegna": "Riscrivi la frase con la torta come soggetto, usando 被.", "accetta": ["我的蛋糕被弟弟吃光了。", "我的蛋糕被弟弟吃了。", "我的蛋糕被弟弟吃掉了。", "我的蛋糕被弟弟吃完了。", "我的蛋糕让弟弟吃了。"], "rifiutate": [
       { "t": "我的蛋糕被弟弟吃。", "perche": "Il verbo è nudo: dopo 吃 serve 了 o un risultato." },
       { "t": "我的蛋糕弟弟被吃了。", "perche": "被 viene prima dell'agente: 被 + 弟弟 + verbo." }
     ], "perche": "La torta passa all'inizio e chi la mangia viene dopo 被." },
-    { "k": "trasforma", "base": "我的手机被偷了。", "consegna": "Dì che il telefono NON è stato rubato.", "accetta": ["我的手机没被偷。", "我的手机没有被偷。"], "rifiutate": [
+    { "k": "trasforma", "base": "我的手机被偷了。", "consegna": "Dì che il telefono NON è stato rubato.", "accetta": ["我的手机没被偷。", "我的手机没有被偷。", "我的手机没被人偷。"], "rifiutate": [
       { "t": "我的手机被没偷。", "perche": "La negazione non può stare dopo 被: va prima." }
     ], "perche": "没 e 没有 nel passato stanno davanti a 被." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Il mio bicchiere è stato rotto dal mio fratellino.»", "a": "我的杯子被弟弟打破了。", "accetta": ["我的杯子被弟弟打碎了。", "我的杯子让弟弟打破了。", "我的杯子叫弟弟打破了。", "我的杯子被我弟弟打破了。"], "perche": "Chi subisce, 被, chi agisce, verbo con il suo risultato (打破了)." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Ieri sono stato rimproverato dall'insegnante.»", "a": "我昨天被老师批评了。", "accetta": ["昨天我被老师批评了。", "我昨天被老师骂了。", "昨天我被老师骂了。"], "perche": "昨天 sta prima di 被, e dopo il verbo c'è 了." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Il mio bicchiere è stato rotto dal mio fratellino.»", "a": "我的杯子被弟弟打破了。", "accetta": ["我的杯子被弟弟打碎了。", "我的杯子让弟弟打破了。", "我的杯子被我弟弟打破了。", "我的杯子被弟弟打坏了。", "我的杯子被弟弟弄破了。"], "perche": "Chi subisce, 被, chi agisce, verbo con il suo risultato (打破了)." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Ieri sono stato rimproverato dall'insegnante.»", "a": "我昨天被老师批评了。", "accetta": ["昨天我被老师批评了。", "我昨天被老师骂了。", "昨天我被老师骂了。", "昨天我被老师批评了一顿。", "我昨天被老师批评了一顿。"], "perche": "昨天 sta prima di 被, e dopo il verbo c'è 了." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你的自行车呢？" },
       { "chi": "B", "t": "我的自行车＿偷了。", "buco": true }

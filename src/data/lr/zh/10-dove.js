@@ -9,7 +9,7 @@ LESSON_RICH.zh["dove"] = {
       { "t": "她住在北京。", "tr": "Abita a Pechino." }
     ],
     "domanda": "In tutte e quattro le frasi compare 在, ma non fa sempre lo stesso lavoro. Che cosa fa nella prima? Dove sta il luogo nella seconda e nella quarta, prima o dopo il verbo? E nella terza, 在 è seguito da un luogo?",
-    "risposta": "Nella prima 在 è **il verbo**: «essere (in un posto)». Nella seconda 在医院 sta **prima** del verbo 工作 e dice dove si svolge l'azione. Nella terza non c'è nessun luogo: 在 + verbo dice che l'azione è **in corso** («sta leggendo»). Nella quarta il luogo viene **dopo** il verbo, perché 住 appartiene a un piccolo gruppo di verbi (住, 放, 坐, 站, 写…) in cui il luogo è il punto d'arrivo dell'azione: 住在北京."
+    "risposta": "Nella prima 在 è **il verbo**: «essere (in un posto)». Nella seconda 在医院 sta **prima** del verbo 工作 e dice dove si svolge l'azione. Nella terza non c'è nessun luogo: 在 + verbo dice che l'azione è **in corso** («sta leggendo»). Nella quarta il luogo viene **dopo** il verbo, perché 住 appartiene a un piccolo gruppo di verbi (住, 放, 坐, 站, 写…) in cui il luogo è il punto d'arrivo dell'azione: 住在北京. (Con 住 si sente anche 在北京住, per esempio 他在北京住了三年.)"
   },
   "regola": {
     "enunciato": "在 ha tre impieghi legati dall'idea di «stare in un posto»: come **verbo** dice dove si trova qualcuno o qualcosa (我在家); come **preposizione** introduce il luogo dell'azione e va **prima del verbo** (我在家吃饭); davanti a un verbo, senza luogo, indica l'azione **in corso** (我在吃饭).",
@@ -19,14 +19,14 @@ LESSON_RICH.zh["dove"] = {
       { "ok": true, "t": "**在 + luogo prima del verbo**: 我在图书馆看书, 我们在北京学中文. L'ordine è chi, (quando), dove, che cosa fai." },
       { "ok": true, "t": "**La domanda**: 你在哪儿？ 你在哪里工作？ 哪里 e 哪儿 sono equivalenti; 哪儿 è più frequente nel parlato, 哪里 è un po' più neutro. La parola interrogativa sta dove starebbe il luogo." },
       { "ok": true, "t": "**Parole di luogo con i nomi comuni**: un nome di cosa vuole 上, 里 o 下 per fare un luogo (桌子上, 房间里, 椅子下面). I nomi propri e i luoghi come 家, 学校, 公司 non lo vogliono: 在学校, 在公司." },
-      { "ok": true, "t": "**在 + verbo = azione in corso**: 我在学中文, 他在打电话. Si può aggiungere un luogo: 他在家看电视. Per negare un'azione in corso si usa 没在 oppure 没: 我没在看电视." },
-      { "ok": true, "t": "**Alcuni verbi vogliono il luogo dopo**: 住在北京, 坐在椅子上, 放在桌子上, 站在门口, 写在黑板上. Qui 在 + luogo dice dove finisce o dove resta qualcosa." },
+      { "ok": true, "t": "**在 + verbo = azione in corso**: 我在学中文, 他在打电话. Si può aggiungere un luogo: 他在家看电视. Per negare un'azione in corso si mette 没 davanti a 在: 我没在看电视." },
+      { "ok": true, "t": "**Alcuni verbi vogliono il luogo dopo**: 住在北京, 坐在椅子上, 放在桌子上, 站在门口, 写在黑板上. Qui 在 + luogo dice dove finisce o dove resta qualcosa. Con 住 si trova anche l'ordine inverso (他在北京住了三年), ma 住在 + luogo è la forma di base." },
       { "ok": false, "t": "**Non si mette il luogo in fondo come in italiano**: 我吃饭在家 non si dice. E per dire dove sei non serve 是: 在 è già il verbo, quindi 我在家." }
     ]
   },
   "logica": [
     "In italiano il luogo dell'azione di solito sta in fondo: «mangio a casa», «lavoro in ospedale». In cinese, come per il tempo, ciò che inquadra l'azione viene **prima** del verbo: chi, quando, dove, e solo dopo che cosa fai. Il luogo è la scena in cui l'azione si svolge, e la scena si costruisce prima che l'attore entri in azione.",
-    "I verbi come 住, 放, 坐, 站 sembrano un'eccezione, ma hanno una logica loro. In 住在北京 il luogo non è la scena dell'azione: è dove l'azione **va a finire** o dove il soggetto **resta** (abito e quindi sto a Pechino). Il luogo è un risultato che segue il verbo, come 做完 (finire di fare). Per questo con questi verbi 在 cambia posto, anche se significa sempre «in». Con tutti gli altri verbi (工作, 吃, 学习, 看书) il luogo è solo lo sfondo e sta davanti.",
+    "I verbi come 住, 放, 坐, 站 sembrano un'eccezione, ma hanno una logica loro. In 住在北京 il luogo non è la scena dell'azione: è dove l'azione **va a finire** o dove il soggetto **resta** (abito e quindi sto a Pechino). Il luogo è un risultato che segue il verbo, come 做完 (finire di fare). Per questo con questi verbi 在 cambia posto, anche se significa sempre «in». Con tutti gli altri verbi (工作, 吃, 学习, 看书) il luogo è solo lo sfondo e sta davanti. (住 è il più flessibile del gruppo: accanto a 住在北京 si dice anche 在北京住.)",
     "L'italiano sa già distinguere «Dove sei?» (verbo di luogo) da «Dove lavori?» (azione in un luogo) grazie al verbo che cambia. In cinese è 在 a fare i due lavori. Per questo non c'è bisogno di 是: 在 è già il verbo. Se vuoi dire che qualcosa esiste in un posto, senza identificare la cosa, serve invece 有: 桌子上有一本书."
   ],
   "mappa": {
@@ -116,10 +116,10 @@ LESSON_RICH.zh["dove"] = {
         { "t": "Indica l'azione in corso.", "ok": false, "perche": "L'azione in corso è 我在看书: qui 在 è seguito da un verbo." },
         { "t": "Introduce il luogo di un'azione.", "ok": false, "perche": "Nella frase non c'è nessuna azione dopo il luogo." }
       ] },
-      { "q": "Perché B dice 坐在窗户旁边 e non 在窗户旁边坐?", "opzioni": [
-        { "t": "Perché con 坐 il luogo segue il verbo e dice dove si resta.", "ok": true, "perche": "坐, 住, 放, 站 portano il luogo dopo: 坐在…" },
-        { "t": "Perché la frase è al passato.", "ok": false, "perche": "Il cinese non cambia l'ordine con il tempo." },
-        { "t": "Perché 窗户旁边 non è un luogo.", "ok": false, "perche": "旁边 è una parola di luogo e funziona benissimo come luogo." }
+      { "q": "Che cosa mostra 坐在窗户旁边 (verbo + 在 + luogo)?", "opzioni": [
+        { "t": "Che con 坐 il luogo segue di norma il verbo e dice dove si resta.", "ok": true, "perche": "坐, 住, 放, 站 portano il luogo dopo: 坐在…" },
+        { "t": "Che la frase è al passato.", "ok": false, "perche": "Il cinese non cambia l'ordine con il tempo." },
+        { "t": "Che 窗户旁边 non è un luogo.", "ok": false, "perche": "旁边 è una parola di luogo e funziona benissimo come luogo." }
       ] }
     ]
   },
@@ -135,12 +135,12 @@ LESSON_RICH.zh["dove"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "Un carattere, tre impieghi", "t": "Il carattere 在 mostra una persona che «sta» in un luogo, ed è il significato di fondo che unisce i tre usi: essere in un posto (verbo), fare qualcosa in un posto (preposizione), stare facendo (azione in corso). Il passaggio da «stare in un luogo» a «stare facendo» si trova anche in italiano, dove «stare» è insieme verbo di posizione e verbo dell'azione in corso («sto leggendo»)." },
+    { "titolo": "Un carattere, tre impieghi", "t": "Il significato di fondo di 在 è «trovarsi, esserci», ed è ciò che unisce i tre usi: essere in un posto (verbo), fare qualcosa in un posto (preposizione), stare facendo (azione in corso). Il passaggio da «stare in un luogo» a «stare facendo» si trova anche in italiano, dove «stare» è insieme verbo di posizione e verbo dell'azione in corso («sto leggendo»)." },
     { "titolo": "哪儿 e 哪里", "t": "Le due forme hanno lo stesso significato. 哪儿 è la forma colloquiale, soprattutto al nord, con la finale -r che si sente nel parlato; 哪里 è la forma più neutra e compare anche nello scritto. Con 哪里 si risponde però anche in modo cortese a un complimento: 哪里哪里, «ma no, si figuri»." },
     { "titolo": "Il luogo con 上, 里, 下", "t": "In cinese un nome di cosa non è di per sé un luogo: 桌子 è «il tavolo», 桌子上 è «sul tavolo». Si aggiungono parole come 上, 里, 下, 旁边, 前面, 后面 che trasformano la cosa in un posto. I nomi di luogo veri e propri (家, 学校, 医院, 公司, 北京) fanno luogo da soli. Per questo 在家 e 在学校 non vogliono nessuna particella, mentre 在书里 e 在桌子上 li vogliono." },
     { "titolo": "在 e 有 e 是", "t": "Tre frasi sul luogo, tre ordini diversi. 我的书在桌子上 parte da una cosa nota e dice dove sta. 桌子上有一本书 parte dal luogo e annuncia che c'è qualcosa (di non ancora nominato). 这是我的桌子 identifica. Vale la regola: la cosa nota, in apertura, con 在; il luogo in apertura, con 有." }
   ],
-  "pragmatica": "你在哪儿？ è la domanda di ogni telefonata e di ogni messaggio: si risponde in poche parole (我在家, 我在路上, 我在公司). 我在 + verbo è invece il modo normale di dire che cosa stai facendo adesso (我在吃饭, 我在开会) e funziona anche come scusa gentile per dire che non puoi parlare. Le risposte con 住在 e 坐在 sono la base per dare il proprio indirizzo o indicare un posto a tavola.",
+  "pragmatica": "你在哪儿？ è la domanda di ogni telefonata e di ogni messaggio: si risponde in poche parole (我在家, 我在路上, 我在公司). 我在 + verbo è invece il modo normale di dire che cosa stai facendo adesso (我在吃饭, 我在开会) e serve a dire con garbo che sei occupato e non puoi parlare. Le risposte con 住在 e 坐在 sono la base per dare il proprio indirizzo o indicare un posto a tavola.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "我在家吃饭。", "opzioni": [
       { "t": "Mangio a casa.", "ok": true, "perche": "在家 è il luogo dell'azione, prima del verbo 吃饭." },
@@ -163,16 +163,16 @@ LESSON_RICH.zh["dove"] = {
       { "t": "了", "ok": false, "perche": "了 segna un fatto compiuto o un cambiamento, non un luogo." }
     ] },
     { "k": "ordine", "t": "她在医院工作", "tr": "Lavora in ospedale." },
-    { "k": "ordine", "t": "你在哪里工作", "tr": "Dove lavori?" },
+    { "k": "ordine", "t": "你在哪里工作", "tr": "Dove lavori?", "alt": ["你在哪儿工作"] },
     { "k": "ordine", "t": "我住在北京", "tr": "Abito a Pechino." },
     { "k": "trasforma", "base": "我吃饭在家。", "consegna": "Correggi la frase: metti il luogo dove deve stare.", "accetta": ["我在家吃饭。"], "rifiutate": [
       { "t": "我在吃饭家。", "perche": "在 + luogo va tutto prima del verbo; non si spezza il luogo." }
     ], "perche": "Il luogo dell'azione sta prima del verbo: 在家 + 吃饭." },
-    { "k": "trasforma", "base": "我在家吃饭。", "consegna": "Dì che non mangi a casa, ma in ufficio.", "accetta": ["我在公司吃饭。"], "rifiutate": [
+    { "k": "trasforma", "base": "我在家吃饭。", "consegna": "Cambia la frase: ora mangi in ufficio, non a casa.", "accetta": ["我在公司吃饭。", "我不在家吃饭，在公司吃饭。", "我不在家吃饭，我在公司吃饭。", "我不在家吃，在公司吃。"], "rifiutate": [
       { "t": "我吃饭在公司。", "perche": "Anche con un altro luogo, 在 + luogo resta prima del verbo." }
     ], "perche": "Cambia il luogo e l'ordine resta: chi + 在 + luogo + verbo." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Dove lavori?»", "a": "你在哪里工作？", "accetta": ["你在哪儿工作？", "你在哪里工作", "你在哪儿工作"], "perche": "哪里 sta dove starebbe il luogo, prima del verbo 工作." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Studiamo cinese a scuola.»", "a": "我们在学校学中文。", "accetta": ["我们在学校学习中文。"], "perche": "Il luogo dell'azione (在学校) sta prima del verbo." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Dove lavori?»", "a": "你在哪里工作？", "accetta": ["你在哪儿工作？", "你在哪里工作", "你在哪儿工作", "你在哪里上班？", "你在哪儿上班？"], "perche": "哪里 sta dove starebbe il luogo, prima del verbo 工作." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Studiamo cinese a scuola.»", "a": "我们在学校学中文。", "accetta": ["我们在学校学习中文。", "我们在学校学汉语。", "我们在学校学习汉语。"], "perche": "Il luogo dell'azione (在学校) sta prima del verbo." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你在哪儿工作？" },
       { "chi": "B", "t": "我＿银行工作。", "buco": true }
@@ -189,9 +189,9 @@ LESSON_RICH.zh["dove"] = {
     "Sai usare 住在, 坐在 e 放在 con il luogo dopo il verbo e chiedere dove con 哪儿 e 哪里."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Indicating location with zai before verbs»: ordine soggetto, 在 + luogo, verbo, oggetto e verbi di posizione con 在 dopo il verbo",
-    "Chinese Grammar Wiki (AllSet Learning), «Progressive aspect with zai»: 在 davanti al verbo per l'azione in corso",
-    "CC-CEDICT, voci 在, 住, 放, 哪儿, 哪里 per significati e usi",
-    "Tatoeba (cinese-italiano), corpus locale cmn-ita.tsv, per riscontrare l'ordine di 在 + luogo e verbo"
+    "Chinese Grammar Wiki (AllSet Learning), «Indicating location with zai before verbs»: soggetto + 在 + luogo + verbo; 上 e 里 per fare luogo di un nome comune",
+    "Chinese Grammar Wiki (AllSet Learning), «Special cases of zai following verbs»: 住, 放, 坐, 站 con 在 + luogo dopo il verbo",
+    "Tatoeba (cinese), corpus locale cmn.tsv: 他在法國住了一段時間, per l'ordine 在 + luogo + 住",
+    "CC-CEDICT, voci 在, 住, 放, 哪儿, 哪里, per significati e usi"
   ]
 };

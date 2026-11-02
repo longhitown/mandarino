@@ -17,7 +17,7 @@ LESSON_RICH.zh["paragoni"] = {
     "punti": [
       { "ok": true, "t": "**Ordine fisso**: A 比 B + aggettivo. Chi ha di più della qualità sta per primo: 北京的冬天比上海冷 (l'inverno di Pechino è più freddo). Il termine di paragone non ha «di» né «che»: 比 fa tutto da solo." },
       { "ok": false, "t": "**Niente 很, 非常, 太, 真 davanti all'aggettivo**: 他比我很高 è errato. L'aggettivo di una frase con 比 è nudo; il grado lo dà il confronto, e la differenza si dice dopo (高一点, 高多了)." },
-      { "ok": true, "t": "**«Ancora più» con 更 o 还**: 他比我更高, 他比我还高. Entrambe suppongono che anche B abbia già molto di quella qualità: «io sono alto, ma lui lo è ancora di più»." },
+      { "ok": true, "t": "**«Ancora più» con 更 o 还**: 他比我更高, 他比我还高. Aggiungono «ancora»: «io sono alto, ma lui lo è ancora di più». Con 还 il tono è spesso quello della sorpresa o del contrasto." },
       { "ok": true, "t": "**La differenza va dopo l'aggettivo**: 一点 (un po'), 一些, 多了 o 得多 (molto), oppure una misura: 高五厘米, 大三岁, 贵二十块. Davanti all'aggettivo non si mette nulla." },
       { "ok": true, "t": "**Per «non così … come»**: A 没有 B + aggettivo (我没有他高), oppure A 不如 B + aggettivo (这个不如那个好). La negazione non sta dopo 比: 我比他不高 è errato." },
       { "ok": true, "t": "**不比 nega il confronto**: 他不比我高 vuol dire «non è più alto di me», quindi può essere uguale o più basso. Si usa per correggere o contraddire qualcuno." },
@@ -60,7 +60,7 @@ LESSON_RICH.zh["paragoni"] = {
       { "t": "这本书比那本贵二十块。", "tr": "Questo libro costa venti yuan più di quello." }
     ] },
     { "gruppo": "Ancora più: 更 e 还", "items": [
-      { "t": "他已经很高了，他哥哥比他还高。", "tr": "Lui è già molto alto, ma suo fratello lo è ancora di più.", "nota": "还 e 更 sottintendono che anche B ha molto di quella qualità." },
+      { "t": "他已经很高了，他哥哥比他还高。", "tr": "Lui è già molto alto, ma suo fratello lo è ancora di più.", "nota": "还 e 更 dicono «ancora di più»: il confronto parte da una qualità che B ha già." },
       { "t": "夏天很热，可是今年比去年更热。", "tr": "L'estate è calda, ma quest'anno fa ancora più caldo dell'anno scorso." }
     ] },
     { "gruppo": "Non così … come, uguale", "items": [
@@ -121,7 +121,7 @@ LESSON_RICH.zh["paragoni"] = {
     "righe": [
       { "chi": "A", "t": "你看，这个手机比那个便宜。", "tr": "Guarda, questo telefono costa meno di quello." },
       { "chi": "B", "t": "可是那个比这个大。我喜欢大的。", "tr": "Ma quello è più grande di questo. A me piacciono quelli grandi." },
-      { "chi": "A", "t": "那个贵多少钱？", "tr": "Quello costa quanto di più?" },
+      { "chi": "A", "t": "那个比这个贵多少？", "tr": "Di quanto costa di più quello?" },
       { "chi": "B", "t": "那个比这个贵两百块。", "tr": "Quello costa duecento yuan più di questo." },
       { "chi": "A", "t": "两百块不少。这个没有那个大，可是很好用。", "tr": "Duecento non sono pochi. Questo non è grande come quello, ma è molto pratico." },
       { "chi": "B", "t": "好，我买这个吧。", "tr": "Va bene, prendo questo." }
@@ -159,7 +159,7 @@ LESSON_RICH.zh["paragoni"] = {
     { "titolo": "跟 … 比 e 比起: partire dal confronto", "t": "Si può mettere il confronto all'inizio: 跟去年比，今年冷多了 («rispetto all'anno scorso, quest'anno fa molto più freddo»). Nello scritto si trova anche 比起: 比起北京，上海更热闹. Servono quando vuoi presentare prima il termine di paragone." },
     { "titolo": "越来越: sempre più", "t": "Quando non c'è un secondo termine ma un cambiamento nel tempo, si usa 越来越 + aggettivo: 天气越来越冷 («fa sempre più freddo»). Non esiste 比 qui, perché il confronto è con lo stato di prima." }
   ],
-  "pragmatica": "Nel parlato 比 è diretto: 你比我会做饭 è un complimento che mette l'altro in alto. Per attenuare una differenza si dice 一点 invece di 多了: 这个比那个贵一点 suona più morbido. Parlando di se stessi o di persone presenti si preferiscono 没有 e 不如: 我没有你高, 我不如你 sono formule cortesi, mentre 你比我矮 detto in faccia è brusco. Nei negozi i venditori dicono 比别家便宜 («costa meno degli altri») e il cliente può rispondere 比别家贵 per ottenere un ribasso.",
+  "pragmatica": "Nel parlato 比 è diretto: 你比我会做饭 è un complimento che mette l'altro in alto. Per attenuare una differenza si dice 一点 invece di 多了: 这个比那个贵一点 suona più morbido. Parlando di se stessi o di persone presenti si preferiscono 没有 e 不如: 我没有你高, 我不如你 sono formule cortesi, mentre 你比我矮 detto in faccia è brusco. Nei negozi i venditori dicono 比别家便宜 («costa meno degli altri») e il cliente può obiettare 比别家贵 («costa più degli altri») per ottenere un ribasso.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "他比我高。", "opzioni": [
       { "t": "Lui è più alto di me.", "ok": true, "perche": "Chi è «più» sta per primo: 他 ha più altezza di 我." },
@@ -189,11 +189,11 @@ LESSON_RICH.zh["paragoni"] = {
     { "k": "trasforma", "base": "他比我高。", "consegna": "Aggiungi la differenza: cinque centimetri.", "accetta": ["他比我高五厘米。"], "rifiutate": [
       { "t": "他比我五厘米高。", "perche": "La misura viene dopo l'aggettivo." }
     ], "perche": "La differenza di misura si mette dopo l'aggettivo." },
-    { "k": "trasforma", "base": "他比我高。", "consegna": "Di' invece che tu non sei alto come lui.", "accetta": ["我没有他高。", "我不如他高。"], "rifiutate": [
+    { "k": "trasforma", "base": "他比我高。", "consegna": "Di' invece che tu non sei alto come lui.", "accetta": ["我没有他高。", "我不如他高。", "我没有他那么高。", "我没他高。"], "rifiutate": [
       { "t": "我比他不高。", "perche": "Dopo 比 l'aggettivo non si nega." }
     ], "perche": "Per «non così … come» si cambia struttura: 没有 o 不如." },
     { "k": "scrivi", "q": "Scrivi in cinese: «Il mio telefono è più nuovo del tuo.»", "a": "我的手机比你的新。", "accetta": ["我的手机比你的手机新。"], "perche": "比 tra i due telefoni e aggettivo nudo, senza 很." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Oggi fa molto più freddo di ieri.»", "a": "今天比昨天冷多了。", "accetta": ["今天比昨天冷得多。"], "perche": "多了 va dopo l'aggettivo e dice che la differenza è grande." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Oggi fa molto più freddo di ieri.»", "a": "今天比昨天冷多了。", "accetta": ["今天比昨天冷得多。", "今天比昨天冷很多。"], "perche": "多了 va dopo l'aggettivo e dice che la differenza è grande." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你们两个谁高？" },
       { "chi": "B", "t": "他＿我高，高很多。", "buco": true }
@@ -215,8 +215,7 @@ LESSON_RICH.zh["paragoni"] = {
     "Sai paragonare anche le azioni con 早, 多, 少 e con 跑得快."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Basic comparisons with bi»: ordine A 比 B + aggettivo, divieto di 很, uso di 更, 我比他不高 non corretto, 跟 … 一样 per l'uguaglianza",
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Comparing»: schema delle strutture di confronto (比, 没有, 一样, 更, 不比)",
+    "Chinese Grammar Wiki (AllSet Learning), «Basic comparisons with bi»: ordine A 比 B + aggettivo, divieto di 很, uso di 更, 我比他不高 non corretto, 跟 … 一样 per l'uguaglianza (non 比 con 一样)",
     "CC-CEDICT, voce 比 (to compare; more adj. than) e Tatoeba (cinese, es. 今天比昨天暖和, 你不比我矮, 我媽媽比我早起), consultati nei corpora locali"
   ]
 };

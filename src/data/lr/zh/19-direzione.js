@@ -17,16 +17,16 @@ LESSON_RICH.zh["direzione"] = {
     "punti": [
       { "ok": true, "t": "**来** si avvicina al punto di vista di chi parla, **去** si allontana: 进来 «entra (qui da me)», 进去 «entra (là)»; 出来, 出去; 回来, 回去; 上来, 上去; 下来, 下去; 过来 «vieni qui», 过去 «va' là»." },
       { "ok": true, "t": "**Il verbo di modo può precedere** la coppia: 走进来 «entra camminando», 跑出去 «esce di corsa», 飞回来 «torna in volo»." },
-      { "ok": true, "t": "**Il luogo sta in mezzo**: 进房间来, 走进教室来, 回家去, 回学校去, 上楼去, 下楼来. Il luogo si colloca sempre prima di 来/去; dopo non entra." },
+      { "ok": true, "t": "**Il luogo sta in mezzo**: 进房间来, 走进教室来, 回家去, 回学校去, 上楼去, 下楼来. Il luogo che fa da oggetto del verbo di direzione sta prima di 来/去; dopo non entra." },
       { "ok": false, "t": "**Il luogo non segue 来/去**: non si dice 回去家, 进来房间, 上去楼. Nella lingua parlata, quando il punto di vista è chiaro, si lascia cadere 来/去 e resta il verbo con il luogo: 回家, 进房间, 上楼." },
-      { "ok": true, "t": "**Con un oggetto** (non un luogo) di solito si inserisce tra le due parti: 带一本书来, 送你回家去. Se è breve può anche seguire: 带来了一杯茶." },
+      { "ok": true, "t": "**Con un oggetto** (non un luogo) la coppia può chiudere la frase dopo l'oggetto (带一本书来, 送你回家去) oppure l'oggetto può seguire la coppia, soprattutto per un fatto compiuto con 了: 带来了一杯茶." },
       { "ok": true, "t": "**了 chiude la frase**, dopo 来/去: 他回来了, 他回家去了, 老师走进教室来了. Il negativo di un fatto non avvenuto è 没(有): 他还没回来." },
       { "ok": true, "t": "**Inviti e divieti**: 请进来 (invito), 别进来 (divieto); 不 + verbo dice la volontà o l'abitudine: 我不出去 «non esco»." }
     ]
   },
   "logica": [
     "L'italiano distingue «venire» e «andare», «portare qui» e «portare via», ma quando dice «entra» o «torna» lascia la direzione in sospeso. Il cinese ha scelto di dirla sempre: dopo un verbo di movimento una piccola freccia, **来** o **去**, indica il punto da cui si guarda la scena. 进 «dentro», 出 «fuori», 回 «indietro», 上 «su», 下 «giù» raccontano il percorso; 来 e 去 dicono se il percorso va verso di te o lontano da te.",
-    "Il punto di vista è di solito quello di chi parla. Può però spostarsi: sul telefono si assume la posizione di chi ascolta (你什么时候回来？ chiede «quando torni da me?»), e in un racconto si assume quella dell'ambiente in cui si svolge la scena (老师走进教室来了 è raccontato dall'aula). Nel dubbio, chiediti «dove sono io con la testa in questa scena?»: se il movimento arriva lì, 来; se parte da lì, 去.",
+    "Il punto di vista è di solito quello di chi parla. Può però spostarsi: in un racconto si assume quello dell'ambiente in cui si svolge la scena (老师走进教室来了 è raccontato dall'aula), e chi va verso l'altro può mettersi con la testa nel luogo dell'altro (我马上来 «arrivo», detto da chi si muove). Nel dubbio, chiediti «dove sono io con la testa in questa scena?»: se il movimento arriva lì, 来; se parte da lì, 去.",
     "La struttura segue la stessa logica di una freccia posta in fondo: prima si dice il percorso con il suo luogo (进房间, 回家, 上楼), poi la freccia 来/去 lo orienta. Per questo il luogo non può stare dopo: la freccia chiude il blocco, come in «dentro la stanza, verso di me»."
   ],
   "mappa": {
@@ -50,7 +50,7 @@ LESSON_RICH.zh["direzione"] = {
     ] },
     { "gruppo": "Lontano da chi parla: 去", "items": [
       { "t": "他出去买东西了。", "tr": "È uscito a fare la spesa.", "nota": "Chi parla è rimasto dentro: lui si allontana." },
-      { "t": "我先上去，你们慢慢走。", "tr": "Io salgo per primo, voi venite con calma." },
+      { "t": "我先上去，你们慢慢来。", "tr": "Io salgo per primo, voi prendetevela con calma." },
       { "t": "外面下雨了，别出去。", "tr": "Fuori piove, non uscire." },
       { "t": "我马上过去，你在门口等我。", "tr": "Arrivo subito, aspettami all'ingresso.", "nota": "Chi si sposta dice 过去 quando vede il movimento dal suo punto di partenza." }
     ] },
@@ -146,12 +146,12 @@ LESSON_RICH.zh["direzione"] = {
     ]
   },
   "curiosi": [
-    { "titolo": "我回来了: il saluto di chi rientra", "t": "In molte famiglie chi rientra annuncia 我回来了！ e chi è in casa risponde 你回来了 oppure 欢迎回来. Si vede bene il punto di vista: chi arriva parla già dall'interno della casa e usa 来. È una formula quasi rituale, che si impara come un saluto, ed è la stessa frase che si dice rientrando in ufficio o in un negozio di cui si è il proprietario." },
-    { "titolo": "Entrata e uscita sul cartello", "t": "Alle porte di stazioni e parchi si leggono 入口 e 出口 («entrata» e «uscita»). Nella lingua parlata 进 e 出 sono i verbi usuali, mentre 入 compare soprattutto nello scritto e sui cartelli. Attenzione a 进口 e 出口 in senso commerciale: significano «importazione» e «esportazione», non «ingresso» e «uscita»." },
-    { "titolo": "过来 e 过去: attraversare il confine", "t": "过 è il verbo che indica un passaggio da un lato all'altro. 过来 è molto usato per chiamare qualcuno nel luogo in cui si è: 你过来 «vieni qui». 过去 invita a spostarsi verso un luogo più in là: 你过去看看 «vai a dare un'occhiata». Lo stesso 过去, se pronunciato come parola autonoma in una frase al passato, significa anche «il passato»: ma qui non c'è confusione, perché il contesto cambia." },
-    { "titolo": "Chi parla da una telefonata", "t": "Al telefono la posizione presa come riferimento è quella di chi ascolta se si parla di lui, e quella di chi parla se si parla di sé. Chi risponde «Arrivo!» dopo essere stato chiamato può dire 我马上过去 «mi muovo subito» (dal punto di vista di chi si muove) oppure 我马上来 «arrivo» (con la testa già nel luogo di chi chiama). Sono due modi di guardare la stessa scena, e tutti e due si ascoltano." }
+    { "titolo": "我回来了: il saluto di chi rientra", "t": "In molte famiglie chi rientra annuncia 我回来了！ e chi è in casa risponde 你回来了 oppure 欢迎回来. Si vede bene il punto di vista: chi arriva parla già dall'interno della casa e usa 来. È una formula quasi rituale, che si impara come un saluto. Si dice soprattutto rientrando a casa." },
+    { "titolo": "Entrata e uscita sul cartello", "t": "Alle porte di stazioni e parchi si leggono 入口 e 出口 («entrata» e «uscita»). Nella lingua parlata 进 e 出 sono i verbi usuali, mentre 入 compare soprattutto nello scritto e sui cartelli. Attenzione a 出口: indica l'«uscita» ma anche l'«esportazione», e 进口 di solito significa «importazione»; il contesto decide." },
+    { "titolo": "过来 e 过去: attraversare il confine", "t": "过 è il verbo che indica un passaggio da un lato all'altro. 过来 è molto usato per chiamare qualcuno nel luogo in cui si è: 你过来 «vieni qui». 过去 invita a spostarsi verso un luogo più in là: 你过去看看 «vai a dare un'occhiata». Come parola a sé, 过去 significa anche «il passato» (过去的事 «cose passate»): il contesto fa capire quale dei due sensi è in gioco." },
+    { "titolo": "«Arrivo!»: 过去 o 来", "t": "Chi risponde «Arrivo!» dopo essere stato chiamato può dire 我马上过去 «mi muovo subito» (dal punto di vista di chi si muove) oppure 我马上来 «arrivo» (con la testa già nel luogo di chi chiama). Sono due modi di guardare la stessa scena, e tutti e due si ascoltano." }
   ],
-  "pragmatica": "Con 请 le frasi diventano gentili (请进来, 请上来) e con 吧 diventano inviti morbidi (你进来吧). Senza né l'uno né l'altro suonano come ordini secchi (你出去！), normali tra amici o con un bambino, ma duri con un estraneo. Il divieto più cortese è 请别进来 o 请不要进来. Nel parlato 来/去 si omette spesso quando il contesto è chiaro (回家, 上楼, 进来), ma se manca il luogo la freccia resta: 回来, 出去.",
+  "pragmatica": "Con 请 le frasi diventano gentili (请进来, 请上来) e con 吧 diventano inviti morbidi (你进来吧). Senza né l'uno né l'altro suonano come ordini secchi (你出去！), accettabili tra amici o con un bambino, ma duri con un estraneo. Il divieto più cortese è 请别进来 o 请不要进来. Nel parlato 来/去 si omette spesso quando il contesto è chiaro (回家, 上楼, 进来), ma se manca il luogo la freccia resta: 回来, 出去.",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "你上来吧。", "opzioni": [
       { "t": "Sali da me.", "ok": true, "perche": "上 dice «su» e 来 dice che il movimento arriva verso chi parla." },
@@ -204,8 +204,8 @@ LESSON_RICH.zh["direzione"] = {
     "Sai raccontare chi entra, esce o torna con 了 e con un verbo di modo (跑出去, 走进来)."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来 e 去 secondo il punto di vista, 把 + direzione, nessun luogo dopo 回来/回去",
-    "HSK Lord, «Compound Directional Complements»: luogo tra la direzione e 来/去 (走进教室来), posizione di 了",
-    "CC-CEDICT, voci 进来, 出去, 回来, 过来, 过去, 入口, 出口 e Tatoeba (cinese-italiano, es. 进来！, 我能进来吗？, 你明天出去吗？, 我需要你回家去)"
+    "Chinese Grammar Wiki (AllSet Learning), «Direction complement»: 来 e 去 secondo la posizione di chi parla, luogo prima di 来/去 (回中国来, non 回来中国), omissione di 来/去 nel parlato",
+    "CC-CEDICT, voci 进来, 出去, 回来, 过来, 过去, 入口, 出口 (uscita, esportazione), 进口 (importazione, ingresso)",
+    "Tatoeba (corpus locale cmn.tsv): 进来！, 我能进来吗, 你明天出去吗, 我需要你回家去, 不久派对完结，大家也都回家去了"
   ]
 };

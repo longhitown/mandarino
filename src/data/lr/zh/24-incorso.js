@@ -18,7 +18,7 @@ LESSON_RICH.zh["incorso"] = {
       { "ok": true, "t": "**在** è la forma di tutti i giorni: 我在吃饭, 你在做什么？ **正在** è più esplicita: dice che l'azione è in corso proprio ora, e si sente spesso nel racconto e nei contesti più formali: 他正在开会。" },
       { "ok": true, "t": "**呢** in fondo dà alla frase il tono di «sto facendo proprio adesso» ed è facoltativa: 我在看书呢. Nel parlato 呢 può restare da sola, quando il contesto è chiaro: 他睡觉呢, 妈妈做饭呢." },
       { "ok": true, "t": "**Il momento viene dal contesto**: 昨天你打电话的时候，我正在洗澡 («ieri, quando hai telefonato, stavo facendo la doccia»); 明天八点我在上课 («domani alle otto sarò a lezione»)." },
-      { "ok": true, "t": "**Negazione con 没**: 我没在看电视, 他没在做饭, e sempre senza 了. Una frase negativa non prende 正在: si dice 没在, non 没正在." },
+      { "ok": true, "t": "**Negazione con 没**: 我没在看电视, 他没在做饭, e sempre senza 了. Una frase negativa non prende 正在: si dice 没在, non 没正在. Si sente anche 不在 + verbo, ma 没在 è la forma di gran lunga più comune e senza ambiguità (不在 si legge facilmente come «non essere in un luogo»)." },
       { "ok": true, "t": "**Doppio 在**: 他在家 («è a casa») usa 在 come verbo di luogo; 他在吃饭 usa 在 come segnale di azione in corso; 他在家吃饭 dice di solito «mangia a casa» (luogo + verbo); con 呢 in fondo, 他在家吃饭呢, diventa «sta mangiando a casa»." },
       { "ok": false, "t": "**Non per verbi di stato o di cognizione**: 是, 有, 喜欢, 知道, 像, 懂 non si dicono con 在: 我知道答案, mai 我在知道答案. E non si aggiunge 了 per dire «sto mangiando»: 我吃饭了 vuol dire «ho mangiato»." }
     ]
@@ -76,7 +76,7 @@ LESSON_RICH.zh["incorso"] = {
     ] },
     { "q": "Come dici «Non sto guardando la TV»?", "opzioni": [
       { "t": "我没在看电视。", "ok": true, "perche": "Il progressivo si nega con 没在." },
-      { "t": "我不在看电视。", "ok": false, "perche": "不在 si legge come «non essere in un luogo»; per negare l'azione in corso serve 没." }
+      { "t": "我不看电视。", "ok": false, "perche": "不 + verbo nega un'abitudine o una volontà («non guardo la TV»), non un'azione in corso adesso: il progressivo si nega con 没在." }
     ] },
     { "q": "«Ieri, quando mi hai telefonato, stavo facendo la doccia.» Quale frase?", "opzioni": [
       { "t": "昨天你给我打电话的时候，我正在洗澡。", "ok": true, "perche": "Il progressivo funziona anche nel passato: il momento lo dice 昨天…的时候." },
@@ -129,8 +129,8 @@ LESSON_RICH.zh["incorso"] = {
     ]
   },
   "tranello": {
-    "errore": "Chi studia il cinese nega il progressivo con 不 (我不在看电视), mette 正在 dopo 没 (我没正在吃饭), usa 在 con verbi di cognizione (我在知道答案) e mette 在 dopo l'oggetto (你做什么在).",
-    "perche": "In italiano la negazione del progressivo è sempre «non» («non sto guardando»), quindi si cerca un 不. In cinese 不 nega la volontà o un fatto abituale; per un'azione non in corso si usa 没. Il sistema è: 在 è un segnale che sta prima del verbo, e vale per le azioni che si svolgono nel tempo, non per gli stati.",
+    "errore": "Chi studia il cinese nega il progressivo con 不 (我不在看电视, forma poco usata e ambigua), mette 正在 dopo 没 (我没正在吃饭), usa 在 con verbi di cognizione (我在知道答案) e mette 在 dopo l'oggetto (你做什么在).",
+    "perche": "In italiano la negazione del progressivo è sempre «non» («non sto guardando»), quindi si cerca un 不. In cinese 不 nega la volontà o un fatto abituale; per un'azione non in corso la forma normale è 没. Il sistema è: 在 è un segnale che sta prima del verbo, e vale per le azioni che si svolgono nel tempo, non per gli stati.",
     "esci": "Prima di scrivere chiediti: quest'azione si svolge nel tempo (mangiare, leggere, parlare)? Allora 在 prima del verbo. Se la nego, uso 没在. Se il verbo è uno stato (sapere, essere, piacere), non uso 在.",
     "esempi": [
       { "sbagliata": "我不在看电视。", "giusta": "我没在看电视。" },
@@ -144,7 +144,7 @@ LESSON_RICH.zh["incorso"] = {
     { "titolo": "呢, una particella con più lavori", "t": "Il dizionario CC-CEDICT registra per 呢 più usi: nelle domande di rimando («e tu?» 你呢？), per dire che una situazione continua ancora, e per segnare una breve pausa o un'enfasi. L'uso di questa lezione è il secondo: l'azione c'è ancora, adesso." },
     { "titolo": "Progressivo e abitudine", "t": "我在学中文 può dire che stai studiando in questo momento, ma anche in questo periodo («in questi mesi studio cinese»), come in italiano «sto studiando cinese». Se vuoi essere sicuro del «proprio adesso» aggiungi 正 o 现在: 我现在正在学中文呢." }
   ],
-  "pragmatica": "Nel parlato si usa 在 e 呢, con tono morbido: 你在做什么呢？ è la domanda naturale a un amico, e 在忙呢 («sto facendo una cosa») è la risposta che avverte che non hai tempo. 正在 è più marcato: si sente in un racconto o per precisare un momento («proprio ora»). Con 没在 si risponde con tono diretto, ma senza durezza: 没在做什么 vuol dire «niente di particolare».",
+  "pragmatica": "Nel parlato si usa 在 e 呢, con tono morbido: 你在做什么呢？ è la domanda naturale a un amico, e 在忙呢 («sono occupato») è la risposta che avverte che non hai tempo. 正在 è più marcato: si sente in un racconto o per precisare un momento («proprio ora»). Con 没在 si risponde con tono diretto, ma senza durezza: 没在做什么 vuol dire «niente di particolare».",
   "esercizi": [
     { "k": "scegli", "q": "Che cosa vuol dire?", "zh": "妈妈在做饭呢。", "opzioni": [
       { "t": "La mamma sta cucinando.", "ok": true, "perche": "在 + verbo + 呢: azione in corso." },
@@ -159,11 +159,11 @@ LESSON_RICH.zh["incorso"] = {
     { "k": "buco", "zh": "我＿在洗澡，等一下。", "tr": "Sto facendo la doccia, aspetta un momento.", "opzioni": [
       { "t": "正", "ok": true, "perche": "正在 insiste sul «proprio adesso»." },
       { "t": "没", "ok": false, "perche": "没在 sarebbe «non sto» e contraddice la frase." },
-      { "t": "不", "ok": false, "perche": "不在 vuol dire «non essere in un luogo»." }
+      { "t": "不", "ok": false, "perche": "不在洗澡 direbbe «non sto facendo la doccia» e contraddice la frase." }
     ] },
     { "k": "buco", "zh": "我＿在看电视，我在看书。", "tr": "Non sto guardando la TV, sto leggendo.", "opzioni": [
       { "t": "没", "ok": true, "perche": "Il progressivo si nega con 没在." },
-      { "t": "不", "ok": false, "perche": "不在 non nega l'azione in corso." },
+      { "t": "还", "ok": false, "perche": "还在 dice che l'azione continua: affermerebbe il contrario." },
       { "t": "正", "ok": false, "perche": "正在 affermerebbe il contrario: sto guardando la TV." }
     ] },
     { "k": "ordine", "t": "你在做什么呢", "tr": "Che cosa stai facendo?" },
@@ -172,17 +172,17 @@ LESSON_RICH.zh["incorso"] = {
       { "t": "我吃饭了。", "perche": "吃饭了 dice che hai mangiato, non che stai mangiando." }
     ], "perche": "在 prima del verbo e 呢 in fondo danno il tono di «sto facendo adesso»." },
     { "k": "trasforma", "base": "他在看书。", "consegna": "Di' che lui non sta leggendo.", "accetta": ["他没在看书。", "他没有在看书。"], "rifiutate": [
-      { "t": "他不在看书。", "perche": "不在 si legge come «non è in un luogo»: l'azione in corso si nega con 没." }
+      { "t": "他没正在看书。", "perche": "正在 non si nega: si dice 没在, senza 正." }
     ], "perche": "没(有)在 + verbo è la negazione del progressivo." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Che cosa stai facendo?»", "a": "你在做什么呢？", "accetta": ["你在做什么？", "你在干什么呢？", "你正在做什么呢？", "你在做什么呢"], "perche": "在 prima del verbo; 呢 in fondo rende la domanda morbida." },
-    { "k": "scrivi", "q": "Scrivi in cinese: «Mia madre sta cucinando.»", "a": "妈妈在做饭呢。", "accetta": ["我妈妈在做饭呢。", "妈妈正在做饭。", "妈妈在做饭。", "妈妈正在做饭呢。"], "perche": "在 o 正在 prima del verbo; 呢 in fondo è facoltativa." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Che cosa stai facendo?»", "a": "你在做什么呢？", "accetta": ["你在做什么？", "你在干什么呢？", "你正在做什么呢？", "你现在在做什么呢？"], "perche": "在 prima del verbo; 呢 in fondo rende la domanda morbida." },
+    { "k": "scrivi", "q": "Scrivi in cinese: «Mia madre sta cucinando.»", "a": "妈妈在做饭呢。", "accetta": ["我妈妈在做饭呢。", "妈妈正在做饭。", "妈妈在做饭。", "我妈妈正在做饭呢。", "我妈妈在做饭。"], "perche": "在 o 正在 prima del verbo; 呢 in fondo è facoltativa." },
     { "k": "minidialogo", "righe": [
       { "chi": "A", "t": "你在看电视吗？" },
       { "chi": "B", "t": "没有，我＿在写作业呢。", "buco": true }
     ], "opzioni": [
       { "t": "正", "ok": true, "perche": "正在 + 呢: sto facendo i compiti proprio ora." },
       { "t": "没", "ok": false, "perche": "没在 nega: B dice invece che sta scrivendo." },
-      { "t": "不", "ok": false, "perche": "不在 non esprime il progressivo." }
+      { "t": "不", "ok": false, "perche": "不在 direbbe «non sto» e contraddice B, che dice di stare facendo i compiti." }
     ] },
     { "k": "scegli", "q": "Quale frase dice con certezza che lui sta mangiando in questo momento?", "opzioni": [
       { "t": "他在吃饭呢。", "ok": true, "perche": "在 + verbo + 呢: azione in corso adesso." },
@@ -197,9 +197,9 @@ LESSON_RICH.zh["incorso"] = {
     "Sai usare il progressivo nel passato e nel futuro, e distinguerlo da 了 e 着."
   ],
   "fonti": [
-    "tongtong.app, «正在 / 在 / 正: three ways to say -ing in Chinese»: 在 forma neutra, 正在 più enfatico, 呢 in fondo, negazione con 没在",
-    "Mango Languages, «How to use the aspectual particles zhe and zai»: 在 con verbi d'azione, 在 contro 着, negazione con 没",
-    "Tatoeba (cmn.tsv), frasi con 正在 e 没在 consultate: 目前我没在做什么事情, 你没在吃任何东西, 我现在忙着呢",
+    "Flexi Classes, Chinese Grammar Bank, «How to use 正在»: 正在 per l'azione in corso adesso, 在 più comune nel quotidiano, schema soggetto + 正在 + verbo + oggetto (老板正在开会)",
+    "Mango Languages, «How to use the aspectual particles zhe and zai in Mandarin Chinese»: 在 prima del verbo e solo con verbi d'azione, 正在 non si usa nelle frasi negative, la negazione davanti a 在 è 没 (più comune) o 不",
+    "Tatoeba (cmn.tsv), frasi con 正在 e 没在 consultate: 目前我没在做什么事情, 你没在吃任何东西, 会议室正在使用中",
     "CC-CEDICT, voci 正在 e 呢: significato di «essere in corso di» e usi della particella"
   ]
 };

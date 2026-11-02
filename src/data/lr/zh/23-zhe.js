@@ -12,15 +12,15 @@ LESSON_RICH.zh["zhe"] = {
     "risposta": "门开了 racconta un **evento** (la porta si è aperta, ora è aperta), 门开着 descrive uno **stato** che dura (la porta è lì, aperta). Nella seconda frase il **luogo viene per primo** (墙上), poi verbo + 着, poi la cosa che si trova lì (一张画): è la formula per descrivere una scena. Nella terza, 笑着 non è un'azione separata: dice **in che modo** si fa 说 (sorridendo)."
   },
   "regola": {
-    "enunciato": "**着** si mette subito dopo un verbo (o un aggettivo di posizione) e dice che la condizione creata dal verbo **continua**: 门开着, 他坐着, 她穿着红裙子. Serve a descrivere una scena, a dare un ordine di «restare così» e a dire in che modo si fa una seconda azione. Non conta il tempo: conta che lo stato duri.",
+    "enunciato": "**着** si mette subito dopo un verbo e dice che la condizione creata dal verbo **continua**: 门开着, 他坐着, 她穿着红裙子. Serve a descrivere una scena, a dare un ordine di «restare così» e a dire in che modo si fa una seconda azione. Non conta il tempo: conta che lo stato duri.",
     "schema": ["luogo / chi", "verbo", "着", "(cosa)", "(verbo 2)"],
     "punti": [
-      { "ok": true, "t": "**Stato che dura**: dopo verbi di posizione e di aspetto (坐, 站, 躺, 开, 关, 亮, 挂, 放, 穿, 戴, 拿) 着 descrive il risultato che resta: 门开着, 灯亮着, 他躺着, 她穿着红裙子, 他手里拿着一杯咖啡." },
+      { "ok": true, "t": "**Stato che dura**: dopo verbi di posizione, di stato e di abbigliamento (坐, 站, 躺, 开, 关, 亮, 挂, 放, 穿, 戴, 拿) 着 descrive il risultato che resta: 门开着, 灯亮着, 他躺着, 她穿着红裙子, 他手里拿着一杯咖啡." },
       { "ok": true, "t": "**Scena con luogo**: luogo + verbo + 着 + cosa dice che cosa si trova lì: 桌子上放着一本书, 门口站着一个人, 黑板上写着今天的作业. Chi guarda vede la scena; non dice chi ha messo il libro o quando." },
       { "ok": true, "t": "**Verbo 1 + 着 + verbo 2**: il primo verbo è il modo o la postura in cui si compie il secondo: 他笑着说, 她躺着看书, 我们走着去, 我站着等车." },
       { "ok": true, "t": "**Ordini e richieste**: 着 dice di restare in quella condizione: 你等着, 你拿着这个, 听着, 你坐着，别动." },
       { "ok": true, "t": "**Negazione con 没**: 灯没亮着, 门没开着. Il divieto di restare così si fa con 别: 别站着, 坐吧." },
-      { "ok": false, "t": "**Non si usa con un verbo che non crea uno stato**: 忘, 死, 到, 是, 知道. Si dice 我忘了, mai 我忘着. E sullo stesso verbo si sceglie: 开了 (evento) oppure 开着 (stato), non 开了着." }
+      { "ok": false, "t": "**Non si usa con un verbo che non crea uno stato**: 忘, 死, 到, 是, 知道. Si dice 我忘了, non 我忘着. E sullo stesso verbo si sceglie: 开了 (evento) oppure 开着 (stato), non 开了着." }
     ]
   },
   "logica": [
@@ -78,7 +78,7 @@ LESSON_RICH.zh["zhe"] = {
     ] },
     { "q": "Come dici «La porta non è aperta»?", "opzioni": [
       { "t": "门没开着。", "ok": true, "perche": "Lo stato con 着 si nega con 没." },
-      { "t": "门不开着。", "ok": false, "perche": "不 nega volontà o abitudine, e davanti a un verbo con 着 non si usa: la negazione dello stato è 没." }
+      { "t": "门不开着。", "ok": false, "perche": "不 nega volontà o abitudine; per dire che uno stato presente non c'è, la forma normale è 没 (门没开着)." }
     ] },
     { "q": "Come dici «Andiamo a piedi»?", "opzioni": [
       { "t": "我们走着去吧。", "ok": true, "perche": "Verbo 1 (走着) = il modo, poi verbo 2 (去): si va camminando." },
@@ -109,7 +109,7 @@ LESSON_RICH.zh["zhe"] = {
     "titolo": "Ti aspetto in ufficio",
     "righe": [
       { "chi": "A", "t": "你到哪儿了？我在门口等着你呢。", "tr": "A che punto sei? Ti sto aspettando alla porta." },
-      { "chi": "B", "t": "我到了。门开着吗？", "tr": "Sono arrivato. La porta è aperta?" },
+      { "chi": "B", "t": "我快到了。门开着吗？", "tr": "Sto per arrivare. La porta è aperta?" },
       { "chi": "A", "t": "开着。老师在里面坐着，桌子上放着你的书。", "tr": "È aperta. L'insegnante è seduto là dentro, e sul tavolo c'è il tuo libro." },
       { "chi": "B", "t": "他手里拿着什么？", "tr": "Che cosa ha in mano?" },
       { "chi": "A", "t": "他拿着一杯咖啡，笑着看你。", "tr": "Ha una tazza di caffè e ti guarda sorridendo." }
@@ -144,7 +144,7 @@ LESSON_RICH.zh["zhe"] = {
   },
   "curiosi": [
     { "titolo": "Un carattere, quattro letture", "t": "Nel dizionario CC-CEDICT 着 ha quattro letture: zhe (la particella di questa lezione, con tono neutro), zháo («toccare, prendere fuoco», in 睡着 «addormentarsi»), zhāo («mossa»), zhuó («indossare»). Per questo 他睡着了 non è «sta dormendo» ma «si è addormentato», con 着 pronunciato zháo. E nella scrittura tradizionale la particella si scrive 著." },
-    { "titolo": "Lo stato e il contatto", "t": "Nello stesso dizionario le altre letture di 着 hanno a che fare con il contatto (zháo «toccare, entrare in contatto», zhuó «indossare, applicare»). È un buon modo per ricordare l'idea della particella: la cosa è messa in una posizione e ci rimane, a contatto con essa. Per questo 着 si trova così bene con i verbi di posizione e di abbigliamento." },
+    { "titolo": "Lo stato e il contatto", "t": "Nello stesso dizionario le altre letture di 着 hanno a che fare con il contatto (zháo «toccare, entrare in contatto», zhuó «indossare, applicare»). Come aiuto mnemonico (non come etimologia) si può ricordare l'idea della particella così: la cosa è messa in una posizione e ci rimane, a contatto con essa. Per questo 着 si trova così bene con i verbi di posizione e di abbigliamento." },
     { "titolo": "着呢: un tocco in più", "t": "Alla fine della frase 着呢 aggiunge enfasi e un tocco di «e come!»: 时间还早着呢 («è ancora prestissimo»), 我弟弟还睡着呢 («mio fratello dorme ancora»). È una forma del parlato." },
     { "titolo": "Quando preferire 一边…一边", "t": "Verbo 1 + 着 + verbo 2 vale quando il primo verbo è uno stato o una postura (坐着, 站着, 笑着). Per due azioni che si svolgono insieme si usa 一边…一边: 一边走一边说 («cammino e parlo»)." }
   ],
@@ -201,9 +201,9 @@ LESSON_RICH.zh["zhe"] = {
     "Sai scegliere tra 着 (stato), 了 (evento) e 在 (azione in corso), e negare lo stato con 没."
   ],
   "fonti": [
-    "Chinese Grammar Wiki (AllSet Learning), pagina «Aspect particle zhe»: 着 con verbi di stato, verbo 1 + 着 + verbo 2, ordini come 你们等着, esempi 门开着 e 她穿着",
-    "Mango Languages, «How to use the aspectual particles zhe and zai»: 着 con verbi di stato contro 在 con azioni in corso, costruzione luogo + verbo + 着 + cosa, 穿 e 拿 con 着 o con 在, verbi come 忘 che prendono solo 了",
-    "Tatoeba (cmn.tsv), esempi consultati: 书架上放着很多字典, 这个位子空着吗, 他闭着眼, 我弟弟还睡着呢, 时间还早着呢, 她终于睡着了",
+    "Mango Languages, «How to use the aspectual particles zhe and zai in Mandarin Chinese»: 着 per lo stato contro 在 per l'azione in corso, 穿着 contro 在穿, 拿着 contro 在拿, 忘 che prende solo 了, esempi di luogo + verbo + 着 + cosa",
+    "Chinese Grammar Wiki (AllSet Learning), pagina «Aspect particle»: i due schemi verbo + 着 e verbo + 着 + verbo (la pagina dedicata a 着 è solo un abbozzo)",
+    "Tatoeba (cmn.tsv), esempi consultati: 书架上放着很多字典, 这个位子空着吗, 他闭着眼, 我弟弟还睡着呢, 时间还早着呢, 她终于睡着了, 我现在忙着呢",
     "CC-CEDICT, voci 着 e 著: letture zhe5, zhao2, zhao1, zhuo2"
   ]
 };
