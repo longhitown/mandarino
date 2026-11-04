@@ -1,8 +1,13 @@
 # Il motore del ripasso di màndarínō
 
-màndarínō decide quando riproporti una parola con **FSRS-6 esteso con ML-FSRS-32**. FSRS-6 è un algoritmo di ripetizione dilazionata molto diffuso e già provato su milioni di ripassi reali. ML-FSRS-32 ci aggiunge undici parametri pensati per le difficoltà del cinese per chi parla italiano. Tutto gira sul tuo telefono o sul tuo computer: nessun dato di studio lascia il dispositivo (vedi [Privacy](../PRIVACY.md)).
+màndarínō decide quando riproporti una parola con **FSRS-6**, un algoritmo di ripetizione dilazionata solido, pubblicato e già provato dalla comunità di Open Spaced Repetition su milioni di ripassi reali. Sopra FSRS-6 abbiamo aggiunto **modifiche sperimentali**, chiamate ML-FSRS-32: undici parametri pensati per le difficoltà del cinese per chi parla italiano. Tutto gira sul tuo telefono o sul tuo computer: nessun dato di studio lascia il dispositivo (vedi [Privacy](../PRIVACY.md)).
 
-Questa pagina dice che cosa fa il motore, che cosa è già attivo, quanto ci si può fidare dei numeri e a chi appartiene il lavoro.
+**In breve, senza giri di parole**
+- FSRS-6 è la parte solida. Le modifiche sperimentali **potrebbero** migliorare i ripassi, ma non sono provate su studenti veri: le abbiamo provate soltanto con simulazioni, e le simulazioni sono sintetiche.
+- Un terzo livello, **ML-FSRS-NET**, oggi è soltanto in *modalità ombra*: osserva i ripassi sul tuo dispositivo e misura se avrebbe previsto meglio, ma **non decide mai** un intervallo e non invia nulla.
+- Per sapere se le modifiche funzionano ci affidiamo alla community: la ricerca sulla memoria è **volontaria**, spenta di base, con consenso (opt-in) e revoca (opt-out) sempre disponibili. Niente viene tracciato automaticamente.
+
+Questa pagina dice che cosa fa il motore, che cosa è già attivo, che cosa abbiamo simulato e che cosa no, quanto ci si può fidare dei numeri e a chi appartiene il lavoro.
 
 ## Che cosa cambia rispetto a FSRS-6
 
@@ -41,13 +46,13 @@ Sono attivi tutti i fattori: errore del solo tono, tipo di esercizio, scelta mul
 
 - **I primi 21 parametri sono quelli di FSRS-6**, stimati dalla comunità di Open Spaced Repetition su ripassi reali. Non li abbiamo toccati.
 - **Gli undici parametri aggiunti (w21–w31) sono valori di partenza.** Li abbiamo scelti dalla letteratura sulla memoria e dal buon senso didattico, e **non sono stati stimati su ripassi di studenti veri**. Gli studi citati sotto ispirano le scelte; non forniscono quei numeri.
-- **Il miglioramento misurato in laboratorio non è una prova sugli studenti.** Un ottimizzatore ha ridotto l'errore da 0,3072 a 0,2905 (−5,4%), ma su ripassi simulati con un modello scritto da noi: dimostra che il calcolo è coerente, non che il metodo funzioni meglio per chi studia. Se un parametro usciva dall'ottimizzatore con un valore poco credibile, abbiamo tenuto quello di partenza.
+- **Il miglioramento misurato in laboratorio non è una prova sugli studenti.** Un ottimizzatore ha ridotto l'errore da 0,3072 a 0,2905 (−5,4%), ma su ripassi simulati con un modello scritto da noi: dimostra che il calcolo è coerente, non che il metodo funzioni meglio per chi studia. I risultati delle altre simulazioni, e perché valgono solo come prova di meccanismo, sono nella sezione «Che cosa abbiamo simulato». Se un parametro usciva dall'ottimizzatore con un valore poco credibile, abbiamo tenuto quello di partenza.
 - **Nessuna garanzia di risultati.** Non abbiamo misurato se ML-FSRS-32 faccia imparare di più. Quando ci saranno ripassi reali, raccolti in forma anonima e con il consenso di chi studia, ristimeremo w21–w31 e confronteremo con FSRS-6.
 - **Che cosa è verificato.** Il motore è provato con 237 controlli automatici, tra cui: senza informazioni sull'esercizio dà gli stessi risultati di FSRS-6 su 400 ripassi casuali; un richiamo riuscito non fa mai scendere la stabilità; l'effetto degli esercizi sull'incremento resta tra 0,4 e 1,8 volte quello di FSRS-6.
 
 ### Ricerca facoltativa
 
-Per ristimare w21–w31 servono ripassi veri. In Impostazioni → Comunità e voci c'è «Ricerca sulla memoria», spenta di base: se accetti il foglio del consenso (maggiorenni, licenza CC0) l'app prepara sul telefono un file con i tuoi ripassi in forma anonima, che puoi leggere e poi mandare con l'e-mail o con Condividi. L'app non invia niente da sola. Il file contiene l'ora di ogni ripasso (quindi si vede a che ora studi) e un codice casuale, lo stesso a ogni invio; non contiene nome, e-mail, indirizzo IP, posizione né le parole che hai aggiunto tu. Si può mandare dopo almeno 300 ripassi di parole già viste; la soglia è un minimo pratico, perché sotto quel numero i ripassi che toccano i parametri nuovi sono troppo pochi. Il dettaglio, anche per la privacy, è in [Privacy](../PRIVACY.md).
+Per ristimare w21–w31, e per sapere se ML-FSRS-NET può un giorno prendere il posto di FSRS-6, servono ripassi veri: solo la community può dircelo. In Impostazioni → Comunità e voci c'è «Ricerca sulla memoria», **volontaria e spenta di base**, con consenso (opt-in) e «Revoca la partecipazione» (opt-out) sempre disponibili: se accetti il foglio del consenso (maggiorenni, licenza CC0) l'app prepara sul telefono un file con i tuoi ripassi in forma anonima, che puoi leggere e poi mandare con l'e-mail o con Condividi. L'app non invia niente da sola. Il file contiene l'ora di ogni ripasso (quindi si vede a che ora studi) e un codice casuale, lo stesso a ogni invio; non contiene nome, e-mail, indirizzo IP, posizione né le parole che hai aggiunto tu. Si può mandare dopo almeno 300 ripassi di parole già viste; la soglia è un minimo pratico, perché sotto quel numero i ripassi che toccano i parametri nuovi sono troppo pochi. Revocare la partecipazione cancella il codice casuale dal telefono; quello che hai già mandato e che è già stato pubblicato (licenza CC0) non si può più ritirare. Il dettaglio, anche per la privacy, è in [Privacy](../PRIVACY.md).
 
 ### I parametri aggiunti
 
@@ -62,7 +67,36 @@ Per ristimare w21–w31 servono ripassi veri. In Impostazioni → Comunità e vo
 | w30 | 0,35 | sconto quando c'è una frase d'aiuto |
 | w31 | 0,1 | consolidamento dopo qualche notte |
 
-Il codice è in [src/core/fsrs.js](https://github.com/longhitown/mandarino/blob/main/src/core/fsrs.js), il test automatico del motore in `tools/unit.mjs`.
+Il codice è in [src/core/fsrs.js](https://github.com/longhitown/mandarino/blob/main/src/core/fsrs.js) (ML-FSRS-32) e, per il candidato in ombra, in `src/core/fsrs7.js`, `guard.js`, `head.js`, `mlnet.js` e `mlnet-ombra.js`; il test automatico in `tools/unit.mjs`.
+
+## Che cosa abbiamo simulato (e che cosa no)
+
+Abbiamo provato le modifiche con studenti **virtuali**: mondi simulati in cui ogni studente ha una memoria generata da un modello scritto da noi. Servono a collaudare il codice, i limiti dei parametri e le garanzie di sicurezza. **Non possono dire se il metodo funzioni meglio per una persona vera**: un simulatore restituisce quello che gli si è messo dentro. Per questo tutto ciò che segue è una prova di meccanismo, non una prova di efficacia.
+
+| Prova | Che cosa è stato fatto | Esito |
+|---|---|---|
+| Ripassi simulati | 39 mondi sintetici, **1.053.125 ripassi valutati** | base per le prove sotto |
+| Adattamento per utente | un solo coefficiente di decadimento stimato per ogni studente (già nell'app) | è il guadagno più grande: circa −0,018 di perdita logaritmica |
+| Parametri w21–w31 | stesso confronto, con e senza le undici modifiche | spostano il tempo di studio di circa ±1–3%; nella prima serie di simulazioni ML-FSRS-32 studia circa il 2,7% in meno di FSRS-6 a parità di conoscenza |
+| Ciclo chiuso | 16 mondi, 6 motori, 3 ritenzioni richieste (85%, 90%, 95%): il motore sceglie davvero quando ripassare | a parità di ritenzione ottenuta, ML-FSRS-32 studia il 4,8% in meno di FSRS-6 a 0,82 (circa 115 minuti su 2.500, meno in 9 mondi su 10), il 2,1% in meno a 0,85 e praticamente uguale a 0,88 |
+| FSRS-7 (formule di fsrs-rs) | stesso ciclo chiuso, con i parametri di partenza | **nessun vantaggio** su FSRS-6 (a 0,85 anche il 3,7% in più di tempo): la forza di FSRS-7 viene dai suoi 34 parametri stimati per ogni utente |
+| Calibrazione online | correzione bayesiana per utente sulle probabilità | **nessun guadagno netto** nel ciclo chiuso; sulle sole probabilità, in prove a parte, riduce l'errore (da 0,4662 a 0,4439 di perdita logaritmica su 450 studenti virtuali) |
+| Ritenzione richiesta e ottenuta | in tutti i motori | la ritenzione realmente ottenuta resta **circa 6 punti sotto** quella richiesta (in media −0,066 per FSRS-6, −0,054 per FSRS-7): il cursore della ritenzione è un'indicazione, non una promessa |
+| Verifica di FSRS-7 | 12 milioni di transizioni confrontate con l'implementazione Rust ufficiale | errore relativo mediano sulla probabilità di ricordare 2,6·10⁻⁸ |
+| Rete di sicurezza | 20.000 flussi simulati in cui il candidato è peggiore, e prove di guasto | 0 adozioni sbagliate su 20.000; un candidato che si rompe viene escluso dopo 55 ripassi (mediana, 1000 prove su 1000) |
+
+Che cosa **non** abbiamo: ripassi di studenti veri. I dati pubblici più grandi (ripassi di Anki) hanno una licenza che ne vieta l'uso in questo contesto senza permesso scritto, che abbiamo chiesto e che non c'è ancora: **per questo nessun numero del motore deriva da dati umani di terzi**. I rapporti completi delle simulazioni non sono ancora nel repository.
+
+Per confronto, il benchmark pubblico di Open Spaced Repetition (dati di 10.000 utenti Anki, non nostri) misura per FSRS-6 una perdita logaritmica di 0,3460 e per FSRS-7 personalizzato di 0,3401; senza personalizzazione FSRS-7 sale a 0,3620, quindi peggio di FSRS-6 personalizzato. È un risultato di terzi e non dice nulla sulle nostre modifiche.
+
+## ML-FSRS-NET: il motore candidato, in modalità ombra
+
+Dalla versione dopo la 0.9.3 l'app contiene un motore candidato che **osserva e non decide**: tre motori (FSRS-6, ML-FSRS-32 e FSRS-7) calcolano in parallelo la probabilità che tu ricordi ogni parola; una *guardia* statistica li confronta con ciò che è successo davvero e una *testa di calibrazione* corregge le probabilità per te.
+
+- **Non cambia nulla per chi studia.** Gli intervalli li decide ancora FSRS-6 esteso con ML-FSRS-32. Il candidato gira dentro un `try/catch`: se si rompe, i progressi non si toccano.
+- **Niente esce dal dispositivo e niente viene scritto.** Lo stato si ricostruisce dal registro dei ripassi quando serve; non c'è rete né invio automatico.
+- **Come potrebbe diventare reale.** Solo se, con ripassi veri, la guardia dimostra che un candidato prevede meglio di FSRS-6. La guardia è costruita in modo che adottare per errore un candidato non migliore abbia probabilità controllata in ogni istante, e che un candidato che peggiora venga escluso. Per ora nessun candidato ha vinto: FSRS-6 resta la rete di sicurezza.
+- **Dipende dalla community.** Senza ripassi veri ML-FSRS-NET resta un esperimento; con quelli volontari (sezione «Ricerca facoltativa») potrebbe diventare, un giorno, il motore dell'app.
 
 ## Autore, licenza e diritti
 
