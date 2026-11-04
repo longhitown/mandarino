@@ -6,9 +6,10 @@ Questa pagina completa [Il motore del ripasso](motore-ripasso.md), dove trovi i 
 
 ## Perché si chiama così
 
-- **FSRS** (Free Spaced Repetition Scheduler) è l'algoritmo di ripetizione dilazionata della comunità Open Spaced Repetition. È la parte solida: è il motore che decide quando riproporti una parola.
-- **ML-FSRS-32** è l'estensione di FSRS che abbiamo scritto per il cinese per chi parla italiano: 32 parametri, cioè i 21 di FSRS-6 più undici nostri (tono, tipo di esercizio, caratteri già noti, rapidità, sonno).
-- **NET**, «rete», viene dall'idea di partenza (4 novembre 2026): un motore *neuro-semantico e biomimetico*, cioè ispirato a come funziona la memoria. L'ipotesi era che le parole non fossero isole, ma nodi di una rete: se dimentichi 火 (fuoco), la debolezza potrebbe propagarsi ai nodi vicini per significato (热, caldo), per suono (la confusione dei toni) e per componenti (radicali Kangxi). Intorno a quella rete l'idea originale aveva altri tre pilastri: i tempi di risposta e i ritmi del giorno, la scelta dell'esercizio più adatto, il vantaggio dei componenti già noti.
+- **ML-FSRS** sta per **Multi-modal Linguistic Free Spaced Repetition Scheduler**: FSRS (Free Spaced Repetition Scheduler, l'algoritmo di ripetizione dilazionata della comunità Open Spaced Repetition, la parte solida) reso *multi-modale*, cioè attento al modo in cui ripassi (scrivere, ascoltare, riconoscere, scegliere) e *linguistico*, cioè attento a come funziona una lingua come il cinese (toni, caratteri fatti di componenti).
+- **32** sono i parametri di ML-FSRS-32: i 21 di FSRS-6 più **undici** aggiunti da noi (tono, tipo di esercizio, caratteri già noti, rapidità di risposta, sonno).
+- **NET** sta per **Neural Network**, rete neurale. Viene dall'idea di partenza (4 novembre 2026): un motore *neuro-semantico e biomimetico*, cioè ispirato a come funziona la memoria, in cui le parole non sono isole ma nodi di una rete. Se dimentichi 火 (fuoco), la debolezza potrebbe propagarsi ai nodi vicini per significato (热, caldo), per suono (la confusione dei toni) e per componenti (radicali Kangxi). Intorno a quella rete l'idea originale aveva altri tre pilastri: i tempi di risposta e i ritmi del giorno, la scelta dell'esercizio più adatto, il vantaggio dei componenti già noti.
+- **Una precisazione onesta sul nome.** La versione che esiste oggi **non contiene una rete neurale**: la calibrazione è una regressione logistica a due numeri per persona, e la guardia è statistica. Il nome indica la direzione dell'idea, non l'architettura attuale; una rete neurale vera la prenderemmo in considerazione solo se i ripassi reali dimostrassero che serve.
 
 ## Perché è stato ipotizzato
 
