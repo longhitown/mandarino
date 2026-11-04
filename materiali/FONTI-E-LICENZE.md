@@ -1,7 +1,7 @@
 # Fonti e licenze dei materiali
 
 Regola del progetto: nei dati dell'app entrano solo materiali con licenza che consenta di ridistribuirli con le licenze del
-progetto (codice MIT, contenuti CC BY 4.0). **Restano fuori i materiali «share-alike» (CC BY-SA) e «non commerciali» (NC).**
+progetto (codice MIT; contenuti CC BY-NC-SA 4.0 o, per il vocabolario, CC BY-SA 4.0). **Restano fuori i materiali «non commerciali» (NC) di altri, che non si possono ridistribuire con un'app gratuita ma libera da usare; i materiali «share-alike» (CC BY-SA) possono entrare solo nelle parti del progetto con la stessa licenza.**
 Verifica fatta il 27 ottobre 2026; dove non è stato possibile verificare, è detto.
 
 ## Usati
@@ -38,7 +38,7 @@ Verifica fatta il 27 ottobre 2026; dove non è stato possibile verificare, è de
 - **Quanto materiale utile c'è in tutto l'archivio** (calcolato su `validated.tsv`, voti ≥ 2 senza voti contrari, 4-20 caratteri, solo parole dell'app): **3.950 frasi distinte, 13.951 clip**, che coprono **3.178 delle 6.380 parole** dell'app. Frasi distinte per livello: 168 (1), 407 (2), 749 (3), 973 (4), 984 (5), 669 (6). Le frasi dei primi livelli sono rare perché il corpus è fatto di frasi lunghe e di argomenti vari (media 10 caratteri).
 
 ### Testi originali di questo pacchetto (`testi/`)
-- Scritti per il progetto con l'aiuto di strumenti di intelligenza artificiale, su indicazione di Claudio Longhitano. Licenza **CC BY 4.0**, come i contenuti didattici del progetto. Bozze da far rileggere.
+- Scritti per il progetto con l'aiuto di strumenti di intelligenza artificiale, su indicazione di Claudio Longhitano. Licenza **CC BY-NC-SA 4.0**, come i contenuti didattici del progetto. Bozze da far rileggere.
 
 ## Non usati, e perché
 

@@ -1,19 +1,31 @@
 màndarínō · contenuti didattici
 © 2026 Claudio Longhitano
 
-I contenuti didattici di màndarínō sono rilasciati con la licenza Creative Commons Attribuzione 4.0 Internazionale
-(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/legalcode.it
+I contenuti didattici di màndarínō (src/data/) hanno due licenze, secondo la loro origine.
 
-Sono contenuti: il vocabolario curato (pinyin, significati e note in italiano), le frasi d'esempio, le lezioni di
-grammatica, i dialoghi, gli esercizi, i modelli, le frasi verificate del laboratorio e tutto il corso di italiano per chi
-parla cinese (lezioni, frasi, spiegazioni in cinese). Stanno in src/data/ nel repository.
+1. CC BY-NC-SA 4.0 (Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 4.0 Internazionale)
+   https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.it
+   Le opere originali del progetto: le lezioni di grammatica, i dialoghi, gli esercizi, i modelli, le frasi verificate del
+   laboratorio, le frasi d'esempio scritte per il progetto, tutto il corso di italiano per chi parla cinese (lezioni, frasi,
+   spiegazioni in cinese) e gli altri testi di src/data/, salvo le eccezioni qui sotto.
+   Puoi copiarle, ridistribuirle e adattarle per scopi NON commerciali, citando l'autore («màndarínō, di Claudio Longhitano»),
+   dando il link alla licenza e dicendo se hai fatto modifiche; se le adatti, devi rilasciare il risultato con la stessa licenza.
+   L'USO COMMERCIALE richiede un permesso scritto: scrivi a mandarinoapp@gmail.com.
 
-Puoi copiarli, ridistribuirli, adattarli e usarli anche a fini commerciali, purché tu citi l'autore («màndarínō, di Claudio
-Longhitano»), indichi il link alla licenza e dica se hai fatto modifiche.
+2. CC BY-SA 4.0 (Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale)
+   https://creativecommons.org/licenses/by-sa/4.0/legalcode.it
+   Il vocabolario curato (src/data/vocab/: caratteri, pinyin, significati e note in italiano) e il dataset aperto che se ne
+   ricava. Il vocabolario deriva in parte da CC-CEDICT (MDBG, CC BY-SA 4.0) e per questo ne eredita la clausola «condividi allo stesso modo».
+   Puoi copiarlo, ridistribuirlo e adattarlo anche a fini commerciali, citando «màndarínō, di Claudio Longhitano» e le fonti
+   (CC-CEDICT, MDBG: https://www.mdbg.net/chinese/dictionary?page=cc-cedict), dando il link alla licenza, dicendo se hai fatto
+   modifiche e rilasciando il risultato con la stessa licenza (CC BY-SA 4.0).
 
-Non sono coperti da questa licenza, perché hanno la licenza della loro fonte (vedi THIRD-PARTY-NOTICES.md):
+Non sono coperti da queste licenze, perché hanno la licenza della loro fonte (vedi THIRD-PARTY-NOTICES.md):
 src/data/strokes.js (Arphic Public License), src/data/levels.js e src/data/freq.js (MIT, complete-hsk-vocabulary),
-src/data/wiki/zh-it.txt (CC0, Wikidata), src/data/it/lexicon.js (LGPL, Morph-it!).
+src/data/wiki/zh-it.txt (CC0, Wikidata), src/data/it/lexicon.js (LGPL, Morph-it!), src/data/anatomy.js e
+src/data/lab-recipes.js (LGPL, Make Me a Hanzi), le frasi di Tatoeba (CC BY 2.0 FR) e le voci (Tatoeba CC BY 4.0, Common Voice CC0).
 
-I contributi della comunità (correzioni, parole, traduzioni proposte dall'app o con una issue) sono accolti con la stessa
-licenza: chi li manda accetta che siano pubblicati così.
+I contributi della comunità (correzioni, parole, traduzioni proposte dall'app o con una issue) sono accolti con la licenza della parte
+che correggono o a cui si aggiungono (CC BY-NC-SA 4.0 o CC BY-SA 4.0): chi li manda accetta che siano pubblicati così.
+
+Le versioni già pubblicate con la licenza CC BY 4.0 restano sotto quella licenza: la nuova licenza vale per le versioni successive.

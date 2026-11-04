@@ -288,7 +288,7 @@ function sandbox() {
       if (!by["NOTICE.md"].includes("MIT License") || !by["NOTICE.md"].includes("Yanis")) why.push("avviso MIT");
       for (const l of by["SHA256SUMS.txt"].trim().split("\n")) { const [h, nome] = l.split("  "); if (!by[nome] || !/^[a-f0-9]{64}$/.test(h)) why.push("impronta di " + nome); }
     } catch (e) { why.push(e.message.split("\n").slice(0, 3).join(" ")); }
-    check("Dataset aperto: esportabile con le licenze in regola, " + 6385 + " voci, scheda CC BY 4.0, avviso MIT e impronte SHA-256", !why.length, why.join("; "));
+    check("Dataset aperto: esportabile con le licenze in regola, " + 6385 + " voci, scheda CC BY-SA 4.0, avviso MIT e impronte SHA-256", !why.length, why.join("; "));
   }
   const brani = ["biblioteca", "calligrafia", "bambu"].filter((id) => !["ogg", "m4a"].every((e) => fs.existsSync(path.join(DOCS, "audio", id + "." + e))));
   check("radio del sito: i tre brani esistono in .ogg e .m4a", !brani.length, brani.join(", "));

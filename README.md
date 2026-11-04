@@ -1,6 +1,6 @@
 # màndarínō · app gratuita per imparare il cinese e l'italiano
 
-**màndarínō** è un'app open source per imparare il **cinese mandarino** (per chi parla italiano) e l'**italiano** (意大利语, per chi parla cinese).
+**màndarínō** è un'app con codice open source (MIT) per imparare il **cinese mandarino** (per chi parla italiano) e l'**italiano** (意大利语, per chi parla cinese).
 È gratuita, senza pubblicità, senza account e senza tracciamento, e funziona anche **offline**: i progressi restano sul telefono.
 
 | In breve | |
@@ -12,7 +12,7 @@
 | Italiano per chi parla cinese | 51 lezioni spiegate in cinese, con la coniugazione dei verbi |
 | Ripasso | Ripetizione a intervalli con FSRS-6 (solido, della comunità) più modifiche sperimentali ML-FSRS-32 per il cinese; un motore candidato ([ML-FSRS-NET](docs/ml-fsrs-net.md)) osserva in modalità ombra, la ricerca è volontaria |
 | Dove | Android (APK) e web installabile (PWA) |
-| Licenze | Codice MIT; contenuti didattici, musica e icone CC BY 4.0 |
+| Licenze | Codice MIT; contenuti didattici, musica e icone CC BY-NC-SA 4.0 |
 
 I numeri sono generati dal codice ([docs/fatti.json](docs/fatti.json)) e il sito ha una pagina per ogni lezione:
 [lezioni di cinese](https://mandarinoapp.org/lezioni/), [parole di cinese](https://mandarinoapp.org/parole/),
@@ -38,7 +38,7 @@ e la pagina dell'[autore](https://mandarinoapp.org/autore/) sono sul sito.
 - Chi ha già dato una mano: [CONTRIBUTORS.md](CONTRIBUTORS.md)
 - Licenze: [NOTICE.md](NOTICE.md) e [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
 - Il nome e il logo (come usarli, come riconoscere la versione vera): [MARCHIO.md](MARCHIO.md)
-- Le icone (CC BY 4.0), il loro disegno e come riusarle: [icone/ICONE.md](icone/ICONE.md) · [icone/DESIGN.md](icone/DESIGN.md)
+- Le icone (CC BY-NC-SA 4.0), il loro disegno e come riusarle: [icone/ICONE.md](icone/ICONE.md) · [icone/DESIGN.md](icone/DESIGN.md)
 
 ## Per chi sviluppa
 
@@ -56,7 +56,7 @@ un sigillo di gratitudine, che assegno a mano: è un codice firmato, solo esteti
 
 ## Licenze
 
-Il codice è sotto licenza MIT ([LICENSE](LICENSE)); i contenuti didattici, la musica e le icone sono CC BY 4.0; il nome e il logo
+Il codice è sotto licenza MIT ([LICENSE](LICENSE)); i contenuti didattici, la musica e le icone sono CC BY-NC-SA 4.0 (uso commerciale solo con il mio permesso scritto), il vocabolario curato è CC BY-SA 4.0; il nome e il logo
 non sono compresi nelle licenze ([MARCHIO.md](MARCHIO.md)); le parti di altri sono elencate in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Che cosa vale per che cosa lo trovi in
 [NOTICE.md](NOTICE.md).
 

@@ -23,8 +23,11 @@ AutoName: màndarínō
 # - NonFreeNet: la voce online facoltativa (spenta di base, la accende la persona in Impostazioni) legge il parlato dal servizio
 #   di sintesi vocale di Google. Nella versione «store» è l'unica richiesta di rete verso un servizio non libero.
 # Non servono: NonFreeDep (nessuna libreria di Google né di terzi nel pacchetto), Tracking, Ads, NonFreeAdd, UpstreamNonFree
-# (il codice è MIT, i contenuti CC BY 4.0, i brani sono originali). Il riconoscimento vocale usa il servizio di sistema del telefono.
+# (il codice è MIT; contenuti, musica e icone CC BY-NC-SA 4.0, il vocabolario CC BY-SA 4.0). Il riconoscimento vocale usa il servizio di sistema del telefono.
 AntiFeatures:
+  NonFreeAssets:
+    en-US: Music, icons and original teaching content are licensed CC BY-NC-SA 4.0 (non-commercial). The code is MIT.
+    it-IT: Musica, icone e contenuti didattici originali sono CC BY-NC-SA 4.0 (non commerciale). Il codice è MIT.
   NonFreeNet:
     en-US: The optional online voice (off by default, switched on by the user in Settings) uses Google's text-to-speech service.
     it-IT: La voce online facoltativa (spenta di base, la accende la persona nelle impostazioni) usa il servizio di sintesi vocale di Google.

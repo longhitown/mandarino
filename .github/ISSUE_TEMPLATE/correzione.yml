@@ -51,5 +51,5 @@ body:
     attributes:
       label: "Licenza · 许可"
       options:
-        - label: "Il mio contributo entra con licenza CC BY 4.0 e non è copiato da fonti con licenze incompatibili · 我的贡献以 CC BY 4.0 许可加入，且没有复制许可不兼容的来源"
+        - label: "Il mio contributo entra con la licenza della parte a cui si aggiunge (CC BY-NC-SA 4.0; CC BY-SA 4.0 per il vocabolario) e non è copiato da fonti con licenze incompatibili · 我的贡献以所属部分的许可（CC BY-NC-SA 4.0；词汇为 CC BY-SA 4.0）加入，且没有复制许可不兼容的来源"
           required: true

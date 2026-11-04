@@ -67,7 +67,9 @@ La ricetta dichiara **solo `NonFreeNet`**:
   liberi anche quando sono facoltativi: per questo si dichiara. Se in futuro la versione store la togliesse, `NonFreeNet` sparirebbe.
 - Il **controllo delle release su GitHub** esiste solo nella versione diretta; nella versione store, quella per F-Droid, è spento.
 
+**Si dichiara `NonFreeAssets`**: musica, icone e contenuti didattici originali sono CC BY-NC-SA 4.0, che vieta l'uso commerciale e quindi non è una licenza libera (il codice resta MIT; il vocabolario è CC BY-SA 4.0). Da ricontrollare sulla pagina delle «anti-feature» di F-Droid prima dell'invio.
+
 Non si dichiarano, perché non ci sono: `NonFreeDep` (nessuna libreria di Google o di terzi nel pacchetto: solo l'SDK di Android),
-`Tracking`, `Ads`, `NonFreeAdd` (nessun sostegno né sigillo nella versione store), `UpstreamNonFree` (codice MIT, contenuti CC BY 4.0).
+`Tracking`, `Ads`, `NonFreeAdd` (nessun sostegno né sigillo nella versione store), `UpstreamNonFree` (il codice è MIT).
 Il **riconoscimento vocale** usa il servizio di sistema del telefono (su molti telefoni è di Google): non è nel nostro codice, ma può
 essere menzionato. L'elenco delle voci della community si scarica dal nostro sito solo al tocco, senza dati: non è un servizio non libero.

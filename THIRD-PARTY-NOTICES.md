@@ -15,6 +15,7 @@ compare un file, o in `src/data/` un dato esterno, che non è nominato qui. Il s
 | complete-hsk-vocabulary (Yanis Zafirópulos) | MIT (`LICENZE/MIT-complete-hsk-vocabulary.txt`) | https://github.com/drkameleon/complete-hsk-vocabulary | `complete.json` del commit `7ac65bf1a6387d35f1ade478906172a19311c7f9` (23 marzo 2026), SHA-256 `c869a0ce353279c9333d9b42c31fc3549785e8b40673dab57ee42bc99cd14131` | `src/data/levels.js`, `src/data/freq.js`, le parole HSK aggiunte al vocabolario |
 | py-fsrs (Open Spaced Repetition), porting in JavaScript | MIT (`LICENZE/MIT-py-fsrs.txt`) | https://github.com/open-spaced-repetition/py-fsrs | FSRS-6, 21 parametri, dal ramo principale (2026); l'estensione ML-FSRS-32 (w21–w31) è di Claudio Longhitano, MIT come il resto del codice | `src/core/fsrs.js` |
 | fsrs-rs (Open Spaced Repetition), formule del modello FSRS-7 portate in JavaScript e verificate contro l'implementazione Rust; in app solo in modalità ombra (osserva i ripassi, non pianifica) | BSD-3-Clause (`LICENZE/BSD-3-fsrs-rs.txt`) | https://github.com/open-spaced-repetition/fsrs-rs | `model_v7.rs`, `inference_v7.rs`, `parameter_clipper_v7.rs`, 2026; pesi di partenza di FSRS-7 dalla sorgente, nessun peso addestrato su dati di terzi | `src/core/fsrs7.js` (con `guard.js`, `head.js`, `mlnet.js`, `mlnet-ombra.js`, scritti per màndarínō, MIT) |
+| CC-CEDICT (MDBG), dizionario cinese-inglese: il vocabolario curato dell'app ne deriva in parte (significati e classificatori) | CC BY-SA 4.0 (`LICENZE/CONTENUTI.txt`, https://creativecommons.org/licenses/by-sa/4.0/) | https://www.mdbg.net/chinese/dictionary?page=cc-cedict | versione non annotata: da completare | `src/data/vocab/` (che per questo è CC BY-SA 4.0) |
 | jsQR (Cosmo Wolfe) | Apache 2.0 (`LICENZE/APACHE-2.0-jsQR.txt`) | https://github.com/cozmo/jsQR | 1.4.0, copia minificata non modificata | `src/vendor/jsqr.min.js` |
 | jsPDF (James Hall e yWorks GmbH), scrive il PDF del «Foglio di lavoro» | MIT (`LICENZE/MIT-jspdf.txt`) | https://github.com/parallax/jsPDF | 4.2.1, `dist/jspdf.umd.min.js` del pacchetto npm, copia non modificata | `src/vendor/jspdf.umd.min.js` (gruppo FOGLIO, caricato solo al primo uso) |
 | wikidict-it, dati di Wikidata | CC0 1.0 | https://github.com/open-dict-data/wikidict-it | `zh-it_wiki.txt`, ottobre 2026 | `src/data/wiki/zh-it.txt` |
@@ -32,12 +33,11 @@ Servono alla pagina di presentazione e alle microprove (`docs/`). Sono copiate n
 | canvas-confetti (Kiril Vatev) | ISC (`docs/licenze/CANVAS-CONFETTI-ISC.txt`) | https://github.com/catdad/canvas-confetti | 1.9.4, copia non modificata | `docs/assets/vendor/confetti.browser.js` |
 | Dati dei tratti di 8 caratteri, dal pacchetto `hanzi-writer-data` (Make Me a Hanzi, font Arphic PL KaitiM GB e UKai) | Arphic Public License (`docs/licenze/ARPHIC-PUBLIC-LICENSE.txt`) | https://github.com/chanind/hanzi-writer-data | 2.0.1 | `docs/assets/dati/hanzi.json` |
 
-Gli estratti di musica del sito (`docs/audio/`) vengono dai brani dell'app e hanno la stessa licenza (CC BY 4.0).
+Gli estratti di musica del sito (`docs/audio/`) vengono dai brani dell'app e hanno la stessa licenza (CC BY-NC-SA 4.0).
 
 ## Solo durante lo sviluppo, non contenuti nell'app
 
-- **CC-CEDICT** (MDBG, CC BY-SA 4.0): controllo del pinyin (`tools/cedict-check.mjs`). Volutamente non entra nei dati,
-  perché la sua licenza obbligherebbe a ridistribuirli con la stessa licenza.
+- **CC-CEDICT**: oltre che fonte in parte del vocabolario (vedi tabella), serve anche al controllo del pinyin (`tools/cedict-check.mjs`).
 - **Morph-it!**: controllo dell'italiano (`tools/morphit-check.mjs`), oltre al lessico sopra.
 - **Dizionario Hunspell it_IT di LibreOffice**: controllo ortografico (`tools/hunspell-check.py`).
 - **Playwright** (Apache 2.0): prove automatiche e generazione delle icone.

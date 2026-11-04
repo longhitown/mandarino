@@ -6,7 +6,7 @@ ci siamo arrivati: [DESIGN.md](DESIGN.md). Questo file è la specifica.
 | | |
 |---|---|
 | **Versione del set** | 0.3.0 (fase 1 completa: 150 icone di base, più 8 aggiunte con la sostituzione delle emoji: 158 disegnate su 158) |
-| **Licenza** | [CC BY 4.0](../LICENZE/ICONE.txt) |
+| **Licenza** | [CC BY-NC-SA 4.0](../LICENZE/ICONE.txt) |
 | **Autore** | Claudio Longhitano (con l'assistente di IA Claude: vedi [NOTICE.md](../NOTICE.md)) |
 | **Marchio** | il nome màndarínō e il logo **non** sono inclusi nella licenza: [MARCHIO.md](../MARCHIO.md) |
 
@@ -14,9 +14,9 @@ ci siamo arrivati: [DESIGN.md](DESIGN.md). Questo file è la specifica.
 
 Se usi le icone (o una loro modifica) basta una riga, dove ti sembra naturale (nei crediti, nel piè di pagina, nella descrizione):
 
-> Icone màndarínō, di Claudio Longhitano, CC BY 4.0 · https://mandarinoapp.org
+> Icone màndarínō, di Claudio Longhitano, CC BY-NC-SA 4.0 · https://mandarinoapp.org
 
-Se le hai modificate, aggiungi «modificate». Non serve chiedere il permesso. Non puoi far credere che il tuo prodotto sia màndarínō né che
+Se le hai modificate, aggiungi «modificate» e rilascia il risultato con la stessa licenza. Per l'uso non commerciale non serve chiedere il permesso; per quello commerciale sì (mandarinoapp@gmail.com). Non puoi far credere che il tuo prodotto sia màndarínō né che
 màndarínō lo approvi: [MARCHIO.md](../MARCHIO.md).
 
 ## Che cosa c'è nella cartella
@@ -92,9 +92,9 @@ Su Windows (PowerShell): `Get-FileHash .\sprite.svg -Algorithm SHA256`. Il risul
 <!-- somme:inizio -->
 | File | SHA-256 |
 |---|---|
-| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `ce3bed92b8563b6565bcf0af556545cf7e588105f762a499870ed6602d9f084b` |
-| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `c672ae6a28a69da757584023fc8c3894817156f614e807a911bae241a22e0fff` |
-| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 158 icone) | `4ce4f9a51be9e38a04098f03bacc0e746a2a0a6e126c543c39983de5f93061f6` (somma del suo contenuto) |
+| `icone/sprite.svg` (tutte le icone disegnate, in un file) | `7212faa5618964ff446e9e0c9830dc07a83124041193c17171deb486c01e9633` |
+| `icone/manifest.json` (nomi, categorie, emoji sostituite) | `daec2b4bb4baf5eae4a564c193b6c7ed9c9e61dbc864cb3c264d364802dd8951` |
+| `icone/SHA256SUMS.txt` (una riga per ogni file SVG, 158 icone) | `7809b1d2970092f60df12d6d46f3cadf12602a43374c17772456c64ca348eba2` (somma del suo contenuto) |
 <!-- somme:fine -->
 
 Le somme del pacchetto compresso (`.zip`) delle release e quelle degli adesivi si aggiungono qui a ogni release.

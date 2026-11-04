@@ -36,7 +36,7 @@
   var COLS = ["guid", "Vocabolo", "Pinyin", "Traduzione", "Frase", "Traduzione frase", "tags"];
   function head(deck, extra) {
     return ["#separator:tab", "#html:true", "#guid column:1", "#tags column:7", "#columns:" + COLS.join("\t"), "#deck:" + deck,
-      "# màndarínō " + CP.VERSION + " · contenuti CC BY 4.0, Claudio Longhitano" + (extra || "")].join("\n");
+      "# màndarínō " + CP.VERSION + " · vocabolario CC BY-SA 4.0, Claudio Longhitano" + (extra || "")].join("\n");
   }
   /* o = { which: "mine" | "all" | "sure" | "sec", sec } */
   function rowsZh(o) {
