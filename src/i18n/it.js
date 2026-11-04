@@ -16,7 +16,7 @@ I18N.it = {
   "study.today": "Oggi", "study.due": "da ripassare", "study.new1": "nuova", "study.newN": "nuove", "study.seen": "Oggi: {seen}/{n} parole nuove già viste.", "study.start": "Inizia · ≈ {min} min", "study.nothing": "Niente da fare: torna più tardi",
   "study.customize": "Personalizza", "study.newPerDay": "Parole nuove", "study.perDay": "{n} al giorno", "study.topic": "Argomento", "study.allTopics": "Tutti gli argomenti", "study.favs": "★ Solo le parole segnate",
   "study.auto": "Audio automatico: la parola viene letta da sola", "study.more5today": "Ancora 5 parole nuove oggi", "study.progress": "I miei progressi",
-  "study.duo": "⟦ear⟧ Duotono", "study.duoSub": "Una parola, due toni", "study.ear": "⟦headphones⟧ Allena l'orecchio", "study.earSub": "Indovina il tono", "study.sprint": "⟦bolt⟧ Sfida 60 secondi", "study.sprintSub": "Più veloce che puoi", "study.record": "Record: {n}",
+  "study.duo": "⟦ear⟧ Duotono", "study.duoSub": "Una parola, due toni", "study.lav": "⟦write⟧ Lavagna", "study.lavSub": "Scrivi con il dito", "study.ear": "⟦headphones⟧ Allena l'orecchio", "study.earSub": "Indovina il tono", "study.sprint": "⟦bolt⟧ Sfida 60 secondi", "study.sprintSub": "Più veloce che puoi", "study.record": "Record: {n}",
   "sess.quit": "Esci", "sess.quitLabel": "Esci dalla sessione", "sess.next": "Avanti", "sess.reveal": "Mostra la risposta", "sess.auto": "Audio automatico", "sess.more": "Altro: traccia, famiglia, tono",
   "sess.newWord": "Nuova parola", "sess.qPi": "Che cosa significa?", "sess.qIp": "Come si dice?", "sess.qHp": "Leggi il carattere", "sess.example": "Esempio",
   "sess.swipe": "Oppure trascina la carta: a destra «La so», a sinistra «Non la so».", "sess.star": "Segna come preferita o difficile",

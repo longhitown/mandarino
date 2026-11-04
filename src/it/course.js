@@ -89,7 +89,7 @@
   });
   /* il resto del vocabolario (data/it/lexicon.js, da tools/itlex.mjs: controllato con Morph-it): nomi con genere e plurale,
      aggettivi con le quattro forme, verbi all'infinito, avverbi ed espressioni */
-  (typeof IT_LEXICON !== "undefined" ? IT_LEXICON : []).forEach(function (r) {
+  (typeof IT_LEXICON !== "undefined" ? IT_LEXICON : []).concat(typeof IT_LEXICON_PACKS !== "undefined" ? IT_LEXICON_PACKS : []).forEach(function (r) {
     var keys = r[0].split("|").filter(function (k) { return W[k]; }); if (!keys.length) return;
     var w = W[keys[0]], zh = w.hz, py = w.py, alt = keys.slice(1).map(function (k) { return W[k].hz; });
     if (r[1] === "n") {

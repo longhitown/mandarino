@@ -1957,6 +1957,10 @@ try {
     const last = await p.evaluate(() => { const s = CP.SEC.filter((x) => /^hsk7d_/.test(x.id)).pop(); CP.gotoSection(s.id); return s.id; });
     await p.waitForTimeout(800);
     const vis = await p.evaluate((id) => !!document.querySelector('tr[data-k]') && document.body.textContent.indexOf("HSK 7–9 · D") >= 0, last);
+    await p.evaluate(() => localStorage.setItem("cp-course", "it")); await p.reload(); await p.waitForTimeout(1500);
+    const nIt = await p.evaluate(() => CP.itLexicon().length);
+    check("Pacchetti: nel corso di italiano, con tutti i pacchetti accesi, CP.itLexicon() ha " + F.corsoDiItaliano.paroleConPacchetti + " parole (le dichiarate)", nIt === F.corsoDiItaliano.paroleConPacchetti && nIt > F.corsoDiItaliano.parole, nIt + " " + F.corsoDiItaliano.paroleConPacchetti);
+    await p.evaluate(() => localStorage.removeItem("cp-course")); await p.reload(); await p.waitForTimeout(1200); await p.evaluate(() => CP.show("words")); await p.waitForTimeout(500);
     check("Pacchetti: la tabella delle Parole mostra anche l'ultima tappa dell'ultimo pacchetto, senza errori", vis && !errs.length, errs[0]);
     await ctx.close();
   }
@@ -1981,6 +1985,25 @@ try {
     await p.click("#d-next"); await p.waitForTimeout(300);
     const fin = await p.evaluate(() => /coppie giuste/.test(document.body.textContent) && !!document.getElementById("duo-open"));
     check("Duotono: dopo dieci parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
+    await ctx.close();
+  }
+  /* 9a4. Lavagna (Studia): si scrive a mano la parola, carattere per carattere; i tratti coprono tutto il vocabolario */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    await p.evaluate(() => CP.show("study")); await p.waitForTimeout(500);
+    const b = await p.evaluate(() => { const l = document.getElementById("lavagna-open"), d = document.getElementById("duo-open"); return { txt: l && l.textContent, next: !!(l && d && d.parentNode === l.parentNode) }; });
+    check("Lavagna: in Studia c'è il pulsante «Lavagna» accanto a Duotono", /Lavagna/.test(b.txt || "") && b.next, JSON.stringify(b));
+    await p.click("#lavagna-open"); await p.waitForTimeout(900);
+    const q = await p.evaluate(() => ({ pad: !!document.querySelector("#lv-pad canvas"), blind: !/[一-鿿]/.test((document.querySelector("#lv-pad") || {}).textContent || ""), hz: document.getElementById("lv-han").hidden }));
+    check("Lavagna: la prima schermata ha la lavagna, i pulsanti dei caratteri senza hanzi e il carattere nascosto", q.pad && q.blind && q.hz, JSON.stringify(q));
+    for (let i = 0; i < 5; i++) { await p.click("#lv-next"); await p.waitForTimeout(250); }
+    const fin = await p.evaluate(() => /parole scritte bene/.test(document.body.textContent) && !!document.getElementById("lv-open"));
+    check("Lavagna: dopo cinque parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
+    const cov = await p.evaluate(() => { let senza = 0; Object.keys(CP.WORDS).forEach((k) => Array.from(CP.WORDS[k].hz).forEach((c) => { try { if (!CP.strokeData(c)) senza++; } catch (e) { senza++; } })); return senza; });
+    check("Lavagna: i tratti coprono ogni carattere del vocabolario di base (" + Object.keys(await p.evaluate(() => CP.WORDS)).length + " parole)", cov === 0, String(cov));
     await ctx.close();
   }
   /* 9b. Corso di italiano: le parole dichiarate (docs/fatti.json) sono quelle che l'app ha davvero */

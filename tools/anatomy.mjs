@@ -38,7 +38,9 @@ function top(ids) {
 }
 const TYPE = { pictographic: "p", ideographic: "i", pictophonetic: "s" };
 const D = load(SRC), need = new Set();
+/* i caratteri del corso base e quelli dei pacchetti di parole */
 D.SECTIONS.forEach((s) => s.words.forEach((w) => [...w[1]].forEach((c) => { if (/[㐀-鿿]/.test(c)) need.add(c); })));
+(D.PACKS || []).forEach((p) => p.sections.forEach((s) => s.words.forEach((w) => [...w[1]].forEach((c) => { if (/[㐀-鿿]/.test(c)) need.add(c); }))));
 const out = {}, queue = [...need], vocab = new Set(need);
 while (queue.length) {
   const c = queue.shift(); if (out[c]) continue;

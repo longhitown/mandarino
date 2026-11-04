@@ -20,7 +20,8 @@ import { fileURLToPath } from "url";
 import { load, keysOf } from "./lib/data.mjs";
 
 const SRC = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "src");
-if (!process.argv[2]) { console.error("Uso: node tools/itlex.mjs morph-it.txt"); process.exit(2); }
+if (!process.argv[2]) { console.error("Uso: node tools/itlex.mjs morph-it.txt [--pacchetti]"); process.exit(2); }
+const PACK_MODE = process.argv.includes("--pacchetti");   /* con --pacchetti non si tocca data/it/lexicon.js: si scrivono le righe dei pacchetti (data/it/lexicon-<id>.js) */
 const M = new Map();   /* forma → [[lemma, tag], …] */
 for (const line of fs.readFileSync(process.argv[2], "utf8").split("\n")) {
   const [f, l, t] = line.split("\t"); if (!t) continue;
@@ -52,9 +53,9 @@ const G = vm.runInContext("GRAM", gctx), have = new Set();
 for (const t of ["nouns", "places", "verbs", "adjs", "time"]) Object.keys(G[t] || {}).forEach((k) => have.add(k));
 Object.keys(G.nations || {}).forEach((k) => have.add(k + "人"));
 
-const out = new Map();   /* italiano → voce */
 let skipped = 0;
-for (const key of Object.keys(K)) {
+function scan(K, out) {
+ for (const key of Object.keys(K)) {
   const w = K[key].w, hz = w[1];
   if (have.has(key) || have.has(hz)) continue;
   let it = String(w[2]).split(/[;,(:]/)[0].trim().toLowerCase().replace(/^(il|lo|la|i|gli|le|un|uno|una)\s+|^(l'|un')/, "");
@@ -76,6 +77,9 @@ for (const key of Object.keys(K)) {
   if (cur) { if (cur.keys.length < 3) cur.keys.push(key); continue; }
   out.set(id, Object.assign(e, { keys: [key] }));
 }
+}
+const out = new Map();   /* italiano → voce */
+if (!PACK_MODE) scan(K, out);
 const rows = [...out.values()].map((e) => {
   const extra = e.k === "n" ? [e.g, e.p] : e.k === "j" ? [e.f] : [];
   return "  " + JSON.stringify([e.keys.join("|"), e.k, e.it, ...extra]);
@@ -84,7 +88,27 @@ const js = "/* Lessico del corso di italiano, generato da tools/itlex.mjs dal vo
   "   THIRD-PARTY-NOTICES.md, LICENZE/MORPH-IT.txt e LICENZE/LGPL-2.1.txt). Non modificarlo a mano. Una voce per riga: [chiavi cinesi separate da |, tipo, italiano, …]\n" +
   "   tipo n = nome [genere, plurale] · j = aggettivo [[m.s, f.s, m.p, f.p]] · v = verbo all'infinito · x = altro (avverbi, espressioni). */\n" +
   "var IT_LEXICON = [\n" + rows.join(",\n") + "\n];\n";
+if (!PACK_MODE) {
 fs.mkdirSync(path.join(SRC, "data/it"), { recursive: true });
 fs.writeFileSync(path.join(SRC, "data/it/lexicon.js"), js);
+}
+
+/* ---- pacchetti: per ogni pacchetto di parole le righe del corso di italiano, con la stessa regola; le voci già nel lessico di base (o in un altro pacchetto) non si ripetono ---- */
+if (PACK_MODE) {
+  const seen = new Map(); (D.IT_LEXICON || []).forEach((r) => seen.set(r[1] + ":" + r[2], 1));
+  const GR = new Set(have); const meta = {};
+  for (const P of D.PACKS) {
+    const o = new Map(); for (const k of seen.keys()) o.set(k, { keys: [], dup: 1 });
+    scan(keysOf(P.sections), o);
+    const mine = [...o.entries()].filter(([id, e]) => !e.dup);
+    mine.forEach(([id]) => seen.set(id, 1));
+    const rws = mine.map(([id, e]) => { const extra = e.k === "n" ? [e.g, e.p] : e.k === "j" ? [e.f] : []; return "  " + JSON.stringify([e.keys.join("|"), e.k, e.it, ...extra]); });
+    meta[P.id] = rws.length;
+    const head = "/* Righe del corso di italiano per il pacchetto «" + P.id + "» (" + rws.length + "), generate da tools/itlex.mjs --pacchetti con Morph-it! (LGPL, vedi THIRD-PARTY-NOTICES.md). Non modificarlo a mano. Stesso formato di lexicon.js. */\n";
+    fs.writeFileSync(path.join(SRC, "data/it/lexicon-" + P.id + ".js"), head + "var IT_LEXICON_PACKS = typeof IT_LEXICON_PACKS === \"undefined\" ? [] : IT_LEXICON_PACKS;\nIT_LEXICON_PACKS.push.apply(IT_LEXICON_PACKS, [\n" + rws.join(",\n") + "\n]);\n");
+  }
+  console.log("pacchetti: " + Object.entries(meta).map(([k, n]) => k + " " + n).join(", "));
+  process.exit(0);
+}
 const by = {}; for (const e of out.values()) by[e.k] = (by[e.k] || 0) + 1;
 console.log("lexicon.js: " + out.size + " voci (" + Object.entries(by).map(([k, n]) => k + " " + n).join(", ") + "), " + skipped + " parole senza un italiano semplice");

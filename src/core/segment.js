@@ -43,6 +43,36 @@ var MDSegment = (function () {
       while (j > 0) { var p = prev[j]; out.push(wi[j] ? { w: WORDS[wi[j]], raw: wi[j] } : { w: null, raw: cs[p] }); j = p; }
       return out.reverse();
     }
+    /* Letture in contesto. Una parola ha una sola lettura nel vocabolario, ma alcuni caratteri ne hanno due secondo il contesto (只 zhǐ «solo» / zhī
+       classificatore; 长 cháng «lungo» / zhǎng «crescere»; 了 le / liǎo): qui si cambia la lettura solo dove il contesto la rende certa. Ogni regola è
+       [parola, lettura di partenza, funzione(prima, dopo, parola seguente) → nuova lettura | null]. La parola cambiata è una copia (stessa chiave, altro
+       pinyin): chi legge s.w.py ha già la lettura giusta. Provate su tutte le frasi dell'app (tools/fixtures/frasi-letture.json). */
+    var NUMS = /^(一|两|二|三|四|五|六|七|八|九|十|几|每|这|那|半|多少|百|千)$/;
+    var READFIX = [
+      ["只", "zhǐ", function (pr) { return NUMS.test(pr) ? "zhī" : null; }],
+      ["长", "cháng", function (pr, af) { return /^(得|着|出|成|到|大|起来)/.test(af) ? "zhǎng" : null; }],
+      ["穿着", "chuān.zhuó", function (pr, af) { return pr === "的" || /^(很|非常|比较|太|打扮|得体|整齐)/.test(af) ? null : "chuān.zhe"; }],
+      ["了", "le", function (pr) { return pr === "不" || pr === "得" ? "liǎo" : null; }],
+      ["还", "hái", function (pr, af) { return /^[钱书款债账]/.test(af) ? "huán" : null; }],
+      ["系", "xì", function (pr, af) { return /^(好|上|紧|着|安全带|鞋带|领带)/.test(af) ? "jì" : null; }],
+      ["空", "kōng", function (pr, af) { return pr === "有" || pr === "没" || pr === "没有" ? "kòng" : null; }],
+      ["为", "wèi", function (pr) { return /选$/.test(pr) ? "wéi" : null; }],
+      ["数", "shǔ", function (pr, af) { return pr === "个" && !/^(一下|了|不|得)/.test(af) ? "shù" : null; }],
+      ["脏", "zāng", function (pr) { return pr === "心" ? "zàng" : null; }],
+      ["划", "huá", function (pr, af) { return /^(了|着)?(一)?(条|道)?线/.test(af) ? "huà" : null; }]
+    ];
+    function readFix(out) {
+      var i, j, k, r, pr, af, np;
+      for (i = 0; i < out.length; i++) {
+        if (!out[i].w) continue;
+        for (k = 0; k < READFIX.length; k++) {
+          r = READFIX[k]; if (r[0] !== out[i].raw || out[i].w.py !== r[1]) continue;
+          pr = i > 0 ? out[i - 1].raw : ""; af = ""; for (j = i + 1; j < out.length && af.length < 6; j++) af += out[j].raw;
+          np = r[2](pr, af); if (np) { out[i] = { w: Object.assign({}, out[i].w, { py: np }), raw: out[i].raw }; break; }
+        }
+      }
+      return out;
+    }
     /* [{ w: parola | null, raw: testo, p: true se è punteggiatura o testo non cinese }] */
     function segment(raw) {
       var s = Array.from(String(raw)), out = [], i = 0, j;
@@ -53,7 +83,7 @@ var MDSegment = (function () {
         Array.prototype.push.apply(out, run(s.slice(i, j)));
         i = j;
       }
-      return out;
+      return readFix(out);
     }
     segment.rank = function (hz) { return RANK[hz] || 0; };
     return segment;
