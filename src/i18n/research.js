@@ -3,7 +3,7 @@
    Le chiavi it e zh devono essere le stesse (tools/unit.mjs). ===== */
 Object.assign(I18N.it, {
   "cm.rs.sheetTitle": "Ricerca sulla memoria (ML-FSRS-32)", "cm.rs.h": "Prima di cominciare, leggi con calma",
-  "cm.rs.t1": "Perché: il ripasso di màndarínō usa FSRS-6 con un'estensione, ML-FSRS-32, i cui undici parametri aggiunti sono ancora valori di partenza. Per stimarli bene servono ripassi di persone vere.",
+  "cm.rs.t1": "Perché: il ripasso di màndarínō usa FSRS-6 con un'estensione, ML-FSRS-32, i cui undici parametri aggiunti sono ancora valori di partenza. Le nostre simulazioni sono sintetiche e non bastano: per stimarli bene, e per sapere se un motore migliore può prendere il posto di FSRS-6, servono ripassi di persone vere. La partecipazione è volontaria e si revoca quando vuoi.",
   "cm.rs.t2": "Che cosa c'è nel file: per ogni ripasso la parola, il voto, il tempo di risposta, il tipo di esercizio, il numero di opzioni, se hai sbagliato solo il tono, la stabilità dei caratteri che già studi e le notti passate dall'ultima volta; per ogni parola, la stabilità e la difficoltà.",
   "cm.rs.t3": "C'è anche l'ora esatta di ogni ripasso: da lì si vede a che ora studi e, indirettamente, quando vai a dormire. È proprio ciò che serve per misurare l'effetto del sonno.",
   "cm.rs.t4": "Che cosa non c'è: nome, e-mail, indirizzo IP, posizione, identificativi del telefono, le parole che hai aggiunto tu. C'è un codice casuale, lo stesso a ogni invio, che serve a riconoscere i ripassi della stessa persona; non è legato a te. Però l'e-mail con cui mandi il file mostra il tuo indirizzo a chi la riceve.",
@@ -23,7 +23,7 @@ Object.assign(I18N.it, {
 });
 Object.assign(I18N.zh, {
   "cm.rs.sheetTitle": "记忆研究（ML-FSRS-32）", "cm.rs.h": "开始之前，请仔细阅读",
-  "cm.rs.t1": "目的：màndarínō 的复习使用 FSRS-6 加上扩展 ML-FSRS-32，新增的十一个参数目前还只是初始值。要估得准，需要真实学习者的复习记录。",
+  "cm.rs.t1": "目的：màndarínō 的复习使用 FSRS-6 加上扩展 ML-FSRS-32，新增的十一个参数目前还只是初始值。我们的模拟数据是合成的，并不够：要估得准、要判断是否有更好的引擎可以取代 FSRS-6，需要真实学习者的复习记录。参与完全自愿，随时可以撤销。",
   "cm.rs.t2": "文件里有什么：每次复习的词、评分、答题用时、练习类型、选项个数、是否只错了声调、你已学汉字的稳定度，以及距上次复习过了几个夜晚；每个词的稳定度和难度。",
   "cm.rs.t3": "文件里还有每次复习的准确时间：由此能看出你几点学习，也就能间接看出你几点睡觉。这正是衡量睡眠影响所需要的。",
   "cm.rs.t4": "文件里没有什么：姓名、电子邮件、IP 地址、位置、手机的识别码、你自己添加的词。里面有一个随机代码，每次发送都一样，用来认出同一个人的记录；它与你本人无关。但你发送文件的电子邮件，会让收件人看到你的邮箱地址。",

@@ -67,6 +67,7 @@ salva niente nel tuo browser: font, script e immagini arrivano tutti dal sito st
   Se lo mandi, i dati sono rilasciati in pubblico dominio (CC0) e quello che è già stato pubblicato non si può ritirare. Si può revocare la partecipazione in qualsiasi
   momento dallo stesso foglio (il codice casuale viene cancellato dal telefono); per togliere dati non ancora pubblicati scrivi a mandarinoapp@gmail.com con il codice. Solo per maggiorenni.
   Il tempo abituale di risposta che l'app usa per il ripasso (`md-rt-v1`) resta sul dispositivo e non entra nei backup.
+- **Motore candidato [ML-FSRS-NET](docs/ml-fsrs-net.md) (modalità ombra):** gira sul dispositivo, osserva i ripassi per misurare quanto avrebbe previsto bene, e non scrive né invia nulla; non decide gli intervalli. Se non accetti la ricerca sulla memoria, resta tutto qui.
 - **Fotocamera:** solo per leggere un QR (passaggio a un altro telefono, sigilli). Le immagini non vengono salvate.
 - **Notifiche (Android):** solo per il promemoria facoltativo e per la musica in secondo piano.
 - **Pleco** (facoltativo, spento di base, solo sul telefono): se lo accendi e tocchi «Apri in Pleco», la parola passa

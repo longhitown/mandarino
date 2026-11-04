@@ -26,8 +26,8 @@ const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] :
 
 /* ---------- Markdown minimo → HTML (titoli, paragrafi, elenchi, tabelle, grassetto, codice, link) ---------- */
 const escH = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const inline = (s) => escH(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>").replace(/~~([^~]+)~~/g, "<s>$1</s>")
-  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, u) => `<a href="${u.replace(/"/g, "&quot;")}">${t}</a>`);
+const inline = (s) => escH(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>").replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?!\*)/g, "$1<em>$2</em>").replace(/~~([^~]+)~~/g, "<s>$1</s>")
+  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, u) => `<a href="${u.replace(/(?:^|\/)(motore-ripasso|ml-fsrs-net)\.md(#.*)?$/, "/$1.html$2").replace(/"/g, "&quot;")}">${t}</a>`);   /* i due documenti del motore hanno la loro pagina del sito */
 export function md2html(md) {
   const out = [], lines = md.replace(/\r/g, "").split("\n");
   let para = [], list = null, table = null, inZh = false;
@@ -59,6 +59,7 @@ export function md2html(md) {
 }
 const privacyPage = () => mdPage("PRIVACY.md", "Privacy · màndarínō", "Informativa sulla privacy di màndarínō: nessun dato raccolto. 隐私说明：不收集任何数据。");
 const motorePage = () => mdPage("docs/motore-ripasso.md", "Il motore del ripasso · màndarínō", "Come funziona il ripasso di màndarínō (FSRS-6 esteso con ML-FSRS-32), che cosa è verificato e a chi appartiene.");
+const netPage = () => mdPage("docs/ml-fsrs-net.md", "ML-FSRS-NET · màndarínō", "Che cos'è ML-FSRS-NET, perché si chiama così, che cosa cerca di risolvere e che cosa non promette.");
 function mdPage(file, title, description) {
   const md = fs.readFileSync(path.join(ROOT, file), "utf8");
   return `<!doctype html>
@@ -205,7 +206,8 @@ function assemble(out) {
   put("/zh/", "zh/index.html", fs.readFileSync(path.join(ROOT, "docs/zh/index.html"), "utf8"));
   put("/privacy.html", "privacy.html", privacyPage());
   put("/manifesto.html", "manifesto.html", manifestoPage());
-  put("/motore-ripasso.html", "motore-ripasso.html", motorePage());   /* nascosta: noindex, fuori dalla mappa del sito, raggiunta dal piè di pagina */
+  put("/motore-ripasso.html", "motore-ripasso.html", motorePage());
+  put("/ml-fsrs-net.html", "ml-fsrs-net.html", netPage());   /* nascosta: noindex, fuori dalla mappa del sito, raggiunta dal piè di pagina */
   copyDir(path.join(ROOT, "dist"), path.join(out, "app"), new Set(["_headers"]));
   fs.writeFileSync(path.join(out, ".nojekyll"), "");
   console.log("✓ sito in " + path.relative(ROOT, out) + ": index.html, 404.html, zh/, privacy.html, manifesto.html, partecipa-voci.html, img/, assets/, audio/, licenze/, robots.txt, llms.txt, llms-full.txt, fatti.json, sitemap.xml, app/");

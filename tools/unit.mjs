@@ -193,7 +193,7 @@ function sandbox() {
   const ext = [...h.matchAll(/<(?:script|img|iframe|source|video|audio)\b[^>]*?(?:src|poster)="([^"]+)"/gi)].map((m) => m[1])
     .concat([...h.matchAll(/<link\b[^>]*\brel="(?:stylesheet|icon|preload|modulepreload)"[^>]*?href="([^"]+)"/gi)].map((m) => m[1])).filter(isExt);
   const scripts = [...h.matchAll(/<script\b([^>]*)>/gi)].map((m) => m[1]);
-  const GENERATI = ["app/", "privacy.html", "manifesto.html", "motore-ripasso.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
+  const GENERATI = ["app/", "privacy.html", "manifesto.html", "motore-ripasso.html", "ml-fsrs-net.html", "mandarino.apk", "lezioni/", "parole/", "lessons/", "../parole/", "autore/", "zh/autore/", "confronto/app-per-imparare-cinese/", "zh/compare/learn-italian-apps/", "compare/learn-italian-apps/"];   /* nascono con la pubblicazione: non stanno in docs/ */
   const local = [...h.matchAll(/\b(?:src|poster|href)="([^"#?]+)(?:[#?][^"]*)?"/g)].map((m) => m[1])
     .filter((u) => !/^(https?:|mailto:|tel:|\/\/|data:)/i.test(u) && !GENERATI.includes(u)).filter((f) => !fs.existsSync(path.join(DOCS, f)));
   const ctas = (h.match(/class="btn"/g) || []).length;
@@ -306,6 +306,8 @@ function sandbox() {
   const fsrsV = /VERSION: "(FSRS-6|ML-FSRS-32)/.test(fs.readFileSync(path.join(SRC, "core/fsrs.js"), "utf8"));
   const moMd = fs.readFileSync(path.join(ROOT, "docs/motore-ripasso.md"), "utf8"), idxH = fs.readFileSync(path.join(ROOT, "docs/index.html"), "utf8"), seoM = await import("./seo.mjs");
   check("Motore del ripasso: pagina nascosta nel piè di pagina (noindex, fuori dalla mappa del sito), con licenza MIT, py-fsrs e il limite dei pesi dichiarati", /href="motore-ripasso\.html"/.test(idxH) && seoM.PAGES.some((p) => p.path === "/motore-ripasso.html" && p.noindex) && !/motore-ripasso/.test(seoM.sitemapXml()) && /licenza MIT/.test(moMd) && /Open Spaced Repetition/.test(moMd) && /non sono stati stimati su ripassi di studenti veri/.test(moMd));
+  const netMd = fs.readFileSync(path.join(ROOT, "docs/ml-fsrs-net.md"), "utf8");
+  check("ML-FSRS-NET: ha una pagina dedicata (noindex, fuori dalla mappa del sito) che dice nome, perché, problemi, modalità ombra, overengineering e limiti, ed è collegata dalla pagina del motore, dal README e dalla privacy", seoM.PAGES.some((p) => p.path === "/ml-fsrs-net.html" && p.noindex) && !/ml-fsrs-net/.test(seoM.sitemapXml()) && /Perché si chiama così/.test(netMd) && /Che cosa cerca di risolvere/.test(netMd) && /Perché non è overengineering/.test(netMd) && /modalità ombra/.test(netMd) && /non è provato su persone/.test(netMd) && /ml-fsrs-net\.md/.test(moMd) && /ml-fsrs-net\.md/.test(fs.readFileSync(path.join(ROOT, "README.md"), "utf8")) && /ml-fsrs-net\.md/.test(fs.readFileSync(path.join(ROOT, "PRIVACY.md"), "utf8")));
   check("manifesto: «5.700 frasi», «oltre un'ora di musica» e «FSRS-6» sono veri", nEx >= 5700 && minTracks > 60 && fsrsV && /5\.700 frasi/.test(mdM) && /FSRS-6|ML-FSRS-32/.test(mdM), nEx + " frasi, " + Math.round(minTracks) + " min");
 }
 
