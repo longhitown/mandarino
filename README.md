@@ -8,7 +8,7 @@
 | Prezzo | Gratis, senza acquisti né abbonamenti |
 | Pubblicità, account, tracciamento | Nessuno dei tre; non raccoglie dati personali ([PRIVACY.md](PRIVACY.md)) |
 | Offline | Sì, dopo la prima apertura o l'installazione |
-| Cinese per italiani | 6385 parole HSK 3.0 in 220 sezioni (più pacchetti opzionali: HSK 6, 712 parole), 32 dialoghi, 55 lezioni di grammatica, ordine dei tratti, toni con il microfono |
+| Cinese per italiani | 6385 parole HSK 3.0 in 220 sezioni (fino a 10.844 con i pacchetti opzionali dei livelli 6 e 7–9, cioè l'86% della lista HSK 3.0), 32 dialoghi, 55 lezioni di grammatica, ordine dei tratti, toni con il microfono |
 | Italiano per chi parla cinese | 51 lezioni spiegate in cinese, 4779 parole, con la coniugazione dei verbi |
 | Ripasso | Ripetizione a intervalli con FSRS-6 (solido, della comunità) più modifiche sperimentali ML-FSRS-32 per il cinese; un motore candidato ([ML-FSRS-NET](docs/ml-fsrs-net.md)) osserva in modalità ombra, la ricerca è volontaria |
 | Dove | Android (APK) e web installabile (PWA) |

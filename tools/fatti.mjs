@@ -63,7 +63,9 @@ export function fatti() {
       parole: c.words, sezioni: c.sections, dialoghi: c.dialogs, frasiVerificate: gv.total,
       lezioni: (D.LESSONS || []).length, standard: "HSK 3.0",
       pacchetti: (D.PACK_INDEX || []).map((p) => ({ id: p.id, titolo: p.title, parole: p.n })),
-      paroleConPacchetti: c.words + (c.packWords || 0)
+      paroleNeiPacchetti: c.packWords || 0,
+      paroleConPacchetti: c.words + (c.packWords || 0),
+      copertura: D.PACK_META ? { lista: D.PACK_META.lista, vociDellaLista: D.PACK_META.voci, presenti: D.PACK_META.nellApp + D.PACK_META.neiPacchetti, percentuale: Math.round(100 * (D.PACK_META.nellApp + D.PACK_META.neiPacchetti) / D.PACK_META.voci) } : null
     },
     corsoDiItaliano: { lezioni: (D.ITLESSONS || []).length, parole: paroleItaliano(D), perChiParla: "cinese (mandarino)" },
     app: { icone: icone.icone.length, brani, piattaforme: ["Android (APK)", "Web (browser, installabile)"] },
@@ -88,7 +90,7 @@ export function problemi(f) {
     if (!new RegExp(`${f.corsoDiCinese.lezioni} lezioni`).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.lezioni} lezioni di cinese`);
     if (!new RegExp(`${f.corsoDiItaliano.lezioni} (lezioni|节)`).test(t)) out.push(`${nome} non dice ${f.corsoDiItaliano.lezioni} lezioni di italiano`);
     if (!num(f.corsoDiItaliano.parole).test(t)) out.push(`${nome} non dice ${f.corsoDiItaliano.parole} parole di italiano`);
-    for (const p of f.corsoDiCinese.pacchetti) if (!num(p.parole).test(t)) out.push(`${nome} non dice le ${p.parole} parole del pacchetto ${p.titolo}`);
+    if (!num(f.corsoDiCinese.paroleConPacchetti).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.paroleConPacchetti} parole con i pacchetti`);
   }
   return out;
 }

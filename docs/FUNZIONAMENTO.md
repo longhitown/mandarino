@@ -32,7 +32,7 @@ Come si distribuisce: un **file unico** (`dist/index.html`, generato da `src/`, 
 
 | Contenuto | Quantità |
 |---|---|
-| Parole con pinyin, toni a colori, significato in italiano e frase d'esempio | **6385** nel corso base, in **220 sezioni** (HSK 1–5: 174, 470, 692, 717, 832 parole; il resto sono sezioni per argomento), più **712** nel pacchetto opzionale HSK 6 (Impostazioni → Studia): 7097 con il pacchetto |
+| Parole con pinyin, toni a colori, significato in italiano e frase d'esempio | **6385** nel corso base, in **220 sezioni** (HSK 1–5: 174, 470, 692, 717, 832 parole; il resto sono sezioni per argomento), più **4.459** nei pacchetti opzionali (HSK 6 e HSK 7–9 in quattro parti, Impostazioni → Studia): **10844** con tutti, cioè **9.448 delle 10.969** parole della lista di riferimento (86%) |
 | Frasi d'esempio (una per parola, cinese + italiano) | **5754** |
 | Frasi di tutti i giorni, per situazione | **120** in 12 gruppi |
 | Dialoghi di sopravvivenza (ascolto, tocco sulle parole, recita la parte di B) | **32** dialoghi, 304 battute |

@@ -14,9 +14,36 @@
         "id": "hsk6",
         "titolo": "HSK 6",
         "parole": 712
+      },
+      {
+        "id": "hsk7a",
+        "titolo": "HSK 7–9 · A",
+        "parole": 1000
+      },
+      {
+        "id": "hsk7b",
+        "titolo": "HSK 7–9 · B",
+        "parole": 1000
+      },
+      {
+        "id": "hsk7c",
+        "titolo": "HSK 7–9 · C",
+        "parole": 1000
+      },
+      {
+        "id": "hsk7d",
+        "titolo": "HSK 7–9 · D",
+        "parole": 747
       }
     ],
-    "paroleConPacchetti": 7097
+    "paroleNeiPacchetti": 4459,
+    "paroleConPacchetti": 10844,
+    "copertura": {
+      "lista": "complete-hsk-vocabulary, livelli new-1…7",
+      "vociDellaLista": 10969,
+      "presenti": 9448,
+      "percentuale": 86
+    }
   },
   "corsoDiItaliano": {
     "lezioni": 51,
