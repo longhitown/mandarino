@@ -8,9 +8,9 @@ Questa guida racconta come si usa. Come funziona ogni parte, con i numeri contat
 
 ## Due corsi in un'app
 
-- **Il cinese per italiani** (il corso di base): 6385 parole con pinyin, toni e una frase d'esempio per ciascuna, 55 lezioni di grammatica (con mini-dialogo e ripasso ogni cinque lezioni),
+- **Il cinese per italiani** (il corso di base): 6385 parole con pinyin, toni e una frase d'esempio per ciascuna (più pacchetti opzionali di parole, da accendere in Impostazioni → Studia: oggi HSK 6, 712 parole), 55 lezioni di grammatica (con mini-dialogo e ripasso ogni cinque lezioni),
   dialoghi, un laboratorio di frasi, lettura di testi graduati, pronuncia con il microfono e ordine dei tratti.
-- **意大利语课程, l'italiano per chi parla cinese**: 51 lezioni in cinese (con mini-dialogo e ripasso ogni cinque lezioni), 4780 parole, coniugazione dei verbi, frasi, dialoghi e un
+- **意大利语课程, l'italiano per chi parla cinese**: 51 lezioni in cinese (con mini-dialogo e ripasso ogni cinque lezioni), 4779 parole, coniugazione dei verbi, frasi, dialoghi e un
   controllo degli accordi nelle frasi che scrivi.
 
 Si sceglie dal benvenuto o da Impostazioni → Studio → Corso. I due corsi hanno progressi separati.
@@ -56,7 +56,7 @@ Una scelta multipla giusta non vale mai «Facile». Si può sempre «Studiare li
 
 ## Il corso di italiano per chi parla cinese
 
-Le schede sono 课程 (51 lezioni con quiz), 复习 (ripasso), 单词 (4780 parole), 变位 (coniugazioni) e 句子 (frasi, dialoghi, lettura, 句子练习 e **句子检查**).
+Le schede sono 课程 (51 lezioni con quiz), 复习 (ripasso), 单词 (4779 parole), 变位 (coniugazioni) e 句子 (frasi, dialoghi, lettura, 句子练习 e **句子检查**).
 
 - La carta **今天** in cima ha un solo pulsante con il passo successivo: esercizi se hai almeno 10 ripassi, altrimenti un testo da leggere o la lezione corrente.
 - Gli esercizi sono dieci tipi (significato, parola, ascolto, dettato con voce reale, frase a buco, ordina, scrivi, forma del verbo…), con gli stessi tre stili di ripasso del cinese.

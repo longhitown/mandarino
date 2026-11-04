@@ -8,10 +8,19 @@
     "dialoghi": 32,
     "frasiVerificate": 378,
     "lezioni": 55,
-    "standard": "HSK 3.0"
+    "standard": "HSK 3.0",
+    "pacchetti": [
+      {
+        "id": "hsk6",
+        "titolo": "HSK 6",
+        "parole": 712
+      }
+    ],
+    "paroleConPacchetti": 7097
   },
   "corsoDiItaliano": {
     "lezioni": 51,
+    "parole": 4779,
     "perChiParla": "cinese (mandarino)"
   },
   "app": {

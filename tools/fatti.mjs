@@ -36,6 +36,20 @@ const PROMESSE = {
   sito: "https://mandarinoapp.org"
 };
 
+/* le parole del corso di italiano: la stessa regola di src/it/course.js (un'entrata per id, solo se la parola cinese esiste nel vocabolario); il test e2e confronta con CP.itLexicon() */
+export function paroleItaliano(D) {
+  const W = new Set(); D.SECTIONS.forEach((s) => s.words.forEach((w) => { let k = w[1]; if (W.has(k)) { k = w[1] + "#" + w[0]; while (W.has(k)) k += "'"; } W.add(k); }));
+  const ids = new Set(), G = D.GRAM || {};
+  Object.keys(G.nouns || {}).forEach((k) => W.has(k) && ids.add("it:n:" + k));
+  Object.keys(G.places || {}).forEach((k) => W.has(k) && G.places[k][0] && !ids.has("it:n:" + k) && ids.add("it:l:" + k));
+  Object.keys(G.nations || {}).forEach((k) => W.has(k) && Array.isArray(G.nations[k]) && ids.add("it:a:" + k));
+  Object.keys(G.verbs || {}).forEach((k) => W.has(k) && ids.add("it:v:" + k));
+  Object.keys(G.adjs || {}).forEach((k) => W.has(k) && ids.add("it:j:" + k));
+  Object.keys(G.time || {}).forEach((k) => W.has(k) && ids.add("it:t:" + k));
+  (D.IT_LEXICON || []).forEach((r) => { const ks = r[0].split("|").filter((k) => W.has(k)); if (ks.length) ids.add("it:" + (r[1] === "n" ? "n" : r[1] === "j" ? "j" : r[1] === "v" ? "v" : "x") + ":" + ks[0]); });
+  return ids.size;
+}
+
 export function fatti() {
   const D = load(SRC), c = check(D), gv = verify(lab(SRC));
   const prop = Object.fromEntries(rd("android/version.properties").split(/\r?\n/).filter((l) => /^\w+=/.test(l)).map((l) => l.split("=")));
@@ -47,9 +61,11 @@ export function fatti() {
     versioneNelCodice: prop.versionName,
     corsoDiCinese: {
       parole: c.words, sezioni: c.sections, dialoghi: c.dialogs, frasiVerificate: gv.total,
-      lezioni: (D.LESSONS || []).length, standard: "HSK 3.0"
+      lezioni: (D.LESSONS || []).length, standard: "HSK 3.0",
+      pacchetti: (D.PACK_INDEX || []).map((p) => ({ id: p.id, titolo: p.title, parole: p.n })),
+      paroleConPacchetti: c.words + (c.packWords || 0)
     },
-    corsoDiItaliano: { lezioni: (D.ITLESSONS || []).length, perChiParla: "cinese (mandarino)" },
+    corsoDiItaliano: { lezioni: (D.ITLESSONS || []).length, parole: paroleItaliano(D), perChiParla: "cinese (mandarino)" },
     app: { icone: icone.icone.length, brani, piattaforme: ["Android (APK)", "Web (browser, installabile)"] },
     lingue: ["it", "zh-CN"],
     promesse: PROMESSE
@@ -71,6 +87,8 @@ export function problemi(f) {
     if (!num(f.corsoDiCinese.parole).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.parole} parole`);
     if (!new RegExp(`${f.corsoDiCinese.lezioni} lezioni`).test(t)) out.push(`${nome} non dice ${f.corsoDiCinese.lezioni} lezioni di cinese`);
     if (!new RegExp(`${f.corsoDiItaliano.lezioni} (lezioni|节)`).test(t)) out.push(`${nome} non dice ${f.corsoDiItaliano.lezioni} lezioni di italiano`);
+    if (!num(f.corsoDiItaliano.parole).test(t)) out.push(`${nome} non dice ${f.corsoDiItaliano.parole} parole di italiano`);
+    for (const p of f.corsoDiCinese.pacchetti) if (!num(p.parole).test(t)) out.push(`${nome} non dice le ${p.parole} parole del pacchetto ${p.titolo}`);
   }
   return out;
 }

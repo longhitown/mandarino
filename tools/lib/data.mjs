@@ -33,9 +33,9 @@ export function load(srcDir) {
   const g = (n) => vm.runInContext("typeof " + n + " === 'undefined' ? undefined : " + n, ctx);
   return {
     files: files.map((s) => s.src),
-    SECTIONS: ctx.SECTIONS, DIALOGS: ctx.DIALOGS, PHRASES: g("PHRASES"), DIALOG_CATS: g("DIALOG_CATS"), THINK: g("THINK"), THINK_CATS: g("THINK_CATS"),
+    SECTIONS: ctx.SECTIONS, PACKS: g("PACKS") || [], PACK_INDEX: g("PACK_INDEX") || [], DIALOGS: ctx.DIALOGS, PHRASES: g("PHRASES"), DIALOG_CATS: g("DIALOG_CATS"), THINK: g("THINK"), THINK_CATS: g("THINK_CATS"),
     EX: g("EX"), PATTERNS: g("PATTERNS"), SLOTS: g("SLOTS"), SITUATIONS: g("SITUATIONS"), PATH: g("PATH"),
-    GRAM: g("GRAM"), VERIFIED: g("VERIFIED"), WORD_FREQ: g("WORD_FREQ"), VOCAB_EXPECT: g("VOCAB_EXPECT"), LESSONS: g("LESSONS"), ITLESSONS: g("ITLESSONS"), LESSON_RICH: ctx.LESSON_RICH, EXAMPLES: g("EXAMPLES")
+    GRAM: g("GRAM"), IT_LEXICON: g("IT_LEXICON") || [], VERIFIED: g("VERIFIED"), WORD_FREQ: g("WORD_FREQ"), VOCAB_EXPECT: g("VOCAB_EXPECT"), LESSONS: g("LESSONS"), ITLESSONS: g("ITLESSONS"), LESSON_RICH: ctx.LESSON_RICH, EXAMPLES: g("EXAMPLES")
   };
 }
 
@@ -104,6 +104,25 @@ export function check(D) {
     else if (vz.has(v[0])) err.push(`verified[${i}] ${v[0]}: frase doppia`);
     vz.add(v[0]);
   });
+  /* i pacchetti di livello: stesse regole delle sezioni, nessuna parola già nel corso base né in un altro pacchetto, indice coerente */
+  const base = new Set(); D.SECTIONS.forEach((s) => s.words.forEach((w) => base.add(w[1])));
+  const seenP = new Set(), packIds = new Set(); let packWords = 0;
+  (D.PACKS || []).forEach((p) => {
+    if (!p.id || packIds.has(p.id)) err.push("pacchetto con id mancante o doppio: " + p.id); packIds.add(p.id);
+    if (!Number.isInteger(p.chapter) || p.chapter < 1 || p.chapter > 9) err.push(`pacchetto ${p.id}: capitolo non valido`);
+    (p.sections || []).forEach((s) => {
+      if (!s.id || ids.has(s.id)) err.push("sezione di pacchetto con id mancante o doppio: " + s.id); ids.add(s.id);
+      s.words.forEach((w, i) => {
+        if (!Array.isArray(w) || w.length < 3 || w.length > 4 || w.some((x) => typeof x !== "string")) err.push(`${s.id}[${i}]: la parola deve essere [pinyin, caratteri, italiano, nota?]`);
+        else if (syllables(w[0]).length !== cjkCount(w[1])) err.push(`${s.id}[${i}] ${w[1]}: ${syllables(w[0]).length} sillabe per ${cjkCount(w[1])} caratteri («${w[0]}»)`);
+        else if (/[<>]/.test(w.join("")) || !w[2].trim()) err.push(`${s.id}[${i}] ${w[1]}: glossa vuota o con < >`);
+        if (base.has(w[1])) err.push(`${s.id}: ${w[1]} è già nel corso base`);
+        if (seenP.has(w[1])) err.push(`${s.id}: ${w[1]} è già in un altro pacchetto o sezione`); seenP.add(w[1]); packWords++;
+      });
+    });
+    const ix = (D.PACK_INDEX || []).find((x) => x.id === p.id), nw = (p.sections || []).reduce((a, s) => a + s.words.length, 0);
+    if (!ix) err.push(`pacchetto ${p.id}: manca in data/packs-index.js (node tools/packs.mjs … --scrivi)`); else if (ix.n !== nw) err.push(`pacchetto ${p.id}: l'indice dice ${ix.n} parole, il pacchetto ne ha ${nw}`);
+  });
   const n = D.SECTIONS.reduce((a, s) => a + s.words.length, 0);
-  return { err, warn, words: n, sections: D.SECTIONS.length, dialogs: D.DIALOGS.length };
+  return { err, warn, words: n, sections: D.SECTIONS.length, dialogs: D.DIALOGS.length, packs: (D.PACKS || []).length, packWords };
 }

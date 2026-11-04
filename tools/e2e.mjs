@@ -1910,6 +1910,46 @@ try {
       await ctx.close();
     }
   }
+  /* 9a. Pacchetti di parole (Impostazioni → Studia): spenti di base, si accendono con un riavvio, i progressi restano anche da spenti */
+  {
+    const { fatti } = await import("./fatti.mjs"), F = fatti(), PK = F.corsoDiCinese.pacchetti[0];
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { if (!sessionStorage.getItem("pk")) { sessionStorage.setItem("pk", 1); localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); } });
+    await p.goto(base); await p.waitForTimeout(700);
+    await p.evaluate(() => CP.openSettings("study")); await p.waitForTimeout(500);
+    const a0 = await p.evaluate((id) => ({ n: CP.ORDER.length, row: !!document.querySelector('#set-packs [data-pk="' + id + '"]'), on: !!document.querySelector('#set-packs [data-pk="' + id + '"]').checked, sec: !!document.getElementById("hsk6_01") }), PK.id);
+    check("Pacchetti: spenti di base (solo il corso base, " + F.corsoDiCinese.parole + " parole) e c'è la riga in Impostazioni → Studia", a0.n === F.corsoDiCinese.parole && a0.row && !a0.on, JSON.stringify(a0));
+    await p.click('#set-packs [data-pk="' + PK.id + '"]'); await p.waitForTimeout(400);
+    const q = await p.evaluate(() => ({ sheet: !!document.querySelector("[data-pk-go]"), still: !document.querySelector("#set-packs [data-pk]") || !document.querySelector("#set-packs [data-pk]").checked, saved: localStorage.getItem("cp-packs") }));
+    await p.click("[data-pk-no]"); await p.waitForTimeout(300);
+    const n1 = await p.evaluate(() => localStorage.getItem("cp-packs"));
+    check("Pacchetti: accendere chiede conferma e «Annulla» non cambia niente", q.sheet && q.saved === null && !n1, JSON.stringify([q, n1]));
+    await p.evaluate(() => CP.openSettings("study")); await p.waitForTimeout(400);
+    await p.click('#set-packs [data-pk="' + PK.id + '"]'); await p.waitForTimeout(300);
+    await Promise.all([p.waitForNavigation({ waitUntil: "load" }), p.click("[data-pk-go]")]); await p.waitForTimeout(1200);
+    const a1 = await p.evaluate(() => ({ n: CP.ORDER.length, on: JSON.parse(localStorage.getItem("cp-packs") || "[]"), ch: SECTION_CHAPTER.hsk6_01, secs: CP.SEC.filter((s) => /^hsk6_/.test(s.id)).length, w: CP.WORDS["于"] && CP.WORDS["于"].it }));
+    check("Pacchetti: dopo il riavvio il pacchetto è acceso (" + PK.parole + " parole in più, capitolo 6, tappe del pacchetto in ordine)", a1.n === F.corsoDiCinese.paroleConPacchetti && a1.on.join() === PK.id && a1.ch === 6 && a1.secs === Math.ceil(PK.parole / 30) && !!a1.w, JSON.stringify(a1));
+    await p.evaluate(() => { CP.grade("于", 2, false, { at: Date.now() }); }); await p.waitForTimeout(200);
+    await p.evaluate(() => CP.openSettings("study")); await p.waitForTimeout(400);
+    await p.click('#set-packs [data-pk="' + PK.id + '"]'); await p.waitForTimeout(300);
+    await Promise.all([p.waitForNavigation({ waitUntil: "load" }), p.click("[data-pk-go]")]); await p.waitForTimeout(1200);
+    const a2 = await p.evaluate(() => ({ n: CP.ORDER.length, w: !!CP.WORDS["于"], st: !!(CP.S()["于"] && CP.S()["于"].n), on: JSON.parse(localStorage.getItem("cp-packs") || "[]") }));
+    check("Pacchetti: spegnerlo toglie le parole dall'elenco ma i progressi restano (e tornano riaccendendolo)", a2.n === F.corsoDiCinese.parole && !a2.w && a2.st && !a2.on.length, JSON.stringify(a2));
+    check("Pacchetti: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
+  /* 9b. Corso di italiano: le parole dichiarate (docs/fatti.json) sono quelle che l'app ha davvero */
+  {
+    const { fatti } = await import("./fatti.mjs"), F = fatti();
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-course", "it"); localStorage.setItem("cp-lang", "zh"); localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); });
+    await p.goto(base); await p.waitForTimeout(1500);
+    const n = await p.evaluate(() => CP.itLexicon().length);
+    check("Corso di italiano: le " + F.corsoDiItaliano.parole + " parole dichiarate sono quelle di CP.itLexicon()", n === F.corsoDiItaliano.parole && !errs.length, n + " " + (errs[0] || ""));
+    await ctx.close();
+  }
   /* 9. «Comunità e voci»: la pagina, l'invito che copia, il pallino «Nuovo», il controllo del pacchetto voci (rete simulata) */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [], ext = [];
@@ -1936,7 +1976,7 @@ try {
       for (const pg of ["look", "sound", "community", "study", "data", "social", "info"]) {
         CP.openSettings(pg); await new Promise((r) => setTimeout(r, 300));
         const c = document.querySelector("#settings .set-card"), ch = c.clientHeight;
-        for (let y = 0; y <= c.scrollHeight; y += ch * 0.4) { c.scrollTop = y; await new Promise((r) => setTimeout(r, 560)); }
+        for (let y = 0; y <= c.scrollHeight; y += ch * 0.3) { c.scrollTop = y; await new Promise((r) => setTimeout(r, 620)); }   /* passo e sosta abbastanza fitti da dare mezzo secondo a ogni «schermata», qualunque sia la lunghezza della pagina */
         c.scrollTop = c.scrollHeight; await new Promise((r) => setTimeout(r, 2800));
         keys[pg] = localStorage.getItem("md-seen-p-" + pg);
       }

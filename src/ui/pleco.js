@@ -1,16 +1,13 @@
-/* ===== màndarínō · collegamento passivo a Pleco (dizionario esterno, se installato). Spento di base; si accende in
-   gear → Studio («Mostra il collegamento a Pleco») con una doppia conferma. Acceso:
-   - pressione di almeno 2 s (PLECO_HOLD_MS) su un carattere (righe di Parole, carta di studio, foglio del carattere):
-     sotto i 2 s tutto resta com'era (a mezzo secondo si apre il foglio del carattere); a 2 s compare un piccolo pulsante
-     «Apri in Pleco», con un'icona generica di dizionario (non il marchio di Pleco). Si esce verso Pleco solo toccandolo;
+/* ===== màndarínō · collegamento passivo a Pleco (dizionario esterno, se installato). Spento di base; si accende in gear → Studio
+   («Mostra il collegamento a Pleco») con doppia conferma. Acceso:
+   - pressione di almeno 2 s (PLECO_HOLD_MS) su un carattere (righe di Parole, carta di studio, foglio del carattere): sotto i 2 s tutto
+     resta com'era; a 2 s compare «Apri in Pleco» con un'icona generica di dizionario (non il marchio di Pleco); si esce solo toccandolo;
    - nella carta di studio, la riga «Apri in Pleco» del menu «⋯» (la via senza gesti);
    - prima di uscire, per un attimo, una pagina con il logo e il wordmark di màndarínō.
-   Si passa la parola intera (solo caratteri cinesi, al massimo PLECO_MAX).
-   Nell'app Android: MandarinoAndroid.openPleco(testo) → intento plecoapi://x-callback-url/s?q=… con setPackage
-   («com.pleco.chinesesystem», dichiarato nelle <queries>); false = Pleco non c'è → un messaggio discreto con un tocco che
-   porta allo store (plecoStore). Nel browser del telefono è un link plecoapi://: se non si apre, non succede niente.
-   Sul computer e nel corso di italiano l'opzione non c'è. Nessuna rete: la parola va a Pleco, sul telefono.
-   Preferenza: cp-pleco-v1 («1» = acceso, del dispositivo). ===== */
+   Si passa la parola intera (solo caratteri cinesi, al massimo PLECO_MAX). Android: MandarinoAndroid.openPleco(testo) → intento
+   plecoapi://x-callback-url/s?q=… con setPackage («com.pleco.chinesesystem», nelle <queries>); false = Pleco non c'è → messaggio discreto
+   che porta allo store (plecoStore). Nel browser del telefono è un link plecoapi://. Non c'è sul computer né nel corso di italiano.
+   Nessuna rete: la parola va a Pleco, sul telefono. Preferenza: cp-pleco-v1 («1» = acceso, del dispositivo). ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc, K = "cp-pleco-v1", PLECO_HOLD_MS = 2000, PLECO_MAX = 16, A = window.MandarinoAndroid;
   var IT = (function () { try { return localStorage.getItem("cp-course") === "it"; } catch (e) { return false; } })();

@@ -2,12 +2,11 @@
    - gear → Informazioni → «Sostieni il progetto»: il perché, un link (aperto solo da un tocco) alla pagina di
      sostegno (MD_CONFIG.SUPPORT_URL), la riga sui sigilli, la trasparenza. Nessun importo, nessun contatore, nessun
      invito che si ripete: l'app non sa chi ha donato né quanto, e non manda niente a nessuno.
-   - I sigilli sono solo estetici: non aprono nulla. Sei livelli: tre per chi dona e tre per chi contribuisce (4-6), disegnati qui in SVG («ispirati alla scrittura a sigillo»,
-     non forme storiche): 支 Sostegno (quadrato), 交 Cultura (rotondo, consumato), 永 Custodire (rettangolo imperiale dentro
-     il mandarino, bordo a circuito); 正 Correzione, 加 Aggiunta e 校 Revisione (bollo dentellato arancio, per chi contribuisce). Arrivano come codice firmato dall'autore (core/seal-code.js): da un link (#seal=…),
-     incollando il codice o inquadrando il QR. Prima di salvarlo l'app chiede conferma; poi chiede, se si vuole, come
-     essere chiamati (in italiano: al maschile, al femminile o senza titolo, predefinito) e se mostrare il sigillo nelle
-     immagini condivise. Dati: cp-seal-v1 (codici uniti tra dispositivi, preferenze del più recente).
+   - I sigilli sono solo estetici: non aprono nulla. Sei livelli, tre per chi dona e tre per chi contribuisce (4-6), disegnati qui in SVG
+     («ispirati alla scrittura a sigillo», non forme storiche): 支 Sostegno, 交 Cultura, 永 Custodire; 正 Correzione, 加 Aggiunta, 校 Revisione
+     (bollo dentellato arancio). Arrivano come codice firmato (core/seal-code.js): da un link (#seal=…), incollando il codice o col QR.
+     Prima di salvarlo l'app chiede conferma, poi come essere chiamati (in italiano: maschile, femminile o senza titolo, predefinito) e se
+     mostrare il sigillo nelle immagini condivise. Dati: cp-seal-v1 (codici uniti tra dispositivi, preferenze del più recente).
    - Interruttori: MD_CONFIG.FEATURE_DONATE, FEATURE_SEALS (spenti nella versione per gli store: allora qui non c'è niente).
      Con SEAL_PUBKEYS vuoto la parte «riscatta» non compare. ===== */
 (function () {
