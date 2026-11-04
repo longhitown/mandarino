@@ -1213,7 +1213,7 @@ try {
     await p.waitForFunction(() => window.CP && CP.build);
     await p.evaluate(() => {
       const SYL = new Set(); CP.ORDER.forEach((k) => CP.syllables(CP.WORDS[k].py).forEach((x) => SYL.add(x.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-zü]/g, ""))));
-      const OK = new Set("pdf jspdf parallax eros zanchetta marco baroni notice third party notices playwright lgpl sa by md strumstick unlicense màndarínō mandarino licenze license claudio longhitano claude code anthropic iphone wikidict wikidata wikipedia dict data drive onedrive dropbox icloud jsqr cozmo apache pages public complete vocabulary javascript hsk xp fsrs pwa github chrome google pleco anki wechat whatsapp email json cloudflare google pinyin android https http apk wifi sim qr ok mb kb app arphic mit makemeahanzi kishore shaunak zafirópulos yanis drkameleon py open spaced repetition cc cedict mdbg morph bologna hunspell libreoffice license kaitim ukai gb pl skishore com org unihan cjklib tatoeba fr materiali crediti autori frasi tsv m ndar n longhitown nm mozilla common voice ogg opus".split(" "));
+      const OK = new Set("duotono pdf jspdf parallax eros zanchetta marco baroni notice third party notices playwright lgpl sa by md strumstick unlicense màndarínō mandarino licenze license claudio longhitano claude code anthropic iphone wikidict wikidata wikipedia dict data drive onedrive dropbox icloud jsqr cozmo apache pages public complete vocabulary javascript hsk xp fsrs pwa github chrome google pleco anki wechat whatsapp email json cloudflare google pinyin android https http apk wifi sim qr ok mb kb app arphic mit makemeahanzi kishore shaunak zafirópulos yanis drkameleon py open spaced repetition cc cedict mdbg morph bologna hunspell libreoffice license kaitim ukai gb pl skishore com org unihan cjklib tatoeba fr materiali crediti autori frasi tsv m ndar n longhitown nm mozilla common voice ogg opus".split(" "));
       const isPy = (w) => { w = w.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/ü/g, "u").replace(/'/g, ""); if (SYL.has(w)) return true;
         const ok = [true]; for (let i = 1; i <= w.length; i++) { ok[i] = false; for (let j = Math.max(0, i - 6); j < i; j++) if (ok[j] && SYL.has(w.slice(j, i))) { ok[i] = true; break; } } return ok[w.length]; };
       window.__leaks = function () {
@@ -1958,6 +1958,29 @@ try {
     await p.waitForTimeout(800);
     const vis = await p.evaluate((id) => !!document.querySelector('tr[data-k]') && document.body.textContent.indexOf("HSK 7–9 · D") >= 0, last);
     check("Pacchetti: la tabella delle Parole mostra anche l'ultima tappa dell'ultimo pacchetto, senza errori", vis && !errs.length, errs[0]);
+    await ctx.close();
+  }
+  /* 9a3. Duotono (Studia): due toni per una parola di due sillabe, con la spiegazione dove il tono cambia parlando */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); localStorage.setItem("cp-ex-style", "classic"); });
+    await p.goto(base); await p.waitForTimeout(900);
+    await p.evaluate(() => CP.show("study")); await p.waitForTimeout(500);
+    const btn = await p.evaluate(() => { const b = document.getElementById("duo-open"); return b && b.textContent; });
+    check("Duotono: in Studia c'è il pulsante «Duotono» con la sua riga di spiegazione", /Duotono/.test(btn || "") && /due toni/.test(btn || ""), btn);
+    await p.evaluate(() => { Math.random = () => 0; });   /* la prima domanda è una parola con sandhi */
+    await p.click("#duo-open"); await p.waitForTimeout(600);
+    const q = await p.evaluate(() => ({ desc: /due sillabe e scegli i due toni/.test(document.body.textContent), rows: document.querySelectorAll(".duo-row").length, btns: document.querySelectorAll("[data-dtone]").length }));
+    check("Duotono: la prima schermata ha la microdescrizione, le due righe di toni (una per sillaba) e otto pulsanti", q.desc && q.rows === 2 && q.btns === 8, JSON.stringify(q));
+    await p.click('[data-dtone="0,1"]'); await p.click('[data-dtone="1,1"]'); await p.waitForTimeout(400);
+    const r = await p.evaluate(() => ({ spoken: !!document.querySelector(".spoken .sp"), why: document.querySelectorAll(".duo-why li").length, next: !!document.getElementById("d-next"), dis: document.querySelectorAll("[data-dtone][disabled]").length }));
+    check("Duotono: dopo la risposta, per una parola con sandhi compaiono «Si dice», la spiegazione e «Avanti»; i toni non si cambiano più", (r.spoken || r.why >= 1) && r.next && r.dis === 8, JSON.stringify(r));
+    await p.evaluate(() => { Math.random = () => 0.5; });
+    for (let i = 1; i < 10; i++) { await p.click("#d-next"); await p.waitForTimeout(100); await p.keyboard.press("1"); await p.keyboard.press("2"); await p.waitForTimeout(100); }
+    await p.click("#d-next"); await p.waitForTimeout(300);
+    const fin = await p.evaluate(() => /coppie giuste/.test(document.body.textContent) && !!document.getElementById("duo-open"));
+    check("Duotono: dopo dieci parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
     await ctx.close();
   }
   /* 9b. Corso di italiano: le parole dichiarate (docs/fatti.json) sono quelle che l'app ha davvero */

@@ -1,10 +1,12 @@
-/* ===== màndarínō · anatomia del carattere, solo nel corso di cinese, nel foglio del carattere. Il carattere si «smonta» nei componenti del
-   primo livello, disegnati in SVG con le linee centrali dei tratti (data/strokes.js) colorate per componente (campo matches di Make Me a
-   Hanzi, data/anatomy.js). Ogni componente è un pulsante: apre il foglio della sua famiglia (le altre parole che lo contengono), con il
-   significato dal vocabolario dell'app o dai 214 radicali (data/radicals.js). Solo struttura: nei caratteri fonetico-semantici si dice
-   quale parte dà il suono e quale il significato; nessuna etimologia popolare (non c'è una fonte affidabile).
-   Interruttore: gear → Studio → «Anatomia dei caratteri» (cp-anatomy, acceso). I dati pesanti (ANATOMY, STROKES) si leggono al primo
-   uso. Nella lavagna (voice/pad.js) evidenzia il componente del tratto da scrivere. ===== */
+/* ===== màndarínō · anatomia del carattere, solo nel corso di cinese, nel foglio del carattere (non sul fronte
+   della carta di studio). Il carattere si «smonta» nei componenti del primo livello, disegnati in SVG con le linee centrali
+   dei tratti (data/strokes.js) colorate per componente (il campo matches di Make Me a Hanzi, data/anatomy.js). Ogni
+   componente è un pulsante: apre il foglio della sua famiglia (le altre parole che lo contengono), con il suo significato
+   quando lo sappiamo: dal vocabolario dell'app o dai 214 radicali (data/radicals.js, scritti per il progetto).
+   Solo struttura: per i caratteri fonetico-semantici si dice quale parte dà il suono e quale il significato; nessuna
+   «storia» o etimologia popolare (i dati non hanno una fonte affidabile per raccontarle).
+   Interruttore: gear → Studio → «Anatomia dei caratteri» (cp-anatomy, acceso di base). I dati pesanti (ANATOMY, STROKES)
+   si leggono solo al primo uso. Nella lavagna (voice/pad.js) evidenzia il componente del tratto da scrivere. ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc, K = "cp-anatomy";
   var IT = (function () { try { return localStorage.getItem("cp-course") === "it"; } catch (e) { return false; } })();

@@ -119,9 +119,14 @@
     CP.focusMode(true);
     render();
   }
+  /* «Come si dice davvero»: forma parlata di CP.sandhi (study/sandhi.js), solo dove il tono cambia parlando */
+  function spoken(w) {
+    var r = CP.syllables(w.py).length > 1 && Array.from(w.hz).length > 1 ? CP.sandhi(w.hz, w.py) : null;
+    return r && r.parl.join() !== r.cit.join() ? '<div class="spoken" style="margin-top:4px"><span class="tag">' + CP.t("ex.spoken") + '</span><div class="sp">' + CP.pinyinHTML(r.pp) + "</div></div>" : "";
+  }
   function parts(w, set) {
     var h = "";
-    if (set.py) h += '<div class="cd-py">' + CP.pinyinHTML(w.py) + "</div>" + CP.toneCurveHTML(w.py);
+    if (set.py) h += '<div class="cd-py">' + CP.pinyinHTML(w.py) + "</div>" + CP.toneCurveHTML(w.py) + spoken(w);
     if (set.hz) h += '<div class="cd-hz" lang="zh-CN">' + CP.hanziHTML(w.hz, w.py) + "</div>";
     if (set.it) h += '<div class="cd-it" lang="it">' + esc(w.it) + "</div>" + (w.note ? '<div class="cd-note" lang="it">' + esc(w.note) + "</div>" : "") + (w.mine ? '<div class="cd-note mine-tag">⟦pencil⟧ ' + T("w.mine") + "</div>" : "") + (set.py ? CP.polyNote(w) : "");
     return h;

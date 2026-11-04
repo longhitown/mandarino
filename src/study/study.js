@@ -95,7 +95,7 @@
       (CP.ex && CP.ex.stile && CP.ex.stile() === "guided" ? '<label for="cfg-dur">' + T("study.dur") + '<select id="cfg-dur">' + [5, 10, 15].map(function (m) { return '<option value="' + m + '"' + (m === CP.ex.dur() ? " selected" : "") + ">" + T("gd.dur", { n: m }) + "</option>"; }).join("") + "</select></label>" : "") +
       '<label class="chk"><input type="checkbox" id="cfg-auto"' + (CP.pref.auto ? " checked" : "") + "> " + T("study.auto") + "</label>" +
       (!nw && seen >= cfg.n ? '<button type="button" class="btn-s" id="more5">' + T("study.more5today") + "</button>" : "") + "</details></div>" +
-      '<div class="modes"><button type="button" id="ear-open">' + T("study.ear") + "<small>" + T("study.earSub") + '</small></button><button type="button" id="sprint-open">' + T("study.sprint") + "<small>" + ((CP.game && CP.game.best()) ? T("study.record", { n: CP.game.best() }) : T("study.sprintSub")) + "</small></button></div>" +
+      '<div class="modes"><button type="button" id="ear-open">' + T("study.ear") + "<small>" + T("study.earSub") + '</small></button><button type="button" id="sprint-open">' + T("study.sprint") + "<small>" + ((CP.game && CP.game.best()) ? T("study.record", { n: CP.game.best() }) : T("study.sprintSub")) + '</small></button><button type="button" id="duo-open">' + T("study.duo") + "<small>" + T("study.duoSub") + "</small></button></div>" +
       (CP.homeNotice ? CP.homeNotice() : "") +
       /* i progressi in evidenza, con il racconto della settimana; i numeri tecnici restano sotto, in un riquadro */
       '<section class="panel progress" id="st-story"><h3>' + T("study.progress") + '</h3><div id="st-body" aria-live="polite"></div>' +
@@ -122,9 +122,14 @@
     CP.focusMode(true);
     render();
   }
+  /* «Come si dice davvero»: se parlando il tono cambia (你好 si scrive nǐ hǎo e si dice ní hǎo) lo dice la forma parlata di CP.sandhi (study/sandhi.js, al primo uso) */
+  function spoken(w) {
+    var r = CP.syllables(w.py).length > 1 && Array.from(w.hz).length > 1 ? CP.sandhi(w.hz, w.py) : null;
+    return r && r.parl.join() !== r.cit.join() ? '<div class="spoken" style="margin-top:4px"><span class="tag">' + CP.t("ex.spoken") + '</span><div class="sp">' + CP.pinyinHTML(r.pp) + "</div></div>" : "";
+  }
   function parts(w, set) {
     var h = "";
-    if (set.py) h += '<div class="cd-py">' + CP.pinyinHTML(w.py) + "</div>" + CP.toneCurveHTML(w.py);
+    if (set.py) h += '<div class="cd-py">' + CP.pinyinHTML(w.py) + "</div>" + CP.toneCurveHTML(w.py) + spoken(w);
     if (set.hz) h += '<div class="cd-hz" lang="zh-CN">' + CP.hanziHTML(w.hz, w.py) + "</div>";
     if (set.it) h += '<div class="cd-it" lang="it">' + esc(w.it) + "</div>" + (w.note ? '<div class="cd-note" lang="it">' + esc(w.note) + "</div>" : "") + (w.mine ? '<div class="cd-note mine-tag">⟦pencil⟧ ' + T("w.mine") + "</div>" : "") + (set.py ? CP.polyNote(w) : "");
     return h;

@@ -36,6 +36,7 @@ e la pagina dell'[autore](https://mandarinoapp.org/autore/) sono sul sito.
 - Che cosa succede ai tuoi dati (niente): [PRIVACY.md](PRIVACY.md) · 不收集任何数据
 - Dare una mano, anche senza programmare: [CONTRIBUTING.md](CONTRIBUTING.md) · 不会编程也能参与
 - Chi ha già dato una mano: [CONTRIBUTORS.md](CONTRIBUTORS.md)
+- Duotono, l'esercizio che allena l'orecchio ai toni di due sillabe e spiega il sandhi: [docs/duotono.md](docs/duotono.md)
 - Come è nato il vocabolario, con le fonti, i controlli e i limiti: [docs/come-e-nato-il-vocabolario.md](docs/come-e-nato-il-vocabolario.md)
 - Licenze: [NOTICE.md](NOTICE.md) e [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)
 - Il nome e il logo (come usarli, come riconoscere la versione vera): [MARCHIO.md](MARCHIO.md)
