@@ -775,6 +775,21 @@ function sandbox() {
     w.CP.wq.run();
     check("Widget ripasso: la coda confermata non si applica una seconda volta", w.CP.S()["好"].n === before.n + 1 && w.acks.length === 1);
   }
+  /* ML-FSRS-NET in modalità ombra (core/mlnet-ombra.js): osserva, non decide; un guasto non tocca i progressi */
+  {
+    const w1 = world(), w2 = world();
+    w2.CP.mlnetShadow = { observe() { throw new Error("guasto"); } };
+    const seq = [[2, 0], [2, 1], [1, 3], [3, 7], [0, 15], [2, 16]];
+    let ok = true;
+    for (const [g, d] of seq) { w1.CP.grade("好", g, false, { at: T0 + d * 86400000 }); w2.CP.grade("好", g, false, { at: T0 + d * 86400000 }); }
+    check("Modalità ombra: se il motore candidato lancia un errore, la scheda e la scadenza restano identiche (il motore FSRS decide da solo)", JSON.stringify(w1.CP.S()["好"]) === JSON.stringify(w2.CP.S()["好"]));
+    const sh = vm.createContext({ console, setTimeout, clearTimeout, JSON, Date, Math, Object, Array, Number, String, Map, Promise });
+    sh.window = sh; sh.globalThis = sh;
+    for (const f of ["fsrs.js", "fsrs7.js", "guard.js", "head.js", "mlnet.js", "mlnet-ombra.js"]) vm.runInContext(fs.readFileSync(path.join(SRC, "core", f), "utf8"), sh, { filename: "core/" + f });
+    vm.runInContext("(function(){ var S = window.MLNetShadow; S.start(); var t = 1.7e12, ks = ['a','b','c','d','e'], i; for (i = 0; i < 400; i++) { S.observe(ks[i % 5], i % 7 === 0 ? 1 : 3, t + i * 36e5 * 7, { ms: 1800, kind: 'c', k: 0 }); } window.__r = S.report(); })()", sh);
+    const r = sh.__r;
+    check("Modalità ombra: 400 ripassi osservati, perdite finite per FSRS-6, ML-FSRS, FSRS-7 e motore integrato, e la rete di sicurezza (A) resta attiva all'inizio", r.n > 100 && [r.loss.A, r.loss.B, r.loss.C, r.loss.head].every(Number.isFinite) && r.active === "A" && !r.off, JSON.stringify(r));
+  }
   /* ML-FSRS-32: l'estensione psicolinguistica sopra FSRS-6 (core/fsrs.js, core/core.js, study/exercises.js) */
   {
     const F = world().ctx.FSRS, D1 = 86400000, t20 = T0 + 20 * D1;
