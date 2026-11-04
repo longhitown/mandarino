@@ -4,7 +4,7 @@ màndarínō decide quando riproporti una parola con **FSRS-6**, un algoritmo di
 
 **In breve, senza giri di parole**
 - FSRS-6 è la parte solida. Le modifiche sperimentali **potrebbero** migliorare i ripassi, ma non sono provate su studenti veri: le abbiamo provate soltanto con simulazioni, e le simulazioni sono sintetiche.
-- Un terzo livello, **ML-FSRS-NET**, oggi è soltanto in *modalità ombra*: osserva i ripassi sul tuo dispositivo e misura se avrebbe previsto meglio, ma **non decide mai** un intervallo e non invia nulla.
+- Un terzo livello, **[ML-FSRS-NET](ml-fsrs-net.md)**, oggi è soltanto in *modalità ombra*: osserva i ripassi sul tuo dispositivo e misura se avrebbe previsto meglio, ma **non decide mai** un intervallo e non invia nulla.
 - Per sapere se le modifiche funzionano ci affidiamo alla community: la ricerca sulla memoria è **volontaria**, spenta di base, con consenso (opt-in) e revoca (opt-out) sempre disponibili. Niente viene tracciato automaticamente.
 
 Questa pagina dice che cosa fa il motore, che cosa è già attivo, che cosa abbiamo simulato e che cosa no, quanto ci si può fidare dei numeri e a chi appartiene il lavoro.
@@ -52,7 +52,7 @@ Sono attivi tutti i fattori: errore del solo tono, tipo di esercizio, scelta mul
 
 ### Ricerca facoltativa
 
-Per ristimare w21–w31, e per sapere se ML-FSRS-NET può un giorno prendere il posto di FSRS-6, servono ripassi veri: solo la community può dircelo. In Impostazioni → Comunità e voci c'è «Ricerca sulla memoria», **volontaria e spenta di base**, con consenso (opt-in) e «Revoca la partecipazione» (opt-out) sempre disponibili: se accetti il foglio del consenso (maggiorenni, licenza CC0) l'app prepara sul telefono un file con i tuoi ripassi in forma anonima, che puoi leggere e poi mandare con l'e-mail o con Condividi. L'app non invia niente da sola. Il file contiene l'ora di ogni ripasso (quindi si vede a che ora studi) e un codice casuale, lo stesso a ogni invio; non contiene nome, e-mail, indirizzo IP, posizione né le parole che hai aggiunto tu. Si può mandare dopo almeno 300 ripassi di parole già viste; la soglia è un minimo pratico, perché sotto quel numero i ripassi che toccano i parametri nuovi sono troppo pochi. Revocare la partecipazione cancella il codice casuale dal telefono; quello che hai già mandato e che è già stato pubblicato (licenza CC0) non si può più ritirare. Il dettaglio, anche per la privacy, è in [Privacy](../PRIVACY.md).
+Per ristimare w21–w31, e per sapere se [ML-FSRS-NET](ml-fsrs-net.md) può un giorno prendere il posto di FSRS-6, servono ripassi veri: solo la community può dircelo. In Impostazioni → Comunità e voci c'è «Ricerca sulla memoria», **volontaria e spenta di base**, con consenso (opt-in) e «Revoca la partecipazione» (opt-out) sempre disponibili: se accetti il foglio del consenso (maggiorenni, licenza CC0) l'app prepara sul telefono un file con i tuoi ripassi in forma anonima, che puoi leggere e poi mandare con l'e-mail o con Condividi. L'app non invia niente da sola. Il file contiene l'ora di ogni ripasso (quindi si vede a che ora studi) e un codice casuale, lo stesso a ogni invio; non contiene nome, e-mail, indirizzo IP, posizione né le parole che hai aggiunto tu. Si può mandare dopo almeno 300 ripassi di parole già viste; la soglia è un minimo pratico, perché sotto quel numero i ripassi che toccano i parametri nuovi sono troppo pochi. Revocare la partecipazione cancella il codice casuale dal telefono; quello che hai già mandato e che è già stato pubblicato (licenza CC0) non si può più ritirare. Il dettaglio, anche per la privacy, è in [Privacy](../PRIVACY.md).
 
 ### I parametri aggiunti
 
@@ -91,12 +91,14 @@ Per confronto, il benchmark pubblico di Open Spaced Repetition (dati di 10.000 u
 
 ## ML-FSRS-NET: il motore candidato, in modalità ombra
 
+Come si chiama, perché esiste, che cosa cerca di risolvere e perché non è overengineering: [ML-FSRS-NET, spiegato](ml-fsrs-net.md).
+
 Dalla versione dopo la 0.9.3 l'app contiene un motore candidato che **osserva e non decide**: tre motori (FSRS-6, ML-FSRS-32 e FSRS-7) calcolano in parallelo la probabilità che tu ricordi ogni parola; una *guardia* statistica li confronta con ciò che è successo davvero e una *testa di calibrazione* corregge le probabilità per te.
 
 - **Non cambia nulla per chi studia.** Gli intervalli li decide ancora FSRS-6 esteso con ML-FSRS-32. Il candidato gira dentro un `try/catch`: se si rompe, i progressi non si toccano.
 - **Niente esce dal dispositivo e niente viene scritto.** Lo stato si ricostruisce dal registro dei ripassi quando serve; non c'è rete né invio automatico.
 - **Come potrebbe diventare reale.** Solo se, con ripassi veri, la guardia dimostra che un candidato prevede meglio di FSRS-6. La guardia è costruita in modo che adottare per errore un candidato non migliore abbia probabilità controllata in ogni istante, e che un candidato che peggiora venga escluso. Per ora nessun candidato ha vinto: FSRS-6 resta la rete di sicurezza.
-- **Dipende dalla community.** Senza ripassi veri ML-FSRS-NET resta un esperimento; con quelli volontari (sezione «Ricerca facoltativa») potrebbe diventare, un giorno, il motore dell'app.
+- **Dipende dalla community.** Senza ripassi veri [ML-FSRS-NET](ml-fsrs-net.md) resta un esperimento; con quelli volontari (sezione «Ricerca facoltativa») potrebbe diventare, un giorno, il motore dell'app.
 
 ## Autore, licenza e diritti
 
