@@ -161,6 +161,7 @@
     if (t.id === "ear-open") { CP.sfx("tap"); earStart(); }
     else if (t.id === "sprint-open") { CP.sfx("tap"); sprintStart(); }
     else if (t.id === "duo-open") { CP.sfx("tap"); CP.duotono.start(); }
+    else if (t.id === "lavagna-open") { CP.sfx("tap"); CP.lavagna.start(); }
     else if (t.id === "m-quit") quit();
     else if (t.id === "e-next") { CP.sfx("tap"); earNext(); }
     else if (t.hasAttribute("data-eplay")) CP.speak(ear.q.hz, { rate: Math.min(CP.pref.rate, 0.9) });

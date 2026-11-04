@@ -21,7 +21,9 @@ if (!file) { console.error("Uso: node tools/strokes.mjs graphics.txt"); process.
 export const A = [...Array(94)].map((_, i) => String.fromCharCode(33 + i)).filter((c) => c !== '"' && c !== "\\" && c !== "'").join("");
 const Q = A.length - 1;   /* 90 */
 const D = load(SRC), need = new Set();
+/* i caratteri del corso base e quelli dei pacchetti di parole */
 D.SECTIONS.forEach((s) => s.words.forEach((w) => [...w[1]].forEach((c) => { if (/[㐀-鿿]/.test(c)) need.add(c); })));
+(D.PACKS || []).forEach((p) => p.sections.forEach((s) => s.words.forEach((w) => [...w[1]].forEach((c) => { if (/[㐀-鿿]/.test(c)) need.add(c); }))));
 const out = {}, miss = [];
 for (const line of fs.readFileSync(file, "utf8").split("\n")) {
   if (!line) continue;

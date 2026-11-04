@@ -777,6 +777,15 @@ function sandbox() {
     w.CP.wq.run();
     check("Widget ripasso: la coda confermata non si applica una seconda volta", w.CP.S()["好"].n === before.n + 1 && w.acks.length === 1);
   }
+  /* Letture in contesto nelle frasi (core/segment.js): i caratteri con due letture hanno quella giusta dove il contesto la rende certa */
+  {
+    const V = [["我养了一只狗", "只", ["zhī"]], ["我只喝水", "只", ["zhǐ"]], ["他长得很高大", "长", ["zhǎng"]], ["这条路很长", "长", ["cháng"]], ["岩缝里长着一棵小树", "长", ["zhǎng"]],
+      ["他穿着一套西装", "穿着", ["chuān.zhe"]], ["他的穿着很简单", "穿着", ["chuān.zhuó"]], ["我忍不了了", "了", ["liǎo", "le"]], ["他太自私了", "了", ["le"]], ["债权人要求还钱", "还", ["huán"]],
+      ["我还没吃饭", "还", ["hái"]], ["请系好安全带", "系", ["jì"]], ["星期四你有空吗", "空", ["kòng"]], ["他当选为主席", "为", ["wéi"]], ["这两个数相等", "数", ["shù"]], ["请数一下", "数", ["shǔ"]],
+      ["他做了心脏移植", "脏", ["zàng"]], ["这里很脏", "脏", ["zāng"]], ["他在纸上划了一条线", "划", ["huà"]]];
+    const bad = V.filter(([zh, c, want]) => { const got = L.CP.segment(zh).filter((x) => x.w && x.raw === c).map((x) => x.w.py); return JSON.stringify(got) !== JSON.stringify(want); }).map((v) => v[0]);
+    check("Letture in contesto: " + V.length + " frasi (只 zhī/zhǐ, 长 zhǎng/cháng, 穿着, 不了, 还钱, 系好, 有空, 当选为, 个数, 心脏, 划线) hanno la lettura giusta", !bad.length, bad.join(" | "));
+  }
   /* Sandhi di parola (study/sandhi.js): funzione pura provata contro i valori di riferimento del dataset (script/sandhi.py) e su casi noti */
   {
     const sx = vm.createContext({ console }); vm.runInContext(fs.readFileSync(path.join(SRC, "study/sandhi.js"), "utf8"), sx, { filename: "study/sandhi.js" });

@@ -37,8 +37,8 @@ const PROMESSE = {
 };
 
 /* le parole del corso di italiano: la stessa regola di src/it/course.js (un'entrata per id, solo se la parola cinese esiste nel vocabolario); il test e2e confronta con CP.itLexicon() */
-export function paroleItaliano(D) {
-  const W = new Set(); D.SECTIONS.forEach((s) => s.words.forEach((w) => { let k = w[1]; if (W.has(k)) { k = w[1] + "#" + w[0]; while (W.has(k)) k += "'"; } W.add(k); }));
+export function paroleItaliano(D, conPacchetti) {
+  const W = new Set(); D.SECTIONS.concat(conPacchetti ? (D.PACKS || []).flatMap((p) => p.sections) : []).forEach((s) => s.words.forEach((w) => { let k = w[1]; if (W.has(k)) { k = w[1] + "#" + w[0]; while (W.has(k)) k += "'"; } W.add(k); }));
   const ids = new Set(), G = D.GRAM || {};
   Object.keys(G.nouns || {}).forEach((k) => W.has(k) && ids.add("it:n:" + k));
   Object.keys(G.places || {}).forEach((k) => W.has(k) && G.places[k][0] && !ids.has("it:n:" + k) && ids.add("it:l:" + k));
@@ -46,7 +46,7 @@ export function paroleItaliano(D) {
   Object.keys(G.verbs || {}).forEach((k) => W.has(k) && ids.add("it:v:" + k));
   Object.keys(G.adjs || {}).forEach((k) => W.has(k) && ids.add("it:j:" + k));
   Object.keys(G.time || {}).forEach((k) => W.has(k) && ids.add("it:t:" + k));
-  (D.IT_LEXICON || []).forEach((r) => { const ks = r[0].split("|").filter((k) => W.has(k)); if (ks.length) ids.add("it:" + (r[1] === "n" ? "n" : r[1] === "j" ? "j" : r[1] === "v" ? "v" : "x") + ":" + ks[0]); });
+  (D.IT_LEXICON || []).concat(conPacchetti ? D.IT_LEXICON_PACKS || [] : []).forEach((r) => { const ks = r[0].split("|").filter((k) => W.has(k)); if (ks.length) ids.add("it:" + (r[1] === "n" ? "n" : r[1] === "j" ? "j" : r[1] === "v" ? "v" : "x") + ":" + ks[0]); });
   return ids.size;
 }
 
@@ -67,7 +67,7 @@ export function fatti() {
       paroleConPacchetti: c.words + (c.packWords || 0),
       copertura: D.PACK_META ? { lista: D.PACK_META.lista, vociDellaLista: D.PACK_META.voci, presenti: D.PACK_META.nellApp + D.PACK_META.neiPacchetti, percentuale: Math.round(100 * (D.PACK_META.nellApp + D.PACK_META.neiPacchetti) / D.PACK_META.voci) } : null
     },
-    corsoDiItaliano: { lezioni: (D.ITLESSONS || []).length, parole: paroleItaliano(D), perChiParla: "cinese (mandarino)" },
+    corsoDiItaliano: { lezioni: (D.ITLESSONS || []).length, parole: paroleItaliano(D), paroleConPacchetti: paroleItaliano(D, true), perChiParla: "cinese (mandarino)" },
     app: { icone: icone.icone.length, brani, piattaforme: ["Android (APK)", "Web (browser, installabile)"] },
     lingue: ["it", "zh-CN"],
     promesse: PROMESSE

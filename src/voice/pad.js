@@ -183,7 +183,7 @@
     var el = document.createElement("div"); el.className = "pad pad2";
     var h = "";
     if (n > 1) {
-      h += '<div class="pad-chars" role="group" aria-label="Scegli il carattere da scrivere">' + chars.map(function (c, i) { return '<button type="button" class="han" lang="zh-CN" data-pc="' + i + '" aria-label="Carattere ' + (i + 1) + ': ' + CP.attr(c) + '">' + esc(c) + "</button>"; }).join("") + '<button type="button" data-pc="all">Tutti</button></div>';
+      h += '<div class="pad-chars" role="group" aria-label="Scegli il carattere da scrivere">' + chars.map(function (c, i) { return '<button type="button" class="han" lang="zh-CN" data-pc="' + i + '" aria-label="Carattere ' + (i + 1) + (o.blind ? "" : ': ' + CP.attr(c)) + '">' + (o.blind ? i + 1 : esc(c)) + "</button>"; }).join("") + '<button type="button" data-pc="all">Tutti</button></div>';
     }
     h += '<div class="pad-stage"><canvas class="pad-bg" aria-hidden="true"></canvas><canvas class="pad-ink" role="img" aria-label="Lavagna per scrivere il carattere con il dito"></canvas><i class="pad-dot" hidden></i></div>' +
       '<p class="pad-info small muted" aria-live="polite"></p>' +
