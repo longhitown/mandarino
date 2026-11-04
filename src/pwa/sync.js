@@ -1,7 +1,8 @@
 /* ===== màndarínō · sincronizzazione senza server: un file nel cloud di chi studia (Google Drive, OneDrive, Dropbox, iCloud…).
-   Niente account né server: si sceglie una volta un file (o una cartella sincronizzata) e l'app ci scrive i progressi; sugli
-   altri dispositivi si sceglie lo stesso file. Ogni sincronizzazione lo legge, lo UNISCE ai dati locali con le regole del
-   ripristino (per ogni parola il ripasso più recente, punti per dispositivo, registro senza doppioni) e lo riscrive.
+   L'app non ha account né server: si sceglie una volta un file (o una cartella sincronizzata dal cloud) e l'app ci
+   scrive i progressi; sugli altri dispositivi si sceglie lo stesso file. Ogni sincronizzazione legge il file, lo UNISCE ai
+   dati locali con le stesse regole del ripristino (per ogni parola il ripasso più recente, punti per dispositivo, registro
+   senza doppioni) e lo riscrive. Nessuno perde niente, anche se due dispositivi studiano lo stesso giorno.
    Tre modi, scelti da soli:
    - app Android: il selettore di file di sistema (vede Drive, OneDrive, Dropbox), permesso persistente (MainActivity/Bridge);
    - Chrome/Edge sul computer: File System Access, il file sta in una cartella sincronizzata (OneDrive, Dropbox, Drive);

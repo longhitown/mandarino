@@ -16,7 +16,7 @@ I18N.zh = {
   "study.today": "今天", "study.due": "待复习", "study.new1": "新词", "study.newN": "新词", "study.seen": "今天已学新词：{seen}/{n}。", "study.start": "开始 · 约 {min} 分钟", "study.nothing": "暂时没有任务，稍后再来",
   "study.customize": "自定义", "study.newPerDay": "每日新词", "study.perDay": "每天 {n} 个", "study.topic": "主题", "study.allTopics": "全部主题", "study.favs": "★ 只看收藏的词",
   "study.auto": "自动朗读：词语会自动读出来", "study.more5today": "今天再学 5 个新词", "study.progress": "我的进度",
-  "study.ear": "⟦headphones⟧ 练耳朵", "study.earSub": "猜声调", "study.sprint": "⟦bolt⟧ 60 秒挑战", "study.sprintSub": "越快越好", "study.record": "纪录：{n}",
+  "study.duo": "⟦ear⟧ Duotono · 双声调", "study.duoSub": "一个词，两个声调", "study.ear": "⟦headphones⟧ 练耳朵", "study.earSub": "猜声调", "study.sprint": "⟦bolt⟧ 60 秒挑战", "study.sprintSub": "越快越好", "study.record": "纪录：{n}",
   "sess.quit": "退出", "sess.quitLabel": "退出练习", "sess.next": "下一个", "sess.reveal": "显示答案", "sess.auto": "自动朗读", "sess.more": "更多：描红、词族、声调",
   "sess.newWord": "新词", "sess.qPi": "这是什么意思？", "sess.qIp": "怎么说？", "sess.qHp": "读出这个字", "sess.example": "例句",
   "sess.swipe": "也可以拖动卡片：向右「会」，向左「不会」。", "sess.star": "标记为收藏或难词",

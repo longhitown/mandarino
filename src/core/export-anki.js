@@ -1,12 +1,16 @@
-/* ===== màndarínō · esportazione per Anki (sovranità dei dati): solo formattazione in sola lettura, a parte da store.js (che resta il posto delle regole d'unione).
-   File di testo UTF-8 con tabulazioni (.txt), con le intestazioni che Anki legge da solo (#separator:tab, #html:true, #guid column:1,
-   #tags column:7, #columns:…, #deck:…) e una riga di commento con app, versione e licenza. Colonne: guid · Vocabolo · Pinyin · Traduzione ·
-   Frase d'esempio · Traduzione della frase · tag (livello HSK, tappa, «sicura» / «in-corso»).
-   - guid: impronta di corso + chiave della parola, uguale su ogni dispositivo: reimportando, Anki aggiorna le note.
-   - Il file porta le carte, non il calendario FSRS: in Anki le parole ripartono dall'inizio.
-   - Corso di italiano: le parole di CP.itLexicon; i verbi al presente dalle regole dell'app (CP.ita); genere e articolo dal lessico (Morph-it!, LGPL, citato nell'intestazione).
-   Chi lo vede: solo chi ha studiato molto (ANKI_MIN), in gear → Dati e sincronizzazione → «Altre opzioni di esportazione», con due conferme.
-   Si salva con Store.download, come il backup: nessuna rete. ===== */
+/* ===== màndarínō · esportazione per Anki (sovranità dei dati). Un file a parte da store.js perché è solo formattazione
+   in sola lettura (non tocca né unisce dati) e serve a pochi: così store.js resta il posto delle regole d'unione.
+   File: testo UTF-8 separato da tabulazioni (.txt, tipo text/tab-separated-values), con le intestazioni che Anki legge da
+   solo (#separator:tab, #html:true, #guid column:1, #tags column:7, #columns:…, #deck:…) e una riga di commento con app,
+   versione e licenza dei dati. Colonne: guid · Vocabolo · Pinyin · Traduzione · Frase d'esempio · Traduzione della frase ·
+   tag (livello HSK, tappa, «sicura» / «in-corso»).
+   - guid: un'impronta di corso + chiave della parola, uguale su ogni dispositivo: reimportando, Anki aggiorna le note.
+   - Il file porta le carte, non il calendario FSRS: in Anki le parole ripartono dall'inizio (i tag aiutano a filtrare).
+     Un .apkg con il calendario è fuori portata.
+   - Corso di italiano: le parole di CP.itLexicon; per i verbi il presente prodotto dalle regole dell'app (CP.ita), non da
+     Morph-it! (che a runtime non c'è). Genere e articolo vengono dal lessico (Morph-it!, LGPL): l'intestazione lo cita.
+   Chi lo vede: solo chi ha studiato molto (ANKI_MIN parole iniziate o ripassi), in gear → Dati e sincronizzazione → «Altre opzioni di
+   esportazione», con due conferme. Il file si salva con Store.download, come il backup: nessuna rete. ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc;
   var ANKI_MIN = 400;   /* parole iniziate o ripassi: sotto, la voce non compare */

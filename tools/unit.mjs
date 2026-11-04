@@ -777,6 +777,23 @@ function sandbox() {
     w.CP.wq.run();
     check("Widget ripasso: la coda confermata non si applica una seconda volta", w.CP.S()["好"].n === before.n + 1 && w.acks.length === 1);
   }
+  /* Sandhi di parola (study/sandhi.js): funzione pura provata contro i valori di riferimento del dataset (script/sandhi.py) e su casi noti */
+  {
+    const sx = vm.createContext({ console }); vm.runInContext(fs.readFileSync(path.join(SRC, "study/sandhi.js"), "utf8"), sx, { filename: "study/sandhi.js" });
+    const S = sx.SANDHI, V = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/fixtures/sandhi-vettori.json"), "utf8")).righe;
+    let bad = 0, first = "";
+    for (const [h, py, cit, parl, semi, pp, reg, amb] of V) {
+      const r = S(h, py), ok = JSON.stringify(r.cit) === JSON.stringify(cit) && JSON.stringify(r.parl) === JSON.stringify(parl) && JSON.stringify(r.semi) === JSON.stringify(semi) && r.pp === pp && JSON.stringify(r.reg) === JSON.stringify(reg) && r.amb === amb;
+      if (!ok) { bad++; if (!first) first = h + " " + py; }
+    }
+    check("Sandhi: " + V.length + " parole (tutte quelle con sandhi o ambigue, più un campione) coincidono con i valori di riferimento del dataset", bad === 0, bad + " differenze, la prima: " + first);
+    const n = S("你好", "nǐ.hǎo"), b = S("不是", "bú.shì"), y = S("一个", "yí.gè"), v = S("看一看", "kàn.yi.kàn"), t = S("展览馆", "zhǎn.lǎn.guǎn"), bj = S("北京", "Běi.jīng");
+    check("Sandhi: 你好 si dice ní hǎo; 不是 resta bú shì; 一个 resta yí gè; in 看一看 il 一 è atono; tre terzi di fila sono ambigui; 北京 ha il semiterzo sulla prima sillaba",
+      n.pp === "ní hǎo" && n.parl.join() === "2,3" && n.reg[0] === "3+3_in_2+3" && b.parl.join() === "2,4" && y.parl.join() === "2,4" && v.parl[1] === 5 && t.amb === true && bj.semi.join() === "0" && bj.pp === "běi jīng");
+    const s2 = vm.createContext({ I18N: { it: {}, zh: {} } }); s2.window = s2; s2.CP = { t: (k) => k }; vm.runInContext(fs.readFileSync(path.join(SRC, "study/sandhi.js"), "utf8"), s2, { filename: "study/sandhi.js (con CP)" });
+    const reg = ["3+3_in_2+3", "bu4_davanti_a_4", "yi1_davanti_a_4", "yi1_davanti_a_1_2_3", "V一V_atono", "eccezione_lessicale_dalla_fonte"].map((k) => "sd.r." + k).concat(["sd.semi", "sd.amb"]);
+    check("Sandhi: ogni regola, il semiterzo e l'ambiguità hanno la spiegazione in italiano e in cinese, e CP.sandhi.why le elenca", reg.every((k) => s2.I18N.it[k] && s2.I18N.zh[k]) && s2.CP.sandhi.why(s2.CP.sandhi("北京", "Běi.jīng")).join() === "sd.semi" && s2.CP.sandhi.why(s2.CP.sandhi("你好", "nǐ.hǎo")).join() === "sd.r.3+3_in_2+3");
+  }
   /* ML-FSRS-NET in modalità ombra (core/mlnet-ombra.js): osserva, non decide; un guasto non tocca i progressi */
   {
     const w1 = world(), w2 = world();
