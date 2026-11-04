@@ -1,6 +1,6 @@
 /* ===== màndarínō · Pacchetti di parole (Impostazioni → Studia). Il corso base resta com'è; ogni pacchetto aggiunge parole che chi studia accende
    quando è pronto. L'elenco è data/packs-index.js (generato da tools/packs.mjs); le parole stanno in data/packs/<id>.js e nel file unico sono
-   testo inerte finché il pacchetto non è acceso (cp-packs, letto da data/packs/activate.js all'avvio). Accendere o spegnere riavvia l'app,
+   testo inerte finché il pacchetto non è acceso (cp-packs, letto da words/packs.js all'avvio). Accendere o spegnere riavvia l'app,
    come il cambio di corso: i progressi non si toccano (restano anche per un pacchetto spento). ===== */
 (function () {
   var CP = window.CP, T = CP.t, KEY = "cp-packs", pend = null;
