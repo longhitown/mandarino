@@ -1,10 +1,9 @@
-/* ===== màndarínō · le voci reali registrate. Frasi lette da persone vere: italiano dalla voce NM1 di
-   Tatoeba (CC BY 4.0), cinese da Mozilla Common Voice (CC0). Mai il sesso, l'accento o il numero di chi parla.
-   - Indici VOCE_IT / VOCE_ZH (chiave della frase → numero della clip) e catalogo VOICE_FILES (numero → impronta), tutti
-     letti al primo uso; il file è audio/voce/<lingua>/<numero>.<impronta>.ogg (tools/build.mjs).
-   - Si usano solo se sono sul telefono: nell'APK sono dentro il pacchetto; sul sito dopo «Scarica le voci» (una volta, in
-     una cache propria, mandarino-voice, che gli aggiornamenti non cancellano). Altrimenti nessuna richiesta di rete: legge
-     la voce del telefono, come prima. CP.speak (core/core.js) chiede qui la clip e, se non parte, torna alla voce di sempre.
+/* ===== màndarínō · le voci reali registrate: italiano dalla voce NM1 di Tatoeba (CC BY 4.0), cinese da Mozilla Common Voice (CC0).
+   Mai il sesso, l'accento o il numero di chi parla.
+   - Indici VOCE_IT / VOCE_ZH (chiave della frase → numero della clip) e catalogo VOICE_FILES (numero → impronta), letti al primo
+     uso; il file è audio/voce/<lingua>/<numero>.<impronta>.ogg (tools/build.mjs).
+   - Si usano solo se sono sul telefono: nell'APK dentro il pacchetto; sul sito dopo «Scarica le voci» (cache propria,
+     mandarino-voice). Altrimenti nessuna richiesta di rete: CP.speak (core/core.js) chiede qui la clip e, se non parte, torna alla voce di sempre.
    - Chiave: per il cinese solo i caratteri; per l'italiano minuscole senza punteggiatura (come tools/materiali.mjs). ===== */
 (function () {
   var CP = window.CP, BASE = "audio/voce/", DLK = "cp-voice-dl", VCACHE = "mandarino-voice";

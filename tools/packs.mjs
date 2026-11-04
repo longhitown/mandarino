@@ -12,8 +12,9 @@
    Una parola entra se, tutte insieme:
      1. ha livello `new-N` in complete-hsk-vocabulary uguale a quello del pacchetto;
      2. non è già nell'app (neppure come forma con 儿);
-     3. nel dataset ha rilettura «verificato», glossa italiana non vuota e nessuna segnalazione residua;
-     4. il pinyin si divide in una sillaba per carattere (letture del dataset) e coincide con il pinyin della parola.
+     3. nel dataset ha rilettura «verificato», glossa italiana non vuota e nessuna segnalazione residua; oppure è in `lavoro/glosse_3b.json`
+        (le 1.518 voci rimaste, con glossa scritta e riletta da Claude a partire da complete-hsk-vocabulary: vedi RILETTURA 3b in docs/rilettura.md);
+     4. il pinyin si divide in una sillaba per carattere (letture del dataset, o pinyin indicato nella glossa 3b) e coincide con il pinyin della parola.
    Ordine: dalla più frequente (rango di complete-hsk-vocabulary). Sezioni da 30 parole. */
 import fs from "fs";
 import path from "path";
@@ -30,7 +31,8 @@ export const PACCHETTI = [
   { id: "hsk7a", course: "zh", level: 7, from: 0, to: 1000, title: "HSK 7–9 · A", pre: "HSK 7–9 · A", sub: "Livelli 7–9: le 1.000 parole più frequenti" },
   { id: "hsk7b", course: "zh", level: 7, from: 1000, to: 2000, title: "HSK 7–9 · B", pre: "HSK 7–9 · B", sub: "Livelli 7–9: dalla 1.001ª alla 2.000ª per frequenza" },
   { id: "hsk7c", course: "zh", level: 7, from: 2000, to: 3000, title: "HSK 7–9 · C", pre: "HSK 7–9 · C", sub: "Livelli 7–9: dalla 2.001ª alla 3.000ª per frequenza" },
-  { id: "hsk7d", course: "zh", level: 7, from: 3000, to: Infinity, title: "HSK 7–9 · D", pre: "HSK 7–9 · D", sub: "Livelli 7–9: dalla 3.001ª in poi per frequenza" }
+  { id: "hsk7d", course: "zh", level: 7, from: 3000, to: 4008, title: "HSK 7–9 · D", pre: "HSK 7–9 · D", sub: "Livelli 7–9: dalla 3.001ª alla 4.008ª per frequenza" },
+  { id: "hsk7e", course: "zh", level: 7, from: 4008, to: Infinity, title: "HSK 7–9 · E", pre: "HSK 7–9 · E", sub: "Livelli 7–9: le parole più rare, dalla 4.009ª in poi" }
 ];
 
 const J = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
@@ -42,12 +44,13 @@ const sillabe = (h, e) => {
 };
 
 export function costruisci(ds, completePath) {  /* restituisce l'elenco dei pacchetti, con .meta (copertura della lista di riferimento) */
-  const dataset = J(path.join(ds, "dati/morphemic_dataset.json")), pack = new Map(J(path.join(ds, "dist/pack/libero.json")).map((e) => [e.h, e]));
+  const g3b = fs.existsSync(path.join(ds, "lavoro/glosse_3b.json")) ? J(path.join(ds, "lavoro/glosse_3b.json")) : {}, dataset = J(path.join(ds, "dati/morphemic_dataset.json")), pack = new Map(J(path.join(ds, "dist/pack/libero.json")).map((e) => [e.h, e]));
   const D = load(SRC), have = new Set(); for (const s of D.SECTIONS) for (const w of s.words) have.add(w[1]);
-  const lv = new Map(), rank = new Map();
+  const lv = new Map(), rank = new Map(), pinyinC = new Map();
   for (const w of J(completePath)) {
     const ns = w.level.filter((x) => /^new-/.test(x)).map((x) => +x.slice(4)); if (!ns.length) continue;
     lv.set(w.simplified, Math.min(...ns)); rank.set(w.simplified, w.frequency ?? 1e9);
+    try { pinyinC.set(w.simplified, w.forms[0].transcriptions.pinyin || ""); } catch (e) {}
   }
   const out = [], perLivello = new Map();
   for (const P of PACCHETTI) {
@@ -64,7 +67,14 @@ export function costruisci(ds, completePath) {  /* restituisce l'elenco dei pacc
     for (const [h, l] of lv) {
       if (l !== livello) continue;
       if (have.has(h) || have.has(h.replace(/儿$/, "")) || have.has(h + "儿")) continue;
-      const e = dataset[h], k = pack.get(h);
+      const e = dataset[h], k = pack.get(h), x = g3b[h];
+      if (x) {   /* voce del lotto 3b: glossa riletta; pinyin dal lotto, oppure dal dataset, oppure da complete-hsk-vocabulary */
+        const chars = Array.from(h).length, own = x.py ? x.py.replace(/[’']/g, "").trim().split(/\s+/) : null;
+        let py = own && own.length === chars ? own.join(".") : (e ? sillabe(h, e) : null);
+        if (!py) { const c = (pinyinC.get(h) || "").replace(/[’']/g, "").trim().split(/\s+/); if (c.length === chars) py = c.join("."); }
+        if (!py) { no(h, "3b: pinyin non allineato ai caratteri"); continue; }
+        words.push({ h, py, it: x.it, r: rank.get(h), b: 1 }); continue;
+      }
       if (!e || !k) { no(h, "non nel dataset"); continue; }
       if (k.f !== "verificato") { no(h, "rilettura: " + k.f); continue; }
       const it = String(k.i || "").trim();
@@ -73,7 +83,7 @@ export function costruisci(ds, completePath) {  /* restituisce l'elenco dei pacc
       const py = sillabe(h, e); if (!py) { no(h, "pinyin non allineato ai caratteri"); continue; }
       words.push({ h, py, it, r: rank.get(h) });
     }
-    words.sort((a, b) => a.r - b.r || (a.h < b.h ? -1 : 1));
+    words.sort((a, b) => (a.b || 0) - (b.b || 0) || a.r - b.r || (a.h < b.h ? -1 : 1));   /* prima le voci già verificate dal dataset, poi quelle del lotto 3b: i pacchetti già usciti non cambiano */
     return { words, scartate };
   }
 }
@@ -106,7 +116,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   fs.mkdirSync(OUTDIR, { recursive: true });
   for (const { P, words, scartate } of res) {
     console.log(`${P.id}: ${words.length} parole in ${Math.ceil(words.length / PER_SEZIONE)} sezioni`);
-    for (const [why, l] of Object.entries(scartate)) console.log(`   fuori: ${l.length} · ${why}`);
+    for (const [why, l] of Object.entries(scartate)) console.log(`   fuori: ${l.length} · ${why}${l.length < 12 ? " → " + l.join(" ") : ""}`);
     const f = path.join(OUTDIR, P.id + ".js"), t = file(P, words);
     if (SCRIVI) fs.writeFileSync(f, t); else if (!fs.existsSync(f) || fs.readFileSync(f, "utf8") !== t) { console.error("   ✗ " + f + " non è aggiornato"); ko = 1; }
   }

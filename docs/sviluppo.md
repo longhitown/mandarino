@@ -4,7 +4,7 @@ Questa pagina descrive com'è fatta l'app e come si costruisce, si prova e si pu
 [LEGGIMI.md](../LEGGIMI.md).
 
 Panoramica. Due corsi in un'app: **il cinese per italiani** e, scelto dal benvenuto o da Impostazioni → Studio → Corso, **意大利语课程, l'italiano per
-chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0; pacchetti opzionali di parole in `src/data/packs/`, generati da `tools/packs.mjs`), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6 esteso con ML-FSRS-32,
+chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6388 parole in 221 sezioni (con le liste HSK 3.0; pacchetti opzionali di parole in `src/data/packs/`, generati da `tools/packs.mjs`), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6 esteso con ML-FSRS-32,
 dialoghi, laboratorio di frasi, pannello «Parla» con la curva dei toni, jukebox di 22 brani originali. Nessuna richiesta di
 rete all'avvio, nessuna libreria caricata da fuori (l'unica di terzi, jsQR, è dentro il file); i progressi restano sul
 telefono (localStorage + copia in IndexedDB), si salvano su file e si sincronizzano senza server (file nel proprio cloud o QR).
@@ -866,7 +866,7 @@ commento con app, versione e licenza.
   coniugazioni le producono le regole dell'app, non Morph-it!.
 
 **Verificato con Anki vero.** `tools/anki-check.py`, uno strumento di sviluppo che usa la libreria `anki` 26.09.3, legge le
-intestazioni come Anki, importa e reimporta. Risultato: 6385 note del corso di cinese e 4779 del corso di italiano, nessun
+intestazioni come Anki, importa e reimporta. Risultato: 6388 note del corso di cinese e 4779 del corso di italiano, nessun
 doppione alla seconda importazione. In Anki si crea una volta un tipo di nota con i 5 campi (o si sceglie come mapparli
 nella finestra d'importazione). `Store.download(nome, testo, mime)` ora accetta il tipo del file (di base JSON).
 
@@ -966,7 +966,7 @@ righe per versione. Le note sulle librerie valutate e non usate sono in `THIRD-P
 
 Il corso base sono i file `src/data/vocab/*.js`. In più ci sono **pacchetti**: gruppi di parole che chi studia accende in Impostazioni → Studia (`ui/packs.js`).
 
-- **Pacchetti oggi:** `hsk6` (712 parole) e `hsk7a`–`hsk7d` (livelli 7–9 divisi per frequenza, 1.000 + 1.000 + 1.000 + 747): 4.459 parole in tutto, cioè 9.448 delle 10.969 della lista di riferimento (86%). Restano fuori 1.518 voci (177 + 617 senza glossa nel dataset, 505 con una sola fonte, 200 da rivedere, 19 con rilettura «app»): l'elenco è in `mandarino-dataset/lavoro/pacchetti_da_completare.json`.
+- **Pacchetti oggi:** `hsk6` (961 parole) e `hsk7a`–`hsk7e` (livelli 7–9 divisi per frequenza: 1.000 + 1.000 + 1.000 + 1.008 + 1.008): **5.977 parole**, che con le 4.992 della lista già nel corso base (più 1.396 fuori lista) coprono **tutte le 10.969 voci** della lista di riferimento. Le 1.518 voci aggiunte per ultime (lotto 3b: 794 senza glossa nel dataset, 724 con una sola fonte, da rivedere o con rilettura «app») hanno glosse scritte o riviste da Claude, senza secondo riscontro: sono segnalate in [rilettura.md](rilettura.md). Le tre voci L1–2 mancanti (好玩儿, 小孩儿, 有一点儿) stanno nel corso base (`156-completamento_hsk.js`).
 - **Dati:** `src/data/packs/<id>.js` (`PACKS.push({ id, course, chapter, sections })`, sezioni da 30 parole) e l'elenco `src/data/packs-index.js` (`PACK_INDEX`). Sono **generati** da `tools/packs.mjs` a partire dal dataset verificato: `node tools/packs.mjs <cartella-del-dataset> <complete.json> --scrivi`. Senza `--scrivi` controlla che i file siano aggiornati. Regola di ammissione di una parola: nella lista di riferimento (complete-hsk-vocabulary, livello `new-N`), non già nell'app, rilettura «verificato», glossa non vuota, pinyin allineato ai caratteri.
 - **Nel file unico** (`tools/build.mjs`) i pacchetti restano testo inerte (`<script type="text/plain" id="pack-<id>">`): non pesano sul JavaScript di avvio. `words/packs.js`, prima di `words/table.js`, legge `cp-packs` e, solo per i pacchetti accesi, esegue il testo e aggiunge le sezioni a `SECTIONS` (capitolo del Percorso in `SECTION_CHAPTER`). Da `src/` senza build sono script normali e l'attivatore sceglie lo stesso.
 - **Accendere o spegnere riavvia l'app** (come il cambio di corso). I progressi stanno in `cp-srs-v1` per chiave (il carattere): restano anche per un pacchetto spento.

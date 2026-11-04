@@ -56,3 +56,10 @@ riletta. Dopo una correzione:
   cinese (Impostazioni → Studio → Corso → 学意大利语) e segnalando dall'app (Impostazioni → Dati e sincronizzazione → Contributi) o per e-mail.
 - **Nome di chi rilegge.** Compare nei Crediti solo se lo chiede. Licenza delle correzioni: quella della parte corretta (CC BY-NC-SA 4.0 o CC BY-SA 4.0), come i contenuti
   (CONTRIBUTING.md).
+
+## Le glosse italiane del vocabolario
+
+Oltre alle frasi, nessun madrelingua ha ancora riletto le **glosse italiane** delle parole: quelle «verificato» concordano con almeno un'altra derivazione indipendente, ma non sono state lette da una persona (come sono nate: [Come è nato il vocabolario](come-e-nato-il-vocabolario.md)).
+
+**Rilettura 3b.** Le 1.518 voci dei livelli 6–9 completate per i pacchetti HSK (249 del livello 6 e 1.269 dei livelli 7–9) sono state scritte o riviste da un assistente di intelligenza artificiale, senza un secondo riscontro automatico: sono la parte meno controllata. Si correggono con una segnalazione (dalla scheda della parola, «Correggi») o con una issue sul repository; le correzioni entrano con la licenza del vocabolario (CC BY-SA 4.0).
+
