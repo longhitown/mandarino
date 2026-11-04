@@ -32,7 +32,7 @@ Come si distribuisce: un **file unico** (`dist/index.html`, generato da `src/`, 
 
 | Contenuto | Quantità |
 |---|---|
-| Parole con pinyin, toni a colori, significato in italiano e frase d'esempio | **6385**, in **220 sezioni** (HSK 1–5: 174, 470, 692, 717, 832 parole; il resto sono sezioni per argomento) |
+| Parole con pinyin, toni a colori, significato in italiano e frase d'esempio | **6385** nel corso base, in **220 sezioni** (HSK 1–5: 174, 470, 692, 717, 832 parole; il resto sono sezioni per argomento), più **712** nel pacchetto opzionale HSK 6 (Impostazioni → Studia): 7097 con il pacchetto |
 | Frasi d'esempio (una per parola, cinese + italiano) | **5754** |
 | Frasi di tutti i giorni, per situazione | **120** in 12 gruppi |
 | Dialoghi di sopravvivenza (ascolto, tocco sulle parole, recita la parte di B) | **32** dialoghi, 304 battute |
@@ -53,7 +53,7 @@ Come si distribuisce: un **file unico** (`dist/index.html`, generato da `src/`, 
 
 | Contenuto | Quantità |
 |---|---|
-| Lessico (nomi con genere e plurale, aggettivi con 4 forme, verbi con coniugazione) | **4780** parole (da 4406 voci; fonte delle forme: Morph-it!) |
+| Lessico (nomi con genere e plurale, aggettivi con 4 forme, verbi con coniugazione) | **4779** parole (da 4406 voci; fonte delle forme: Morph-it!) |
 | Lezioni in cinese, con quiz | **51** (30 di base + 21 aggiuntive), 259 esercizi, un mini-dialogo con audio in ognuna |
 | Ripassi | uno ogni cinque lezioni (**10**) |
 | Esercizi (stile Guidato, Misto, Classico) | 10 tipi: significato, parola, ascolto, dettato con voce reale, frase a buco, ordina, scrivi, forma del verbo… |
@@ -189,7 +189,7 @@ Barra propria con cinque schede, interfaccia in cinese:
 
 - **课程**: carta **今天** in cima (saluto, un solo pulsante col passo successivo: esercizi se ci sono almeno 10 ripassi, altrimenti un testo o la lezione corrente), poi il **percorso delle lezioni** come nodi collegati con il sigillo «通过» sulle superate e un nodo-ripasso ogni cinque lezioni.
 - **复习**: ripasso FSRS con gli stessi tre stili e dieci tipi di esercizio; nessuna scelta multipla vale «Facile».
-- **单词**: il lessico (4780 parole), raggruppato per tema/livello.
+- **单词**: il lessico (4779 parole), raggruppato per tema/livello.
 - **变位**: coniugazioni (presente, participio, futuro, imperfetto, condizionale, gerundio) prodotte dalle regole di `phrases/italian.js`, verificate su Morph-it!.
 - **句子**: frasi, dialoghi, lettura graduata A1–B1, 句子练习 e **句子检查**.
 

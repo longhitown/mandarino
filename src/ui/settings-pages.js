@@ -15,7 +15,7 @@
     look: ["set-look", "set-lang", "set-widgets"],
     sound: ["set-sound", "vset", "set-mic-box"],
     community: ["set-scambio", "set-mine", "set-research", "set-thanks", "set-invite", "set-voicepack"],
-    study: ["set-course", "set-exstyle", "set-level", "set-anat", "set-pleco", "set-reminder", "set-together"],
+    study: ["set-course", "set-exstyle", "set-packs", "set-level", "set-anat", "set-pleco", "set-reminder", "set-together"],
     data: ["set-sync", "set-data", "set-export", "set-contrib"],
     social: ["set-social"],
     info: ["set-about", "set-support", "set-news", "set-privacy"]

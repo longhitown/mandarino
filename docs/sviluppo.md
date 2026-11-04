@@ -4,7 +4,7 @@ Questa pagina descrive com'è fatta l'app e come si costruisce, si prova e si pu
 [LEGGIMI.md](../LEGGIMI.md).
 
 Panoramica. Due corsi in un'app: **il cinese per italiani** e, scelto dal benvenuto o da Impostazioni → Studio → Corso, **意大利语课程, l'italiano per
-chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6 esteso con ML-FSRS-32,
+chi parla cinese**. Un'app che si pubblica come file unico (`dist/index.html`, generato da `src/`): 6385 parole in 220 sezioni (con le liste HSK 3.0; pacchetti opzionali di parole in `src/data/packs/`, generati da `tools/packs.mjs`), una frase d'esempio per parola, pinyin davanti, toni a colori, ripasso FSRS-6 esteso con ML-FSRS-32,
 dialoghi, laboratorio di frasi, pannello «Parla» con la curva dei toni, jukebox di 22 brani originali. Nessuna richiesta di
 rete all'avvio, nessuna libreria caricata da fuori (l'unica di terzi, jsQR, è dentro il file); i progressi restano sul
 telefono (localStorage + copia in IndexedDB), si salvano su file e si sincronizzano senza server (file nel proprio cloud o QR).
@@ -331,7 +331,7 @@ Indietro. Il resto dell'app non sa di essere dentro un APK.
 ## Il corso di italiano per chi parla cinese
 
 Si sceglie dal benvenuto («我是中国人，我想学意大利语») o da Impostazioni → Studio → Corso · 课程; per tornare indietro, stesso posto.
-I due corsi hanno progressi separati. Le schede: 课程 (51 lezioni in cinese, `src/data/it/lessons/` e `lessons-x/`), 单词 (4780 parole: quelle delle schede di
+I due corsi hanno progressi separati. Le schede: 课程 (51 lezioni in cinese, `src/data/it/lessons/` e `lessons-x/`), 单词 (4779 parole: quelle delle schede di
 `src/data/grammar.js`, con coniugazioni complete, più `src/data/it/lexicon.js` generato da `node tools/itlex.mjs morph-it.txt`:
 nomi con genere e plurale, aggettivi, verbi, espressioni; ogni parola con una frase d'esempio italiano → cinese), 复习
 (ripasso FSRS), 变位 (coniugazioni), 句子 (frasi, dialoghi bilingui, esercizio 句子练习 sulle frasi d'esempio e **句子检查**,
@@ -866,7 +866,7 @@ commento con app, versione e licenza.
   coniugazioni le producono le regole dell'app, non Morph-it!.
 
 **Verificato con Anki vero.** `tools/anki-check.py`, uno strumento di sviluppo che usa la libreria `anki` 26.09.3, legge le
-intestazioni come Anki, importa e reimporta. Risultato: 6385 note del corso di cinese e 4780 del corso di italiano, nessun
+intestazioni come Anki, importa e reimporta. Risultato: 6385 note del corso di cinese e 4779 del corso di italiano, nessun
 doppione alla seconda importazione. In Anki si crea una volta un tipo di nota con i 5 campi (o si sceglie come mapparli
 nella finestra d'importazione). `Store.download(nome, testo, mime)` ora accetta il tipo del file (di base JSON).
 
@@ -961,3 +961,15 @@ Rifiniture dello stesso giro: istogramma delle settimane con il fondo a filo (un
 durata (sta in Studia → Personalizza); niente più la riga «Sostieni il progetto» ripetuta in «Come funziona»; la tastiera si abbassa scorrendo «Vai a…» e «Cerca ovunque»;
 la carta del giorno del cinese con formato, colore e firma; margine destro del widget «Pausa»; mappa del Taccuino alta al massimo il 46% dello schermo; «Novità» riscritte in sette
 righe per versione. Le note sulle librerie valutate e non usate sono in `THIRD-PARTY-NOTICES.md`.
+
+## Pacchetti di parole (opzionali)
+
+Il corso base sono i file `src/data/vocab/*.js`. In più ci sono **pacchetti**: gruppi di parole che chi studia accende in Impostazioni → Studia (`ui/packs.js`).
+
+- **Dati:** `src/data/packs/<id>.js` (`PACKS.push({ id, course, chapter, sections })`, sezioni da 30 parole) e l'elenco `src/data/packs-index.js` (`PACK_INDEX`). Sono **generati** da `tools/packs.mjs` a partire dal dataset verificato: `node tools/packs.mjs <cartella-del-dataset> <complete.json> --scrivi`. Senza `--scrivi` controlla che i file siano aggiornati. Regola di ammissione di una parola: nella lista di riferimento (complete-hsk-vocabulary, livello `new-N`), non già nell'app, rilettura «verificato», glossa non vuota, pinyin allineato ai caratteri.
+- **Nel file unico** (`tools/build.mjs`) i pacchetti restano testo inerte (`<script type="text/plain" id="pack-<id>">`): non pesano sul JavaScript di avvio. `words/packs.js`, prima di `words/table.js`, legge `cp-packs` e, solo per i pacchetti accesi, esegue il testo e aggiunge le sezioni a `SECTIONS` (capitolo del Percorso in `SECTION_CHAPTER`). Da `src/` senza build sono script normali e l'attivatore sceglie lo stesso.
+- **Accendere o spegnere riavvia l'app** (come il cambio di corso). I progressi stanno in `cp-srs-v1` per chiave (il carattere): restano anche per un pacchetto spento.
+- **Controlli:** `tools/lib/data.mjs` (`check`) applica ai pacchetti le regole delle sezioni, vieta parole già nel corso base o in un altro pacchetto e controlla l'indice; `tools/fatti.mjs` mette in `docs/fatti.json` i pacchetti e le parole di italiano, e la CI fallisce se README e home non dicono i numeri veri; `tools/e2e.mjs` prova il flusso (spento, conferma, riavvio, progressi).
+- **Corso di italiano:** le sue parole (`CP.itLexicon()`, 4.779) nascono dalle schede di `grammar.js` e da `data/it/lexicon.js`, ognuna legata a una parola cinese del vocabolario. I pacchetti del corso di italiano useranno lo stesso schema (`course: "it"`) con righe in più per `IT_LEXICON`.
+- **Licenza:** CC BY-SA 4.0 (il vocabolario deriva in parte da CC-CEDICT); `THIRD-PARTY-NOTICES.md` nomina ogni file di pacchetto.
+
