@@ -14,4 +14,4 @@ màndarínō is an app for learning Mandarin Chinese starting from Italian, and 
 • sync without a server: a file in your own cloud, or QR codes from one phone to another
 • Anki export, "Today" widget, optional reminder, music for studying
 
-The code is free (MIT) and the content is CC BY 4.0. You can suggest corrections directly from the app.
+The code is free (MIT); the content is CC BY-NC-SA 4.0 (the vocabulary CC BY-SA 4.0). You can suggest corrections directly from the app.

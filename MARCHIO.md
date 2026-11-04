@@ -1,6 +1,6 @@
 # Il nome e il logo di màndarínō
 
-Il **codice** è libero (MIT), i **contenuti didattici**, la **musica** e le **icone** sono liberi con attribuzione (CC BY 4.0). Il **nome**
+Il **codice** è libero (MIT), i **contenuti didattici**, la **musica** e le **icone** si possono usare con attribuzione per scopi non commerciali (CC BY-NC-SA 4.0; il vocabolario è CC BY-SA 4.0, anche per uso commerciale con la stessa licenza). Per l'uso commerciale del resto serve il mio permesso scritto. Il **nome**
 «màndarínō» e il **logo** (il mandarino con le foglie e gli accenti dei toni) sono invece un segno distintivo di chi ha creato il progetto:
 non fanno parte di nessuna di quelle licenze, e questa pagina spiega come usarli. L'obiettivo è semplice: chi scarica «màndarínō» deve
 poter essere sicuro che sia quello vero.
@@ -11,7 +11,7 @@ poter essere sicuro che sia quello vero.
 
 ### Che cosa puoi fare senza chiedere
 
-- Usare, modificare e ridistribuire il **codice** (MIT) e le **icone** e i **contenuti** (CC BY 4.0), citando la fonte
+- Usare, modificare e ridistribuire il **codice** (MIT) e, per scopi non commerciali, le **icone** e i **contenuti** (CC BY-NC-SA 4.0; il vocabolario CC BY-SA 4.0 anche a fini commerciali), citando «màndarínō, di Claudio Longhitano»
   ([ICONE.md](icone/ICONE.md), [NOTICE.md](NOTICE.md)).
 - **Dire la verità sul nome**: scrivere che il tuo progetto «è basato su màndarínō», «usa le icone di màndarínō» o «è compatibile con màndarínō», con un
   collegamento al progetto.
@@ -26,8 +26,7 @@ poter essere sicuro che sia quello vero.
 - Presentare come «ufficiale» o «approvato» qualcosa che non lo è, o usare i canali del progetto (store, social, domini) con un nome ingannevole.
 - Registrare come marchio, domini o account il nome o il logo.
 
-Un **fork** deve cambiare nome e logo e dire in modo chiaro che non è l'originale. Le **icone** si possono riusare e modificare anche in prodotti
-commerciali, con l'attribuzione; **il logo no**.
+Un **fork** deve cambiare nome e logo e dire in modo chiaro che non è l'originale. Le **icone** si possono riusare e modificare per scopi non commerciali, con l'attribuzione (per l'uso commerciale serve il mio permesso scritto); **il logo no**.
 
 ### Dove si scarica quello vero
 
@@ -47,7 +46,7 @@ Se un pacchetto con il nome màndarínō ha un'impronta diversa, **non è quello
 
 Il marchio **non è registrato**. Senza registrazione la tutela è più debole: dipende dalle norme sul marchio di fatto e sulla concorrenza
 sleale, e conta sapere chi ha usato il segno per primo. Questa pagina dice come voglio che il nome venga usato e serve a dimostrarlo. Le licenze
-libere non concedono diritti sul marchio: la CC BY 4.0 lo dice espressamente («Patent and trademark rights are not licensed under this Public
+libere non concedono diritti sul marchio: la CC BY-NC-SA 4.0 lo dice espressamente («Patent and trademark rights are not licensed under this Public
 License»), e la MIT non ne parla; per questo la regola sta qui, scritta, e richiamata da [NOTICE.md](NOTICE.md), [README.md](README.md) e [LEGGIMI.md](LEGGIMI.md) (il testo della MIT in [LICENSE](LICENSE) resta quello standard, senza aggiunte, perché GitHub e gli altri strumenti lo riconoscano).
 Per questioni legali vere conviene sentire un professionista.
 
@@ -58,11 +57,11 @@ commerciali che dicono chiaramente chi li fa.
 
 ## 中文
 
-**可以直接做的：** 使用、修改和再分发代码（MIT）、图标和教学内容（CC BY 4.0），并注明出处；写明你的项目“基于 màndarínō”或“使用 màndarínō 的图标”，并附上链接；
+**可以直接做的：** 使用、修改和再分发代码（MIT），以及用于非商业目的的图标和教学内容（CC BY-NC-SA 4.0；词汇为 CC BY-SA 4.0），并注明出处；写明你的项目“基于 màndarínō”或“使用 màndarínō 的图标”，并附上链接；
 介绍、评论、教学（可展示标志以指代真正的应用）；复制代码另起炉灶，但要使用你自己的名称和标志。
 
 **未经书面许可不可以做的：** 把“màndarínō”这个名称（或容易混淆的名称、域名、账号，如“mandarino app”）或标志用于你自己的应用、网站、安装包、账号或产品，尤其是商业的、
-带广告的或收集数据的；在应用商店以同名或相似外观发布修改版；把非官方的东西说成“官方”或“已获认可”；抢注名称或标志。图标可以在商业产品中使用，标志不行。
+带广告的或收集数据的；在应用商店以同名或相似外观发布修改版；把非官方的东西说成“官方”或“已获认可”；抢注名称或标志。图标用于商业产品需要我的书面许可，标志不行。
 
 **正版在哪里：** mandarinoapp.org 和 github.com/longhitown/mandarino；Google Play 和 F-Droid 上线后会在网站上给出链接。官方安卓安装包的证书指纹见上面意大利语部分的代码块；
 指纹不同就不是官方版本。

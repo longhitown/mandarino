@@ -2,7 +2,7 @@
 
 Le 158 icone del set come adesivi a sagoma (il glifo con un bordo color carta di riso, trasparenti), per Telegram e WhatsApp. Si costruiscono con
 `node tools/icone-kit.mjs`, che scrive in `dist-kit/` il pacchetto `mandarino-adesivi-<versione>.zip` e le somme SHA-256 da mettere in
-[ICONE.md](ICONE.md). La licenza è la stessa delle icone (CC BY 4.0, [ICONE.md](ICONE.md)); il nome e il logo restano fuori ([MARCHIO.md](../MARCHIO.md)).
+[ICONE.md](ICONE.md). La licenza è la stessa delle icone, quindi non commerciale (CC BY-NC-SA 4.0, [ICONE.md](ICONE.md)); il nome e il logo restano fuori ([MARCHIO.md](../MARCHIO.md)).
 
 ## Che cosa c'è nel pacchetto
 

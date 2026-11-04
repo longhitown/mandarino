@@ -907,8 +907,8 @@ nell'app: Impostazioni → Informazioni → Privacy
 | Parte | Licenza | Testo |
 |---|---|---|
 | Codice | MIT | `LICENSE` (solo il testo MIT, così GitHub lo riconosce) |
-| Contenuti didattici in `src/data/` | CC BY 4.0 | `LICENZE/CONTENUTI.txt` |
-| Musica | CC BY 4.0 | `LICENZE/MUSICA.txt` |
+| Contenuti didattici in `src/data/` | CC BY-NC-SA 4.0 (il vocabolario CC BY-SA 4.0) | `LICENZE/CONTENUTI.txt` |
+| Musica | CC BY-NC-SA 4.0 | `LICENZE/MUSICA.txt` |
 
 Che cosa vale per che cosa è in `NOTICE.md`. Le parti di altri, con indirizzo, versione e file, sono in
 `THIRD-PARTY-NOTICES.md`:

@@ -17,7 +17,7 @@ studia la frase nella propria lingua accanto alla traduzione, quindi l'esercizio
 
 ## Le decisioni (ottobre 2026)
 
-1. **Licenza**: CC BY 4.0, come i contenuti.
+1. **Licenza**: CC BY 4.0 (le registrazioni restano CC BY 4.0, anche se i contenuti didattici sono ora CC BY-NC-SA 4.0).
 2. **Minori**: esclusi. L'app non ha account e non può verificare l'età: il foglio dice chiaramente che confermando si dichiara di
    avere almeno 18 anni (casella separata «Ho almeno 18 anni»). Una certezza al 100 % non c'è e il testo non la promette.
 3. **Regione di provenienza** (facoltativa, per gli accenti) e **nome o nickname** (facoltativo): il nome compare nei Crediti solo se

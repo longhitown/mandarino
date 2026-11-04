@@ -31,7 +31,7 @@ const PROMESSE = {
   offline: true,
   datiSulDispositivo: true,
   licenzaCodice: "MIT",
-  licenzaGrafica: "CC BY 4.0",
+  licenzaGrafica: "CC BY-NC-SA 4.0",
   codice: "https://github.com/longhitown/mandarino",
   sito: "https://mandarinoapp.org"
 };

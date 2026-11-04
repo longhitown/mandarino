@@ -16,7 +16,7 @@ nostro, leggibile a 16 pixel e bello a 160.
 Un'emoji la disegna chi produce il telefono (Apple, Google, Microsoft, Samsung): ognuno a modo suo, piena, ombreggiata, con il
 contorno scuro e la lucina. Dentro un'app di studio fa un effetto cartoon che non è il nostro tono, e cambia da un telefono all'altro.
 Volevamo icone **nostre**, uguali ovunque, coerenti con la carta di riso, il verde dei pulsanti e l'arancio del mandarino, e che
-chiunque possa riusare con la licenza CC BY 4.0.
+chiunque possa riusare, per scopi non commerciali, con la licenza CC BY-NC-SA 4.0.
 
 ## Il punto di partenza: i caratteri
 
@@ -103,11 +103,11 @@ lo slancio del pennello: lì c'è spazio per farlo senza perdere leggibilità.
 
 Le ha disegnate Claudio Longhitano con l'aiuto di Claude (Anthropic), un assistente di intelligenza artificiale, con lo stesso metodo del resto
 del progetto: io decido che cosa serve e come deve sentirsi, l'assistente propone, disegna e corregge, e insieme si controlla ogni passaggio
-contro le regole qui sopra. La licenza è CC BY 4.0 ([ICONE.md](ICONE.md)). Il nome màndarínō e il logo del mandarino con gli accenti tonali non
+contro le regole qui sopra. La licenza è CC BY-NC-SA 4.0 ([ICONE.md](ICONE.md)). Il nome màndarínō e il logo del mandarino con gli accenti tonali non
 fanno parte di questa licenza: vedi [MARCHIO.md](../MARCHIO.md).
 
 ## 中文简介
 
 màndarínō 的图标不是表情符号。它们取自汉字的结构而不是外形：**留白**（笔画之间留出空气，不焊死）、**笔势**（转折像毛笔那样“刹住再出发”）、
 **方块**（每个图标都在九宫格里）。再加上意大利设计的“减法”：能去掉的都去掉，只留一个朱红的实心焦点。橙色线条 `#DB5F00`，朱红点 `#C0281D`，
-只用三个颜色变量，深色主题和按钮里的象牙白都靠它们切换。授权为 CC BY 4.0；名称和标志另见 [MARCHIO.md](../MARCHIO.md)。
+只用三个颜色变量，深色主题和按钮里的象牙白都靠它们切换。授权为 CC BY-NC-SA 4.0；名称和标志另见 [MARCHIO.md](../MARCHIO.md)。

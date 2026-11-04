@@ -313,7 +313,7 @@ try {
       const mine = CP.anki.build({ which: "mine" }), all = CP.anki.build({ which: "all" }), sec = CP.anki.build({ which: "sec", sec: CP.WORDS["银行"].sec });
       const lines = all.text.split("\n"), rows = lines.filter((l) => l && l[0] !== "#"), g = rows.map((l) => l.split("\t")[0]), bank = rows.find((l) => l.split("\t")[1] === "银行") || "";
       return { mine: mine.n, all: all.n, sec: sec.n, secOk: sec.text.split("\n").filter((l) => l && l[0] !== "#").every((l) => / tappa::luoghi /.test(l)), words: CP.ORDER.length, uniq: new Set(g).size,
-        head: lines.slice(0, 4).join("|"), comment: /^# màndarínō 6\.\d+ · contenuti CC BY 4\.0/.test(lines[6]), cols: rows.every((l) => l.split("\t").length === 7), stable: CP.anki.guid("zh", "银行") === bank.split("\t")[0], bank };
+        head: lines.slice(0, 4).join("|"), comment: /^# màndarínō 6\.\d+ · vocabolario CC BY-SA 4\.0/.test(lines[6]), cols: rows.every((l) => l.split("\t").length === 7), stable: CP.anki.guid("zh", "银行") === bank.split("\t")[0], bank };
     });
     check("Anki: guid unici e stabili, 7 colonne, intestazioni e commento, pinyin senza punti, tag di livello, tappa e stato", a.mine === 2 && a.all === a.words && a.uniq === a.all && a.cols && a.stable && a.comment && a.sec > 2 && a.secOk &&
       a.head === "#separator:tab|#html:true|#guid column:1|#tags column:7" && /\tyínháng\t/.test(a.bank) && /\tmandarino hsk2 tappa::luoghi (sicura|in-corso)$/.test(a.bank), JSON.stringify(a).slice(0, 400));

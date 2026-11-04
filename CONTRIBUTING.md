@@ -42,8 +42,8 @@ solo a chi rilegge. Non ti chiedo mai il nome vero, l'e-mail o altri dati.
 
 ### Licenza dei contributi
 
-Se mi mandi un contributo, accetti che entri in màndarínō con le licenze del progetto: i **contenuti** (parole, frasi,
-traduzioni, spiegazioni) con **CC BY 4.0**, il **codice** con **MIT**. Vedi [NOTICE.md](NOTICE.md). Non copiare testi
+Se mi mandi un contributo, accetti che entri in màndarínō con le licenze del progetto: i **contenuti** con la licenza della parte a cui si aggiungono (**CC BY-NC-SA 4.0**; **CC BY-SA 4.0** per il vocabolario),
+il **codice** con **MIT**. Vedi [NOTICE.md](NOTICE.md). Non copiare testi
 da fonti con licenze incompatibili (per esempio Wikipedia o CC-CEDICT, che sono «share-alike»): scrivi con parole tue.
 
 ### Per chi programma
@@ -102,7 +102,7 @@ màndarínō 为学习者而做，而学习者最容易发现错误。**不需�
 
 ### 贡献的许可
 
-提交贡献即表示你同意它以本项目的许可加入 màndarínō：**内容**（词语、句子、翻译、讲解）采用 **CC BY 4.0**，**代码**采用
+提交贡献即表示你同意它以本项目的许可加入 màndarínō：**内容**采用所属部分的许可（**CC BY-NC-SA 4.0**；词汇为 **CC BY-SA 4.0**），**代码**采用
 **MIT**。请不要复制许可不兼容的文字（例如维基百科或 CC-CEDICT）：请用自己的话写。
 
 ### 标签

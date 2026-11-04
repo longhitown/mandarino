@@ -2,7 +2,7 @@
 Object.assign(I18N.it, {
  "sc.c.h": "Prima di cominciare, leggi con calma",
  "sc.c.1": "Che cosa registri: la tua voce mentre leggi, una alla volta, frasi che esistono già nell'app. Restano solo su questo telefono finché non le mandi tu.",
- "sc.c.2": "Se le mandi, possono essere pubblicate nell'app con licenza CC BY 4.0, la stessa dei contenuti: chiunque potrà riascoltarle e riusarle, citando il progetto.",
+ "sc.c.2": "Se le mandi, possono essere pubblicate nell'app con licenza CC BY 4.0: chiunque potrà riascoltarle e riusarle, citando il progetto.",
  "sc.c.3": "Una voce si riconosce. Se non vuoi essere riconosciuto o riconosciuta, non mandarla.",
  "sc.c.4": "Le registrazioni inviate le ascolta soltanto Claudio Longhitano, che gestisce il progetto, e le può usare nell'app a propria discrezione.",
  "sc.c.5": "Il nome o il nickname compare nei Crediti solo se lo scrivi e lo permetti qui sotto. La regione di provenienza serve per gli accenti ed è facoltativa.",
@@ -61,7 +61,7 @@ Object.assign(I18N.it, {
 Object.assign(I18N.zh, {
  "sc.c.h": "开始之前，请仔细阅读",
  "sc.c.1": "你要录什么：用你自己的声音，一次读一句应用里已有的句子。在你发送之前，录音只保存在这台手机上。",
- "sc.c.2": "如果你发送，录音可能会以 CC BY 4.0 许可（与应用内容相同）发布在应用里：任何人都可以重新收听和使用，但需要注明项目。",
+ "sc.c.2": "如果你发送，录音可能会以 CC BY 4.0 许可发布在应用里：任何人都可以重新收听和使用，但需要注明项目。",
  "sc.c.3": "声音是可以被认出来的。如果你不想被认出，请不要发送。",
  "sc.c.4": "发来的录音只有项目负责人 Claudio Longhitano 会听，他可以自行决定在应用中使用。",
  "sc.c.5": "只有你填写并在下面允许，姓名或昵称才会出现在致谢里。出生地区用于区分口音，可以不填。",

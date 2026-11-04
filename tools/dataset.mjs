@@ -25,7 +25,7 @@ export const NOME = "italian-chinese-hsk3-vocabulary", VERSIONE = "1.0.0";
 
 /* le sole origini ammesse nella v1, con la licenza. Tutto il resto (tratti, struttura dei caratteri, lessico italiano, frasi) non entra nel dataset: ha licenze diverse (docs/dataset-licenze.md) */
 export const AMMESSI = {
-  "src/data/vocab/": "CC BY 4.0 (contenuti didattici del progetto, LICENZE/CONTENUTI.txt)",
+  "src/data/vocab/": "CC BY-SA 4.0 (vocabolario curato, derivato in parte da CC-CEDICT, LICENZE/CONTENUTI.txt)",
   "src/data/levels.js": "MIT (complete-hsk-vocabulary, Yanis Zafirópulos)"
 };
 
@@ -50,9 +50,9 @@ export function righe() {
 export function controlla() {
   const r = righe(), problemi = [], notice = rd("NOTICE.md"), terzi = rd("THIRD-PARTY-NOTICES.md");
   for (const f of Object.keys(AMMESSI)) if (!fs.existsSync(path.join(ROOT, f))) problemi.push("origine ammessa che non esiste: " + f);
-  /* i documenti del progetto devono dire che levels.js e freq.js sono MIT e che il vocabolario curato è CC BY: se cambiano, si ferma */
+  /* i documenti del progetto devono dire che levels.js e freq.js sono MIT e che il vocabolario curato è CC BY-SA: se cambiano, si ferma */
   if (!/levels\.js[`, ]+[`]?freq\.js[`]?\s*\|[^|]*complete-hsk-vocabulary[^|]*\|\s*MIT/.test(notice)) problemi.push("NOTICE.md non dichiara più levels.js e freq.js come MIT (complete-hsk-vocabulary)");
-  if (!/vocabolario curato[^|]*\|[^|]*\|\s*CC BY 4\.0/.test(notice)) problemi.push("NOTICE.md non dichiara più il vocabolario curato come CC BY 4.0");
+  if (!/[Vv]ocabolario curato[^|]*\|[^|]*\|\s*CC BY-SA 4\.0/.test(notice)) problemi.push("NOTICE.md non dichiara più il vocabolario curato come CC BY-SA 4.0");
   if (!/complete-hsk-vocabulary[^|]*\|\s*MIT/.test(terzi)) problemi.push("THIRD-PARTY-NOTICES.md non dichiara più complete-hsk-vocabulary come MIT");
   for (const row of r.rows) {
     if (!row.hanzi || !row.pinyin || !row.italiano) problemi.push("riga incompleta: " + JSON.stringify(row));
@@ -110,7 +110,7 @@ Formati: \`vocabulary.csv\` (UTF-8, virgola, intestazione) e \`vocabulary.json\`
 
 ## Come è stato fatto
 
-Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svolto con l'aiuto di un assistente di intelligenza artificiale (Claude, Anthropic), sotto la direzione dell'autore; ne parliamo apertamente perché in molti paesi la tutela di ciò che produce un'IA è ancora incerta. I controlli sono automatici: ortografia dell'italiano (Hunspell e Morph-it!) e pinyin confrontato con CC-CEDICT, che serve solo come controllo e non è copiato nei dati. I livelli HSK 3.0 vengono da complete-hsk-vocabulary (che li prende da elkmovie/hsk30, MIT). La frequenza d'uso non è inclusa: ha origine in dati con licenza diversa (CC BY-SA 4.0).
+Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svolto con l'aiuto di un assistente di intelligenza artificiale (Claude, Anthropic), sotto la direzione dell'autore; ne parliamo apertamente perché in molti paesi la tutela di ciò che produce un'IA è ancora incerta. I controlli sono automatici: ortografia dell'italiano (Hunspell e Morph-it!) e pinyin confrontato con CC-CEDICT, da cui il vocabolario deriva in parte (per questo il dataset è CC BY-SA 4.0). I livelli HSK 3.0 vengono da complete-hsk-vocabulary (che li prende da elkmovie/hsk30, MIT). La frequenza d'uso non è inclusa: ha origine in dati con licenza diversa (CC BY-SA 4.0).
 
 ## Limiti noti
 
@@ -120,7 +120,7 @@ Il vocabolario è curato dentro il progetto màndarínō. Il lavoro è stato svo
 
 ## Licenza e come citare
 
-I dati sono pubblicati con la licenza [Creative Commons Attribuzione 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.it). I livelli HSK vengono da complete-hsk-vocabulary (licenza MIT): vedi \`NOTICE.md\`. Il nome «màndarínō» e il logo non sono compresi nella licenza (vedi [MARCHIO.md](https://github.com/longhitown/mandarino/blob/HEAD/MARCHIO.md)).
+I dati sono pubblicati con la licenza [Creative Commons Attribuzione - Condividi allo stesso modo 4.0 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.it). Il vocabolario deriva in parte da CC-CEDICT (MDBG, CC BY-SA 4.0, https://www.mdbg.net/chinese/dictionary?page=cc-cedict). I livelli HSK vengono da complete-hsk-vocabulary (licenza MIT): vedi \`NOTICE.md\`. Il nome «màndarínō» e il logo non sono compresi nella licenza (vedi [MARCHIO.md](https://github.com/longhitown/mandarino/blob/HEAD/MARCHIO.md)).
 
 > màndarínō, di Claudio Longhitano. ${NOME}, versione ${VERSIONE}. https://mandarinoapp.org
 
@@ -137,7 +137,7 @@ ${impronte.map(([n, h]) => `- \`${n}\`: \`${h}\``).join("\n")}
 function nota() {
   return `# Avvisi e licenze
 
-I dati di ${NOME} sono © 2026 Claudio Longhitano, pubblicati con la licenza CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/legalcode.it): puoi copiarli, ridistribuirli, adattarli e usarli anche a fini commerciali, citando «màndarínō, di Claudio Longhitano», con il link alla licenza e indicando se hai fatto modifiche.
+I dati di ${NOME} sono © 2026 Claudio Longhitano, pubblicati con la licenza CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/legalcode.it): puoi copiarli, ridistribuirli, adattarli e usarli anche a fini commerciali, citando «màndarínō, di Claudio Longhitano» e CC-CEDICT (MDBG, https://www.mdbg.net/chinese/dictionary?page=cc-cedict), con il link alla licenza, indicando se hai fatto modifiche e rilasciando il risultato con la stessa licenza.
 
 La colonna \`livello_hsk\` è ricavata da complete-hsk-vocabulary (https://github.com/drkameleon/complete-hsk-vocabulary), che ha la licenza MIT. Il suo avviso è qui sotto e va conservato in ogni copia sostanziale. Quel progetto riporta le liste HSK 3.0 di elkmovie/hsk30 (MIT, https://github.com/elkmovie/hsk30), da cui vengono i livelli; versione usata: commit 7ac65bf1a6387d35f1ade478906172a19311c7f9 (23 marzo 2026).
 
