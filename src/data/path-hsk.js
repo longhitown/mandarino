@@ -67,4 +67,4 @@ Object.assign(PATH, {
   hsk5_gram: { o: "Livello HSK 5, le parole che tengono insieme la frase: congiunzioni, preposizioni, classificatori e pronomi.", g: -1 }
 });
 /* Quante parole e sezioni ci devono essere: #selftest lo controlla nella pagina, la build lo controlla sui file. */
-var VOCAB_EXPECT = { words: 6385, sections: 220 };
+var VOCAB_EXPECT = { words: 6388, sections: 221 };

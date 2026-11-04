@@ -3,8 +3,8 @@
   "nome": "màndarínō",
   "versioneNelCodice": "0.9.3",
   "corsoDiCinese": {
-    "parole": 6385,
-    "sezioni": 220,
+    "parole": 6388,
+    "sezioni": 221,
     "dialoghi": 32,
     "frasiVerificate": 378,
     "lezioni": 55,
@@ -13,7 +13,7 @@
       {
         "id": "hsk6",
         "titolo": "HSK 6",
-        "parole": 712
+        "parole": 961
       },
       {
         "id": "hsk7a",
@@ -33,16 +33,21 @@
       {
         "id": "hsk7d",
         "titolo": "HSK 7–9 · D",
-        "parole": 747
+        "parole": 1008
+      },
+      {
+        "id": "hsk7e",
+        "titolo": "HSK 7–9 · E",
+        "parole": 1008
       }
     ],
-    "paroleNeiPacchetti": 4459,
-    "paroleConPacchetti": 10844,
+    "paroleNeiPacchetti": 5977,
+    "paroleConPacchetti": 12365,
     "copertura": {
       "lista": "complete-hsk-vocabulary, livelli new-1…7",
       "vociDellaLista": 10969,
-      "presenti": 9448,
-      "percentuale": 86
+      "presenti": 10966,
+      "percentuale": 100
     }
   },
   "corsoDiItaliano": {
