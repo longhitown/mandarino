@@ -33,7 +33,7 @@ export function load(srcDir) {
   const g = (n) => vm.runInContext("typeof " + n + " === 'undefined' ? undefined : " + n, ctx);
   return {
     files: files.map((s) => s.src),
-    SECTIONS: ctx.SECTIONS, PACKS: g("PACKS") || [], PACK_INDEX: g("PACK_INDEX") || [], DIALOGS: ctx.DIALOGS, PHRASES: g("PHRASES"), DIALOG_CATS: g("DIALOG_CATS"), THINK: g("THINK"), THINK_CATS: g("THINK_CATS"),
+    SECTIONS: ctx.SECTIONS, PACKS: g("PACKS") || [], PACK_INDEX: g("PACK_INDEX") || [], PACK_META: g("PACK_META") || null, DIALOGS: ctx.DIALOGS, PHRASES: g("PHRASES"), DIALOG_CATS: g("DIALOG_CATS"), THINK: g("THINK"), THINK_CATS: g("THINK_CATS"),
     EX: g("EX"), PATTERNS: g("PATTERNS"), SLOTS: g("SLOTS"), SITUATIONS: g("SITUATIONS"), PATH: g("PATH"),
     GRAM: g("GRAM"), IT_LEXICON: g("IT_LEXICON") || [], VERIFIED: g("VERIFIED"), WORD_FREQ: g("WORD_FREQ"), VOCAB_EXPECT: g("VOCAB_EXPECT"), LESSONS: g("LESSONS"), ITLESSONS: g("ITLESSONS"), LESSON_RICH: ctx.LESSON_RICH, EXAMPLES: g("EXAMPLES")
   };

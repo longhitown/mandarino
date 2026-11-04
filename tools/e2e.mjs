@@ -1929,7 +1929,7 @@ try {
     await p.click('#set-packs [data-pk="' + PK.id + '"]'); await p.waitForTimeout(300);
     await Promise.all([p.waitForNavigation({ waitUntil: "load" }), p.click("[data-pk-go]")]); await p.waitForTimeout(1200);
     const a1 = await p.evaluate(() => ({ n: CP.ORDER.length, on: JSON.parse(localStorage.getItem("cp-packs") || "[]"), ch: SECTION_CHAPTER.hsk6_01, secs: CP.SEC.filter((s) => /^hsk6_/.test(s.id)).length, w: CP.WORDS["于"] && CP.WORDS["于"].it }));
-    check("Pacchetti: dopo il riavvio il pacchetto è acceso (" + PK.parole + " parole in più, capitolo 6, tappe del pacchetto in ordine)", a1.n === F.corsoDiCinese.paroleConPacchetti && a1.on.join() === PK.id && a1.ch === 6 && a1.secs === Math.ceil(PK.parole / 30) && !!a1.w, JSON.stringify(a1));
+    check("Pacchetti: dopo il riavvio il pacchetto è acceso (" + PK.parole + " parole in più, capitolo 6, tappe del pacchetto in ordine)", a1.n === F.corsoDiCinese.parole + PK.parole && a1.on.join() === PK.id && a1.ch === 6 && a1.secs === Math.ceil(PK.parole / 30) && !!a1.w, JSON.stringify(a1));
     await p.evaluate(() => { CP.grade("于", 2, false, { at: Date.now() }); }); await p.waitForTimeout(200);
     await p.evaluate(() => CP.openSettings("study")); await p.waitForTimeout(400);
     await p.click('#set-packs [data-pk="' + PK.id + '"]'); await p.waitForTimeout(300);
@@ -1937,6 +1937,27 @@ try {
     const a2 = await p.evaluate(() => ({ n: CP.ORDER.length, w: !!CP.WORDS["于"], st: !!(CP.S()["于"] && CP.S()["于"].n), on: JSON.parse(localStorage.getItem("cp-packs") || "[]") }));
     check("Pacchetti: spegnerlo toglie le parole dall'elenco ma i progressi restano (e tornano riaccendendolo)", a2.n === F.corsoDiCinese.parole && !a2.w && a2.st && !a2.on.length, JSON.stringify(a2));
     check("Pacchetti: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
+  /* 9a2. Tutti i pacchetti accesi: nessun doppione, nessun errore, i caratteri senza dati dei tratti non rompono niente */
+  {
+    const { fatti } = await import("./fatti.mjs"), F = fatti(), ALL = F.corsoDiCinese.pacchetti.map((x) => x.id);
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript((ids) => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); localStorage.setItem("cp-packs", JSON.stringify(ids)); }, ALL);
+    await p.goto(base); await p.waitForTimeout(1500);
+    const r = await p.evaluate(() => {
+      const keys = new Set(CP.ORDER), pk = CP.SEC.filter((s) => /^hsk[67]/.test(s.id)), nuovi = new Set();
+      pk.forEach((s) => CP.ORDER.slice(s.i0, s.i1).forEach((k) => Array.from(CP.WORDS[k].hz).forEach((c) => nuovi.add(c))));
+      let senza = 0, throwErr = ""; nuovi.forEach((c) => { try { if (!CP.strokeData(c)) senza++; } catch (e) { throwErr = e.message; } });
+      return { n: CP.ORDER.length, uniq: keys.size, secs: pk.length, chars: nuovi.size, senzaTratti: senza, throwErr };
+    });
+    check("Pacchetti: con tutti accesi le parole sono " + F.corsoDiCinese.paroleConPacchetti + ", senza doppioni, e un carattere senza dati dei tratti non genera errori", r.n === F.corsoDiCinese.paroleConPacchetti && r.uniq === r.n && !r.throwErr && r.chars > 100, JSON.stringify(r));
+    await p.evaluate(() => CP.show("words")); await p.waitForTimeout(500);
+    const last = await p.evaluate(() => { const s = CP.SEC.filter((x) => /^hsk7d_/.test(x.id)).pop(); CP.gotoSection(s.id); return s.id; });
+    await p.waitForTimeout(800);
+    const vis = await p.evaluate((id) => !!document.querySelector('tr[data-k]') && document.body.textContent.indexOf("HSK 7–9 · D") >= 0, last);
+    check("Pacchetti: la tabella delle Parole mostra anche l'ultima tappa dell'ultimo pacchetto, senza errori", vis && !errs.length, errs[0]);
     await ctx.close();
   }
   /* 9b. Corso di italiano: le parole dichiarate (docs/fatti.json) sono quelle che l'app ha davvero */

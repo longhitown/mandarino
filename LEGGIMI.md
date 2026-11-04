@@ -8,7 +8,7 @@ Questa guida racconta come si usa. Come funziona ogni parte, con i numeri contat
 
 ## Due corsi in un'app
 
-- **Il cinese per italiani** (il corso di base): 6385 parole con pinyin, toni e una frase d'esempio per ciascuna (più pacchetti opzionali di parole, da accendere in Impostazioni → Studia: oggi HSK 6, 712 parole), 55 lezioni di grammatica (con mini-dialogo e ripasso ogni cinque lezioni),
+- **Il cinese per italiani** (il corso di base): 6385 parole con pinyin, toni e una frase d'esempio per ciascuna (fino a 10.844 con i pacchetti opzionali dei livelli 6 e 7–9, cioè l'86% della lista HSK 3.0: si accendono in Impostazioni → Studia, tutto offline e gratuito), 55 lezioni di grammatica (con mini-dialogo e ripasso ogni cinque lezioni),
   dialoghi, un laboratorio di frasi, lettura di testi graduati, pronuncia con il microfono e ordine dei tratti.
 - **意大利语课程, l'italiano per chi parla cinese**: 51 lezioni in cinese (con mini-dialogo e ripasso ogni cinque lezioni), 4779 parole, coniugazione dei verbi, frasi, dialoghi e un
   controllo degli accordi nelle frasi che scrivi.
