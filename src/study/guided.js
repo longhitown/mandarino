@@ -12,7 +12,7 @@
   var CP = window.CP, T = CP.t, esc = CP.esc, ENG = CP.exEngine, D = CP.distract, KIT = CP.studyKit;
   var PASS = 80, GROUP = 5, XP = 20, NQ = 12;
   /* le cinque parti del test di livello: 0 pinyin e toni, 1 caratteri, 2 vocabolario, 3 ordine e grammatica, 4 ascolto */
-  var PLAN = [["mc-significato", 2], ["mc-parola", 1], ["mc-pinyin", 0], ["buco", 3], ["mc-ascolto", 4], ["ordina", 3], ["scrivi-pinyin", 0], ["tono", 0], ["mc-significato", 2], ["buco-gram", 3], ["scrivi-significato", 2], ["mc-parola", 1]];
+  var PLAN = [["mc-significato", 2], ["mc-parola", 1], ["mc-pinyin", 0], ["buco", 3], ["mc-ascolto", 4], ["ordina", 3], ["scrivi-pinyin", 0], ["tono-parola", 0], ["mc-significato", 2], ["buco-gram", 3], ["scrivi-significato", 2], ["mc-parola", 1]];
   function units() { var o = ENG.load(); o.units = o.units || {}; return o; }
   function setUnit(id, patch) { var o = units(), u = o.units[id] = o.units[id] || { passo: 0 }; Object.keys(patch).forEach(function (k) { u[k] = patch[k]; }); ENG.save(o); if (window.Store && Store.flush) Store.flush(); return u; }
   function keysOf(id) { return CP.ORDER.filter(function (k) { return CP.WORDS[k].sec === id; }); }
@@ -48,16 +48,21 @@
     if (ws.length < 4) ws = D.shuffle(keysOf(sec), Math.random).map(function (k) { return CP.WORDS[k]; });
     var tryType = function (type, part) {
       var def = ENG.REG[type]; if (!def) return false;
+      /* «tono-parola»: prima le parole la cui coppia di toni è più debole, e non quelle già usate in questa verifica; per gli altri tipi si ruota tra le parole */
+      var asked = {}; out.forEach(function (x) { asked[x.w.key] = 1; });
+      var order = type === "tono-parola" && CP.skills ? ws.slice().sort(function (a, b) { var pa = CP.skills.pairOf(a), pb = CP.skills.pairOf(b); return (pb ? CP.skills.weight(pb.key) : 0) - (pa ? CP.skills.weight(pa.key) : 0); }).sort(function (a, b) { return (asked[a.key] ? 1 : 0) - (asked[b.key] ? 1 : 0); }) : null;
       for (var j = 0; j < ws.length; j++) {
-        var w = ws[(out.length + j) % ws.length]; if (used[w.key + type]) continue;
+        var w = order ? order[j] : ws[(out.length + j) % ws.length]; if (used[w.key + type]) continue;
         if (def.richiede && def.richiede(w, ENG.ctx) === false) continue;
         var it = def.crea(w, ENG.ctx, D.rng(D.seed(w.key + type + Date.now()))); if (!it) continue;
         used[w.key + type] = 1; out.push({ w: w, type: type, part: part, item: it }); return true;
       }
       return false;
     };
-    PLAN.forEach(function (p) { if (!tryType(p[0], p[1])) tryType(p[1] === 4 || p[1] === 0 ? "mc-pinyin" : "mc-significato", p[1] === 4 ? 0 : p[1]); });
+    ENG.ctx.verify = true;   /* la verifica misura: «tono-parola» esce a prescindere dalla scadenza della coppia, e non aggiorna nessuna carta */
+    PLAN.forEach(function (p) { if (!tryType(p[0], p[1]) && !(p[0] === "tono-parola" && tryType("tono", p[1]))) tryType(p[1] === 4 || p[1] === 0 ? "mc-pinyin" : "mc-significato", p[1] === 4 ? 0 : p[1]); });
     while (out.length < NQ && (tryType("mc-significato", 2) || tryType("mc-parola", 1))) { /* fino a 12 */ }
+    ENG.ctx.verify = false;
     return out.slice(0, NQ);
   }
   var VKIT = {

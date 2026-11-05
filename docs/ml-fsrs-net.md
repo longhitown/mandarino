@@ -30,6 +30,8 @@ Perché FSRS-6 tratta ogni parola come isolata e ogni studente come uno che somi
 
 Che cosa hanno mostrato le simulazioni (sintetiche, quindi solo prove di meccanismo; i numeri completi sono in [Il motore del ripasso](motore-ripasso.md)): la guardia non ha mai promosso per errore un candidato peggiore in 20.000 prove e ha escluso un candidato guasto dopo 55 ripassi (mediana); la calibrazione ha ridotto l'errore sulle probabilità; **nessun candidato ha invece dimostrato un vantaggio netto su FSRS-6 sul tempo di studio**.
 
+**Segnali in prova.** In ombra il motore misura anche se due segnali dell'app avrebbero migliorato le previsioni: la debolezza della coppia di toni di una parola e i suggerimenti sui componenti. Non cambiano nessun intervallo; vedi [Abilità invisibili](abilita-invisibili.md).
+
 ## Che cosa è rimasto dell'idea originale
 
 Le idee più ambiziose le abbiamo provate in simulazione e **non le abbiamo spedite**:

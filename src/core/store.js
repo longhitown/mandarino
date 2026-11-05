@@ -204,6 +204,14 @@
     }); });
     var out = { units: U, ex: E, read: RD };
     if (Object.keys(CF).length) out.conf = CF;
+    /* abilità (study/abilita.js): per ogni coppia la carta con più risposte, per ogni componente il conteggio più alto, i suggerimenti per (componente, istante) */
+    if (a.sk || b.sk) {
+      var x = a.sk || {}, y = b.sk || {}, SK = { p: {}, c: {}, g: [] }, seenG = {};
+      [x.p || {}, y.p || {}].forEach(function (p) { Object.keys(p).forEach(function (k) { var q = p[k], t = SK.p[k]; if (!t || (q.n || 0) > (t.n || 0) || ((q.n || 0) === (t.n || 0) && (q.lq || 0) > (t.lq || 0))) SK.p[k] = q; }); });
+      [x.c || {}, y.c || {}].forEach(function (c) { Object.keys(c).forEach(function (k) { var q = c[k], t = SK.c[k]; if (!t || (q.n || 0) > (t.n || 0) || ((q.n || 0) === (t.n || 0) && (q.l || 0) > (t.l || 0))) SK.c[k] = q; }); });
+      (x.g || []).concat(y.g || []).forEach(function (q) { var kk = q.c + "|" + q.t; if (!seenG[kk]) { seenG[kk] = 1; SK.g.push(q); } });
+      SK.g = SK.g.sort(function (m, n) { return m.t - n.t; }).slice(-40); out.sk = SK;
+    }
     Object.keys(b).concat(Object.keys(a)).forEach(function (f) { if (!(f in out)) out[f] = a[f] !== undefined ? a[f] : b[f]; });
     return out;
   }

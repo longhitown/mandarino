@@ -22,7 +22,7 @@
   };
   Object.assign(window.I18N.it, TXT.it); Object.assign(window.I18N.zh, TXT.zh);
   /* tipo di ripasso (registro: elemento 5) → canale */
-  var CH = { cap: ["pi", "mc-significato", "mc-parola", "abbina", "zh", "zh-clf"], dire: ["ip", "hp", "mc-pinyin", "scrivi-pinyin", "tono"], asc: ["mc-ascolto", "ascolto-frase"], scr: ["scrivi-significato", "traccia", "componente"], fra: ["buco", "buco-gram", "buco-scrivi", "ordina"] };
+  var CH = { cap: ["pi", "mc-significato", "mc-parola", "abbina", "zh", "zh-clf"], dire: ["ip", "hp", "mc-pinyin", "scrivi-pinyin", "tono", "tono-parola"], asc: ["mc-ascolto", "ascolto-frase"], scr: ["scrivi-significato", "traccia", "componente"], fra: ["buco", "buco-gram", "buco-scrivi", "ordina"] };
   var OF = {}; Object.keys(CH).forEach(function (c) { CH[c].forEach(function (t) { OF[t] = c; }); });
   var ORDER = ["cap", "dire", "asc", "scr", "fra"];
   function pct(x) { return Math.round(x * 100); }

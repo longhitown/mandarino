@@ -128,4 +128,24 @@
       var o = D.options('<span class="ex-han">' + esc(right) + "</span>", opts.map(function (p) { return '<span class="ex-han">' + esc(p) + "</span>"; }), r);
       return { kind: "mc", opts: o.opts, right: o.right, lang: "zh-CN", say: CP.sayHz(w), prompt: '<div class="cd-hz" lang="zh-CN">' + esc(w.hz) + '</div><p class="ex-ask">' + esc(T(sound ? "exm.partSound" : "exm.partMeaning")) + "</p>" };
     } });
+
+  /* ---- tono-parola: i toni, in ordine, di una parola di due sillabe, ascoltata. È la domanda della «carta abilità» della coppia (study/abilita.js): esce nel ripasso solo
+     quando la coppia è in scadenza, e nella parte «pinyin e toni» della verifica di tappa; non ha un suo pulsante. Una risposta sbagliata è un errore del solo tono. ---- */
+  var CUR = ["mā", "má", "mǎ", "mà", "ma"];
+  function pairOpt(p) { return CP.toneCurveHTML(CUR[p[0] - 1] + " " + CUR[p[1] - 1]) + "<span>" + esc(p.map(function (t) { return t === 5 ? T("exm.neu") : t + "°"; }).join(" + ")) + "</span>"; }
+  ENG.register({ id: "tono-parola", famiglia: 1, corso: "zh", q: "exm.q.pair",
+    richiede: function (w, ctx) { var S = CP.skills; return !!S && ctx.hasVoice() && !ctx.poly(w.hz) && !!S.pairOf(w) && (ctx.verify || S.eligible(w)); },
+    crea: function (w, ctx, r) {
+      var P = CP.skills.pairOf(w); if (!P) return null;
+      var right = P.parl, seen = {}, cand = []; seen[right.join("")] = 1;
+      function add(p) { if (p[0] < 1 || p[0] > 4 || p[1] < 1 || p[1] > 5) return; var k = p.join(""); if (!seen[k]) { seen[k] = 1; cand.push(p); } }
+      if (P.sd) add(P.cit);   /* la coppia scritta, quando si dice un'altra: la trappola vera del sandhi */
+      var rest = []; for (var t = 1; t <= 5; t++) { if (t !== right[1]) rest.push([right[0], t]); if (t !== right[0] && t <= 4) rest.push([t, right[1]]); }
+      D.shuffle(rest, r).forEach(add);
+      var wrong = cand.slice(0, 3); if (wrong.length < 3) return null;
+      var o = D.options(pairOpt(right), wrong.map(pairOpt), r);
+      return { kind: "mc", wide: true, opts: o.opts, right: o.right, pair: P.key, say: CP.sayHz(w), autoSay: true,
+        prompt: '<div class="ex-listen">' + CP.sayBtn(CP.sayHz(w)).replace('class="say"', 'class="say big"') + "</div>" };
+    },
+    risposta: function (it, res) { var c = ENG.current(); if (it.pair && CP.skills && !(c && c.kit && c.kit.noReveal)) CP.skills.observe(it.pair, !!res.ok, Date.now(), "ex"); } });
 })();
