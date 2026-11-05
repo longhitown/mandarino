@@ -679,3 +679,25 @@ body.in-session #study-root.is-card > .ex-card { align-content: start; }
 
 /* i tre pulsanti in alto a destra (cerca, cuffie, impostazioni) usano le icone del set D2: ignorano il tratto generico dei pulsanti-icona */
 .iconbtn svg.ic { width: 24px; height: 24px; fill: none; stroke: none; stroke-width: 1.8; vertical-align: middle; }
+
+/* Piazza (Studia): il ripasso al centro, quattro allenamenti con le icone D2, una riga per il Taccuino */
+.pz-hero { margin-top: var(--sp-4); display: flex; align-items: center; gap: 12px; padding: 14px 14px 14px 16px; background: var(--accent); color: var(--surface); border-color: transparent; }
+.pz-ring { --p: 0; width: 60px; height: 60px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: conic-gradient(#F4B73F calc(var(--p) * 1%), color-mix(in srgb, var(--surface) 25%, transparent) 0); }
+.pz-ring i { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--accent); font: 600 14px var(--f-body); }
+.pz-t { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.pz-t b { font: 600 17px/1.25 var(--f-body); }
+.pz-k, .pz-s { font-size: 13px; opacity: .9; }
+.pz-go { flex: none; min-width: 64px; min-height: 52px; padding: 10px 18px; border: 0; border-radius: 12px; background: #DB5F00; color: #1A0B00; font: 700 16px var(--f-body); cursor: pointer; }
+.pz-go:disabled { opacity: .45; cursor: default; }
+:root[data-theme="dark"] .pz-go { background: #FF9A3D; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not([data-theme="sepia"]) .pz-go { background: #FF9A3D; } }
+.pz-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.pz-tile { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 92px; padding: 12px; text-align: left; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.pz-tile .ic { width: 30px; height: 30px; }
+.pz-tile b { font: 600 15px var(--f-body); }
+.pz-tile small { font-size: 13px; color: var(--muted); }
+.dy-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; margin-top: 12px; padding: 10px 0 2px; border: 0; border-top: 1px solid var(--line); background: none; color: var(--ink); font: 400 13px var(--f-body); text-align: left; cursor: pointer; }
+.dy-row .ic { width: 20px; height: 20px; flex: none; }
+.dy-row-t { flex: 1; min-width: 0; }
+.chip-ws { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 20px; background: none; color: var(--ink); font: 400 13px var(--f-body); cursor: pointer; }
+.chip-ws .ic { width: 18px; height: 18px; }
