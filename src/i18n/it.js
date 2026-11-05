@@ -143,3 +143,5 @@ Object.assign(I18N.it, {"unl.fr_rad": "Il laboratorio dei radicali: unisci due c
 Object.assign(I18N.it, {"ws.btn": "Crea il foglio di lavoro", "ws.btnSub": "Un PDF da stampare, per scrivere a mano i caratteri che ti sfuggono di più.", "cr.jspdf": "Creazione dei fogli di lavoro in PDF", "cr.jspdfT": "<b>jsPDF</b> (github.com/parallax/jsPDF), licenza MIT: scrive il PDF del foglio di lavoro direttamente sul tuo dispositivo, al primo uso. Non invia niente e non carica niente dalla rete."});
 
 Object.assign(I18N.it, { "exm.q.pair": "Che toni senti, in ordine?", "exm.neu": "neutro" });
+
+Object.assign(I18N.it, { "tu.set": "Consigli del tutor", "tu.setD": "Dopo la terza volta che sbagli la stessa parola, a fine sessione, ti propongo di rivederla insieme. Mai in mezzo alle carte." });

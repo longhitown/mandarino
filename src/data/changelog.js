@@ -4,6 +4,19 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Toni, parole e traduzione", vz: "声调、词语和翻译", d: "2026-11-05",
+    it: [
+      "Duotono: ascolti parole di due, tre e quattro sillabe e scegli il tono di ogni sillaba, anche il neutro; dove il tono cambia parlando te lo spiega.",
+      "Studia rifatta: il ripasso al centro, quattro allenamenti (orecchio, sfida, Duotono, Lavagna), «Quanto ti conosco?» e i pacchetti HSK 6 e 7–9 fino a 12.365 parole.",
+      "X-Ray traduce tra italiano e cinese e ti dice quanto è sicura la traduzione; si può ascoltare in tutte e due le lingue.",
+      "Dopo la terza volta che sbagli la stessa parola, il tutor ti propone, con gentilezza, di rivederla insieme (si può spegnere)."
+    ],
+    zh: [
+      "Duotono：听两个、三个、四个音节的词，为每个音节选声调，轻声也算；说话时声调会变的地方会解释给你听。",
+      "全新的“学习”页：复习居中，四个练习（练耳朵、挑战、Duotono、手写板），“我有多了解你？”，以及 HSK 6 和 7–9 词包，词语总数达 12,365。",
+      "X-Ray 可以在意大利语和中文之间翻译，并告诉你译文有多可靠；两种语言都可以朗读。",
+      "同一个词第三次答错后，导师会温和地提议一起再看一遍（可以关闭）。"
+    ] },
   { v: "Lezioni a schede", vz: "卡片式课程", d: "2026-11-03",
     it: [
       "Ogni regola è una scheda: la formula, la regola in una riga, gli esempi con il pinyin sopra ogni parola e la traduzione, e il «Perché» da aprire quando vuoi capire a fondo.",

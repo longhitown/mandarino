@@ -337,6 +337,7 @@
       '<button type="button" class="btn-main btn-quiet" id="home">' + T("done.end") + "</button></div>" +
       (miss.length ? '<details class="panel mine"><summary>' + T("done.review", { n: miss.length }) + "</summary>" + list + "</details>" : "");
     window.scrollTo(0, 0);
+    setTimeout(function () { try { if (CP.tutor) CP.tutor.show(); } catch (e) {} }, 700);   /* l'invito del tutor, a fine sessione e solo se c'è una terza ricaduta */
   }
 
   /* ---- eventi ---- */

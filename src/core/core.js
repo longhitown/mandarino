@@ -123,7 +123,7 @@
       /* modalità ombra del motore candidato (core/mlnet-ombra.js): osserva soltanto, non tocca la scheda e inghiotte ogni errore */
       try { CP.mlnetShadow.observe(k, g + 1, now, m); } catch (e) {}
       r.st = nc.st; r.df = nc.df; r.sd = nc.state; r.sp = nc.step; r.lr = now; r.d = nc.due;
-      r.rp = (r.rp || 0) + 1; if (g === 0 && wasReview) r.lp = (r.lp || 0) + 1;
+      r.rp = (r.rp || 0) + 1; if (g === 0 && wasReview) { r.lp = (r.lp || 0) + 1; if (r.lp === 3) { try { CP.tutor.note(k, meta || {}); } catch (e) {} } }   /* la terza ricaduta: un invito gentile a fine sessione (study/tutor.js) */
     }
     r.b = boxOf(r);
     S[k] = r;

@@ -143,3 +143,5 @@ Object.assign(I18N.zh, {"unl.fr_rad": "部件实验室：把两个部件拼在�
 Object.assign(I18N.zh, {"ws.btn": "生成练习纸（PDF）", "ws.btnSub": "可打印的 PDF，用来手写你最容易忘的字。", "cr.jspdf": "生成 PDF 练习纸", "cr.jspdfT": "<b>jsPDF</b>（github.com/parallax/jsPDF），MIT 许可：首次使用时，直接在你的设备上生成练习纸 PDF。不发送任何内容，也不从网络加载任何内容。"});
 
 Object.assign(I18N.zh, { "exm.q.pair": "你听到的声调顺序是？", "exm.neu": "轻声" });
+
+Object.assign(I18N.zh, { "tu.set": "导师建议", "tu.setD": "同一个词第三次答错后，在学习结束时，我会提议一起再看一遍。绝不会打断你做卡片。" });
