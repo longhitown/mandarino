@@ -62,9 +62,9 @@
         : [[sure, T("st.sure")], [W[W.length - 1].good, T("st.goodWeek")], [CP.game ? CP.game.activeDays() : 0, T("st.days")]];
       return '<p class="st-sum">' + summary(course, W, tone) + "</p>" +
         '<div class="stats">' + nums.map(function (x) { return '<div class="stat"><b>' + x[0] + "</b><span>" + esc(x[1]) + "</span></div>"; }).join("") + "</div>" + bars(W, course) +
-        (CP.diary ? CP.diary.card(course) : "") +   /* il Taccuino del viaggiatore (ui/diary.js, caricato al primo uso) */
-        /* il foglio di lavoro in PDF (ui/worksheet-stub.js): pulsante secondario, il pulsante pieno di Studia resta «Inizia» */
-        '<div class="ws-cta"><button type="button" class="btn-s" data-ws-open>⟦notes⟧ ' + esc(T("ws.btn")) + '</button><p class="small muted">' + esc(T("ws.btnSub")) + "</p></div>";
+        (CP.diary ? CP.diary.row(course) : "") +   /* il Taccuino del viaggiatore: una riga che apre la mappa (ui/diary.js, caricato al primo uso) */
+        /* il foglio di lavoro in PDF (ui/worksheet-stub.js): nel corso di cinese sta dentro la Lavagna (study/lavagna.js); in quello di italiano resta qui */
+        (course === "it" ? '<div class="ws-cta"><button type="button" class="btn-s" data-ws-open>⟦notes⟧ ' + esc(T("ws.btn")) + '</button><p class="small muted">' + esc(T("ws.btnSub")) + "</p></div>" : "");
     });
   }
   CP.story = { weeks: weeks, html: html, hardTone: hardTone, sureCount: sureCount };

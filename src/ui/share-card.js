@@ -159,7 +159,7 @@
   }
   /* Taccuino del viaggiatore (corso di cinese): una pagina scritta a mano. Dati (ui/diary.js, shareData):
      { stop: { n, m, city }, route: [bool], text, pair: [{ hz, py }], words: [{ hz, py, it }], date, name } */
-  var HAND = "'Bradley Hand', 'Segoe Print', 'Chalkboard SE', 'Noto Sans Handwriting', 'Comic Sans MS', 'Marker Felt', cursive";
+  var HAND = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans SC', sans-serif";
   var KAI = "'Kaiti SC', 'STKaiti', 'KaiTi', 'Noto Serif SC', 'Songti SC', serif";
   function drawDiary(cv, data, opt) {
     var F = FORMATS[opt.format] || FORMATS[FORMAT_DEFAULT], W = F[0], H = F[1], C = THEMES[opt.theme] || THEMES.light, x = cv.getContext("2d"), cut = [];

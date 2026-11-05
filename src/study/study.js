@@ -76,6 +76,7 @@
   }
   CP.previewIntervals = previewIntervals;
 
+  function ic(n) { return CP.ico ? CP.ico(n) : ""; }
   /* ---- home ---- */
   function home() {
     sess = null; CP.focusMode(false); root.classList.remove("is-card");
@@ -86,16 +87,16 @@
     var ns = [5, 10, 15, 20].map(function (x) { return '<option value="' + x + '"' + (cfg.n === x ? " selected" : "") + ">" + T("study.perDay", { n: x }) + "</option>"; }).join("");
     var secName = cfg.sec === "__fav" ? T("study.favs") : cfg.sec ? (SECTIONS.filter(function (s) { return s.id === cfg.sec; })[0] || { title: "" }).title.replace(/^\d+\.\s*/, "") : "";
     root.innerHTML =
-      '<div class="panel today"><div class="today-h"><h2>' + T("study.today") + "</h2>" + (secName ? '<span class="gpl">' + esc(secName) + "</span>" : "") + "</div>" +
-      '<div class="today-n"><div><b>' + due + "</b><span>" + T("study.due") + "</span></div><div><b>" + nw + "</b><span>" + T(nw === 1 ? "study.new1" : "study.newN") + "</span></div></div>" +
-      '<p class="small muted" style="margin:0">' + T("study.seen", { seen: Math.min(seen, cfg.n) + (seen > cfg.n ? " (+" + (seen - cfg.n) + ")" : ""), n: cfg.n }) + "</p>" +
-      '<button type="button" class="btn-main" id="go"' + (n ? "" : " disabled") + ">" + (n ? T("study.start", { min: minutes(n) }) : T("study.nothing")) + "</button>" +
+      '<section class="panel pz-hero" aria-label="' + CP.attr(T("study.today")) + '"><div class="pz-ring" role="img" aria-label="' + CP.attr(Math.min(seen, cfg.n) + " / " + cfg.n + " " + T("pz.of")) + '" style="--p:' + Math.round(Math.min(1, seen / Math.max(1, cfg.n)) * 100) + '"><i>' + Math.min(seen, cfg.n) + "/" + cfg.n + "</i></div>" +
+      '<div class="pz-t"><span class="pz-k">' + T("study.today") + (secName ? " · " + esc(secName) : "") + "</span><b>" + (n ? T(seen > 0 ? "pz.cont" : "pz.begin") : T("study.nothing")) + "</b>" +
+      '<span class="pz-s">' + due + " " + T("study.due") + " · " + nw + " " + T(nw === 1 ? "study.new1" : "study.newN") + (n ? " · " + minutes(n) + " min" : "") + "</span></div>" +
+      '<button type="button" class="pz-go" id="go" aria-label="' + CP.attr(n ? T("study.start", { min: minutes(n) }) : T("study.nothing")) + '"' + (n ? "" : " disabled") + ">" + T("pz.go") + "</button></section>" +
       '<details class="today-cfg"><summary>' + T("study.customize") + '</summary><div class="row2" style="margin-top:0"><label for="cfg-n">' + T("study.newPerDay") + '<select id="cfg-n">' + ns + "</select></label>" +
       '<label for="cfg-sec">' + T("study.topic") + '<select id="cfg-sec">' + opts + "</select></label></div>" +
       (CP.ex && CP.ex.stile && CP.ex.stile() === "guided" ? '<label for="cfg-dur">' + T("study.dur") + '<select id="cfg-dur">' + [5, 10, 15].map(function (m) { return '<option value="' + m + '"' + (m === CP.ex.dur() ? " selected" : "") + ">" + T("gd.dur", { n: m }) + "</option>"; }).join("") + "</select></label>" : "") +
       '<label class="chk"><input type="checkbox" id="cfg-auto"' + (CP.pref.auto ? " checked" : "") + "> " + T("study.auto") + "</label>" +
-      (!nw && seen >= cfg.n ? '<button type="button" class="btn-s" id="more5">' + T("study.more5today") + "</button>" : "") + "</details></div>" +
-      '<div class="modes"><button type="button" id="ear-open">' + T("study.ear") + "<small>" + T("study.earSub") + '</small></button><button type="button" id="sprint-open">' + T("study.sprint") + "<small>" + ((CP.game && CP.game.best()) ? T("study.record", { n: CP.game.best() }) : T("study.sprintSub")) + '</small></button><button type="button" id="duo-open">' + T("study.duo") + "<small>" + T("study.duoSub") + '</small></button><button type="button" id="lavagna-open">' + T("study.lav") + "<small>" + T("study.lavSub") + "</small></button></div>" +
+      (!nw && seen >= cfg.n ? '<button type="button" class="btn-s" id="more5">' + T("study.more5today") + "</button>" : "") + "</details>" +
+      '<div class="pz-tiles"><button type="button" class="pz-tile" id="ear-open">' + ic("ear") + "<b>" + T("pz.t.ear") + "</b><small>" + T("study.earSub") + '</small></button><button type="button" class="pz-tile" id="sprint-open">' + ic("bolt") + "<b>" + T("pz.t.sprint") + "</b><small>" + ((CP.game && CP.game.best()) ? T("study.record", { n: CP.game.best() }) : T("study.sprintSub")) + '</small></button><button type="button" class="pz-tile" id="duo-open">' + ic("wave") + "<b>" + T("pz.t.duo") + "</b><small>" + T("study.duoSub") + '</small></button><button type="button" class="pz-tile" id="lavagna-open">' + ic("write") + "<b>" + T("pz.t.lav") + "</b><small>" + T("study.lavSub") + "</small></button></div>" +
       (CP.homeNotice ? CP.homeNotice() : "") +
       /* i progressi in evidenza, con il racconto della settimana; i numeri tecnici restano sotto, in un riquadro */
       '<section class="panel progress" id="st-story"><h3>' + T("study.progress") + '</h3><div id="st-body" aria-live="polite"></div>' +
