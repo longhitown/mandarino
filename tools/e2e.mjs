@@ -1276,8 +1276,8 @@ try {
     /* mille parole iniziate: arrivo a Xi'an (città 7) */
     await p.evaluate(() => { SECTIONS.slice(0, 46).forEach((s) => CP.ORDER.forEach((k) => { if (CP.WORDS[k].sec === s.id) CP.S()[k] = { n: 3, sd: 2, st: 6, d: 1 }; })); CP.save(); CP.show("study", true, true); });
     await p.waitForTimeout(800);
-    const c0 = await p.evaluate(() => ({ card: !!document.querySelector("#st-story .dy-card"), btn: !!document.querySelector("#st-story [data-diary-open]"), strip: !!document.querySelector("#st-story .dy-strip"), main: document.querySelectorAll("#st-story .btn-main").length }));
-    check(L + "Taccuino: la carta compare tra i progressi, con un solo pulsante secondario", c0.card && c0.btn && c0.strip && c0.main === 0, JSON.stringify(c0));
+    const c0 = await p.evaluate(() => ({ row: (document.querySelector("#st-story .dy-row") || { textContent: "" }).textContent, n: document.querySelectorAll("#st-story .dy-row").length, box: !!document.querySelector("#st-story .dy-card"), main: document.querySelectorAll("#st-story .btn-main").length, h: (document.querySelector("#st-story .dy-row") || { offsetHeight: 0 }).offsetHeight }));
+    check(L + "Taccuino: nei progressi c'è una sola riga («Tappa 7 di 11»), senza il vecchio riquadro e senza pulsanti pieni", c0.n === 1 && !c0.box && /7/.test(c0.row) && /11/.test(c0.row) && c0.main === 0 && c0.h > 0 && c0.h < 70, JSON.stringify(c0));
     await p.click("[data-diary-open]"); await p.waitForTimeout(500);
     const t0 = await p.evaluate(() => ({ map: !!document.querySelector(".dy-map"), aria: (document.querySelector(".dy-map") || { getAttribute: () => "" }).getAttribute("aria-label"), stops: document.querySelectorAll(".dy-city").length, off: document.querySelectorAll(".dy-city.off").length, pages: document.querySelectorAll(".dy-page").length, anec: document.querySelectorAll(".dy-note .dy-hand").length, empty: !!document.querySelector(".dy-empty"), over: document.documentElement.scrollWidth > innerWidth + 1 }));
     check(L + "Taccuino senza errori: mappa con 11 città (4 ancora da raggiungere), 7 pagine di diario, nessun aneddoto, nessun «punto perso»", t0.map && /7/.test(t0.aria) && t0.stops === 11 && t0.off === 4 && t0.pages === 7 && t0.anec === 0 && t0.empty && !t0.over, JSON.stringify(t0));
@@ -1322,11 +1322,11 @@ try {
     await p.goto(base); await p.waitForTimeout(700);
     await p.evaluate(() => { const L = {}; ITLESSONS.slice().sort((a, b) => a.n - b.n).slice(0, 12).forEach((l) => { L[l.id] = { best: 90, done: Date.now() }; }); localStorage.setItem("cp-it-lessons-v1", JSON.stringify(L)); CP.itProgress(); });
     await p.waitForTimeout(900);
-    const c0 = await p.evaluate(() => ({ card: !!document.querySelector("#itp-story .dy-card"), btn: document.querySelector("#itp-story [data-diary-open]") && document.querySelector("#itp-story [data-diary-open]").getAttribute("data-diary-open"), txt: (document.querySelector("#itp-story .dy-card") || { textContent: "" }).textContent }));
-    check("意大利语课程 · 手账：进度里有一张卡片，只有一个次要按钮，当前在成都（第 4 座）", c0.card && c0.btn === "it" && /成都/.test(c0.txt) && /4/.test(c0.txt), JSON.stringify(c0));
+    const c0 = await p.evaluate(() => ({ card: !!document.querySelector("#itp-story .dy-row"), btn: document.querySelector("#itp-story [data-diary-open]") && document.querySelector("#itp-story [data-diary-open]").getAttribute("data-diary-open"), txt: (document.querySelector("#itp-story .dy-row") || { textContent: "" }).textContent }));
+    check("意大利语课程 · 手账：进度里只有一行（第 4 站：北京），点一下打开地图", c0.card && c0.btn === "it" && /北京/.test(c0.txt) && /4/.test(c0.txt), JSON.stringify(c0));
     await p.click("[data-diary-open]"); await p.waitForTimeout(500);
     const t = await p.evaluate(() => ({ stops: [...document.querySelectorAll(".dy-city")].map((e) => e.textContent), off: document.querySelectorAll(".dy-city.off").length, pages: document.querySelectorAll(".dy-page").length, share: document.querySelectorAll("[data-diary-share]").length, ex: document.querySelectorAll(".dy-page .dy-words li").length, hand: [...document.querySelectorAll(".dy-page .dy-hand")].map((e) => e.textContent).join("|"), next: (document.querySelector(".dy-next") || { textContent: "" }).textContent }));
-    check("意大利语课程 · 手账：路线是桂林 → 罗马，已到 4 座、还有 7 座，4 页日记（每页一句手写和本站句子），没有分享按钮，提示下一站", t.stops[0] === "桂林" && t.stops[10] === "罗马" && t.off === 7 && t.pages === 4 && t.share === 0 && t.ex >= 6 && !/\{c\}/.test(t.hand) && /西安/.test(t.next) && /12 \/ 14/.test(t.next), JSON.stringify(t));
+    check("意大利语课程 · 手账：路线是桂林 → 罗马，已到 4 座、还有 7 座，4 页日记（每页一句手写和本站句子），没有分享按钮，提示下一站", /桂林/.test(t.stops[0]) && /罗马/.test(t.stops[10]) && t.off === 7 && t.pages === 4 && t.share === 0 && t.ex >= 6 && !/\{c\}/.test(t.hand) && /西安/.test(t.next) && /12 \/ 14/.test(t.next), JSON.stringify(t));
     check("意大利语课程 · 手账：没有网络请求，也没有 JavaScript 错误", !errs.length && !ext.length, (errs[0] || "") + ext.slice(0, 2).join(" "));
     await ctx.close();
   }
@@ -1675,7 +1675,7 @@ try {
         });
         await p.reload(); await p.waitForFunction(() => window.CP && CP.itApi); await p.waitForTimeout(500);
         await p.click("text=我的进步"); await p.waitForTimeout(300);
-      } else { await p.evaluate(() => document.getElementById("tab-study").click()); await p.waitForTimeout(300); }
+      } else { await p.evaluate(() => document.getElementById("tab-study").click()); await p.waitForTimeout(300); await p.click("#lavagna-open"); await p.waitForTimeout(900); }   /* corso di cinese: il foglio sta dentro la Lavagna */
       const btn = await p.$("[data-ws-open]"), primary = await p.evaluate(() => { const sh = document.querySelector(".fam-head"), root = sh ? sh.parentElement : document; return Array.from(root.querySelectorAll(".btn-main")).filter((b) => b.offsetParent).length; });
       check("Foglio di lavoro (" + kind + "): il pulsante «Crea il foglio di lavoro» c'è ed è secondario (un solo pulsante pieno per schermata)", !!btn && primary <= 1, "pieni visibili: " + primary);
       const bootHasLib = await p.evaluate(() => !!window.jspdf);
@@ -1987,6 +1987,18 @@ try {
     check("Duotono: dopo dieci parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
     await ctx.close();
   }
+  /* 9a3b. Piazza (Studia): il ripasso al centro, quattro allenamenti con le icone D2, «Vai» arancio grande, nessun riquadro tratteggiato */
+  for (const scheme of ["light", "dark"]) {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: scheme }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    await p.evaluate(() => CP.show("study")); await p.waitForTimeout(600);
+    const r = await p.evaluate(() => { const g = document.getElementById("go"), b = g.getBoundingClientRect(), cs = getComputedStyle(g), tiles = [...document.querySelectorAll(".pz-tile")]; return { w: Math.round(b.width), h: Math.round(b.height), bg: cs.backgroundColor, fw: +cs.fontWeight, tiles: tiles.map((t) => (t.querySelector("use") || { getAttribute: () => "" }).getAttribute("href") + ":" + t.querySelector("b").textContent).join("|"), hero: !!document.querySelector(".pz-hero .pz-ring"), old: !!document.querySelector(".modes, .dy-card, .today-n"), row: !!document.querySelector("#st-story .dy-row"), ws: !!document.querySelector("#st-story [data-ws-open]") }; });
+    const want = scheme === "dark" ? "rgb(255, 154, 61)" : "rgb(219, 95, 0)";
+    check("Piazza (" + scheme + "): «Vai» è " + (scheme === "dark" ? "#FF9A3D" : "#DB5F00") + " grassetto, almeno 64×52, con l'anello del giorno; le quattro tessere hanno le icone D2 (ear, bolt, wave, write) e nomi corretti; niente vecchi riquadri e il foglio PDF non è tra i progressi", r.w >= 64 && r.h >= 52 && r.bg === want && r.fw >= 700 && r.hero && r.tiles === "#i-ear:Allena l'orecchio|#i-bolt:Sfida 60 s|#i-wave:Duotono|#i-write:Lavagna" && !r.old && r.row && !r.ws && !errs.length, JSON.stringify(r) + (errs[0] || ""));
+    await ctx.close();
+  }
   /* 9a4. Lavagna (Studia): si scrive a mano la parola, carattere per carattere; i tratti coprono tutto il vocabolario */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
@@ -1999,6 +2011,8 @@ try {
     await p.click("#lavagna-open"); await p.waitForTimeout(900);
     const q = await p.evaluate(() => ({ pad: !!document.querySelector("#lv-pad canvas"), blind: !/[一-鿿]/.test((document.querySelector("#lv-pad") || {}).textContent || ""), hz: document.getElementById("lv-han").hidden }));
     check("Lavagna: la prima schermata ha la lavagna, i pulsanti dei caratteri senza hanzi e il carattere nascosto", q.pad && q.blind && q.hz, JSON.stringify(q));
+    const chip = await p.evaluate(() => !!document.querySelector("#lv-pad") && !!document.querySelector(".lv-panel .chip-ws[data-ws-open]"));
+    check("Lavagna: nella schermata iniziale c'è il chip «Stampa foglio di scrittura (PDF)»", chip);
     for (let i = 0; i < 5; i++) { await p.click("#lv-next"); await p.waitForTimeout(250); }
     const fin = await p.evaluate(() => /parole scritte bene/.test(document.body.textContent) && !!document.getElementById("lv-open"));
     check("Lavagna: dopo cinque parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);

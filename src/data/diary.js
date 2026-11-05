@@ -1,6 +1,6 @@
 /* ===== màndarínō · Taccuino del viaggiatore: i dati.
    - DIARY.stops: le città del viaggio Roma → Guilin; «th» = quante tappe del Percorso servono per arrivarci;
-     «x, y» = il punto sulla mappa (viewBox 360 × 620); «side» = da che lato sta il nome, «dy» = quanto alzarlo o abbassarlo.
+     «x, y» = il punto sulla mappa (viewBox 360 × 548): la geografia è stilizzata ma ordinata davvero, Ovest a sinistra e Nord in alto (Roma e Venezia a Ovest, Pechino a Nord, Chengdu a Sud-Ovest, Shanghai sulla costa, Guilin a Sud); «lp» = dove sta il nome (a sopra, b sotto, l sinistra, r destra; al e bl = sopra o sotto, allineato a destra).
    - DIARY.notes: una riga per coppia (o insieme) di parole che si confondono. Scritte a mano.
        m  = i membri: «caratteri pinyin», come nel vocabolario dell'app (tools/unit.mjs li controlla uno per uno)
        it = l'aneddoto in italiano, in prima persona, mai un giudizio; zh = lo stesso in cinese
@@ -24,17 +24,17 @@ var DIARY = {
     roma: { zh: "到{c}了！我走进一家小餐馆，全程用意大利语点餐。服务员说：“Bravissimo!”", it: "Sono a {c}! In una trattoria ho ordinato tutto in italiano. Il cameriere ha detto: «Bravissimo!»" }
   },
   stops: [
-    { id: "roma", th: 0, x: 66, y: 566, side: "r", it: "Roma", zh: "罗马" },
-    { id: "venezia", th: 1, x: 126, y: 512, side: "l", it: "Venezia", zh: "威尼斯" },
-    { id: "istanbul", th: 5, x: 220, y: 482, side: "l", it: "Istanbul", zh: "伊斯坦布尔" },
-    { id: "samarcanda", th: 10, x: 288, y: 424, side: "l", it: "Samarcanda", zh: "撒马尔罕" },
-    { id: "kashgar", th: 15, x: 228, y: 366, side: "l", it: "Kashgar", zh: "喀什" },
-    { id: "dunhuang", th: 30, x: 148, y: 322, side: "r", it: "Dunhuang", zh: "敦煌" },
-    { id: "xian", th: 44, x: 92, y: 266, side: "r", it: "Xi'an", zh: "西安" },
-    { id: "chengdu", th: 64, x: 158, y: 212, side: "l", dy: -12, it: "Chengdu", zh: "成都" },
-    { id: "pechino", th: 86, x: 254, y: 172, side: "l", it: "Pechino", zh: "北京" },
-    { id: "shanghai", th: 116, x: 300, y: 112, side: "l", it: "Shanghai", zh: "上海" },
-    { id: "guilin", th: 170, x: 204, y: 66, side: "l", it: "Guilin", zh: "桂林" }
+    { id: "roma", th: 0, x: 36, y: 104, lp: "r", it: "Roma", zh: "罗马" },
+    { id: "venezia", th: 1, x: 48, y: 40, lp: "r", it: "Venezia", zh: "威尼斯" },
+    { id: "istanbul", th: 5, x: 112, y: 160, lp: "a", it: "Istanbul", zh: "伊斯坦布尔" },
+    { id: "samarcanda", th: 10, x: 156, y: 198, lp: "l", it: "Samarcanda", zh: "撒马尔罕" },
+    { id: "kashgar", th: 15, x: 204, y: 216, lp: "b", it: "Kashgar", zh: "喀什" },
+    { id: "dunhuang", th: 30, x: 226, y: 170, lp: "a", it: "Dunhuang", zh: "敦煌" },
+    { id: "xian", th: 44, x: 262, y: 306, lp: "l", it: "Xi'an", zh: "西安" },
+    { id: "pechino", th: 64, x: 304, y: 192, lp: "a", it: "Pechino", zh: "北京" },
+    { id: "chengdu", th: 86, x: 248, y: 392, lp: "l", it: "Chengdu", zh: "成都" },
+    { id: "shanghai", th: 116, x: 328, y: 372, lp: "al", it: "Shanghai", zh: "上海" },
+    { id: "guilin", th: 170, x: 282, y: 506, lp: "l", it: "Guilin", zh: "桂林" }
   ],
   notes: [
     { id: "ma-mamma-cavallo", m: ["妈 mā", "马 mǎ"],

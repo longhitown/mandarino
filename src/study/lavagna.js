@@ -7,9 +7,9 @@
   var TXT = {
     it: { "lv.title": "Lavagna", "lv.desc": "Scrivi la parola con il dito, un carattere alla volta: il pinyin e il significato sono il suggerimento. Ordine e direzione dei tratti si controllano tratto per tratto.",
       "lv.show": "Mostra il carattere", "lv.next": "Avanti", "lv.result": "Vedi il risultato", "lv.okN": "parole scritte bene", "lv.r5": "Mano ferma: tutte scritte bene.", "lv.r3": "Buon lavoro: ripassa i tratti sbagliati.", "lv.r0": "Si impara ripetendo: riprova con la guida accesa.",
-      "lv.few": "Servono almeno cinque parole: studia ancora un po'.", "lv.write": "Scrivi:", "lv.again": "Riprova", "lv.chars": "{n} caratteri" },
+      "lv.few": "Servono almeno cinque parole: studia ancora un po'.", "lv.write": "Scrivi:", "lv.again": "Riprova", "lv.chars": "{n} caratteri", "lv.print": "Stampa foglio di scrittura (PDF)" },
     zh: { "lv.title": "手写板 · Lavagna", "lv.desc": "用手指一个字一个字地写出这个词：拼音和意思是提示。笔顺和笔画方向会逐笔检查。", "lv.show": "显示汉字", "lv.next": "下一个", "lv.result": "查看结果", "lv.okN": "写对的词",
-      "lv.r5": "手很稳：全部写对了。", "lv.r3": "不错：再练一练写错的笔画。", "lv.r0": "多练几遍：打开描红再试一次。", "lv.few": "至少需要五个词：请再多学一些。", "lv.write": "请写：", "lv.again": "再试一次", "lv.chars": "{n} 个字" }
+      "lv.r5": "手很稳：全部写对了。", "lv.r3": "不错：再练一练写错的笔画。", "lv.r0": "多练几遍：打开描红再试一次。", "lv.few": "至少需要五个词：请再多学一些。", "lv.write": "请写：", "lv.again": "再试一次", "lv.chars": "{n} 个字", "lv.print": "打印书写练习纸（PDF）" }
   };
   Object.assign(window.I18N.it, TXT.it); Object.assign(window.I18N.zh, TXT.zh);
   function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
@@ -23,6 +23,8 @@
     var p = pool(); if (p.length < ROUNDS) { CP.toast(T("lv.few")); return; }
     S = { n: 0, ok: 0, pool: p, used: {}, k: null, shown: false, state: null }; active = true; root.classList.remove("is-card"); CP.focusMode(true); next();
   }
+  /* il foglio di lavoro in PDF (ui/worksheet-stub.js): per scrivere gli stessi caratteri su carta vera; un chip discreto, solo qui */
+  function printChip() { return '<p style="margin:0"><button type="button" class="chip-ws" data-ws-open>' + (CP.ico ? CP.ico("notes") : "") + esc(T("lv.print")) + "</button></p>"; }
   function destroyPad() { if (padObj) { try { padObj.destroy(); } catch (e) {} padObj = null; } }
   function next() {
     if (S.n >= ROUNDS) return done();
@@ -33,7 +35,7 @@
     destroyPad();
     var w = W[S.k], pct = Math.round(S.n / ROUNDS * 100), n = Array.from(w.hz).length;
     root.innerHTML = '<div class="sess"><button type="button" class="btn-quiet" id="m-quit">' + T("fx.leave") + '</button><div class="meter" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i class="k" style="width:' + pct + '%"></i></div><span class="cnt">' + S.n + " / " + ROUNDS + "</span></div>" +
-      '<div class="panel fc lv-panel"><span class="tag">' + T("lv.title") + "</span>" + (S.n === 0 ? '<p class="small muted" style="margin:0">' + esc(T("lv.desc")) + "</p>" : "") +
+      '<div class="panel fc lv-panel"><span class="tag">' + T("lv.title") + "</span>" + (S.n === 0 ? '<p class="small muted" style="margin:0">' + esc(T("lv.desc")) + "</p>" + printChip() : "") +
       '<div class="cd-py">' + CP.pinyinHTML(w.py) + '</div><div class="cd-it" style="font-size:20px" lang="it">' + esc(w.it) + '</div><p class="small muted" style="margin:0">' + T("lv.chars", { n: n }) + "</p>" +
       '<div id="lv-han" class="cd-hz" lang="zh-CN" hidden>' + CP.hanziHTML(w.hz, w.py) + '</div><div id="lv-pad"></div>' +
       '<div class="acts"><button type="button" class="btn-s" data-lvshow>' + T("lv.show") + '</button></div>' +
@@ -47,7 +49,7 @@
   function done() {
     active = false; CP.focusMode(false); destroyPad();
     root.innerHTML = '<h2 style="margin-top:20px">' + T("lv.title") + '</h2><div class="stats"><div class="stat"><b>' + S.ok + "/" + ROUNDS + "</b><span>" + T("lv.okN") + "</span></div></div>" +
-      '<p class="muted">' + T(S.ok >= 5 ? "lv.r5" : S.ok >= 3 ? "lv.r3" : "lv.r0") + '</p><button type="button" class="btn-main" id="lv-open">' + T("lv.again") + '</button><button type="button" class="btn-main btn-quiet" id="m-quit" style="margin-top:10px">' + T("ear.back") + "</button>";
+      '<p class="muted">' + T(S.ok >= 5 ? "lv.r5" : S.ok >= 3 ? "lv.r3" : "lv.r0") + "</p>" + printChip() + '<button type="button" class="btn-main" id="lv-open">' + T("lv.again") + '</button><button type="button" class="btn-main btn-quiet" id="m-quit" style="margin-top:10px">' + T("ear.back") + "</button>";
     window.scrollTo(0, 0);
   }
   root.addEventListener("click", function (e) {

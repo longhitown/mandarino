@@ -3,7 +3,7 @@
    finite (CP.pathDoneCount). Gli sbagli non sono penalità: se la persona ha davvero scambiato una coppia di parole simili
    (cp-ex-v1.conf, scritto da CP.exConf in study/memory.js), sulla pagina della città compare l'aneddoto scritto a mano.
    Senza sbagli il taccuino è bello lo stesso: le tappe e le parole raccolte lungo la strada.
-   La mappa è un SVG disegnato qui, con un tremolio dell'inchiostro fisso (nessuna libreria, nessuna rete). Ogni pagina si può
+   La mappa è un SVG disegnato qui, pulito e stilizzato ma con la geografia in ordine (nessuna libreria, nessuna rete). Ogni pagina si può
    trasformare in un'immagine (CP.shareCard, modello «zh-diary») solo se la persona lo sceglie. Caricato al primo uso (LAZYMOD). ===== */
 (function () {
   var CP = window.CP, T = CP.t, esc = CP.esc, S = DIARY.stops, N = DIARY.notes, ZH = typeof LANG !== "undefined" && LANG === "zh";
@@ -81,81 +81,39 @@
   }
   function noteText(note, i) { return String(ZH ? note.zh : note.it).replace(/\{c\}/g, city(i)); }
 
-  /* ---- l'inchiostro: tremolio fisso, sempre uguale ---- */
-  function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-  function f1(p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }
-  function smooth(pts, closed) {
-    var d = "M" + f1(pts[0]), i;
-    for (i = 1; i < pts.length - 1; i++) d += " Q" + f1(pts[i]) + " " + f1([(pts[i][0] + pts[i + 1][0]) / 2, (pts[i][1] + pts[i + 1][1]) / 2]);
-    return d + " L" + f1(pts[pts.length - 1]) + (closed ? "Z" : "");
-  }
-  function jit(pts, r, j) { return pts.map(function (p, k) { return k && k < pts.length - 1 ? [p[0] + (r() - 0.5) * 2 * j, p[1] + (r() - 0.5) * 2 * j] : p; }); }
-  function poly(pts, r, j) { return smooth(jit(pts, r, j)); }
-  function leg(a, b, i, r) {
-    var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy) || 1, bow = (i % 2 ? 1 : -1) * len * 0.16, cx = (a.x + b.x) / 2 - dy / len * bow, cy = (a.y + b.y) / 2 + dx / len * bow, n = Math.max(4, Math.round(len / 12)), pts = [], k, t, u;
-    for (k = 0; k <= n; k++) { t = k / n; u = 1 - t; pts.push([u * u * a.x + 2 * u * t * cx + t * t * b.x, u * u * a.y + 2 * u * t * cy + t * t * b.y]); }
-    return smooth(jit(pts, r, 1.6));
-  }
-  function ring(cx, cy, rad, r) {
-    var pts = [], k, a, q = 12; for (k = 0; k <= q; k++) { a = k / q * Math.PI * 2 + 0.3; pts.push([cx + Math.cos(a) * rad * (1 + (r() - 0.5) * 0.14), cy + Math.sin(a) * rad * (1 + (r() - 0.5) * 0.14)]); }
-    return smooth(pts);
+  /* la mappa: carta pulita, geografia stilizzata ma ordinata (Ovest a sinistra, Nord in alto), tracciato a curve, nessun disegnino.
+     Il corso di italiano la legge al contrario (Guilin → Roma): cambiano solo l'ordine delle tappe e il verso della freccia. */
+  function curve(a, b, i) {
+    var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy) || 1, bow = (i % 2 ? 1 : -1) * Math.min(44, len * 0.2);
+    return "M" + a.x + " " + a.y + " Q" + ((a.x + b.x) / 2 - dy / len * bow).toFixed(1) + " " + ((a.y + b.y) / 2 + dx / len * bow).toFixed(1) + " " + b.x + " " + b.y;
   }
   function mapSVG(cur, S) {
     S = S || stopsOf();
-    var r = rng(20260), h = "", i, s, a, b;
-    var ink = function (d, w, extra) { return '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="' + w + '" stroke-linecap="round" stroke-linejoin="round"' + (extra || "") + "/>"; };
-    /* il foglio e il suo bordo: i quattro lati, a tratti, con l'inchiostro che trema un poco */
-    var edge = [], q;
-    for (q = 0; q <= 18; q++) edge.push([12 + 336 * q / 18, 10]);
-    for (q = 1; q <= 30; q++) edge.push([348, 10 + 600 * q / 30]);
-    for (q = 1; q <= 18; q++) edge.push([348 - 336 * q / 18, 610]);
-    for (q = 1; q <= 29; q++) edge.push([12, 610 - 600 * q / 30]);
-    edge.push(edge[0]);
-    h += '<rect x="3" y="3" width="354" height="614" rx="10" class="dy-sheet"/><path d="' + smooth(jit(edge, r, 1.3)) + '" fill="none" class="dy-edge" stroke-width="2" stroke-linejoin="round"/>';
-    h += '<g class="dy-deco">';
-    /* bussola */
-    h += ink(ring(42, 54, 20, r), 1.6) + ink(poly([[42, 28], [42, 80]], r, 0.8), 1.4) + ink(poly([[16, 54], [68, 54]], r, 0.8), 1.4) + ink(poly([[42, 30], [47, 54], [42, 78], [37, 54], [42, 30]], r, 0.6), 1.2) + '<text x="42" y="22" text-anchor="middle" class="dy-n">N</text>';
-    /* onde tra Roma e Istanbul */
-    for (i = 0; i < 4; i++) h += ink(poly([[140 + i * 6, 548 + i * 9], [150 + i * 6, 543 + i * 9], [160 + i * 6, 549 + i * 9], [170 + i * 6, 543 + i * 9], [180 + i * 6, 549 + i * 9]], r, 0.9), 1.5);
-    /* monti dell'Asia centrale */
-    [[304, 384], [324, 350], [334, 392]].forEach(function (m) { h += ink(poly([[m[0] - 20, m[1]], [m[0] - 6, m[1] - 24], [m[0], m[1] - 14], [m[0] + 8, m[1] - 30], [m[0] + 24, m[1]]], r, 1), 1.6); });
-    /* dune di Dunhuang */
-    for (i = 0; i < 3; i++) h += ink(poly([[20, 338 + i * 11], [36, 330 + i * 11], [54, 336 + i * 11], [70, 329 + i * 11]], r, 0.9), 1.4);
-    /* la Muraglia */
-    h += ink(poly([[296, 214], [304, 204], [312, 214], [320, 204], [328, 214], [336, 204], [344, 212]], r, 0.7), 1.8);
-    /* colline di Guilin */
-    [[262, 76], [290, 70], [318, 78]].forEach(function (m) { h += ink(poly([[m[0] - 12, m[1]], [m[0] - 8, m[1] - 18], [m[0], m[1] - 24], [m[0] + 8, m[1] - 16], [m[0] + 12, m[1]]], r, 0.8), 1.5); });
-    h += "</g>";
-    /* la strada */
+    var h = "", i, a, b, rev = S[0].id !== "roma", ax1 = rev ? 214 : 146, ax2 = rev ? 146 : 214;
+    h += '<rect x="2" y="2" width="356" height="544" rx="12" class="dy-sheet"/><rect x="2" y="2" width="356" height="544" rx="12" fill="none" class="dy-edge" stroke-width="1"/>';
+    /* il verso del viaggio: da una parte all'altra, non una bussola */
+    h += '<g class="dy-flow"><path d="M' + ax1 + " 24 H" + ax2 + '" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M' + (ax2 + (rev ? 6 : -6)) + " 19 L" + ax2 + " 24 L" + (ax2 + (rev ? 6 : -6)) + ' 29" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<text x="' + (ax1 + (rev ? 6 : -6)) + '" y="28" text-anchor="' + (rev ? "start" : "end") + '" class="dy-n">' + esc(T(rev ? "dy.est" : "dy.ovest")) + '</text><text x="' + (ax2 + (rev ? -6 : 6)) + '" y="28" text-anchor="' + (rev ? "end" : "start") + '" class="dy-n">' + esc(T(rev ? "dy.ovest" : "dy.est")) + "</text></g>";
+    /* il tracciato: pieno fin dove si è arrivati, a punti oltre */
     for (i = 0; i < S.length - 1; i++) {
       a = S[i]; b = S[i + 1];
-      h += i < cur ? ink(leg(a, b, i, r), 2.6, ' class="dy-road"') : ink(leg(a, b, i, r), 2, ' class="dy-road-off" stroke-dasharray="2 8"');
+      h += i < cur ? '<path d="' + curve(a, b, i) + '" fill="none" class="dy-road" stroke-width="2.6" stroke-linecap="round"/>' : '<path d="' + curve(a, b, i) + '" fill="none" class="dy-road-off" stroke-width="2" stroke-linecap="round" stroke-dasharray="1.5 7"/>';
     }
-    /* le città */
+    /* le città: già raggiunta = piena; quella dove si è = cerchio cinabro con segno e anello; da raggiungere = cerchio vuoto con bordo arancio tenue */
     S.forEach(function (st, j) {
-      var side = st.side === "r" ? 1 : -1, tx = st.x + side * (j === cur ? 20 : 15), ty = st.y + 5 + (st.dy || 0), lbl = ZH ? st.zh : st.it;
-      if (j < cur) h += '<circle cx="' + st.x + '" cy="' + st.y + '" r="8" class="dy-seal"/><path d="M' + (st.x - 3.6) + " " + (st.y + 0.2) + " l2.6 2.8 l5 -6" + '" class="dy-tick" fill="none"/>';
-      else if (j === cur) h += '<circle cx="' + st.x + '" cy="' + st.y + '" r="9.5" class="dy-seal"/>' + ink(ring(st.x, st.y, 15, r), 2, ' class="dy-here"') + '<path d="M' + (st.x - 3.6) + " " + (st.y + 0.2) + " l2.6 2.8 l5 -6" + '" class="dy-tick" fill="none"/>';
-      else h += ink(ring(st.x, st.y, 7.5, r), 1.8, ' class="dy-off" stroke-dasharray="2 3"');
-      h += '<text x="' + tx + '" y="' + ty + '" text-anchor="' + (side > 0 ? "start" : "end") + '" class="dy-city' + (j > cur ? " off" : "") + (j === cur ? " cur" : "") + '"' + (ZH ? ' lang="zh-CN"' : "") + ">" + esc(lbl) + "</text>";
+      var lp = st.lp || "r", cr = j === cur ? 15 : 10, tx = st.x, ty = st.y, anc = "middle", tick = '<path d="M' + (st.x - 3.6) + " " + (st.y + 0.2) + " l2.6 2.8 l5 -6" + '" class="dy-tick" fill="none"/>';
+      if (j < cur) h += '<circle cx="' + st.x + '" cy="' + st.y + '" r="8" class="dy-done"/>' + tick;
+      else if (j === cur) h += '<circle cx="' + st.x + '" cy="' + st.y + '" r="9.5" class="dy-seal"/><circle cx="' + st.x + '" cy="' + st.y + '" r="15" fill="none" class="dy-here" stroke-width="2"/>' + tick;
+      else h += '<circle cx="' + st.x + '" cy="' + st.y + '" r="7.5" fill="none" class="dy-off" stroke-width="2"/>';
+      if (lp === "r") { tx = st.x + cr + 6; ty = st.y + 4.5; anc = "start"; } else if (lp === "l") { tx = st.x - cr - 6; ty = st.y + 4.5; anc = "end"; } else if (lp === "a") { ty = st.y - cr - 6; } else if (lp === "al") { tx = st.x + 22; ty = st.y - cr - 6; anc = "end"; } else if (lp === "bl") { tx = st.x + 22; ty = st.y + cr + 15; anc = "end"; } else { ty = st.y + cr + 15; }
+      h += '<text x="' + tx + '" y="' + ty + '" text-anchor="' + anc + '" class="dy-city' + (j > cur ? " off" : "") + (j === cur ? " cur" : "") + '"><tspan>' + esc(st.it) + '</tspan><tspan class="dy-zh" lang="zh-CN"> · ' + esc(st.zh) + "</tspan></text>";
     });
-    return '<svg class="dy-map" viewBox="0 0 360 620" role="img" aria-label="' + CP.attr(T("dy.mapAria", { n: cur + 1, m: S.length })) + '" focusable="false">' + h + "</svg>";
+    return '<svg class="dy-map" viewBox="0 0 360 548" role="img" aria-label="' + CP.attr(T("dy.mapAria", { n: cur + 1, m: S.length })) + '" focusable="false">' + h + "</svg>";
   }
-  /* la strisciolina della carta in Studia */
-  function strip(cur, S) {
-    S = S || stopsOf();
-    var r = rng(77), w = 300, pts = S.map(function (s, i) { return [10 + i * (w - 20) / (S.length - 1), 14 + (i % 2 ? 3 : -3)]; }), h = "";
-    h += '<path d="' + smooth(jit(pts, r, 0.8)) + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="dy-road-off" stroke-dasharray="2 5"/>';
-    if (cur > 0) h += '<path d="' + smooth(jit(pts.slice(0, cur + 1), r, 0.8)) + '" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" class="dy-road"/>';
-    pts.forEach(function (p, i) { h += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1] + '" r="' + (i === cur ? 6.5 : 4.5) + '" class="' + (i <= cur ? "dy-seal" : "dy-off-dot") + '"/>'; });
-    return '<svg class="dy-strip" viewBox="0 0 ' + w + ' 28" aria-hidden="true" focusable="false">' + h + "</svg>";
-  }
-
-  /* ---- la carta in Studia ---- */
-  function card(c) {
-    var d = build(c), it = c === "it";
-    return '<div class="dy-card">' + strip(d.cur, d.st) + '<div class="dy-card-t"><b>' + esc(T("dy.title")) + '</b><span class="small muted">' + esc(T("dy.at", { c: city(d.cur, d.st), n: d.cur + 1, m: d.st.length })) + "</span></div>" +
-      '<p class="small muted" style="margin:0">' + esc(T(it ? "dyi.cardSub" : "dy.cardSub")) + '</p><button type="button" class="btn-s" data-diary-open="' + (it ? "it" : "zh") + '">' + esc(T("dy.open")) + "</button></div>";
+  /* la riga nei Progressi, una sola riga che apre il foglio con la mappa: «Taccuino del viaggiatore · Tappa 1 di 11: Roma →» */
+  function row(c) {
+    var d = build(c);
+    return '<button type="button" class="dy-row" data-diary-open="' + (c === "it" ? "it" : "zh") + '">' + (CP.ico ? CP.ico("map") : "") + '<span class="dy-row-t">' + esc(T("dy.row", { n: d.cur + 1, m: d.st.length, c: city(d.cur, d.st) })) + '</span><span aria-hidden="true">→</span></button>';
   }
 
   /* ---- il foglio ---- */
@@ -219,5 +177,5 @@
     CP.shareCard.open("zh-diary", shareData(v[0], +v[1]));
   });
 
-  CP.diary = { card: card, open: open, build: build, earned: earned, evidence: evidence, stopAt: stopAt, shareData: shareData, stops: S, notes: N, mapSVG: mapSVG };
+  CP.diary = { row: row, open: open, build: build, earned: earned, evidence: evidence, stopAt: stopAt, shareData: shareData, stops: S, notes: N, mapSVG: mapSVG };
 })();
