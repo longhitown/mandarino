@@ -448,6 +448,20 @@ function sandbox() {
   check("cp-ex-v1: passo più avanzato, verifica più recente, per ogni tipo la voce con n più alto (mai la somma, anche ripristinando due volte), testi letti uniti", xm.units.a.passo === 2 && xm.units.a.verifica.pct === 90 && xm.units.b.passo === 3 && xm.ex["你"]["mc-pinyin"].n === 4 && xm.ex["你"].tono.n === 1 && xm.read.t1 === 5 && xm.read.t2 === 7, JSON.stringify(xm));
 }
 
+/* ---- calchi (src/data/calchi.js): prima fase, deboli: campi, espressioni valide, forme corrette in cinese, ogni voce ha una frase italiana che la attiva ---- */
+{
+  const cctx = vm.createContext({}); vm.runInContext(fs.readFileSync(path.join(SRC, "data/calchi.js"), "utf8"), cctx);
+  const CA = vm.runInContext("CALCHI", cctx), bad = [], ids = new Set();
+  const SAMPLE = { eta: "ho 25 anni", "fame-sete": "ho fame", "essere-aggettivo": "sono molto stanco", "tempo-in-fondo": "vado a scuola domani", classificatore: "ho un libro", anche: "vado anche io", "possesso-cose": "questo è il mio libro" };
+  for (const c of CA) {
+    if (ids.has(c.id)) bad.push("id doppio " + c.id); ids.add(c.id);
+    for (const f of ["id", "re", "wrong", "right", "why"]) if (!c[f] || typeof c[f] !== "string") bad.push(c.id + ": manca " + f);
+    if (c.rev !== 0 && c.rev !== 1) bad.push(c.id + ": rev deve essere 0 o 1");
+    if (!/[一-鿿]/.test(c.wrong) || !/[一-鿿]/.test(c.right)) bad.push(c.id + ": wrong e right in cinese");
+    try { const re = new RegExp(c.re, "i"); const smp = " " + (SAMPLE[c.id] || "").toLowerCase().replace(/[^a-zàèéìòù0-9' ]+/g, " ").replace(/ +/g, " ").trim() + " "; if (!re.test(smp)) bad.push(c.id + ": la frase di prova «" + SAMPLE[c.id] + "» non la attiva"); } catch (e) { bad.push(c.id + ": espressione non valida"); }
+  }
+  check("Calchi: " + CA.length + " voci (bozza), id unici, campi pieni, espressioni valide, forma sbagliata e giusta in cinese e una frase italiana che attiva ciascuna", CA.length >= 5 && !bad.length, bad.slice(0, 4).join("; "));
+}
 /* ---- Taccuino del viaggiatore (src/data/diary.js, ui/diary.js): la tabella degli aneddoti e le coppie scambiate ---- */
 {
   const dctx = vm.createContext({}); vm.runInContext(fs.readFileSync(path.join(SRC, "data/diary.js"), "utf8"), dctx);

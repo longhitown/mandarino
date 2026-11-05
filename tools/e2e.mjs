@@ -1154,6 +1154,7 @@ try {
     check("Loop della musica: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+<<<<<<< HEAD
   /* 5c. Tutor: un invito gentile alla terza ricaduta, mai a metà sessione, con uscita sempre disponibile */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
@@ -1200,6 +1201,23 @@ try {
     const g2 = await p.evaluate(() => ({ done: !!document.querySelector(".panel.done"), tu: !!document.querySelector(".tu-card"), lp: CP.S()["你"] && CP.S()["你"].lp }));
     check("Tutor: in una sessione vera, la terza ricaduta di una parola fa comparire l'invito solo alla schermata finale, mai tra le carte", g2.lp >= 3 && g2.done && g2.tu && !popDuring, JSON.stringify({ g2, popDuring, dueN, guard }));
     check("Tutor: in Impostazioni → Studio c'è l'interruttore «Consigli del tutor» (spento, dopo l'uscita scelta dal pop-up) e nessun errore JavaScript", f.has && f.checked === false && !errs.length, JSON.stringify(f) + (errs[0] || ""));
+=======
+  /* 5a. X-Ray: traduttore istantaneo italiano ⇄ cinese, prudente, con ascolto e avvisi sui calchi */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.evaluate(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); }); await p.reload();
+    await p.click("#tab-build"); await p.evaluate(() => CP.build.setSub("reader"));
+    await p.fill("#xr-in", "Voglio bere acqua."); await p.waitForTimeout(600);
+    const a = await p.evaluate(() => ({ h: document.querySelector(".xr-tr h4").textContent, out: (document.querySelector(".xt-out") || {}).textContent, how: (document.querySelector(".xt-how") || {}).textContent, back: (document.querySelector(".xt-row .small.muted:not(.xt-src)") || {}).textContent, say: [...document.querySelectorAll("[data-xt-say]")].map((b) => b.getAttribute("data-xt-say")).join(), xray: !!document.querySelector(".xr-out .xw") }));
+    check("X-Ray: scrivendo in italiano («Voglio bere acqua.») compare la traduzione 我想喝水, controllata al contrario, con ascolto in cinese e in italiano e i Raggi X della frase cinese", /我想喝水/.test((a.out || "").replace(/[^㐀-鿿]/g, "")) && /controllata al contrario/.test(a.how) && /bere/.test(a.back || "") && a.say === "zh,it" && a.xray, JSON.stringify(a));
+    await p.fill("#xr-in", "我想喝水。"); await p.waitForTimeout(600);
+    const b = await p.evaluate(() => ({ out: (document.querySelector(".xt-out") || {}).textContent, how: (document.querySelector(".xt-how") || {}).textContent }));
+    check("X-Ray: scrivendo in cinese («我想喝水。») la traduzione è italiana, «per regole»", /bere/.test(b.out || "") && /regole/.test(b.how || ""), JSON.stringify(b));
+    await p.fill("#xr-in", "Il gatto beve il latte e legge un libro sul tavolo domani."); await p.waitForTimeout(700);
+    const c = await p.evaluate(() => ({ out: document.querySelectorAll(".xt-out").length, how: (document.querySelector(".xt-how") || {}).textContent, calchi: document.querySelectorAll(".xt-calco").length, draft: /Bozza/.test((document.querySelector(".xt-calco") || {}).textContent || ""), words: document.querySelectorAll(".xt-wl .xw").length }));
+    check("X-Ray: una frase che non sa tradurre non viene inventata (nessuna frase cinese): «solo un indizio», parole una per una, e gli avvisi sui calchi sono segnati come bozza", c.out === 0 && /indizio/.test(c.how || "") && c.calchi >= 1 && c.draft && c.words >= 2, JSON.stringify(c));
+    check("X-Ray: nessun errore JavaScript", !errs.length, errs[0]);
+>>>>>>> origin/main
     await ctx.close();
   }
   /* 5b. Lettore: nomi e termini da Wikidata (file a parte, scaricato al primo uso) */

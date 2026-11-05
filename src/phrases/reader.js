@@ -56,7 +56,14 @@
       return '<li><button type="button" class="xw-w" data-fam="' + CP.attr(x[0]) + '"><span class="han" lang="zh-CN">' + esc(x[0]) + '</span></button> <span lang="it">' + esc(x[1]) + "</span></li>";
     }).join("") + "</ul></div>";
   }
+  /* ora si può scrivere in italiano o in cinese: la scheda «Traduzione» (phrases/xrt.js) sta in cima; sotto, i Raggi X della frase cinese (quella scritta, o la traduzione) */
   function outHTML(raw) {
+    if (!raw.trim()) return '<p class="xr-stat">' + T("rd.empty") + "</p>";
+    var tr = null; try { tr = CP.xrt ? CP.xrt.translate(raw) : null; } catch (e) { tr = null; }
+    var zh = /[㐀-鿿]/.test(raw) ? raw : (tr && tr.zh) || "";
+    return (tr ? CP.xrt.card(tr) : "") + (zh ? xrayHTML(zh) : "");
+  }
+  function xrayHTML(raw) {
     if (!raw.trim()) return '<p class="xr-stat">' + T("rd.empty") + "</p>";
     var a = analyse(raw), h = "";
     a.segs.forEach(function (s) {
