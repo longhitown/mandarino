@@ -13,12 +13,12 @@
       "kn.none": "Non ci sono ancora ripassi abbastanza per fare un confronto: studia qualche giorno e torna qui.", "kn.net.h": "Il motore sperimentale, in ombra",
       "kn.net.p": "Osserva i tuoi ripassi senza cambiare nulla: ogni volta prova a prevedere l'esito e poi si confronta con la realtà. Un errore più basso significa previsioni migliori.",
       "kn.net.err": "errore medio di previsione (più basso è meglio)", "kn.net.base": "motore attuale", "kn.net.nn": "motore sperimentale", "kn.net.pred": "Previsto dal motore sperimentale:", "kn.net.wait": "Sta ricostruendo i tuoi ripassi, qualche secondo…",
-      "kn.net.few": "Servono almeno {m} ripassi misurati: per ora ne ha visti {n}.", "kn.foot": "Non è un voto e non decide quando ripassi: è uno specchio, per sapere quanto fidarti delle date che vedi." },
+      "kn.net.few": "Servono almeno {m} ripassi misurati: per ora ne ha visti {n}.", "kn.send": "Aiuta la ricerca: manda i tuoi dati", "kn.foot": "Non è un voto e non decide quando ripassi: è uno specchio, per sapere quanto fidarti delle date che vedi." },
     zh: { "kn.title": "我有多了解你？", "kn.lede": "每次复习前，系统会预测你记得的可能性。这里看它准不准：深色条是预测，浅色条是实际结果。", "kn.all": "全部", "kn.c.cap": "理解", "kn.c.dire": "说和声调", "kn.c.asc": "听", "kn.c.scr": "写", "kn.c.fra": "句子里",
       "kn.pred": "预测", "kn.real": "实际", "kn.n": "{n} 次复习", "kn.few": "复习次数还不多（{n}/{m}）：很快就会更了解你", "kn.v.ok": "很准：预测和实际一致。", "kn.v.hi": "我高估了你一点。", "kn.v.lo": "你比我想的更厉害。",
       "kn.none": "复习次数还不够做比较：学几天再来看看。", "kn.net.h": "实验引擎（旁观模式）", "kn.net.p": "它只观察你的复习，不改变任何东西：每次先预测结果，再和现实对比。误差越小，预测越好。",
       "kn.net.err": "平均预测误差（越小越好）", "kn.net.base": "现行引擎", "kn.net.nn": "实验引擎", "kn.net.pred": "实验引擎预测", "kn.net.wait": "正在重建你的复习记录，请稍候……", "kn.net.few": "至少需要 {m} 次已测量的复习：目前只有 {n} 次。",
-      "kn.foot": "这不是分数，也不决定你何时复习：它只是一面镜子，让你知道可以多相信看到的日期。" }
+      "kn.send": "帮助研究：发送你的数据", "kn.foot": "这不是分数，也不决定你何时复习：它只是一面镜子，让你知道可以多相信看到的日期。" }
   };
   Object.assign(window.I18N.it, TXT.it); Object.assign(window.I18N.zh, TXT.zh);
   /* tipo di ripasso (registro: elemento 5) → canale */
@@ -63,11 +63,16 @@
       if (t.all.n < MIN) h += '<p class="small">' + T("kn.none") + "</p>";
       h += row(T("kn.all"), t.all, rep && rep.n ? { n: rep.n, pM: Object.keys(net).reduce(function (s, k) { return s + net[k].pM; }, 0) } : null);
       ORDER.forEach(function (c) { if (t[c].n) h += row(T("kn.c." + c), t[c], byChan[c]); });
-      h += shadowBlock(rep) + '<p class="small muted" style="margin:6px 0 0">' + T("kn.foot") + "</p>";
+      h += shadowBlock(rep);
+      /* chi ha già dato il consenso alla ricerca trova qui, a un tocco, il foglio per mandare i dati (niente per chi non l'ha dato) */
+      var rs = null; try { rs = CP.research && CP.research.consent(); } catch (e) {}
+      if (rs) h += '<button type="button" class="btn-s" data-kn-research>' + esc(T("kn.send")) + "</button>";
+      h += '<p class="small muted" style="margin:6px 0 0">' + T("kn.foot") + "</p>";
       el.innerHTML = h;
       if (rep && !rep.ready && el.isConnected) setTimeout(function () { if (el.isConnected && el.closest("details") && el.closest("details").open) fill(el); }, 2000);
     };
     if (window.Store && Store.logAll) Store.logAll().then(go, function () { go([]); }); else go([]);
   }
+  document.addEventListener("click", function (e) { var b = e.target.closest ? e.target.closest("[data-kn-research]") : null; if (b && CP.research) { CP.sfx("tap"); CP.research.open(); } });
   CP.conosci = { fill: fill, tally: tally, channelOf: function (t) { return OF[t] || null; } };
 })();

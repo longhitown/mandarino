@@ -2046,6 +2046,24 @@ try {
     check("Abilità: il motore in ombra somma, per coppia debole/media/solida e per suggerimento attivo, previsto contro ottenuto (psk, csg)", /\d/.test(g.psk + g.csg), JSON.stringify(g));
     await ctx.close();
   }
+  /* 9a8. Ricerca sulla memoria: di base c'è tutto, si può togliere ogni parte non essenziale, un solo tasto per mandare */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); localStorage.setItem("md-srs-research-consent", JSON.stringify({ v: 1, t: Date.now(), age: true, cc0: true, aware: true, id: "a1b2c3d4e5f67890", sent: 0 })); });
+    await p.goto(base); await p.waitForTimeout(900);
+    await p.evaluate(() => { const ks = Object.keys(CP.WORDS).slice(0, 40); for (let i = 0; i < 340; i++) Store.log([Date.now() - 864e5 * 5 + i * 1000, ks[i % ks.length], i % 5 ? 3 : 1, 900, "mc-parola", 0.85, 0, { kd: "mc", k: 4, tn: false, cp: [], nt: 1, bs: 900 }]); });
+    await p.waitForTimeout(500); await p.evaluate(() => CP.research.open()); await p.waitForTimeout(700);
+    const a = await p.evaluate(() => ({ boxes: [...document.querySelectorAll("[data-rs-inc]")].map((i) => i.getAttribute("data-rs-inc") + ":" + i.checked).join(), locked: !!document.querySelector(".rs-inc input[disabled][checked]"), send: document.querySelectorAll("[data-rs-send=mail]").length, size: /KB/.test(document.body.textContent) }));
+    check("Ricerca: aperto il foglio, tutte e sette le componenti sono spuntate di base, c'è l'essenziale bloccato, un solo tasto «Invia» e la dimensione del file", a.boxes === "reviews:true,times:true,detail:true,engine:true,cards:true,shadow:true,skills:true" && a.locked && a.send === 1 && a.size, JSON.stringify(a));
+    await p.click(".rs-inc > summary"); await p.waitForTimeout(200); await p.click('[data-rs-inc="times"]'); await p.waitForTimeout(400); await p.click('[data-rs-inc="cards"]'); await p.waitForTimeout(400);
+    const b = await p.evaluate(async () => { const c = CP.research.consent(), o = await CP.research.buildExport(); return { inc: JSON.stringify(c.inc), included: o.included.join(), ms: "ms" in o.reviews[0], cards: Object.keys(o.cards).length, n: o.reviews.length, boxes: [...document.querySelectorAll("[data-rs-inc]")].filter((i) => !i.checked).map((i) => i.getAttribute("data-rs-inc")).join() }; });
+    check("Ricerca: togliendo «tempi» e «schede» il consenso ricorda la scelta, il file non ha più ms né carte e conserva i 340 ripassi", /"times":false/.test(b.inc) && !/times|cards/.test(b.included) && !b.ms && b.cards === 0 && b.n === 340 && b.boxes === "times,cards", JSON.stringify(b));
+    await p.evaluate(() => { CP.closeSheet(); CP.show("study"); }); await p.waitForTimeout(500); await p.evaluate(() => { document.getElementById("st-know").open = true; }); await p.waitForTimeout(1500);
+    const c = await p.evaluate(() => !!document.querySelector("[data-kn-research]"));
+    check("Ricerca: chi ha dato il consenso trova in «Quanto ti conosco?» il tasto per aprire il foglio, senza errori", c && !errs.length, errs[0]);
+    await ctx.close();
+  }
   /* 9a4. Lavagna (Studia): si scrive a mano la parola, carattere per carattere; i tratti coprono tutto il vocabolario */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
