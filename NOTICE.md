@@ -4,7 +4,7 @@
 |---|---|---|---|
 | Codice dell'app e degli strumenti | `src/` (escluso `src/data/` e `src/audio/music/`), `tools/`, `android/` | MIT | [LICENSE](LICENSE) |
 | Contenuti didattici originali: lezioni, dialoghi, esercizi, frasi d'esempio del progetto, corso di italiano | `src/data/` (salvo le eccezioni sotto) | CC BY-NC-SA 4.0 | [LICENZE/CONTENUTI.txt](LICENZE/CONTENUTI.txt) |
-| Vocabolario curato (pinyin e significati italiani), derivato in parte da CC-CEDICT | `src/data/vocab/` | CC BY-SA 4.0 | [LICENZE/CONTENUTI.txt](LICENZE/CONTENUTI.txt) |
+| Vocabolario curato (pinyin e significati italiani), derivato in parte da CC-CEDICT | `src/data/vocab/`, `src/data/anatomy-mean.js` | CC BY-SA 4.0 | [LICENZE/CONTENUTI.txt](LICENZE/CONTENUTI.txt) |
 | Musica: 22 brani originali | `src/audio/music/` | CC BY-NC-SA 4.0 | [LICENZE/MUSICA.txt](LICENZE/MUSICA.txt) |
 | Icone: il set «D2 · Mandarino & Cinabro» (SVG, sprite, manifest, figure del disegno) | `icone/` | CC BY-NC-SA 4.0 | [LICENZE/ICONE.txt](LICENZE/ICONE.txt), [icone/ICONE.md](icone/ICONE.md) |
 | Nome «màndarínō» e logo (il mandarino con le foglie e gli accenti dei toni) | dappertutto | **nessuna licenza**: sono un segno distintivo | [MARCHIO.md](MARCHIO.md) |

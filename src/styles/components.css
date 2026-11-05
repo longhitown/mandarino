@@ -119,13 +119,24 @@ h1 { letter-spacing: -0.01em; }
 .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
 .modes button { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 72px; padding: 10px 12px; text-align: left; font-size: 16px; }
 .modes button small { font-size: 13px; font-weight: 400; color: var(--muted); }
+.kn { display: flex; flex-direction: column; gap: 12px; }
+.kn-row { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border: 1px solid var(--line, rgba(128,128,128,.25)); border-radius: 12px; }
+.kn-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.kn-bar { position: relative; height: 22px; border-radius: 7px; background: var(--chip); overflow: hidden; }
+.kn-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 7px; }
+.kn-bar.pred i { background: var(--accent); } .kn-bar.real i { background: color-mix(in srgb, var(--accent) 38%, transparent); }
+.kn-bar span { position: relative; z-index: 1; display: block; padding: 2px 8px; font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink, inherit); text-shadow: 0 0 3px var(--bg, #fff), 0 0 3px var(--bg, #fff); }
+.kn-net { border-top: 1px dashed var(--line, rgba(128,128,128,.4)); padding-top: 10px; } .kn-net h4 { margin: 0 0 4px; }
 .duo-row { display: flex; flex-direction: column; gap: 4px; width: 100%; }
 .lv-panel { min-width: 0; } .lv-panel #lv-pad, .lv-panel .pad2 { width: 100%; min-width: 0; } .lv-panel .pad2 { display: flex; flex-direction: column; align-items: center; }
 .lv-panel .pad2 .pad-stage { width: min(100%, 340px); } .lv-panel .pad2 .padbtns, .lv-panel .pad2 .pad-eval { max-width: 100%; box-sizing: border-box; }
 .tonebtns button.on { background: var(--chip); box-shadow: 0 0 0 2px var(--t1) inset; }
-.tonebtns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
+.tonebtns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; width: 100%; }
 .tonebtns button { display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 76px; padding: 8px 2px; border-width: 2px; font-size: 14px; }
 .tonebtns button .tc { width: 34px; height: 17px; }
+.tonebtns.compact button { min-height: 56px; padding: 4px 2px; } .tonebtns.compact button .tc { width: 28px; height: 14px; }
+.tonebtns button.t5 { border-color: var(--t5); }
+.spoken .sp-hz { font-size: 30px; }
 .tonebtns button.t1 { border-color: var(--t1); } .tonebtns button.t2 { border-color: var(--t2); } .tonebtns button.t3 { border-color: var(--t3); } .tonebtns button.t4 { border-color: var(--t4); }
 .tonebtns button.right { background: var(--chip); }
 .tonebtns button.wrong { opacity: 0.45; }

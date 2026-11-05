@@ -102,8 +102,9 @@
       '<div class="stats"><div class="stat"><b>' + c[0] + "</b><span>" + T("study.toLearn") + '</span></div><div class="stat"><b>' + c[1] + "</b><span>" + T("study.learning") + '</span></div><div class="stat"><b>' + c[2] + "</b><span>" + T("study.known") + "</span></div></div>" +
       '<div class="meter" aria-hidden="true"><i class="k" style="width:' + (c[2] / tot * 100) + '%"></i><i class="l" style="width:' + (c[1] / tot * 100) + '%"></i></div>' +
       '<details class="st-more"><summary>' + T("st.more") + '</summary><p class="muted small" style="margin:0">' + T("study.how", { p: Math.round(CP.srs.retention() * 100) }) + "</p>" +
-      (CP.homeProgress ? CP.homeProgress() : "") + "</details></section>" +
+      (CP.homeProgress ? CP.homeProgress() : "") + '</details><details class="st-more" id="st-know"><summary>' + T("st.know") + '</summary><div id="st-know-body" class="kn"></div></details></section>' +
       (CP.homeBackup ? CP.homeBackup() : "");
+    var kd = document.getElementById("st-know"); if (kd) kd.addEventListener("toggle", function () { if (kd.open && CP.conosci) CP.conosci.fill(document.getElementById("st-know-body")); });
     if (CP.story) CP.story.html("zh").then(function (h) { var b = document.getElementById("st-body"); if (b) b.innerHTML = h; });
   }
 

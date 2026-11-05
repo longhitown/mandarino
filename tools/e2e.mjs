@@ -1964,7 +1964,7 @@ try {
     check("Pacchetti: la tabella delle Parole mostra anche l'ultima tappa dell'ultimo pacchetto, senza errori", vis && !errs.length, errs[0]);
     await ctx.close();
   }
-  /* 9a3. Duotono (Studia): due toni per una parola di due sillabe, con la spiegazione dove il tono cambia parlando */
+  /* 9a3. Duotono (Studia): un tono per sillaba (da due a quattro sillabe, neutro compreso), con la spiegazione dove il tono cambia parlando */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
     p.on("pageerror", (e) => errs.push(e.message));
@@ -1972,16 +1972,16 @@ try {
     await p.goto(base); await p.waitForTimeout(900);
     await p.evaluate(() => CP.show("study")); await p.waitForTimeout(500);
     const btn = await p.evaluate(() => { const b = document.getElementById("duo-open"); return b && b.textContent; });
-    check("Duotono: in Studia c'è il pulsante «Duotono» con la sua riga di spiegazione", /Duotono/.test(btn || "") && /due toni/.test(btn || ""), btn);
+    check("Duotono: in Studia c'è il pulsante «Duotono» con la sua riga di spiegazione", /Duotono/.test(btn || "") && /tutti i suoi toni/.test(btn || ""), btn);
     await p.evaluate(() => { Math.random = () => 0; });   /* la prima domanda è una parola con sandhi */
     await p.click("#duo-open"); await p.waitForTimeout(600);
-    const q = await p.evaluate(() => ({ desc: /due sillabe e scegli i due toni/.test(document.body.textContent), rows: document.querySelectorAll(".duo-row").length, btns: document.querySelectorAll("[data-dtone]").length }));
-    check("Duotono: la prima schermata ha la microdescrizione, le due righe di toni (una per sillaba) e otto pulsanti", q.desc && q.rows === 2 && q.btns === 8, JSON.stringify(q));
+    const q = await p.evaluate(() => ({ desc: /scegli il tono di ogni sillaba, anche il neutro/.test(document.body.textContent), rows: document.querySelectorAll(".duo-row").length, btns: document.querySelectorAll("[data-dtone]").length }));
+    check("Duotono: la prima schermata ha la microdescrizione, una riga di toni per sillaba (due) con cinque pulsanti ciascuna, neutro compreso", q.desc && q.rows === 2 && q.btns === 10, JSON.stringify(q));
     await p.click('[data-dtone="0,1"]'); await p.click('[data-dtone="1,1"]'); await p.waitForTimeout(400);
     const r = await p.evaluate(() => ({ spoken: !!document.querySelector(".spoken .sp"), why: document.querySelectorAll(".duo-why li").length, next: !!document.getElementById("d-next"), dis: document.querySelectorAll("[data-dtone][disabled]").length }));
-    check("Duotono: dopo la risposta, per una parola con sandhi compaiono «Si dice», la spiegazione e «Avanti»; i toni non si cambiano più", (r.spoken || r.why >= 1) && r.next && r.dis === 8, JSON.stringify(r));
+    check("Duotono: dopo la risposta, per una parola con sandhi compaiono «Si dice», la spiegazione e «Avanti»; i toni non si cambiano più", (r.spoken || r.why >= 1) && r.next && r.dis === 10, JSON.stringify(r));
     await p.evaluate(() => { Math.random = () => 0.5; });
-    for (let i = 1; i < 10; i++) { await p.click("#d-next"); await p.waitForTimeout(100); await p.keyboard.press("1"); await p.keyboard.press("2"); await p.waitForTimeout(100); }
+    for (let i = 1; i < 10; i++) { await p.click("#d-next"); await p.waitForTimeout(100); for (let j = 0; j < 4; j++) await p.keyboard.press("1"); await p.waitForTimeout(100); }
     await p.click("#d-next"); await p.waitForTimeout(300);
     const fin = await p.evaluate(() => /coppie giuste/.test(document.body.textContent) && !!document.getElementById("duo-open"));
     check("Duotono: dopo dieci parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
@@ -2004,6 +2004,33 @@ try {
     check("Lavagna: dopo cinque parole c'è il risultato con «Riprova» e nessun errore JavaScript", fin && !errs.length, errs[0]);
     const cov = await p.evaluate(() => { let senza = 0; Object.keys(CP.WORDS).forEach((k) => Array.from(CP.WORDS[k].hz).forEach((c) => { try { if (!CP.strokeData(c)) senza++; } catch (e) { senza++; } })); return senza; });
     check("Lavagna: i tratti coprono ogni carattere del vocabolario di base (" + Object.keys(await p.evaluate(() => CP.WORDS)).length + " parole)", cov === 0, String(cov));
+    await ctx.close();
+  }
+  /* 9a5. «Quanto ti conosco?» (Studia): previsto contro ottenuto per canale, dal registro dei ripassi; il motore sperimentale in ombra accanto */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    const t = await p.evaluate(() => { const rows = []; for (let i = 0; i < 40; i++) rows.push([1e12 + i, "我", i % 4 ? 3 : 1, 900, "pi", 0.8, 0]); for (let i = 0; i < 35; i++) rows.push([1e12 + 99 + i, "你", 3, 900, "mc-ascolto", 0.9, 0]); rows.push([1, "他", 1, 0, "pi", 0.5, 1], [2, "他", 3, 0, "pi", null, 0]); const o = CP.conosci.tally(rows); return { all: o.all.n, cap: o.cap.n, asc: o.asc.n, capP: +(o.cap.p / o.cap.n).toFixed(2), capY: +(o.cap.y / o.cap.n).toFixed(2) }; });
+    check("Quanto ti conosco: dal registro si contano solo ripassi veri con una previsione, per canale (capire, ascoltare…)", t.all === 75 && t.cap === 40 && t.asc === 35 && t.capP === 0.8 && t.capY === 0.75, JSON.stringify(t));
+    await p.evaluate(async () => { for (let i = 0; i < 60; i++) Store.log([Date.now() - 86400000 + i * 1000, "我", i % 5 ? 3 : 1, 800, i % 2 ? "pi" : "mc-ascolto", 0.85, 0]); }); await p.waitForTimeout(500);
+    await p.evaluate(() => CP.show("study")); await p.waitForTimeout(600);
+    const sum = await p.evaluate(() => { const d = document.getElementById("st-know"), m = document.getElementById("st-story").querySelector("details.st-more"); return { txt: d && d.querySelector("summary").textContent, after: !!(m && d && m.nextElementSibling === d) }; });
+    check("Quanto ti conosco: in Studia c'è la voce «Quanto ti conosco?» subito sotto «Memoria e orecchio: i numeri»", /Quanto ti conosco/.test(sum.txt || "") && sum.after, JSON.stringify(sum));
+    await p.click("#st-know summary"); await p.waitForTimeout(1200);
+    const body = await p.evaluate(() => ({ rows: document.querySelectorAll("#st-know-body .kn-row").length, bars: document.querySelectorAll("#st-know-body .kn-bar").length, net: !!document.querySelector("#st-know-body .kn-net"), txt: document.getElementById("st-know-body").textContent }));
+    check("Quanto ti conosco: aperta, mostra il quadro generale e i canali con previsto e ottenuto, e il riquadro del motore sperimentale in ombra", body.rows >= 2 && body.bars >= 4 && body.net && /previsto/.test(body.txt) && /ottenuto/.test(body.txt) && /sperimentale/.test(body.txt) && !errs.length, JSON.stringify({ rows: body.rows, bars: body.bars, net: body.net }) + (errs[0] || ""));
+    await ctx.close();
+  }
+  /* 9a6. Anatomia: i componenti senza parola né radicale prendono il significato dal dataset (data/anatomy-mean.js) */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    const r = await p.evaluate(() => { const h = CP.anatomyHTML("亩"); const d = CP.anatomyHTML("留"); return { l: h.length, d: d.length, mean: typeof ANATOMY_MEAN !== "undefined" ? Object.keys(ANATOMY_MEAN).length : 0, has: /campo/.test(d + h) }; });
+    check("Anatomia: dopo il primo uso i dati dei significati dei componenti sono caricati (" + "almeno 90 voci) e un componente come 田 (campo) viene spiegato", r.mean >= 90 && r.has && !errs.length, JSON.stringify(r) + (errs[0] || ""));
     await ctx.close();
   }
   /* 9b. Corso di italiano: le parole dichiarate (docs/fatti.json) sono quelle che l'app ha davvero */
