@@ -1154,6 +1154,54 @@ try {
     check("Loop della musica: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+  /* 5c. Tutor: un invito gentile alla terza ricaduta, mai a metà sessione, con uscita sempre disponibile */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    const lapse = (k) => p.evaluate((k) => { const day = 864e5; CP.S()[k] = { n: 4, sd: 2, st: 6, df: 5, d: Date.now() - 1000, lr: Date.now() - 6 * day, rp: 4, lp: CP.S()[k] && CP.S()[k].lp != null ? CP.S()[k].lp : 2 }; CP.save(); CP.grade(k, 0, false, { type: "mc-parola" }); return CP.S()[k].lp; }, k);
+    const l2 = await p.evaluate(() => { const day = 864e5; CP.S()["好"] = { n: 4, sd: 2, st: 6, df: 5, d: Date.now() - 1000, lr: Date.now() - 6 * day, rp: 4, lp: 1 }; CP.save(); CP.grade("好", 0, false, { type: "mc-parola" }); return { lp: CP.S()["好"].lp, q: CP.tutor.load().q.length, open: !document.getElementById("fam").hidden }; });
+    check("Tutor: alla seconda ricaduta non succede niente (nessun invito in coda, nessun pop-up)", l2.lp === 2 && l2.q === 0 && !l2.open, JSON.stringify(l2));
+    const l3 = await lapse("好"); await p.waitForTimeout(300);
+    const a = await p.evaluate(() => ({ q: CP.tutor.load().q.length, openMid: !document.getElementById("fam").hidden }));
+    check("Tutor: alla terza ricaduta l'invito si mette in coda ma NON compare a metà sessione", l3 === 3 && a.q === 1 && !a.openMid, JSON.stringify({ l3, a }));
+    const b = await p.evaluate(() => { const ok = CP.tutor.show(); const t = document.querySelector(".tu-card"); return { ok, txt: t ? t.textContent : "", btns: [...document.querySelectorAll("[data-tu]")].map((x) => x.getAttribute("data-tu")).join() }; });
+    check("Tutor: a fine sessione il pop-up dice «questo errore sembra essere particolarmente complicato per te. Ti va se lo rivediamo insieme?» e offre sì, non ora, non mostrarmi più", b.ok && /per la terza volta/.test(b.txt) && /particolarmente complicato per te/.test(b.txt) && /Ti va se lo rivediamo insieme\?/.test(b.txt) && /yes/.test(b.btns) && /later/.test(b.btns) && /off/.test(b.btns), JSON.stringify(b));
+    await p.click('[data-tu="later"].btn-s'); await p.waitForTimeout(300);
+    const c = await p.evaluate(() => ({ closed: document.getElementById("fam").hidden, seen: !!CP.tutor.load().seen["好"] }));
+    const l4 = await lapse("好");
+    const d = await p.evaluate(() => CP.tutor.load().q.length);
+    check("Tutor: «Non ora» chiude, la parola non viene riproposta (né alla quarta ricaduta)", c.closed && c.seen && l4 === 4 && d === 0, JSON.stringify({ c, l4, d }));
+    /* «Non mostrarmi più»: si spegne, non entra più niente in coda, e si riaccende da Impostazioni */
+    await p.reload(); await p.waitForTimeout(900);
+    await lapse("妈"); const l3b = await p.evaluate(() => { CP.S()["妈"].lp = 3; return CP.tutor.show(); });
+    await p.click('[data-tu="off"]'); await p.waitForTimeout(300);
+    const e = await p.evaluate(() => ({ off: localStorage.getItem("md-tutor-off"), closed: document.getElementById("fam").hidden }));
+    const l3c = await p.evaluate(() => { const day = 864e5; CP.S()["他"] = { n: 4, sd: 2, st: 6, df: 5, d: Date.now() - 1000, lr: Date.now() - 6 * day, rp: 4, lp: 2 }; CP.save(); CP.grade("他", 0, false, { type: "mc-parola" }); return CP.tutor.load().q.length; });
+    check("Tutor: «Non mostrarmi più questi consigli» li spegne (md-tutor-off) e dopo non si accoda più niente", l3b !== undefined && e.off === "1" && e.closed && l3c === 0, JSON.stringify({ e, l3c }));
+    await p.evaluate(() => CP.openSettings && CP.openSettings()); await p.waitForTimeout(600);
+    const f = await p.evaluate(() => { const i = document.getElementById("opt-tutor"); return { has: !!i, checked: i && i.checked }; });
+    /* integrazione: a fine sessione (schermata «Bravo») compare l'invito, non prima */
+    await p.evaluate(() => { localStorage.removeItem("md-tutor-off"); localStorage.removeItem("md-tutor-v1"); localStorage.setItem("cp-ex-style", "classic"); });
+    await p.reload(); await p.waitForTimeout(900);
+    await p.evaluate(() => { const day = 864e5, ks = CP.ORDER.slice(0, 40); ks.forEach((k) => { delete CP.S()[k]; }); CP.S()["你"] = { n: 4, sd: 2, st: 6, df: 5, d: Date.now() - 1000, lr: Date.now() - 6 * day, rp: 4, lp: 2 }; CP.save(); CP.show("study"); });
+    await p.waitForTimeout(500);
+    const dueN = await p.evaluate(() => CP.dueList ? CP.dueList(CP.ORDER).length : -1);
+    let guard = 0, first = 0, popDuring = false;
+    await p.click("#go"); await p.waitForTimeout(300);
+    while (guard++ < 40) {
+      const st = await p.evaluate(() => ({ reveal: !!document.getElementById("reveal"), g: !!document.querySelector("[data-g]"), done: !!document.querySelector(".panel.done"), tu: !!document.querySelector(".tu-card") }));
+      if (st.done) break; if (st.tu) popDuring = true;
+      if (st.reveal) await p.click("#reveal"); else if (st.g) await p.click('[data-g="' + (first++ ? 2 : 0) + '"]'); else if (!st.done) await p.keyboard.press("Enter");
+      await p.waitForTimeout(150);
+    }
+    await p.waitForTimeout(1200);
+    const g2 = await p.evaluate(() => ({ done: !!document.querySelector(".panel.done"), tu: !!document.querySelector(".tu-card"), lp: CP.S()["你"] && CP.S()["你"].lp }));
+    check("Tutor: in una sessione vera, la terza ricaduta di una parola fa comparire l'invito solo alla schermata finale, mai tra le carte", g2.lp >= 3 && g2.done && g2.tu && !popDuring, JSON.stringify({ g2, popDuring, dueN, guard }));
+    check("Tutor: in Impostazioni → Studio c'è l'interruttore «Consigli del tutor» (spento, dopo l'uscita scelta dal pop-up) e nessun errore JavaScript", f.has && f.checked === false && !errs.length, JSON.stringify(f) + (errs[0] || ""));
+    await ctx.close();
+  }
   /* 5b. Lettore: nomi e termini da Wikidata (file a parte, scaricato al primo uso) */
   {
     const ctx = await browser.newContext(); const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));

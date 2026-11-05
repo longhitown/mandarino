@@ -65,5 +65,12 @@
     return '<details class="set-sec" id="set-exstyle"><summary>' + T("exs.title") + '</summary><div class="vbody"><div class="exs" role="radiogroup" aria-label="' + CP.attr(T("exs.title")) + '">' +
       STYLES.map(function (s) { return '<button type="button" role="radio" data-exs="' + s + '" aria-checked="' + (s === cur) + '"' + (s === cur ? ' class="on"' : "") + "><b>" + T("exs." + s) + "</b><small>" + T("exs." + s + "D") + "</small></button>"; }).join("") + "</div></div></details>";
   });
+  /* i consigli del tutor (study/tutor.js): acceso di base, si spegne anche da qui */
+  function tutorOn() { try { return localStorage.getItem("md-tutor-off") !== "1"; } catch (e) { return true; } }
+  (CP.settingsExtras = CP.settingsExtras || []).push(function () {
+    var T = CP.t;
+    return '<details class="set-sec" id="set-tutor"><summary>' + T("tu.set") + '</summary><div class="vbody"><p class="small muted" style="margin:0">' + T("tu.setD") + '</p><label class="chk"><input type="checkbox" id="opt-tutor"' + (tutorOn() ? " checked" : "") + "> " + T("tu.set") + "</label></div></details>";
+  });
+  document.addEventListener("change", function (e) { if (e.target && e.target.id === "opt-tutor") { try { if (e.target.checked) localStorage.removeItem("md-tutor-off"); else localStorage.setItem("md-tutor-off", "1"); } catch (er) {} CP.sfx("tap"); } });
   document.addEventListener("click", function (e) { var b = e.target.closest ? e.target.closest("[data-exs]") : null; if (!b) return; CP.ex.set(b.getAttribute("data-exs")); CP.sfx("tap"); if (CP.repaintSettings) CP.repaintSettings(); });
 })();
