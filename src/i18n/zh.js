@@ -16,7 +16,7 @@ I18N.zh = {
   "study.today": "今天", "study.due": "待复习", "study.new1": "新词", "study.newN": "新词", "study.seen": "今天已学新词：{seen}/{n}。", "study.start": "开始 · 约 {min} 分钟", "study.nothing": "暂时没有任务，稍后再来",
   "study.customize": "自定义", "study.newPerDay": "每日新词", "study.perDay": "每天 {n} 个", "study.topic": "主题", "study.allTopics": "全部主题", "study.favs": "★ 只看收藏的词",
   "study.auto": "自动朗读：词语会自动读出来", "study.more5today": "今天再学 5 个新词", "study.progress": "我的进度",
-  "study.duo": "⟦ear⟧ Duotono · 双声调", "study.duoSub": "一个词，两个声调", "study.lav": "⟦write⟧ 手写板", "study.lavSub": "用手指写字", "study.ear": "⟦headphones⟧ 练耳朵", "study.earSub": "猜声调", "study.sprint": "⟦bolt⟧ 60 秒挑战", "study.sprintSub": "越快越好", "study.record": "纪录：{n}",
+  "study.duo": "⟦ear⟧ Duotono · 双声调", "study.duoSub": "一个词，每个音节的声调", "study.lav": "⟦write⟧ 手写板", "study.lavSub": "用手指写字", "study.ear": "⟦headphones⟧ 练耳朵", "study.earSub": "猜声调", "study.sprint": "⟦bolt⟧ 60 秒挑战", "study.sprintSub": "越快越好", "study.record": "纪录：{n}",
   "sess.quit": "退出", "sess.quitLabel": "退出练习", "sess.next": "下一个", "sess.reveal": "显示答案", "sess.auto": "自动朗读", "sess.more": "更多：描红、词族、声调",
   "sess.newWord": "新词", "sess.qPi": "这是什么意思？", "sess.qIp": "怎么说？", "sess.qHp": "读出这个字", "sess.example": "例句",
   "sess.swipe": "也可以拖动卡片：向右「会」，向左「不会」。", "sess.star": "标记为收藏或难词",
@@ -126,7 +126,7 @@ Object.assign(I18N.zh, {"plc.store": "下载 Pleco", "plc.open": "在 Pleco 中�
 Object.assign(I18N.zh, {"pv.backup": "在安卓应用中，如果手机备份已打开，安卓会把学习进度复制到你的 Google 账号备份中：这是系统服务，可以在手机设置中关闭。"});
 Object.assign(I18N.zh, {"apk.fDirect": "直接下载版（GitHub）", "apk.fStore": "应用商店版"});
 Object.assign(I18N.zh, {"rank.season": "第 {n} 季", "path.restDay": "休息日：连续天数不会中断", "path.restNote": "每周休息一天不会中断连续天数：休息也是学习的一部分。"});
-Object.assign(I18N.zh, {"st.more": "记忆和听力：详细数据", "st.fresh": "新的一周开始了：每天五分钟也很有用。", "st.week": "这周你学习了 {d} 天，答对复习 {g} 个词。", "st.tone": "最难的是第 {t} 声（{name}）：慢慢听，会掌握的。", "st.bars": "每周答对的复习", "st.sure": "已掌握的词", "st.goodWeek": "本周答对的复习", "st.days": "学习天数", "itst.fresh": "新的一周开始了：每天五分钟也很有用。", "itst.week": "这周：学习 {d} 天，{w} 个词，通过 {l} 课。", "itst.more": "比上周更多，真棒！", "itst.barsIt": "每周学习的单词", "itst.sure": "已掌握的词", "itst.lessons": "通过的课程"});
+Object.assign(I18N.zh, {"st.more": "记忆和听力：详细数据", "st.know": "我有多了解你？", "st.fresh": "新的一周开始了：每天五分钟也很有用。", "st.week": "这周你学习了 {d} 天，答对复习 {g} 个词。", "st.tone": "最难的是第 {t} 声（{name}）：慢慢听，会掌握的。", "st.bars": "每周答对的复习", "st.sure": "已掌握的词", "st.goodWeek": "本周答对的复习", "st.days": "学习天数", "itst.fresh": "新的一周开始了：每天五分钟也很有用。", "itst.week": "这周：学习 {d} 天，{w} 个词，通过 {l} 课。", "itst.more": "比上周更多，真棒！", "itst.barsIt": "每周学习的单词", "itst.sure": "已掌握的词", "itst.lessons": "通过的课程"});
 Object.assign(I18N.zh, {"st.up": "比上周更多，真棒！", "itst.up": "比上周更多，真棒！"});
 Object.assign(I18N.zh, {"card.privacy": "分享卡片在你的手机上生成；要不要分享、分享到哪里，由你决定。"});
 Object.assign(I18N.zh, {"anat.title": "汉字的组成", "anat.svgAria": "按部件着色的汉字 {c}", "anat.simple": "独体字：不能再拆分。", "anat.picto": "象形字：最初是一样东西的图画。", "anat.isRad": "也是第 {n} 个部首（{m}）。", "anat.phon": "声旁", "anat.sem": "形旁", "anat.ps": "形声字：{s} 表示意义的范围，{p}{py} 提示读音。", "anat.ideo": "会意字：几个部分合起来表示意思。", "anat.parts": "由这些部分组成。", "anat.rad": "部首：{r}（第 {n} 个，{m}）", "anat.note": "只显示字形结构，不讲没有根据的故事。点一个部件，看含有它的词。", "anat.set": "汉字的组成", "anat.setLede": "在每个汉字的页面显示它的组成部分：哪一部分表音，哪一部分表意。在写字板上，突出显示下一笔所在的部件。", "anat.setToggle": "显示汉字的组成"});

@@ -121,7 +121,7 @@ Sessione a schermo pieno, con due soli controlli principali (Ascolta, Parla) e i
 
 ### Duotono e il sandhi
 
-In Studia, accanto a «Allena l'orecchio» e alla sfida di 60 secondi, c'è **Duotono**: si ascolta una parola di due sillabe e si scelgono i due toni; la risposta giusta è il tono che si pronuncia davvero, e dove cambia parlando (你好 → ní hǎo) lo si spiega. La regola è `CP.sandhi` (`study/sandhi.js`), provata su tutte le parole del vocabolario. Dettagli in [duotono.md](duotono.md).
+In Studia, accanto a «Allena l'orecchio» e alla sfida di 60 secondi, c'è **Duotono**: si ascolta una parola di due, tre o quattro sillabe e si sceglie il tono di ogni sillaba, anche il neutro; la risposta giusta è il tono che si pronuncia davvero, e dove cambia parlando (你好 → ní hǎo) lo si spiega. La regola è `CP.sandhi` (`study/sandhi.js`), provata su tutte le parole del vocabolario. Dettagli in [duotono.md](duotono.md).
 
 ### Il motore del ripasso: FSRS-6 con l'estensione ML-FSRS-32
 

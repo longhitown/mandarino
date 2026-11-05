@@ -28,7 +28,8 @@
     var w = CP.WORDS && CP.WORDS[c], r = radical(c);
     if (w) return { py: w.py.replace(/\./g, ""), it: CP.gloss ? CP.gloss(w) : w.it, rad: r };
     if (r) return { py: "", it: LANG === "zh" ? r[4] : r[3], rad: r };
-    return null;
+    var x = typeof ANATOMY_MEAN !== "undefined" ? ANATOMY_MEAN[c] : null;   /* dal dataset del progetto: componenti che né il vocabolario né i radicali spiegano */
+    return x && LANG !== "zh" ? { py: x[0], it: x[1], rad: null } : null;
   }
   var COLORS = ["var(--accent)", "var(--stamp-red, #C8312B)", "#C77800", "#6C4AB6"];
   /* il carattere in SVG: le linee centrali dei tratti, colorate per componente */
