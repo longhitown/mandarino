@@ -1355,7 +1355,7 @@ try {
     await p.click('[data-sc-rec="own"]'); await p.waitForSelector(".sc-big");
     const big = await p.evaluate(() => ({ lang: document.querySelector(".sc-big").lang, text: document.querySelector(".sc-big").textContent }));
     const wantL = course === "it" ? "zh-CN" : "it-IT";
-    check(L + "Scambio: la frase da leggere è nella propria lingua (" + wantL + ") e viene dall'app", big.lang === wantL && big.text.length > 1, JSON.stringify(big));
+    check(L + "Scambio: la frase da leggere è nella propria lingua (" + wantL + ") e viene dall'app", big.lang === wantL && big.text.length >= 1, JSON.stringify(big));   /* una serie mescola frasi e parole (WORDS_PER in ui/scambio.js): la prima può essere anche un carattere solo */
     const ser = await p.evaluate(() => { const q = CP.scambio.makeQueue([]); return { n: q.length, w: q.filter((x) => x.word).length, refs: new Set(q.map((x) => x.ref)).size, kinds: [...new Set(q.map((x) => x.ref.split(":")[0]))].sort().join() }; });
     check(L + "Scambio: la serie è casuale, di 10 elementi senza doppioni, con frasi e parole dell'app", ser.n === 10 && ser.w === 3 && ser.refs === 10 && /w/.test(ser.kinds), JSON.stringify(ser));
     for (let i = 0; i < 2; i++) {
@@ -1997,6 +1997,53 @@ try {
     const r = await p.evaluate(() => { const g = document.getElementById("go"), b = g.getBoundingClientRect(), cs = getComputedStyle(g), tiles = [...document.querySelectorAll(".pz-tile")]; return { w: Math.round(b.width), h: Math.round(b.height), bg: cs.backgroundColor, fw: +cs.fontWeight, tiles: tiles.map((t) => (t.querySelector("use") || { getAttribute: () => "" }).getAttribute("href") + ":" + t.querySelector("b").textContent).join("|"), hero: !!document.querySelector(".pz-hero .pz-ring"), old: !!document.querySelector(".modes, .dy-card, .today-n"), row: !!document.querySelector("#st-story .dy-row"), ws: !!document.querySelector("#st-story [data-ws-open]") }; });
     const want = scheme === "dark" ? "rgb(255, 154, 61)" : "rgb(219, 95, 0)";
     check("Piazza (" + scheme + "): «Vai» è " + (scheme === "dark" ? "#FF9A3D" : "#DB5F00") + " grassetto, almeno 64×52, con l'anello del giorno; le quattro tessere hanno le icone D2 (ear, bolt, wave, write) e nomi corretti; niente vecchi riquadri e il foglio PDF non è tra i progressi", r.w >= 64 && r.h >= 52 && r.bg === want && r.fw >= 700 && r.hero && r.tiles === "#i-ear:Allena l'orecchio|#i-bolt:Sfida 60 s|#i-wave:Duotono|#i-write:Lavagna" && !r.old && r.row && !r.ws && !errs.length, JSON.stringify(r) + (errs[0] || ""));
+    await ctx.close();
+  }
+  /* 9a7. Abilità invisibili: coppie di toni come carte abilità e componenti come suggerimento in ombra (nessun pulsante nuovo) */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } }); const p = await ctx.newPage(); const errs = [];
+    p.on("pageerror", (e) => errs.push(e.message));
+    await ctx.addInitScript(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await p.goto(base); await p.waitForTimeout(900);
+    const a = await p.evaluate(() => { CP.ex.carica(); CP.pref.alt = true; const S = CP.skills, W = CP.WORDS; const P = S.pairOf(W["你好"]), Q = S.pairOf(W["谢谢"]); S.observeWord(W["你好"], false); const r = S.report(); return { key: P && P.key, parl: P && P.parl.join(""), q: Q && Q.key, pairs: r.pairs.map((x) => x.key + ":" + x.n), one: S.pairOf(W["我"]) === null, amb: S.pairOf({ hz: "好好", py: "hǎo.hǎo" }) && S.pairOf({ hz: "好好", py: "hǎo.hǎo" }).key }; });
+    check("Abilità: la coppia di 你好 è «33>23» (scritta 3+3, detta 2+3), una parola di una sillaba non ne ha, e una risposta sbagliata crea la carta della coppia", a.key === "33>23" && a.parl === "23" && a.one && a.pairs.join() === "33>23:1" && !errs.length, JSON.stringify(a));
+    /* la carta è debole e non chiesta da tempo: il ripasso può proporre «tono-parola» */
+    const b = await p.evaluate(() => {
+      const o = JSON.parse(localStorage.getItem("cp-ex-v1")), e = o.sk.p["33>23"], d = 3 * 86400000; e.lq = 0; e.c.last -= d; e.c.due -= d; localStorage.setItem("cp-ex-v1", JSON.stringify(o));
+      const ENG = CP.exEngine, w = CP.WORDS["你好"], R = ENG.REG["tono-parola"], ok = R.richiede(w, ENG.ctx), it = R.crea(w, ENG.ctx, () => 0.3);
+      const fresh = R.richiede(CP.WORDS["谢谢"], ENG.ctx);
+      return { reg: !!R, ok, fresh, n: it && it.opts.length, right: it && it.opts[it.right].replace(/<[^>]*>/g, ""), trap: it && it.opts.some((x) => /3° \+ 3°/.test(x.replace(/<[^>]*>/g, ""))), fam: ENG.FAM[1].indexOf("tono-parola") >= 0 };
+    });
+    check("Abilità: «tono-parola» è un tipo del motore (famiglia mista): esce se la coppia è in scadenza, ha quattro opzioni, la giusta è la coppia detta (2° + 3°) e tra gli errori c'è quella scritta (3° + 3°)", b.reg && b.ok && b.n === 4 && /2° \+ 3°/.test(b.right) && b.trap && b.fam, JSON.stringify(b));
+    /* la risposta aggiorna la carta della coppia, tranne nella verifica, che misura soltanto */
+    const c = await p.evaluate(() => {
+      const ENG = CP.exEngine, w = CP.WORDS["你好"], R = ENG.REG["tono-parola"], it = R.crea(w, ENG.ctx, () => 0.3), n0 = CP.skills.report().pairs[0].n;
+      R.risposta(it, { ok: true }, w); const n1 = CP.skills.report().pairs[0].n;
+      return { n0, n1 };
+    });
+    check("Abilità: rispondere a «tono-parola» aggiorna la carta della coppia (una risposta in più)", c.n1 === c.n0 + 1, JSON.stringify(c));
+    const d = await p.evaluate(() => {
+      const ENG = CP.exEngine, types = [], before = JSON.stringify(CP.skills.report().pairs.map((x) => [x.key, x.n, x.ok]));
+      for (const s of SECTIONS.slice(0, 12)) { CP.guided.pickItems(s.id).forEach((x) => { if (x.type === "tono-parola") types.push(s.id); }); if (types.length) break; }
+      return { types, verify: ENG.ctx.verify, same: before === JSON.stringify(CP.skills.report().pairs.map((x) => [x.key, x.n, x.ok])) };
+    });
+    check("Abilità: nella verifica di tappa la parte «pinyin e toni» usa «tono-parola» e la verifica non aggiorna nessuna carta", d.types.length >= 1 && d.verify === false && d.same, JSON.stringify(d));
+    /* componenti: due parole diverse con lo stesso componente sbagliate → un suggerimento, mai mostrato */
+    const f = await p.evaluate(async () => {
+      const parts = CP.anatomy.get("好").parts, shared = CP.anatomy.get("妈").parts.filter((x) => parts.indexOf(x) >= 0);
+      CP.grade("好", 0, false, { type: "mc-parola" }); await new Promise((r) => setTimeout(r, 200)); const r1 = CP.skills.report().sugg.length;
+      CP.grade("妈", 0, false, { type: "mc-parola" }); await new Promise((r) => setTimeout(r, 400)); const r2 = CP.skills.report();
+      return { shared: shared.join(), r1, r2: r2.sugg.length, c: r2.sugg[0] && r2.sugg[0].c, comps: r2.comps.tracked, shown: !!document.querySelector("[data-sugg], .sugg") };
+    });
+    check("Abilità: due parole diverse con lo stesso componente (好 e 妈: 女) sbagliate in 14 giorni danno un solo suggerimento, che non compare in nessuna schermata", f.shared === "女" && f.r1 === 0 && f.r2 === 1 && f.c === "女" && !f.shown && !errs.length, JSON.stringify(f));
+    /* il motore in ombra misura i ripassi con coppia debole o suggerimento attivo contro la previsione */
+    await p.waitForFunction(() => { const r = CP.mlnetShadow && CP.mlnetShadow.report(); return r && r.ready; }, null, { timeout: 15000 }).catch(() => {});
+    const g = await p.evaluate(async () => {
+      const day = 86400000, now = Date.now(); CP.grade("你好", 2, false, { at: now - 10 * day, type: "mc-ascolto" }); CP.grade("妈", 2, false, { at: now - 9 * day, type: "mc-parola" });
+      CP.grade("妈", 2, false, { at: now, type: "mc-parola" }); CP.grade("你好", 2, false, { at: now, type: "mc-ascolto" }); await new Promise((r) => setTimeout(r, 300));
+      const rep = CP.mlnetShadow.report(); return { psk: Object.keys(rep.psk).join(), csg: Object.keys(rep.csg).join(), n: rep.n };
+    });
+    check("Abilità: il motore in ombra somma, per coppia debole/media/solida e per suggerimento attivo, previsto contro ottenuto (psk, csg)", /\d/.test(g.psk + g.csg), JSON.stringify(g));
     await ctx.close();
   }
   /* 9a4. Lavagna (Studia): si scrive a mano la parola, carattere per carattere; i tratti coprono tutto il vocabolario */

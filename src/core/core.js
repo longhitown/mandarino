@@ -117,6 +117,8 @@
       /* notti: cambi di giorno di studio dall'ultimo ripasso; base: tempo abituale di risposta (chi chiama può passarli) */
       var hs = WORDS[k] && WORDS[k].hz ? Array.from(WORDS[k].hz) : [], m = Object.assign({ nights: r.lr != null ? Math.max(0, FSRS.studyDay(now) - FSRS.studyDay(r.lr)) : 0, base: rtBase((meta && meta.kind) || "c", meta && meta.ms) }, meta);
       if (hs.length > 1) { m.ncomp = hs.length; m.comps = hs.filter(function (h) { return h !== k && S[h] && S[h].st > 0; }).map(function (h) { return S[h].st; }); }
+      /* abilità invisibili (study/abilita.js): quanto è solida la coppia di toni della parola e se un componente ha un suggerimento attivo; solo per il motore in ombra */
+      try { m.psk = CP.skills.bucket(k); m.csg = CP.skills.compActive(k) ? 1 : 0; } catch (e) {}
       var nc = SCH.review(card, g + 1, now, m);
       /* modalità ombra del motore candidato (core/mlnet-ombra.js): osserva soltanto, non tocca la scheda e inghiotte ogni errore */
       try { CP.mlnetShadow.observe(k, g + 1, now, m); } catch (e) {}
@@ -132,6 +134,7 @@
       if (m && (m.kind || m.k || m.tone || m.nights > 1 || (m.comps && m.comps.length))) lg.push({ kd: m.kind || "", k: m.k || 0, tn: !!m.tone, cp: m.comps || [], nt: m.nights, bs: m.base });
       Store.log(lg);
     }
+    try { CP.skills.fromGrade(k, g, meta || {}, now, !!retry); } catch (e) {}
     if (CP.onGrade && !(meta && meta.quiet)) CP.onGrade(k, g, !!retry);
   };
   CP.mark = function () {

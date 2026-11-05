@@ -4,7 +4,7 @@
    Qualsiasi errore qui dentro viene inghiottito: la sicurezza dell'app non dipende da questo file.   API:  MLNetShadow.observe(k, rating, now, ctx)   MLNetShadow.report()  -> { n, loss:{A,B,C,head}, active, ready } */
 (function (root) {
   "use strict";
-  var EPS = 1e-4, eng = null, ready = false, off = false, n = 0, loss = { A: 0, B: 0, C: 0, M: 0 }, pending = [], ch = {};
+  var EPS = 1e-4, eng = null, ready = false, off = false, n = 0, loss = { A: 0, B: 0, C: 0, M: 0 }, pending = [], ch = {}, psk = {}, csg = {};
   function ll(p, y) { p = Math.min(1 - EPS, Math.max(EPS, p)); return -Math.log(y ? p : 1 - p); }
   function engine() {
     if (!eng) { if (!(root.FSRS && root.FSRS7 && root.MLNetGuard && root.MLNetHead && root.MLNetEngine)) throw new Error("moduli mancanti"); eng = new root.MLNetEngine({ desiredRetention: 0.9 }); }
@@ -18,6 +18,8 @@
       if (pr.p != null && isFinite(pr.p)) loss.M += ll(pr.p, y);
       /* per tipo di esercizio (ctx.type): quanto avrebbero previsto il motore di base (A) e la testa calibrata (M), contro com'è andata: serve a «Quanto ti conosco?» (study/conosci.js) */
       if (ctx && ctx.type && isFinite(raw.A) && pr.p != null && isFinite(pr.p)) { var c = ch[ctx.type] || (ch[ctx.type] = { n: 0, y: 0, pA: 0, pM: 0, lA: 0, lM: 0 }); c.n++; c.y += y; c.pA += raw.A; c.pM += pr.p; c.lA += ll(raw.A, y); c.lM += ll(pr.p, y); }
+      /* abilità invisibili: i ripassi con una coppia di toni debole/media/solida (psk 1-3) e con un suggerimento di componente attivo (csg 1), confrontati con la previsione */
+      if (ctx && isFinite(raw.A) && pr.p != null && isFinite(pr.p)) [["psk", ctx.psk, psk], ["csg", ctx.csg, csg]].forEach(function (z) { if (z[1] > 0) { var q = z[2][z[1]] || (z[2][z[1]] = { n: 0, y: 0, pA: 0, pM: 0 }); q.n++; q.y += y; q.pA += raw.A; q.pM += pr.p; } });
       n++;
     }
     o = e.review(k, now, rating, ctx);
@@ -49,7 +51,7 @@
     },
     report: function () {
       var d = Math.max(1, n);
-      return { n: n, ready: ready, off: off, active: eng ? eng.guard.active : "A", loss: { A: loss.A / d, B: loss.B / d, C: loss.C / d, head: loss.M / d }, ch: ch };
+      return { n: n, ready: ready, off: off, active: eng ? eng.guard.active : "A", loss: { A: loss.A / d, B: loss.B / d, C: loss.C / d, head: loss.M / d }, ch: ch, psk: psk, csg: csg };
     }
   };
   root.MLNetShadow = M; if (root.CP) root.CP.mlnetShadow = M;   /* nel file unico il blocco si carica al primo accesso a CP.mlnetShadow */

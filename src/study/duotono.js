@@ -35,13 +35,19 @@
     duo = { n: 0, ok: 0, pool: p, combos: Object.keys(byCombo), byCombo: byCombo, sandhi: sd, long3: by3, long4: by4, neutral: neu, q: null, picks: [], answered: false, used: {} };
     active = true; root.classList.remove("is-card"); CP.focusMode(true); next();
   }
+  /* le combinazioni si scelgono con un peso: più spesso quelle la cui coppia di toni è debole (carta abilità, study/abilita.js), un po' meno quelle solide */
+  function pickCombo() {
+    var S = CP.skills, ws = duo.combos.map(function (c) { var x = duo.byCombo[c][0], P = x && x.n === 2 && S ? S.pairOf(x.w) : null; return P ? S.weight(P.key) : 1; }), tot = ws.reduce(function (a, b) { return a + b; }, 0), r = Math.random() * tot, i;
+    for (i = 0; i < ws.length; i++) { r -= ws[i]; if (r <= 0) return duo.combos[i]; }
+    return duo.combos[duo.combos.length - 1];
+  }
   function next() {
     if (duo.n >= ROUNDS) return done();
     var x, tries = 0;
     do {
       var d = Math.random();
       /* un terzo circa con sandhi, un quinto con tono neutro, un quinto di tre sillabe, uno su otto di quattro: il resto, combinazione per combinazione */
-      x = (duo.sandhi.length && d < 0.3) ? pick(duo.sandhi) : (duo.neutral.length && d < 0.5) ? pick(duo.neutral) : (duo.long3.length && d < 0.7) ? pick(duo.long3) : (duo.long4.length && d < 0.82) ? pick(duo.long4) : pick(duo.byCombo[pick(duo.combos)]); tries++;
+      x = (duo.sandhi.length && d < 0.3) ? pick(duo.sandhi) : (duo.neutral.length && d < 0.5) ? pick(duo.neutral) : (duo.long3.length && d < 0.7) ? pick(duo.long3) : (duo.long4.length && d < 0.82) ? pick(duo.long4) : pick(duo.byCombo[pickCombo()]); tries++;
     } while (duo.used[x.w.key] && tries < 40);
     duo.used[x.w.key] = 1; duo.q = x; duo.picks = x.r.parl.map(function () { return 0; }); duo.answered = false; render();
     CP.speak(x.w.hz, { rate: Math.min(CP.pref.rate, 0.9) });
@@ -77,6 +83,7 @@
   function answer() {
     var rr = duo.q.r, right = same(duo.picks, rr.parl);
     duo.answered = true; duo.n++; if (right) duo.ok++;
+    if (CP.skills && duo.q.n === 2) CP.skills.observeWord(duo.q.w, right);   /* la carta della coppia di toni */
     CP.sfx(right ? "ok" : "ko"); if (CP.game && CP.game.ear) CP.game.ear(right);
     if (!right && CP.confuse) rr.parl.forEach(function (_, i) { if (duo.picks[i] !== rr.parl[i]) CP.confuse(rr.parl[i], duo.picks[i], duo.q.w.key); });
     render();
