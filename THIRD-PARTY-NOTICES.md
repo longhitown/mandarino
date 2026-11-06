@@ -40,6 +40,7 @@ Gli estratti di musica del sito (`docs/audio/`) vengono dai brani dell'app e han
 - **CC-CEDICT**: oltre che fonte in parte del vocabolario (vedi tabella), serve anche al controllo del pinyin (`tools/cedict-check.mjs`).
 - **Morph-it!**: controllo dell'italiano (`tools/morphit-check.mjs`), oltre al lessico sopra.
 - **Dizionario Hunspell it_IT di LibreOffice**: controllo ortografico (`tools/hunspell-check.py`).
+- **Dataset V3 (locale, non nell'app).** Oltre a CC-CEDICT, Tatoeba, Morph-it! e complete-hsk-vocabulary (già in tabella), il compilatore del grafo legge: **Wiktionary** tramite Wiktextract (kaikki.org), CC BY-SA 4.0 e GFDL, per le etichette di registro e il campo semantico delle parole; **jieba** (Sun Junyi, MIT, github.com/fxsjy/jieba) solo per calcolare l'etichetta grammaticale delle parole che nessuna tabella copre. Il rango di frequenza di complete-hsk-vocabulary resta CC BY-SA 4.0 a monte (vedi sotto) e nei dati V3 è un campo con questa licenza. Dettagli in [docs/v3-grafo.md](docs/v3-grafo.md).
 - **Playwright** (Apache 2.0): prove automatiche e generazione delle icone.
 - **Inter**: solo per disegnare le icone PNG con `tools/icons.mjs`; il carattere non è contenuto nell'app.
 
