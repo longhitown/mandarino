@@ -2316,6 +2316,71 @@ try {
       await c2.close();
     }
   }
+  /* 9c. Pacchetti di dati scaricabili (Impostazioni → Avanzate): niente rete prima del tocco, SHA-256 verificato, due conferme per eliminare */
+  {
+    const nodeCrypto = require("crypto");
+    const sha = (b) => nodeCrypto.createHash("sha256").update(b).digest("hex");
+    const okA = Buffer.from(JSON.stringify({ pacchetto: "prova", licenza: "MIT", nodi: { n: 1, c: { id: ["a#a"] } }, archi: { n: 0, c: {} } }));
+    const okB = Buffer.from(JSON.stringify({ pacchetto: "prova", licenza: "CC-BY-SA-4.0", nodi: { n: 0, c: {} }, archi: { n: 0, c: {} } }));
+    const guastoOk = Buffer.from(okA.toString().replace("prova", "prowa")), guasto = Buffer.from(okA.toString());      /* stessa lunghezza, contenuto diverso da quello dichiarato */
+    const fl = (name, b, forb) => ({ file: name, sha256: sha(b), byte: b.length });
+    const idx = { schema: "colonnare-1", versione: "test", pacchetti: {
+      core: { titolo: "Core", incluso_nell_app: true, stato: "pronto", file: [] },
+      prova: { titolo: "Prova", descrizione: "Pacchetto di prova", dipende_da: ["core"], stato: "pronto", incluso_nell_app: false, nodi: 1, archi: 0, file: [fl("MIT.col.json", okA), fl("CC-BY-SA-4.0.col.json", okB)] },
+      guasto: { titolo: "Guasto", descrizione: "File alterato in viaggio", dipende_da: [], stato: "pronto", incluso_nell_app: false, nodi: 1, archi: 0, file: [fl("MIT.col.json", guastoOk)] },
+      meta: { titolo: "Meta", descrizione: "Il secondo file è alterato", dipende_da: [], stato: "pronto", incluso_nell_app: false, nodi: 1, archi: 0, file: [fl("A.col.json", okA), fl("B.col.json", okB)] },
+      vuoto: { titolo: "In preparazione", descrizione: "x", dipende_da: [], stato: "vuoto", incluso_nell_app: false, file: [] },
+      cattivo: { titolo: "Nome file non ammesso", descrizione: "x", dipende_da: [], stato: "pronto", incluso_nell_app: false, file: [{ file: "../../x.col.json", sha256: sha(okA), byte: okA.length }] } } };
+    const FILES = { "prova/MIT.col.json": okA, "prova/CC-BY-SA-4.0.col.json": okB, "guasto/MIT.col.json": guasto, "meta/A.col.json": okA, "meta/B.col.json": Buffer.from(okB.toString().replace("CC-BY", "CC-BX")) };
+    const reqs = [], H = { "access-control-allow-origin": "*" };
+    const ctx = await browser.newContext(); const errs = [];
+    await ctx.addInitScript(() => { if (!localStorage.getItem("cp-ux-v1")) localStorage.setItem("cp-ux-v1", '{"onboarded":1,"showAll":1}'); });
+    await ctx.route("https://mandarinoapp.org/packs/**", (route) => {
+      const r = route.request(), u = new URL(r.url()), rel = u.pathname.replace("/packs/", "");
+      reqs.push({ rel, referer: r.headers()["referer"] || "", cookie: r.headers()["cookie"] || "" });
+      if (rel === "indice.json") return route.fulfill({ status: 200, contentType: "application/json", headers: H, body: JSON.stringify(idx) });
+      return FILES[rel] ? route.fulfill({ status: 200, contentType: "application/json", headers: H, body: FILES[rel] }) : route.fulfill({ status: 404, headers: H, body: "" });
+    });
+    const p = await ctx.newPage(); p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.waitForTimeout(500);
+    await p.evaluate(() => CP.openSettings("grp-adv")); await p.waitForTimeout(200);
+    const r0 = await p.evaluate(() => ({ sec: !!document.getElementById("set-dpacks"), btn: !!document.querySelector("[data-dp-check]"), rows: document.querySelectorAll(".dp-row").length }));
+    check("Pacchetti di dati: la sezione c'è in Impostazioni → Avanzate, senza righe e senza nessuna richiesta di rete prima del tocco", r0.sec && r0.btn && r0.rows === 0 && reqs.length === 0, JSON.stringify({ r0, reqs: reqs.length }));
+    await p.evaluate(() => document.querySelector("[data-dp-check]").click());
+    await p.waitForFunction(() => document.querySelectorAll(".dp-row").length > 0, null, { timeout: 8000 }).catch(() => {});
+    const r1 = await p.evaluate(() => ({ rows: [...document.querySelectorAll(".dp-row")].map((r) => r.dataset.dpId).join(), txt: document.getElementById("set-dpacks").textContent }));
+    check("Pacchetti di dati: al tocco si chiede l'elenco (una sola richiesta, senza Referer né cookie) e si mostrano solo i pacchetti ben formati e pronti, 'Non scaricato'", reqs.length === 1 && reqs[0].rel === "indice.json" && !reqs[0].referer && !reqs[0].cookie && r1.rows === "prova,guasto,meta" && /Non scaricato/.test(r1.txt) && !/Core|In preparazione|Nome file/.test(r1.txt), JSON.stringify({ reqs, r1 }));
+    await p.evaluate(() => document.querySelector('[data-dp-get="prova"]').click());
+    await p.waitForFunction(() => CP.dataPacks.status("prova") === "yes", null, { timeout: 8000 }).catch(() => {});
+    const r2 = await p.evaluate(async () => { const c = await caches.open("mandarino-pacchetti"), ks = (await c.keys()).map((k) => k.url), d = await CP.dataPacks.read("prova"); return { ks, st: CP.dataPacks.status("prova"), saved: Object.keys(JSON.parse(localStorage.getItem("md-dpacks") || "{}")).join(), mit: d && d["MIT"] && d["MIT"].pacchetto, sa: d && d["CC-BY-SA-4.0"] && d["CC-BY-SA-4.0"].licenza, txt: document.getElementById("set-dpacks").textContent }; });
+    check("Pacchetti di dati: «Scarica» salva in cache i due file solo dopo aver verificato lunghezza e SHA-256, e li rende leggibili", r2.st === "yes" && r2.ks.length === 2 && r2.saved === "prova" && r2.mit === "prova" && r2.sa === "CC-BY-SA-4.0" && /Scaricato/.test(r2.txt) && /Elimina/.test(r2.txt), JSON.stringify(r2));
+    await p.evaluate(() => document.querySelector('[data-dp-get="guasto"]').click());
+    await p.waitForFunction(() => /impronta/.test((document.getElementById("dp-msg") || {}).textContent || ""), null, { timeout: 8000 }).catch(() => {});
+    const r3 = await p.evaluate(async () => { const c = await caches.open("mandarino-pacchetti"); return { n: (await c.keys()).length, st: CP.dataPacks.status("guasto"), msg: document.getElementById("dp-msg").textContent, saved: Object.keys(JSON.parse(localStorage.getItem("md-dpacks") || "{}")).join() }; });
+    check("Pacchetti di dati: un file con SHA-256 diverso dall'atteso NON viene salvato (cache e stato intatti) e si spiega perché", r3.n === 2 && r3.st === "no" && r3.saved === "prova" && /impronta/.test(r3.msg), JSON.stringify(r3));
+    await p.evaluate(() => document.querySelector('[data-dp-get="meta"]').click());
+    await p.waitForFunction(() => /impronta/.test((document.getElementById("dp-msg") || {}).textContent || "") && CP.dataPacks.status("meta") === "no", null, { timeout: 8000 }).catch(() => {});
+    const r3b = await p.evaluate(async () => { const c = await caches.open("mandarino-pacchetti"); return { n: (await c.keys()).length, st: CP.dataPacks.status("meta") }; });
+    check("Pacchetti di dati: se il secondo file di un pacchetto è alterato, anche il primo già arrivato viene tolto dalla cache (niente pacchetti a metà)", r3b.n === 2 && r3b.st === "no", JSON.stringify(r3b));
+    await p.evaluate(() => document.querySelector('[data-dp-del="prova"]').click()); await p.waitForTimeout(250);
+    const r4 = await p.evaluate(() => ({ d1: !!document.querySelector("[data-dp-d1]"), d2: !!document.querySelector("[data-dp-d2]"), txt: document.body.textContent }));
+    await p.evaluate(() => document.querySelector("[data-dp-no]").click()); await p.waitForTimeout(250);
+    const r5 = await p.evaluate(() => ({ st: CP.dataPacks.status("prova"), sheet: !!(document.querySelector("[data-dp-d1]") || {}).offsetParent }));
+    check("Pacchetti di dati: «Elimina» apre un avviso con ciò che si perde; «Annulla» non toglie nulla", r4.d1 && !r4.d2 && /progressi di studio non cambiano/.test(r4.txt) && r5.st === "yes" && !r5.sheet, JSON.stringify({ r4: { d1: r4.d1, d2: r4.d2 }, r5 }));
+    await p.evaluate(() => CP.openSettings("set-dpacks")); await p.waitForTimeout(200);
+    await p.evaluate(() => document.querySelector('[data-dp-del="prova"]').click()); await p.waitForTimeout(250);
+    await p.evaluate(() => document.querySelector("[data-dp-d1]").click()); await p.waitForTimeout(250);
+    const r6 = await p.evaluate(async () => { const c = await caches.open("mandarino-pacchetti"); return { d2: !!document.querySelector("[data-dp-d2]"), n: (await c.keys()).length, st: CP.dataPacks.status("prova") }; });
+    await p.evaluate(() => document.querySelector("[data-dp-d2]").click()); await p.waitForTimeout(400);
+    const r7 = await p.evaluate(async () => { const c = await caches.open("mandarino-pacchetti"); return { n: (await c.keys()).length, st: CP.dataPacks.status("prova"), saved: localStorage.getItem("md-dpacks"), msg: (document.getElementById("dp-msg") || {}).textContent }; });
+    check("Pacchetti di dati: l'eliminazione vuole due conferme (dopo la prima i dati ci sono ancora), poi toglie file e stato e si può riscaricare", r6.d2 && r6.n === 2 && r6.st === "yes" && r7.n === 0 && r7.st === "no" && !r7.saved && /eliminato/.test(r7.msg || ""), JSON.stringify({ r6, r7 }));
+    const nReq = reqs.length;
+    await p.reload(); await p.waitForTimeout(500); await p.evaluate(() => CP.openSettings("grp-adv")); await p.waitForTimeout(250);
+    const r8 = await p.evaluate(() => ({ rows: document.querySelectorAll(".dp-row").length, bk: /md-dpacks/.test(JSON.stringify(Object.keys(Store.backupKeys ? Store.backupKeys() : []))) }));
+    check("Pacchetti di dati: dopo un riavvio l'ultimo elenco si vede senza rete e non parte nessuna richiesta", r8.rows === 3 && reqs.length === nReq, JSON.stringify({ r8, nReq, now: reqs.length }));
+    check("Pacchetti di dati: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
 } finally {
   await browser.close(); server.close();
 }

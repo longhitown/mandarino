@@ -25,18 +25,19 @@ L'app funziona tutta offline. La rete si usa solo in questi casi, che decidi tu:
 | **Voce online** | solo se la accendi in Impostazioni → Suoni e musica → Voce (spenta di base) | il testo cinese da leggere | un servizio di sintesi vocale di Google, non ufficiale |
 | **Riconoscimento della voce** negli esercizi di pronuncia | solo quando tocchi il microfono | l'audio di quello che dici | nel browser Chrome lo elabora il fornitore del browser (Google); nell'app Android il riconoscitore del telefono, che può funzionare anche offline |
 | **Controllo del pacchetto voci** (Impostazioni → Comunità e voci → «Controlla aggiornamenti») | solo quando tocchi il pulsante, mai da sola | una richiesta `GET` senza cookie e senza intestazione Referer a `https://mandarinoapp.org/voci/index.json`, un piccolo elenco pubblico (versione, data, numero di voci, dimensione, file). Non parte nessun dato tuo: la richiesta è uguale per tutti | `mandarinoapp.org` (GitHub Pages: come per ogni visita al sito può registrare l'indirizzo IP, vedi sotto). Nell'app resta solo l'ultimo esito (data, numero, dimensione, quando hai controllato), in `localStorage` alla chiave `md-voicepack`, fuori dai backup. Per ora non scarica nulla |
+| **Pacchetti di dati** (Impostazioni → Avanzate → «Pacchetti di dati scaricabili») | solo quando tocchi «Vedi i pacchetti disponibili» (l'elenco) o «Scarica» (un pacchetto), mai da sola | richieste `GET` senza cookie e senza intestazione Referer a `https://mandarinoapp.org/packs/indice.json` e ai file `https://mandarinoapp.org/packs/<pacchetto>/…`: file pubblici, uguali per tutti. Non parte nessun dato tuo e non c'è telemetria | `mandarinoapp.org` (GitHub Pages: come per ogni visita al sito può registrare l'indirizzo IP, vedi sotto). Nell'app restano i file scaricati, nella cache `mandarino-pacchetti`, e l'elenco di quelli che hai, in `localStorage` alle chiavi `md-dpacks` e `md-dpacks-idx`, fuori dai backup |
 | **Link esterni** (sostegno, social, GitHub, e-mail) | solo quando li tocchi | quello che apri tu | il sito che apri |
 | **Musica e dizionario dei nomi** (versione web) | al primo ascolto di un brano, al primo uso dei «nomi e termini» del Lettore | la richiesta del file | lo stesso sito dell'app |
 | **Aggiornamenti dell'app** (versione web) | all'apertura, se c'è rete | la richiesta della versione nuova | lo stesso sito dell'app |
 
-### Pacchetti opzionali di dati (previsto: non ancora attivo in questa versione)
+### Pacchetti di dati scaricabili
 
-Le versioni future potranno offrire, in Impostazioni, **pacchetti opzionali** di dati (per esempio parole di livello avanzato, chengyu, trappole del corso di italiano). Quando esisteranno funzioneranno così, e questa pagina sarà aggiornata nel momento in cui escono:
+In Impostazioni → Avanzate puoi scaricare **pacchetti di dati** in più (per esempio chengyu o trappole del corso di italiano). Funziona così:
 
-- **Solo se li scegli tu.** Il download parte soltanto quando tocchi «Scarica» su un pacchetto; mai da solo, mai in sottofondo. Le parti indispensabili per usare l'app restano dentro l'app e non richiedono rete.
-- **Una richiesta statica e anonima.** Un `GET` di un file pubblico dello stesso sito (`mandarinoapp.org`), senza cookie, senza identificativi e senza intestazione Referer; la richiesta è uguale per tutti. Nessuna telemetria: non registriamo chi scarica che cosa. Come per ogni visita al sito, il fornitore dell'hosting può registrare l'indirizzo IP (vedi sotto).
-- **Controllo di integrità.** Ogni file ha un'impronta SHA-256 scritta nell'indice dell'app, e l'app la verifica prima di usarlo. Se non coincide, il file viene scartato.
-- **Dopo il download è tutto locale** (memoria del browser o dell'app, come le voci); si può eliminare in ogni momento, con un avviso su che cosa si perde e una doppia conferma, e si può riscaricare. I progressi di studio non dipendono dai pacchetti.
+- **Solo se li scegli tu.** L'elenco si chiede solo quando tocchi «Vedi i pacchetti disponibili», e un pacchetto si scarica solo quando tocchi «Scarica». Mai da solo, mai in sottofondo. L'app di base non ne ha bisogno e funziona tutta senza rete.
+- **Richieste statiche e anonime.** Un `GET` di file pubblici dello stesso sito (`mandarinoapp.org/packs/`), senza cookie, senza identificativi e senza intestazione Referer; la richiesta è uguale per tutti. Nessuna telemetria: non registriamo chi scarica che cosa. Come per ogni visita al sito, il fornitore dell'hosting può registrare l'indirizzo IP (vedi sotto).
+- **Controllo di integrità.** Ogni file ha un'impronta SHA-256 scritta nell'elenco; l'app la calcola sul file ricevuto (e ne controlla la lunghezza) e lo salva **solo se coincide**. Se non coincide, o se il dispositivo non sa calcolarla, non salva nulla; se un pacchetto si interrompe a metà, quello che era già arrivato viene tolto.
+- **Dopo il download è tutto locale** (cache del browser o dell'app, come le voci reali). Si può eliminare in ogni momento, con un avviso su che cosa si perde e **due conferme**, e si può riscaricare. I progressi di studio non dipendono dai pacchetti e non si toccano.
 
 ### Dove scaricare l'app (sito, Google Play, F-Droid)
 
@@ -157,9 +158,19 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 | **在线语音** | 只有在 设置 → 声音和音乐 → 语音 中打开后（默认关闭） | 要朗读的文字 | 谷歌的一个非官方语音合成服务 |
 | **语音识别**（发音练习） | 只有点麦克风时 | 你说话的音频 | 在 Chrome 浏览器中由浏览器提供方（谷歌）处理；在安卓应用中由手机的识别器处理，可能离线 |
 | **检查语音包**（设置 → 社区与声音 → “检查更新”） | 只有点按钮时，绝不会自动进行 | 向 `https://mandarinoapp.org/voci/index.json` 发出一个不带 Cookie、不带 Referer 的 `GET` 请求，取回一份公开的小清单（版本、日期、录音数量、大小、文件）。不会发送任何你的数据：这个请求对所有人都一样 | `mandarinoapp.org`（GitHub Pages：和访问网站一样，可能记录 IP 地址，见下文）。应用里只保留最近一次的结果（日期、数量、大小、检查时间），存在 `localStorage` 的 `md-voicepack` 键里，不进入备份。目前不下载任何内容 |
+| **数据包**（设置 → 高级 → “可下载的数据包”） | 只有点按“查看可用的数据包”（列表）或“下载”（某个数据包）时才进行，绝不会自动进行 | 向 `https://mandarinoapp.org/packs/indice.json` 和 `https://mandarinoapp.org/packs/<数据包>/…` 的文件发出不带 Cookie、不带 Referer 的 `GET` 请求：都是公开文件，对所有人都一样。不会发送任何你的数据，也没有遥测 | `mandarinoapp.org`（GitHub Pages：和访问网站一样，可能记录 IP 地址，见下文）。应用里保留已下载的文件（缓存 `mandarino-pacchetti`）和你拥有的数据包列表（`localStorage` 的 `md-dpacks`、`md-dpacks-idx` 键），不进入备份 |
 | **外部链接**（支持、社交媒体、GitHub、电子邮件） | 只有点击时 | 你打开的内容 | 你打开的网站 |
 | **音乐和人名地名词典**（网页版） | 第一次播放某首曲子、第一次使用阅读器的“人名和术语”时 | 文件请求 | 应用所在的同一网站 |
 | **应用更新**（网页版） | 打开应用且有网络时 | 新版本请求 | 应用所在的同一网站 |
+
+### 可下载的数据包
+
+在 设置 → 高级 中，你可以下载额外的**数据包**（例如成语或意大利语课程的易错点）。规则如下：
+
+- **只有你选择时才进行。** 只有点按“查看可用的数据包”才会请求列表，只有点按“下载”才会下载某个数据包；绝不会自动或在后台进行。基础应用不需要它们，完全可以离线使用。
+- **静态、匿名的请求。** 向同一网站（`mandarinoapp.org/packs/`）的公开文件发出 `GET` 请求，不带 Cookie、不带标识、不带 Referer，对所有人都一样。没有遥测：我们不记录谁下载了什么。和访问网站一样，托管服务商可能记录 IP 地址（见下文）。
+- **完整性校验。** 每个文件在列表里都有 SHA-256 校验值；应用对收到的文件计算校验值（并核对长度），**只有一致才保存**。不一致，或设备无法计算时，什么都不保存；下载到一半中断时，已收到的部分会被删除。
+- **下载后完全在本地**（浏览器或应用的缓存，与真人录音相同）。你可以随时删除，删除前会提示将失去什么，并需要**两次确认**，之后也可以重新下载。学习记录不依赖数据包，也不会被改动。
 
 ### 在哪里下载应用（网站、Google Play、F-Droid）
 

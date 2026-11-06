@@ -29,12 +29,14 @@
     "const CACHE = 'mandarino-' + APP_VERSION + '-' + (self.registration ? self.registration.scope : '');\n" +
     "const MUSIC = 'mandarino-music';\n" +
     "const VOICE = 'mandarino-voice';\n" +
+    "const PACKS = 'mandarino-pacchetti';\n" +
     "const CORE = ['./', './index.html', './manifest.json', './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];\n" +
     "self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => Promise.all(CORE.map(u => c.add(new Request(u, { cache: 'reload' })).catch(() => null))))); });\n" +
     "/* la nuova versione aspetta: la pagina mostra «Nuova versione disponibile · Aggiorna» e manda SKIP_WAITING */\n" +
     "self.addEventListener('message', e => { if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting(); });\n" +
-    "self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('mandarino-') && k !== CACHE && k !== MUSIC && k !== VOICE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });\n" +
+    "self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('mandarino-') && k !== CACHE && k !== MUSIC && k !== VOICE && k !== PACKS).map(k => caches.delete(k)))).then(() => self.clients.claim())); });\n" +
     "self.addEventListener('fetch', e => {\n  const r = e.request; if (r.method !== 'GET' || new URL(r.url).origin !== location.origin) return;\n" +
+    "  if (/\\/packs\\//.test(new URL(r.url).pathname)) return;\n" +
     "  if (/\\/audio\\/voce\\//.test(new URL(r.url).pathname)) {\n    e.respondWith(caches.open(VOICE).then(c => c.match(r).then(m => m || fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }))));\n    return;\n  }\n" +
     "  if (/\\/(audio\\/music|data\\/wiki)\\//.test(new URL(r.url).pathname)) {\n    e.respondWith(caches.open(MUSIC).then(c => c.match(r).then(m => m || fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }))));\n    return;\n  }\n" +
     "  if (r.mode === 'navigate') {\n    e.respondWith(fetch(r).then(res => { const cp = res.clone(); caches.open(CACHE).then(c => c.put('./index.html', cp)); return res; }).catch(() => caches.match('./index.html').then(m => m || caches.match('./'))));\n    return;\n  }\n" +
