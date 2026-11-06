@@ -72,7 +72,7 @@
     return p.ok(c, ask).then(function (ok) {
       if (!ok) throw new Error("perm");
       return p.read(c).catch(function () { return ""; }).then(function (text) {
-        var o = null; if (text && text.trim()) { try { o = JSON.parse(text); } catch (e) { throw new Error("bad"); } if (!o || o.app !== "mandarino") throw new Error("bad"); }
+        var o = null; if (text && text.trim()) { o = Store.parseBackup(text); if (!o || o.app !== "mandarino") throw new Error("bad"); }
         return (o ? Store.importObj(o, "merge") : Promise.resolve({ ok: true, n: 0 })).then(function (r) {
           var changed = !!(r && r.changed);
           return fileText().then(function (txt) { return p.write(c, txt); }).then(function () {

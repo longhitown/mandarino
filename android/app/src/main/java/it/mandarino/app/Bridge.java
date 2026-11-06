@@ -562,16 +562,45 @@ public class Bridge {
         });
     }
 
-    /** riscrive il file in background ("wt" = tronca; alcuni provider conoscono solo "w") */
+    /** la dimensione attuale del file (-1 se il provider non la dice) */
+    private long sizeOf(Uri uri) {
+        try (Cursor c = act.getContentResolver().query(uri, new String[]{OpenableColumns.SIZE}, null, null, null)) {
+            if (c != null && c.moveToFirst() && !c.isNull(0)) return c.getLong(0);
+        } catch (RuntimeException ignored) { }
+        return -1;
+    }
+
+    // [writeAll:inizio]
+    /** scrive i dati perché siano TUTTO il contenuto del file. "wt" e "rwt" troncano; "w" no (da Android 10 non tronca più): se il file
+     *  era più lungo, dopo la scrittura si prova a troncarlo dal canale e, se il provider non lo permette, lo si riempie di spazi fino alla
+     *  vecchia lunghezza (il JSON li ignora). Così non restano mai in coda byte del contenuto precedente. */
+    static void writeAll(OutputStream out, byte[] data, long oldSize, boolean truncates) throws IOException {
+        out.write(data);
+        out.flush();
+        if (truncates || oldSize <= data.length) return;
+        try {
+            if (out instanceof FileOutputStream) { ((FileOutputStream) out).getChannel().truncate(data.length); return; }
+        } catch (IOException | RuntimeException ignored) { }
+        try {
+            byte[] pad = new byte[8192];
+            java.util.Arrays.fill(pad, (byte) ' ');
+            for (long left = oldSize - data.length; left > 0; left -= pad.length) out.write(pad, 0, (int) Math.min(pad.length, left));
+            out.flush();
+        } catch (IOException | RuntimeException ignored) { }
+    }
+    // [writeAll:fine]
+
+    /** riscrive il file in background: "wt" e "rwt" troncano, "w" è l'ultima risorsa e si completa con writeAll */
     @JavascriptInterface
     public void syncWrite(final String id, final String uri, final String text) {
         IO.execute(() -> {
             byte[] data = (text == null ? "" : text).getBytes(StandardCharsets.UTF_8);
             String err = null;
-            for (String mode : new String[]{"wt", "w"}) {
+            long oldSize = sizeOf(Uri.parse(uri));
+            for (String mode : new String[]{"wt", "rwt", "w"}) {
                 try (OutputStream out = act.getContentResolver().openOutputStream(Uri.parse(uri), mode)) {
                     if (out == null) throw new IOException("null");
-                    out.write(data); err = null; break;
+                    writeAll(out, data, oldSize, !"w".equals(mode)); err = null; break;
                 } catch (Exception e) { err = e.getClass().getSimpleName(); }
             }
             emit("sync-write", id, err == null ? "1" : "0" + err);
