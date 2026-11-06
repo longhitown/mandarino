@@ -1895,6 +1895,32 @@ try {
     check("Ascolto fermato da un altro: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+  /* difetto C dell'audit audio: una clip registrata che non si carica e non dà errore. Allo scadere del timer di sicurezza la frase si chiude e la clip va fermata,
+     altrimenti, caricandosi in ritardo, suona sopra la voce successiva; ma se nel frattempo è partita un'altra richiesta, quella non si tocca */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 360, height: 740 } });
+    await ctx.addInitScript(() => {
+      window.__clips = [];
+      window.Audio = class { constructor(src) { this.src = src; this.pauseCalls = 0; window.__clips.push(this); } play() { return new Promise(() => {}); } pause() { this.pauseCalls++; } };
+    });
+    const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.evaluate(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); }); await p.reload(); await p.waitForTimeout(600);
+    const r = await p.evaluate(async () => {
+      CP.voiceClip = Object.assign({}, CP.voiceClip, { url: () => "clip.opus" });
+      const wait = (ms) => new Promise((x) => setTimeout(x, ms));
+      CP.speak("你");                      /* la clip non si carica mai: il timer scade dopo 6500 + 900 ms */
+      await wait(7700);
+      const stopped = window.__clips[0].pauseCalls;
+      CP.speak("你好");                    /* seconda scena: A, poi 1 s dopo B; allo scadere di A la clip di B non va fermata */
+      const a = window.__clips.length - 1; await wait(1000); CP.speak("再见"); const b = window.__clips.length - 1;
+      await wait(7800);   /* dal primo «你好» passano 8,8 s: il suo timer (6,5 + 1,8 = 8,3 s) è scaduto, quello di «再见» (9,3 s) no */
+      return { stopped, a, b, bPause: window.__clips[b].pauseCalls };
+    });
+    check("Voce registrata che non si carica: allo scadere del timer di sicurezza la clip viene fermata (audit audio, difetto C)", r.stopped >= 1, JSON.stringify(r));
+    check("Voce registrata: il timer scaduto di una richiesta vecchia non ferma la clip di quella nuova", r.b > r.a && r.bPause === 0, JSON.stringify(r));
+    check("Voce registrata che non si carica: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
   /* difetti trovati sul telefono: microfono occupato, laboratorio, selezione di testo, stampa, cambio lingua senza animazione */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });

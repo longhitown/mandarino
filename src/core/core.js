@@ -304,7 +304,9 @@
       if (o.onEnd) o.onEnd();
     };
     liveTimer = setTimeout(function () { if (live === els) clearLive(); }, 1500 + text.length * 700);
-    failTimer = setTimeout(finish, 6500 + text.length * 900);
+    /* timer di sicurezza: se la frase non finisce da sola (una clip che non si carica, senza errore) la si chiude e, se è ancora la richiesta corrente,
+       si ferma anche la clip: altrimenti, caricandosi in ritardo, suonerebbe sopra la voce successiva. Con un'altra richiesta già partita non si tocca niente. */
+    failTimer = setTimeout(function () { if (token === mine) stopAudio(); finish(); }, 6500 + text.length * 900);
     /* la voce reale registrata, se la frase ne ha una sul telefono (core/voice-clip.js); se non parte, la voce di sempre */
     var clip = !o.noClip && CP.voiceClip ? CP.voiceClip.url(text, zh ? "zh" : "it") : "";
     if (clip) {

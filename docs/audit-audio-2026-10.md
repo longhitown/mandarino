@@ -26,6 +26,8 @@ codice, corretto qui con un test; **difettoso** = difetto dimostrato dal codice,
 | 12 | `voice/pitch.js`, continuità dell'altezza | Il limite di 6 semitoni non scattava mai (con le ottave ogni distanza si riduce a 6 o meno) e la correzione d'ottava valeva anche dopo una pausa: lo stacco fra due sillabe (+9 semitoni) diventava −3 e la seconda sillaba restava un'ottava sotto (97 Hz invece di 190 Hz nella prova). | `accept()`: fra fotogrammi di fila vale il candidato d'ottava più vicino entro 4 semitoni, un salto vero solo se tre fotogrammi concordano; dopo una pausa (> 80 ms) la frequenza trovata vale così com'è. | unit «altezza: …» (6 prove) |
 | 13 | `voice/pitch.js`, calibrazione e soglia del rumore | Una voce che parte subito al tocco (dentro i primi 250 ms) veniva misurata come rumore: la soglia saliva al livello della voce e la voce sommessa non veniva più trovata (0 punti nella prova). Inoltre la soglia seguiva verso l'alto 6 volte più in fretta di quanto servisse e poteva assorbire una voce appena sopra il rumore. | Un fotogramma chiaramente periodico (e sopra 0,006) non entra nella stima del rumore e fa partire subito la sessione; la soglia scende subito e sale piano. | unit «altezza: una voce sommessa che parte subito…» |
 | 14 | `voice/voice-panel.js`, tracciato dal vivo | Il riferimento verticale era la mediana di tutti i punti, ricalcolata a ogni fotogramma: il tracciato saliva e scendeva mentre si parlava; la scala del tempo cambiava di continuo. | Riferimento fisso (mediana dei primi 8 punti) e scala del tempo a scatti di 0,4 s. | unit «altezza: il tracciato dal vivo…» |
+| 15 | `Bridge.java`, `beginRecognizer` / `stopRecognizer` (volume dei media; era il difetto A) | Un secondo ascolto partito prima del ripristino registrava `musicWasMuted` mentre il flusso era ancora muto per colpa del riconoscitore e poi non lo riaccendeva mai; il percorso con audio nostro usava il valore dell'ascolto precedente. | Riparato il 31 ottobre 2026 (commit `1b3f89d`): `muteBaseSet` fissa il valore una sola volta per serie di ascolti e lo azzera solo dopo il ripristino; il percorso con audio nostro è stato tolto. | Nessuna prova automatica (Java): verificato rileggendo il codice. Da provare su telefono. |
+| 16 | `core/core.js`, `CP.speak`, voce registrata (era il difetto C) | Se il file della clip si bloccava senza dare errore, il timer di sicurezza chiudeva la frase ma `curAudio` non veniva fermato: la clip poteva partire dopo, sopra altro. | Il timer chiama `stopAudio()` prima di `finish()` solo se la richiesta è ancora la corrente (`token === mine`): una richiesta nuova non viene toccata. | e2e «Voce registrata che non si carica…» (2 prove) |
 
 Prova: con le correzioni tolte, `node tools/unit.mjs` boccia le prove nuove (verificato con `git stash` sulla cartella `src/`). Per i difetti 12-14 la prova usa un microfono simulato con orologio virtuale (`tools/lib/mic-sim.mjs`) che fa girare `CP.pitchSession` vera: con il codice vecchio dà 0 punti (voce al tocco) e 97 Hz (seconda sillaba), con il nuovo 60 punti a 150 Hz e 194 Hz.
 
@@ -33,35 +35,9 @@ Prova: con le correzioni tolte, `node tools/unit.mjs` boccia le prove nuove (ver
 
 | # | Dove | Difetto | Perché non riparato | Che cosa serve |
 |---|---|---|---|---|
-| A | `Bridge.java`, `beginRecognizer` / `stopRecognizer` (volume dei media) | Un secondo ascolto che parte prima del ripristino (entro 800 ms, o 220 ms dopo un `stopRecognizer`) registra `musicWasMuted = isStreamMute(...)` mentre il flusso è ancora muto per colpa del riconoscitore: ricorda «era muto» e poi non lo riaccende mai. Nei telefoni che silenziano il flusso e non lo ripristinano (il caso per cui il ripristino esiste) il volume dei media resta muto per parole, toni e musica fino al riavvio. Il percorso con audio nostro (`beginPipedRecognizer`) non aggiorna mai `musicWasMuted`: usa il valore dell'ascolto precedente (mai impostato = `false`: riaccende anche un flusso che la persona aveva silenziato apposta). | Zona del microfono/riconoscimento di `Bridge.java`, in modifica da un'altra persona; qui non c'è JDK per compilare. | La correzione sotto, da applicare dopo l'altra modifica, e la prova su telefono (riga della checklist). |
-| C | `core/core.js`, `CP.speak`, voce registrata | Se il file della clip si blocca senza dare errore (rete ferma, cache sparita), il timer di sicurezza chiude la frase ma `curAudio` non viene fermato: la clip può partire dopo, sopra altro. | Come B. | Il timer di sicurezza dovrebbe chiamare `stopAudio()` prima di `finish`. |
 | E | `audio/file-player.js` | Nessun ascolto dell'evento `pause` dell'elemento `<audio>`: se Android sospende la clip per una chiamata o per un'altra app (perdita del focus audio che la WebView gestisce da sé), la pagina e la notifica dicono «in riproduzione» mentre non suona. `MusicService` non chiede il focus audio né ascolta `ACTION_AUDIO_BECOMING_NOISY` (cuffie staccate). | Non si può sapere dal codice che cosa fa la WebView: riprendere da soli durante una chiamata sarebbe peggio. | Prova su telefono (checklist, tre righe sotto). Se il difetto c'è: ascoltare `pause`/`play` dell'elemento e chiamare `remote("pause")`/`remote("play")`; per le cuffie, `BroadcastReceiver` su `ACTION_AUDIO_BECOMING_NOISY` che manda `pause` alla pagina. |
 | F | `audio/audio-ui.js` / `core/core.js`, ripresa del contesto | Il contesto audio si risveglia solo al tocco (`pointerdown`) e al ritorno in primo piano. Non c'è un ascolto di `statechange`: se il sistema sospende il contesto mentre l'app è visibile (chiamata in arrivo, sveglia) la musica tace finché la persona non tocca; il «muto»/nella barra mostra «in pausa». | Il comportamento è voluto dal browser (serve un gesto) e la barra lo segnala. | Prova su telefono: chiamata durante la musica, poi toccare lo schermo. |
 | G | `audio/audio-ui.js`, `playVoice` (prova A/B delle voci) | Parla con `speechSynthesis` diretta, fuori da `CP.speak`: non abbassa la musica e non passa dal ripiego. | Solo una prova di ascolto; non è un difetto per chi studia. | Niente. |
-
-### Correzione proposta per A (Java, non applicata)
-
-Vale la pena rileggerla riga per riga con il compilatore a portata di mano (API usate: `AudioManager.isStreamMute`, API 23; minSdk 26).
-
-```java
-private boolean musicWasMuted = false, muteBaseSet = false;
-
-/** ricorda se i media erano muti PRIMA dell'ascolto: solo la prima volta, finché il ripristino non è avvenuto */
-private void noteMusicMute() {
-    if (muteBaseSet) return;
-    AudioManager am = (AudioManager) act.getSystemService(Context.AUDIO_SERVICE);
-    musicWasMuted = am != null && am.isStreamMute(AudioManager.STREAM_MUSIC);
-    muteBaseSet = true;
-}
-```
-
-- in `beginRecognizer` e in `beginPipedRecognizer`, al posto della riga `musicWasMuted = …`, chiamare `noteMusicMute();`
-- nel `postDelayed` di `stopRecognizer`, quando `recognizer == null`: prima del controllo, `muteBaseSet = false;`, poi il controllo esistente
-  `if (!musicWasMuted && am != null && am.isStreamMute(...)) am.adjustStreamVolume(..., ADJUST_UNMUTE, 0);`.
-  Se `recognizer != null` (un altro ascolto è già partito) non si tocca nulla: il valore iniziale resta valido e il ripristino lo fa l'ultimo ascolto.
-
-Se la persona ha il volume dei media a zero ma non «muto» (indice 0), `isStreamMute` risulta falso e il codice esistente non fa niente:
-va bene. Se invece lo ha silenziato con la funzione «muto» prima dell'ascolto, il valore ricordato resta «muto» e non viene riacceso.
 
 ## Elemento per elemento
 
@@ -83,7 +59,7 @@ va bene. Se invece lo ha silenziato con la funzione «muto» prima dell'ascolto,
 | Cambio di velocità | funziona | `u.rate` per ogni enunciato (`setSpeechRate` in `speakNow`). |
 | Voce non disponibile → ripiego | funziona | Errore `language-unavailable` → `onerror` → voce online solo se accesa in Impostazioni, altrimenti un messaggio una volta sola. |
 | Motore che si riavvia | funziona | `ttsSpeak`/`retryAfterRestart`/`initTts`: l'ultima richiesta vince. Non provato su telefono. |
-| **5. Riconoscimento e volume** | difettoso | A. Il ripristino dopo 800 ms con `musicWasMuted` regge nel caso semplice (un ascolto per volta), non con due ascolti ravvicinati né con l'audio nostro. Il caso «volume a zero» regge (vedi sopra). App in secondo piano durante l'ascolto: `pause()` → `stopRecognizer()` → ripristino dopo 800 ms: regge, ma il `postDelayed` sulla vista parte solo se la vista è ancora collegata alla finestra. |
+| **5. Riconoscimento e volume** | funziona | A (riparato, vedi riga 15). `musicWasMuted` si fissa al primo ascolto di una serie e si azzera solo dopo il ripristino (`muteBaseSet`): regge anche con due ascolti ravvicinati; il percorso con audio nostro (`beginPipedRecognizer`) non esiste più. Il caso «volume a zero» regge (vedi sopra). App in secondo piano durante l'ascolto: `pause()` → `stopRecognizer()` → ripristino dopo 800 ms; il `postDelayed` sulla vista parte solo se la vista è ancora collegata alla finestra. Non provato su telefono. |
 | **6. Microfono**: rilascio in ogni uscita | riparato | #6-#9. Errore, pagina nascosta (`visibilitychange` con zero utenti), `pagehide`, sfogliare altrove (`scambio.js`: `lease` + `SES`, bilanciato; `voice-panel`: `_close`), `CP.micClose` ferma tutto (`drop` azzera utenti, timer e registrazione nativa). |
 | `M.users` con chiamate concorrenti | riparato | #8, #9 con prova. |
 | **7. Voci reali** (solo lettura) | funziona, con C | `voice-clip.js` dà l'indirizzo solo se la clip è sul telefono; `voice-dl.js` scarica quattro alla volta nella cache `mandarino-voice`, segna `cp-voice-dl` solo se non ci sono errori, «Elimina» cancella cache e segno. `CP.speak` ricade sulla voce di sempre se la clip dà errore (`back`). C resta. |

@@ -4,7 +4,7 @@
    vocabolario; il livello del testo è quello della parola più alta (HSK, o il capitolo della tappa per le frasi fatte):
    se quello dichiarato è più basso, vince quello calcolato (e lo si dice). Ogni frase ha la traduzione; ogni domanda ha la
    risposta giusta tra le scelte. Le stesse regole le ricontrolla tools/build.mjs sui file scritti.
-   I testi sono bozze scritte per il progetto: vanno riletti da un madrelingua prima della pubblicazione.
+   I testi sono scritti per il progetto.
    Uso: node tools/lettura.mjs [--check] */
 import fs from "fs";
 import path from "path";
@@ -39,7 +39,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   for (const t of zh) { const lv = t.frasi.reduce((m, f) => Math.max(m, TL.check(f.zh).lv), 1); if (lv > t.livello) { raised.push(`${t.id}: ${t.livello} → ${lv}`); t.livello = lv; } }
   const err = checkTexts(TL, zh, it);
   if (err.length) { console.error("✗ testi non validi:\n  " + err.join("\n  ")); process.exit(1); }
-  const head = (what) => "/* màndarínō · " + what + ". Testi scritti per il progetto, bozze da far rileggere a un madrelingua.\n   Generato da tools/lettura.mjs a partire da materiali/runtime/: non modificarlo a mano. */\n";
+  const head = (what) => "/* màndarínō · " + what + ". Testi scritti per il progetto.\n   Generato da tools/lettura.mjs a partire da materiali/runtime/: non modificarlo a mano. */\n";
   const FILES = {
     "testi-zh.js": head("testi graduati di cinese, livelli 1-6, con le domande di comprensione") + "var TESTI_ZH = " + JSON.stringify(zh) + ";\n",
     "testi-it.js": head("testi graduati di italiano per chi parla cinese, A1-B1, con le domande in cinese") + "var TESTI_IT = " + JSON.stringify(it) + ";\n"
