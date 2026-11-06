@@ -26,7 +26,7 @@ Ogni record dichiara le fonti da cui dipende e la licenza che ne risulta; un rec
 - **Nessuna rilettura di un madrelingua.** Le frasi d'esempio dei semi sono per lo più scritte per il progetto (8 su 60 sono attestate nelle lezioni o in Tatoeba). I ponti culturali restano `proposta` e fuori dai pacchetti finché non li legge una persona competente (c'è una scheda pronta, nel formato di [rilettura.md](rilettura.md)).
 - **Etichette grammaticali in parte calcolate** (jieba per 2.848 parole) e dichiarate come tali nel campo `pos_fonte`.
 - **Categorie dei calchi dell'italiano** assegnate da regole sui testi, non da un madrelingua.
-- **Nell'app non c'è ancora niente di tutto questo.** I pacchetti scaricabili sono descritti in [PRIVACY.md](../PRIVACY.md) come funzione prevista; arriveranno con una modifica a parte.
+- **Nell'app c'è il meccanismo, non ancora i dati.** Il modulo dei pacchetti scaricabili (`src/ui/dpacks.js`, Impostazioni → Avanzate, descritto in [PRIVACY.md](../PRIVACY.md)) sa chiedere l'elenco, scaricare, verificare lo SHA-256 e cancellare con doppia conferma. Il sito non pubblica ancora nessun pacchetto (`mandarinoapp.org/packs/`): finché non c'è, la sezione mostra «Per ora non ci sono pacchetti disponibili». Nessuna funzione dell'app legge ancora quei dati.
 
 ## Determinismo
 Ogni file esportato ha chiavi ordinate e record ordinati, e il manifest non porta data: due compilazioni degli stessi dati danno gli stessi SHA-256, bit per bit. Il test lo prova anche rimescolando l'ordine dei dati in ingresso.

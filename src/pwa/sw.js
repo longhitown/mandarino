@@ -7,13 +7,16 @@ const CACHE = 'mandarino-' + APP_VERSION + '-' + (self.registration ? self.regis
 const MUSIC = 'mandarino-music';
 /* le voci reali (audio/voce/, «Scarica le voci»): cache propria, che l'attivazione di una nuova versione non cancella */
 const VOICE = 'mandarino-voice';
+/* i pacchetti di dati scaricati (ui/dpacks.js): cache propria, che l'attivazione di una nuova versione non cancella; le richieste a /packs/ passano dirette alla rete */
+const PACKS = 'mandarino-pacchetti';
 const CORE = ['./', './index.html', './manifest.json', './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => Promise.all(CORE.map(u => c.add(new Request(u, { cache: 'reload' })).catch(() => null))))); });
 /* la nuova versione aspetta: la pagina mostra «Nuova versione disponibile · Aggiorna» e manda SKIP_WAITING */
 self.addEventListener('message', e => { if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting(); });
-self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('mandarino-') && k !== CACHE && k !== MUSIC && k !== VOICE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
+self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('mandarino-') && k !== CACHE && k !== MUSIC && k !== VOICE && k !== PACKS).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
   const r = e.request; if (r.method !== 'GET' || new URL(r.url).origin !== location.origin) return;
+  if (/\/packs\//.test(new URL(r.url).pathname)) return;
   if (/\/audio\/voce\//.test(new URL(r.url).pathname)) {
     e.respondWith(caches.open(VOICE).then(c => c.match(r).then(m => m || fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }))));
     return;
