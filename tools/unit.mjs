@@ -73,6 +73,27 @@ function sandbox() {
   check("sincronizzazione: il file riletto si unisce ai dati locali", r && r.ok !== false);
 }
 
+/* ---- 2c. altezza della voce (src/voice/pitch.js): continuità fra fotogrammi, voce già al tocco, riferimento del tracciato dal vivo ---- */
+{
+  const pf = path.join(SRC, "voice/pitch.js"), pctx = vm.createContext({ Math, Float32Array, navigator: {}, performance }); pctx.window = pctx; pctx.CP = {};
+  vm.runInContext(fs.readFileSync(pf, "utf8"), pctx);
+  const A = pctx.CP._accept, st = (a, b) => 12 * Math.log2(a / b), up = (f, s) => f * Math.pow(2, s / 12);
+  const a1 = A(up(100, 0.8), 100, 0.016, []), a2 = A(200.5, 100, 0.016, []), a3 = A(up(100, 9), 100, 0.15, []);
+  check("altezza: fra fotogrammi di fila una variazione piccola passa, un errore d'ottava (×2) torna al registro giusto", a1.f > 0 && !a1.reseed && Math.abs(st(a2.f, 100)) < 0.2, JSON.stringify([a1, a2]));
+  check("altezza: dopo una pausa (consonante sorda, stacco fra sillabe) un salto di +9 semitoni vale così com'è, senza essere ripiegato di un'ottava", a3.reseed === true && Math.abs(st(a3.f, 100) - 9) < 0.01, JSON.stringify(a3));
+  const j = [], r1 = A(up(100, 6), 100, 0.016, j), r2 = A(up(100, 6.1), 100, 0.016, j), r3 = A(up(100, 5.9), 100, 0.016, j);
+  check("altezza: un salto di 6 semitoni fra fotogrammi di fila (non è un'ottava) è accettato solo se tre fotogrammi concordano, e allora si riparte da lì", r1.f === 0 && r2.f === 0 && r3.reseed === true && Math.abs(st(r3.f, 100) - 5.9) < 0.01, JSON.stringify([r1, r2, r3]));
+  const jg = [], g1 = A(up(100, 6), 100, 0.016, jg), g2 = A(up(100, 0.3), 100, 0.016, jg);
+  check("altezza: un fotogramma isolato fuori posto viene scartato e non lascia tracce", g1.f === 0 && g2.f > 0 && jg.length === 0);
+  const { run: micRun } = await import("./lib/mic-sim.mjs"), med = (x) => x.map((p) => p.f).sort((p, q) => p - q)[x.length >> 1];
+  const early = await micRun(pf, (t) => (t > 0.05 && t < 1.05 ? { f: 150, rms: 0.03 } : null), 2.5);
+  check("altezza: una voce sommessa che parte subito al tocco (dentro la calibrazione) viene trovata, non scambiata per rumore", early.length >= 30 && Math.abs(st(med(early), 150)) < 0.5, early.length + " punti, " + (early.length ? med(early).toFixed(0) : "—") + " Hz");
+  const two = await micRun(pf, (t) => (t > 0.45 && t < 0.80 ? { f: 200 - (t - 0.45) / 0.35 * 70, rms: 0.05 } : t > 0.91 && t < 1.30 ? { f: 230 - (t - 0.91) / 0.39 * 80, rms: 0.05 } : null), 2.5);
+  const second = two.filter((p) => p.t > 0.5);
+  check("altezza: due sillabe di 4° tono con stacco di +9 semitoni: la seconda resta nel suo registro (≈190 Hz, non un'ottava sotto)", second.length >= 15 && Math.abs(st(med(second), 190)) < 1, second.length + " punti, " + (second.length ? med(second).toFixed(0) : "—") + " Hz");
+  check("altezza: il tracciato dal vivo usa un riferimento fisso (primi 8 punti) e non salta mentre si parla", /live\.slice\(0, 8\)/.test(fs.readFileSync(path.join(SRC, "voice/voice-panel.js"), "utf8")));
+}
+
 /* ---- 2b. test di livello e sblocchi tra dispositivi ---- */
 {
   const { Store, LS } = sandbox();

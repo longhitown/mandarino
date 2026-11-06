@@ -33,6 +33,22 @@
   function semis(f, ref) { return 12 * Math.log(f / ref) / Math.LN2; }
   function median(a) { var b = a.slice().sort(function (x, y) { return x - y; }); return b.length ? b[b.length >> 1] : 0; }
   CP._semis = semis;
+  /* continuità dell'altezza fra un fotogramma e il precedente. Fra due fotogrammi di fila (≤ 80 ms) la voce non salta di più di qualche semitono:
+     un valore lontano è un errore d'ottava (vale il candidato f, 2f, f/2 più vicino) o un guasto, e a un salto vero si crede solo se tre fotogrammi
+     di fila concordano. Dopo una pausa (consonante sorda, stacco fra due sillabe) non c'è continuità da difendere: la frequenza trovata vale così com'è
+     e chi chiama riparte da lì (reseed). Prima la correzione d'ottava valeva anche dopo una pausa: lo stacco fra due sillabe (+9 semitoni) diventava
+     −3 e il resto della frase restava un'ottava sotto. Il vecchio limite di 6 semitoni non scattava mai, perché con le ottave ogni distanza si riduce a 6 o meno. */
+  function accept(f, prev, dt, jump) {
+    if (!(f > 0)) { jump.length = 0; return { f: 0 }; }
+    if (!prev || dt > 0.08) { jump.length = 0; return { f: f, reseed: !!prev }; }
+    var best = f, bd = 99;
+    [f, f * 2, f / 2].forEach(function (cand) { var d = Math.abs(semis(cand, prev)); if (d < bd) { bd = d; best = cand; } });
+    if (bd <= 4) { jump.length = 0; return { f: best }; }
+    jump.push(f); if (jump.length > 3) jump.shift();
+    if (jump.length === 3 && Math.abs(semis(jump[1], jump[0])) < 2 && Math.abs(semis(jump[2], jump[0])) < 2) { jump.length = 0; return { f: f, reseed: true }; }
+    return { f: 0 };
+  }
+  CP._accept = accept;
 
   /* forma ideale di ogni tono, in semitoni attorno alla voce di chi parla */
   var IDEAL = { 1: [[0, 2], [1, 2]], 2: [[0, -2], [1, 3]], 3: [[0, -2.5], [0.4, -5], [1, 1]], 4: [[0, 4], [1, -4]], 5: [[0, 0], [1, -0.5]] };
@@ -93,7 +109,7 @@
     var maxSec = o.maxSec || 3.5, c = CP.getCtx ? CP.getCtx() : null, S = { stopped: false };
     if (c && c.state !== "running" && c.resume) { try { c.resume(); } catch (e) {} }
     var src = null, an = null, sink = null, raf = 0, iv = 0, buf, rec = null, chunks = [], held = false;
-    var pts = [], noise = [], gate = 0.004, floor = 0, started = 0, lastV = 0, runV = 0, tStart = 0, prev = 0, hist = [], state = "wait";
+    var pts = [], noise = [], gate = 0.004, floor = 0, started = 0, lastV = 0, runV = 0, tStart = 0, prev = 0, hist = [], state = "wait", jump = [], early = false;
     if (CP.musicHold) CP.musicHold(true);
     var holdM = true;   /* la pausa della musica si toglie una sola volta */
     function release() {
@@ -120,17 +136,17 @@
       if (S.stopped) return;
       an.getFloatTimeDomainData(buf);
       var now = performance.now() / 1000, el = now - tStart;
-      if (el < 0.25) {   /* i primi 250 ms: si misura il rumore della stanza */
-        var r0 = detect(buf, c.sampleRate, 1); noise.push(r0.rms);
-        floor = median(noise); gate = Math.max(0.0025, Math.min(0.05, floor * 2.4));
-        o.onFrame({ level: 0, voiced: false, pts: pts, state: "calib", t: el }); return;
+      if (el < 0.25 && !early) {   /* i primi 250 ms: si misura il rumore della stanza */
+        var r0 = detect(buf, c.sampleRate, 0.0015);
+        if (r0.f > 0 && r0.c >= 0.8 && r0.rms >= 0.006) { early = true; if (!noise.length) floor = 0.004 / 2.4; }   /* una voce chiara già al tocco non è rumore: la soglia resta quella misurata (o di partenza) e si parte subito */
+        else {
+          noise.push(r0.rms); floor = median(noise); gate = Math.max(0.0025, Math.min(0.05, floor * 2.4));
+          o.onFrame({ level: 0, voiced: false, pts: pts, state: "calib", t: el }); return;
+        }
       }
       var r = detect(buf, c.sampleRate, gate), f = r.f;
-      if (f > 0 && prev) {
-        var best = f, bd = 99;
-        [f, f * 2, f / 2].forEach(function (cand) { var d = Math.abs(semis(cand, prev)); if (d < bd) { bd = d; best = cand; } });
-        f = bd > 6 ? 0 : best;
-      }
+      if (f > 0) { var ac = accept(f, prev, now - lastV, jump); f = ac.f; if (ac.reseed) { hist = []; prev = f; } }
+      else jump.length = 0;
       if (f > 0) {
         hist.push(f); if (hist.length > 5) hist.shift();
         runV++; lastV = now;
@@ -139,7 +155,8 @@
         else prev = f;
       } else {
         runV = 0;
-        if (r.rms < gate) { floor = floor * 0.97 + r.rms * 0.03; gate = Math.max(0.0025, Math.min(0.05, floor * 2.4)); }
+        /* la soglia scende subito dove l'ambiente è più quieto e sale piano (prima 6 volte più in fretta: una voce sommessa, appena sotto la soglia, veniva assorbita come rumore e la soglia la inseguiva) */
+        if (r.rms < gate) { floor = r.rms < floor ? floor * 0.9 + r.rms * 0.1 : floor * 0.995 + r.rms * 0.005; gate = Math.max(0.0025, Math.min(0.05, floor * 2.4)); }
         if (!started && now - lastV > 0.3) { prev = 0; hist = []; }
       }
       var level = Math.max(0, Math.min(1, (Math.log(Math.max(r.rms, 1e-5)) / Math.LN10 + 3.4) / 2.6));
@@ -148,7 +165,7 @@
         var quiet = now - lastV;
         if (quiet > 0.6) {
           if (pts.length >= 8) { end(); return; }
-          started = 0; pts = []; state = "wait"; hist = []; prev = 0;   /* era solo un rumore: si ricomincia ad aspettare */
+          started = 0; pts = []; state = "wait"; hist = []; prev = 0; jump = [];   /* era solo un rumore: si ricomincia ad aspettare */
         }
         if (started && now - started > maxSec) { end(); return; }
       }
