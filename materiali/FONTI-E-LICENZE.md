@@ -38,7 +38,7 @@ Verifica fatta il 27 ottobre 2026; dove non è stato possibile verificare, è de
 - **Quanto materiale utile c'è in tutto l'archivio** (calcolato su `validated.tsv`, voti ≥ 2 senza voti contrari, 4-20 caratteri, solo parole dell'app): **3.950 frasi distinte, 13.951 clip**, che coprono **3.178 delle 6.380 parole** dell'app. Frasi distinte per livello: 168 (1), 407 (2), 749 (3), 973 (4), 984 (5), 669 (6). Le frasi dei primi livelli sono rare perché il corpus è fatto di frasi lunghe e di argomenti vari (media 10 caratteri).
 
 ### Testi originali di questo pacchetto (`testi/`)
-- Scritti per il progetto con l'aiuto di strumenti di intelligenza artificiale, su indicazione di Claudio Longhitano. Licenza **CC BY-NC-SA 4.0**, come i contenuti didattici del progetto. Bozze da far rileggere.
+- Scritti per il progetto con l'aiuto di strumenti di intelligenza artificiale, su indicazione di Claudio Longhitano. Licenza **CC BY-NC-SA 4.0**, come i contenuti didattici del progetto.
 
 ## Non usati, e perché
 
