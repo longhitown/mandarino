@@ -21,7 +21,8 @@ Principio: **lo sviluppatore non riceve dati personali.** Sul telefono restano p
 |---|---|
 | L'app raccoglie o condivide tipi di dati utente? | **Sì** (solo le due funzioni facoltative qui sotto) |
 | Dati criptati in transito | Sì: le richieste usano HTTPS |
-| Cancellazione dei dati | Nessun dato è conservato dallo sviluppatore; i dati locali si cancellano da Impostazioni → Dati e sincronizzazione o disinstallando |
+| Richiesta di eliminazione dei dati (facoltativa) | **Sì**, con l'indirizzo `https://mandarinoapp.org/privacy.html#italiano`: la sezione «Eliminare i tuoi dati» di [PRIVACY.md](../../PRIVACY.md), in italiano e in cinese, spiega che nulla è conservato dallo sviluppatore e come si cancellano i dati locali. **Il sito deve avere la pagina aggiornata prima dell'invio** (merge e workflow «pages») |
+| Account | **La mia app non consente agli utenti di creare un account**; accesso con account esterni: **No** |
 | Pubblicità, acquisti, account | Nessuna pubblicità, nessun acquisto, nessun account |
 
 Tipi di dati da selezionare:

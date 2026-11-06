@@ -135,6 +135,17 @@ L'app non sa chi ha donato. Una donazione passa da Ko-fi, con la sua informativa
 (nome, e-mail, importo, messaggio) e lo uso soltanto per mandare il sigillo a chi lo chiede. Su richiesta cancello questi
 dati dal mio registro. Il codice del sigillo non contiene dati personali.
 
+### Eliminare i tuoi dati
+
+màndarínō non ha account e non conserva i tuoi dati su server nostri (non ne abbiamo): non c'è niente da chiederci di cancellare. I dati che esistono stanno sul tuo dispositivo o nei file che hai scelto tu, e li elimini così:
+
+- **Progressi, impostazioni, contributi non ancora mandati:** Impostazioni → Dati e sincronizzazione, oppure «Cancella i dati» dell'app nelle impostazioni di Android, oppure disinstalla l'app.
+- **Pacchetti di dati scaricati:** Impostazioni → Avanzate → Pacchetti di dati scaricabili → Elimina (due conferme).
+- **File di sincronizzazione o di backup:** sono dove li hai salvati (il tuo cloud, il telefono): li cancelli da lì. Il backup automatico di Android sta nel tuo account Google (impostazioni del telefono → Google → Backup).
+- **Voce online e riconoscimento della voce (facoltativi):** il testo o l'audio vanno a Google, che li gestisce secondo le sue regole, non noi. Per vedere o cancellare quell'attività: myactivity.google.com.
+
+Domande: mandarinoapp@gmail.com.
+
 ### Contatti
 
 `mandarinoapp@gmail.com` · Claudio Longhitano, autore di màndarínō.
@@ -220,6 +231,17 @@ dati dal mio registro. Il codice del sigillo non contiene dati personali.
 ### 捐助和印章
 
 应用不知道谁捐助过。捐助通过 Ko-fi 进行，适用其隐私政策。我只能看到 Ko-fi 显示的信息（姓名、电子邮件、金额、留言），并且只用来给提出请求的人发送印章。应要求，我会从记录中删除这些数据。印章代码不含个人数据。
+
+### 删除你的数据
+
+màndarínō 没有账号，也不会把你的数据保存在我们的服务器上（我们没有服务器），所以没有什么需要请我们删除。已有的数据都在你的设备上，或在你自己选择的文件里，删除方法如下：
+
+- **学习记录、设置、尚未寄出的贡献：** 设置 → 数据与同步；也可以在安卓系统设置里点“清除数据”，或直接卸载应用。
+- **已下载的数据包：** 设置 → 高级 → 可下载的数据包 → 删除（需要两次确认）。
+- **同步文件或备份文件：** 它们在你保存的地方（你的云盘、手机），从那里删除即可。安卓自动备份在你的 Google 账号里（手机设置 → Google → 备份）。
+- **在线语音和语音识别（均为可选）：** 文本或音频会发送给 Google，由 Google 按其规则处理，而不是我们。查看或删除相关活动：myactivity.google.com。
+
+如有疑问：mandarinoapp@gmail.com。
 
 ### 联系方式
 
