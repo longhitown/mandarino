@@ -50,6 +50,7 @@ carica a mano nella Play Console.
 - **Una sola chiave** firma l'APK diretto, l'APK store e il pacchetto `.aab`. Sta nei segreti del repository (`MD_KEYSTORE_B64`,
   `MD_KEYSTORE_PASSWORD`, facoltativi `MD_KEY_ALIAS` e `MD_KEY_PASSWORD`). Il workflow **release** si ferma se mancano: una release stabile
   non si firma mai con la chiave di prova. Conserva una copia della chiave fuori da GitHub.
+  **Chiave del 6 novembre 2026** (la precedente era andata persa): impronta SHA-256 `A4:6C:99:C2:F9:2F:A5:48:43:A6:CC:5F:F3:9A:EF:53:9E:BE:DF:1B:B2:DC:28:4A:85:C4:BC:E0:30:AF:57:92`, la stessa di [MARCHIO.md](../../MARCHIO.md) e della ricetta di F-Droid. Con la perdita di quella chiave, la prima volta che si installa una versione firmata con la nuova bisogna disinstallare le prove vecchie.
 - Il workflow controlla che i due APK abbiano **lo stesso certificato** e ne scrive l'impronta nel riepilogo. Quella è l'impronta da
   mettere nella ricetta di F-Droid (`AllowedAPKSigningKeys`), vedi [f-droid.md](f-droid.md).
 - **Google Play** ha la «firma delle app di Play»: Google custodisce la chiave che firma gli APK distribuiti. Perché l'utente passi da un

@@ -30,8 +30,7 @@ se sono identici, distribuisce **il nostro, firmato da noi**. Così la firma è 
 direzione. Nella ricetta, a questo servono due campi, ora commentati:
 
 - `Binaries`: dove F-Droid scarica il nostro APK (`mandarino-store.apk` della Release `r%v`);
-- `AllowedAPKSigningKeys`: l'impronta SHA-256 del certificato, che la persona che gestisce il progetto inserirà **dopo** aver creato la
-  chiave nuova e aver fatto la prima release con quella (il workflow «release» la scrive nel riepilogo di ogni corsa).
+- `AllowedAPKSigningKeys`: l'impronta SHA-256 del certificato. **Dal 6 novembre 2026 è quella della chiave nuova** (`a46c99c2f92fa54843a6cc5ff39aef539ebedf1bb2dc284a85c4bce030af5792`, la stessa di [MARCHIO.md](../../MARCHIO.md)); il workflow «release» la riscrive nel riepilogo di ogni corsa e un test (`tools/unit.mjs`) controlla che ricetta e MARCHIO.md coincidano.
 
 **Che cosa è già a posto per la riproducibilità**
 

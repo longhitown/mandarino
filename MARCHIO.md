@@ -37,10 +37,12 @@ Un **fork** deve cambiare nome e logo e dire in modo chiaro che non è l'origina
 Le versioni ufficiali per Android sono firmate con questo certificato (impronta SHA-256, pubblica):
 
 ```
-E7:06:41:5E:BF:0E:71:43:B6:8A:3D:B3:25:8E:44:5B:F3:4F:03:D0:43:19:D1:28:50:DA:3A:F3:70:3C:E5:9D
+A4:6C:99:C2:F9:2F:A5:48:43:A6:CC:5F:F3:9A:EF:53:9E:BE:DF:1B:B2:DC:28:4A:85:C4:BC:E0:30:AF:57:92
 ```
 
 Se un pacchetto con il nome màndarínō ha un'impronta diversa, **non è quello ufficiale**. Se l'impronta cambiasse, lo scriveremo qui.
+
+**6 novembre 2026: chiave nuova.** La chiave di firma precedente è andata persa, quindi prima della pubblicazione sugli store ne è stata creata una nuova (RSA 2048, valida fino al 2054), che firma tutti i canali: Google Play, F-Droid e APK diretto. Le prove fatte prima di quella data, firmate con la chiave precedente, non si aggiornano sopra le versioni nuove: vanno disinstallate (i progressi si salvano con il backup dell'app). Non c'era ancora nessuna versione pubblicata sugli store.
 
 ### Che cosa è e che cosa non è questa pagina
 
