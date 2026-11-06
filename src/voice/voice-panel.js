@@ -87,8 +87,9 @@
         x.moveTo(a.x * W, Math.max(top, Math.min(H - 4, yOf(a.s)))); x.lineTo(b.x * W, Math.max(top, Math.min(H - 4, yOf(b.s)))); x.stroke();
       }
     } else if (live && live.length) {
-      /* in diretta: la voce scorre nel tempo, attorno alla sua mediana */
-      var fs = live.map(function (p) { return p.f; }).sort(function (p, q) { return p - q; }), med = fs[fs.length >> 1], dur = Math.max(1.6, live[live.length - 1].t + 0.2);
+      /* in diretta: la voce scorre nel tempo, attorno a un riferimento FISSO: la mediana dei primi 8 punti (prima era quella di tutti i punti, ricalcolata a
+         ogni fotogramma: il tracciato saliva e scendeva mentre si parlava). La scala del tempo cresce a scatti di 0,4 s, non di continuo. */
+      var fs = live.slice(0, 8).map(function (p) { return p.f; }).sort(function (p, q) { return p - q; }), med = fs[fs.length >> 1], dur = Math.max(1.6, Math.ceil((live[live.length - 1].t + 0.2) / 0.4) * 0.4);
       x.strokeStyle = okC; x.lineWidth = 4; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath();
       live.forEach(function (p, k) { var px = p.t / dur * W, py = Math.max(top, Math.min(H - 4, yOf(CP._semis(p.f, med)))); if (k && p.t - live[k - 1].t < 0.12) x.lineTo(px, py); else x.moveTo(px, py); });
       x.stroke();

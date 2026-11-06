@@ -354,7 +354,7 @@
         /* nell'APK il motore vocale può essere stato spento dal sistema: il ponte lo riavvia, e una seconda richiesta, poco dopo, di solito riesce */
         if (window.__MD_APK && !o.noRetry && /^synthesis/.test(err || "") && !finished && token === mine) {
           finished = true; clearTimeout(failTimer); clearTimeout(startTimer); if (CP.bus) CP.bus.duck(false); curStop = null;
-          var o3 = {}; Object.keys(o).forEach(function (k) { o3[k] = o[k]; }); o3.noRetry = true; setTimeout(function () { CP.speak(text, o3); }, 700); return;
+          var o3 = {}; Object.keys(o).forEach(function (k) { o3[k] = o[k]; }); o3.noRetry = true; setTimeout(function () { if (token === mine) CP.speak(text, o3); }, 700); return;   /* se nel frattempo si è toccato altro (o si è fermata la voce) la frase vecchia non riparte sopra la nuova */
         }
         if (zh && !started) cloud(); else finish();
       };
@@ -612,7 +612,13 @@
     /* chi chiama può fermare o annullare l'ascolto: vale per il tentativo in corso, qualunque sia */
     handle = {
       stop: function () { stopped = true; if (cur) try { cur.stop(); } catch (e) {} },
-      abort: function () { stopped = true; done = true; if (CP._activeListen === handle) CP._activeListen = null; if (cur) try { cur.abort(); } catch (e) {} }
+      /* abort(true) avvisa chi ascoltava con { error: "aborted", aborted: true }: serve quando l'ascolto lo ferma un altro (l'oscilloscopio dei toni),
+         perché il pulsante di chi ascoltava toglie da sé «ascolto…». Chi annulla di persona (abort() senza argomenti) si occupa già del proprio pulsante. */
+      abort: function (notify) {
+        stopped = true;
+        if (notify && !done) finish({ ok: false, heard: "", error: "aborted", aborted: true });
+        done = true; if (CP._activeListen === handle) CP._activeListen = null; if (cur) try { cur.abort(); } catch (e) {}
+      }
     };
     CP._activeListen = handle;
     return handle;
@@ -621,7 +627,7 @@
      Risponde true se ce n'era uno da chiudere (serve un attimo perché il telefono liberi il microfono). */
   CP.listenRelease = function () {
     var h = CP._activeListen; if (!h) return false;
-    CP._activeListen = null; try { h.abort(); } catch (e) {} return true;
+    CP._activeListen = null; try { h.abort(true); } catch (e) {} return true;
   };
   /* ripiego universale: senza riconoscimento vocale (Firefox, iOS installata, offline) si registra e si confronta */
   CP.canRecord = function () { return !!(window.MediaRecorder && navigator.mediaDevices && navigator.mediaDevices.getUserMedia); };
@@ -660,7 +666,7 @@
     CP.sfx("tap");
     b._rec = CP.listen(goal, function (r) {
       b.classList.remove("listening"); b._rec = null;
-      if (b._abort) { b._abort = false; if (out.parentNode) out.parentNode.removeChild(out); return; }
+      if (b._abort || r.aborted) { b._abort = false; if (out.parentNode) out.parentNode.removeChild(out); return; }
       if (r.error && SR_DOWN.test(r.error) && CP.canScope && CP.canScope() && CP.voicePanel) {
         /* il riconoscimento qui non va (rete, lingua non installata, servizio assente): per questa sessione si usa il pannello */
         CP._srDown = r.error; CP._srDownAt = Date.now(); if (out.parentNode) out.parentNode.removeChild(out);

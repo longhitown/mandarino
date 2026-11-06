@@ -186,6 +186,7 @@
       CP.stopSpeak(); btn.classList.add("listening"); out.className = "heard"; out.textContent = "⟦mic⟧ " + T("dlg.listen");
       btn._rec = CP.listen(l[2], function (r) {
         btn.classList.remove("listening"); btn._rec = null;
+        if (r.aborted) { out.className = "heard"; out.textContent = ""; return; }   /* l'ascolto l'ha fermato un altro (l'oscilloscopio): niente «ascolto…» rimasto a metà */
         if (!rp) return;
         if (r.error) { out.className = "heard ko"; out.textContent = "⟦mic⟧ " + (r.error === "no-speech" ? T("dlg.noSpeech") : CP.micErrText(r.error)) ; if (CP.inFrame && r.error !== "no-speech") out.insertAdjacentHTML("beforeend", "<div style='margin-top:8px'>" + CP.frameBtn() + "</div>"); CP.sfx("ko"); return; }
         var best = 0; (r.alts && r.alts.length ? r.alts : [r.heard]).forEach(function (a) { best = Math.max(best, U.sim(a, l[2])); });

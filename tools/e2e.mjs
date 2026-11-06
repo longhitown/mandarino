@@ -1848,6 +1848,53 @@ try {
     check("APK, voce: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+  /* APK, difetto B dell'audit audio: dopo l'errore del motore la ripetizione parte dopo 700 ms; se nel frattempo si è toccato altro, la frase vecchia non deve ripartire sopra la nuova */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 360, height: 740 } });
+    await ctx.addInitScript(() => {
+      window.__said = []; window.__MD_APK = { version: "test" };
+      const fake = { speaking: false, pending: false, cancel() {}, getVoices() { return []; }, addEventListener() {}, onvoiceschanged: null,
+        speak(u) { window.__said.push(u.text); const first = window.__said.filter((x) => x === "你好").length === 1 && u.text === "你好"; if (first) setTimeout(() => u.onerror && u.onerror({ error: "synthesis-failed" }), 5); else { setTimeout(() => u.onstart && u.onstart(), 5); setTimeout(() => u.onend && u.onend(), 20); } } };
+      Object.defineProperty(window, "speechSynthesis", { value: fake, configurable: true });
+    });
+    const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.evaluate(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); }); await p.reload(); await p.waitForTimeout(600);
+    const r = await p.evaluate(async () => {
+      CP.speak("你好", { noClip: true });
+      await new Promise((x) => setTimeout(x, 150));   /* l'errore è arrivato, la ripetizione aspetta i suoi 700 ms */
+      CP.speak("再见", { noClip: true });             /* la persona tocca un'altra parola */
+      await new Promise((x) => setTimeout(x, 1100));
+      return window.__said.slice();
+    });
+    check("APK: la ripetizione dopo un errore del motore non riparte se nel frattempo si è toccata un'altra parola (audit audio, difetto B)", JSON.stringify(r) === JSON.stringify(["你好", "再见"]), JSON.stringify(r));
+    check("APK, ripetizione della voce: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
+  /* difetto D dell'audit audio: se un altro (l'oscilloscopio dei toni) ferma l'ascolto, il pulsante di chi ascoltava toglie da sé «ascolto…» */
+  {
+    const ctx = await browser.newContext({ viewport: { width: 360, height: 740 } });
+    await ctx.addInitScript(() => {
+      class FakeSR { start() { window.__srStarted = (window.__srStarted || 0) + 1; } stop() {} abort() { window.__srAborted = (window.__srAborted || 0) + 1; setTimeout(() => this.onerror && this.onerror({ error: "aborted" }), 0); } }
+      window.SpeechRecognition = FakeSR; window.webkitSpeechRecognition = FakeSR;
+    });
+    const p = await ctx.newPage(); const errs = []; p.on("pageerror", (e) => errs.push(e.message));
+    await p.goto(base); await p.evaluate(() => { localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); }); await p.reload(); await p.waitForTimeout(600);
+    const r = await p.evaluate(async () => {
+      const host = document.createElement("div"); host.className = "ln"; host.innerHTML = CP.micBtn("你好"); document.body.appendChild(host);
+      const b = host.querySelector("[data-mic]"); b.click(); await new Promise((x) => setTimeout(x, 50));
+      const during = { listening: b.classList.contains("listening"), started: window.__srStarted || 0, out: !!host.querySelector(".heard") };
+      const freed = CP.listenRelease(); await new Promise((x) => setTimeout(x, 50));
+      return { during, freed, listening: b.classList.contains("listening"), heard: (host.querySelector(".heard") || {}).textContent || "", aborted: window.__srAborted || 0, rec: !!b._rec };
+    });
+    check("Ascolto fermato da un altro (toni): il pulsante di chi ascoltava toglie «ascolto…» e il riconoscitore viene abortito (audit audio, difetto D)", r.during.listening && r.during.started === 1 && r.freed === true && !r.listening && r.heard === "" && r.aborted === 1 && !r.rec, JSON.stringify(r));
+    check("Ascolto fermato da un altro, annullare di persona: un secondo tocco ferma l'ascolto come prima", await p.evaluate(async () => {
+      const host = document.createElement("div"); host.className = "ln"; host.innerHTML = CP.micBtn("再见"); document.body.appendChild(host);
+      const b = host.querySelector("[data-mic]"); b.click(); await new Promise((x) => setTimeout(x, 30)); const on = b.classList.contains("listening"); b.click(); await new Promise((x) => setTimeout(x, 30));
+      return on && !b.classList.contains("listening") && !b._rec;
+    }));
+    check("Ascolto fermato da un altro: nessun errore JavaScript", !errs.length, errs[0]);
+    await ctx.close();
+  }
   /* difetti trovati sul telefono: microfono occupato, laboratorio, selezione di testo, stampa, cambio lingua senza animazione */
   {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
