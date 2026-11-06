@@ -1,0 +1,4 @@
+• Voce: il tracciato dell'altezza della voce è più stabile e si calibra sul tuo registro.
+• Sincronizzazione cloud: il file di backup si legge anche con byte in più, e su Android la scrittura non lascia più file troncati.
+• Audio: la riproduzione si ferma anche quando un esercizio si interrompe.
+• Impostazioni → Avanzate: la base per scaricare, solo se vuoi tu, pacchetti di dati in più, verificati con SHA-256 e cancellabili con doppia conferma (per ora non ce ne sono di pubblicati).
