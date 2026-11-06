@@ -2,7 +2,7 @@
 
 Bozza delle risposte ai moduli della Play Console, ricavate dal codice di questa versione (`android/app/src/main/AndroidManifest.xml`,
 [PRIVACY.md](../../PRIVACY.md)). **Prima di inviare ogni modulo, rileggi le domande della Console: Google le cambia nel tempo.**
-Le voci segnate «DA DECIDERE» non hanno una risposta ovvia e vanno confermate da chi gestisce il progetto.
+Le voci segnate «DA DECIDERE» non hanno una risposta ovvia e vanno confermate da chi gestisce il progetto. La sezione «Sicurezza dei dati» è stata decisa il 6 novembre 2026.
 
 ## Scheda
 - **Nome:** `màndarínō: impara il cinese` (27/30). Il marchio resta màndarínō; il resto aiuta chi cerca «app per imparare il cinese».
@@ -13,23 +13,32 @@ Le voci segnate «DA DECIDERE» non hanno una risposta ovvia e vanno confermate 
   veri (cinese mandarino, HSK, pinyin, hanzi, flashcard) una volta o due, senza elenchi di parole: Google lo considera spam.
 
 ## Sicurezza dei dati (Data safety)
-Principio: **lo sviluppatore non riceve dati personali.** Sul telefono restano progressi, impostazioni e contributi.
+Principio: **lo sviluppatore non riceve dati personali.** Sul telefono restano progressi, impostazioni e contributi. Non ci sono analytics, account, pubblicità né server nostri.
 
-| Domanda | Risposta proposta |
+**Scelta del 6 novembre 2026: dichiarazione prudente.** Alla domanda «L'app raccoglie o condivide uno o più dei tipi di dati utente richiesti?» si risponde **Sì**, perché due funzioni facoltative mandano qualcosa fuori dal telefono (per Google «raccogliere» = trasmettere dati dall'app fuori dal dispositivo). Dichiarare un po' di più costa poco; dichiarare di meno espone a provvedimenti se Google trova una discrepanza. Le etichette della Console cambiano nel tempo: rileggi le domande.
+
+| Domanda | Risposta |
 |---|---|
-| L'app raccoglie o condivide dati degli utenti? | No per i dati che lasciano il telefono verso lo sviluppatore. Vedi sotto i due punti «DA DECIDERE» |
-| Dati criptati in transito | Sì: le poche richieste usano HTTPS |
-| Si può chiedere la cancellazione | I dati sono solo sul telefono: si cancellano da Impostazioni → Dati e sincronizzazione o disinstallando |
+| L'app raccoglie o condivide tipi di dati utente? | **Sì** (solo le due funzioni facoltative qui sotto) |
+| Dati criptati in transito | Sì: le richieste usano HTTPS |
+| Richiesta di eliminazione dei dati (facoltativa) | **Sì**, con l'indirizzo `https://mandarinoapp.org/privacy.html#italiano`: la sezione «Eliminare i tuoi dati» di [PRIVACY.md](../../PRIVACY.md), in italiano e in cinese, spiega che nulla è conservato dallo sviluppatore e come si cancellano i dati locali. **Il sito deve avere la pagina aggiornata prima dell'invio** (merge e workflow «pages») |
+| Account | **La mia app non consente agli utenti di creare un account**; accesso con account esterni: **No** |
 | Pubblicità, acquisti, account | Nessuna pubblicità, nessun acquisto, nessun account |
 
-- **DA DECIDERE · voce online (facoltativa, spenta di base):** se la persona la accende, il testo cinese da leggere va a un servizio di sintesi
-  vocale di Google. Non è un dato personale, ma esce dal telefono su richiesta della persona. La scelta prudente è dichiararlo come
-  «altri contenuti / condiviso con terzi, facoltativo».
-- **DA DECIDERE · riconoscimento vocale degli esercizi:** usa il servizio di sistema del telefono (che può essere di Google). L'app non riceve
-  né salva l'audio. Controlla nelle istruzioni di Google se un servizio di sistema richiamato dall'app conta come «condivisione»; nel
-  dubbio, dichiaralo come audio elaborato in modo facoltativo e non conservato.
-- **Scambio linguistico (facoltativo, spento di base, solo adulti):** le registrazioni restano sul telefono e le manda la persona stessa, fuori
-  dall'app, con un file `.zip`: l'app non le carica da sola.
+Tipi di dati da selezionare:
+1. **Registrazioni vocali o audio** (esercizi di pronuncia): *facoltativo*; finalità «funzionalità dell'app»; non condiviso (lo elabora il riconoscitore di sistema per conto della persona, e l'app non riceve né salva l'audio).
+2. **Altri contenuti generati dall'utente** (il testo cinese letto dalla «Voce online», che può includere quello che la persona incolla nel Lettore): *facoltativo* (spenta di base); finalità «funzionalità dell'app»; **condiviso con una terza parte** (il servizio di sintesi vocale di Google, `translate.googleapis.com`).
+
+Non dichiarare: posizione, contatti, identificativi, acquisti, salute, foto o video. Non sono dati dell'utente nel senso del modulo:
+- i pacchetti di dati scaricabili e il controllo del pacchetto voci (`GET` di file pubblici, uguali per tutti, senza dati nostri né cookie né Referer);
+- la sincronizzazione cloud, il backup e lo scambio linguistico (azioni della persona, su un file che sceglie lei, fuori dall'app);
+- la fotocamera (solo per leggere un QR) e il microfono (registrazioni che restano sul telefono).
+
+Se in futuro si toglie la voce online dall'edizione store (usa un indirizzo di Google Translate non ufficiale), resta solo il riconoscimento vocale di sistema e il punto 2 cade.
+
+**Protezione automatica di Google («Protected with Play»): spenta**, compreso il «controllo del dispositivo». Contraddice la distribuzione su GitHub e F-Droid, non protegge nulla di segreto (il codice è aperto), aggiunge codice di Google e rende diversa la build di Play dalle altre.
+
+**Pacchetto dell'app: `it.mandarino.app`** (definitivo dal primo caricamento; è lo stesso di F-Droid, dell'APK diretto e della chiave di firma).
 
 ## Autorizzazioni e dichiarazioni
 | Permesso | A che cosa serve |
