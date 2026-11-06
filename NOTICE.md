@@ -61,6 +61,10 @@ Questi file hanno la licenza della loro fonte.
 
 `levels.js` e `freq.js` sono MIT come il progetto da cui vengono, ma quel progetto raccoglie dati di altri (anche CC BY-SA 4.0, per la frequenza): le fonti, una per una, sono in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
+## Dati del dataset V3 (in preparazione)
+
+Il dataset V3 e i pacchetti opzionali ([docs/v3-grafo.md](docs/v3-grafo.md)) usano gli stessi livelli di licenza di sopra e ogni record dichiara la sua: lezioni, testi originali e calchi estratti dalle lezioni sono **CC BY-NC-SA 4.0**; i fatti linguistici e il codice di compilazione sono **MIT**; i dati di altri entrano con la loro licenza e la loro attribuzione (CC-CEDICT, Tatoeba, Morph-it!, Wiktionary: vedi [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)). Il rango di frequenza è **CC BY-SA 4.0**. Dati con licenze incompatibili non si fondono: stanno in file separati.
+
 ## Contributi
 
 Se mi proponi una correzione o una parola (dall'app, con una issue o per e-mail), accetti che venga pubblicata con la

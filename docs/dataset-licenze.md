@@ -20,6 +20,18 @@ pubblicare e con quali condizioni. Prima di caricare qualunque cosa su GitHub o 
 | Genere, plurale e forme dell'italiano | `src/data/it/lexicon.js` | Morph-it! | LGPL (doppia licenza con CC BY-SA 2.0) | **No** (v1) |
 | Dati di Wikidata | `src/data/wiki/zh-it.txt` | wikidict-it | CC0 1.0 | Possibile, ma non serve |
 
+## Dataset V3 (grafo) e pacchetti opzionali: aggiornamento del 6 novembre 2026
+
+Il dataset V3 ([v3-grafo.md](v3-grafo.md)) è locale e **non è ancora pubblicato**. Per la frequenza è stato deciso questo, e va scritto:
+
+- **Il rango di frequenza (`rango_frequenza`) entra nei dati V3**, ma come dato **CC BY-SA 4.0** con attribuzione (complete-hsk-vocabulary → krmanik/HSK-3.0-words-list → SUBTLEX-CH e le altre fonti elencate in [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md)), non come MIT. Un nodo che lo porta ha licenza CC BY-SA 4.0 e sta in un file separato dagli altri; la v1 del dataset resta senza frequenza, come sopra.
+- Di conseguenza `freq.js` (già nell'app) ha lo stesso trattamento: MIT sul progetto, CC BY-SA 4.0 sulle fonti a monte, con i crediti già in `THIRD-PARTY-NOTICES.md`. Restano valide le cautele di allora: chi riusa quei numeri deve tener conto della licenza a monte.
+- **Altre fonti di livello B nel V3:** CC-CEDICT (CC BY-SA 4.0), Tatoeba (CC BY 2.0 Francia, autore per frase), Morph-it! (LGPL), Wiktionary tramite Wiktextract/kaikki.org (CC BY-SA 4.0 e GFDL: etichette di registro e campo semantico). I record di fonti incompatibili (CC BY-NC-SA con CC BY-SA o LGPL) non si fondono mai: stanno in file diversi, un file per licenza.
+- **Lezioni, testi originali e calchi estratti dalle lezioni:** CC BY-NC-SA 4.0, come `NOTICE.md`. I fatti linguistici puri e il codice di compilazione restano MIT.
+- **Mai nei dati distribuiti:** i libri di testo e i dati di cui non possiamo mostrare la licenza (livello C) e tutto ciò che ne deriva.
+
+Il registro completo delle fonti (percorso, licenza, indirizzo, data, ridistribuibilità) è un file CSV del dataset locale, controllato da uno script che blocca la compilazione se un file non è classificato.
+
 ## Proposta per la prima versione
 
 **`italian-chinese-hsk3-vocabulary` (v1):** una tabella con `hanzi`, `pinyin`, `italiano`, `nota`, `sezione`, `titolo_sezione`, `livello_hsk`, in CSV e JSON. **Senza la frequenza**: il controllo del 1 novembre 2026 ha mostrato che l'ordine di frequenza di complete-hsk-vocabulary ha origine in dati CC BY-SA 4.0 (SUBTLEX-CH e le liste di krmanik). Quei numeri, per i quali non possiamo garantire la compatibilità con la nostra licenza, non servono e restano fuori.

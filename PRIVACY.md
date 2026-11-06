@@ -29,6 +29,15 @@ L'app funziona tutta offline. La rete si usa solo in questi casi, che decidi tu:
 | **Musica e dizionario dei nomi** (versione web) | al primo ascolto di un brano, al primo uso dei «nomi e termini» del Lettore | la richiesta del file | lo stesso sito dell'app |
 | **Aggiornamenti dell'app** (versione web) | all'apertura, se c'è rete | la richiesta della versione nuova | lo stesso sito dell'app |
 
+### Pacchetti opzionali di dati (previsto: non ancora attivo in questa versione)
+
+Le versioni future potranno offrire, in Impostazioni, **pacchetti opzionali** di dati (per esempio parole di livello avanzato, chengyu, trappole del corso di italiano). Quando esisteranno funzioneranno così, e questa pagina sarà aggiornata nel momento in cui escono:
+
+- **Solo se li scegli tu.** Il download parte soltanto quando tocchi «Scarica» su un pacchetto; mai da solo, mai in sottofondo. Le parti indispensabili per usare l'app restano dentro l'app e non richiedono rete.
+- **Una richiesta statica e anonima.** Un `GET` di un file pubblico dello stesso sito (`mandarinoapp.org`), senza cookie, senza identificativi e senza intestazione Referer; la richiesta è uguale per tutti. Nessuna telemetria: non registriamo chi scarica che cosa. Come per ogni visita al sito, il fornitore dell'hosting può registrare l'indirizzo IP (vedi sotto).
+- **Controllo di integrità.** Ogni file ha un'impronta SHA-256 scritta nell'indice dell'app, e l'app la verifica prima di usarlo. Se non coincide, il file viene scartato.
+- **Dopo il download è tutto locale** (memoria del browser o dell'app, come le voci); si può eliminare in ogni momento, con un avviso su che cosa si perde e una doppia conferma, e si può riscaricare. I progressi di studio non dipendono dai pacchetti.
+
 ### Dove scaricare l'app (sito, Google Play, F-Droid)
 
 L'app è la stessa; cambia solo chi la distribuisce. La versione dal sito o da GitHub (APK) controlla da sola le novità, come
