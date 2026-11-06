@@ -56,6 +56,23 @@ function sandbox() {
   check("unione: rifarla con gli stessi dati non cambia niente", !again.changed);
 }
 
+/* ---- 2a. il file della sincronizzazione letto da un altro dispositivo: BOM, spazi, byte rimasti in coda ---- */
+{
+  const { Store } = sandbox();
+  const ok = { app: "mandarino", v: 5, kv: { "cp-fav-v1": JSON.stringify(["好"]) }, log: [], note: 'una } graffa e una \\" virgoletta dentro una stringa' };
+  const txt = JSON.stringify(ok), old = JSON.stringify({ ...ok, kv: { "cp-fav-v1": JSON.stringify(["好", "你", "我", "他", "她", "们"]) }, extra: "x".repeat(200) });
+  const same = (t) => { const o = Store.parseBackup(t); return !!o && o.app === "mandarino" && JSON.stringify(o) === txt; };
+  check("sincronizzazione: il file con BOM UTF-8 si legge", same("﻿" + txt));
+  check("sincronizzazione: spazi e righe vuote prima e dopo il JSON non danno errore", same("  \r\n﻿\n" + txt + "\n\n  "));
+  check("sincronizzazione: il file riempito di spazi (provider che non tronca) si legge", same(txt + " ".repeat(300)));
+  check("sincronizzazione: un file riscritto più corto senza troncare (resto del vecchio contenuto in coda) si legge", same(txt + old.slice(txt.length)));
+  check("sincronizzazione: con graffe e virgolette dentro le stringhe il primo oggetto resta intero", same(txt + '}"}' + old.slice(10)));
+  check("sincronizzazione: un file tagliato a metà o non JSON non viene preso per buono", Store.parseBackup(txt.slice(0, 60)) === null && Store.parseBackup("<html>pagina di errore</html>") === null && Store.parseBackup("[1,2,3] x") === null);
+  check("sincronizzazione: file vuoto o solo BOM = nessun contenuto", Store.parseBackup("") === null && Store.parseBackup("﻿  ") === null && Store.parseBackup(null) === null);
+  const r = await Store.importObj(Store.parseBackup("﻿" + txt + old.slice(txt.length)), "merge");
+  check("sincronizzazione: il file riletto si unisce ai dati locali", r && r.ok !== false);
+}
+
 /* ---- 2b. test di livello e sblocchi tra dispositivi ---- */
 {
   const { Store, LS } = sandbox();

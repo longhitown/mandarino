@@ -248,6 +248,22 @@
     if (k === "cp-ex-v1") return mergeEx(a, b);
     return null;   /* preferenze del dispositivo (KEEP) e le altre chiavi: vince il dispositivo corrente */
   }
+  /* il testo di un file di progressi → l'oggetto, oppure null. Tollera il BOM UTF-8 e gli spazi in testa, e ciò che segue la fine del JSON:
+     un provider cloud che riscrive senza troncare lascia in coda un pezzo del contenuto precedente, e in quel caso vale il primo oggetto completo */
+  function parseBackup(text) {
+    var s = String(text == null ? "" : text).replace(/^﻿/, "").trim(), depth = 0, str = false, esc = false, i, c;
+    if (!s) return null;
+    try { return JSON.parse(s); } catch (e) {}
+    if (s.charAt(0) !== "{") return null;
+    for (i = 0; i < s.length; i++) {
+      c = s.charAt(i);
+      if (str) { if (esc) esc = false; else if (c === "\\") esc = true; else if (c === '"') str = false; }
+      else if (c === '"') str = true;
+      else if (c === "{") depth++;
+      else if (c === "}" && --depth === 0) { try { return JSON.parse(s.slice(0, i + 1)); } catch (e2) { return null; } }
+    }
+    return null;
+  }
   /* JSON con le chiavi in ordine: due valori uguali danno lo stesso testo, qualunque sia l'ordine in cui sono stati costruiti */
   function canon(x) {
     if (Array.isArray(x)) return "[" + x.map(canon).join(",") + "]";
@@ -320,6 +336,6 @@
   function idbSet(k, v) { return openDB().then(function (db) { return db ? tx(db, "kv", "readwrite", function (s) { if (v == null) s.delete("x:" + k); else s.put(v, "x:" + k); }) : null; }); }
   window.Store = { status: function () { return { ls: st.ls, idb: st.idb, restored: st.restored }; }, get: lget, set: lset, snapshot: snapshot, flush: flush,
     log: logAdd, logAll: logAll, logClear: logClear, recent: function () { return buf; },
-    exportObj: exportObj, importObj: importObj, idbGet: idbGet, idbSet: idbSet, mergeGame: mergeGame, resetProgress: resetProgress, backup: backup, backupDue: backupDue, download: download, mergeSrs: mergeSrs, mergeContribs: mergeContribs, ready: openDB().then(function (db) { return maybeRestore().then(function (r) { if (r) { try { location.reload(); } catch (e) {} } logTrim(); return !!db; }); }) };
+    exportObj: exportObj, importObj: importObj, parseBackup: parseBackup, idbGet: idbGet, idbSet: idbSet, mergeGame: mergeGame, resetProgress: resetProgress, backup: backup, backupDue: backupDue, download: download, mergeSrs: mergeSrs, mergeContribs: mergeContribs, ready: openDB().then(function (db) { return maybeRestore().then(function (r) { if (r) { try { location.reload(); } catch (e) {} } logTrim(); return !!db; }); }) };
 })();
 
