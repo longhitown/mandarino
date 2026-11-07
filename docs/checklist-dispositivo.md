@@ -42,3 +42,13 @@ telefono vero. Dieci minuti, prima di ogni release importante. Segna data, telef
 | **Cambio lingua dei menu** | niente animazione e si resta nella stessa pagina delle impostazioni |
 
 Se qualcosa non va: una issue con telefono, versione di Android e che cosa hai visto.
+
+## Registro delle prove su telefono vero
+
+Una riga per ogni sessione di prove. Quello che non è elencato come superato **non è stato provato**.
+
+| Data | Telefono · Android | App | Superato | Non ancora provato |
+|---|---|---|---|---|
+| 7 novembre 2026 (via `adb`, senza reinstallare) | Xiaomi 13T Pro (23078PND5G), HyperOS 816 · Android 16 (API 36) | 0.9.6 (1006) installata da Google Play, firmata con la nostra chiave (SHA-256 `a46c99c2…af5792`) | apertura senza errori JavaScript nei log (solo messaggi del sistema Xiaomi); **musica in secondo piano**: servizio in primo piano di tipo *mediaPlayback* con notifica a tre azioni, sessione multimediale in riproduzione, il focus audio lo tiene la WebView; pausa, avanti e riproduci dai comandi di sistema funzionano; **schermo spento per 40 secondi con la musica accesa**: continua a suonare; permessi concessi quelli attesi (microfono, notifiche, audio, vibrazione, internet, servizio in primo piano); nessun arresto anomalo né blocco (ANR) nella cronologia dei processi, solo chiusure del sistema per memoria quando l'app è in secondo piano | chiamata in arrivo e cuffie staccate (difetti E e F di `audit-audio-2026-10.md`); widget; promemoria; scambio linguistico; modalità aereo; aggiornamento sopra la versione precedente; microfono e oscilloscopio dei toni |
+
+Nota su HyperOS: la cronologia mostra anche chiusure dell'app «LockScreenClean» (la pulizia del blocco schermo di Xiaomi). Con la musica in primo piano il servizio è rimasto vivo; per tutto il resto, chi usa la musica a schermo spento può togliere le restrizioni dell'app da Impostazioni → App → màndarínō → Risparmio energetico → «Nessuna restrizione».
