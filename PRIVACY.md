@@ -6,8 +6,9 @@ Ultimo aggiornamento · 最后更新：2026-11
 
 ## Italiano
 
-**In breve: màndarínō non raccoglie dati.** Non ha account, server, pubblicità, statistiche d'uso, tracciamento o cookie di
-terze parti. Tutto quello che fai nell'app resta sul tuo dispositivo. Lo stesso vale per il sito mandarinoapp.org.
+**In breve: màndarínō non ha account, server, pubblicità, statistiche d'uso, tracciamento o cookie di terze parti.** Tutto quello che fai
+nell'app resta sul tuo dispositivo, tranne ciò che esce solo se avvii tu una funzione facoltativa (voce online, riconoscimento vocale,
+ricerca sulla memoria, scambio linguistico): le trovi elencate sotto, con che cosa parte e verso chi. Lo stesso vale per il sito mandarinoapp.org.
 
 ### Che cosa resta sul tuo dispositivo
 
@@ -152,7 +153,7 @@ Domande: mandarinoapp@gmail.com.
 
 ## 中文
 
-**简而言之：màndarínō 不收集任何数据。** 没有账号、服务器、广告、使用统计、跟踪或第三方 Cookie。你在应用里的一切都只保存在你的设备上。网站 mandarinoapp.org 也是如此。
+**简而言之：màndarínō 没有账号、服务器、广告、使用统计、跟踪或第三方 Cookie。** 你在应用里的一切都只保存在你的设备上；只有当你主动启用可选功能（在线语音、语音识别、记忆研究、语言交换）时，相应内容才会离开设备，下文逐项说明发送什么、发给谁。网站 mandarinoapp.org 也是如此。
 
 ### 保存在你设备上的内容
 

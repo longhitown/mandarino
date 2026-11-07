@@ -1,0 +1,4 @@
+• Voice: the pitch trace is steadier and calibrates to your own range; tones 3 and 4 are recognised better.
+• Cloud sync: the backup file reads even with extra bytes, and on Android writing no longer leaves truncated files.
+• Audio: playback also stops when an exercise is interrupted.
+• Settings → Advanced: the groundwork for downloading extra data packs, only if you choose, verified and removable with a double confirmation.

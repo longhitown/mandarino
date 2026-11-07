@@ -1,3 +1,4 @@
-• Duotono: listen to words of two, three and four syllables and pick the tone of each syllable, neutral included; it explains where the tone changes in speech.
-• A new Study page: review at the centre, four trainings (ear, challenge, Duotono, Blackboard), "How well do I know you?" and the HSK 6 and 7–9 packs, up to 12,365 words.
-• X-Ray translates between Italian and Chinese and tells you how reliable the translation is; you can listen in both languages.
+• Voice: the pitch trace is steadier and calibrates to your own range; tones 3 and 4 are recognised better.
+• Cloud sync: the backup file reads even with extra bytes, and on Android writing no longer leaves truncated files.
+• Audio: playback also stops when an exercise is interrupted.
+• Settings → Advanced: the groundwork for downloading extra data packs, only if you choose, verified and removable with a double confirmation.
