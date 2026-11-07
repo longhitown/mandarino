@@ -8,7 +8,7 @@ _Generata da tools/store-assets.mjs a partire da fastlane/metadata/android/it-IT
 
 **Descrizione lunga** (1233/4000):
 
-màndarínō è un'app per imparare il cinese mandarino partendo dall'italiano, e l'italiano partendo dal cinese. Va bene per chi comincia da zero e per chi prepara l'esame HSK. È gratuita, funziona senza rete, non ha pubblicità né account e non raccoglie dati: i progressi restano sul tuo telefono.
+màndarínō è un'app per imparare il cinese mandarino partendo dall'italiano, e l'italiano partendo dal cinese. Va bene per chi comincia da zero e per chi prepara l'esame HSK. È gratuita, funziona senza rete, non ha pubblicità, account né tracciamento: i progressi restano sul tuo telefono.
 
 **Corso di cinese**
 • 6388 parole HSK 3.0 (livelli 1-5 e oltre), fino a 12.365 con i pacchetti opzionali: l'intero HSK 3.0, livelli 1–9, in sei capitoli e tappe, con caratteri (hanzi), pinyin, toni e una frase d'esempio per ogni parola

@@ -1,3 +1,4 @@
-• Duotono: ascolti parole di due, tre e quattro sillabe e scegli il tono di ogni sillaba, anche il neutro; dove il tono cambia parlando te lo spiega.
-• Studia rifatta: il ripasso al centro, quattro allenamenti (orecchio, sfida, Duotono, Lavagna), «Quanto ti conosco?» e i pacchetti HSK 6 e 7–9 fino a 12.365 parole.
-• X-Ray traduce tra italiano e cinese e ti dice quanto è sicura la traduzione; si può ascoltare in tutte e due le lingue.
+• Voce: il tracciato dell'altezza è più stabile e si calibra sul tuo registro; i toni 3 e 4 si riconoscono meglio.
+• Sincronizzazione cloud: il file di backup si legge anche con byte in più, e su Android la scrittura non lascia più file troncati.
+• Audio: la riproduzione si ferma anche quando un esercizio si interrompe.
+• Impostazioni → Avanzate: la base per scaricare, solo se vuoi tu, pacchetti di dati in più, verificati e cancellabili con doppia conferma.

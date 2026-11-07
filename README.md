@@ -33,7 +33,7 @@ e la pagina dell'[autore](https://mandarinoapp.org/autore/) sono sul sito.
 ## Dove trovi le cose
 
 - La guida completa, in italiano: [LEGGIMI.md](LEGGIMI.md)
-- Che cosa succede ai tuoi dati (niente): [PRIVACY.md](PRIVACY.md) · 不收集任何数据
+- Che cosa succede ai tuoi dati: [PRIVACY.md](PRIVACY.md) · 隐私说明
 - Dare una mano, anche senza programmare: [CONTRIBUTING.md](CONTRIBUTING.md) · 不会编程也能参与
 - Chi ha già dato una mano: [CONTRIBUTORS.md](CONTRIBUTORS.md)
 - Duotono, l'esercizio che allena l'orecchio ai toni di parole di due, tre e quattro sillabe (neutro compreso) e spiega il sandhi: [docs/duotono.md](docs/duotono.md)

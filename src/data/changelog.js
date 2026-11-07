@@ -4,6 +4,21 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Voce più stabile e dati sotto controllo", vz: "更稳的声音，数据由你掌控", d: "2026-11-07",
+    it: [
+      "Voce: il tracciato dell'altezza è più stabile e si calibra sul tuo registro; i toni 3 e 4 si riconoscono meglio.",
+      "Sincronizzazione cloud: il file di backup si legge anche con byte in più, e su Android la scrittura non lascia più file troncati.",
+      "Audio: la riproduzione si ferma anche quando un esercizio si interrompe.",
+      "Impostazioni → Avanzate: la base per scaricare, solo se vuoi tu, pacchetti di dati in più, verificati e cancellabili con doppia conferma.",
+      "Privacy: il testo spiega con precisione che cosa resta sul telefono e che cosa parte solo se accendi una funzione facoltativa."
+    ],
+    zh: [
+      "声音：音高曲线更稳定，并会根据你的音域校准；第 3 声和第 4 声识别得更准。",
+      "云同步：备份文件即使多出字节也能读取；在安卓上写入不再留下被截断的文件。",
+      "音频：练习中断时，播放也会停止。",
+      "设置 → 高级：为按需下载额外数据包打下基础，只有你点按才会下载，经过校验，删除需要两次确认。",
+      "隐私：说明更准确，哪些内容只留在手机上，哪些只有在你启用可选功能时才会发送。"
+    ] },
   { v: "Toni, parole e traduzione", vz: "声调、词语和翻译", d: "2026-11-05",
     it: [
       "Duotono: ascolti parole di due, tre e quattro sillabe e scegli il tono di ogni sillaba, anche il neutro; dove il tono cambia parlando te lo spiega.",
