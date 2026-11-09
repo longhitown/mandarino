@@ -1832,6 +1832,19 @@ try {
     check("Apertura: nessun errore JavaScript", !errs.length, errs[0]);
     await ctx.close();
   }
+  /* Natale: la schermata d'avvio si veste a festa solo dal 1° al 27 dicembre 2026 (data locale del telefono), mai prima né dopo né in altri anni */
+  {
+    const quando = [["2026-11-30T12:00:00", false], ["2026-12-01T00:05:00", true], ["2026-12-14T12:00:00", true], ["2026-12-27T23:30:00", true], ["2026-12-28T00:05:00", false], ["2027-12-10T12:00:00", false]];
+    const esiti = [];
+    for (const [t, atteso] of quando) {
+      const ctx = await browser.newContext({ viewport: { width: 390, height: 800 } });
+      await ctx.addInitScript(() => { window.__MD_SPLASH_MIN = 1800; localStorage.setItem("cp-ux-v1", '{"onboarded":1}'); });
+      const p = await ctx.newPage(); await p.clock.install({ time: new Date(t) }); await p.goto(base);
+      const r = await p.evaluate(() => ({ attr: document.documentElement.getAttribute("data-stagione"), vis: getComputedStyle(document.querySelector("#splash .sp-natale")).display }));
+      esiti.push([t, (r.attr === "natale" && r.vis !== "none") === atteso]); await ctx.close();
+    }
+    check("Natale: la pallina compare nella schermata d'avvio solo dal 1° al 27 dicembre 2026 (ora locale del telefono), mai prima, dopo o in altri anni", esiti.every((e) => e[1]), JSON.stringify(esiti));
+  }
   /* APK: se il motore vocale è stato spento dal sistema la prima richiesta fallisce; una seconda, poco dopo, riesce */
   {
     const ctx = await browser.newContext({ viewport: { width: 360, height: 740 } });

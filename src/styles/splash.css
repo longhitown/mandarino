@@ -41,3 +41,13 @@ body.app-reveal > main, body.app-reveal > nav.dock { animation: app-in .7s cubic
   #splash, #splash.gone { transition: opacity .3s; transform: none; filter: none; }
   body.app-reveal > main, body.app-reveal > nav.dock { animation: none; }
 }
+
+/* Natale (index.html, script #stagione: dal 1° al 27 dicembre 2026): il frutto diventa una pallina e cade un po' di neve. Fuori dalle date non cambia niente. */
+#splash .sp-logo { overflow: visible; }
+#splash .sp-natale { display: none; }
+html[data-stagione="natale"] #splash .sp-natale { display: inline; }
+html[data-stagione="natale"] #splash::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(circle, rgba(150, 190, 215, .75) 1.6px, transparent 2.3px), radial-gradient(circle, rgba(150, 190, 215, .55) 1.2px, transparent 1.9px);
+  background-size: 130px 170px, 90px 120px; background-position: 0 0, 40px 30px; animation: sp-neve 16s linear infinite; }
+@keyframes sp-neve { to { background-position: 18px 170px, 58px 150px; } }
+@media (prefers-reduced-motion: reduce) { html[data-stagione="natale"] #splash::after { animation: none; } }

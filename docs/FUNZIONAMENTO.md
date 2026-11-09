@@ -75,6 +75,8 @@ A ogni avvio, non solo al primo, si vede `#splash` (`index.html`, `styles/splash
 3. i toni **volano**: il 4° sulla *à*, il 2° sulla *í*, il 1° sulla *ō* (la lettera prende il suo accento quando il tono arriva), il 3° si divide e si posa sulle due foglie, che brillano un istante;
 4. i toni si dissolvono, resta il logo un istante e l'app entra, con un'entrata morbida del contenuto.
 
+**Natale:** solo dal 1° al 27 dicembre 2026 (data locale del telefono, nessuna rete; lo decide lo script `#stagione` in `index.html`) il frutto della schermata d'avvio diventa una **pallina di Natale** (cappuccio e filo dorati, fascia a zig-zag, scintille) e cade un po' di **neve** (solo CSS, ferma con «movimento ridotto»). Fuori da quelle date non cambia niente; l'icona dell'app non cambia mai.
+
 Mentre i toni si disegnano si sentono **quattro note**, una per tono (piatta, che sale, che scende e risale, che cade), solo se gli effetti sono accesi e l'audio è già sbloccato. Dura circa **3,2 s**; **0,5 s** con «movimento ridotto» del sistema; **0,7 s** se si arriva da un collegamento (widget, scorciatoia); **zero** nei test automatici. Se il telefono è lento resta finché l'app non è pronta e, dopo
 circa 2,4 s, mostra righe «scheletro» e un suggerimento (un tono, o una parola italiana). Se la persona ha un sigillo, il suo carattere si apre dietro il frutto. Toccando il frutto, rimbalza.
 *(Il volo dei toni è nella pull request #26 al momento di scrivere.)*

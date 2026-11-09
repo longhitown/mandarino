@@ -4,6 +4,17 @@
    che ogni voce abbia le due lingue con lo stesso numero di righe; le prime righe della prima voce finiscono anche nelle note di
    rilascio degli store (tools/store-assets.mjs, 500 caratteri). */
 var CHANGELOG = [
+  { v: "Un tocco di Natale", vz: "一点圣诞气息", d: "2026-11-10",
+    it: [
+      "Dal 1° al 27 dicembre 2026 la schermata d'avvio si veste a festa: il mandarino diventa una pallina di Natale e cade un po' di neve.",
+      "Lavagna: con una sola parola di un carattere si legge «1 carattere», al singolare.",
+      "Fuori da quelle date l'app è identica a prima: nessun dato in più e nessuna rete."
+    ],
+    zh: [
+      "2026年12月1日至27日，启动画面会换上节日装饰：橘子变成圣诞装饰球，还会飘一点雪。",
+      "手写板：意大利语界面中，单个汉字的数量提示改成了单数。",
+      "这段时间以外，应用保持原样：不增加任何数据，也不使用网络。"
+    ] },
   { v: "Voce più stabile e dati sotto controllo", vz: "更稳的声音，数据由你掌控", d: "2026-11-07",
     it: [
       "Voce: il tracciato dell'altezza è più stabile e si calibra sul tuo registro; i toni 3 e 4 si riconoscono meglio.",
